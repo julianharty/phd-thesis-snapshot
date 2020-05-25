@@ -1,0 +1,33 @@
+\chapter{Appendix}
+Consider a state vector in two different basis of a two dimensional Hilbert space,
+
+\begin{align}
+\ket{\psi} &= a\ket{A}+b\ket{B} \\ \nonumber 
+		   &= c\ket{C}+d\ket{D}
+\end{align}
+
+We want to represent the vectors of one basis in terms of the other. To do that, consider the vector orthogonal to $\ket{\psi}$, which is 
+
+\begin{align}
+\ket{\widetilde{\psi}} &= b\ket{A}-a\ket{B} \\ \nonumber
+						&= d\ket{C}-c\ket{D} 
+\end{align}
+
+
+Using the above representations, we get 
+
+\begin{align}\label{c,d}
+\ket {C} &= c\ket{\psi} + d\ket{\widetilde{\psi}} \\ \nonumber 
+\ket {D} &= d\ket{\psi} - c\ket{\widetilde{\psi}}
+\end{align}
+
+
+Substituting $\ket{\psi} = a\ket{A}+b\ket{B}$ and $\ket{\widetilde{\psi}} = b\ket{A}-a\ket{B}$ in \ref{c,d}, we get:
+
+
+\begin{align}
+\ket {C} &= (ac+bd)\ket{A} + (bc-ad)\ket{B} \nonumber \\
+\ket {D} &= (ad-bc)\ket{A} + (ac+bd)\ket{B}
+\end{align}
+
+We can thus represent one basis of a Hilbert Space in terms of another basis.

@@ -1,0 +1,146 @@
+\chapter{Data Sources}
+This is intended as a temporary chapter to help me write the thesis. There are various sources of relevant data in terms of my research. They have been used to varying degrees ranging from ongoing to infrequent, occasional use. One aim of creating this chapter is to establish these sources as candidates for inclusion in my research and writing, particularly for those I've not used much.
+
+\section{Google Play}
+Google Play provides a public end-user orientated visual view of apps in Google Play. It also provides a developer-oriented view of \emph{their} apps\footnote{More correctly, apps they are permitted to view and manage. Google provides account owners the ability to invite people to view, and potentially manage, one or more Android apps. Not everyone who has access is a developer, nonetheless the reports, tools, etc. are aimed primarily for developers.}; this is known as Google Play Console.
+
+\section{Google Play Console}
+Monthly reports are available for developers to download, they include: Install statistics, Crash statistics, Rating statistics, Reviews and Retained installers. 
+
+Google provides several online help pages on the monthly reports~\cite{google_play_download_and_export_monthly_reports}. They do not describe the fields or the character encoding of the contents of the files. The files start with a two-character code \texttt{0xFE 0xFF} which indicate the contents of the file is encoded as UTF-16 little-endian. These seemingly useful characters can prevent the content from being loaded in many programs and utilities intended to work with CSV data.
+
+\subsection{Defunct reports}
+Various reports used to be available to download, Google chose to remove them~\cite{google_play_download_and_export_monthly_reports}. The removed reports include: subscription acquisition (removed November 2019), detailed crash and detailed ANR reports (removed May 2018).
+
+\subsection{Coping with UTF-16 content}
+Google provides the files encoded in UTF-16 format. The default import tool in the R programming language fails to import data in this (or many other encodings). Through research and experiments the following code snippet is able to load downloaded crash reports into a Data Frame in R.
+
+\texttt{setwd("\textbf{$_{\widetilde{~}}$}")} %All this to display a tilde adequately.
+
+\texttt{filenames = list.files("./Dropbox/Google Play Console Reports/reports/kiwix/", pattern = ".csv")}
+
+\texttt{directory = "./Dropbox/Google Play Console Reports/reports/kiwix/"}
+
+\texttt{filenames <- paste(directory, filenames, sep="/")}
+
+\texttt{CrashAndAnrStats <- lapply(filenames, read.csv, fileEncoding="UTF-16")}
+
+
+Data I downloaded (not necessarily used) include reviews stored in Google Drive.
+
+\subsection{Obtaining the data}
+Google provide two documented ways to obtain the reports. The simplest for occasional use is to download the reports from the relevant \emph{Download Reports} section in Google Play Console. The second is to configure and use the \texttt{gsutil} command-line tool.
+
+\subsubsection{Interactive per-file downloads}
+The interactive GUI for download reports leads to three menu options: Reviews, Statistics, and User acquisition. Statistics includes three types of information: Install statistics, Rating statistics, and Crash statistics. The other two menu options offer a single type of information: \emph{Reviews}, and \emph{Retained installers} for user acquisition.
+
+\subsubsection{gsutil}
+Google provides a command-line tool called \emph{gsutil}\footnote{Perhaps the name is based on \underline{G}oogle \underline{S}torage \underline{util}?} which can be used to download reports in bulk. While Google encourages people to create and configure a Google Cloud account and use gsutil from the Google Cloud sdk, they also provide the file as a separate download together with installation~\footnote{Installation instructions for gsutil \url{https://cloud.google.com/storage/docs/gsutil_install}} and configuration instructions~\footnote{\url{https://cloud.google.com/storage/docs/gsutil_install\#creds-gsutil}}. I chose to use the standalone version of gsutil and was able to install and configure it without problems.  
+
+Example command-lines are provided in the documentation, these need to be edited to point to the correct project bucket for a given app's data, and similarly unless all the files are to be downloaded, a suitable wildcard provided for gsutil.  
+% https://cloud.google.com/storage/docs/quickstart-gsutil
+
+%%%% Example command-lines
+% gsutil -m cp -r gs://pubsite_prod_rev_14876298819229479527/stats/crashes/crashes_org.kiwix.kiwixcustomphet_20* .
+% gsutil -m cp -r gs://pubsite_prod_rev_14876298819229479527/stats/installs/installs_org.kiwix.kiwixcustomphet_20* .
+
+\subsection{Installs}
+Installs are important as one measure of success of an app. Mainstream Android apps need to be installed before they can be used (unlike web apps, for instance which are not explicitly 'installed'). 
+
+\subsubsection{Assumptions for Installations } 
+One assumption is that new apps should start with no installs, the second is that there are more installs than uninstalls, in other words the total number of uninstalls cannot exceed the total number of installs (assuming they are measured and counted similarly).
+
+Analysing Installs: 
+\begin{enumerate}
+    \item Obtain data from Google Play
+    \item Gather data from files into linear list, coping with changes in file structure over time.
+    \item Interpret fields as best possible.
+    \item Estimate which fields are correctly populated.
+    \item Generate equivalent reports to those presented in Google Play Console.
+\end{enumerate}
+
+\subsubsection{Fields change over time in files}
+We observed several changes in the contents of the monthly files with three different formats in the first six months of the installs files for the Chemistry and Physics Simulations Kiwix app. These changes made the data harder to compare and analyse as several fields are not consistently available over the history of the data.
+% (a) Date,Package Name,Current Device Installs,Daily Device Installs,Daily Device Uninstalls,Daily Device Upgrades,Current User Installs,Total User Installs,Daily User Installs,Daily User Uninstalls
+% (b) Date,Package Name,Current Device Installs,Daily Device Installs,Daily Device Uninstalls,Daily Device Upgrades,Current User Installs,Total User Installs,Daily User Installs,Daily User Uninstalls,Active Device Installs
+% (c) Date,Package Name,Daily Device Installs,Daily Device Uninstalls,Daily Device Upgrades,Total User Installs,Daily User Installs,Daily User Uninstalls,Active Device Installs
+\begin{table}[ht]
+    \centering
+    \footnotesize
+    \begin{tabular}{lll}
+    (a) &(b) &(c)\\
+    \hline
+    Date &Date &Date\\
+    Package Name &Package Name &Package Name\\
+    Current Device Installs &Current Device Installs &\\
+    Daily Device Installs &Daily Device Installs &Daily Device Installs\\
+    Daily Device Uninstalls &Daily Device Uninstalls &Daily Device Uninstalls\\
+    Daily Device Upgrades &Daily Device Upgrades &Daily Device Upgrades\\
+    Current User Installs &Current User Installs &\\
+    Total User Installs &Total User Installs &Total User Installs\\
+    Daily User Installs &Daily User Installs &Daily User Installs\\
+    Daily User Uninstalls &Daily User Uninstalls &Daily User Uninstalls\\
+                          &Active Device Installs &Active Device Installs\\
+    \end{tabular}
+    \caption{File Formats for Installs}
+    \label{tab:file_formats_for_installs}
+\end{table}
+
+The changes in the columns means that more work is needed to combine the data consistently for reporting and analysis. 
+
+\begin{lstlisting}
+installs_data <- do.call(rbind, installs)
+Error in rbind(deparse.level, ...) : 
+  numbers of columns of arguments do not match
+\end{lstlisting}
+
+An article by Amy Whitehead~\footnote{\url{https://amywhiteheadresearch.wordpress.com/2013/05/13/combining-dataframes-when-the-columns-dont-match/}}, together with comments to that article \emph{e.g.} on using \texttt{Reduce()} enabled the data to be loaded despite differences in the columns.
+% Also interesting ideas in https://stackoverflow.com/questions/26874710/how-does-one-combine-two-uneven-dataframes-to-create-a-full-species-matrix-for-a/26900774#26900774
+
+\subsubsection{Processing Dates}
+The source data files have the date as the first column in \texttt{YYYY-MM-DD} format. When these were loaded into R using \texttt{read.csv} the dates were converted into vectors. The dates are hard to process or analyse as vectors. 
+
+The first approach was to use \texttt{flipDate} an opensource R package~\cite{r_date_conversion_github}, documentation is available in an online article~\cite{r_date_conversion_article}. \texttt{flipDate} is able to convert the dates stored as vectors into R's Date object. We used the \texttt{ymd()} method to do so.
+
+The first approach was replaced by specifying a column class to the \texttt{read.csv} method~\cite{r_bloggers_using_colclasses}. Doing so improves both performance and utility of the data. It also removed the need to use \texttt{flipDate}.
+
+\subsubsection{Dates in filenames}
+The filenames represent monthly reports, as such, their name includes the 4 digit year and the month encoded in two digits, from 01 for January to 12 for December. The following listing provides examples of the first six filenames for installs for the Pocket Code.
+
+\begin{lstlisting}
+head(install_filenames)
+[1] "installs_org.catrobat.catroid_201308_overview.csv"
+[2] "installs_org.catrobat.catroid_201309_overview.csv"
+[3] "installs_org.catrobat.catroid_201310_overview.csv"
+[4] "installs_org.catrobat.catroid_201311_overview.csv"
+[5] "installs_org.catrobat.catroid_201312_overview.csv"
+[6] "installs_org.catrobat.catroid_201401_overview.csv"
+\end{lstlisting}
+
+%%%% Useful articles include:
+% https://stackoverflow.com/questions/17496358/r-help-converting-factor-to-date
+% https://www.displayr.com/r-date-conversion/ (mentioned above)
+% https://stackoverflow.com/questions/32854538/converting-a-character-string-into-a-date-in-r
+% https://www.r-bloggers.com/using-colclasses-to-load-data-more-quickly-in-r/
+% https://stackoverflow.com/questions/5158179/processing-date-and-time-data-in-r
+% https://www.r-bloggers.com/date-formats-in-r/
+
+The \texttt{Date} datatype enables dates to be analysed and compared \emph{e.g.} \texttt{min("my\_date")}~\cite{r_bloggers_date_formats_in_r}.
+
+
+\subsection{Crash and ANR Reports}
+Crashes and ANRs are only available in one combined summary report. In \texttt{R} the data was first loaded file by file, each into a distinct \texttt{data.frame}. These are then combined into a single larger data set as follows:  
+\texttt{do.call(rbind, crash\_and\_anr\_stats)}\footnote{Using the initial naive approach is enough to obtain the behaviour I sought \url{https://www.r-bloggers.com/concatenating-a-list-of-data-frames/}}
+
+\begin{lstlisting}
+head(crash_and_anr_stats[[1]])
+        Date         Package.Name Daily.Crashes Daily.ANRs
+1 2014-01-02 org.catrobat.catroid             1          0
+2 2014-01-04 org.catrobat.catroid             1          0
+3 2014-01-05 org.catrobat.catroid             1          0
+4 2014-01-11 org.catrobat.catroid             1          0
+5 2014-01-12 org.catrobat.catroid             1          0
+6 2014-01-14 org.catrobat.catroid             1          0
+\end{lstlisting}
+
+We can observe there are dates without data, for instance \nth{3} January 2014 for Pocket Code. One possibility is there were no reported crashes or ANRs for the dates that are not in the reports, Google does not document the contents of the files, so the reason is not known currently.

@@ -1,0 +1,92 @@
+\section{Testing Analytics}
+
+\subsection{TODOs for this topic}
+\begin{itemize}
+    \item Clean up the formatting of the code listings. The approach I used for the ICST2020 paper is quite attractive however Overleaf shows the relevant latex configuration in red so there's something that upsets it which I'd like to address.
+    \item Closer to publication, revise and update the various figures. BTW: We may see a trend emerging over time in terms of adoption. I can also ask AppBrain - for instance - for their trend analysis, they seem quite helpful.
+    \item Revise the test methodology and extend it as I have more scope and space here.
+    \item Discuss ideal and expected graphs of traffic, including volumes, latency, etc. Discuss the effects of Google Play Console's policy/approach to limiting various reports pending sufficient data volumes and how that would change the expected outcomes e.g. in terms of thresholds.
+    \item What are the impacts of latency, data not being made available, gaps in data, etc. 
+    \item Consider revising and publishing the method online at \url{https://github.com/commercetest/android-analytics-testing}. Check with my supervisors that doing so won't adversely impact including the material here.
+\end{itemize}
+
+A good worker understands their tools, including how they behave and when and where they may be safely and productively used.
+
+Software analytics tools are no exception to this adage, where their behaviour and characteristics need to be understood in order to be used effectively, appropriately and be trusted to be sufficiently accurate to be useful.
+
+With rare exceptions, most projects will use analytics tools developed by others - often from external companies with Google, by far, the most popular. The Internet giants provide various analytics tools that are used for the majority of Android apps as AppBrain, amongst others confirm. 
+
+Analytics tools have become ubiquitous in online business generally and for Android apps in particular. There are various forms of library, for instance for crash reporting, for mobile analytics, for capturing GUI interactions, \emph{etc.}
+
+Numbers vary depending on the source; for instance on \nth{18} October 2019, AppBrain states the most popular crash reporting library is Google Firebase included in 56.88\% of apps and 74.84\% of installs and Crashlytics the second most popular in 15.32\% of apps and 26.38\% of installs)\cite{appbrain_android_crash_reporting_libraries_18_oct_2019}. Both of these are owned by Google.
+
+Similarly for Mobile Analytics, Google own the two most popular libraries: Google Firebase is included in 56.99\% of apps and 74.89\% of installs and Google Analytics is included in 25.80\% of apps and 34.17\% of installs.
+
+As part of my research I devised an approach to test and evaluate Mobile Analytics tools. There are various practical and pragmatic considerations that need to be factored in, including abiding by terms of service, generating sufficient activity for the tools to recognise and report on that activity, \emph{etc.}
+
+% Note the following material originated in my Industry Track paper for ICST2020. This material was copy pasted from the as-submitted version of that paper. I'm likely to revise it both in that paper and here. I'm presuming that I am able to reuse the source material here even if that paper is accepted, especially as this edition will be different from what would be presented there.
+
+\subsection{Method}
+Testing and evaluation of usage-derived analytics requires both software (Android apps) and usage. Our approach combined three sources of Android apps:
+
+\begin{enumerate}
+    \item Shipping, mature opensource Android apps that are not commercially oriented. These make crashes, freezes, and other performance issues easy to investigate and relatively easy to address.
+    \item Feedback from several developers of shipping, mature closed-source Android apps which are commercially oriented. These provide 'real-world' feedback of the perceived value of the services being evaluated.
+    \item Locally developed Android applications where use is restricted to the research team so usage is known and can be compared with what is being reported by the analytics tools. 
+\end{enumerate}
+
+The research needs access to data and reports which are protected by logins and various permissions being granted. 
+
+Testing and evaluation of third-party commercial services involves awareness and compliance with ethical aspects and various legal terms and conditions. As various people have discovered to their cost, the service provider - in this case Google - may choose to disable access and remove all the apps in Google Play that are deemed - by Google - to be associated with an individual.\cite{Martinez_2019}. Google acts as both judge and jury.
+
+In terms of ethical aspects and disclosure, the author read and reviewed various legal materials published by Google for the service being evaluated, including the Google Play Developer Policy Center\cite{google_play_developer_policy_center}, and the Distribution Agreement\cite{google_play_developer_distribution_agreement}. The author has also reported the various issues found with the product and engineering team at Google.
+
+Practical aspects of collecting the reports and data. The author has a wide range of Android devices and sets of accounts available using a legacy [grandfathered] Google Domain service which allows for up to 200 user accounts for the domain for a modest annual fee. A range of unique accounts were created to use on various Android devices to simulate the activities of tens of users. These were allocated to one or more devices, where the device models, Android version, and other pertinent data was recorded in an online spreadsheet. Where practical the Google setting was checked on each device to determine whether the device was permitted to provide Google with usage data. Disappointingly, this setting was seldom found. The Google documentation does not cover Android 7.x or earlier releases - still the majority of the overall Android user-base according to Google data\cite{android_dashboard}. 
+
+The primary test app (Zipternet)\footnote{Originally called Zimternet, which will be seen in some screenshots.} was installed from a couple of sources - from a development laptop, and using services Google provides to help developers distribute and manage testing of their apps in the App Store. The usage should appear in Google Play Console regardless of the source of the app: Google records whether the app was installed using Google Play, or not. Android Vitals has filters that enable problems for apps installed outside Google Play. Details of the release of the test app and the initial use was also tracked in an online spreadsheet. 
+
+\subsection{Development of Android apps}
+The author and another software developed jointly designed and developed two projects to create Android apps. 
+\subsubsection{Android Crash Dummy} is primarily for local research and evaluation of several techniques. These include augmenting stack traces with several technical details of the device running the Android app. These details are not believed to contain any PII information. 
+\subsubsection{Data added to stacktrace}
+The following code in listing \ref{listing:deviceinfo} illustrates the current additions to the stacktrace which were chosen to explore the potential and practicality of this approach. 
+
+\begin{lstlisting}[caption=Sample code block,label=listing:deviceinfo]
+final String deviceInfo = 
+ "==Device:[" + Build.DEVICE
+  + "], Model:[" + Build.MODEL
+  + "], Manufacturer:[" + Build.MANUFACTURER
+  + "], Time:[" + Build.TIME
+  + "], Android Version:[" + Build.VERSION.RELEASE
+  + "]==";
+
+\end{lstlisting}
+Google already collects these details except the \texttt{Build.TIME}, so they are not particularly useful from a practical perspective. Values such as the current Locale setting may help with bug identification and reproduction as some bugs only occur for some locales.
+% https://stackoverflow.com/questions/14389349/android-get-current-locale-not-default
+
+\subsubsection{Zipternet} 
+We created the second Android test app, Zipternet\cite{zipternet_github}, in Kotlin. Initially it had at least one known flaw (in release 6) that causes the app to crash with an unhandled exception. Several test releases were uploaded to the app store over several weeks.
+
+We wanted to track whether Google Play Console detects the installation, activity, and any crashes that occur.
+
+\subsection{From Zero to Ten}
+For our test app we configured 10 additional valid Google accounts and invited each of these to be testers of the new as yet unreleased app. These accounts belong to a domain owned by the author, otherwise they are standard Google accounts as far as we know.
+
+Per account, each 'user' needed to opt-in to be a tester for the app (using a convoluted process) and then download and install release 6 of the app. This would crash when any link to an external web site was clicked. After various testing of this release we created an updated release of the app (release 7) and uploaded to Google Play as a test release to see when it would reach the devices and whether the fix would affect usage and stability metrics.
+
+\subsection{Development of various software utilities}
+We started developing \texttt{vitals-scraper}\cite{vitals_scraper_github_package} in March 2019 and continue to enhance the tool and its capabilities to facilitate the research. In August 2019 we started another opensource project \texttt{android-stability-analysis}\cite{android-stability-analysis} to enable scattered crash clusters reported in Android Vitals to be regrouped. Currently, the analysis tool simply matches reported crash clusters with a series of lines that should be common to related crashes, see Listing \ref{listing:codelines}  for an example.
+
+\begin{lstlisting}[caption=Example of lines to match,label=listing:codelines]
+at org.kiwix.kiwixmobile.downloader.
+ DownloadService.pauseDownload(DownloadService.java:266)
+ at org.kiwix.kiwixmobile.downloader.
+    DownloadFragment$DownloadAdapter.
+    setPlayState(DownloadFragment.java:227)
+ at org.kiwix.kiwixmobile.downloader.
+    DownloadFragment$DownloadAdapter.
+    lambda$getView$5(DownloadFragment.java:286)
+\end{lstlisting}
+
+
+

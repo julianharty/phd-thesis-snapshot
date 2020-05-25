@@ -1,0 +1,161 @@
+\chapter{Ongoing and future work}
+\section{Interviews}
+\subsection{Overview of interviews}
+
+\subsubsection{Overall activity and statistics}
+Ratings, reviews, active installs, total installs
+
+\subsubsection{Use of Android Vitals}
+\begin{itemize}
+    \item Pre-launch reports: automated testing
+    \item Pre-launch reports: other checks and warnings
+    \item Crashes
+    \item ANRs
+    \item Crash Clusters
+    \item Countries (hinting at languages and locales)
+\end{itemize}
+
+\subsubsection{In-app libraries}
+\begin{itemize}
+    \item Crashlytics
+    \item Fabric
+    \item Firebase
+    \item Google Analytics
+    \item Others?
+\end{itemize}
+
+\subsubsection{Developer's perspective}
+The developer shares their perspective on using Android Vitals and other tools.
+
+Comments on their codebase, architecture, plans, etc.
+
+\subsubsection{Assessing the apps}
+Using Exodus Privacy to assess each app: \url{https://reports.exodus-privacy.eu.org/en/analysis/submit/}
+
+Moodspace 3.4.3 \url{https://reports.exodus-privacy.eu.org/en/reports/81821/}
+ uses Google CrashLytics \& Google Firebase Analytics. 11 permissions (Note: was 12 permissions in 3.3.1 \url{https://reports.exodus-privacy.eu.org/en/reports/35603/}, which included `C2D\_MESSAGE', since removed.)
+ 
+Moonpig  \url{} 
+\subsection{Overview of subjects}
+
+Populate a table with App statistics for each app and links to each app.
+\begin{table}
+  \begin{threeparttable}[b]
+  \caption{Sessions impacted by crashes}
+  \label{tab:apps_crash_rate}
+  % \begin{tabular}{ccccccR{2cm}}
+        \small
+  \begin{tabular}{>{\centering\arraybackslash}m{0.45cm}>{\centering\arraybackslash}m{0.45cm}>{\centering\arraybackslash}m{0.45cm}>{\centering\arraybackslash}m{0.45cm}>{\centering\arraybackslash}m{0.45cm}>{\centering\arraybackslash}m{0.6cm}>{\raggedright\arraybackslash}m{3.2cm}}
+    \toprule
+
+    6.0.1 &7 &8 &8.1 &9 &Overall &App\\
+    \midrule
+    0.42\% &1.43\% &3.48\% &3.48\% &6.49\% &4.05\% &Kiwix\tnote{1}\\
+           &0.45\% &0.75\% &0.89\% &1.52\% &1.07\% &WikiMed (en)\tnote{2}\\
+           &       &2.69\% &4.07\% &3.77\% &3.45\% &Chemistry \& Physics simulations\tnote{3}\\
+           &0.06\% &0.14\% &0.09\% &0.93\% &0.61\% &Moonpig\tnote{4}\\
+           &       &0.22\%       &       &0.15\%       &0.19\%      &Moodspace\tnote{5} \\
+           &       &1.38\% &1.51\% &2.16\% &1.66\% &Pocket Paint\tnote{6} \\
+            &       &6.41\% &1.92\% &3.62\% &3.91\% &Pocket Code\tnote{7} \\
+  \bottomrule
+\end{tabular}
+\begin{tablenotes}
+% Thank you to https://texblog.org/2012/08/29/changing-the-font-size-in-latex/
+% See also https://tex.stackexchange.com/questions/260790/table-width-wider-than-textwidth-in-threeparttable-environment 
+% https://tex.stackexchange.com/questions/108584/how-best-to-change-the-font-size-etc-of-threeparttables-table-notes/495973#495973
+% And the super impressive https://tex.stackexchange.com/questions/394795/how-to-use-the-full-textwidth-for-tablenotes-under-multiple-tables/394800
+
+\footnotesize
+\item [1]\url{https://play.google.com/store/apps/details?id=org.kiwix.kiwixmobile}
+\item [2]\url{https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomwikimed}
+\item [3]\url{https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomphet}
+\item [4]\url{https://play.google.com/store/apps/details?id=com.commonagency.moonpig.uk}
+\item [5]\url{https://play.google.com/store/apps/details?id=boundless.moodgym}
+\item[6]\url{https://play.google.com/store/apps/details?id=org.catrobat.paintroid}
+\item[7]\url{https://play.google.com/store/apps/details?id=org.catrobat.catroid}
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+ANRs 
+0.01\% Moodspace
+
+TBA Moonpig
+TBA Pocket Code
+TBA Pocket Paint
+
+\subsection{Ethical considerations}
+
+\subsection{Commercial app: Moodspace}
+\subsection{Commercial app: Moonpig}
+\subsection{Opensource apps: Family of Kiwix Android apps}
+\subsection{Opensource apps: Catroid Pocket Code}
+\subsection{Opensource apps: Catroid Pocket Paint}
+
+
+Crashlytics, Firebase, Google Analytics, \textit{et al.}\footnote{If I meet projects who are using other libraries and/or approaches and/or services}.
+
+
+\section{Technical works}
+\subsection{Augmenting stack traces}
+\subsection{Collaborating on Pocket Paint}
+\subsubsection{Codebase}
+\subsubsection{Releases}
+\subsection{Kiwix releases}
+\subsubsection{Kiwix 2.5}
+Beta track, pre-launch report found OOM.
+\section{Reading, Writing, Sharing}
+
+\section{Seeking Bugs using Android Monkey}
+
+\subsection{Experiments using Android Monkey}
+\begin{itemize}
+    \item Learning the basics: 
+    \item Dealing with real-world app complexities: logins, data, permissions, lifecycle bugs, 
+    \item Is Monkey a good citizen on your phone?
+    \item Same seed, different seed; yes script, no script?
+    \item Repeatability on the same device, app, and environment
+    \item Poratability of scripts across devices, releases, environments
+    \item Discovering how to instruct Monkey to be repeatable (command-line options, input file, server-port)
+\end{itemize}
+
+\subsubsection{Good citizenship}
+
+\emph{Stops Android Monkey from interfering with LeakCanary during Monkey testing} \url{https://github.com/square/leakcanary/pull/1527}
+
+\subsubsection{Repeatability in Android Monkey}
+
+\url{https://github.com/commercetest/android-monkey-test-with-login/issues/3}
+
+We tested:
+\begin{itemize}
+    \item Crash-dummy
+    \item Kiwix Android
+    \item Kiwix Custom App(s)
+    \item TBD Pocket Code
+\end{itemize}
+
+\subsection{Findings using Android Monkey}
+\begin{itemize}
+    \item Implementation is incomplete e.g. \texttt{--script-file} option.
+    \item Usage odd e.g. skips options after the event count parameter
+    \item Crash rate highly dependent on the device it runs on, between say 1\% and 35\% (Samsung mid-range device running Android 4.3)
+    \item able to detect some of the crashes reported in Android Vitals (provide Venn diagrams?)
+\end{itemize}
+
+\subsection{Evaluating Android Monkey from a Research Perspective}
+What have we learned in terms of comparing the results of using Monkey with the findings we glean from Android Vitals (and/or Crash and Mobile Analytics).
+\subsection{Evaluating Android Monkey from a Practical Perspective}
+\begin{itemize}
+    \item What do developers want? Feedback directly relevant to the code they are currently working on (and perhaps about to promote or release). Tools that give them confidence they will not be embarrassed when their work is used by others.
+    \item What do testers want? To use tools that maximise the bugs they uncover in the overall app. To find and report bugs deemed valid and worth fixing.
+\end{itemize}
+
+What does Android Monkey provide both groups?
+Possible criteria to evaluate Monkey on?
+\begin{itemize}
+    \item Cost
+    \item Immediacy (time and effort needed to get started with it)
+    \item Time and effort needed to process and make sense of the results
+    \item Repeatability 
+\end{itemize}

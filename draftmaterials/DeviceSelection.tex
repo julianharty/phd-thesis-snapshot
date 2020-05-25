@@ -1,0 +1,59 @@
+\section{Device Selection}
+
+\subsection{Why Selection Matters}
+Testing on one device is not sufficient to assess the behaviour, etc. of an Android app; many issues and bugs would not be discovered. 
+
+Bugs include those related to virtually any aspect of the devices, ranging from the physical attributes, the electronics (and their supporting firmware and drivers), the operating system, as well as their configuration. To varying degrees, all of these can be selected and used as part of testing and will be discussed in this section. Note: in addition, the run-time environment, the context of use, and users perceptions are increasingly hard to test and evaluate, these will be covered elsewhere in this thesis as they are not related to device selection.
+\subsection{Inter- and Intra- device options}
+\textit{Inter-device} involves multiple physical device models. \textit{Intra-device} involves settings that can be made on one or more devices, using the same hardware.
+
+\subsection{Ways to select devices}
+
+\begin{itemize}
+    \item Prioritise devices used for Reviews and Ratings
+    \item Coverage measured in various forms of coverage, for instance Operating System version.
+    \item applying formulae and algorithms e.g. pairwise, orthogonal arrays, OFAT and MFAT, etc.
+    \item Popularity in markets e.g. top-selling devices in the region.
+    \item Bellweather devices that usefully represent and behave similarly to a range of devices. Ideally the bellweather device(s) highlight trends in advance of their peers to enable teams to address any issues before they affect the peer group.
+    \item Usage of \textit{other} apps e.g. PRADA, OpenSignal.
+    \item Poor performance (Crashes, ANRs, feeble devices, etc.)
+    \item Newcomers devices being introduced to the market
+\end{itemize}
+
+\subsection{The intersection between desired and available devices}
+Let us assume that through whatever mechanisms, processes, and so on, we have decided on a set of devices we would like to use to test an app. We can refer to this set as the  \textit{Desired Set of Devices}. 
+
+\textit{"Where would testers like devices to be?"} The proximity and location of devices may affect the testing that can be performed, the interactivity, and the observability of the behaviours of the app on the device.
+
+\subsubsection{Sources and locations of devices}
+\textit{"A device in the hand is worth two in the cloud"}
+
+\begin{itemize}
+    \item Local to the local tester:
+    \item Local to the remote tester: 
+    \item Local to the organisation: under their control and allocation
+    \item Device Farms
+    \item Of the user
+    \item Of others
+\end{itemize}
+
+
+\begin{tabular}{ | p{3cm} | p{1.5cm} | p{1.5cm} | p{1.5cm} | p{1.5cm}}
+ \hline
+ \multicolumn{3}{|c|}{Sources and locations of devices} \\
+ \hline
+ Location &Ownership &Access to Logs &Behavior visible &Variety\\
+ \hline
+ Virtual & Team &Yes &Partly &\< 10 \\
+ Local to team & Team	&Yes &Full & 1..50\\
+ Remote in a Device Farm	&Third-party &Indirect &Indirect and incomplete &50..500\\
+ Local to remote tester	&Third-party &Indirect, sometimes &Indirect &5..500 \\
+ Of the user &Third-party &No, &No, &1..10\(^5\) \\
+ \hline
+ \end{tabular}
+ 
+ \vspace{1cm}
+
+
+Substitution: one device for another... Substitution algorithms.
+

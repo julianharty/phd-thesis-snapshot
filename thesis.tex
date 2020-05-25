@@ -1,0 +1,89 @@
+\RequirePackage[l2tabu]{nag}	
+\documentclass[a4paper,12pt,leqno,openbib,oldfontcommands]{memoir}
+\input{latex-configuration}
+
+% The following \marginparwidth is to keep the todonotes package happy. It can be revised once the todo's are done and the package removed e.g. to help make the thesis more attractive in PDF format.
+\setlength{\marginparwidth}{2cm}
+\begin{document}
+% Read https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1):_Basic_Structure
+\frontmatter
+\pagenumbering{roman}
+%
+\input{frontmatter/title}
+%\clearemptydoublepage
+%
+%\input{frontmatter/abstract}
+%\clearemptydoublepage
+%
+%\input{frontmatter/dedication}
+%\clearemptydoublepage
+%
+%\input{frontmatter/declaration}
+%\clearemptydoublepage
+%
+\renewcommand{\contentsname}{Table of Contents}
+\maxtocdepth{subsection}
+\tableofcontents*
+\addtocontents{toc}{\par\nobreak \mbox{}\hfill{\bf Page}\par\nobreak}
+\clearemptydoublepage
+%
+\listoftables
+\addtocontents{lot}{\par\nobreak\textbf{{\scshape Table} \hfill Page}\par\nobreak}
+\clearemptydoublepage
+%
+\listoffigures
+\addtocontents{lof}{\par\nobreak\textbf{{\scshape Figure} \hfill Page}\par\nobreak}
+%\clearemptydoublepagehttps://www.overleaf.com/1768216945kkfcfqjkpydj
+%
+%
+% The bulk of the document is delegated to these chapter files in
+% subdirectories.
+\mainmatter
+%
+\input{frontmatter/abstract.tex}
+
+\input{references/glossary}
+
+\input{mainchapters/introduction}
+\input{mainchapters/researchquestions}
+
+%\input{DeviceSelection.tex}
+%\input{OnTestingForMobileApps.tex}
+
+\input{mainchapters/related-work}
+\input{case-studies/overview-of-case-studies}
+
+%\input{ResearchQuestions.tex}
+%\input{ResearchMethods.tex}
+%\input{FindingsAndResults.tex}
+%\input{SourcesOfData.tex}
+%\input{TestingAnalytics.tex}
+%\input{disonnance.tex}
+%\input{OngoingWork.tex}
+\input{mainchapters/discussion.tex}
+\input{mainchapters/conclusions}
+
+%\input{fieldstones.tex}
+%\input{catrobat-case-study.tex}
+% Grey literature - non peer-reviewed e.g. commercial. 
+\backmatter
+\bibliographystyle{ACM-Reference-Format}
+\refstepcounter{chapter}
+\bibliography{./references/bibliography_for_core_thesis,./case-studies/catrobat-case-study,./references/bibliography_on_phd_experience}
+%%%% TODO Consider having separate sections e.g. for books and/or a separate bibliography for AppendixB.
+
+% \clearemptydoublepage
+%\appendix
+\input{meta-chapters/actions.tex}
+\input{meta-chapters/data-sources}
+
+\input{case-studies/analytics-tools}
+\input{appendicies/our-android-vitals-tools}
+\input{appendicies/on-mobile-analytics}
+\input{appendicies/learning-R}
+\input{meta-chapters/possible-architectures}
+\input{appendicies/phd-experience}
+% Add index
+%\printindex
+%   
+\end{document}

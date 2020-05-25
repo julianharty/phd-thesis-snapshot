@@ -1,0 +1,245 @@
+\usepackage[table]{xcolor}
+\usepackage{array}
+
+% The following is to remove a warning: Package fmtcount Warning: \ordinal already defined use \FCordinal instead. on input line 484. 
+\let\ordinal\relax
+\usepackage{datetime}
+\usepackage{ifpdf}
+
+\usepackage{subfig}
+\usepackage{algorithm}
+\usepackage{listings}
+\usepackage[noend]{algpseudocode}
+% \newsubfloat{figure}
+% \newsubfloat{table}
+\usepackage{outlines}  %for multilevel lists
+\usepackage{pgfgantt}
+\usepackage{rotating}
+\usepackage{threeparttable}
+
+\setlength{\marginparwidth}{2cm}
+\usepackage{todonotes}
+\usepackage[super]{nth}
+\usepackage{longtable}
+
+% comment these for final
+\newcommand{\yijun}[1]{\textcolor{red}{[YY: #1 ?]}}
+\newcommand{\yy}[1]{\textcolor{red}{[YY: #1]}}
+
+\newcommand{\akb}[1]{\textcolor{purple}{[AKB: #1]}}
+\newcommand{\arosha}[1]{\textcolor{purple}{[AKB: #1 ?]}}
+
+\newcommand{\marian}[1]{\textcolor{blue}{[MP: #1 ?]}}
+\newcommand{\julian}[1]{\textcolor{olive}{[JH: #1 ]}}
+
+
+% Colours thanks to http://www.maths.adelaide.edu.au/anthony.roberts/LaTeX/ltxusecol.php
+% uncomment these for final
+% \newcommand{\yijun}[1]{\textcolor{red}{}}
+% \newcommand{\arosha}[1]{\textcolor{red}{}}
+%-----------------------
+
+% https://tex.stackexchange.com/questions/99809/box-or-sidebar-for-additional-text for the following code
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+
+\newenvironment{WrapText}[1][r]
+  {\wrapfigure{#1}{0.5\textwidth}\tcolorbox}
+  {\endtcolorbox\endwrapfigure}
+
+% end of https://tex.stackexchange.com/questions/99809/box-or-sidebar-for-additional-text
+
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+
+\setlength{\arrayrulewidth}{1mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{1.5}
+
+\newcolumntype{s}{>{\columncolor[HTML]{AAACED}} p{3cm}}
+
+% Better page layout for A4 paper, see memoir manual.
+\settrimmedsize{297mm}{210mm}{*}
+\setlength{\trimtop}{0pt} 
+\setlength{\trimedge}{\stockwidth} 
+\addtolength{\trimedge}{-\paperwidth} 
+\settypeblocksize{634pt}{448.13pt}{*} 
+\setulmargins{4cm}{*}{*} 
+\setlrmargins{*}{*}{1.5} 
+\setmarginnotes{17pt}{51pt}{\onelineskip} 
+\setheadfoot{\onelineskip}{2\onelineskip} 
+\setheaderspaces{*}{2\onelineskip}{*} 
+\checkandfixthelayout
+%
+\frenchspacing
+% Font with math support: New Century Schoolbook
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+
+\OnehalfSpacing 
+%
+% Sets numbering division level
+\setsecnumdepth{subsection} 
+\maxsecnumdepth{subsubsection}
+%
+
+\usepackage{calc,soul,fourier}
+\makeatletter 
+\newlength\dlf@normtxtw 
+\setlength\dlf@normtxtw{\textwidth} 
+\newsavebox{\feline@chapter} 
+\newcommand\feline@chapter@marker[1][4cm]{%
+	\sbox\feline@chapter{% 
+		\resizebox{!}{#1}{\fboxsep=1pt%
+			\colorbox{gray}{\color{white}\thechapter}% 
+		}}%
+		\rotatebox{90}{% 
+			\resizebox{%
+				\heightof{\usebox{\feline@chapter}}+\depthof{\usebox{\feline@chapter}}}% 
+			{!}{\scshape\so\@chapapp}}\quad%
+		\raisebox{\depthof{\usebox{\feline@chapter}}}{\usebox{\feline@chapter}}%
+} 
+\newcommand\feline@chm[1][4cm]{%
+	\sbox\feline@chapter{\feline@chapter@marker[#1]}% 
+	\makebox[0pt][c]{% aka \rlap
+		\makebox[1cm][r]{\usebox\feline@chapter}%
+	}}
+\makechapterstyle{daleifmodif}{
+	\renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so} 
+	\renewcommand\chaptitlefont{\normalfont\Large\bfseries\scshape} 
+	\renewcommand\chapternamenum{} \renewcommand\printchaptername{} 
+	\renewcommand\printchapternum{\null\hfill\feline@chm[2.5cm]\par} 
+	\renewcommand\afterchapternum{\par\vskip\midchapskip} 
+	\renewcommand\printchaptertitle[1]{\color{gray}\chaptitlefont\raggedleft ##1\par}
+} 
+\makeatother 
+\chapterstyle{daleifmodif}
+%
+% UoB guidelines:
+%
+% The pages should be numbered consecutively at the bottom centre of the
+% page.
+\makepagestyle{myvf} 
+\makeoddfoot{myvf}{}{\thepage}{} 
+\makeevenfoot{myvf}{}{\thepage}{} 
+\makeheadrule{myvf}{\textwidth}{\normalrulethickness} 
+\makeevenhead{myvf}{\small\textsc{\leftmark}}{}{} 
+\makeoddhead{myvf}{}{}{\small\textsc{\rightmark}}
+\pagestyle{myvf}
+
+\newcommand{\clearemptydoublepage}{\newpage{\thispagestyle{empty}\cleardoublepage}}
+
+\makeindex
+
+\usepackage{import}
+
+\usepackage{lipsum}					%Needed to create dummy text
+
+\usepackage{graphicx}					%Calls figure environment
+\usepackage{longtable,rotating}			%Long tab environments including rotation. 
+\usepackage[utf8]{inputenc}			%Needed to encode non-english characters 
+									%directly for mac
+\usepackage{colortbl}					%Makes coloured tables
+\usepackage{wasysym}					%More math symbols
+\usepackage{mathrsfs}					%Even more math symbols
+\usepackage{float}						%Helps to place figures, tables, etc. 
+\usepackage{verbatim}					%Permits pre-formated text insertion
+\usepackage{upgreek }					%Calls other kind of greek alphabet
+\usepackage{latexsym}					%Extra symbols
+\usepackage[square,numbers,
+		     sort&compress]{natbib}		%Calls bibliography commands 
+\usepackage{url}				
+\usepackage[british]{babel}	            %For languages characters and hyphenation
+\usepackage{color}                    	%Creates coloured text and background
+\usepackage[colorlinks=true,
+		     allcolors=black]{hyperref} %Creates hyperlinks in cross references
+\usepackage{memhfixc}					%Must be used on memoir document 
+									%class after hyperref
+\usepackage{enumerate}					%For enumeration counter
+\usepackage{footnote}					%For footnotes
+\usepackage{microtype}					%Makes pdf look better.
+\usepackage{rotfloat}					%For rotating and float environments as tables, 
+									%figures, etc. 
+\usepackage{alltt}						%LaTeX commands are not disabled in 
+									%verbatim-like environment
+%\usepackage[version=0.96]{pgf}	
+				
+\widowpenalty=1000
+\clubpenalty=1000
+\renewcommand\bf{\bfseries}
+%
+% New command definitions for my thesis
+%
+\newcommand{\keywords}[1]{\par\noindent{\small{\textbf Keywords:} #1}} %Defines keywords small section
+\newcommand{\parcial}[2]{\frac{\partial#1}{\partial#2}}                             %Defines a partial operator
+\newcommand{\vectorr}[1]{\mathbf{#1}}                                                        %Defines a bold vector
+\newcommand{\vecol}[2]{\left(                                                                         %Defines a column vector
+	\begin{array}{c} 
+		\displaystyle#1 \\
+		\displaystyle#2
+	\end{array}\right)}
+\newcommand{\mados}[4]{\left(                                                                       %Defines a 2x2 matrix
+	\begin{array}{cc}
+		\displaystyle#1 &\displaystyle #2 \\
+		\displaystyle#3 & \displaystyle#4
+	\end{array}\right)}
+\newcommand{\pgftextcircled}[1]{                                                                    %Defines encircled text
+    \setbox0=\hbox{#1}%
+    \dimen0\wd0%
+    \divide\dimen0 by 2%
+    \begin{tikzpicture}[baseline=(a.base)]%
+        \useasboundingbox (-\the\dimen0,0pt) rectangle (\the\dimen0,1pt);
+        \node[circle,draw,outer sep=0pt,inner sep=0.1ex] (a) {#1};
+    \end{tikzpicture}
+}
+\newcommand{\range}[1]{\textnormal{range }#1}                                             %Defines range operator
+\newcommand{\innerp}[2]{\left\langle#1,#2\right\rangle}                                 %Defines inner product
+\newcommand{\prom}[1]{\left\langle#1\right\rangle}                                         %Defines average operator
+\newcommand{\tra}[1]{\textnormal{tra} \: #1}                                                       %Defines trace operator
+\newcommand{\sign}[1]{\textnormal{sign\,}#1}                                                   %Defines sign operator
+%\newcommand{\sech}[1]{\textnormal{sech} #1}                                                  %Defines sech
+\newcommand{\diag}[1]{\textnormal{diag} #1}                                                    %Defines diag operator
+\newcommand{\arcsech}[1]{\textnormal{arcsech} #1}                                       %Defines arcsech
+\newcommand{\arctanh}[1]{\textnormal{arctanh} #1}                                         %Defines arctanh
+%Change tombstone symbol
+\newcommand{\blackged}{\hfill$\blacksquare$}
+\newcommand{\whiteged}{\hfill$\square$}
+
+
+\let\oldsqrt\sqrt
+
+\def\sqrt{\mathpalette\DHLhksqrt}
+\def\DHLhksqrt#1#2{%
+\setbox0=\hbox{$#1\oldsqrt{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
+%
+% My caption style
+\newcommand{\mycaption}[2][\@empty]{
+	\captionnamefont{\scshape} 
+	\changecaptionwidth
+	\captionwidth{0.9\linewidth}
+	\captiondelim{.\:} 
+	\indentcaption{0.75cm}
+	\captionstyle[\centering]{}
+	\setlength{\belowcaptionskip}{10pt}
+	\ifx \@empty#1 \caption{#2}\else \caption[#1]{#2}
+}
+%
+% My subcaption style
+\newcommand{\mysubcaption}[2][\@empty]{
+	\subcaptionsize{\small}
+	\hangsubcaption
+	\subcaptionlabelfont{\rmfamily}
+	\sidecapstyle{\raggedright}
+	\setlength{\belowcaptionskip}{10pt}
+	\ifx \@empty#1 \subcaption{#2}\else \subcaption[#1]{#2}
+}
+
+\usepackage{lettrine}
+\newcommand{\initial}[1]{%
+	\lettrine[lines=3,lhang=0.33,nindent=0em]{
+		\color{gray}
+     		{\textsc{#1}}}{}}
+

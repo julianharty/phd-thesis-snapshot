@@ -1,0 +1,44 @@
+\section{On Testing for Mobile Apps}
+Types of testing - should I delegate much of this to related works? TBC.
+
+\subsection{On Testing}
+A useful concept for testing is known as TBS, each letter represents a key activity:
+\begin{itemize}
+    \item T: Testing. Actually, performing tests as intended
+    \item B: Bug investigation. When a bug is discovered time and effort are diverted from testing to learn more about the bug.
+    \item S: Setup. Often time and resources are needed to prepare the environment and system under test. 
+\end{itemize}
+
+\subsection{Tools for Testing}
+Tests can be performed by people directly, or indirectly by computers running software intended to test another piece of code. The test code may be embedded within a program, separate yet closely coupled, or relatively independent. Much of the test automation software is closely coupled with whatever it is intended to test, and for mobile apps, the vast majority of test automation is closely coupled.
+
+For mobile apps there are numerous test automation frameworks. Here we will focus on those for Android. Google provided several test automation frameworks from the early releases of Android and both they and others have made additional frameworks available. Possibly to increase adoption they provide testing blueprints as opensource code\footnote{\url{https://github.com/googlesamples/android-testing-templates/blob/master/AndroidTestingBlueprint/README.md\#custom-gradle-command-line-arguments}}
+
+\subsection{Device Farms}
+'Device farms' is a colloquial term used to describe a known collection of connected mobile devices (smartphones and tablet devices). There are numerous providers of device farms; companies may also have private device farms intended for their own internal testing and evaluation purposes. An initiative to establish an international community of open device labs\footnote{OpenDeviceLab.com \url{https://opendevicelab.com/}} was launched in 2012 and flourished for several years. However, in November 2018, the project team requested help to maintain the website service used to coordinate the service \url{https://twitter.com/klick_ass/status/1065382837472374785}. The potential of using devices from Open Device Lab for Gaming was evaluated in 2016\cite{godinho2016open}.
+
+Device farms were first available around 2005 (I first worked with them in 2006), and over the years there have been several generations of device farms even if the services offered seem to have changed less so.
+
+\begin{itemize}
+    \item Provisioned physical devices with network connectivity and ways for development teams to interact with the devices remotely, over a network.
+    \item Access control and management:
+    \item "secure" and "confidential", at least conceptually:
+    \item Generally located in a data centre and immobile:
+    \item Often the service includes ways to view and record the GUI, to obtain and archive screenshots, videos, device and test logs.
+    \item Some include support for one or more test automation APIs.
+    \item Some include autonomous test automation tools, "monkey-testing".
+    \item Some also include reporting analytics.
+\end{itemize}
+
+350+ real devices, support for Appium  \url{https://kobiton.com/real-device-testing/}
+
+\subsection{Related Work on Testing Mobile Apps}
+\begin{itemize}
+    \item \textit{The Future of Quality, Goranka Bjedov and Julian Harty} \url{https://www.pnsqc.org/archives/2011-conference/keynote-speakers/}. Themes include: Infinite Complexity, and " customer expectations have aligned with what is available, and they seem to be more interested in the availability of new features and price than quality".
+    \item Testing in Production e.g. work presented by Keith Stobie \url{https://www.pnsqc.org/archives/2011-conference/technical-paper-abstracts-and-bios/#T-11} (Also discussed in \url{http://marlenacompton.com/?paged=6}). One of Keith's key topics is \textit{"how do you mitigate the risk?"} He suggested several techniques based on Microsoft's large scale web services. 
+\end{itemize}
+\subsection{Books}
+\begin{itemize}
+    \item A practical guide to testing wireless smartphone applications (2009)
+\end{itemize}
+\section{Combining Techniques and Results}

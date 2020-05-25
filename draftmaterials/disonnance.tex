@@ -1,0 +1,29 @@
+\section{Dissonance, Gaps, and Congruence}
+When do the tools to agree with each other, if ever? and are there patterns in their reporting that are nonetheless congruent? What about the gaps in the data / reporting? (as we don't know where the problems are from an external perspective.)
+
+\subsection{Sources of data}
+\begin{itemize}
+    \item Google Play Console, including Android Vitals and downloadable csv files:
+    \item Fabric Crashlytics: daily summary emails and online reports.
+    \item Microsoft AppCenter
+    \item Google Firebase Analytics
+\end{itemize}
+
+\subsection{Notes on dissonance}
+Disagreement in crash rates reported for PocketCode by Fabric Crashlytics and Android Vitals
+Ongoing gaps in graphs for Android Vitals. Missing email for 18\textsuperscript{th} August 2019 from Crashlytics (some of the values can be inferred from the calculations reported in the email for 25\textsuperscript{th} August, 7 days later).
+
+% NB the following material was originally in my ICST2020 Industry Track paper. I intend to expand and revise it here.
+\subsection{Triangulation using other Software Analytics}
+With only one timepiece it is hard to ascertain whether the time is correct. With two timepieces they may agree or disagree over time, and adding a third timepiece may be enough to at least decide on the more likely ``truth". Similarly, using a single analytics tool may not be enough to ascertain whether it is correct. Using additional software analytics tools may provide additional insight and enables the results to be compared and perhaps verified. 
+
+Here are some examples of measurements to consider comparing Google Play Console with other analytics tools.
+\begin{itemize}
+    \item Comparing reported usage.
+    \item Differences in reported crash rates.
+    \item Differences in volumes and ranking of exceptions.
+    \item ANRs - However these are only available in Android Vitals.
+    \item Latencies across the tools.
+\end{itemize}
+
+We chose to use Fabric's Crashlytics (now owned by Google), which is incorporated into PocketCode, and Microsoft's AppCenter which we incorporated into our test app, Zipternet.

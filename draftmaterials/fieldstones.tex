@@ -1,0 +1,212 @@
+\chapter{Unassigned fieldstones}
+
+\section{Bugs and flaws aren't limited to the app}
+They're also in the environment, the tools used to measure, etc.
+
+
+\section{On Devops and applying the mindset to Android apps using analytics tools}
+
+Devops has become increasingly popular in industry. The mindset helps transform software development from Waterfall methodology (do each activity once, in sequence), through Agile (collaborate on smaller time-boxed sprints and aim to finish the work within that time-box) to developers being responsible for their software before and during production (\emph{i.e.} while it is being used in production. Devops seems to have been focused on online service providers and may also be highly relevant for in-house development team who provide internal online services.
+
+DORA reports, Google Cloud \emph{"With over 70K downloads and input from 31K professionals worldwide, the Accelerate State of DevOps Report from DevOps Research and Assessment (DORA) is the longest running, academically rigorous research investigation into the capabilities and practices that make DevOps and transformation effective."}\url{https://cloud.google.com/devops/}
+
+Applying devops to mobile (Android) apps. 
+
+\section{Live Performances}
+Some thoughts on how live performances are assessed to compare and contrast these with assessing the quality of Android apps.
+
+Popularity measures: number of shows, length of runs of a play, etc. audience size, reviews (by critics and by the end users - the main audience) 
+
+Behind the curtain measurements (that the crowd does not see and probably isn't aware of). timings, scenery changes, who actually performed and how well they fulfilled their obligations as musicians, actors, etc.
+
+\section{What are we trying to measure?}
+\emph{c.f. Google's earlier role of Software Quality Assurance Engineers and their associated roles}. How might we assess the quality of mobile apps using analytics?
+
+\section{Fidelity}
+\emph{"Success is built on trust."}
+
+\emph{"Trust starts with transparency"}
+\footnote{\url{https://trust.salesforce.com/en/}}
+
+\begin{itemize}
+    \item Model Fidelity and usefulness of the model(s). Models are not reality, nonetheless they may still be useful. Establishing a quality model using crashes and unresponsiveness data. Data collection, presentation, reporting.
+    \item Stakeholders for the model and effects of the model for these stakeholders (including the app store, the developers and testing)
+    \item Incomplete models, how well does the data represent the population and the quality characteristics of the software?
+    \item (in)sufficiency of the data collected: how can the data be used, what are the limits? boundaries? transitional areas? Augmenting/enhancing the data collected using the current mechanism(s). Choosing additional/alternative mechanisms. (in)consistencies in the mechanisms. Privacy, performance, scope, etc. of various mechanisms.
+    \item Gaming the model for fun and profit. Possible goals, mechanisms, etc. Discuss and provide examples of ways to game using various approaches (stop users from using the software, catch and discard errors (c.f. Blind SQL Injection story), change user's behaviour and/or expectations, implement alternatives, flood the database with positive data, fix the issue.
+    \item Fool's Gold: of using crash rates, etc. as a measure of 'quality'. 
+\end{itemize}
+
+\section{Metrics}
+\subsection{Vanity metrics?}
+Public app store install count vs active install counts. Google Play Console describes 'Active installs' as  \textit{Installs on Active Devices (devices online in the past 30 days with this app installed).} As table \ref{tab:app_store_install_counts} shows the differences are significant, and the App Store Install count might seem to a vanity metric than anything else; nonetheless when combined with the install and uninstall reports high ratios (between the public and developer-centric counts) might indicate many users are rejecting the app. (There are probably other causes for users installing and uninstalling an app, for instance if they want to keep their devices clean, tidy, and performant; or if they only needed the app briefly for instance a local travel app such as `BVG FahrInfo Plus'\footnote{\url{ https://play.google.com/store/apps/details?id=de.eos.uptrade.android.fahrinfo.berlin}} used when visiting Berlin as a tourist. 
+% TODO find an elegant way to shrink the line length of the long URL.
+
+\begin{table}[]
+\begin{tabular}{r|r|l}
+\small
+App Store Installs &Active Installs &App \\
+\hline
+500,000+     &149,192  &Kiwix \\
+100,000+     &35,907  &Chemistry \& Physics simulations \\
+500,000+     &138,350  &Moonpig \\
+100,000+     &19,263  &Moodspace
+\end{tabular}
+\caption{App Store and Google Play Console counts}
+\label{tab:app_store_install_counts}
+
+\end{table}
+
+\subsection{Estimating populations}
+
+
+Percentages use a known denominator of 100 e.g. \( \frac{37}{100} \) and calculations of percentages are revised so that they use this denominator. For many of the reports, Google does not provide the denominator, for instance for crash clusters it provides the count of crashes on various devices, but not the total number of sessions, of users on that device. They do provide an overall percentage e.g. \texttt{95.4\%} crash-free sessions\footnote{Google Play Console describes these as: \textit{'Percentage of daily sessions between 2/4/19 and 5/5/19 during which your users did not experience any crashes. A daily session refers to a day during which your app was used.'}} and this may help us to estimate which devices are more likely to reproduce a crash once we can obtain and use data from other sources.
+
+Here is the top crash cluster as an example:
+
+\small{
+\textbf{\texttt{java.lang.NullPointerException}}
+\texttt{org.kiwix.kiwixmobile.downloader. \\ DownloadService.lambda\$updateDownloadFragmentProgress\$7}}
+\normalsize
+
+For this crash cluster, Google Play Console reports 209 crashes in the last 7 days; yet the totals of the 'By' charts are higher at 216 (By app version = 216, By Android version = 216, By device = 216). 
+
+\begin{figure}
+    \centering
+    \includegraphics{images/ByDeviceNPE.png}
+    \caption{By Device summary for the NullPointerException}
+    \label{fig:device_summary_for_NPE}
+\end{figure}
+By device, in descending order, the crashes were:
+\begin{center}
+\begin{tabular}{l|r|r}
+Device Model                    & Crashes & \\
+\hline
+moto g(6) play (jeter)	        & 18	& 8.3\% \\
+P20 lite (HWANE)	            & 13	& 6.0\% \\
+P8 Lite (hwALE-H)	            & 10	& 4.6\% \\
+Moto E4 (perry\_f)	            & 9	    & 4.2\% \\
+\textit{Others}\footnotemark    & 166 & 79.9\%  \\
+\end{tabular}
+\end{center}
+\footnotetext{Can be expanded in the Google Dev Console's UI}
+% For notes on how to create and format tables I started with https://www.overleaf.com/learn/latex/Tables and got the footnote in the table to appear once I separated the footnotemark from the footnotetext, see https://www.overleaf.com/learn/latex/Footnotes
+
+% Thank you to https://www.overleaf.com/learn/latex/Fractions_and_Binomials for helping me learn how to write the following. Note: I'm sure the formatting and presentation can be improved significantly.
+\(\frac{18}{?} \) \texttt{+} \(\frac{13}{?} \) \texttt{+} \(\frac{10}{?} \) \texttt{+} \(\frac{9}{?} \) \texttt{+} \(\frac{166}{?} \)  \texttt{=}  \(\frac{216}{?}\)
+
+These are for the last 7 days; to get an accurate estimate of the crashes per device we need to pick the same period as Google uses for their calculation of 'daily sessions' i.e. \textbf{TODO once I've more examples: it seems to be around 3 calendar months though...}
+
+Sum the crash counts by device model across the set of crash clusters. Add up the various crash counts (including those sum of those classified as `Other`). Then multiply the total: 
+
+\textit{Total Sessions = sum of all crashes * } \(\frac{\textit{100}}{1 - crash-free\ daily\ sessions} \) 
+
+to obtain the total (approximate) count of sessions. The accuracy will depend on how consistent and accurate Google are in their definitions/terms and their calculations. For now we'll assume a low-to-middling confidence interval in the results of our calculations and hope we'll obtain greater accuracy as we collect more data from various sources.
+
+Now we can estimate the number of crass free sessions per crash cluster; note the estimates are likely to have high error-bars as the crash rates per crash cluster is unlikely to be uniform.
+
+Google Play Console does not provide data on the popularity of our app(s) on particular device models. It may be possible to infer approximate popularities using data from various other sources, for instance from market-wide statistics and reports. The app could also be modified to collect the data (indeed it may already collect the data either directly or by using a third-party library such as those for Mobile Analytics).
+
+\subsubsection{Sanity checks}
+In figure \ref{fig:android_vitals_excessive_network_usage} there are an estimated 475K sessions between 15th May and 12th June 2019, approximately 17K sessions a day. Some additional details are available in various reports on the same webpage e.g. by Android version, reproduced in table \ref{tab:android_vitals_session_counts_by_android_version} (note the total, 474K, does not quite add up to 475K)
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{l|r}
+    Android Version &Number of sessions \\
+    \hline
+    9     &\textasciitilde{}125K \\
+    8.1   &\textasciitilde{}247K \\
+    8     &\textasciitilde{}102K
+    \end{tabular}
+    \caption{Android Vitals sessions: by Android version}
+    \label{tab:android_vitals_session_counts_by_android_version}
+\end{table}
+% Thank you to https://en.wikibooks.org/wiki/LaTeX/Special_Characters for helping me get the tilde to display.
+
+\section{Software Tools}
+\emph{Kindof a related work section? as we've developed several tools including some that overlap with these.}
+Discuss the relevance of being able to capture, query, and monitor the device logs for testing Android apps generally. 
+
+Some of the challenges of doing so for many people (testers more than developers as developers are working with logs anyway/already).
+
+Data volumes, logs are short-lived, and they are on the device. 
+
+\url{https://github.com/JakeWharton/pidcat} enables logs to be displayed consistently for named software packages (explain briefly why names are relevant and how the package names emerge for apps, etc.) even as the PID changes (again mention what PIDs are).
+
+
+\section{Encyclopedia for Tunisia}
+3 accounts each installed the app on a separate device (OnePlus 6, Android 9.0, Samsung S7 Android 8.0, LG K4 Android ???).
+
+Checked Android Vitals, only 2 installs showed.
+
+Checked phones on Saturday evening, the OnePlus6 had send diagnostics and usage option disabled, so we enabled it. Subsequently checked Android Vitals on Sunday and Monday \nth{18} November 2019 still only shows 2 installs on the Friday \nth{15}: one with Android 9.0 and the other with Android 8.0. What happened to the install on the LG device?
+
+\section{Prior work to consider}
+Back in 2013 I wrote a set of notes titled: Mobile Analytics possible sources \url{https://docs.google.com/document/d/17a0WexTybVcaDjto9gqpSRD_O4zminZ_PwCGjiPHUk8/edit}. I think it'll be worth me reviewing these notes as some of the material is probably still relevant for my thesis even though much has changed since then e.g. GDPR, new Mobile Analytics tools, changes of ownership and popularity, the launch of Android Vitals, etc.
+
+The development of code to test count.ly and potentially other mobile analytics \url{https://code.google.com/archive/p/mobile-analytics-research/}
+
+My Probation Report (Summer 2015). At least check the references and who's built on their work since then. C.f. Stefan Foell's work (he was one of my examiners). He last published in 2016 according to Google Scholar \url{https://scholar.google.com/scholar?as_ylo=2015&q=stefan+foell&hl=en&as_sdt=0,5}
+
+Look at quoting from the one and only MobiData workshop \emph{MobiData '16: Proceedings of the First Workshop on Mobile Data}. The most relevant seems to be \emph{The Need to Account for Geographical Diversities in Mobile Data Research} \url{https://dl.acm.org/doi/abs/10.1145/2935755.2935761}
+
+\section{Prior work on usage analysis}
+\emph{Smartphone usage in the wild: a large-scale analysis of applications and context}\footnote{\url{https://scholar.google.com/scholar?cites=2770414575190984561\&as_sdt=2005\&sciodt=0,5\&hl=en}} is a well referenced paper with over 200 citations. Of these, there are several themes to research usage. Examples include where users are based \href{Investigating Country Differences in Mobile App User Behavior and Challenges for Software Engineering}{https://ieeexplore.ieee.org/abstract/document/6913003}. They discuss app store mining, mining activity logs, etc. amongst other related work. The authors identify several challenges for app developers (software engineers) including: app packaging requirements (which is effectively their advert to users in the app store), managing vast feature spaces (e.g. should developers tailor their apps to specific countries/locales?), meeting high quality expectations (here this intersects with my research), managing [the] app store dependency (including product line engineering c.f. kiwix custom apps), addressing price sensitivity (as this may affect the ratings and reviews and abandonment), and balancing ecosystem effects (what do users consider important in the app store ecosystem? e.g. ratings).
+
+The places of our lives: Visiting patterns and automatic labeling from longitudinal smartphone data
+TMT Do, D Gatica-Perez - IEEE Transactions on Mobile …, 2013 - ieeexplore.ieee.org
+The location tracking functionality of modern mobile devices provides unprecedented
+opportunity to the understanding of individual mobility in daily life. Instead of studying raw
+geographic coordinates, we are interested in understanding human mobility patterns based …
+  Cited by 97 Related articles All 7 versions
+[PDF] rahmati.com
+
+Studying smartphone usage: Lessons from a four-month field study
+A Rahmati, L Zhong - IEEE Transactions on Mobile Computing, 2012 - ieeexplore.ieee.org
+Many emerging mobile applications and services are based on smartphones. We have
+performed a four-month field study of the adoption and usage of smartphone-based services
+by 14 novice teenage users. From the field study, we present the application usage and …
+
+\section{Some Concepts}
+Testing and automated testing provide results in various forms e.g. the old junit approach of using a character to indicate the result of each individual test \texttt{.} for a test that passed, \texttt{F} for a test that failed. These may be aggregated for a set of tests, again junit provides a summary with counts of the tests that were run together with any failures, errors, etc. 
+
+We rely on these test results to varying degrees to assess the quality of the combination of what was being tested and the testing itself (after all sometimes the faults are in the tests or the test execution environment rather than in the software or system being tested (a system includes software and other elements e.g. the configuration, the platform (e.g. the OS), external dependencies, etc.).
+
+\section{The relevance of latency on actions}
+User updates are bursty, with the median being 0 update events per day the \nth{90} percentile 180 update events, and the maximum 9445. The majority of updates within 7 days of an updated version of an app being released \textbf{TODO add evidence}
+
+\texttt{quantile(installs.data\$Update.events, seq(0, 1, 0.01))}
+
+If we can get feedback about quality issues sooner we may be able to address the issues sooner in terms of limiting the number of users affected \emph{e.g.} by pausing, suspending, or stopping a rollout of the newer release; by providing timely information, support and advice to users; and initiate the bug investigation and resolution sooner with the aim of fixing the underlying issue as quickly as practical and making the fix available to affected users in particular and the rest of the user-base generally.
+
+The latency of information for various data sources varies by analytics tool and type of data. Some data and reports are updated in retard, and based on the timezone used by the analytics provider \emph{e.g.} Google uses Pacific Time zone for their data collection and reporting. 
+
+\begin{itemize}
+    \item Google Play Console Reports: TBC
+    \item Fabric Crashlytics Daily Summary email: TBC
+    \item Android Vitals - Crash and ANR data: TBC
+    \item Crashlytics Graphs and Reports: TBC
+\end{itemize}
+
+Detecting problems is key to being able to identify and address them. Quality issues can be assumed in software, no one writes perfect software (c.f. Knuth's payment per bug) especially no-one that writes mobile apps. Developers are often aware and consciously write code that is run when some expected exceptions and other issues occur. Crashes are seldom triggered deliberately in apps, they occur when something happens at run-time that developers did not write code to cope with. Reported crashes are one way that quality flaws can be analysed. The frequency of crashes may also be relevant in various ways, such as:
+
+\begin{itemize}
+    \item MTBF
+    \item 'success-rates'
+    \item impact on one or more users
+\end{itemize}{}
+
+Reducing crash rates is not necessarily the same as improving quality, even on the same scale (the same units of measure). Human nature can lead some people to choose to implement policies and practices that reduce 'bad news' emerging, such as including do not investigate or test, do not share (e.g. NDA's), with penalties for those who are found to 'do'. Apps can be constructed/configured to reduce the crashes that emerge from them e.g. by incorporating a global crash handler, by reducing the frequency of crash-prone code (e.g. using back-off algorithms and strategies to restrict how often a user can perform an action that might be likely to trigger a crash), ...
+
+\subsection{History of app stores}
+in 2010 Droidcon tweeted \texttt{#WIPConnector shows around 100 App Stores for different OS - have a look: http://ht.ly/35PuQ ^tk}
+
+\emph{"IT’S RAINING APP STORES – HALLELUJAH? Surviving the App Storm"} Caroline Lewko, CEO, WIP~\url{https://www.slideshare.net/clewko/its-raining-app-stores}
+
+\emph{"HISTORY LESSON on APP STORES Nothing new – around since 2001 (Palm, Handango...)"}
+
+\emph{The Power of the App Stores: App Stores as Promotional Platforms 
+and Their Influence on Marketing Practices of App Makers}~\url{http://scriptiesonline.uba.uva.nl/document/495381}
+
+\emph{Digital Methods for App Analysis: Mapping App Ecologies in the Google Play Store}~\url{https://wiki.digitalmethods.net/Dmi/SummerSchool2015DigitalMethodsAppAnalysis}
