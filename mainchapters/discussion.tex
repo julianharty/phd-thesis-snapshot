@@ -1,16 +1,41 @@
 \chapter{Discussion}
+This chapter contains various discussion topics, including: validity of my research and of the analytics tools, where the various analytics tools provide the most value, ethics and legal aspects, abandoned apps, and finally other app stores beyond Google Play.
+%TBD whether to include a discussion of:
+%%% other analytics tools I've researched during my PhD (e.g. those covered in my probation report)
+%%% sweetspots for Crashlytics, Firebase, etc.
 
 If we focus on Android apps what are the implications and how relevant are the approaches and results? Apps are a popular and relevant subset of all software,they run remotely on other people’s equipment where they are the primary owners of the data on their devices, and where the platform and pre-installed platform software determine various aspects of the data collection
 
 \section{Threats to Validity}
-Using ratings and reviews to measure quality?
+Using ratings and reviews to measure quality? Tim Menzies quote on software analytics. 
 
-\subsection{Abandoned Apps}
-Users are not the only people who many abandon apps, developers do so too. By the very nature of abandoning an app a developer is also likely to abandon the reports and data associated with that app, including data from mobile analytics. As many researchers discover there are many abandoned opensource source code repositories, and similarly various organisations, including AppBrain, have identified apps that are effectively abandoned. % MUST-DO add citation for AppBrain report.
+\subsection{Validity of my research}
 
-\section{Quis custodiet ipsos custodes?}
+\subsection{Validity of the tools being used?}
+
+\subsection{Quis custodiet ipsos custodes?}
 \url{https://en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F}
 Who watches the watchers? The app store is all powerful, promoting one app, demoting or even blocking another. What it reports is expected to be taken on trust. And who has time or resources to check or verify the veracity of what is being reported and to whom? 
+
+
+\subsection{Necessary? Sufficient?}
+Freezes and crashes may adversely impact a user's perspective, Google may limit the visibility of apps that score poorly in terms of 'stability' as I will cover later in my thesis. However, are performant applications sufficient to thrive? There may be other barriers, or hurdles, developers need to overcome such as providing software that is attractive, serves whatever the user wants to do, and is intuitive.
+
+In 2019 Menzies in his paper \emph{``Take Control: On the Unreasonable Effectiveness of Software Analytics"}~\cite{menzies2019take} indicates that a small number of predictable software analytics variables can be used to predict software qualities for projects. 
+
+\emph{``Specifically, the number of variables required to make predictions about SE projects is remarkably small which means that (a) most of the things we think might affect software quality have little impact in practice; (b) controlling just a few key variables can be enough to improve software quality."}
+
+\subsection{External Validity}
+I have been fortunate to receive external confirmation from various external sources that the research is of interest and appears to have some validity. These include:
+
+\subsubsection{Validity from the Google Engineering Team}
+
+MUST\_DO Use the beyond Google Play paper to help support the validity of my research.
+
+\subsubsection{Other validation}
+In email discussions of my research in 2020 one of the leading authors in the field, \href{https://scholar.google.com/citations?user=zuUsFkgAAAAJ&hl=en&oi=sra}{Li Li}, confirmed the novelty, importance and relevance of my research.
+
+
 
 \section{Android Vitals}
 \subsection{Which apps can Android Vitals help?}
@@ -44,7 +69,7 @@ My work is to investigate two broad sources of data - data collected by the oper
 
 \subsection{All that glitters is not gold}
 Android Vitals sometimes reports excessive network usage running in the background while the device is running on battery, as shown in figure \ref{fig:android_vitals_excessive_network_usage}. As the Kiwix app is designed to enable users to download sometimes extremely large files, and to do so in the background, this warning is to be expected and not a bug - it's a feature. So, not everything that Android Vitals flags necessarily needs to be acted on. 
-\begin{figure}
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth, keepaspectratio]{images/Excessive_network_usage_by_kiwix_15_jun_2019.png}
     \caption{Excessive background network usage on battery}
@@ -53,6 +78,15 @@ Android Vitals sometimes reports excessive network usage running in the backgrou
 
 \section{Ethics of incorporating mobile analytics}
 Tradeoffs; comparing other approaches which may have similar effect with less/no tracking.
+
+In February 2020 the Catrobat team migrated the reporting for their app crash analytics (Crashlytics) from the Fabric website to the Firebase website using an inbuilt migration tool provided by Google who own both services. The migration meant the app's crash data could be viewed in both these websites independently until Google disabled the Firebase website (planned for March, but postponed until \nth{4} May 2020 in response to the effects of the COVID-19 pandemic).  We noticed additional data was available and presented in the reports provided in the Firebase console, as Google describe the website. This includes demographic data \emph{even though this is not collected by our app or - officially - by the crashlytics libarry}! Figure \ref{fig:Firebase-event-demographics-pocketcode-android} provides an example of the relevant section of the `Events' report for the Pocket Code Android app. App developers may, understandably, be unaware that using a library for collecting crash data is also somehow gathering data about demographics, therefore their end user licence agreements (EULA), privacy policy, and so on, may not reflect or incorporate this information to inform the user of what is being collected and why (in potential contravention with GDPR and other legislation).
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=8cm]{images/Firebase-event-demographics-pocketcode-android.png}
+    \caption{Firebase Event Demographics for Pocket Code Android}
+    \label{fig:Firebase-event-demographics-pocketcode-android}
+\end{figure}
 
 Practical options:
 \begin{itemize}
@@ -83,16 +117,11 @@ Considerations and concerns when using Mobile Analytics
 \end{itemize}
 
 
-\subsection{Necessary? Sufficient?}
-Freezes and crashes may adversely impact a user's perspective, Google may limit the visibility of apps that score poorly in terms of 'stability' as I will cover later in my thesis. However, are performant applications sufficient to thrive? There may be other barriers, or hurdles, developers need to overcome such as providing software that is attractive, serves whatever the user wants to do, and is intuitive.
-
-In 2019 Menzies in his paper \emph{``Take Control: On the Unreasonable Effectiveness of Software Analytics"}~\cite{menzies2019take} indicates that a small number of predictable software analytics variables can be used to predict software qualities for projects. 
-
-\emph{``Specifically, the number of variables required to make predictions about SE projects is remarkably small which means that (a) most of the things we think might affect software quality have little impact in practice; (b) controlling just a few key variables can be enough to improve software quality."}
-
-\subsubsection{Validity from the Google Engineering Team}
-
-MUST\_DO Use the beyond Google Play paper to help support the validity of my research.
+\subsection{Abandoned Apps}
+Users are not the only people who many abandon apps, developers do so too. By the very nature of abandoning an app a developer is also likely to abandon the reports and data associated with that app, including data from mobile analytics. As many researchers discover there are many abandoned opensource source code repositories, and similarly various organisations, including AppBrain, have identified apps that are effectively abandoned. % MUST-DO add citation for AppBrain report.
 
 \subsubsection{Other Android App Stores?}
-Note: this research is limited to apps available in Google Play for practical reasons. Other Android app stores are available, particularly in China as Wang ~\emph{et al} (2018)~\cite{wang2018beyond} describes. Of the Chinese app stores, in 2018 only 2 (Tencent Myapp, and 360 Market) provided a quality rating. In email discussions of my research in 2020 one of that paper's authors, Li Li, confirmed the novelty, importance and relevance of my research.
+Note: this research is limited to apps available in Google Play for practical reasons. Other Android app stores are available, particularly in China as Wang ~\emph{et al} (2018)~\cite{wang2018beyond} describes. Of the Chinese app stores, in 2018 only 2 (Tencent Myapp, and 360 Market) provided a quality rating. 
+
+\section{Summary of the Discussion Chapter}
+My research indicates mobile analytics can be used to effectively and efficiently improve the measured stability qualities of various Android apps from disparate sources, development teams and software stacks. And yet, there are appear to be material flaws in key analytics tools. My research touches on various implications of using analytics including which projects are best served by the integral analytics Google provides in Google Play Console. There are numerous areas of potential interest to researchers and industry alike including the integrity and accuracy of the various tools and reports. I will introduce my planned future work in the Future Work chapter.

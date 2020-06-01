@@ -15,13 +15,34 @@ A cautious set of basic tests to help establish characteristics of analytics fro
 \textbf{Placeholders to extend on this topic}: Holding ourselves and each other to account. Humility, openness, comparisons with financial auditing of businesses. \emph{c.f.} Sentry.io's work, opensourcing of client libraries, etc. 
 
 \begin{itemize}
-    \item Trust is earned, not claimed.
-    \item All it takes for evil to flourish quote?
+    \item Due diligence. \emph{`Trust and Confirm')~\footnote{\url{https://www.leadergrow.com/articles/443-trust-but-verify}}}. The risks of overtrusting and not doing due diligence, especially where money is involved. The author encourages verification (as I do). Beware of end to end systems that are not verifiable by an outside party~\footnote{\url{https://www.forbes.com/sites/frankarmstrong/2019/10/21/trust-but-verify/}}.
+    \item \emph{``The Only Thing Necessary for the Triumph of Evil is that Good Men Do Nothing"}~\footnote{\url{https://quoteinvestigator.com/2010/12/04/good-men-do/}}
 \end{itemize}
 
 \section{Enhancing quality vs. enhancing UX}
+Success of software is multifactorial and development teams need to consider where, when and how to focus their energies to achieve satisfactory outcomes for themselves and their patrons (often their management and funders). Where does improving and achieving high-quality software fit amongst other demands on their time and energies?
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=10cm]{images/Firebase-pocketcode-android-7-day-new-user-retention-29-may-2020.png}
+    \caption{Firebase>Catrobat>New User Retention}
+    \label{fig:Firebase-pocketcode-android-7-day-new-user-retention-29-may-2020}
+\end{figure}
+
+An area of my ongoing research is to evaluate the impacts of enhancing software quality in terms of stability compared to enhancing the UX of an app. The Pocket Code mobile Android app has low retention rates for new users according to Firebase, the 7 day retention of new users is illustrated in Figure \ref{fig:Firebase-pocketcode-android-7-day-new-user-retention-29-may-2020}. Both the iOS and Android Pocket Code apps have similar screens, especially the initial screens seen by new users of either app. Through our research and the focus on identifying and fixing various stability metrics we plan to focus on improving the design of the user experience for new users. One measure will be the `new user retention' report.
 
 \section{Adding in-app analytics to PocketCode}
+The Pocket Code Android app included the legacy Fabric Crashlytics analytics library for several years predating my involvement with the project (the earliest commit to add Fabric Crashlytics is on \nth{27} June 2017~\footnote{\href{https://github.com/Catrobat/Catroid/commit/95aa37ff5263402b41b63f50296aabc8c354433e}{\texttt{CAT-2420 Replace Firebase with Crashlytics}}}). This recorded both caught and uncaught exceptions but nothing else about how the app was used, or by whom. As part of my collaboration with the Catrobat team we agreed we would design and add in-app analytics in addition to the crash reporting. This work coincided with migrating from the legacy Fabric reports to the replacement Firebase reports so Firebase Analytics was selected. I helped lead the initial design and testing of the in-app analytics~\footnote{Various details are available in a Google hosted document~\url{https://docs.google.com/document/d/1cqCP2aqcx8mpTTHWe9ooGygtXh7eTvYzM3f9FbexUNM/edit?usp=sharing}}. The work has been delayed because of various impacts of the COVID-19 pandemic, the aim is to resume it as various countries and regions emerge from their respective lockdowns.
 
-\section{Logging in mobile apps}
-My research in mobile analytics overlaps and closely aligns with research on logging - both are used by software development teams to learn about how their software behaves. I am part of a group of distributed, international researchers investigating aspects of how and why developers add logging to their mobile applications. One of our current research areas investigates the use of Google Firebase Analytics for logging. \emph{Ad-hoc} research notes are available at \url{https://joedocs.com/julianharty/apm-logging-research}. 
+\section{Developer-centric logging in mobile apps}
+My research in mobile analytics overlaps and closely aligns with research on logging - both are used by software development teams to learn about how their software behaves. I am part of a group of distributed, international researchers investigating aspects of how and why developers add logging to their mobile applications. One of our current research areas investigates the use of Google Firebase Analytics for logging. \emph{Ad-hoc} research notes are available at \url{https://joedocs.com/julianharty/apm-logging-research}.
+
+\section{Improving the design, implementation and engineering of analytics}
+\url{http://iterative.ly}
+% MUST-DO expand this section.
+
+\section{Using Mobile Analytics to improve testing of mobile apps}
+% MUST-DO expand this section.
+
+\section{Summary of Future Work}
+The thesis is a snapshot of work done to date. The PhD journey and a combination of the relationships and experiences that have been established on the journey have led to various interesting and related areas of ongoing and future work which I am actively engaged in. Please get in contact if you would like to collaborate with any of these and/or with other topics that relate to my research.
