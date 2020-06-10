@@ -88,14 +88,20 @@ including various viewpoints of quality e.g. Gerry Weinberg)
 
 \hypertarget{software.quality}{}
 \section{Software Quality}
-Software quality is multi-faceted, I cannot hope to %or it would be impractical and potentially counter-productive to
+Software quality is multi-faceted. Some facets are more user-centric, such as perceived quality by end-users, which may include aesthetics, responsiveness, brand perception, as much as more technical aspects such as whether an app freezes, crashes, or whether an app corrupts, leaks, or loses data, for instance. I cannot hope to %or it would be impractical and potentially counter-productive to
 cover all the facets even after many years of working and researching in this domain. Instead I have selected the facets germane to my PhD research.
 
 \textbf{TODO I need to explain why reliability is foremost.}
+Several facets are able to be tracked remotely for mobile apps, an important factor in terms of the ability to facilitate practical approaches aimed at developers of these apps. They can be collected with various degrees of automation and to varying degrees, for instance the time something takes can be recorded at a micro level for a few lines of source code and at a macro level at the app or device level and across many devices and apps. 
 
-Some facets are more user-centric, such as perceived quality by end-users, which may include aesthetics, responsiveness, brand perception, as much as more technical aspects such as whether an app freezes, crashes, or whether an app corrupts, leaks, or loses data, for instance.
+There are well-established tools, techniques and practices for recording the time taken. Many of the tools are suited to use locally and directly by a developer, including Memory, App, and Network Profilers~\footnote{\url{https://developer.android.com/studio/profile\#android-studio-tools}}.For remote measurements the tools include Google's Android Vitals and Firebase Performance Monitoring\footnote{\url{https://firebase.google.com/docs/perf-mon}}.
+
+User experience (UX) can be assessed using a wide variety of tools and techniques, such as heatmapping (which uses screen and/or interaction recording), A/B testing frameworks, funnel and journey analytics, and so on. By their very nature they're user-focused and - in practice - seldom incorporated into mobile apps or development practices for mobile apps. Similarly, based on my investigations, they are seldom researched although I have co-written work on this topic including examples of using heatmapping to improve usability of mobile apps~\cite{harty_aymer_playbook_2016}.
 
 \yy{Logically I don't see the connection between quality facets => quality (general) => reliability (facet) again, perhaps you want to add some transitions so readers can follow the thoughts.}
+
+Crash data is impersonal and oft requested and collected by operating systems and applications. For instance, when an Apple operating system is updated users are asked a couple of questions including whether they are willing to share crash data with Apple and with developers [of apps].
+
 Weinberg stated \emph{"Quality is value to some person"}~\cite{weinberg1992quality}. To paraphrase him, \emph{Quality is in the eye of the beholder}.
 
 \akb{You will need to choose an existing taxonomy of software quality and explain which aspects are relevant to your research before discussing literature from each of these aspects. The Kitchener et al paper below is a good starting point for this.}
@@ -171,8 +177,14 @@ These existing works help to establish the importance of reliability, some of th
 \end{itemize}
 
 
-
+\subsection{Development Logging}
 Consider a 2D matrix of use of logging (amount, choice of library and API, formatting and customisation), and the range of the logging (local<->logging at a distance). Papers such as \emph{A Methodology and Framework to Simplify Usability Analysis of Mobile Applications}~\url{https://doi.org/10.1109/ASE.2009.12}. Remember to cover this topic in the work we did on logging (And the recent Shonan work). Mention the Shonan workshop in this section too.
+
+\subsubsection{Use of logging}
+
+\subsubsection{Research in logging}
+
+\subsubsection{Designing logging}
 
 \subsection{Ubiquitous Analytics}
 After OSX operating system updates, and when new users first login, they are asked to "help app developers improve their products and services automatically." Tickbox, default un-selected: "Share crash and usage data with app developers", "Help app developers improve their apps by allowing Apple to share crash and usage data with them." Further details, including from a user's perspective what's collected, how long the data is kept, and how to disable diagnostics from being sent are all described in \url{https://support.apple.com/en-gb/guide/mac-help/mh27990/mac}
