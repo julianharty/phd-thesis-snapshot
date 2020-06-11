@@ -1,0 +1,49 @@
+\chapter{Evaluation}
+This chapter evaluates the research performed during the PhD with a focus on work in the last two years where much of the progress was made. 
+
+\section{Evaluation of the case studies}
+The case studies both led to significant improvements to the measured reliability of the treatment app. For the Kiwix project they then updated the codebase for the majority of their apps and achieved similar improvements in the measured reliability despite only using the default analytics provided by Google Play Console. For the Catrobat project the development teams chose to add crash and mobile analytics to their iOS app (which had neither previously) and mobile analytics to their Android app.
+
+\section{Evaluation of the software created for the research}
+\textbf{Note} with a few exception, these projects were co-developed with Joseph Reeve a friend and part-time colleague on an occasional basis.
+
+\begin{itemize}
+    \item AndroidCrashDummy \url{https://github.com/ISNIT0/AndroidCrashDummy} A small Android app to test logging and exceptions.
+    \item AndroidLogAssert \url{https://github.com/ISNIT0/AndroidLogAssert} A library to facilitate and test log messages for Android apps.
+    \item Logcat-filter and analysis tool \url{https://github.com/ISNIT0/logcat-filter} A utility that runs on a developer's computer to filter and analyse log messages for specified Android apps. Generates a JSON format output on request to facilitate additional processing.
+    \item Log Searcher \url{https://github.com/ISNIT0/log-searcher} A tool for searching Android codebases and analysing usage of \texttt{``Log.*"}. Includes a discussion in the README on the rich potential of designing and using logging.
+    \item Log-complexity-analysis \url{https://github.com/ISNIT0/log-complexity-comparison} An experimental early-stage project to try and identify complex code that lacks logging.  
+    \item Android Monkey Test with Login \url{https://github.com/commercetest/android-monkey-test-with-login} An experiment to help increase the effectiveness of Android Monkey when it needs to interact with an Android app that uses a login page (since monkeys seldom enter a valid username and password. (Android Monkey is a very popular test automation tool used both by developers and researchers.) 
+    \item [Android] Vitals Scraper \url{https://github.com/commercetest/vitals-scraper} one of the major contributions of my research.
+    \item Android Stability Analysis \url{https://github.com/commercetest/android-stability-analysis} \textbf{TBC}
+    % \item Goldfinch Android \emph{[private]} \url{https://github.com/commercetest/goldfinch-android}
+    \item Zipternet \url{https://github.com/ISNIT0/zipternet} A small Android application generator, written in Kotlin, to provide a basic app with sufficient functionality to be potentially realistic and useful. It is similar in concept to the custom apps created and maintained by the Kiwix Android project team.
+    \item 
+\end{itemize}
+
+Solo projects:
+\begin{itemize}
+    \item Testing with analytics workshop \url{https://github.com/julianharty/testing-with-analytics-workshop} Material to support my workshop presented at the test:fest 2020 conference in Poland on \nth{28} February 2020.
+    \item GPC-Reports Analysis \url{https://github.com/julianharty/gpc-report-analysis} Various small scripts written in \texttt{R} to analyse various Google Play Monthly reports.
+\end{itemize}
+
+Contributions to external projects include:
+\begin{itemize}
+    \item Release Engineering for Mobile Apps \url{https://github.com/shonan-releng-mobile/shonan-releng-mobile} Contributed material on an ongoing basis for international collaborative research on this topic. 
+    \item Analytics Testing [using] Puppeteer \url{https://github.com/dumkydewilde/analytics-testing-puppeteer} Simply created a small README for the project. The project automates testing of Google Web Analytics.
+\end{itemize}
+
+\section{Validity considerations}
+In absolute terms, my research covers a minuscule percentage of all the apps available in Google Play, roughly 1 in 100,000. So these results may not apply to all the apps, or potentially even a majority of them. And yet, the results have consistently indicated that when development teams pay attention to stability metrics they are able to materially improve the reliability of their mobile apps even though their apps range across several app store categories and range in userbase from under 1,000 active users to over 160,000. These apps are spread across 6 of the 7 groups of downloads identified in AppBrain's `Download distribution of Android apps'~\cite{appbrain_download_statistics_june_2019} and similarly 5 of the 7 groupings representing over 94\% of the distribution of downloads in Google Play according to Wang ~\emph{et al} (2018)~\cite{wang2018beyond}.
+
+\textbf{MUST-DO} answer the following question: What exists in the literature, common practices, vs what I was able to achieve. \emph{From a question raised by Alistair Willis, OU, 30 April 2020.}
+
+\subsection{How many developers are enough to ask?}
+On of the key considerations for research is adequacy in terms of coverage. For my research there are several types of coverage, including: development teams, user-bases for the various apps, software tech stacks used (in terms of programming languages, analytics libraries, etc.), application domains, and so on. 
+
+c.f. Krug is a well respected Usability guru whose work is inherently practical in nature. In the first edition of his~\emph{``Don't make me Think"} book he discusses ways to obtain practical results even with short timescales and few resources. In terms of obtaining value the author indicated that 3 to 4 people were capable of delivering more relevant feedback by involving them over time, (Chapter 9 in ~\cite{krug2000dont_make_me_think}). In terms of selecting the candidates his recommendation was to worry less about selecting 'representative users', instead\emph{``Recruit loosely, and grade on a curve."} (Chapter 9 in ~\cite{krug2000dont_make_me_think})~\footnote{Note: Krug made several chapters, including this one available online when the second edition of the book was published. I have copies of all three versions of the book and of these chapters as PDF files.}.
+
+My research included working with two mature project teams and developers of three commercial apps. It is also based on work I did in industry that predates the PhD research, unfortunately I am not able to provide details of those projects in my thesis. 
+
+\section{Summary of evaluation of case studies}
+
