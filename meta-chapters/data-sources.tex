@@ -129,7 +129,9 @@ The \texttt{Date} datatype enables dates to be analysed and compared \emph{e.g.}
 
 
 \subsection{Crash and ANR Reports}
-Crashes and ANRs are only available in one combined summary report. In \texttt{R} the data was first loaded file by file, each into a distinct \texttt{data.frame}. These are then combined into a single larger data set as follows:  
+Google Play Console only provides the Crashes and ANRs in a combined summary report. We created and opensourced \href{https://github.com/commercetest/vitals-scraper}{Vitals Scraper} to enable additional data to be downloaded, including details of crashes and ANR's.
+
+For the summary reports provided by Google Play Console, in \texttt{R} the data was first loaded file by file, each into a distinct \texttt{data.frame}. These are then combined into a single larger data set as follows:  
 \texttt{do.call(rbind, crash\_and\_anr\_stats)}\footnote{Using the initial naive approach is enough to obtain the behaviour I sought \url{https://www.r-bloggers.com/concatenating-a-list-of-data-frames/}}
 
 \begin{lstlisting}
@@ -144,3 +146,15 @@ head(crash_and_anr_stats[[1]])
 \end{lstlisting}
 
 We can observe there are dates without data, for instance \nth{3} January 2014 for Pocket Code. One possibility is there were no reported crashes or ANRs for the dates that are not in the reports, Google does not document the contents of the files, so the reason is not known currently.
+
+\section{Fabric Crashlytics}
+Fabric Crashlytics and the associated Android programming library and APIs has been used by the Pocket Code Android app for several years, predating my involvement. It was retired by Google in early May 2020, they replaced it with the Firebase Console for the reporting. They also offer a replacement library and APIs which the project has  yet to switch to.
+
+The reports in Fabric and the replacement Firebase console are predominantly graphical and visual in nature. Fabric allowed some of the data in the reports to be exported. Details and examples TBC %MUST_DO continue this section.
+
+\section{Microsoft AppCenter}
+We used Microsoft AppCenter with the Zipternet Android app we developed for various reasons, including this research. It is another tool predominantly graphical and interactive in nature.
+% MUST_DO extend this section and provide some examples. I need to log back into AppCenter too, I need to remember how I originally logged in though :)
+
+\section{Summary of Data Sources}
+My research analysed data using various sources for several case studies. 
