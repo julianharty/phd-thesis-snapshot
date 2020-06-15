@@ -38,11 +38,43 @@ Similar to the concept of black box testing (where software's behaviour is obser
 
 \section{Overview of applying analytics to development practices}
 \begin{itemize}
+    \item Decide whether to use any existing, pre-provided analytics. This includes \emph{passive analytics} (gathered without the developers needing to actively include analytics tools in their app). It may also include analytics provided as a side-effect of incorporating libraries into the app without the developers needing to add code to record additional information. 
     \item Decide whether to incorporate analytics into the app, and if so what data to collect, which analytics library/libraries to incorporate and the many associated aspects we will cover in this chapter.
     \item Consider whether and how to test analytics and whether to filter [out] analytics during automated and internal testing.
     \item Use and analyse the analytics data from the app and the platform (where available).
     \item Triage and prioritise potential issues reported from external sources (pre-launch testing, new releases, active mainstream releases, etc.)
 \end{itemize}
+
+\subsection{Levels of engagement}
+Continuum of levels of engagement, or commitment, by developers:
+\begin{enumerate}
+    \setcounter{enumi}{-1} % unexpectedly this sets the first item in this list to zero.
+    \item No analytics incorporated in the development process. If they exist, they're ignored.
+    \item Passive analytics incorporated, app does not contain any crash recording, remote logging, or other mobile analytics libraries.
+    \item App incorporates one or more of the above mentioned libraries, initialises them where necessary but does not add any other additional calls to the libraries.
+    \item App incorporates additional code to call one or methods using the APIs (\emph{etc.} if other mechanisms are available).
+\end{enumerate}
+
+In terms of incorporating analytics, 
+\subsection{Incorporating passive analytics e.g. Google Play Console to development practices}
+\href{google_play_console_section}{\emph{\nameref{google_play_console_section}}} provides developers with a variety of reports on the performance of their Android app. Developers can integrate and incorporate the passive analytics Google provides through the various reports in order to a) better understand how their app is doing b) change their app so it performs better as reported by these reports.
+
+Here are the reports in the most likely order of being generated if developers follow various recommendations made by Google, \emph{i.e.} to create and take advantage of test releases and use release management tools when rolling out a release of their Android app into production.
+
+\begin{enumerate}
+    \item \textbf{Pre-launch reports}: 
+    \item \textbf{Alpha and Beta channels}:
+    \item \textbf{Release Management}: Note this fits with existing research in release management by Shane Mcintosh and Guenther Ruhe, and others.
+    
+    \item (the app) \textbf{Dashboard, including User Feedback}:
+    \item \textbf{Android Vitals}:
+\end{enumerate}
+
+\subsubsection{Privacy and Responsibilities for using passive analytics}
+For passive analytics the developer does not actively choose what to collect or how it's collected, therefore they are constrained by whoever, or whatever if we discount the people involved in deciding what to collect, etc. and assume algorithms such as AI determine the data. Google, at least, is careful to only share non PII % MUST_DO expand and add PII to the Glossary.
+data and with a few exceptions limits reports to populations that exceed thresholds determined by Google internally. %MUST_DO add reference to Google Help article(s).
+
+Nonetheless, I recommend developers consider ethical and legal responsibilities if they discover that sensitive and other PII data is being collected through the passive analytics. This may include avoiding reports with such data in them and also reporting the concerns to upstream providers of analytics (and where appropriate internal and external legal authorities).
 
 \section{An aside on packaging mobile apps}
 Mobile apps are a bit like snails, who carry everything with them in their shell, well actually in their application binary package (known as an APK~\footnote{Android Package Kit\url{https://en.wikipedia.org/wiki/Android_application_package}} file). This includes whichever libraries they use. Therefore, when developers want to include pre-packaged support for crash-reporting and/or mobile analytics, the development team need to incorporate the relevant software libraries in their application binary package. These libraries are therefore distributed as an intrinsic part of an app and installed seamlessly with the main application onto a user's device.
