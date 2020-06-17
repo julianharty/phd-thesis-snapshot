@@ -1,5 +1,5 @@
 \chapter{Future work}
-This PhD provides a snapshot of research I have done in recent years. This work fits within a larger body of research with similar overall objectives, to improve both the software and how that software is developed. This chapter introduces various research I am actively involved in which builds on the work described in my thesis.
+This PhD provides a snapshot of research I have done in recent years. This work fits within a larger body of research with similar overall objectives, to improve both the software and how that software is developed. This chapter introduces various topics related to my ongoing research which may be of interest to the research community.
 
 \section{Evaluating Google Play Console Reports}
 With discovering the many and various flaws and quirks in Google's analytics products I decided a set of experiments would help increase the trust and transparency of Android Vitals and Google Play Console. Aspects of these experiments may also be highly relevant to evaluate other analytics tools, products, and services. Some of the experiments could trigger defensive mechanisms used to 'protect' large-scale online services such as Google Play. For instance App Stores, including Google Play, are known to take protective and corrective activities related to fake reviews. Some experiments might want to assess the effectiveness of protective defenses, others may aim to avoid triggering them. 
@@ -19,12 +19,36 @@ A cautious set of basic tests to help establish characteristics of analytics fro
     \item \emph{``The Only Thing Necessary for the Triumph of Evil is that Good Men Do Nothing"}~\footnote{\url{https://quoteinvestigator.com/2010/12/04/good-men-do/}}
 \end{itemize}
 
+\section{Research into Google Android data collection}
+The mechanism(s) Google uses to collect data on devices is worthy of research given the scope, range and effects of this data in terms of assessing qualities of all the Android apps in Google Play.
+
+My work has identified numerous flaws in the reporting, do any of these stem from the data collection on the devices? Is it possible? is it practical? to generate fake data that Google would use and rely on? Research has already found evidence of systemic tainting of ratings and reviews, perhaps it's also possible that diagnostic and usage data can also be tainted at scale?
+
+related work: Botnets, black market reviews, device farms using emulators, device farms intended for testing, ...
+
+A related topic is to better understand whether the underlying device data can be accessed using non-Google software. 
+
+\begin{enumerate}
+    \item What data does Android Vitals capture?
+    \item Where is that data available on Android devices?
+    \item Ways to access that data?
+    \item Homebrew approach to accessing, collecting, and analysing the data.
+\end{enumerate}
+
+\subsection{Homebrew}
+Parsing the Android logs requires Android permission(s) ... Once the software has been granted permission it can read all the logs (...) and parse them. [Presumably] the logs are read-only for apps (the history can be cleared using the \texttt{adb logcat} command-line command externally (e.g. from a PC).
+
+Structure and presentation of content in the Android logs: ...
+Consistency in pertinent events in Android logs (we believe they're consistently formatted with predictable elements always provided, which makes them easier to parse and process).
+
+
+
 \section{Enhancing quality vs. enhancing UX}
 Success of software is multifactorial and development teams need to consider where, when and how to focus their energies to achieve satisfactory outcomes for themselves and their patrons (often their management and funders). Where does improving and achieving high-quality software fit amongst other demands on their time and energies?
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=10cm]{images/Firebase-pocketcode-android-7-day-new-user-retention-29-may-2020.png}
+    \includegraphics[width=10cm]{images/firebase/Firebase-pocketcode-android-7-day-new-user-retention-29-may-2020.png}
     \caption{Firebase>Catrobat>New User Retention}
     \label{fig:Firebase-pocketcode-android-7-day-new-user-retention-29-may-2020}
 \end{figure}
@@ -35,13 +59,26 @@ An area of my ongoing research is to evaluate the impacts of enhancing software 
 The Pocket Code Android app included the legacy Fabric Crashlytics analytics library for several years predating my involvement with the project (the earliest commit to add Fabric Crashlytics is on \nth{27} June 2017~\footnote{\href{https://github.com/Catrobat/Catroid/commit/95aa37ff5263402b41b63f50296aabc8c354433e}{\texttt{CAT-2420 Replace Firebase with Crashlytics}}}). This recorded both caught and uncaught exceptions but nothing else about how the app was used, or by whom. As part of my collaboration with the Catrobat team we agreed we would design and add in-app analytics in addition to the crash reporting. This work coincided with migrating from the legacy Fabric reports to the replacement Firebase reports so Firebase Analytics was selected. I helped lead the initial design and testing of the in-app analytics~\footnote{Various details are available in a Google hosted document~\url{https://docs.google.com/document/d/1cqCP2aqcx8mpTTHWe9ooGygtXh7eTvYzM3f9FbexUNM/edit?usp=sharing}}. The work has been delayed because of various impacts of the COVID-19 pandemic, the aim is to resume it as various countries and regions emerge from their respective lockdowns.
 
 \section{Developer-centric logging in mobile apps}
+Developers use logging for various reasons when they work with source code. Therefore developers use logging when they work on source code for mobile apps. Do they use logging in particular ways or for specific purposes when developing mobile apps? Research considerations include the use of remote logging and/or the use of mobile analytics.
+
 My research in mobile analytics overlaps and closely aligns with research on logging - both are used by software development teams to learn about how their software behaves. I am part of a group of distributed, international researchers investigating aspects of how and why developers add logging to their mobile applications. One of our current research areas investigates the use of Google Firebase Analytics for logging. \emph{Ad-hoc} research notes are available at \url{https://joedocs.com/julianharty/apm-logging-research}.
 
-\section{Improving the design, implementation and engineering of analytics}
-\url{http://iterative.ly}
-\begin{itemize}
-    \item Guiding developers to a) actively use data already available to them b) design how to use optional analytics tools efficaciously 
-\end{itemize}
+
+\section{Improving the design, implementation and engineering of in-app analytics}
+Research in approaches to improve the design, implementation and engineering of in-app analytics may inform the state of the art in the use of in-app analytics, particularly for software engineering and software quality. It may also help inform and guide the practice of in-app analytics. 
+
+Commercial services, such as \href{http://iterative.ly}{Iteratively}, aim to facilitate the \emph{``capture [of] accurate analytics right firs time"} and enable developers to \emph{``Quickly instrument analytics with code snippets and automated QA."} through their software tools. How might services such as these help development teams improve their engineering of in-app analytics? 
+
+Two suggested areas of research are whether these tools successfully guide developers to:
+\begingroup
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{enumerate}
+    \item actively use data already available to them?
+    \item design how to use optional analytics tools efficaciously?
+\end{enumerate}
+\endgroup
+% Thanks to: https://tex.stackexchange.com/questions/346787/how-can-i-get-a-list-starting-with-a-b-c-instead-of-1-2-3
+
 
 \section{Using Mobile Analytics to improve testing of mobile apps}
 % MUST-DO expand this section.

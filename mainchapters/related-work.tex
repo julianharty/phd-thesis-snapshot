@@ -165,7 +165,8 @@ These existing works help to establish the importance of reliability, some of th
 \subsection{Papers to consider}
 \begin{itemize}
     \item Buse and Zimmermann... 
-    \item     \item "A Methodology and Framework to Simplify Usability Analysis of Mobile Applications" Adding logging to a mobile apps can help developers analyse usability, reducing the effort needed
+    \item     
+    \item "A Methodology and Framework to Simplify Usability Analysis of Mobile Applications" Adding logging to a mobile apps can help developers analyse usability, reducing the effort needed
 \end{itemize}
 
 \subsection{Topics to mention}
@@ -233,21 +234,38 @@ c.f. using infra-red cameras to detect people in ways they're unfamiliar with an
 \subsection{Papers to consider}
 \begin{itemize}
     \item \textbf{"A survey of app store analysis for software engineering"}~\cite{martin2016survey}.
+    
     \item \textbf{"Why people hate your app: Making sense of user feedback in a mobile app store"}~\cite{fu2013people}. A key paper, many citations (some also highly relevant).
+    
     \item "Analyzing and Automatically Labelling The Types of User Issues that are Raised in Mobile App Reviews"~\cite{mcilroy2016analyzing} - discusses crashes, crash libraries, analytics, relatively early paper on the topic.
-    \item "Revisiting the Mobile Software Ecosystems Literature" Helps to define what an ecosystem is.
+    
+    \item \emph{``Revisiting the Mobile Software Ecosystems Literature"}~\cite{steglich2019revisiting} Helps to define what an ecosystem is.
     
     \item "Beyond Google Play: A large-scale comparative study of Chinese Android app markets"~\cite{wang2018beyond}.
+    
     \item "Measurement, modeling, and analysis of the mobile app ecosystem"~\cite{petsas2017measurement}.
+    
     \item "A Measurement-based Study on Application Popularity in Android and iOS App Stores"~\cite{liu2015measurement}.
+    
     \item "Understanding the Evolution of Mobile App Ecosystems: A Longitudinal Measurement Study of Google Play"~\cite{wang2019understanding} (2019): Lots of interesting questions and observations about Google Play; but they don't seem to consider flaws, or the effects of flaws, in the app store's data collection, algorithms, etc.
     
-    \item \emph{"Release Practices for Mobile Apps--What do Users and Developers Think?"}~\cite{nayebi2016release}.
-    \item \emph{"Modern release engineering in a nutshell - why researchers should care"}~\cite{adams2016modern}.
+    \item \emph{``Release Practices for Mobile Apps--What do Users and Developers Think?"}~\cite{nayebi2016release}.
     
-    \item \emph{"An Explorative Study of the Mobile App Ecosystem from App Developers' Perspective"}~\cite{petsas2017measurement}: 1,000,000+ apps on Google Play, 320,000 developers, over half of the developers only released a single app. The paper mainly focuses on the \emph{"the group of aggressive developers who have released more than 50 apps, trying to understand how and why they create so many apps"}.
+    \item \emph{``Which version should be released to app store?"}~\cite{nayebi2017version}.
+    
+    \item \emph{``Modern release engineering in a nutshell - why researchers should care"}~\cite{adams2016modern}.
+    
+    \item The \emph{``Data analytics for decision support in software release management"}~\cite{didar2018data_analytics_phd_thesis}, a PhD thesis, introduces a proposed Plan-Monitor-Improve Framework for release management.
+    
+    \item \emph{"An Explorative Study of the Mobile App Ecosystem from App Developers' Perspective"}~\cite{wang2017_exploratory_study_of_the_mobile_app_ecosystem}: 1,000,000+ apps on Google Play, 320,000 developers, over half of the developers only released a single app. The paper mainly focuses on the \emph{"the group of aggressive developers who have released more than 50 apps, trying to understand how and why they create so many apps"}. Provides some context on who writes the mobile apps in Google Play, provides an estimate of the population of developers (in 2017).
     
 \end{itemize}
+
+
+App Stores behave as intermediaries between developers and the users of their software. They make various aspects more transparent including pricing, information about the apps, releases, and ratings \& reviews. There are hundreds of thousands of developers of Android apps according to various sources (320,000 in 2017~\cite{wang2017_exploratory_study_of_the_mobile_app_ecosystem}, ...).
+
+
+In an App Store first the developer then the app store are involved in making a release available to some or all of the user population. There are various competing factors that affect when would be a good time to make a release. Too few and an app may be considered stale or neglected, too many and users may balk at the seemingly endless updates and communications costs. Groups of researchers have investigated various aspects of release engineering, including~\cite{adams2016modern} that argues the relevance of modern release engineering and the relevance for researchers, and~\cite{nayebi2017version} which concentrates on which version of opensource apps should have been released to the app store. Developers, and their stakeholders, want to make more informed decisions about which releases to make; however there does not appear to have been much research into the testing and quality indicators available to app developers before they make their release public.
 
 
 \section{Developing Mobile Apps}
