@@ -1,4 +1,11 @@
-\section{PocketCode Android App}
+\section{Catrobat Android Apps}
+\subsection{Introduction to the Catrobat Case Study}
+This case study includes an extremely and unusually well researched and properly developed app and codebase where many of the perceived good practices were and are assiduously applied on an ongoing basis. The codebase is far more complex than the Kiwix Android apps and the app is significantly richer in terms of the features and functionality.
+
+This case-study includes some in-app analytics, in the form of a crash reporting tool called Crashlytics. This additional source of analytics identified additional concerns with analytics tools as the two sources of analytics (Google Play Console and Crashlytics) had significant differences in their calculations and reports. It illustrates the efficacy of investigating crashes reported by the analytics where relatively minor effort was needed to identify and fix causes of poor reliability.
+
+Furthermore, the project team chose to invest their energies into supporting a testing workshop in Poland and to introducing application-level in-app analytics to both their Android and iOS PocketCode apps. Their actions indicate the project team recognise the benefits of applying and incorporating analytics into their software development and quality improvement practices.
+
 \subsection{Potted History of the Project}
 \begin{enumerate}
     \item Rationale:
@@ -10,6 +17,8 @@
 Rationale,
 Involvement of under-grads and post-grads. Master's theses (ask for stats)
 Catrobat foundation, and funded work.
+
+\subsubsection{Catrobat Software Engineering Practices}
 Approach to development, testing, deployment, production monitoring, ...
 
 The project uses Jenkins to run continuous builds for PocketCode and other related projects \url{https://jenkins.catrob.at/job/Catroid/}. Most of the builds are for the Develop code branch \url{https://jenkins.catrob.at/job/Catroid/job/develop/}.
@@ -45,7 +54,7 @@ Early indications are that the fixes related to the WebView have made a material
 % Number of sessions tool-tip: Approximate number of recorded sessions
 % Crash-free sessions tool-tip: Percentage of daily sessions during which your users did not experience any crashes. A daily session refers to a day during which your app was used.
 % Impacted sessions tool-tip: Percentage of daily sessions during which your users experienced at least one crash. A daily session refers to a day during which your app was used.
-\begin{table}[]
+\begin{table}[ht]
     \centering
     \footnotesize
     \begin{tabular}{r|r|r|r}
@@ -68,18 +77,18 @@ Some of the issues were determined to be 'soft errors' that were leaking to Andr
 
 \href{https://jira.catrob.at/browse/CATROID-418}{CATROID-418 - Crash in PlaySoundAndWaitBrick.addActionToSequence} The author paired with one of the developers on this issue. It is believed to be a bug that can only occur at runtime when the user has deleted the sound file that is being used by the \texttt{PlaySoundAndWaitBrick} which raised an \texttt{IllegalArgumentException} as it cannot determine the path from the Java Object that represented the sound file for this PocketCode visual programming element. We were able to reproduce the error on a local device and implement a fix. The developer thought a similar behaviour might be the cause of the exception reported in issue \href{https://jira.catrob.at/browse/CATROID-419}{419}, this has yet to be investigated.
 
-\begin{table}[]
+\begin{table}[ht]
     \footnotesize
     \centering
-    \begin{tabular}{r|l|l}
+    \begin{tabular}{rll}
         JIRA Ticket &Category &Remarks \\
         \hline
         \href{https://jira.catrob.at/browse/CATROID-407}{CATROBAT-407} &NullPointerException &Soft error already handled by app. \\
-        \href{CATROID-409}{https://jira.catrob.at/browse/CATROID-409} &NullPointerException &Crash in showLegoSensorConfigInfo
+        \href{https://jira.catrob.at/browse/CATROID-409}{CATROID-409} &NullPointerException &Crash in showLegoSensorConfigInfo
         \\
-        \href{https://jira.catrob.at/browse/CATROID-418}{CATROID-418} &IllegalArgumentException &Crash in PlaySoundAndWaitBrick.addActionToSequence \\
+        \href{https://jira.catrob.at/browse/CATROID-418}{CATROID-418} &IllegalArgumentException &Crash in \\&&  PlaySoundAndWaitBrick.addActionToSequence \\
+        %SHOULD_DO fix Temporary hack to wrap above text.
 
-        
     \end{tabular}
     \caption{Hackathon bugs addressed during hackathon.}
     \label{tab:hackathon_2019_jira_addressed}
@@ -113,7 +122,7 @@ From the trace, perhaps it's related to taking a screenshot? Also, the queue del
 \texttt{\small{"Input dispatching timed out (org.catrobat.catroid/org.catrobat.catroid.ui.ProjectActivity, Waiting to send non-key event because the touched window has not finished processing certain input events that were delivered to it over 500.0ms ago. Wait queue length: 28. Wait queue head age: 18726.7ms.)"}}
 
 \href{https://jira.catrob.at/browse/CATROID-424}{CATROID-424 - ANR in SpriteActivity} This ANR is also reported in newer 0.9.66 (70) and older releases, see \ref{tab:catroid_424}:
-\begin{table}[]
+\begin{table}[ht]
     \centering
     \begin{tabular}{r|r|r}
 Release	&Instances	&Percent \\
@@ -132,7 +141,7 @@ Input dispatching timed out (AppWindowToken{c8e9f token=Token{b3ee03e ActivityRe
 
 \href{https://jira.catrob.at/browse/CATROID-425}{CATROID-425 - tgkill crashes} There are various crash clusters for \texttt{tgkill}, 19 in 60 days to \nth{1} December 2019 across all versions of the app and Android versions. These have not been investigated yet. The ticket includes references to various guides to help investigate the causes.
 
-\begin{table}[]
+\begin{table}[ht]
     \centering
     \footnotesize
     \begin{tabular}{r|l|l}
@@ -195,7 +204,7 @@ The new release 0.9.66 (70) seems to have made a slight improvement to the overa
 
 The ANR rate is also showing encouraging signs, for the last 7 days (actually it seems to be only for 6 days, from \nth{24} to \nth{29} November 2019 as reported on \nth{1} December 2019)\ref{tab:ANR_rate_24_to_29_Nov_2019}.
 
-\begin{table}[]
+\begin{table}[ht]
     \centering
     \begin{tabular}{r|r|r|r}
       App version  &Impacted sessions &ANR-free sessions &No. sessions \\
@@ -218,8 +227,14 @@ The daily crash rate for the peer group can vary which is interesting in terms o
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{images/peer-crash-rate-catrobat-18-nov-2019.jpg}
+    \includegraphics[width=\textwidth]{images/android-vitals-screenshots/peer-crash-rate-catrobat-18-nov-2019.jpg}
     \caption{PocketCode peer crash-rate as of \nth{18} Nov 2019.}
     \label{fig:pocketcode_peer_crash_rate_18_nov_2019}
 \end{figure}{}
 
+
+\subsubsection{Catrobat iOS App}
+TBC
+
+\subsection{Summary of the Catrobat Case Study}
+TBC

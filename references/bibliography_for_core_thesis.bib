@@ -679,6 +679,25 @@ series = {MOBILESoft ’19}
   address = {Montreal, QC, Canada},
 }
 
+@inproceedings{sarro2015_feature_lifecycles_in_appstores,
+    author={F. {Sarro} and A. A. {Al-Subaihin} and M. {Harman} and Y. {Jia} and W. {Martin} and Y. {Zhang}},  
+    booktitle={2015 IEEE 23rd International Requirements Engineering Conference (RE)},   
+    title={Feature lifecycles as they spread, migrate, remain, and die in App Stores},
+    publisher = {IEEE},
+    address = {Ottawa, ON, Canada},
+    year={2015},  
+    volume={},  
+    number={},  
+    pages={76-85},  
+    abstract={We introduce a theoretical characterisation of feature lifecycles in app stores, to help app developers to identify trends and to find undiscovered requirements. To illustrate and motivate app feature lifecycle analysis, we use our theory to empirically analyse the migratory and non-migratory behaviours of 4,053 non-free features from two App Stores (Samsung and BlackBerry). The results reveal that, in both stores, intransitive features (those that neither migrate nor die out) exhibit significantly different behaviours with regard to important properties, such as their price. Further correlation analysis also highlights differences between trends relating price, rating, and popularity. Our results indicate that feature lifecycle analysis can yield insights that may also help developers to understand feature behaviours and attribute relationships.},  keywords={formal specification;smart phones;application feature lifecycle analysis;empirical analysis;migratory behaviours;nonmigratory behaviours;nonfree features;Samsung App Stores;BlackBerry App Stores;intransitive features;correlation analysis;price factor;rating factor;popularity factor;feature behaviours;attribute relationships;Feature extraction;Data mining;Databases;Software;HTML;Market research;Natural language processing},  
+    doi={10.1109/RE.2015.7320410},  
+    ISSN={2332-6441},  
+    month={Aug},
+    relevant_text = {The App Store marketplace can be thought of as a highly user-participatory cyclic development model that partly involves “requirements for the masses; requirements from the masses”. In this adaptive development space, users express their needs and desires by voting apps up and down and contributing product reviews. Users also tacitly express support for a feature by downloading apps that offer it. Developers may observe this behaviour and respond accordingly by adding popular features, where appropriate, to their own products. In this way, the developers triage the perceived desires of their users and make strategic decisions as to which features to adopt [7 - A case study of post-deployment user feedback triage].
+    
+    Capturing user reactions helps developers to select and prioritise feature inclusions in the next releases [4 - Analysis of user comments: An approach for software requirements evolution].}
+}
+
 @inproceedings{schranz2019contributors_catrobat,
   title={Contributors’ impact on a FOSS project’s quality},
   author={Schranz, Thomas and Schindler, Christian and M{\"u}ller, Matthias and Slany, Wolfgang},
@@ -1221,6 +1240,13 @@ https://github.com/Displayr/flipTime/graphs/contributors
   Some aggregated info can help partners, like Android developers, make their apps and products better, too.},
 }
 
+@phdthesis{al2019software_engineering_in_the_age_of_app_stores,
+  title={Software Engineering in the Age of App Stores: Feature-Based Analyses to Guide Mobile Software Engineers},
+  author={Al-Subaihin, Afnan A},
+  year={2019},
+  school={UCL (University College London)}
+}
+
 @phdthesis{didar2018data_analytics_phd_thesis,
   title={Data analytics for decision support in software release management},
   author={Didar Al Alam, SM},
@@ -1239,4 +1265,18 @@ https://github.com/Displayr/flipTime/graphs/contributors
   year={2019},
   school={UC Irvine},
   relevance_to_phd={The research studies information mobile apps collect and send over the network, often for advertising, also for analytics. The author developed various tools (AntMonitor, AntShield, NoMoAds, and AutoLabel) to help users see what was happening and to block unwanted communications. The tools can block analytics data being sent, which would affect our approach by reducing the number of users the data is collected from. They discuss related works that use static analysis to identify third-party data collection libraries.}
+}
+
+@phdthesis{stanik2020requirements_intelligence_on_the_analysis_of_user_feedback,
+  title={Requirements Intelligence: On the Analysis of User Feedback},
+  author={Stanik, Christoph},
+  year={2020},
+  school = {Universität Hamburg},
+  relevance_to_phd = {continuous sources for requirements-related information; comparison between explicit and implicit user feedback (like app usage data)},
+  abstract = {
+    Traditionally, software requirements engineering involved users through workshops, interviews, and observations in the early software development phases. Although beneﬁcial to software teams, these approaches are challenging to carry out continuously and can involve only a limited number of users. In recent years, requirements stakeholders started analyzing explicit user feedback, such as written app reviews, and implicit user feedback like app usage data as continuous sources for requirements-related information. Yet, research highlights that stakeholders rarely use explicit and implicit user feedback in their decision-making process because they receive it in large and unﬁltered amounts, making a manual analysis unfeasible. As user satisfaction is crucial for the success of an app, stakeholders need automated approaches for analyzing user feedback to understand user needs and to guide their decision-making. In an interview study, we found that stakeholders need to know how their apps perform, to eﬃciently identify innovative features, and to understand reported issues and bugs.
+
+    This dissertation introduces requirements intelligence, a framework that continuously collects, preprocesses, ﬁlters, as well as transforms and matches explicit and implicit user feedback to requirements. The framework aims to generate insights for stakeholders in an integrated interactive visualization. The core enablers for requirements intelligence include two main analysis activities on explicit and implicit feedback: Feedback ﬁltering and feedback to requirements analysis. Feedback ﬁltering is the activity that identiﬁes requirements-relevant feedback, such as problem reports, inquiries, and feature requests. Feedback to requirements extracts the software features users discuss and matches them with the features as documented on, e.g., app pages. We developed and empirically evaluated supervised machine learning approaches for both feedback types and activities. Our approaches rely on crowdsourcing studies for training machine learning models and on benchmarking experiments for identifying the optimal machine learning models.
+
+    Based on our requirements intelligence framework, we iteratively developed the prototype feed.ai. We evaluated feed.ai with a total of 15 stakeholders from a major telecommunication company for 12 months. We found that the stakeholders agreed with 92\% of the automated ﬁltering results indicating high accuracy. The stakeholders found requirements intelligence beneﬁcial for departments working with user feedback like customer care, marketing, and technology innovation. In a ﬁnal survey, ten stakeholders anonymously rated feed.ai’s functionality, on average, with 4.1/5 and its usability with 4.3/5. They further reported that feed.ai helped them to reduce 70\% of their time spent on analyzing user feedback, indicating a high eﬀectiveness of our approach.},
 }

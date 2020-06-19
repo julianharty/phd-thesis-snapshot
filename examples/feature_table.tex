@@ -1,0 +1,170 @@
+\documentclass[sigconf,screen,multi]{acmart}
+\usepackage{wasysym}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+\usepackage{graphicx, subfig}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{subfig}
+\usepackage{tikz}
+\usetikzlibrary{angles,shadows.blur,positioning,backgrounds}
+\usepackage{hyperref}
+\usepackage{forest}
+\definecolor{light-gray}{gray}{0.95}    % 1.灰度
+\forestset{
+  declare count register=disjuncts from,
+  disjuncts from'=0,
+  declare count register=concrete from,
+  concrete from'=1,
+  concrete colour/.code={\colorlet{concretecol}{#1}},
+  abstract colour/.code={\colorlet{abstractcol}{#1}},
+  draw colour/.code={\colorlet{drawcol}{#1}},
+  concrete colour= gray,
+  abstract colour=white,
+  draw colour=black,
+  /tikz/mandatory/.style={circle, fill=drawcol, draw=drawcol},
+  /tikz/optional/.style={circle, draw=drawcol, fill=white},
+  /tikz/concrete/.style={fill=light-gray , draw=drawcol},%concretecol
+  /tikz/abstract/.style={fill=abstractcol, draw=drawcol},
+  /tikz/or/.style={},
+  /tikz/xor/.style={},
+  mandatory/.style={edge label={node [mandatory] {}}},
+  optional/.style={edge label={node [optional] {}}},
+  or/.style={for first={disjunct}},
+  xor/.style={for first={disjunct2}},
+  disjunct/.style={
+    tikz+={\path (.parent) coordinate (A) -- (!u.children) coordinate (B) -- (!ul.parent) coordinate (C) pic [fill=drawcol] {angle};}
+  },
+  disjunct2/.style={
+    tikz+={\path (.parent) coordinate (A) -- (!u.children) coordinate (B) -- (!ul.parent) coordinate (C) pic [draw=drawcol] {angle};}
+  },
+  disjunction tree/.style={
+    where={isodd(n_children())}{
+      for n={int((n_children()+1)/2)}{calign with current},
+    }{
+      calign=midpoint,
+    },
+    before typesetting nodes={
+      for nodewalk={
+        % filter/.wrap pgfmath arg={{level>=##1}{n_children()>1}}{(disjuncts_from)}
+        xor,
+      }{
+        or,
+      },
+      %concrete abstract related
+      where={level()>=(concrete_from)}{
+        concrete,
+      }{
+        abstract,
+      },
+      tikz+={
+        [font=\sffamily]
+        \node (l) [anchor=north west, xshift=10pt] at (current bounding box.north east) {Legend};
+        \foreach \i/\j [remember=\i as \k (initially l)] in {mandatory/Mandatory,optional/Optional,or/Or,xor/Xor,abstract/Abstract,concrete/Concrete}
+        {
+          \node (\i) [below=20pt of \k.north, anchor=north, text centered, \i, minimum width=5pt,] {};
+          \node (\j) [right=15pt of \i.center -| mandatory.west, anchor=west] {\j};
+        };
+        \draw [drawcol] (or.south west) coordinate (A) -- (or.north) coordinate (B) -- (or.south east) coordinate (C) pic [fill=drawcol, angle radius=5pt] {angle};
+        \draw [drawcol] (xor.south west) coordinate (A) -- (xor.north) coordinate (B) -- (xor.south east) coordinate (C) pic [draw=drawcol, angle radius=5pt] {angle};
+        \foreach \i in {mandatory,optional} \draw [darkgray] (\i.north east) -- +(45:5pt);
+        \node (c) [below=0pt of Concrete.south] {};
+        \scoped[on background layer]{\node [draw, fill=white, blur shadow, fit=(l) (Mandatory) (Optional) (Or) (Xor) (Abstract) (Concrete) (c), rounded corners] {};}
+      },
+    },
+    for tree={
+      parent anchor=children,
+      child anchor=parent,
+      l'+=10mm,
+      blur shadow,
+      rounded corners,
+      text height=2ex,
+      text depth=.5ex,
+      font=\sffamily,
+    },
+  },
+}
+
+\begin{document}
+
+\subsection{Feature diagram}
+
+\begin{figure}[h]
+  \centering
+%   \includegraphics[width=\linewidth]{layered feature model.png}
+\resizebox{\textwidth}{!}{%
+\begin{forest}
+  disjunction tree,
+  concrete colour=white,
+  draw colour=darkgray,
+  [Microservice (BackEndRelated), abstract, xor
+    [Computation, optional, or
+      [DataComputation, optional]
+    ]
+    [Data, optional
+      [FrontEndVisible, mandatory ,or
+        [Notification, optional]
+        [Appearance, optional]
+        [Preference, optional]
+        [InformationTransmission, optional]
+        [DataStorage, optional]
+      ]
+      [FrontEndInvisible,  mandatory
+        [BackEndRelated, mandatory]
+      ]
+    ]
+    [Hybrid,  optional, or
+        [TimeRelated,  optional, or
+           [Search, optional]
+           [Timeliness, optional]
+        ]
+        [DevelopmentExtension, optional, or
+           [FunctionExtension, optional]
+           [SoftwareDevelopment, optional]
+        ]
+    ]
+  ]
+\end{forest}
+}
+  \caption{layered feature model}
+\end{figure}
+
+\subsection{Feature table}
+
+
+We compare related Work on collaborative model editors min terms of concrete syntax (CST), browser support (BS), automated conflict resolution (CR), abstract syntax (AST), heterogeneous models support (HMS), as shown in Table~\ref{tab:comparion}.
+
+
+ \begin{table}[htbp] % \vspace*{-1ex}
+\caption{Comparison of related work}\label{tab:comparion}\vspace*{-3ex}
+		\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		\textbf{AST} & \textbf{Work} & \textbf{BS} & \textbf{CR} & \textbf{CST} & \textbf{HMS}\\ \hline
+		\multirow{11}{*}{\textbf{Graphs}} & \cite{kelly1996metaedit+} &$\times$  & N/A & conceptual models & \checkmark \\ \cline{2-6} 
+%  		& \cite{vesin2017octouml} &$\times$  & N/A & \tabincell{l}{UML models} & \checkmark \\ \cline{2-6} 
+ 		& \cite{wuest2019flexisketch} &$\times$  & N/A & \begin{tabular}[c]{@{}c@{}}models and\\ metamodels\end{tabular} & \checkmark \\ \cline{2-6} 
+ 		& \cite{thum2009slim} & \checkmark & N/A & UML class diagram & $\times$\\ \cline{2-6} 
+ 		& \cite{krusche2014model} &$\times$  & \Circle & EMF models & $\times$ \\ \cline{2-6} 
+ 		& \cite{erol2013case} & \checkmark & \Circle & business processes & $\times$\\ \cline{2-6} 
+ 		& \cite{franzago2014towards} & \checkmark & \Circle & mobile applications & $\times$ \\ \cline{2-6} 
+ 		& \cite{schwagerl2013demonstration} & $\times$ & \LEFTcircle & EMF models & $\times$ \\ \cline{2-6} 
+%  		& \cite{farwick2010web} & \checkmark & \CIRCLE & DSL & \checkmark \\ \cline{2-6} 
+%  		& \cite{jiang2016sccmt} & \checkmark & \CIRCLE &\tabincell{l}{ conceptual model} & \checkmark \\
+ 		& \cite{zweihoff2019pyro,farwick2010web,jiang2016sccmt} & \checkmark & \CIRCLE & \tabincell{l} {DSL} & $\times$ \\ \cline{2-6}\hline
+		\multirow{3}{*}{\textbf{Texts}} & \cite{koshima2015collaborative} &$\times$  & \LEFTcircle & EMF/Ecore & $\times$ \\ \cline{2-6} 
+ 		& \cite{michaux2011semantically} &$\times$  & \CIRCLE & UML class diagram & $\times$ \\ \cline{2-6} 
+ 		& \cite{sriplakich2008collaborative} & $\times$ & \CIRCLE &\tabincell{l}{ UML and DSL }& $\times$ \\ \hline
+
+& \cite{saini2019towards} & \checkmark & \Circle & \tabincell{c}{TGRL} & $\times$ \\ \cline{2-6} 
+& \cite{francescomarino2011framework} & \checkmark & \Circle & \tabincell{c}{business processes} & $\times$ \\ \cline{2-6} 
+\textbf{Both}  & \cite{syriani2013atompm} & \checkmark & \LEFTcircle & \tabincell{c}{DSL} & $\times$ \\ \cline{2-6} 
+		& Ours & \checkmark & \CIRCLE & \tabincell{c}{DSL} & \checkmark \\ \hline
+		\end{tabular}
+		\begin{tabular}{lll}
+		\Circle manual &\LEFTcircle semi-automated & \CIRCLE automated\\
+		\end{tabular}
+ 		\vspace*{-2ex}
+		\end{table}
+
+
+\end{document}
