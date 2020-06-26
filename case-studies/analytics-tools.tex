@@ -17,8 +17,25 @@ Name each graph and provide a screenshot so they can be discussed.
     \label{fig:gpc-applistplace-kiwix}
 \end{figure}
 
+\subsection{Pre-launch reports}
+
+~\url{https://stackoverflow.com/questions/48291106/security-warning-in-google-developer-console-pre-launch-reports-security-tab}
+
 \subsection{Android Vitals}
 \subsubsection{Android Vitals UI}
+
+\subsubsection{Peer Groups in Android Vitals}\label{android-vitals-peer-groups}
+% Google calls them peer groups.
+Android Vitals offers developers the option to define a peer group of between 8 and 12 other apps in the Google Play Store. The peer group can be edited up to 3 times per month according to the documentation, and changes seem to take immediate effect in terms of the reporting~\footnote{\url{https://support.google.com/googleplay/android-developer/answer/9324048}}.
+
+The daily crash rate for the peer group can vary which is interesting in terms of observing variations in their overall crash-rate; Figure \ref{fig:pocketcode_peer_crash_rate_18_nov_2019} illustrates the daily change for one of the case studies: the Pocket Code Android app. It is not likely to be easy to determine which of those apps spiked (as the list can only be updated 3 times per month, editing the list and observing the difference has a low likelihood of unmasking the peer, the author will leave designing approaches for future research).
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/android-vitals-screenshots/peer-crash-rate-catrobat-18-nov-2019.jpg}
+    \caption{Pocket Code peer crash-rate as of \nth{18} Nov 2019.}
+    \label{fig:pocketcode_peer_crash_rate_18_nov_2019}
+\end{figure}{}
 
 
 \subsection{Monthly Report Files}

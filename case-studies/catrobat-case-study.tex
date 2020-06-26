@@ -202,10 +202,11 @@ A new release of the app was launched on November \nth{26} after several days of
 
 The new release 0.9.66 (70) seems to have made a slight improvement to the overall crash rate which is currently 1.95\% after 3 days of data in Android Vitals, the previous release has a crash rate of 2.56\% for the last 7 days (to \nth{29} November. It is premature to determine the overall effect of the crash rate for this app as it's still being rolled-out (which typically takes over a week to reach the majority of the user-base e.g. on \nth{2} December (4 days after the release started rolling out) Android Vitals reports 20K install events).
 
-The ANR rate is also showing encouraging signs, for the last 7 days (actually it seems to be only for 6 days, from \nth{24} to \nth{29} November 2019 as reported on \nth{1} December 2019)\ref{tab:ANR_rate_24_to_29_Nov_2019}.
+The ANR rate is also showing encouraging signs, for the last 7 days (actually it seems to be only for 6 days, from \nth{24} to \nth{29} November 2019 as reported on \nth{1} December 2019) in Table~\ref{tab:ANR_rate_24_to_29_Nov_2019}.
 
 \begin{table}[ht]
     \centering
+    \footnotesize
     \begin{tabular}{r|r|r|r}
       App version  &Impacted sessions &ANR-free sessions &No. sessions \\
       \hline
@@ -216,24 +217,37 @@ The ANR rate is also showing encouraging signs, for the last 7 days (actually it
     \label{tab:ANR_rate_24_to_29_Nov_2019}
 \end{table}
 
+\subsection{Progress in cumulative releases}
+
+% MUST_DO add screenshots and summaries of the progress made with subsequent releases of Pocket Code for Android.
+
+
 \subsection{Discussion}
 Effects of being measured is a well-known in work, business, etc. One of the effects here was that 'soft-crashes' were reaching Android Vitals and therefore significantly and adversely affecting the crash rate (see \cite{CATDROID-426-JIRA}).
 
 \subsubsection{Peer Groups}
-% Google calls them peer groups.
-Android Vitals offers developers the option to define a peer group of up to 12 other apps in the Google Play Store. The peer group can be edited up to 3 times per month according to the documentation, and changes seem to take immediate effect in terms of the reporting.
-
-The daily crash rate for the peer group can vary which is interesting in terms of observing variations in their overall crash-rate; Figure \ref{fig:pocketcode_peer_crash_rate_18_nov_2019} illustrates the daily change. It is not likely to be easy to determine which of those apps spiked (as the list can only be updated 3 times per month, editing the list and observing the difference has a low likelihood of unmasking the peer, the author will leave designing approaches for future research).
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=\textwidth]{images/android-vitals-screenshots/peer-crash-rate-catrobat-18-nov-2019.jpg}
-    \caption{PocketCode peer crash-rate as of \nth{18} Nov 2019.}
-    \label{fig:pocketcode_peer_crash_rate_18_nov_2019}
-\end{figure}{}
+The Pocket Code Android app had a significantly higher crash-rate compared to its peer group, as Figure \ref{fig:pocketcode_peer_crash_rate_18_nov_2019} shows in section \href{android-vitals-peer-groups}{\emph{\nameref{android-vitals-peer-groups}}} shows. While this may be undesirable, the Pocket Code app had incredible richness and complexity compared to the perceived peer apps, for instance it includes support for generating native Android apps, an app store, generation of rich, graphical games, as examples of some of the rich capabilities on offer.
 
 
-\subsubsection{Catrobat iOS App}
+\subsubsection{Slower growth of user-base}
+PocketCode is an app developed to serve several challenges simultaneously, including research aspects such as the effects of various software development engineering practices, while also being intended to be open, in terms of informing the end-user of the purposes of the app, yet also being easy, fun and educational for children to use in terms of exploring how to write and publish software. These various concurrent challenges led to the users being presented with a long page of legal text (reformatted slightly from the original \href{https://github.com/Catrobat/Catroid/blob/develop/catroid/src/main/res/values/strings.xml}{\textbf{\texttt{Privacy policy on GitHub}}} and reproduced below in Listing~\ref{pocketcode-privacypolicy}). New users are expected to read and agree to before they are allowed to use the app further. Imagine having to scroll through all the text on a small screen \emph{before seeing what the app can do!} The thesis continues after the listing...
+
+\input{case-studies/pocket-code-android-policy}
+
+Welcome back. 
+
+I hope the experience of scrolling past the privacy policy here provided you with an idea of how adding a mandatory, relatively comprehensive privacy policy interrupts the flow. One of the topics in the future work chapter, \href{enhancing-quality-vs-enhancing-ux}{\textit{\nameref{enhancing-quality-vs-enhancing-ux}}}, considers whether developers may obtain greater return on their investment by improving user experience rather than improving technical qualities of an app. As \href{enhancing-quality-vs-enhancing-ux}{Figure \ref{fig:Firebase-pocketcode-android-7-day-new-user-retention-29-may-2020}} shows, the Pocket Code app only retains 4\% of new users by day 2. Perhaps, the low retention rate may restrict the growth of the user-base even though the quality has improved markedly.
+
+\subsubsection{Catrobat iOS Pocket Code App}
+A more recent codebase, aimed at providing similar functionality to the Android Pocket Code app. This codebase is written specifically for iOS using the mainstream iOS development tools and development environment. 
+
+In February 2020 the development lead for the iOS app, in conjunction with me and the overall project lead, Professor Wolfgang Slany, decided to add Firebase Analytics to the iOS codebase and implement crash reporting and in-app analytics. 
+
+\begin{itemize}
+    \item The design document
+    \item The implementation process and effort needed
+    \item Early discoveries (discussed at the workshop in Poland on \nth{28} February 2020.
+\end{itemize}
 TBC
 
 \subsection{Summary of the Catrobat Case Study}
