@@ -18,6 +18,57 @@ Include my 3 layers figure. Perhaps the 3 views of quality figure. My data sourc
     \item The platform's perspective of an app:
 \end{enumerate}
 
+\subsection{Visual (GUI-level) analytics}
+
+\subsubsection{A potted-history of related work}
+When Android was publicly launched in 2008, a team of Google engineers, including myself, developed various utilities and applications to help make Android more useful and usable for people with visual impairments. The project became known as the \emph{eyes-free} project and the source code was released as the, now archived, \href{https://code.google.com/archive/p/eyes-free/}{\texttt{eyes-free}} opensource project. 
+
+A key aspect of that work was the implementation of code that 'overlaid' the user interface within an app and intercepted touch events Android sent to the app in response to user interactions with the touch screen. The library and apps were presented by various Google engineers at the time, for instance by T.V. Raman and Charles Chen at Google I/O 2009~\footnote{ \href{http://transcriptvids.com/v/xS-ju61vOQw.html}{link to the video with transcription} for ease of searching for the overlay~\texttt{TouchGestureControlOverlay}. The slides are available at~\url{https://docs.huihoo.com/google/io/2009/Th_0115_EyesFreeUserInteraction.pdf} and a version of the library in one of my also archived projects~\href{https://github.com/julianharty/android-daisy-epub-reader/blob/master/src/com/google/marvin/widget/GestureOverlay.java}{\texttt{GestureOverlay} in Android DAISY ePub Reader}.} 
+
+I am not aware of any work that extended our work at the time, however I believe it would be practical to extend that code to include GUI-level analytics by reporting the touch events, together with some basic information about the app version, device model, settings, and screen orientation to be able to use the event data.
+
+Eventually the Android operating system included Accessibility APIs and incorporated Text-To-Speech (TTS) support directly, for instance the popular~\href{https://support.google.com/accessibility/android/answer/6283677?hl=en}{TalkBack Screen Reader}. In tandem several commercial companies released TTS 'engines', which meant the apps and utilities the team had developed became less necessary. In summary our work started with providing a custom overlay that developers incorporated into their app, and became less relevant once the platform had sufficient support for Accessibility.
+
+%SHOULD_DO discuss heatmapping tools for non-mobile platforms e.g. web, and perhaps even desktop. Also cite relevant research. 
+
+\subsubsection{Heatmapping for mobile apps}
+%MUST_DO Include examples from AppSee that were in the mobile analytics playbook.
+
+% SHOULD_DO combine these figures as sub-figures. Trim whitespace on Azetone image.
+\begin{figure}[ht]
+    \begin{minipage}{\textwidth}
+    \centering
+    \includegraphics[width=10cm]{images/mobile-analytics-playbook/Chart-10-azetone.png}
+    \caption[Example of Azetone heatmap overlaid on shopping app]{Example of Azetone heatmap overlaid on shopping app~\footnote{Image credit: First published in the Mobile Analytics Playbook~\cite{harty_aymer_playbook_2016}}.}
+    \label{fig:azetone-heatmap-example}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[ht]
+    \begin{minipage}{\textwidth}
+    \centering
+    \includegraphics[width=8cm]{images/mobile-analytics-playbook/Appsee-Screen-Heatmap.png}
+    \caption[Appsee example of usability flaw found using visual analytics]{Appsee example of usability flaw found using visual analytics~\footnote{Image credit: First published in the Mobile Analytics Playbook~\cite{harty_aymer_playbook_2016}}.}
+    \label{fig:appsee-example-t-and-c-screen}
+    \end{minipage}
+\end{figure}
+
+Learn more about Appsee's work: ~\url{https://www.youtube.com/watch?v=aRN_XrxNCNE}
+
+~\url{https://www.youtube.com/watch?v=GQ2DoINkba4}
+
+~\subsubsection{Extending GUI to Multimodal UI analytics}
+
+\begin{figure}
+    \begin{minipage}{\textwidth}
+    \centering
+    \includegraphics[width=15cm]{images/mobile-analytics-playbook/Chart-11-extending-gui-analytics.png}
+    \caption[Extending GUI Analytics]{Extending GUI Analytics~\footnote{Image credit: First published in the Mobile Analytics Playbook~\cite{harty_aymer_playbook_2016}}.}
+    \label{fig:extending-gui-analytics}
+    \end{minipage}
+\end{figure}
+% https://texfaq.org/FAQ-ftncapt
+
 \subsection{Mapping Analytics tools to layers of an app}
 
 \subsection{Key components of Mobile Analytics}
@@ -35,7 +86,7 @@ Include my 3 layers figure. Perhaps the 3 views of quality figure. My data sourc
     \item User Interfaces, including APIs:
 \end{itemize}
 
-\subsubsection{Four perspectives on mobile apps}
+\subsubsection{Four perspectives on apps in a platform ecosystem}
 \large{\texttt{\emph{1} Public \textbf{(}\emph{2} User \textbf{(}\emph{3} Development team \textbf{(}\emph{4} App Store\textbf{)))}}}
 % To tweak the text size, see https://texblog.org/2012/08/29/changing-the-font-size-in-latex/
 

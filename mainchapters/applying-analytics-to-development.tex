@@ -1,4 +1,4 @@
-\chapter{Applying analytics to development practices}
+\chapter{Applying analytics to development practices}~\label{chapter-applying-analytics-to-development-practices}
 Analytics data is based on the software being used, so the software needs to be created and able to run before relevant data is generated.
 
 Analytics, such as user-journeys, can help to answer questions about the usage of the software. They help establish \emph{what-is}. As we understand more about what-is we can then consider \emph{what-would-be-better} and do gap analysis between what-is and what-would-be-better.
@@ -7,10 +7,12 @@ Various data can be potentially collected. What can be collected depends on the 
 
 \section{3 layers of an app}
 \begin{figure}[ht]
+    \begin{minipage}{\textwidth}
     \centering
-    \includegraphics[width=10cm]{images/3-layers.png}
-    \caption{Three layers of an app~\cite{harty_aymer_playbook_2016}}
+    \includegraphics[width=10cm]{images/mobile-analytics-playbook/3-layers.png}
+    \caption[Three layers of an app]{Three layers of an app~\footnote{Image credit: First published in the Mobile Analytics Playbook~\cite{harty_aymer_playbook_2016}}.}
     \label{fig:3-layers}
+    \end{minipage}
 \end{figure}
 
 Figure \ref{fig:3-layers} illustrates three primary observation points, or layers, for a mobile app. 
@@ -18,7 +20,7 @@ Figure \ref{fig:3-layers} illustrates three primary observation points, or layer
 The Graphical User Interface (GUI) % SHOULD-DO add to glossary.
 can be visually observed by sighted users, it can also be observed by Accessibility software, and test automation tools, \emph{etc.} externally to the app. It can also be observed from within the app, for instance through using software known as \emph{heatmapping} that records the screens and the touch interactions performed by users of that screen. One of the the more popular, mature heatmapping offerings is from AppSee~\footnote{\url{  https://www.appbrain.com/stats/libraries/details/appsee/appsee}}, nonetheless they are only used in a small minority of mobile apps.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=12cm]{images/matrix-of-logging.png}
     \caption{Matrix of logging}

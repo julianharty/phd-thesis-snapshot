@@ -35,6 +35,7 @@ including various viewpoints of quality e.g. Gerry Weinberg)
     \begin{itemize}
         \item Views from outside software engineering e.g. how to measure anything book
         \item Software Analytics e.g. Buse and Zimmermann
+        \item Software Analytics tools and concepts e.g. free the data.
         \item Sources and mechanisms for collecting data and information about mobile apps
         \begin{itemize}
             \item Human-centric sources e.g. ratings and reviews. Perhaps also discuss some of the flaws and limitations either here or in the 'caveats...' section later?
@@ -91,14 +92,15 @@ including various viewpoints of quality e.g. Gerry Weinberg)
 Software quality is multi-faceted. Some facets are more user-centric, such as perceived quality by end-users, which may include aesthetics, responsiveness, brand perception, as much as more technical aspects such as whether an app freezes, crashes, or whether an app corrupts, leaks, or loses data, for instance. I cannot hope to %or it would be impractical and potentially counter-productive to
 cover all the facets even after many years of working and researching in this domain. Instead I have selected the facets germane to my PhD research.
 
-\textbf{TODO I need to explain why reliability is foremost.}
-Several facets are able to be tracked remotely for mobile apps, an important factor in terms of the ability to facilitate practical approaches aimed at developers of these apps. They can be collected with various degrees of automation and to varying degrees, for instance the time something takes can be recorded at a micro level for a few lines of source code and at a macro level at the app or device level and across many devices and apps. 
+The main software quality my research investigates is reliability as measured through counting and analysing crashes of mobile apps. While these might seem to be mundane compared to more attractive topics such as user experiences, poor reliability can undo the success of an otherwise attractive and performant software application. As Bavota~\emph{et al} observe in~\cite{bavota2014_impact_of_api_change_android} ~\emph{``users easily get frustrated by repeated failures, crashes, and other bugs; hence, they abandon some apps in favor of their competition."} 
+
+Nonetheless, several facets are able to be tracked remotely for mobile apps, an important factor in terms of the ability to facilitate practical approaches aimed at developers of these apps. They can be collected with various degrees of automation and to varying degrees, for instance the time something takes can be recorded at a micro level for a few lines of source code and at a macro level at the app or device level and across many devices and apps. 
 
 There are well-established tools, techniques and practices for recording the time taken. Many of the tools are suited to use locally and directly by a developer, including Memory, App, and Network Profilers~\footnote{\url{https://developer.android.com/studio/profile\#android-studio-tools}}.For remote measurements the tools include Google's Android Vitals and Firebase Performance Monitoring\footnote{\url{https://firebase.google.com/docs/perf-mon}}.
 
 User experience (UX) can be assessed using a wide variety of tools and techniques, such as heatmapping (which uses screen and/or interaction recording), A/B testing frameworks, funnel and journey analytics, and so on. By their very nature they're user-focused and - in practice - seldom incorporated into mobile apps or development practices for mobile apps. Similarly, based on my investigations, they are seldom researched although I have co-written work on this topic including examples of using heatmapping to improve usability of mobile apps~\cite{harty_aymer_playbook_2016}.
 
-\yy{Logically I don't see the connection between quality facets => quality (general) => reliability (facet) again, perhaps you want to add some transitions so readers can follow the thoughts.}
+%\yijun{Logically I don't see the connection between quality facets => quality (general) => reliability (facet) again, perhaps you want to add some transitions so readers can follow the thoughts.}
 
 Crash data is impersonal and oft requested and collected by operating systems and applications. For instance, when an Apple operating system is updated users are asked a couple of questions including whether they are willing to share crash data with Apple and with developers [of apps].
 
@@ -121,13 +123,15 @@ Ishigawa's work extended beyond the eponymous Ishigawa, or fishbone, diagram (as
 
 Of these seven tools, two are of particular interest in my research, his diagram to help set this work in context, and Pareto charts (also known as the Pareto distribution diagram), illustrated in one of the appendices~\hyperlink{pareto.diagrams.in.r}{\emph{here}}.
 
-Reliability is one facet of software quality, and a measure of how reliable (error-free) software is in use. \yy{Why do you focus on reliability as the only facet of quality after dismissing the other facets? Do you need to worry about correctness as another quality facet related to testing?} 
+Reliability is one facet of software quality, and a measure of how reliable (error-free) software is in use. \yijun{Why do you focus on reliability as the only facet of quality after dismissing the other facets? Do you need to worry about correctness as another quality facet related to testing?} 
 
 \hypertarget{defects.faults.failures}{}
 \subsection{Software Defects, Faults and Failures}
 \emph{Add a preamble to why this subject is relevant to my research - set this topic in context. Keep the examiner on the read thread of my research.}
-\yy{The heading doesn't match yet with the content: what about Faults and Failures? You may consider this standard for one definition:
+\yijun{The heading doesn't match yet with the content: what about Faults and Failures? You may consider this standard for one definition:
 \url{https://ece.uwaterloo.ca/~agurfink/ece653/assets/pdf/W01P2-FaultErrorFailure.pdf}}
+
+
 According to Mäntylä and Itkonen more defects were found implicitly (62\%) than explicitly (38\%) ~\cite{mantyla2014_how_are_software_defects_found}, based on a survey of four software development companies in three different companies. The authors state \emph{"Implicit defect detection has a large contribution to defect detection in practice, and can be viewed as
 an extremely low-cost way of detecting defects."}. Similarly my research may be considered as a useful source of finding defects implicitly, where the defects are mined and reported by mobile analytics tools and development teams can decide on the defects they deem sufficiently relevant \emph{and} practical to fix. I will discuss separately some of the implications of applying this approach to complement other approaches.
 
@@ -145,11 +149,22 @@ Both approaches provide a mixed bag of desirable and undesirable effects; in the
 
 Their work intersects with the work of Dorothy Graham's proposed measure of Defect Detection Percentage (\emph{DDP}, for short)~\cite{graham_measuring_2009} aimed at evaluating the effectiveness of whatever testing was performed by comparing the issues found during testing with those found subsequently, often when the software is in use by others.
 
-Frankl, Hamlet, and Littlewood discussed operational testing based on expectations of the inputs; in turn a paper by Bishop in 1993~\cite{bishop1993variation} discussed the variation in software survival time depending on differences in the operational input profiles. Failure probabilities are not constant, the paper states the probability of failures decreases as the time from the last failure increases. There are several relevant observations in the paper, including: \emph{"During a failure, restarting the software will have little effect if the input conditions are similar..."} for instance a mobile app may crash repeatedly if a user (for instance) happens to repeat an action that exercises the code that fails. I observed this behaviour in Kiwix, one of the Android apps under evaluation, where a single crash occurred 55 times for a single user.\yy{It is good to confirm the points in your observation.}
+Frankl, Hamlet, and Littlewood discussed operational testing based on expectations of the inputs; in turn a paper by Bishop in 1993~\cite{bishop1993variation} discussed the variation in software survival time depending on differences in the operational input profiles. Failure probabilities are not constant, the paper states the probability of failures decreases as the time from the last failure increases. There are several relevant observations in the paper, including: \emph{"During a failure, restarting the software will have little effect if the input conditions are similar..."} for instance a mobile app may crash repeatedly if a user (for instance) happens to repeat an action that exercises the code that fails. This was observed this behaviour in Kiwix, one of the Android apps under evaluation, where a single crash occurred 55 times for a single user, as Figure~\ref{fig:55-crashes-missing-webview-package-exception}.
+%\yijun{It is good to confirm the points in your observation.}
 
-Another result from the paper is: \emph{"Given that the software is operating successfully, the chance of continued operation is greatly improved if there are only small changes in input conditions..."}. For mobile apps, one of the ongoing, major, sporadic changes are to the version of the operating system. As \textbf{TODO add link to API fault proneness paper} found, the most frequent cause of failure for Android apps is when the operating system is updated. Apps that were reliable on previous releases of the operating system may now start failing, and some failures become frequent and widespread as the new operating system release is adopted. \textbf{TODO add evidence on the rollout and growth of Android releases in use as per old Google Android charts.}\yy{This is very true in the TM352 I experienced. An argument may lead to the gap analysis is: how can one control or limit the effect of such external change factors or live with it? Is mobile analytics towards living with it while presenting an opportunity to spot such incompatibility issues earlier? }
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=14cm]{images/android-vitals-screenshots/55-crashes-WebViewFactory-MissingWebViewPackageException Screenshot_2019-09-19-kiwix.png}
+    \caption{Google Play Console: Missing WebView Package Exception}
+    \label{fig:55-crashes-missing-webview-package-exception}
+\end{figure}
+
+Another result from the paper is: \emph{"Given that the software is operating successfully, the chance of continued operation is greatly improved if there are only small changes in input conditions..."}. For mobile apps, one of the ongoing, major, sporadic changes are to the version of the operating system. As Linares \emph{et al} ~\cite{linares2013_api_change_and_fault_proneness_android} found, the most frequent cause of failure for Android apps is when the operating system is updated. Apps that were reliable on previous releases of the operating system may now start failing, and some failures become frequent and widespread as the new operating system release is adopted. \textbf{MUST-DO add evidence on the rollout and growth of Android releases in use as per old Google Android charts.}
+~\yijun{This is very true in the TM352 I experienced. An argument may lead to the gap analysis is: how can one control or limit the effect of such external change factors or live with it? Is mobile analytics towards living with it while presenting an opportunity to spot such incompatibility issues earlier? }
 
 These existing works help to establish the importance of reliability, some of the ways testing can be evaluated in terms of the subsequent reliability of the software in use, and some of the challenges in finding bugs that affect reliability. 
+
+Another classic paper, from 1993, is by Musa~\emph{``Operational profiles in software-reliability engineering"}~\cite{musa1993_operational_profiles} which proposed using an operational profile to guide testing to maximise testing of the most-used operations. For mobile apps a key challenge, firstly there's unlikely to be a single operational profile for many apps given the variety of ways users use those apps how many would be needed to provide adequate coverage? and secondly where does the underlying information come from to determine what the operational profiles need to be in order to test effectively and efficiently? Musa does discuss ways to record the data: potentially Mobile Analytics may help to provide the data needed to establish these operational profiles? 
 
 \textbf{TODO} sum up this section and connect it with Google's concept of Stability metrics to measure software quality for Android apps.
 
@@ -177,6 +192,8 @@ These existing works help to establish the importance of reliability, some of th
     \item Privacy, and who is responsible for the data being collected, shared, and protected?
 \end{itemize}
 
+Integrated metrics and data about software development projects: dashboards such as~\href{https://bitergia.com/bitergia-analytics/}{Bitergia Analytics} and an online live example of their dashboard~\url{https://onap.biterg.io/app/kibana#/dashboard/Overview?_g=()} aim to provide a holistic view to software development teams of data that matters to them. 
+GrimoreLab~\url{https://chaoss.github.io/grimoirelab/} is used to build various projects including the Bitergia Analytics Platform and~\href{https://cauldron.io/dashboard/1640}{Cauldron.io}. It includes support for a wide variety of data sources (source code management, issues/task management, source code review, mailing lists and forums including stack overflow, continuous integration, synchronous communications, wikis, meeting management, and others). What it does not current support are any analytics data sources which means developers have to look elsewhere and use other tools and dashboards to obtain analytics about how their software is performing and behaving. 
 
 \subsection{Development Logging}
 Consider a 2D matrix of use of logging (amount, choice of library and API, formatting and customisation), and the range of the logging (local<->logging at a distance). Papers such as \emph{A Methodology and Framework to Simplify Usability Analysis of Mobile Applications}~\url{https://doi.org/10.1109/ASE.2009.12}. Remember to cover this topic in the work we did on logging (And the recent Shonan work). Mention the Shonan workshop in this section too.
@@ -297,7 +314,7 @@ In an App Store first the developer then the app store are involved in making a 
 \end{itemize}
 
 \subsection{Bugs}
-Species of bugs: data loss bugs: When apps lose data they also lose the trust of users. One cause of data loss in Android apps has been investigated recently (2019) in ~\cite{riganelli2019benchmark_android_data_loss_bugs} where the authors found 19.2\% of the Android apps they evaluated lost data. The data losses were of one particular type - where the app failed to save and/or restore data when the app was stopped and restarted. There are other causes of data loss for mobile apps including database, network and storage errors, for example. They claim some of these bugs may surface as crashes in the app at a later stage, after the data was lost and the app resumed, however their examples did not seem to result \yy{in} crashes. \yy{Data loss is definitely a sign of lack of integrity. Sometimes it is required to lose some user data for privacy protection. Maybe you can refine the definitely more precisely to refer to "retaining the data that users care".} \yy{I think one of the gaps is that the data loss bug that does not lead to crashes are actually bugs too. This is kind of important to justify your work will be different from other app testing literature that focus on detecting crash related bugs.}
+Species of bugs: data loss bugs: When apps lose data they also lose the trust of users. One cause of data loss in Android apps has been investigated recently (2019) in ~\cite{riganelli2019benchmark_android_data_loss_bugs} where the authors found 19.2\% of the Android apps they evaluated lost data. The data losses were of one particular type - where the app failed to save and/or restore data when the app was stopped and restarted. There are other causes of data loss for mobile apps including database, network and storage errors, for example. They claim some of these bugs may surface as crashes in the app at a later stage, after the data was lost and the app resumed, however their examples did not seem to result in crashes. \yijun{Data loss is definitely a sign of lack of integrity. Sometimes it is required to lose some user data for privacy protection. Maybe you can refine the definitely more precisely to refer to "retaining the data that users care".} \yijun{I think one of the gaps is that the data loss bug that does not lead to crashes are actually bugs too. This is kind of important to justify your work will be different from other app testing literature that focus on detecting crash related bugs.}
 
 To the authors' credit they provide extensive material including automated tests for the vast majority of the bugs~\footnote{\url{https://gitlab.com/learnERC/DataLossRepository}}. They were able to create automated tests that reproduced 110 of the 116 errors and were able to automatically detect 98 out of the 110 errors they were able to reproduce.
 
@@ -324,3 +341,8 @@ One of the considerations this work helps to illustrate is the many challenges o
 
 Direct vs indirect analytics - 
 Challenges of research into usage-derived analytics - perhaps why there are gaps in knowledge, compounded for indirect analytics. A tale of two apps, any others?
+
+\subsubsection{Device Testing Services}
+Test Farms have been available commercially since around 2008~\footnote{Based on the author's professional experience.}. Over the years different offerings have peaked and then either been acquired, retired, or disappeared. Google, Amazon and Microsoft offer paid-for device farms as do various specialist businesses. There have been a couple of public-good initiatives including Open Device Labs~\footnote{For example~\url{https://opendevicelab.com/},~\url{https://www.devicelab.org/}}; and Open STF~\cite{openstf_website} which is based on a set of opensource projects~\url{https://github.com/openstf/} and enables teams and organisations to build their own device farms or use commercial offerings based on these projects~\footnote{For example~\url{https://www.headspin.io/}.}.
+% https://loadfocus.com/blog/tech/2018/04/building-your-in-house-device-farm-on-mac-os-using-openstf-for-android-testing/ 
+% https://tech.mercari.com/entry/2019/02/18/173236 (on using HeadSpin and NimbleDroid).

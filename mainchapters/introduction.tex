@@ -7,16 +7,46 @@ These experiences led me to starting my PhD in order to research the potential o
 Despite all these changes, and my limited inroads into a subset of the entire landscape, the research seems to indicate the potential of applying usage analytics to improve both the product (the software) and the process (how the software is developed and tested). The research also identified flaws within analytics tools and also between analytics tools. Both the potential and the flaws appear worth sharing with researchers and with practitioners to help them chose and use analytics wisely.
 
 \section{The Research}
-This section is aimed to replace the following section \href{my-contributions-in-this-thesis}{\emph{\nameref{my-contributions-in-this-thesis}}} which focuses on the author rather than the research.
+Note: This section is aimed to replace the following section \href{my-contributions-in-this-thesis}{\emph{\nameref{my-contributions-in-this-thesis}}} which focuses on the author rather than the research.
+
+Software app developers need to deliver software that can be used successfully by end users. To do so they need to be able to create software and distribute it so it is available to end users. End users need to be able to install and use that software. If the software is sufficiently usable, useful and behaves adequately they may continue to use it. Developers cannot assess \emph{a priori} whether their software will meet the needs and expectations of users, meet their needs, or the needs of their stakeholders. In short they do not know whether it will thrive.
+
+One of the key considerations is whether the quality of their apps are adequate. There are many ways to assess quality of apps, including static analysis, in-person testing, and automated testing. Users may perform their own subjective assessments of quality and some of these users provide feedback in the form of ratings and reviews. 
+
+Researchers have investigated these various sources of quality related information. My research concentrates on using sources of analytics related to usage of apps to help developers a) assess the quality of their current software, and b) improve the quality using the same analytics sources.
+
+Conceptually there appear to be four broad layers of usage analytics, these are illustrated in Figure \ref{fig:four-layers-of-analytics-for-mobile-apps} and described next. They will be discussed in more detail in the  chapter titled~\href{chapter-applying-analytics-to-development-practices}{\emph{\nameref{chapter-applying-analytics-to-development-practices}}}. %MUST_DO decide whether layer and level are synonymous, and if not whether to use one term or the other. Anyway I'm aware I may be conflating both terms here and want to improve the precision of whichever term(s) I use. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=12cm]{images/4-layers-of-analytics.png}
+    \caption{Four Layers of Analytics for Mobile Apps}
+    \label{fig:four-layers-of-analytics-for-mobile-apps}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Visual (GUI-level)} operates at the GUI level, or layer, of the app. It records aspects of the GUI activities such as touches, gestures, interactions with the screen, and data entry. Often it includes recording what is on the screen too. A common type of Visual analytics is \emph{heatmapping} software.
+    \item \textbf{Mobile (app-level)} is incorporated as part of the app and records aspects of what the app is doing, in effect aspects of the usage of the app. Mobile Analytics is prevalent in Android apps and already used for various business purposes.
+    \item \textbf{Crash (liminal-level)} is where specialised reporting can intercept crashes. Through the interception they can change the behaviour of the app, for instance to provide a better user-experience, log, and report the crash to the developers. \emph{Fatal crashes} are ones where the application quits. These can also be observed by the operating system; for mobile apps the operating system is an intrinsic part of the platform.
+    \item \textbf{Device (platform-level)} Platform-level analytics can record apps from when they are installed until they are removed. This recording can include details such as when apps are in-use, crashes, freezes, and so on. Both of the dominant platforms (iOS and Google Android) allow users to decide whether their devices will share this data.
+\end{itemize}
+
+My research includes case studies and developer reports of examples of analytic tools that cover three of these four layers of analytics. The remaining layer, visual analytics, is described briefly with a few examples, visual analytics is seldom used in production mobile apps and therefore I decided to exclude these libraries from my core research. They may be an interesting topic for future research particularly given some of the potential benefits of visual analytics. % COULD_DO add notes on privacy issues and other complicating factors in this sort of research. 
 
 \subsection{Research Problem}
+Research into the use and efficacy of software usage analytics appears to be under-served, particularly in terms of being able to use the analytics to identify and potentially address quality flaws in apps in use. And in recent years, platform-wide analytics has been made available to all the developers of actively used Android apps in Google Play. Despite the ubiquity of these platform-level analytics there appeared to be no research into their efficacy, completeness, or accuracy.
 
 
 \subsection{Research Contributions}
+The research presents the results of several case studies in the use of analytics to improve the reliability of a variety of mobile apps.
+
+TBC.
 
 \subsection{Research Scope}
 
+
 \subsection{Research Strategy}
+
 
 \section{My contributions in this thesis}\label{my-contributions-in-this-thesis}
 I have introduced the concept of using mobile analytics to help illuminate emergent behaviours of mobile apps and set mobile analytics into a broader context of other sources and reflections of perceived quality of mobile apps.
@@ -60,7 +90,7 @@ As Pocket Code was an Android app, available in Google Play, the team also recei
 Relatively recently, in February 2020, the Catrobat team had to migrate their Crashlytics reporting from the Fabric service, which Google was ceasing, to Firebase the replacement reporting service Google provided. In parallel with this migration of the reporting the project team agreed to incorporate mobile analytics into their Android and iOS apps. They decided to use Firebase Analytics for various reasons (to be covered later in my thesis), hence the extension of the apps into app-level analytics.
 
 The two arrows in the figure indicate an area of unplanned research: 
-
+%
 I discovered various flaws in the developer-oriented reports Google provides to app developers who make their apps available in Google Play (approximately 2.9 million apps globally). This led initially to discussions with the relevant engineering teams for Google Play and Android Vitals at Google where they confirmed various flaws. They asked for ongoing updates on my findings and requested a report which I provided. Through our interactions and discussions I realised the merit of researching the characteristics and flaws in analytics tools, and particularly those provided by Google for Android developers. This research is ongoing and intended to continue post PhD given the importance and relevance of the topic.
 
 In mid-2019 several commercial Android development teams learned of my research and offered to contribute their experiences and practices of using mobile analytics in their commercial apps. These apps include app-level analytics in addition to the development teams receiving the ongoing reports Google provides automatically. The contributions of these development teams helped provide additional weight to the value and relevance of using mobile analytics to identify flaws in mobile apps and evidence of the importance developers placed on addressing quality issues gleaned through these tools.
@@ -98,6 +128,32 @@ There are various techniques that can be used to assess aspects of quality of mo
 Google's Google Play app store provides developers with answers to all these niggling questions through a developer-oriented user interface called Google Play Console. 
 In Google Play Console they provide various tools, reports and data all aimed at informing developers about how their apps are 'doing' and performing. Broadly, these include an overview page with one line of pre-selected data per app managed by the Google Play \textit{Developer Account}. Then, per app, Google provides an overview dashboard of graphs \emph{TODO add screenshot?}\yy{}{Yes, please, but needs a brief explanation too} which, in turn, link to more detailed reports and information which provide greater depth. Some graphs only appear when Google's algorithms decide they are relevant, these seem to be related to events and/or volumes of underlying data.
 
+\subsection{Mobile app development lifecycle}
+To provide some context for this section, Figure \ref{fig:ci-cd-development-and-feedback}~\footnote{Reproduced from \emph{``An empirical study of architecting for continuous delivery and deployment"}~\cite{shahin2019empirical_study_architecting_cd}}
+illustrates a modern continuous software lifecycle including feedback. We can observe several distinct stages in the development and deployment of software and the feedback each stage can provide. %MUST_DO check the guidelines for reproducing and citing a figure as-is.
+
+In contrast, Figure \ref{fig:google-play-app-development-and-feedback} illustrates a similar software lifecycle for Android apps released through Google Play together with the various forms of feedback~\footnote{Here we have excluded feedback from the app store, nonetheless it exists for many app stores.} 
+
+Key differences between typical CI/CD lifecycles and the one for Google Play is the pre-launch testing and the app store providing both user feedback and a service called Android Vitals. The pre-launch reports are generated automatically by Google where the app store runs automated monkey testing on a farm of Android devices and various static analysis checks of releases deployed to any of the test channels. I will explain test channels later on. %MUST_DO actually add information on the test channels and how releases can be promoted to production releases in Google Play.
+
+There are additional sources of \emph{analogue feedback} from people, including from alpha and beta testers and end users; and \emph{digital feedback} from Google tools and from usage data collected from the field. These terms are expanded in the following section~\href{analogue-and-digital-feedback}{\emph{\nameref{analogue-and-digital-feedback}}}.
+
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=13cm]{images/ci-cd-development-and-feedback.png}
+    \caption{CI/CD development and feedback, reproduced from~\cite{shahin2019empirical_study_architecting_cd}}
+    \label{fig:ci-cd-development-and-feedback}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm]{images/google-play-app-development.png}
+    \caption{Google Play App Development and Feedback}
+    \label{fig:google-play-app-development-and-feedback}
+\end{figure}
+
+
 \subsection{Mobile app usage lifecycle}
 Mobile apps have a usage lifecycle, which starts when an app is chosen to be installed and ends with either abandonment or active removal of the app from a device. Figure~\ref{fig:mobile_app_usage_lifecycle}~\footnote{Based on a figure in~\cite{bohmer2011falling_asleep_with_angry_birds}} illustrates the possible stages of a mobile app's life on a user's device.
 
@@ -108,13 +164,13 @@ Mobile apps have a usage lifecycle, which starts when an app is chosen to be ins
     \label{fig:mobile_app_usage_lifecycle}
 \end{figure}
 
-Chapter TBD provides details of my understanding of how Google collects the underlying data (they do not document, explain or encourage research in how their system works, We return to their behaviour and the effects later in this introduction). And chapter TBD describes software we developed to help collect data from Google Play Console in order to facilitate both research and to enable developers to collect and use data...
+Chapter TBD provides details of my understanding of how Google collects the underlying data (they do not document, explain or encourage research in how their system works, We return to their behaviour and the effects later in this introduction). And the chapter \href{chapter-software-we-developed-for-google-play-console}{\emph{\nameref{chapter-software-we-developed-for-google-play-console}}} describes software we developed to help collect data from Google Play Console in order to facilitate both research and to enable developers to collect and use data...
 
 Crashes are often considered a concrete measure of poor performance of software and there has been extensive research in crashes for Android applications, in particular. I suspect there are various reasons for the focus on crashes as an oracle for testing software, crashes are unambiguous (even if the causes are not) and they are also binary so easy to determine whether software has, or has not, crashed. 
 
 Google launched a service called Android Vitals as a new, intrinsic part of Google Play Console in 2016/17 \emph{TODO confirm the date and revise this sentence} where they popularised a measure called \emph{Stability} to assess the quality of Android apps. Their measure includes both crashes and when an application freezes or is unresponsive for at least 5 seconds from a user's perspective, a term Google call Application Not Responding (ANR).
 
-\subsection{Analogue and Digital Feedback}
+\subsection{Analogue and Digital Feedback}~\label{analogue-and-digital-feedback}
 Feedback can help developers to find and choose ways to improve their software. Various researchers have investigated way to understand and use feedback provided by end-users, for instance, in ratings and reviews users provide to the app store. For the purposes of my research I term feedback people provide as \emph{analogue feedback} as it has the richness and complexity of analogue signals, and also challenges of processing and comprehension.
 
 In contrast, digital feedback originates from software and is generally deterministic~\footnote{~\url{https://en.wiktionary.org/wiki/deterministic}}. For the purposes of my research I consider digital feedback as that provided by running software where programmers added code to programs to collect data that provides feedback about software use and certain behaviours of that software. The addition of the code may be automated, in part, or wholly, for instance by another program or script. As an example, AppPulse Mobile claims they can add analytics automatically without developers writing a line of code~\footnote{~\url{https://www.microfocus.com/en-us/products/apppulse-mobile-app-apm-monitoring/overview}}.
