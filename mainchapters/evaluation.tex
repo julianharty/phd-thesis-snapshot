@@ -1,12 +1,31 @@
 \chapter{Evaluation}
-This chapter evaluates the research performed during the PhD with a focus on work in the last two years where much of the progress was made. 
+This chapter evaluates the research performed during the PhD.
 
 \section{Evaluation of the case studies}
 The case studies both led to significant improvements to the measured reliability of the treatment app. For the Kiwix project they then updated the codebase for the majority of their apps and achieved similar improvements in the measured reliability despite only using the default analytics provided by Google Play Console. For the Catrobat project the development teams chose to add crash and mobile analytics to their iOS app (which had neither previously) and mobile analytics to their Android app.
 
+\section{Evaluation of the Analytics Tools}
+The research primarily used and compared two analytics tools, both developed and maintained by Google. The research identified a wide range of flaws, summarised here.
+
+\begin{enumerate}
+    \item Testing discouraged: being encouraged and able to test the workings of the algorithm can increase the confidence in the analytics being generated. Flaws can be identified, discussed and either addressed or workarounds found.
+    \item Negative user populations: Google Play Console provides two complementary graphs in addition to a third value useful for triangulation and for understanding the user-base for an app. For some apps the combination of the data in the first two graphs adds up to a negative volume of users.
+    \item Gaps in the data: On numerous occasions Android Vitals graphs had gaps in the charts.
+    \item No updates for 10+ days: in Autumn 2019. No explanation or information was provided to developers about the problem or the causes.
+    \item No service dashboard: Google Play Console does not provide anywhere to check the current status or previous outages (unlike many other similar tools and other Google services).
+    \item Repeated graphs in dashboard report.
+    \item Inconsistent data ranges for some of the graphs in the dashboard report.
+    \item Incorrect data ranges for Crash and ANR statistics reports.
+    \item Unexplained and unfounded headline warning alerts.
+    \item Missing URL parameters for links to drill-down reports in Android Vitals for some Android Releases.
+    \item Second most popular country's details conflated with the the most popular and used for the title of one of the acquisition reports.
+    \item Poor grouping of crash clusters.
+    \item Lack of reports for low to medium volume user-bases.
+    \item 10x difference in calculated crash rate between the two analytics tools.
+\end{enumerate}
+
+
 \section{Evaluation of the software created for the research}
-
-
 
 
 
