@@ -1,3 +1,9 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is a modified version of the thesis.tex file to easily enable
+% me to create a PDF for a single chapter so I can check and edit it
+% easily
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \RequirePackage[l2tabu]{nag}	
 \documentclass[a4paper,12pt,leqno,openbib,oldfontcommands]{memoir}
 \input{latex-configuration}
@@ -6,34 +12,18 @@
 \setlength{\marginparwidth}{2cm}
 \begin{document}
 % Read https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1):_Basic_Structure
-\frontmatter
-\pagenumbering{roman}
-%
-\input{frontmatter/title}
-%\clearemptydoublepage
-%
-\input{frontmatter/abstract}
-%\clearemptydoublepage
-%
-\input{frontmatter/my-contributions}
 
-\input{frontmatter/dedication}
-%\clearemptydoublepage
-%
-\input{frontmatter/declaration}
-%\clearemptydoublepage
-%
-\input{frontmatter/glossary}
+\pagenumbering{roman}
 
 \renewcommand{\contentsname}{Table of Contents}
 \maxtocdepth{subsection}
 \tableofcontents*
 \addtocontents{toc}{\par\nobreak \mbox{}\hfill{\bf Page}\par\nobreak}
-\clearemptydoublepage
+%\clearemptydoublepage
 %
 \listoftables
 \addtocontents{lot}{\par\nobreak\textbf{{\scshape Table} \hfill Page}\par\nobreak}
-\clearemptydoublepage
+%\clearemptydoublepage
 %
 \listoffigures
 \addtocontents{lof}{\par\nobreak\textbf{{\scshape Figure} \hfill Page}\par\nobreak}
@@ -44,20 +34,19 @@
 % subdirectories.
 \mainmatter
 %
-\input{frontmatter/abstract.tex}
+%\input{frontmatter/abstract.tex}
 
-\input{mainchapters/introduction}
-\input{mainchapters/background}
-\input{mainchapters/researchquestions}
+%\input{mainchapters/introduction}
+%\input{mainchapters/researchquestions}
 
 %\input{DeviceSelection.tex}
 %\input{OnTestingForMobileApps.tex}
 
-\input{mainchapters/related-work}
+%\input{mainchapters/related-work}
 
 \input{mainchapters/applying-analytics-to-development}
-\input{case-studies/overview-of-case-studies}
-\input{mainchapters/evaluation}
+%\input{case-studies/overview-of-case-studies}
+%\input{mainchapters/evaluation}
 
 
 %\input{ResearchQuestions.tex}
@@ -67,9 +56,9 @@
 %\input{TestingAnalytics.tex}
 %\input{disonnance.tex}
 %\input{OngoingWork.tex}
-\input{mainchapters/discussion.tex}
-\input{mainchapters/conclusions}
-\input{mainchapters/future-work}
+%\input{mainchapters/discussion.tex}
+%\input{mainchapters/conclusions}
+%\input{mainchapters/future-work}
 
 %\input{fieldstones.tex}
 %\input{catrobat-case-study.tex}
@@ -82,15 +71,15 @@
 
 % \clearemptydoublepage
 %\appendix
-\input{appendicies/software-contributions}
-\input{meta-chapters/data-sources}
-\input{case-studies/analytics-tools}
-\input{appendicies/our-android-vitals-tools}
-\input{appendicies/on-mobile-analytics}
-\input{appendicies/learning-R}
-\input{meta-chapters/actions.tex}
-\input{meta-chapters/possible-architectures}
-\input{appendicies/phd-experience}
+%\input{appendicies/software-contributions}
+%\input{meta-chapters/data-sources}
+%\input{case-studies/analytics-tools}
+%\input{appendicies/our-android-vitals-tools}
+%\input{appendicies/on-mobile-analytics}
+%\input{appendicies/learning-R}
+%\input{meta-chapters/actions.tex}
+%\input{meta-chapters/possible-architectures}
+%\input{appendicies/phd-experience}
 % Add index
 %\printindex
 %   

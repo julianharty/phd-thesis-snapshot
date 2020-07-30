@@ -5,66 +5,39 @@ Analytics, such as user-journeys, can help to answer questions about the usage o
 
 Various data can be potentially collected. What can be collected depends on the observation mechanisms. The choices of observation mechanisms within an app are made by developers or their stakeholders. Observation may be within an app or external to it, for instance by the operating system as Google Android does~\footnote{There are other custom versions of Android, for instance used in Amazon Kindle Fire devices.}. Within an app the observation may focus at a single layer, for instance the visual user interface, or several.
 
-\section{3 layers of an app}
-\begin{figure}[ht]
-    \begin{minipage}{\textwidth}
-    \centering
-    \includegraphics[width=10cm]{images/mobile-analytics-playbook/3-layers.png}
-    \caption[Three layers of an app]{Three layers of an app~\footnote{Image credit: First published in the Mobile Analytics Playbook~\cite{harty_aymer_playbook_2016}}.}
-    \label{fig:3-layers}
-    \end{minipage}
-\end{figure}
-
-Figure \ref{fig:3-layers} illustrates three primary observation points, or layers, for a mobile app. 
-
-The Graphical User Interface (GUI) % SHOULD-DO add to glossary.
-can be visually observed by sighted users, it can also be observed by Accessibility software, and test automation tools, \emph{etc.} externally to the app. It can also be observed from within the app, for instance through using software known as \emph{heatmapping} that records the screens and the touch interactions performed by users of that screen. One of the the more popular, mature heatmapping offerings is from AppSee~\footnote{\url{  https://www.appbrain.com/stats/libraries/details/appsee/appsee}}, nonetheless they are only used in a small minority of mobile apps.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=12cm]{images/matrix-of-logging.png}
-    \caption{Matrix of logging}
-    \label{fig:matrix-of-logging}
-\end{figure}
-
-The application may incorporate logging and/or mobile analytics. Logging in mobile apps is often used locally, by developers independently of other mechanisms. Figure \ref{fig:matrix-of-logging} illustrates a matrix of logging, where logging and mobile analytics are on the Y axis and local and remote on the X axis. Google Play is an external observer of data recorded in device logs. Data collection runs locally and is sent to Google servers where Google analyses the data and provides reports to developers for their apps.
-
-As an observation the vast majority of Android developers use the default inbuilt logging library \texttt{android.util.log} and choose one or more of Google's analytics offerings (which include Firebase and Crashlytics). A commercial organisation provides current statistics for third-party logging libraries~\footnote{Logging libraries (note the default library is not tracked at the time of writing~\url{https://www.appbrain.com/stats/libraries/tag/logging/logging-libraries}}, crash libraries~\footnote{\url{https://www.appbrain.com/stats/libraries/tag/crash-reporting/android-crash-reporting-libraries}} and mobile analytics~\footnote{\url{https://www.appbrain.com/stats/libraries/tag/analytics/android-analytics-libraries}}. Some apps have several of these libraries so counts may exceed 100\% in their reports.
-
-\begin{itemize}
-    \item Logging: enables developers to understand what their software is doing. The practice is commonplace across many software domains including mobile apps, and each platform and language includes a standard method of generating log messages. These messages tend to be small and intended for immediate, local consumption. On Android when developers use the standard logging library (\texttt{android.util.log}) their log messages are written to a shared circular log file on a device. Some privileged Android software is able to read these shared logs, developers can also read them using standard Android development tools \emph{e.g.} \texttt{adb logcat} providing they are connected to the device with the log file. Older versions of Android allowed apps to read the full contents, more recently apps are restricted to only the log messages they wrote unless they are granted the relevant permission by Google and the user. 
-    In other domains \emph{e.g.} web servers, infrastructure software, and many others, logging is used for production monitoring, fault-finding and analysis. A minority of mobile app developers use remote logging.
-    \item Mobile analytics, can extend and scale logging. For mobile analytics, a minority of developers incorporate custom implementations, however the vast majority who use analytics do so through using third-party analytics libraries such as Google Firebase Analytics, details of the current usage of analytics libraries are provided by AppBrain~\footnote{\url{https://www.appbrain.com/stats/libraries/tag/analytics/android-analytics-libraries}}.
-\end{itemize}
-
-Similar to the concept of black box testing (where software's behaviour is observed and assessed without knowing the internals), external software can observe the behaviours of apps. Google have developed and integrated software that monitors apps running in Google approved versions of Android. The data is collected per device and provided automatically to Google servers if the device has the relevant settings enabled~\cite{google_play_share_usage_and_diagnostics_info_with_google}. This data is processed by Google who provide some portions of the data to the registered developers of that app in the Google Play Store.
-
-\emph{Idea for expansion:} Drop-off in data for a population  c.f. marketing funnels, funnels for shopping carts, etc.
 
 \section{Overview of applying analytics to development practices}
+The development team have various choices available to them in terms of applying analytics to their software development practices. Their ~\href{subsection-levels-of-engagement}{\emph{levels of engagement}} range from not using analytics at all through to actively using an optimal mix of sources. 
+Sources can include various forms of passive analytics to more hands-on techniques such as incorporating libraries and adding code to the app to report events, activities, and so on.
+
 \begin{itemize}
-    \item Decide whether to use any existing, pre-provided analytics. This includes \emph{passive analytics} (gathered without the developers needing to actively include analytics tools in their app). It may also include analytics provided as a side-effect of incorporating libraries into the app without the developers needing to add code to record additional information. 
+    \item Decide whether to use any existing, pre-provided analytics. This includes\emph{passive analytics} (gathered without the developers needing to actively include analytics tools in their app). It may also include analytics provided as a side-effect of incorporating libraries into the app without the developers needing to add code to record additional information. 
     \item Decide whether to incorporate analytics into the app, and if so what data to collect, which analytics library/libraries to incorporate and the many associated aspects we will cover in this chapter.
     \item Consider whether and how to test analytics and whether to filter [out] analytics during automated and internal testing.
     \item Use and analyse the analytics data from the app and the platform (where available).
     \item Triage and prioritise potential issues reported from external sources (pre-launch testing, new releases, active mainstream releases, etc.)
 \end{itemize}
 
-\subsection{Levels of engagement}
+\subsection{Levels of engagement}~\label{subsection-levels-of-engagement}
 Continuum of levels of engagement, or commitment, by developers:
 \begin{enumerate}
     \setcounter{enumi}{-1} % unexpectedly this sets the first item in this list to zero.
     \item No analytics incorporated in the development process. If they exist, they're ignored.
     \item Passive analytics incorporated, app does not contain any crash recording, remote logging, or other mobile analytics libraries.
     \item App incorporates one or more of the above mentioned libraries, initialises them where necessary but does not add any other additional calls to the libraries.
-    \item App incorporates additional code to call one or methods using the APIs (\emph{etc.} if other mechanisms are available).
+    \item App incorporates additional code to call one or standard methods using the APIs (\emph{etc.} if other mechanisms are available).
+    \item App includes custom reporting where specific parameters are included in relevant API calls.
 \end{enumerate}
 
-In terms of incorporating analytics, 
-\subsection{Incorporating passive analytics e.g. Google Play Console to development practices}
-\href{google_play_console_section}{\emph{\nameref{google_play_console_section}}} provides developers with a variety of reports on the performance of their Android app. Developers can integrate and incorporate the passive analytics Google provides through the various reports in order to a) better understand how their app is doing b) change their app so it performs better as reported by these reports.
+% The next topic  incorporating analytics,
 
-Here are the reports in the most likely order of being generated if developers follow various recommendations made by Google, \emph{i.e.} to create and take advantage of test releases and use release management tools when rolling out a release of their Android app into production.
+
+\subsection{Incorporating passive analytics to development practices}
+As mentioned earlier, passive analytics are those not actively under the control or influence of the development team, they are provided from other sources such as the operating system or the app store. In my research the passive analytics are all managed by the app store, Google Play Console.
+
+Later in this thesis, the section titled \href{google_play_console_section}{\emph{\nameref{google_play_console_section}}} provides examples of a variety of reports developers may receive on the performance of their Android app. Developers can integrate and incorporate the passive analytics Google provides through the various reports in order to a) better understand how their app is doing b) change their app so it performs better as reported by these reports.
+
+Here are the reports in the most likely chronological order of being generated if developers follow various recommendations made by Google, \emph{i.e.} to create and take advantage of test releases and use release management tools when rolling out a release of their Android app into production. They are not guaranteed to be produced or be available, and the contents may expire after a period determined by the app store.
 
 \begin{enumerate}
     \item \textbf{Pre-launch reports}: 
@@ -81,11 +54,8 @@ data and with a few exceptions limits reports to populations that exceed thresho
 
 Nonetheless, I recommend developers consider ethical and legal responsibilities if they discover that sensitive and other PII data is being collected through the passive analytics. This may include avoiding reports with such data in them and also reporting the concerns to upstream providers of analytics (and where appropriate internal and external legal authorities).
 
-\section{An aside on packaging mobile apps}
-Mobile apps are a bit like snails, who carry everything with them in their shell, well actually in their application binary package (known as an APK~\footnote{Android Package Kit\url{https://en.wikipedia.org/wiki/Android_application_package}} file). This includes whichever libraries they use. Therefore, when developers want to include pre-packaged support for crash-reporting and/or mobile analytics, the development team need to incorporate the relevant software libraries in their application binary package. These libraries are therefore distributed as an intrinsic part of an app and installed seamlessly with the main application onto a user's device.
-
-\section{Applying a crash-reporting library}
-As mentioned in the section on packaging mobile apps, crash-reporting libraries need to be incorporated into an application before they can be used. Generally~\footnote{A small minority of developers may follow other practices, nonetheless the principles mentioned here still apply}, the developer adds a few configuration lines to their application's build file (in \texttt{app/build.gradle} for Android apps) and also several lines of code to initialise the library when the application starts. These install the library as the global crash handler for the app, each time the app is started the library is initialised. 
+\section{Adding and incorporating a crash-reporting library}
+Crash-reporting libraries need to be incorporated into an application before they can be used, as mentioned in the section on~\href{section-packaging-mobile-apps}{\emph{packaging mobile apps}}. Generally~\footnote{A small minority of developers may follow other practices, nonetheless the principles mentioned here still apply}, the developer adds a few configuration lines to their application's build file (in \texttt{app/build.gradle} for Android apps) and also several lines of code to initialise the library when the application starts. These install the library as the global crash handler for the app, each time the app is started the library is initialised. 
 
 When the library is initialised, it may perform various actions such recording details of the operating system release, the model of device, \emph{etc.}. They may also perform house-keeping activities, for instance Crashlytics transmits crash reports from previous sessions.
 
@@ -127,5 +97,8 @@ Google provide a free service called pre-launch reports~\cite{google_use_pre_lau
     \item Establish the acceptance criteria, including any design and implementation aspects.
     \item TBC...
 \end{itemize}
+
+\section{Validating Analytics}
+
 
 \section{Summary of applying analytics to development practices}
