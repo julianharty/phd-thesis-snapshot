@@ -24,6 +24,127 @@ The research primarily used and compared two analytics tools, both developed and
     \item 10x difference in calculated crash rate between the two analytics tools.
 \end{enumerate}
 
+\iffalse 
+\begin{table}[!htbp]
+    \begin{threeparttable}[t]
+    \footnotesize
+    \centering
+
+    \begin{tabular}{p{0.15\textwidth}p{0.3\textwidth}p{0.4\textwidth}}
+    Flaw &Example &Impact \\
+    \hline
+
+    Negative populations &
+    Pocket Code (see lifetime report L) &
+    Lack of trust in Google’s analytics.\\
+    
+    Gaps in the data &
+    Data missing for 1+ days (see below for examples) &
+    Calculations affected, reduction in value of the reports, incomplete information. \\
+    
+    Missing URL parameters &
+    Links to drill down on crash clusters for particular Android versions\tnote{1} &
+    Confusion, risk of misattributing the reported crashes to a particular Android version when they are actually for the overall, current range of Android releases an app is running on. \\
+    
+    Incorrect ranges (a possible off-by-one calculation?) &
+    Mismatch between overview and timeseries reports for Crashes and ANRs (see figures W,X,Y,Z). \\
+    
+    Poor groups of crash clusters &
+    Kiwix examples dated \nth{4} July 2020\tnote{2} &
+    Flaws in bug identification (mistakenly believing the scope of a crash cluster), potential suboptimal prioritisation of bugs to address. \\
+    
+    Lack of reports for low-volumes of usage &
+    e.g. for WikiMed in Japanese with 1842 active users &
+    Some key reports not available during early growth stages of an app, those apps may fail to thrive if they’re failing and developers don’t know the causes are poor reliability. \\
+    
+    \nth{2} country’s data conflated with \nth{1} &
+    Acquisition Reports in app dashboard (see screenshot C)\tnote{3} &
+    Confusion and lack of confidence in the reports. \\
+    
+    No facility for testing and testing discouraged &
+    Implicit from the Terms of Service, section\tnote{4}. Other analytics tools, including those provided by Google, do encourage testing. &
+    Developers dissuaded from testing the functionality or reporting. They have to [decide whether to] take on trust what Google chooses to tell them. \\
+
+
+    \end{tabular}
+    \begin{tablenotes}
+    \item[1]e.g. the URL includes the relevant numeric value for most but not all the Android Versions \texttt{androidVersion=28} is correct and present for Android 8.1
+    
+    \item[2] a) \texttt{java.lang.IllegalStateException org.kiwix.kiwixmobile.core.base.BaseActivity.onCreate} \\
+    b) \texttt{tgkill}
+    
+    \item[3] Note: partly addressed in the June 2020 revamp of Google Play Console.
+    
+    \item[4] \emph{``Broken Functionality We don’t allow apps that crash, force close, freeze, or otherwise function abnormally.”}~\cite{google_play_developer_policy_center}
+    \end{tablenotes}
+    
+    \caption{Issues in Google Play Console Reports}
+    \label{tab:issues-in-google-play-console-reports}
+    \end{threeparttable}
+\end{table}
+\fi
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage[normalem]{ulem}
+% \useunder{\uline}{\ul}{}
+\begin{table}[!htbp]
+\scriptsize
+\renewcommand\TPTminimum{\textwidth}
+%% Arrange for "longtable" to take up full width of text block
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\setlength\tabcolsep{6pt}
+\begin{tabular}{p{0.18\textwidth}p{0.38\textwidth}p{0.4\textwidth}} %{@{}lll@{}}
+
+\toprule
+Flaw &
+  Example &
+  Impact \\ \midrule
+Negative populations &
+  Pocket Code (see lifetime report below) &
+  Lack of trust in Google’s analytics \\
+Gaps in the data &
+  Data missing for 1+ days (see below for examples) &
+  Calculations affected, reduction in value of the reports, incomplete information \\
+Missing URL parameters &
+  Links to drill down on crash clusters for particular Android versions e.g. Android 8.0 vs. Android 8.1 &
+  Confusion, risk of misattributing the reported crashes to a particular Android version when they are actually for the overall, current range of Android releases an app is running on. \\
+Incorrect ranges (a possible off-by-one calculation) &
+  Mismatch between overview and timeseries reports for Crashs and ANRs (see below for examples - 4 figures) &
+  One day’s data ‘missing’ from the timeseries reports. Confusion, lack of trust in the reports. \\
+Poor groups of crash clusters &
+  Kiwix example 04 Jul 2020\\ java.lang.IllegalStateException\\ org.kiwix.kiwixmobile.core.base.BaseActivity.onCreate\\ And tgkill &
+  Flaws in bug identification (mistakenly believing the scope of a crash cluster), potential suboptimal prioritisation of bugs to address. \\
+Lack of reports for low-volumes of usage &
+  E.g. for WikiMed in Japanese with 1842 active users. &
+  Some key reports not available during early growth stages of an app, those apps may fail to thrive if they’re failing and developers don’t know the causes are poor reliability \\
+2nd country’s data conflated with 1st. &
+  Acquisition Reports in app dashboard (see below for screenshots). Note partly addressed in the June 2020 revamp of Google Play Console. &
+  Confusion and lack of confidence in the reports \\
+No facility for testing and testing discouraged &
+  Implicit from the Terms of Service, section “Broken Functionality We don’t allow apps that crash, force close, freeze, or otherwise function abnormally.” Other analytics tools, including those provided by Google, do encourage testing. &
+  Developers dissuaded from testing the functionality or reporting. They have to {[}decide whether to{]} take on trust what Google chooses to tell them. \\
+Repeated graphs &
+  In dashboard report for apps 2 graphs are repeated: New users acquired, and Users lost. &
+  Breaks ‘don’t repeat yourself’ (DRY). Waste of attention. \\
+Inconsistent date ranges for some dashboard reports &
+  The audience growth reports: new users acquired by country, and top countries graphs are for fixed periods - the period is not explained or visible on the report. In contrast the Android Vitals graphs are explicitly for the last 30 days, not necessarily ideal but at least documented that the period is fixed. &
+  Confusion, inconsistent behaviour of the reports, potential for misinterpretation. \\
+No updates for several days &
+  In September 2019 the Android Vitals graphs and data were not updated for around 10 days &
+  Inability to see or respond to stability issues, loss of confidence in the service. \\
+Unexplained negative headline rate &
+  Crash rate of 1.66\% - urgent warning, yet drilling down into the report none of the details reach 1.66\%, they are all significantly lower values. &
+  Reduction in confidence in their alerts, and similarly a lack of trust in their calculations \\
+No Service Problem Reporting &
+  Google, and many others, provide a service status page, and many also include a history. For instance Salesforce provides https://trust.salesforce.com/en/ and status pages e.g. https://status.salesforce.com/incidents/5800 &
+  A lack of transparency which leads to a lack of trust. \\ \bottomrule
+\end{tabular}
+    \caption{Issues in Google Play Console Reports}
+    \label{tab:issues-in-google-play-console-reports}
+\end{table}
+
 
 \section{Evaluation of the software created for the research}
 

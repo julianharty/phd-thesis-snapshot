@@ -98,6 +98,76 @@ Google provide a free service called pre-launch reports~\cite{google_use_pre_lau
     \item TBC...
 \end{itemize}
 
+\section{Evaluation criteria for Analytics Tools}
+One of the considerations in terms of using analytics tools is to decide on evaluation criteria. These criteria may range from informal and implicit evaluations to more rigorous and formal approaches. Considerations also include a mix of technical and non-technical aspects such as popularity, brand, perceived ease of initial use, and so on.
+
+This section includes four types of criteria and a rubric for evaluating analytics tools.
+
+\subsection{Evidence-based criteria}
+
+\subsubsection{Auditability}
+The reliability of software where the outcomes of failure are material has been a subject of discussion and research for decades. As (\cite{dobbing1998reliability}) notes, where the reliability requirements are modest black box testing techniques may be sufficient, however \emph{``When reliability claims cannot be justified from test results alone, safety standards accept evidence from the design process"}. This paper focuses on smart instrumentation for the UK nuclear industry, nonetheless given the widespread use and implicit trust of analytics software, similar approaches to assess the reliability of this software could help in terms of auditing the behaviours of the analytics tools. Indeed two of the authors of (\cite{dobbing1998reliability}) collaborated with a third author and published a paper on the relevance and importance of software in measuring systems, where \emph{``Both users and suppliers of such systems must be aware of the risks involved and take appropriate precautions."} (~\cite{wichmann2007software}).
+
+\subsubsection{Functional-aspects}
+
+\subsubsection{Transparency}
+
+\subsubsection{Veracity}
+
+\subsubsection{Faults and failures}
+
+
+\subsection{Verification and Validation criteria}
+These two terms, verification and validation, are often used in tandem, particularly in software testing standards including the retired~\cite{BS_7925_1_1998} and the standard that superseded it~\cite{iso29119-1-2013}. The definitions from the ISO standard are:
+\begin{itemize}
+    \item ``Verification is confirmation, through the provision of objective evidence, that specified requirements have been fulfilled in a given work item."~\cite{iso29119-1-2013}
+    \item ``Validation demonstrates that the work item can be used by the users for their specific tasks."~\cite{iso29119-1-2013}
+\end{itemize}
+
+In terms of analytics tools, verification would focus on evaluating whether the tool has been implemented correctly. Validation considers human aspects such as whether users can perform intended tasks using the analytics tool(s). (In this research context software developers of mobile apps are the main users).
+
+As the requirements for analytics tools are often proprietary, verification using the product specified requirements may be impractical to assess rigorously unless and until one has access to these requirements. Nonetheless common-sense requirements can be established based on heuristics and experience, \emph{etc}. this is covered in the section titled: \href{rubric-for-evaluating-analytics-tools}{\nameref{rubric-for-evaluating-analytics-tools}}.
+
+\subsection{Perceptions-based criteria}
+
+\subsection{Qualitative/quality criteria}
+
+\subsubsection{Functional correctness}
+
+\subsubsection{Performance}
+
+\subsubsection{Safety}
+Freedom from harm or danger, safety in other words, may be an unlikely consideration initially especially in terms of using analytics tools. 
+
+Safety in terms of reputation, ability to try something out, and so on, considers human aspects of using (or not-using) various analytics tools. Safety became an emerging consideration in terms of assessing various analytics tools. Safety in relationship to the researcher, the health of apps and projects related to the research, and in terms of protecting the safety of end users privacy, \emph{etc}.
+
+\subsubsection{Security}
+
+\subsubsection{Time-aspects}
+
+\subsection{A rubric for evaluating analytics tools}~\label{rubric-for-evaluating-analytics-tools}
+Bugs can be exposed with various qualities, a heuristic the author learned in many years of evaluating the performance of systems is zero, one, several, and many, where:
+\begin{itemize}
+    \item Zero: can represent a system before it is actively used and/or the quiescent state with no active users, where there were users previously.
+    \item One: the first user, session, account, and so on. Unless there are stated reasons to the contrary, as the first activity starts the analytics should be able to correctly indicate and report on the activity.
+    \item Several: As several activities occur in parallel and concurrently race conditions, queuing, latency, and reuse of dirty memory values can all emerge.
+    \item Many: As volumes increase from several to many issues of scaling may emerge, and some of the issues that appeared to be minor with several users may increase nonlinearly. 
+\end{itemize}
+
+Hysteresis loops are used to represent forces in magnetism, elasticity, and so on. They may also be relevant in representing the effects of growth (loading) and decline (unloading) of analytics systems. Figure ~\ref{fig:elastic-hysteresis} indicates elastic hysteresis as force increases and decreases the extension of rubber also varies, but nonlinearly. For an analytics system Force may represent actual concurrent use and extension the reported use.
+
+\begin{figure}[!htbp]
+    \centering
+    \copyrightbox[r]{
+        \includesvg[scale = 0.8]{images/wikipedia/Elastic_Hysteresis.svg}}
+    {\textcopyright Bedenbender et Tiger66 \href{{https://creativecommons.org/licenses/by/2.5}}{CreativeCommons: CC by 2.5}\\source: \href{https://commons.wikimedia.org/wiki/File:Elastic_Hysteresis.svg}{Wikpedia}}
+    \caption{Elastic Hysteresis}
+    \label{fig:elastic-hysteresis}
+\end{figure}
+
+Economic effects of whether individuals swear an oath were assessed in two countries, China and Sweden (\cite{carlsson2013truth}). 
+
+
 \section{Validating Analytics}
 
 
