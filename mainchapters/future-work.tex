@@ -41,7 +41,22 @@ As discussed in section \href{platform-level-analytics}{\emph{\nameref{platform-
 Structure and presentation of content in the Android logs: ...
 Consistency in pertinent events in Android logs (we believe they're consistently formatted with predictable elements always provided, which makes them easier to parse and process).
 
+\section{Comparing static-analysis warnings with failures reported in usage analytics}
+As the research of~\cite{khalid2016_examining_the_relationship_between_findbugs_warnings_and_app_ratings} found, there were correlations between static analysis warnings for poorly rated apps for three categories of warnings: 1) bad practice, 2) internationalization, and 3) performance. The first and third of these categories are also provided by various analytics tools including Android Vitals. Therefore it may be of interest to research whether there are correlations between static-analysis warnings for these categories and the crash and ANR clusters reported in the appropriate tools. 
 
+The results of these comparisons may help in several areas of further research:
+\begin{enumerate}
+    \item Warnings are reported by static-analysis tools but not reported in the analytics tools,
+    \item failures in the field are also detected by static-analysis tools, and
+    \item failures in the field are not detected by static-analysis tools.
+\end{enumerate}
+
+In each case there is the potential to investigate the effects. Here are some suggestions:
+\begin{enumerate}
+    \item Perhaps the code-paths in the app are not used in practice in the field. If so, there may be usability and/or reachability issues. Developers can then take corrective action or remove the code if they decide it is not productive and reduce the size and complexity of the app.
+    \item If the same faults are detected in both tools, potentially developers could find and fix the issues before the software is released. These fixes may improve the reliability of the app in practice and increase the potential for the app to succeed in terms of app store quality ratings and promotion by the app store as well as also improving the end user experience.
+    \item Where failures are only found when the software is used, could static analysis be enhanced to find some or all of these faults sooner?
+\end{enumerate}
 
 \section{Enhancing quality vs. enhancing UX}\label{enhancing-quality-vs-enhancing-ux}
 Success of software is multifactorial and development teams need to consider where, when and how to focus their energies to achieve satisfactory outcomes for themselves and their patrons (often their management and funders). Where does improving and achieving high-quality software fit amongst other demands on their time and energies?

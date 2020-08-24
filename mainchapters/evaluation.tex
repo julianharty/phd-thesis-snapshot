@@ -4,6 +4,82 @@ This chapter evaluates the research performed during the PhD.
 \section{Evaluation of the case studies}
 The case studies both led to significant improvements to the measured reliability of the treatment app. For the Kiwix project they then updated the codebase for the majority of their apps and achieved similar improvements in the measured reliability despite only using the default analytics provided by Google Play Console. For the Catrobat project the development teams chose to add crash and mobile analytics to their iOS app (which had neither previously) and mobile analytics to their Android app.
 
+%%%% Table generated originally by Spread-LaTeX
+\begin{adjustwidth}{-2.5 cm}{-2.5 cm}\centering\begin{threeparttable}[!htp]\centering
+\caption{Reductions in Crash Rates}\label{tab:evaluation-reductions-in-crash-rates}
+\scriptsize
+\begin{tabular}{lrrrrr}\toprule
+%& & & & \\
+&\multicolumn{4}{c}{30-day crash rates reported in Android Vitals~\tnote{0}} \\\midrule
+\multirow{2}{*}{.} &\multicolumn{2}{c}{Kiwix Apps}| &\multicolumn{2}{c}{Catrobat Apps} \\
+\cellcolor[HTML]{efefef}Release&\cellcolor[HTML]{efefef}Experiment &Control  &\cellcolor[HTML]{efefef}Experiment &Control \\
+
+\cellcolor[HTML]{efefef}&\cellcolor[HTML]{efefef}Kiwix & WikiMed English &\cellcolor[HTML]{efefef}Pocket Code &Pocket Paint \\
+
+\cellcolor[HTML]{efefef}0 &\cellcolor[HTML]{efefef}5.07\% &1.13\% &\cellcolor[HTML]{efefef} & \\
+\cellcolor[HTML]{efefef}1 &\cellcolor[HTML]{efefef}3.12\%~\tnote{1} &\multirow{2}{*}{\cellcolor[HTML]{A8A8A8}}... & \cellcolor[HTML]{efefef} 
+& \\
+\cellcolor[HTML]{efefef}2~\tnote{2} &\cellcolor[HTML]{efefef}1.59\%~\tnote{3} & \cellcolor[HTML]{A8A8A8}... &\cellcolor[HTML]{efefef} & \\
+\cellcolor[HTML]{efefef}3 &\cellcolor[HTML]{efefef}0.53\%~\tnote{4} &1.09\%~\tnote{5} &\cellcolor[HTML]{efefef} & \\
+\cellcolor[HTML]{efefef}4 &\cellcolor[HTML]{efefef}0.72\%~\tnote{6} &0.60\%~\tnote{7} &\cellcolor[HTML]{efefef} & \\
+\cellcolor[HTML]{efefef}4~\tnote{8} 
+&\cellcolor[HTML]{efefef}0.55\% &0.41\% &\cellcolor[HTML]{efefef} & \\
+\cellcolor[HTML]{efefef}5 &\cellcolor[HTML]{efefef}0.40\%~\tnote{9} &0.26\%~\tnote{10} &\cellcolor[HTML]{efefef} & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \item[0] Except when otherwise noted.
+  \item[1] Kiwix Release 2.5 with the previous custom download facility replaced by a Google Android downloader.
+  \item[2] The code is under 25 lines including 10 lines of comments~\url{https://github.com/kiwix/kiwix-android/pull/1388}.
+  \item[3] Aggregate crash rate over 7 days for versions 2.4, 2.5.1, 2.5.2, 2.5.3 (to Aug \nth{26} 2019).
+  \item[4] Previous 30 days crash rate, before release 3.1.2 pushed the crash rate up (same graph as TODO).
+  \item[5] \emph{Unchanged release from the first control.}
+  \item[6] Includes 3.1.2 which had an average (mean) crash rate of roughly 1.7\% (roughly \nth{31} Dec 2019).
+  \item[7] A mixed set of crash rates, averaged by Android Vitals. For the first updated release of Wikimed (the 2019-12 release).
+  \item[8] As usage increased of the more reliable releases the averages declined.
+  \item[9] The crash rates for releases 3.2.1 are 0.23\% and 3.3.1 are 0.31\%
+  \item[10] Release 2020-03 actually has a crash rate of around 0.05\% the numbers are higher as there are still significant volumes of usage on the previous 2 releases.
+
+\end{tablenotes}
+\end{threeparttable}
+\end{adjustwidth}
+\vspace{10mm}
+
+
+Table~\ref{tab:evaluation-reductions-in-crash-rates} provides a numerical summary of five releases of two of the Kiwix Android apps. There are four stages in this case study:
+
+\begin{enumerate}
+    \itemsep0em
+    \item The baseline
+    \item Simplifying the most buggy code
+    \item Applying the concepts in the research to the experiment
+    \item The new normal: ongoing improvements to the experiment app \emph{and} applying these improvements to the custom apps (including the previous control app).
+\end{enumerate}
+% Great ideas to reduce space in list items in https://tex.stackexchange.com/questions/6081/reduce-space-between-enumerated-items
+% COULD-DO I've only applied the basic suggestion for this single list so far, might be worth thesis wide changes as the thesis matures.
+
+\subsection{The baseline}
+There was little focus on finding and fixing causes of crashes. 
+
+The core app included an integrated download facility to download content to a user's local device. This facility provided users with several useful features: they could pause and restart downloads, large files were over 50GB and could take several days to download, it had an integrated recovery mechanism to restart and continue partial downloads after a failure, and it provided users with a progress indicator.
+
+The custom apps were pre-packaged with content (which Google Play Services downloaded at the same time as downloading the app's binary). They did not need, and did not include the custom downloader. This meant their crash rates were significantly better (lower) than the core app managed.
+
+\subsection{Simplifying the most buggy code}
+The first release, release 1 in the table, predated the hackathon (which was the start of the experiment). In this release the lead developer decided to replace a large body of custom code with generic downloader code rather than focus on fixing individual sections of code. The custom code was considered too problematic to fix. However, there was a trade-off by increasing the reliability there was a reduction in usability and also an impact on what happened when downloads stopped or otherwise failed before completion.
+
+\subsection{Applying the research concepts of the experiment app}
+MUST-DO revise the following notes:
+
+Following initial discussions about the crashes being reported in Android Vitals for version 2.5.0 of the Kiwix application, we collaborated on a week-long hackathon in Stockholm in August 2019. There, the developers ended up fixing some of the causes of the most frequent crashes with a surprisingly small amount of code of under 25 lines (including 10 lines of text added to the release log)\footnote{\url{https://github.com/kiwix/kiwix-android/pull/1388}}.
+
+
+\subsection{The new normal}
+MUST-DO revise the following notes:
+
+
+Several releases later, each with various changes and improvements aimed at fixing causes of crashes the crash rate was materially lower than when we started, at the time of writing the overall crash rate for the last 7 days is 0.54\% which is inflated because the rash rate for the previous release (3.1.2) spiked at 1.38\%, compared to 0.18\% for release (3.0.5 -  the last production release) and 0.25\% for the recently released fix (3.1.3).
+
 \section{Evaluation of the Analytics Tools}
 The research primarily used and compared two analytics tools, both developed and maintained by Google. The research identified a wide range of flaws, summarised here.
 
