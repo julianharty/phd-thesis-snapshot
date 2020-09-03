@@ -87,25 +87,53 @@ Following this discussion and analysis about the crashes being reported in Andro
 Various developers continued to make corrective changes to the codebase which made ongoing incremental improvements to the app released to the \texttt{2.5.x} releases. 
 
 \subsection{Stage 4: the new normal}
-The improvements in the reliability of the core app were sufficiently compelling \emph{and} the reliability of the custom apps sufficiently poor that the development team chose to refresh the majority of the custom apps, including the one used as the control (WikiMed English). All the apps share a common codebase, they are created using a common set of build scripts, they differ in their data contents, various `resources'~\footnote{\emph{``Resources are the additional files and static content that your code uses, such as bitmaps, layout definitions, user interface strings, animation instructions, and more."}~\url{https://developer.android.com/guide/topics/resources/providing-resources}}, and the custom apps exclude file management and download features as the contents are pre-packaged as part of the build process instead.
+The improvements in the reliability of the core app were sufficiently compelling \emph{and} the reliability of the custom apps sufficiently poor that the development team chose to refresh the majority of the custom apps, including the one used as the control (WikiMed English). Note: Various details of the crash rate at the time and the plan to migrate the custom apps are included in~\url{https://github.com/kiwix/kiwix-android/issues/1426}. 
 
+All the apps share a common codebase, they are created using a common set of build scripts, they differ in their data contents, various `resources'~\footnote{\emph{``Resources are the additional files and static content that your code uses, such as bitmaps, layout definitions, user interface strings, animation instructions, and more."}~\url{https://developer.android.com/guide/topics/resources/providing-resources}}, and the custom apps exclude file management and download features as the contents are pre-packaged as part of the build process instead.
 
 Several releases later, each with various changes and improvements aimed at fixing causes of crashes the crash rate was materially lower than when we started, at the time of writing the overall crash rate for the last 7 days is 0.54\% which is inflated because the rash rate for the previous release (\texttt{3.1.2}) spiked at 1.38\%, compared to 0.18\% for release (\texttt{3.0.5} -  the last production release) and 0.25\% for the recently released fix (\texttt{3.1.3}).
 
+\subsection{Overall evaluation of the Kiwix case study}
+Within five months the project was able to reduce the crash rate of the core application from over 3\% to around a tenth of that figure. One of the main causes was the focus on addressing the most prevalently reported crash clusters in Android Vitals. This was not the only cause, the software was also being revised and updated, this included replacing some of the existing Java code with Kotlin equivalents. 
+
+Empirical research in Android apps that migrate from Java to Kotlin indicate the code quality often improves in tandem according to static analysis of the binary files of various releases of the studied opensource apps~\cite{GóisMateus2019_an_empirical_study_on_the_quality_of_android_apps_in_kotlin}. That work does not investigate exceptions or crashes, it does include the Kiwix Android project~\footnote{Kiwix is listed as one of the projects their research investigated:~\url{https://github.com/UPHF/kotlinandroid/blob/master/docs/fdroid_all.md}.}. However, their research predates both my case study and when the Kiwix codebase transitioned to Kotlin.
+
+The Kiwix Android project team continue to file bug reports and address them, for instance {\small~\href{https://github.com/kiwix/kiwix-android/issues/2104}{\texttt{github.com/kiwix/kiwix-android/issues/2104}}} 
+provides an example of the lead developer raising a bug report for a crash reported by Android Vitals; and \\{\small ~\href{https://github.com/kiwix/kiwix-android/issues?q=is\%3Aissue+\%22crash+report\%22+}{\texttt{github.com/kiwix/kiwix-android/issues?q=is\%3Aissue+\%22crash+report\%22+}}} provides an up-to-date view of issues labeled with ``crash report". 
+
+In conclusion, addressing crash reports is now performed actively by the developers and the crash rate of all the Android apps updated since the start of the case study have improved.
 
 \section{Evaluation of the Catrobat case study}
+The developers were able to significantly improve the reliability of their major Android app: Pocket Code, through applying a variation of the process identified in my research. The minor app, called Pocket Paint, is a separately packaged version of the drawing (paint) functionality in Pocket Code.
 
+The project team were able to use two sources of analytics on crashes: Google Play Console incorporating Android Vitals, and Fabric Crashlytics. There were differences in the outputs and results of these tools, these are discussed later in this chapter, nonetheless they contained a common set of crashes and fixing the crash was reflected in both tools.
+
+The project has a particularly and unusually mature process and focus on software quality as part of being an essential year-long module for various undergraduate courses and also used for post graduate research at Masters and PhD level. Nonetheless the crash rate was stubbornly high and exceeded Google's limit before we started the case study.
+
+TBC
+
+Still to do:
+\begin{itemize}
+    \item Intermittent focus on addressing crashes
+    \item Loss of Crashlytics data for a period through a mistake configuring a release.
+    \item The inclusion of Firebase Analytics in the Android app.
+    \item The inclusion of Crash and Firebase Analytics in the iOS app, including ongoing work: See Firebase in iOS app https://jira.catrob.at/browse/CATTY-371?jql=text%20~%20%22firebase%22%20ORDER%20BY%20created%20DESC 
+    \item Proposal to move to privacy-friendly analytics tools. 
+\end{itemize}
 
 
 
 \section{Evaluation of the Analytics Tools}
-The research primarily used and compared two analytics tools, both developed and maintained by Google. The research identified a wide range of flaws, summarised here.
+
+\textbf{TODO} \textit{Rewrite this section using the evaluation criteria in Chapter 5.}
+
+The research primarily used and compared two analytics tools: Google Play Console incorporating Android Vitals, and Fabric Crashlytics, developed and maintained by Google. The research identified a wide range of flaws, summarised here.
 
 \begin{enumerate}
     \item Testing discouraged: being encouraged and able to test the workings of the algorithm can increase the confidence in the analytics being generated. Flaws can be identified, discussed and either addressed or workarounds found.
     \item Negative user populations: Google Play Console provides two complementary graphs in addition to a third value useful for triangulation and for understanding the user-base for an app. For some apps the combination of the data in the first two graphs adds up to a negative volume of users.
     \item Gaps in the data: On numerous occasions Android Vitals graphs had gaps in the charts.
-    \item No updates for 10+ days: in Autumn 2019. No explanation or information was provided to developers about the problem or the causes.
+    \item No updates for 10+ days: in Autumn 2019. No explanation or information was provided to developers about the problem or the causes. %pigeon food experiment psychological effects.
     \item No service dashboard: Google Play Console does not provide anywhere to check the current status or previous outages (unlike many other similar tools and other Google services).
     \item Repeated graphs in dashboard report.
     \item Inconsistent data ranges for some of the graphs in the dashboard report.
@@ -117,6 +145,8 @@ The research primarily used and compared two analytics tools, both developed and
     \item Lack of reports for low to medium volume user-bases.
     \item 10x difference in calculated crash rate between the two analytics tools.
 \end{enumerate}
+
+% Group into types of problem. 
 
 \iffalse 
 \begin{table}[!htbp]
@@ -208,7 +238,7 @@ Incorrect ranges (a possible off-by-one calculation) &
   Mismatch between overview and timeseries reports for Crashs and ANRs (see below for examples - 4 figures) &
   One day’s data ‘missing’ from the timeseries reports. Confusion, lack of trust in the reports. \\
 Poor groups of crash clusters &
-  Kiwix example 04 Jul 2020\\ java.lang.IllegalStateException\\ org.kiwix.kiwixmobile.core.base.BaseActivity.onCreate\\ And tgkill &
+  Kiwix example 04 Jul 2020\\ java.lang.IllegalStateException &
   Flaws in bug identification (mistakenly believing the scope of a crash cluster), potential suboptimal prioritisation of bugs to address. \\
 Lack of reports for low-volumes of usage &
   E.g. for WikiMed in Japanese with 1842 active users. &
@@ -242,6 +272,14 @@ No Service Problem Reporting &
 
 \section{Evaluation of the software created for the research}
 
+Placeholders for this section:
+\begin{itemize}
+    \item Testing logging:
+    \item Zipternet app: Microsoft AppCenter, zero-to-ten, Kotlin.
+    \item Vital Scraper and related projects:
+    \item ...
+\end{itemize}
+
 
 
 \section{Validity considerations}
@@ -253,6 +291,9 @@ In absolute terms, my research covers a minuscule percentage of all the apps ava
 On of the key considerations for research is adequacy in terms of coverage. For my research there are several types of coverage, including: development teams, user-bases for the various apps, software tech stacks used (in terms of programming languages, analytics libraries, etc.), application domains, and so on. 
 
 c.f. Krug is a well respected Usability guru whose work is inherently practical in nature. In the first edition of his~\emph{``Don't make me Think"} book he discusses ways to obtain practical results even with short timescales and few resources. In terms of obtaining value the author indicated that 3 to 4 people were capable of delivering more relevant feedback by involving them over time, (Chapter 9 in ~\cite{krug2000dont_make_me_think}). In terms of selecting the candidates his recommendation was to worry less about selecting 'representative users', instead\emph{``Recruit loosely, and grade on a curve."} (Chapter 9 in ~\cite{krug2000dont_make_me_think})~\footnote{Note: Krug made several chapters, including this one available online when the second edition of the book was published. I have copies of all three versions of the book and of these chapters as PDF files.}.
+
+% exploratory personas.
+% GTAC conference talk about developers not having engineering degrees (The one Isabel went to Mr Tupule, Googler.)
 
 My research included working with two mature project teams and developers of three commercial apps. It is also based on work I did in industry that predates the PhD research, unfortunately I am not able to provide details of those projects in my thesis. 
 

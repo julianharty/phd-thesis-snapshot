@@ -4,10 +4,40 @@ This chapter contains various discussion topics, including: validity of my resea
 %%% other analytics tools I've researched during my PhD (e.g. those covered in my probation report)
 %%% sweetspots for Crashlytics, Firebase, etc.
 
-If we focus on Android apps what are the implications and how relevant are the approaches and results? Apps are a popular and relevant subset of all software,they run remotely on other people’s equipment where they are the primary owners of the data on their devices, and where the platform and pre-installed platform software determine various aspects of the data collection
+
+Apps are a popular and relevant subset of all software, they run remotely on other people’s equipment where they are the primary owners of the data on their devices, and where the platform and pre-installed platform software determine various aspects of the data collection. The apps and the analytics libraries they use control what data is reported and when. 
+
+At the time of writing neither Apple (iOS) nor Android appear to provide an API for programmers to enable apps to check per-user or per-device preferences for usage and diagnostics information sharing. The lack of such APIs means that each app developer is responsible for deciding whether to ask user's for permission or simply assume their app can collect and send analytics data. 
+
+Listing~\ref{code:androidx_preferences_example} is an example Google provides for Android developers to learn how to use the AndroidX preference library~\footnote{Reproduction permitted as the code sample is released under their~\href{https://developer.android.com/license}{Content License}.}. This example generates a GUI to ask users if they wish to enable message notifications and/or send feedback including reporting technical issues. 
+
+\begin{listing}[H]
+\caption{AndroidX preference library example} \label{code:androidx_preferences_example}
+\begin{minted}{XML}
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        app:key="notifications"
+        app:title="Enable message notifications"/>
+
+    <Preference
+        app:key="feedback"
+        app:title="Send feedback"
+        app:summary="Report technical issues or suggest new features"/>
+
+</PreferenceScreen>
+\end{minted}
+Source: \url{https://developer.android.com/guide/topics/ui/settings}
+\end{listing}
+
+
+Preferences, permissions, and usage analytics share similarities in terms of considerations such as informed consent, whether the settings are temporary or permanent, and so on.
+
+If we focus on Android apps what are the implications and how relevant are the approaches and results?
 
 \section{On Measurement}
-Measurement may begin using rough and approximate measurements and tools, for instance the length of a yard which used to depend on the span of the king's arm~\footnote{One source is:~\url{http://nisltd.co.uk/asp/default.aspx?page=history_of_calibration}}. France, in particular, led to the standardisation of various measurements including the metre~\footnote{\emph{e.g.}~\url{http://www2.culture.gouv.fr/culture/actualites/celebrations/metre.htm} (in French).}
+Measurement may begin using rough and approximate measurements and tools, for instance the length of a yard which used to depend on the span of the king's arm~\footnote{One source is:~\url{http://nisltd.co.uk/asp/default.aspx?page=history_of_calibration}}. France, in particular, led to the standardisation of various measurements including the metre~\footnote{\emph{e.g.}~\url{http://www2.culture.gouv.fr/culture/actualites/celebrations/metre.htm} (in French).}.
 
 Software development and testing are still in flux where various people and groups have yet to coalesce or truly agree to common, unambiguous and definitive measurements. Even newer standards, including~\cite{iso29119-1-2013}, which were intended to provide a pragmatic and useful guide to practitioners (\cite{reid2012_iso29119_eurostar}), would only be used by a minority (19\% according to a poll by EuroSTAR Conferences in 2013~\footnote{\url{https://conference.eurostarsoftwaretesting.com/poll-result-will-you-be-using-iso-29119-standards-in-your-testing/})} of an estimated 60 respondents to the poll~\footnote{\url{https://conference.eurostarsoftwaretesting.com/standards-a-case-for-the-defence/}}.
 
@@ -20,7 +50,63 @@ Using ratings and reviews to measure quality? Tim Menzies quote on software anal
 
 \subsection{Validity of my research}
 
-\subsection{Validity of the tools being used?}
+\subsection{Validity of the tools being used}
+
+\subsubsection{Validity of platform analytics}
+
+\subsubsection{Validity of Fabric Crashlytics}
+
+\subsubsection{Validity of various mobile apps}
+
+Our simple opensource Android app, Zipternet~\footnote{\url{https://github.com/ISNIT0/zipternet}}, included HTML-based content. In the initial releases the app had a flaw that caused a crash to occur when any external web links were selected in the content~\footnote{See issue 6 on Github for this project:~\href{https://github.com/ISNIT0/zipternet/issues/6}{Fix crash of the app when external URL selected in WebView}.}. This crash occurred consistently whenever any external web link was selected and was detected and reported by Google Play Console's pre-launch report and it was also reported in Android Vitals, albeit less often than when the crash occurred on devices we used for local testing of the app.
+
+
+In February 2020 the iOS version of the Pocket Code app was enhanced to include a mechanism to cause crashes deterministically~\footnote{See JIRA ticket:~\href{https://jira.catrob.at/browse/CATTY-161}{CATTY-161 - INTERMEDIATE TICKET: Add ``easter egg" for Crashlytics} for the iOS feature.}. This ability to cause crashes deterministically was designed and implemented to determine whether the crashes would be reported correctly in Firebase Crashlytics (they were). The iOS team removed the ``easter egg" immediately after the workshop in Poland~\footnote{See JIRA ticket:~\href{https://jira.catrob.at/browse/CATTY-162}{CATTY-162 - TRAINING TICKET: Remove "easter egg" for Crashlytics}.}. The Android version of Pocket Code already used the older Fabric Crashlytics API and crashes were being reported in the Fabric Crashlytics dashboard.
+
+\subsection{Internal validity}
+
+\subsection{External validity}
+
+\subsection{Ecological validity}
+As Wikipedia notes \emph{``Essentially, ecological validity is a commentary on the relative strength of a study's implication(s) for policy, society, culture, etc."} (\cite{wikipedia_ecological_validity}).
+
+One of the aims of my research is to determine whether it is applicable for and relevant to real-world developers of mobile apps. 
+I have been fortunate to receive external confirmation from various external sources that the research is of interest and appears to have some validity. These include: validation from the Google engineering team responsible for Android Vitals and Google Play Console. It also includes validation from developers of mature opensource and commercial Android applications. 
+
+One of the challenges in this research has been to balance internal, external and ecological validity, a challenge others have faced in their research in other areas including educational software (~\cite{ransdell1993educational_software_evaluation_research_validities}) where they realised there are multiple factors that influence the outcomes and results of their experiments and research. Similarly, real-world development of mobile apps, and changes in the stability of their apps depend on multiple factors. And from a research perspective, it was, and is, impractical to observe or measure everything that might contribute to the changes in stability, etc. What does appear to be clear are two related factors:
+
+\begin{enumerate}
+    \item When developers pay attention to flaws reported in analytics tools they are able to effect improvements to the app which significantly reduce the failure rate and improve the stability of the apps for end users.
+    \item Developers will release updates that unintentionally and or exacerbate the failure rate, despite their best intentions. They need to pay ongoing attention to the reported failures if they wish to maintain or decrease the measured stability of their apps as both their app and the ecosystems evolve~\footnote{Ecosystems evolve as new devices, operating system releases, networks, updates to libraries, and to other related apps and components (such as the Google WebView component), etc. change.}.
+\end{enumerate}
+
+\subsubsection{Validity from the Google Engineering Team}
+
+MUST\_DO Use the beyond Google Play paper to help support the validity of my research.
+
+\subsubsection{Other validation}
+In email discussions of my research in 2020 one of the leading authors in the field, \href{https://scholar.google.com/citations?user=zuUsFkgAAAAJ&hl=en&oi=sra}{Li Li}, confirmed the novelty, importance and relevance of my research.
+
+
+
+\section{Do the concepts scale?}
+
+
+\subsection{Beyond Google Play?}
+
+\subsection{Beyond Android?}
+
+
+Apple also provides a platform and an app store (called the `App Store'). 
+
+For iOS Apple describes how developers can collect crash reports from TestFlight and from the App Store. In the same article they describe how users can locate and email crash reports and email them to the app's developer, for instance if the developer does not have them. They do not explain how the developer or user reach each other to communicate about the crash or the contact details~\footnote{\href{https://developer.apple.com/documentation/xcode/diagnosing_issues_using_crash_reports_and_device_logs/acquiring_crash_reports_and_diagnostic_logs}{Acquiring Crash Reports and Diagnostic Logs}.}. 
+%
+Apple also provide practical advice on how to diagnose issues using crash reports, memory inefficiencies using `jetsam event reports' and problems using `device console logs'~\footnote{See Xcode documentation:~\href{https://developer.apple.com/documentation/xcode/diagnosing_issues_using_crash_reports_and_device_logs}{Diagnosing Issues Using Crash Reports and Device Logs}.}. 
+% 
+From various online discussions~\footnote{Examples of discussions on iOS crash logs include:~\href{https://stackoverflow.com/questions/10145665/crash-reports-from-app-on-app-store}{Crash reports from app on App Store}, and the poorly titled forum post ~\href{https://developer.apple.com/forums/thread/30934}{App Analytics Crashes}.} 
+% See also https://stackoverflow.com/questions/50709109/ios-app-store-get-crash-reports
+The iOS analytics include some of the reporting and analysis provided by Google in the Google Play Store tools, for instance~\emph{``...how crashes break down across OS versions and different devices"}~\cite{apple2020_how_to_review_your_apps_crash_logs}. Their reports currently lack some of the more sophisticated reporting that Google Play and Android Vitals provide. Nonetheless, sufficient raw elements are available to developers to enable them to discover crashes and memory issues from end users in order to address these. Apple also launched Feedback Assistant in 2019 with the aim of enabling people to submit effective bug reports using either an app or a website~\cite{appledeveloper2020_bug_reporting_feedback_assistant_for_developers}. Authorised members of the app's development team can access and review the feedback reports using similar tools~\cite{appledeveloper2020_bug_reporting_feedback_assistant_for_developers}.
+
 
 \subsection{Quis custodiet ipsos custodes?}
 \url{https://en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F}
@@ -33,18 +119,6 @@ Freezes and crashes may adversely impact a user's perspective, Google may limit 
 In 2019 Menzies in his paper \emph{``Take Control: On the Unreasonable Effectiveness of Software Analytics"}~\cite{menzies2019take} indicates that a small number of predictable software analytics variables can be used to predict software qualities for projects. 
 
 \emph{``Specifically, the number of variables required to make predictions about SE projects is remarkably small which means that (a) most of the things we think might affect software quality have little impact in practice; (b) controlling just a few key variables can be enough to improve software quality."}
-
-\subsection{External Validity}
-I have been fortunate to receive external confirmation from various external sources that the research is of interest and appears to have some validity. These include:
-
-\subsubsection{Validity from the Google Engineering Team}
-
-MUST\_DO Use the beyond Google Play paper to help support the validity of my research.
-
-\subsubsection{Other validation}
-In email discussions of my research in 2020 one of the leading authors in the field, \href{https://scholar.google.com/citations?user=zuUsFkgAAAAJ&hl=en&oi=sra}{Li Li}, confirmed the novelty, importance and relevance of my research.
-
-
 
 \section{Android Vitals}
 \subsection{Which apps can Android Vitals help?}
@@ -77,7 +151,10 @@ Based on Android Vitals reports for Kiwix custom apps we infer that few apps wit
 My work is to investigate two broad sources of data - data collected by the operating system (here effectively what appears in Android Vitals) and data collected using in-app libraries, particularly mobile analytics, it could include heatmapping (e.g. Appsee, found in over 790 Android apps with over 375 million downloads~\cite{appbrain_appsee}), crash handlers, etc. to provide feedback to measure how well the development team did in terms of testing and code quality. What they learn could also be useful to help them improve how they develop and test their apps in future, particularly with the greater detail mobile analytics (particularly Firebase) can provide the team.
 
 \subsection{All that glitters is not gold}
-Android Vitals sometimes reports excessive network usage running in the background while the device is running on battery, as shown in figure \ref{fig:android_vitals_excessive_network_usage}. As the Kiwix app is designed to enable users to download sometimes extremely large files, and to do so in the background, this warning is to be expected and not a bug - it's a feature. So, not everything that Android Vitals flags necessarily needs to be acted on. 
+Android Vitals sometimes reports excessive network usage running in the background while the device is running on battery, as shown in figure \ref{fig:android_vitals_excessive_network_usage}. As the Kiwix app is designed to enable users to download sometimes extremely large files, and to do so in the background, this warning is to be expected and not a bug - it's a feature. So, not everything that Android Vitals flags necessarily needs to be acted on. % c.f. EduVPN's behaviour. 
+
+% Isabel mentions why devs don't use paper: https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=emerson+murphy+hill+static+analysis&btnG=
+
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth, keepaspectratio]{images/android-vitals-screenshots/Excessive_network_usage_by_kiwix_15_jun_2019.png}
@@ -104,7 +181,7 @@ There are various considerations of the adverse implications of allowing, and us
 
 A more involved example started in March 2017 where the Mixpanel JavaScript SDK which inadvertently collected passwords and might have collected other highly sensitive data such as \emph{``where browser plugins (such as the 1Password password manager) and website frameworks place sensitive data into form element attributes."}~\cite{mcclintok_mixpanel_update_on_autotrack_data_collection}. 
 
-According to the post, the problem did not exist when they designed and launched the service in 2016, it was triggered when they updated the version of an external and well regarded library in March 2017. The issue was discovered and reported by a customer in January 2018. Mixpanel deleted the sensitive data their library had collected on behalf of their customers and implemented various corrective actions including in-depth security reviews of existing code. They also had to put in place filters to delete new data on arrival as some of their customers were still using the ill-mannered implementation of their JavaScript SDK.
+According to the post, the problem did not exist when they designed and launched the service in 2016, it was triggered when they updated the version of an external and well regarded library in March 2017. The issue was discovered and reported by a customer in January 2018. Mixpanel deleted the sensitive data their library had collected on behalf of their customers and implemented various corrective actions including in-depth security reviews of existing code. They also had to put in place filters to delete new data on arrival as some of their customers were still using the ill-mannered implementation of their JavaScript SDK. % Also cite paper about when devs do and don't update library versions. 
 
 \subsubsection{A related finding in our PocketCode case study}
 In February 2020 the Catrobat team migrated the reporting for their app crash analytics (Crashlytics) from the Fabric website to the Firebase website using an inbuilt migration tool provided by Google who own both services. The migration meant the app's crash data could be viewed in both these websites independently until Google disabled the Firebase website (planned for March, but postponed until \nth{4} May 2020 in response to the effects of the COVID-19 pandemic).  We noticed additional data was available and presented in the reports provided in the Firebase console, as Google describe the website. This includes demographic data \emph{even though this is not collected by our app or - officially - by the crashlytics libarry}! Figure \ref{fig:Firebase-event-demographics-pocketcode-android} provides an example of the relevant section of the `Events' report for the Pocket Code Android app. App developers may, understandably, be unaware that using a library for collecting crash data is also somehow gathering data about demographics, therefore their end user licence agreements (EULA), privacy policy, and so on, may not reflect or incorporate this information to inform the user of what is being collected and why (in potential contravention with GDPR and other legislation).
@@ -146,8 +223,11 @@ Data ownership and safeguarding.
 \end{itemize}
 
 \subsubsection{Human behaviours around automation}
+% Confirmation bias (via Isabel)
 The use of software automation can have deep implications on the humans involved, ranging from emotional stress and worries where testers on development teams can get stuck where tools are expected to solve problems (but don't)~\cite{evans2020stuck}, to potentially over-reliance on the decisions made by automation~\cite{cummings2004automation} and a complacency and bias in human interaction with automated and decision support systems~\cite{parasuraman_complacency_and_bias_in_human_use_of_automation}. 
-My experiences of email discussions with the Google Engineering team provided an impression they over-believed in the correctness of their analytics tools and the inability of any outsider being able to understand their system. This is somewhat ironic given that I was a senior software quality engineer at Google for four years and worked on assessing the behaviours and qualities of Google's mobile apps for several years during that role.
+My experiences of email discussions with the Google Engineering team provided an impression they over-believed in the correctness of their analytics tools and the inability of any outsider 
+% Stress I'm considered an outsider even though I worked for Google.
+being able to understand their system. This is somewhat ironic given that I was a senior software quality engineer at Google for four years and worked on assessing the behaviours and qualities of Google's mobile apps for several years during that role.
 
 \section{Additional considerations}
 This section covers several additional topics, including: abandoned apps, additional app stores beyond Google Play and beyond Android, and implications for apps stores for medical devices?
@@ -156,7 +236,7 @@ This section covers several additional topics, including: abandoned apps, additi
 Users are not the only people who many abandon apps, developers do so too. By the very nature of abandoning an app a developer is also likely to abandon the reports and data associated with that app, including data from mobile analytics. As many researchers discover there are many abandoned opensource source code repositories, and similarly various organisations, including AppBrain, have identified apps that are effectively abandoned. % MUST-DO add citation for AppBrain report.
 
 \subsection{The Reaper Cometh}
-AppBrain is a business that actively monitors and reports on Android Apps in the Google Play Store. The business was founded by two ex-Google engineers, as I am. They state Google is actively culling Android apps from the Google Play store and estimate approximately 16\% of apps are \emph{"low quality apps"} and \emph{"unlikely to be useful"}~\footnote{\url{https://www.appbrain.com/stats/number-of-android-apps}} % Percentage of low quality apps: 16%
+AppBrain is a business that actively monitors and reports on Android Apps in the Google Play Store. The business was founded by two other ex-Google engineers. They state Google is actively culling Android apps from the Google Play store and estimate approximately 16\% of apps are \emph{"low quality apps"} and \emph{"unlikely to be useful"}~\footnote{\url{https://www.appbrain.com/stats/number-of-android-apps}} % Percentage of low quality apps: 16%
 
 
 \subsection{Other Android App Stores?}
@@ -164,6 +244,8 @@ Note: this research is limited to apps available in Google Play for practical re
 
 \subsection{Applicability to Other App Stores?}
 App Stores were popularised for mobile apps for Android, iOS, and other smartphone platforms now extinct (\emph{e.g.} Windows Mobile), even if App Stores existed several years before smartphones did. % COULD_DO cite early versions of the Mobile Developer's Guide to the Galaxy, etc.
+
+% Isabel: add a figure across the domains, inter-domain considerations. See her scanned notes.
 
 They then spread to other mainstream operating systems including OSX, some Linux distributions, etc. using a similar business and software development model to the Android and iOS app stores. Recently, e.g. in 2019, App Stores were also reported for Radiology - for instance in an article in Harvard Business Review on \emph{What AI ``App Stores" will mean for Radiology}~\cite{hbr_what_ai_app_stores_mean_for_radiology}. The authors of the article envisage various benefits that emerge from applying a \emph{marketplace model} for these apps, including better feedback for developers. In tandem, the importance of incorporating appropriate analytics and ensuring they are trustworthy also seems worthy of further research and analysis. 
 
