@@ -55,12 +55,12 @@ Continuum of levels of engagement, or commitment, by developers:
 
 
 
-\section{Select, aggregate, scope, analyse, triage and prioritise clusters}
+\section{Select, aggregate, scope, analyse, triage and prioritise clusters}~\label{section-select-aggregate-scope-analyse-triage-and-prioritise}
 The proposed approach is intended to achieve practical results efficaciously and address real-world issues that \emph{`move the needle'} i.e. that will deliver positive improvements. 
 
 A half-life of bugs worth addressing, where bugs that surface primarily in older releases of an app are less worthwhile to address as the users of these older releases will either upgrade to a newer release or remain on the older release even though improvements and fixes are available in newer releases. Also, at the time of writing, app stores do not support the equivalent of back-ports of fixes to older releases, they will only offer users the current release available for their device, etc. (Etc. as there may be regional and other restrictions which limit users to older releases. While developers could choose to create specific releases for particular groups of users (\emph{i.e.} the mechanisms exist in some app stores), there is little evidence that they do.)
 
-Factors to consider when working with clusters of failures: 
+Stages to consider when working with clusters of failures: 
 
 \begin{itemize}
     \item \textbf{select}: where reports offer selection criteria - decide on a suitable selection to work with. Note there may be constraints in the analytics that limit what can be selected,
@@ -70,6 +70,8 @@ Factors to consider when working with clusters of failures:
     \item \textbf{triage}: categorise the clusters based on the analysis, those we want to prioritise, those unready to prioritise and those where the outcome will not vary sufficiently to address,
     \item \textbf{prioritise}: the first two of the triage categories: those ready to prioritise and those not yet ready - both can be worked on, the work differs. Select a useful subset which should be able to be addressed in the next development cycle (sprint, etc.).
 \end{itemize}
+
+The work in each stage should be sufficient and proportionate to the potential value of addressing that failure. These stages are expanded shortly, before I do, there are various timescales and latencies worth considering to help set the cadence and work-in-progress for applying this process and prioritising the work to address any of the failures.
 
 Owing to the nature of mobile app stores and their user population's habits there are substantial and material latencies worth factoring into the decision making process. These latencies include:
 \begin{itemize}
@@ -86,6 +88,7 @@ The analytics tools may provide selection criteria, for instance, the ability to
 Note: the selection criteria may not be as flexible as desired and may be inconsistently available even within an analytics tool.
 
 \subsection{Aggregate}
+Dealing with large volumes of discrete failures is tedious. Grouping the failures by one or more common elements can help patterns and relevant characteristics to be detected. The nature of analytics tools is for them to aggregate individual data records, such as events, for reporting and comparisons. Aggregations performed by analytics tools may limit the scope for the development team to apply their own independent groupings, and similarly the analytics tools may not support some aggregations directly in the tool's reports. The development team may be able to aggregate data outside the analyics tool, for instance to group daily summaries into weekly summaries. 
 
 \subsection{Scope}
 \emph{Decide what is in and out of scope in terms of the selected and aggregated data.} Some of the failures may be out of scope in terms of analysis. For instance, those where a fix has been prepared for release, those in an external software component or on device models unavailable to the team, those that are in lower rankings, those we have the competence and where-with-all to investigate, and so on. These may be out-of-scope for the rest of the stages. c.f. 3 - 7 items can be held in short-term memory, limiting w-i-p - (\emph{Kanban} -, and other concepts intended to increase throughput.
@@ -96,6 +99,7 @@ In summary, disregard old bugs and cold bugs. Instead pick fertile current bugs 
 
 
 \subsection{Analyse}
+\textit{TODO expand this sub-section:}
 
 Patterns and correlations across failure clusters... 
 
@@ -104,12 +108,26 @@ Trends, comparisons with previous periods, with peers, etc.
 Historical analysis, transient nature of the data and reports, ...
 
 \subsection{Triage}
+Triaging the resulting analysis applies one of three categories to particular analysed failure clusters. These three categories are:
+\begin{enumerate}
+    \item Ready to action: these failure clusters have sufficient information and analysis to be ready to action when they have been prioritised sufficiently,
+    \item Further work required: these failure clusters need, and are viable candidates for being actionable once additional work has been performed,
+    \item Insufficient return-on-investment: these have marginal returns even if they were to be addressed, they may be impractical to address, and so on. Discount them.
+\end{enumerate}
 
-
+Of these categories, when further work is required sometimes the work may be viable within the current sprint, other instances may involve additional data collection in future.
 
 \subsection{Prioritise}
 The big, ongoing, and the ugly failures, together with a mix of easy-to-fix and satisfying bugs comprise the menu of what's likely to be addressed by the development team. 
 
+\subsection{Next steps for prioritised ready to action failure clusters}
+
+\begin{itemize}
+    \item \textbf{source-code analysis}: for example, using stack traces from crash clusters,
+    \item \textbf{bug investigation}: for example, to find out if the team can reproduce failures locally, predictably and consistently,
+    \item \textbf{mitigation techniques}: where practical fixing the cause is generally the best option, other options may be available \textbf{MUST-DO} expand with materials from one of my previous papers.
+    \item \textbf{evaluation of the mitigation techniques} pre- and post-release evaluation is important for various reasons including calibration, providing feedback to the teams, etc.
+\end{itemize}
 
 
 \section{Incorporating passive analytics to development practices}
