@@ -33,6 +33,7 @@ Sources can include various forms of passive analytics to more hands-on techniqu
     \item Decide whether to incorporate analytics into the app, and if so what data to collect, which analytics library/libraries to incorporate and the many associated aspects we will cover in this chapter.
     \item Consider whether and how to test analytics and whether to filter [out] analytics during automated and internal testing.
     \item Use and analyse the analytics data from the app and the platform (where available).
+    \item The useful life of data and reports may exceed the default availability of the data in the analytics tool. Some data is transient, for instance a `daily' report, and unless preserved somehow, not available the following day.
     \item Triage and prioritise potential issues reported from external sources (pre-launch testing, new releases, active mainstream releases, etc.)
 \end{itemize}
 
@@ -54,28 +55,60 @@ Continuum of levels of engagement, or commitment, by developers:
 
 
 
-\section{Select, aggregate, scope, analyse, triage and prioritise}
+\section{Select, aggregate, scope, analyse, triage and prioritise clusters}
 The proposed approach is intended to achieve practical results efficaciously and address real-world issues that \emph{`move the needle'} i.e. that will deliver positive improvements. 
 
-Factors to consider: 
+A half-life of bugs worth addressing, where bugs that surface primarily in older releases of an app are less worthwhile to address as the users of these older releases will either upgrade to a newer release or remain on the older release even though improvements and fixes are available in newer releases. Also, at the time of writing, app stores do not support the equivalent of back-ports of fixes to older releases, they will only offer users the current release available for their device, etc. (Etc. as there may be regional and other restrictions which limit users to older releases. While developers could choose to create specific releases for particular groups of users (\emph{i.e.} the mechanisms exist in some app stores), there is little evidence that they do.)
+
+Factors to consider when working with clusters of failures: 
 
 \begin{itemize}
-    \item select:
-    \item aggregate:
-    \item scope:
-    \item analyse:
-    \item triage:
-    \item prioritise: 
+    \item \textbf{select}: where reports offer selection criteria - decide on a suitable selection to work with. Note there may be constraints in the analytics that limit what can be selected,
+    \item \textbf{aggregate}: group together data with common factors, analytics tools do this already to varying degrees,
+    \item \textbf{scope}: decide what is in and out of scope in terms of the selected and aggregated data, 
+    \item \textbf{analyse}: for in-scope failures, analyse the patterns in the data aggregated together, there may also be correlations between distinct aggregations worth considering, 
+    \item \textbf{triage}: categorise the clusters based on the analysis, those we want to prioritise, those unready to prioritise and those where the outcome will not vary sufficiently to address,
+    \item \textbf{prioritise}: the first two of the triage categories: those ready to prioritise and those not yet ready - both can be worked on, the work differs. Select a useful subset which should be able to be addressed in the next development cycle (sprint, etc.).
 \end{itemize}
 
 Owing to the nature of mobile app stores and their user population's habits there are substantial and material latencies worth factoring into the decision making process. These latencies include:
 \begin{itemize}
-    \item pre-release:
-    \item app store approvals:
-    \item launch rollout:
-    \item user adoption of new releases:
-    \item users who remain on older releases:
+    \item \textbf{pre-release}: development teams and their software development practices provide a cadence and a timescale in terms of being able to create suitably evaluated release-candidates,
+    \item \textbf{app store approvals}: where release-candidates require app store approvals, and where such approval is not instantaneous, there is a practical constraint on making releases available to users via the app store,
+    \item \textbf{launch rollout}: release management tools, provided by an app store, may constrain the availability of a release to users via the app store,
+    \item \textbf{user adoption of new releases}: users do not update apps instantaneously, indeed adoption may take a week or more to reach 50\% of the active user population (and much longer to reach 50\% of the inactive user population), 
+    \item \textbf{users who remain on older releases}: some users stick with older releases of software - they will not receive the new release, yet their usage of the older releases may count adversely against the app.
 \end{itemize}
+
+\subsection{Select}
+The analytics tools may provide selection criteria, for instance, the ability to select a range of dates is commonplace. App and operating system release selection criteria are also common, regional selections, hourly ranges, by manufacturer, by device models, etc. are less commonly available.
+
+Note: the selection criteria may not be as flexible as desired and may be inconsistently available even within an analytics tool.
+
+\subsection{Aggregate}
+
+\subsection{Scope}
+\emph{Decide what is in and out of scope in terms of the selected and aggregated data.} Some of the failures may be out of scope in terms of analysis. For instance, those where a fix has been prepared for release, those in an external software component or on device models unavailable to the team, those that are in lower rankings, those we have the competence and where-with-all to investigate, and so on. These may be out-of-scope for the rest of the stages. c.f. 3 - 7 items can be held in short-term memory, limiting w-i-p - (\emph{Kanban} -, and other concepts intended to increase throughput.
+
+c.f. a marketing funnel, focal depth (as in a camera), range, etc. 
+
+In summary, disregard old bugs and cold bugs. Instead pick fertile current bugs those we have the energy and urgency to make a practical difference to in terms of the outcomes of our subsequent work.
+
+
+\subsection{Analyse}
+
+Patterns and correlations across failure clusters... 
+
+Trends, comparisons with previous periods, with peers, etc.
+
+Historical analysis, transient nature of the data and reports, ...
+
+\subsection{Triage}
+
+
+
+\subsection{Prioritise}
+The big, ongoing, and the ugly failures, together with a mix of easy-to-fix and satisfying bugs comprise the menu of what's likely to be addressed by the development team. 
 
 
 
@@ -272,5 +305,21 @@ Economic effects of whether individuals swear an oath were assessed in two count
 
 \section{Validating Analytics}
 
+TODO TBC
+
+\section{The useful life of data and reports}
+The are various cycles in app usage, including daily, weekly, and annual cycles. Some trends and patterns are more useful when compared against these cycles. 
+
+As issues emerge it may be helpful to compare current and recent patterns with prior periods, to do so a similar richness of data for those periods facilitates the comparisons and analysis.
+
+\subsection{Preserving material/evidence}
+Here, material include what's provided by the analytics tools and evidence is where we've used, or applied, the material for a purpose such as reporting a bug based on reported failures.
+
+For various reasons the analytics tools may limit access to prior material~\emph{e.g. Google removed access to crash reports in Google Play Console because of their policy changes.}, and glitches may mean the material is not available when needed even if it should be available. Therefore it may be useful and prudent for teams to preserve material and evidence independently of the analytics tool. 
+
+\section{Peers}
+Who are the peers for my app?~\footnote{Inspired by:~\href{https://www.biblegateway.com/passage/?search=Matthew\%2012:46-50&version=NIV}{Matthew 12:46-50 New International Version}.} and how much can we glean of their app's performance?
+
 
 \section{Summary of applying analytics to development practices}
+TODO TBC
