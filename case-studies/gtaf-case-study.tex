@@ -11,13 +11,17 @@ The aims and objectives of this case study include:
 
 \subsection{Background to the Greentech Apps case study}
 A set of Android apps developed and provided by Greentech Apps Foundation. They are described as modern Islamic Applications, according to their website \url{https://gtaf.org/}. The project encourages voluntary contributions, for instance to provide translations~\url{https://greentech.oneskyapp.com/collaboration/}. Their apps are popular, and well regarded. % MUST_DO add data on usage and ratings.
-The project started in 2016 and the development team was predominantly volunteers until around 2018 when the first engineer was employed. In April 2020 the development team added two part-time paid developers and there are plans to grow the employed team including someone with UI and UX expertise. The team are funded through voluntary donations.
+
+
+The project started in 2016 with the aim of enabling people to learn the Quran in the local language - Bangla - in Bangladesh. The project was started by a self-taught Android developer and his cousin Yemin, at the time an undergraduate student in computer science, who is now employed by the project in a hybrid role of software developer and project manager. The development team was predominantly volunteers until around 2018 when the first engineer was employed. In April 2020 the development team added two part-time paid developers and there are plans to grow the employed team including someone with UI and UX expertise. The team are funded through voluntary donations. From a research perspective my contacts at the project are Yemin and a fellow PhD student Riasat who also volunteers for the project.
 
 At the start of the case study (June 2020) the team had ten Android apps published in Google Play~\url{https://play.google.com/store/apps/dev?id=7665838187257770408}. Of these apps, three are their core apps, and a couple are overdue an engineering revamp.  Two analytics tools are used for their core apps: Firebase Crashlytics and the default combination of Google Play Console with Android Vitals.
 
-Their development team maintain their issues lists in public, the source code is private. They use a variety of languages and frameworks to develop their apps.
+Their development team maintain their issues lists in public (\url{https://gitlab.com/greentech/}), the source code is private. They use a variety of languages and frameworks to develop their apps include React Native for at least one app (\href{https://play.google.com/store/apps/details?id=com.taskinator}{Taskinator}) and Java for the majority, they aim to use Flutter~\cite{flutter_dev_site} in future.
 
-\textbf{MUST-DO} check which analytics libraries are embedded in which of their apps. 
+Exodus Privacy~\cite{exodus_privacy_project}, a non profit organization, was used to determine which analytics libraries are embedded in which of their apps as the source code was not available for these apps.
+
+\textbf{SHOULD-DO} reformat the following as a table, or similar. Add the rest of their apps for completeness.
 
 \href{https://play.google.com/store/apps/details?id=com.greentech.quran}{Al Quran (Tafsir \& by Word)} includes \href{https://reports.exodus-privacy.eu.org/en/reports/com.greentech.quran/latest/}{Google Crashlytics, Google Firebase Analytics}.
 
@@ -26,6 +30,8 @@ Hadith Collection (All in one)} includes~\href{https://reports.exodus-privacy.eu
 
 \href{https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslim}{	
 Dua \& Zikr (Hisnul Muslim)} includes~\href{https://reports.exodus-privacy.eu.org/en/reports/54714/}{Google Firebase Analytics}. This app is available in two primary languages, English and Bangla (the mother tongue of where the core development team live, in Bangladesh). The \href{https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslimbn}{Bangla} version of the app is several times more popular than the English release. Unlike the English version, the Bangla version of the app includes~\href{https://reports.exodus-privacy.eu.org/en/reports/146430/}{Google Crashlytics, Google Firebase Analytics}.
+
+\href{https://play.google.com/store/apps/details?id=com.taskinator}{Taskinator} uses~\href{https://reports.exodus-privacy.eu.org/en/reports/146496/}{Firebase Analytics, OneSignal}.
 
 
 \subsection{Development microcosm}
@@ -37,14 +43,20 @@ NPE's and IndexOOBExceptions vs. IllegalStateException and native crashes.
 
 \subsection{Applying analytics to the development practices}
 
-Check Android Vitals approximately once a week, Firebase more frequently. Differences noticed in their reports, however the focus is on the crashes reported in Firebase as they contain more contextual detail. ANRs seldom checked, considered to be less impactful on users and lower frequencies.
+The development team check Android Vitals approximately once a week, and Firebase more frequently as the team decided the crash reports in Firebase are more actionable. Perhaps unsurprisingly they check more often after new releases of their apps looking for any new bugs arising in the new release as it rolls out across the user population.
+
+
+
+Differences noticed in their reports, however the focus is on the crashes reported in Firebase as they contain more contextual detail. ANRs seldom checked, considered to be less impactful on users and lower frequencies.
 
 \subsubsection{Worked examples}
+\textbf{This section needs redoing as the discussion with Yemin indicates they use Firebase predominantly}.
 These worked examples are taken from Android apps developed and maintained by the Greentech team. They are taken on the \nth{7} and \nth{8} September 2020. They exemplify various aspects of the~\href{section-select-aggregate-scope-analyse-triage-and-prioritise}{\MakeLowercase{\emph{\nameref{section-select-aggregate-scope-analyse-triage-and-prioritise}}}} section. % SHOULD-DO find out why the section name still has an initial capital letter.
 
 
 
 \subsubsection{Preserving the failure clusters}
+Details of the crashes are recorded in individual issues on the respective project's GitLab site. The issue is cross-referenced in a note in the crash cluster reported in Firebase.
 
 
 
