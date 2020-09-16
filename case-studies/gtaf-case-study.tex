@@ -41,6 +41,8 @@ When do teams decide to fix which bugs, and what influences their decision makin
 
 NPE's and IndexOOBExceptions vs. IllegalStateException and native crashes.
 
+The team have used Firebase TestLab to test some of the apps occasionally and the Robo testing performed automatically by the test lab has triggered various crashes in the apps being tested. One such example was where an app was missing a `resource'. The team fixed the build by adding the missing resource but did not explicitly retest the app afterwards in Firebase. 
+
 \subsection{Applying analytics to the development practices}
 
 The development team check Android Vitals approximately once a week, and Firebase more frequently as the team decided the crash reports in Firebase are more actionable. Perhaps unsurprisingly they check more often after new releases of their apps looking for any new bugs arising in the new release as it rolls out across the user population.
@@ -58,7 +60,18 @@ These worked examples are taken from Android apps developed and maintained by th
 \subsubsection{Preserving the failure clusters}
 Details of the crashes are recorded in individual issues on the respective project's GitLab site. The issue is cross-referenced in a note in the crash cluster reported in Firebase.
 
+\subsection{Priorities of the project team}
+Throughout 2020 and until April 2021 the team are focusing on bug-fixes which include fixing the causes of crashes in the apps. Three of the apps (four as one app is released as two distinct binaries) are in ongoing active development (\href{https://play.google.com/store/apps/details?id=com.greentech.quran}{Al Quran},~\href{https://play.google.com/store/apps/details?id=com.greentech.hadith}{Hadith Collection}, and~\href{https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslim}{Dua \& Zikr}, which is also released separately in Bangla~\href{https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslimbn}{{Dua and Zikr (Hisnul Muslim)}}~\emph{in Bengali}); and they plan to revamp two more of the apps (\href{https://play.google.com/store/apps/details?id=com.greentech.islamicquiz}{(Islamic Quiz)} and~\href{https://play.google.com/store/apps/details?id=com.greentech.salatbn}{Meaningful prayers (salat)}~\textit{in Bengali}, which was called salat in our interview).
 
+% SHOULD-DO add support somehow for Bengali Unicode so I can replace the Anglicised app names with the correct ones. The issues are a mismatch between the compiler I'm using (pdfLatex) vs. the recommended packages to use
+% e.g. 
+% https://tex.stackexchange.com/questions/285507/how-can-i-use-bengali-script-in-an-english-document
+% https://tex.stackexchange.com/questions/99606/how-to-write-bengali-in-latex
+% https://www.overleaf.com/learn/latex/Multilingual_typesetting_on_Overleaf_using_babel_and_fontspec
+% https://www.overleaf.com/learn/latex/international_language_support#Babel
+% %%%
+% https://www.researchgate.net/post/How_to_write_Bengali_unicode_text_in_English_document_in_Latex
+% https://www.overleaf.com/learn/latex/arabic
 
 
 \subsection{Summary of the Greentech Apps case study}

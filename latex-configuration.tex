@@ -1,3 +1,7 @@
+\usepackage{silence}
+\WarningFilter{latex}{Command \InputIfFileExists}
+\WarningFilter{nag}{Command \sf}
+
 \usepackage[table]{xcolor}
 \usepackage{array}
 
@@ -42,6 +46,11 @@
 \newcommand{\marian}[1]{\textcolor{blue}{[MP: #1 ?]}}
 \newcommand{\julian}[1]{\textcolor{olive}{[JH: #1 ]}}
 
+
+%%%%%% 
+% \newfontfamily\bengalifont[Script=Bengali]{Lohit Bengali}
+% \newcommand\palatino{\fontfamily{ppl}\selectfont}
+% \newcommand\bangla{\fontfamily{ppl}\selectfont}
 
 % Colours thanks to http://www.maths.adelaide.edu.au/anthony.roberts/LaTeX/ltxusecol.php
 % uncomment these for final
@@ -160,6 +169,8 @@
 		     sort&compress]{natbib}		%Calls bibliography commands % square,numbers,
 \usepackage{url}				
 \usepackage[british]{babel}	            %For languages characters and hyphenation
+\babelprovide[import]{bengali}
+
 \usepackage{color}                    	%Creates coloured text and background
 \usepackage[colorlinks=true,
 		     allcolors=black]{hyperref} %Creates hyperlinks in cross references
@@ -254,3 +265,4 @@
 	\lettrine[lines=3,lhang=0.33,nindent=0em]{
 		\color{gray}
      		{\textsc{#1}}}{}}
+
