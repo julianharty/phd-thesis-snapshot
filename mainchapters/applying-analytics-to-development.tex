@@ -14,7 +14,7 @@ Both these terms are taken from~\cite{marsh2002skin}. While the article is aimed
 \subsection{Ontology}
 Analytics exist and are used across and throughout software development practices. Software is not perfect, it's formed through numerous human endeavours using flawed tools and techniques, no practical software is bug-free, however those involved can improve software through their choices and practices.
 
-How to measure anything concepts...
+How to measure anything concepts...~\cite{hubbard}
 
 \subsection{Epistemology}
 What we can know about mobile analytics and how we can know it... Then more specifically, how we know about the identification and measurement of some flaws in behaviour of software that are considered measures of quality of the software in use. 
@@ -25,10 +25,14 @@ We can know through end-to-end testing, through asking the designers, constructo
 Various data can be potentially collected implicitly and explicitly. What can be collected depends on the observation mechanisms. Observation may be within an app or external to it, for instance by the operating system as Google Android does~\footnote{There are other custom versions of Android, for instance used in Amazon Kindle Fire devices.}. Within an app the observation may focus at a single layer, for instance the visual user interface, or several. The choices of observation mechanisms within an app are made by developers or their stakeholders. The choices external to an app can be made by various people including the platform provider, users, or indirectly using other software including third-party apps, spyware, accessibility software, and so on.
 
 
-
 Analytics, such as user-journeys, can help to answer questions about the usage of the software. They help establish \emph{what-is}. As we understand more about what-is we can then consider \emph{what-would-be-better} and do gap analysis between what-is and what-would-be-better.
 
 Reporting/generating and Observing... What happens within the app stays within the app unless someone looks inside the app or the app reports what's occurring. Observation without action limits the utility of whatever is learned. 
+
+
+Toolbox of methods, how can we know about mobile analytics and the effects of using them?
+
+
 
 
 \subsection{The rest of this chapter}
@@ -88,9 +92,9 @@ Selection includes choosing the analytics tools, the data to collect, the evalua
 
 
 \section{Incorporation}
-Incorporation of analytics code into an app, incorporation of verification into the software construction, testing and release practices, incorporation of analytics results into the development and operational practices. c.f. Buse and Zimmermann's figure based on Davenport and Harris~\cite{davenport}. 
+Incorporation of analytics code into an app, incorporation of verification into the software construction, testing and release practices, incorporation of analytics results into the development and operational practices. c.f. Buse and Zimmermann's figure~\ref{fig:software_analytics_buse_and_zimmerman_2010} based on Davenport and Harris's \emph{Key questions addressed by analytics} figure 1.1 (page 7 ~\cite{davenport2010analytics_at_work}). 
 
-Where to log and what to log.
+Where to log and what to log... Where to log has been researched by various authors. \cite{li2020_where_shall_we_log} identify six categories of logging locations in several mature opensource codebases, used in domains outside mobile apps. Research into where logging statements are added in large-scale industrial codebases are covered in various papers including:~\cite{zhu2015_learning_to_log} where a \emph{`Log Advisor'} made recommendations of where to log to developers, they excluded the contents of the log messages from their research and their log advisor as too difficult to address in the scope of their work at the time.
 
 
 
@@ -279,6 +283,7 @@ The big, ongoing, and the ugly failures, together with a mix of easy-to-fix and 
     \item \textbf{mitigation techniques}: where practical fixing the cause is generally the best option, other options may be available \textbf{MUST-DO} expand with materials from one of my previous papers.
     \item \textbf{evaluation of the mitigation techniques} pre- and post-release evaluation is important for various reasons including calibration, providing feedback to the teams, etc.
 \end{itemize}
+
 
 
 \section{The useful life of data and reports}
