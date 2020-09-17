@@ -92,14 +92,15 @@ Selection includes choosing the analytics tools, the data to collect, the evalua
 
 
 \section{Incorporation}
-Incorporation of analytics code into an app, incorporation of verification into the software construction, testing and release practices, incorporation of analytics results into the development and operational practices. c.f. Buse and Zimmermann's figure~\ref{fig:software_analytics_buse_and_zimmerman_2010} based on Davenport and Harris's \emph{Key questions addressed by analytics} figure 1.1 (page 7 ~\cite{davenport2010analytics_at_work}). 
+Incorporation of analytics code into an app (include and develop), incorporation of verification into the software construction, testing and release practices, incorporation of analytics results into the development and operational practices. c.f. Buse and Zimmermann's figure~\ref{fig:software_analytics_buse_and_zimmerman_2010} based on Davenport and Harris's \emph{Key questions addressed by analytics} figure 1.1 (page 7 ~\cite{davenport2010analytics_at_work}).
 
-Where to log and what to log... Where to log has been researched by various authors. \cite{li2020_where_shall_we_log} identify six categories of logging locations in several mature opensource codebases, used in domains outside mobile apps. Research into where logging statements are added in large-scale industrial codebases are covered in various papers including:~\cite{zhu2015_learning_to_log} where a \emph{`Log Advisor'} made recommendations of where to log to developers, they excluded the contents of the log messages from their research and their log advisor as too difficult to address in the scope of their work at the time.
+Consider an aside on ways developers include a library in software, and activities libraries can perform actions independently of the app. 
 
+Various practical aspects of incorporating mobile analytics are in an~\href{practical-aspects-appendix}{appendix} of this thesis.  
 
 
 \subsection{Incorporating passive analytics to development practices}
-As mentioned earlier, passive analytics are those not actively under the control or influence of the development team, they are provided from other sources such as the operating system or the app store. In my research the passive analytics are all managed by the app store, Google Play Console.
+As mentioned earlier, passive analytics are those not actively under the control or influence of the development team, they are provided from other sources such as the operating system or the app store. In my research the passive analytics are all managed by an app store: Google Play Console.
 
 Later in this thesis, the section titled \href{google_play_console_section}{\emph{\nameref{google_play_console_section}}} provides examples of a variety of reports developers may receive on the performance of their Android app. Developers can integrate and incorporate the passive analytics Google provides through the various reports in order to a) better understand how their app is doing b) change their app so it performs better as reported by these reports.
 
@@ -135,30 +136,6 @@ Some crash-reporting libraries offer developers a mechanism to report non-fatal 
 
 Testing a system intended to measure quality may adversely affect their rating of your apps and potentially even their willingness to accept you in their system. \emph{c.f.} credit checks may adversely affect your credit score score~\footnote{\url{https://www.experian.co.uk/consumer/guides/searches-and-credit-checks.html}}. The system may not distinguish between your testing of the measurement system and those experienced by end users of the software. Google is adamant they will not accept Android apps that crash: ~\emph{``\textbf{Broken Functionality} We don’t allow apps that crash, force close, freeze, or otherwise function abnormally."}~\cite{google_play_developer_policy_center}.
 
-
-\subsection{Designing the content/messages} 
-% I'm not sure whether content or messages, or a mix of both words, best encompasses the topic I wish to discuss here. Messages can have content, however sometimes a message is a message by its existence, even with no payload. (2 rings on the home phone when you arrive, told the family you'd arrived without needing to pay for the telephone call. Heartbeat messages in systems, etc.). Also the design may include non-content aspects, content transformations, etc. Anyway, let's get writing. 
-This section applies to messages that an app could emit regardless of the conduit (\emph{i.e.} it applies to logging and using mobile analytics). At the risk of some ambiguity, the term log will be used to reflect both logging and mobile analytics in this section to improve overall readability.
-
-\emph{Related concepts}: The uneven U, computer protocols (layers, formatting, and contents), structured messages, what to log. %MUST_DO expand this section.
-
-There are many choices that can be considered in terms of designing the content/messages. For various reasons developers may pay little strategic attention to logging in their daily work. For those who do choose to consider logging strategically there are various considerations, including:
-What to log, how to log, where to log, data transformations, delivery mechanisms and characteristics.
-
-Developers have control over what to log, how, and when to generate the log messages. They may be constrained in various ways by APIs, message lengths, encoding, and formats, access to messages, and when messages will be transmitted, \emph{etc.} 
-
-It is possible to test the constraints, for instance by writing custom automated tests and/or apps that generate a variety of messages where the outputs are checked somehow. The checking may be partly or completely performed programmatically (we did some unpublished research in this area in 2018).
-
-The purpose of the message may differ in the type and level of information it is intended to convey. Some messages may contain low-level, or detailed, error messages intended to help improve the technical aspects of the software to make the software more robust. Other messages may aim to communicate intent, completion of a task, activity or user-journey in the software. For example, IBM published a paper about software called CX Mobile that aims to record and visualise user journeys for iOS and Android apps~\cite{hu_tealeaf_cxmobile}.
-
-\subsubsection{Designing logging}
-Unstructured logging can serve immediate needs, for instance to trace code execution or display the value of a variable at run-time. The resulting entries into a log file have limited value in terms of longer term analysis and they may also be harder to identify, filter, and lack relevant content for such analysis.
-
-In the domain of logging both business and research consider logging design important and valuable. 
-
-Implementation choices: 
-
-\subsubsection{Testing logging}
 
 
 
@@ -309,70 +286,6 @@ Nonetheless, I recommend developers consider ethical and legal responsibilities 
 Who are the peers for my app?~\footnote{Inspired by:~\href{https://www.biblegateway.com/passage/?search=Matthew\%2012:46-50&version=NIV}{Matthew 12:46-50 New International Version}.} and how much can we glean of their app's performance?
 
 Discuss options for peers, and in particular the facilities Google provides to enable developers to compare against their `peers'.
-
-
-\subsection{Evaluation criteria for Analytics Tools}
-One of the considerations in terms of using analytics tools is to decide on evaluation criteria. These criteria may range from informal and implicit evaluations to more rigorous and formal approaches. Considerations also include a mix of technical and non-technical aspects such as popularity, brand, perceived ease of initial use, and so on.
-
-This section includes four types of criteria and a rubric for evaluating analytics tools.
-
-\subsubsection{Evidence-based criteria}
-
-\subsubsection{Auditability}
-The reliability of software where the outcomes of failure are material has been a subject of discussion and research for decades. As (\cite{dobbing1998reliability}) notes, where the reliability requirements are modest black box testing techniques may be sufficient, however \emph{``When reliability claims cannot be justified from test results alone, safety standards accept evidence from the design process"}. This paper focuses on smart instrumentation for the UK nuclear industry, nonetheless given the widespread use and implicit trust of analytics software, similar approaches to assess the reliability of this software could help in terms of auditing the behaviours of the analytics tools. Indeed two of the authors of (\cite{dobbing1998reliability}) collaborated with a third author and published a paper on the relevance and importance of software in measuring systems, where \emph{``Both users and suppliers of such systems must be aware of the risks involved and take appropriate precautions."} (~\cite{wichmann2007software}).
-
-\subsubsection{Functional-aspects}
-
-\subsubsection{Transparency}
-
-\subsubsection{Veracity}
-
-\subsubsection{Faults and failures}
-
-
-\subsubsection{Verification and Validation criteria}
-These two terms, verification and validation, are often used in tandem, particularly in software testing standards including the retired~\cite{BS_7925_1_1998} and the standard that superseded it~\cite{iso29119-1-2013}. The definitions from the ISO standard are:
-\begin{itemize}
-    \item ``Verification is confirmation, through the provision of objective evidence, that specified requirements have been fulfilled in a given work item."~\cite{iso29119-1-2013}
-    \item ``Validation demonstrates that the work item can be used by the users for their specific tasks."~\cite{iso29119-1-2013}
-\end{itemize}
-
-In terms of analytics tools, verification would focus on evaluating whether the tool has been implemented correctly. Validation considers human aspects such as whether users can perform intended tasks using the analytics tool(s). (In this research context software developers of mobile apps are the main users).
-
-As the requirements for analytics tools are often proprietary, verification using the product specified requirements may be impractical to assess rigorously unless and until one has access to these requirements. Nonetheless common-sense requirements can be established based on heuristics and experience, \emph{etc}. this is covered in the section titled: \href{rubric-for-evaluating-analytics-tools}{\nameref{rubric-for-evaluating-analytics-tools}}.
-
-\subsubsection{Perceptions-based criteria}
-
-\subsubsection{Qualitative/quality criteria}
-
-\subsubsection{Functional correctness}
-
-\subsubsection{Performance}
-
-\subsubsection{Safety}
-Freedom from harm or danger, safety in other words, may be an unlikely consideration initially especially in terms of using analytics tools. 
-
-Safety in terms of reputation, ability to try something out, and so on, considers human aspects of using (or not-using) various analytics tools. Safety became an emerging consideration in terms of assessing various analytics tools. Safety in relationship to the researcher, the health of apps and projects related to the research, and in terms of protecting the safety of end users privacy, \emph{etc}.
-
-\subsubsection{Security}
-
-\subsubsection{Time-aspects}
-
-\subsection{A rubric for evaluating analytics tools}~\label{rubric-for-evaluating-analytics-tools}
-Bugs can be exposed with various qualities, a heuristic the author learned in many years of evaluating the performance of systems is zero, one, several, and many, where:
-\begin{itemize}
-    \item Zero: can represent a system before it is actively used and/or the quiescent state with no active users, where there were users previously.
-    \item One: the first user, session, account, and so on. Unless there are stated reasons to the contrary, as the first activity starts the analytics should be able to correctly indicate and report on the activity.
-    \item Several: As several activities occur in parallel and concurrently race conditions, queuing, latency, and reuse of dirty memory values can all emerge.
-    \item Many: As volumes increase from several to many issues of scaling may emerge, and some of the issues that appeared to be minor with several users may increase nonlinearly. 
-\end{itemize}
-
-\subsection{Validating Analytics}
-
-TODO TBC
-
-\subsection{Some practical complications} 
-Access may be restricted or not available to some of the steps introduced in this section. For instance, the data collection and reporting servers may be off-limits. If so, aspects of verifying the testing may be answered, at least partially, in later steps, for instance appearance of activity in an analytics report may be used to infer that the messages arrived and were processed adequately.
 
 
 
