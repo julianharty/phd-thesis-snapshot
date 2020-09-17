@@ -3,3 +3,23 @@ This appendix has topics that might be useful to readers who are unfamiliar with
 
 \section{An aside on packaging mobile apps}~\label{section-packaging-mobile-apps}
 Mobile apps are a bit like snails, who carry everything with them in their shell, well actually in their application binary package (known as an APK~\footnote{Android Package Kit\url{https://en.wikipedia.org/wiki/Android_application_package}} file). This includes whichever libraries they use. Therefore, when developers want to include pre-packaged support for crash-reporting and/or mobile analytics, the development team need to incorporate the relevant software libraries in their application binary package. These libraries are therefore distributed as an intrinsic part of an app and installed seamlessly with the main application onto a user's device.
+
+\section{An aside on 'pre-launch reports'}
+Google provide a free service called pre-launch reports~\cite{google_use_pre_launch_reports}. TBC.
+
+\textbf{TODO} discuss the connection Google provides between results from pre-launch reports and Android Vitals, and the benefits for development teams who a) pay attention to the pre-launch automated testing results b) consider actively expanding their own pre-launch testing (where they may have to connect the crash clusters from Android Vitals with the stack traces recorded in their pre-launch testing).
+
+\subsection{Hysteresis loops}
+
+Hysteresis loops are used to represent forces in magnetism, elasticity, and so on. They may also be relevant in representing the effects of growth (loading) and decline (unloading) of analytics systems. Figure ~\ref{fig:elastic-hysteresis} indicates elastic hysteresis as force increases and decreases the extension of rubber also varies, but nonlinearly. For an analytics system Force may represent actual concurrent use and extension the reported use.
+
+\begin{figure}[!htbp]
+    \centering
+    \copyrightbox[r]{
+        \includesvg[scale = 0.8]{images/wikipedia/Elastic_Hysteresis.svg}}
+    {\textcopyright Bedenbender et Tiger66 \href{{https://creativecommons.org/licenses/by/2.5}}{CreativeCommons: CC by 2.5}\\source: \href{https://commons.wikimedia.org/wiki/File:Elastic_Hysteresis.svg}{Wikpedia}}
+    \caption{Elastic Hysteresis}
+    \label{fig:elastic-hysteresis}
+\end{figure}
+
+Economic effects of whether individuals swear an oath were assessed in two countries, China and Sweden (\cite{carlsson2013truth}). %MUST-DO remember why I added this and weave it into the rest of the chapter or remove it.
