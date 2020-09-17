@@ -14,10 +14,22 @@ Both these terms are taken from~\cite{marsh2002skin}. While the article is aimed
 \subsection{Ontology}
 Analytics exist and are used across and throughout software development practices. Software is not perfect, it's formed through numerous human endeavours using flawed tools and techniques, no practical software is bug-free, however those involved can improve software through their choices and practices.
 
+How to measure anything concepts...
+
 \subsection{Epistemology}
 What we can know about mobile analytics and how we can know it... Then more specifically, how we know about the identification and measurement of some flaws in behaviour of software that are considered measures of quality of the software in use. 
 
 We can know through end-to-end testing, through asking the designers, constructors, operators, and users of a system (such as an analytics tool). However, we're also limited by who we can ask, what they are willing/able to communicate, and whether that communication is sufficiently open and transparent to be useful and reliable.
+
+
+Various data can be potentially collected implicitly and explicitly. What can be collected depends on the observation mechanisms. Observation may be within an app or external to it, for instance by the operating system as Google Android does~\footnote{There are other custom versions of Android, for instance used in Amazon Kindle Fire devices.}. Within an app the observation may focus at a single layer, for instance the visual user interface, or several. The choices of observation mechanisms within an app are made by developers or their stakeholders. The choices external to an app can be made by various people including the platform provider, users, or indirectly using other software including third-party apps, spyware, accessibility software, and so on.
+
+
+
+Analytics, such as user-journeys, can help to answer questions about the usage of the software. They help establish \emph{what-is}. As we understand more about what-is we can then consider \emph{what-would-be-better} and do gap analysis between what-is and what-would-be-better.
+
+Reporting/generating and Observing... What happens within the app stays within the app unless someone looks inside the app or the app reports what's occurring. Observation without action limits the utility of whatever is learned. 
+
 
 \subsection{The rest of this chapter}
 This chapter provides a holistic model pertaining to applying analytics to development practices, including \href{motivation-section}{\textit{motivation}}, \textit{selection}, and \textit{incorporation} of analytics tools; their \textit{use}; and the useful life of the materials provided by the analytics tools. There is some repetition in the chapter as none of the aspects are truly independent and they overlap; for instance, selection may will include aspects of incorporation of analytics libraries in order to learn about them and evaluate them. There are also cross-cutting concerns including privacy aspects and evaluation criteria, these will be covered towards the end of this chapter.
@@ -76,6 +88,7 @@ Selection includes choosing the analytics tools, the data to collect, the evalua
 
 
 \section{Incorporation}
+Incorporation of analytics code into an app, incorporation of verification into the software construction, testing and release practices, incorporation of analytics results into the development and operational practices. c.f. Buse and Zimmermann's figure based on Davenport and Harris~\cite{davenport}. 
 
 Where to log and what to log.
 
@@ -101,7 +114,7 @@ Here are the reports in the most likely chronological order of being generated i
 
 \textbf{TODO} add my notes based on the analysis of Google Play Console for Greentech apps.
 
-\section{Adding and incorporating a crash-reporting library}
+\subsection{Adding and incorporating a crash-reporting library}
 Crash-reporting libraries need to be incorporated into an application before they can be used, as mentioned in the section on~\href{section-packaging-mobile-apps}{\emph{packaging mobile apps}}. Generally~\footnote{A small minority of developers may follow other practices, nonetheless the principles mentioned here still apply}, the developer adds a few configuration lines to their application's build file (in \texttt{app/build.gradle} for Android apps) and also several lines of code to initialise the library when the application starts. These install the library as the global crash handler for the app, each time the app is started the library is initialised. 
 
 When the library is initialised, it may perform various actions such recording details of the operating system release, the model of device, \emph{etc.}. They may also perform house-keeping activities, for instance Crashlytics transmits crash reports from previous sessions.
@@ -119,12 +132,81 @@ Some crash-reporting libraries offer developers a mechanism to report non-fatal 
 Testing a system intended to measure quality may adversely affect their rating of your apps and potentially even their willingness to accept you in their system. \emph{c.f.} credit checks may adversely affect your credit score score~\footnote{\url{https://www.experian.co.uk/consumer/guides/searches-and-credit-checks.html}}. The system may not distinguish between your testing of the measurement system and those experienced by end users of the software. Google is adamant they will not accept Android apps that crash: ~\emph{``\textbf{Broken Functionality} We don’t allow apps that crash, force close, freeze, or otherwise function abnormally."}~\cite{google_play_developer_policy_center}.
 
 
+\subsection{Designing the content/messages} 
+% I'm not sure whether content or messages, or a mix of both words, best encompasses the topic I wish to discuss here. Messages can have content, however sometimes a message is a message by its existence, even with no payload. (2 rings on the home phone when you arrive, told the family you'd arrived without needing to pay for the telephone call. Heartbeat messages in systems, etc.). Also the design may include non-content aspects, content transformations, etc. Anyway, let's get writing. 
+This section applies to messages that an app could emit regardless of the conduit (\emph{i.e.} it applies to logging and using mobile analytics). At the risk of some ambiguity, the term log will be used to reflect both logging and mobile analytics in this section to improve overall readability.
+
+\emph{Related concepts}: The uneven U, computer protocols (layers, formatting, and contents), structured messages, what to log. %MUST_DO expand this section.
+
+There are many choices that can be considered in terms of designing the content/messages. For various reasons developers may pay little strategic attention to logging in their daily work. For those who do choose to consider logging strategically there are various considerations, including:
+What to log, how to log, where to log, data transformations, delivery mechanisms and characteristics.
+
+Developers have control over what to log, how, and when to generate the log messages. They may be constrained in various ways by APIs, message lengths, encoding, and formats, access to messages, and when messages will be transmitted, \emph{etc.} 
+
+It is possible to test the constraints, for instance by writing custom automated tests and/or apps that generate a variety of messages where the outputs are checked somehow. The checking may be partly or completely performed programmatically (we did some unpublished research in this area in 2018).
+
+The purpose of the message may differ in the type and level of information it is intended to convey. Some messages may contain low-level, or detailed, error messages intended to help improve the technical aspects of the software to make the software more robust. Other messages may aim to communicate intent, completion of a task, activity or user-journey in the software. For example, IBM published a paper about software called CX Mobile that aims to record and visualise user journeys for iOS and Android apps~\cite{hu_tealeaf_cxmobile}.
+
+\subsubsection{Designing logging}
+Unstructured logging can serve immediate needs, for instance to trace code execution or display the value of a variable at run-time. The resulting entries into a log file have limited value in terms of longer term analysis and they may also be harder to identify, filter, and lack relevant content for such analysis.
+
+In the domain of logging both business and research consider logging design important and valuable. 
+
+Implementation choices: 
+
+\subsubsection{Testing logging}
+
+
+
+\subsubsection{Designing in-app analytics}
+
+Semantic events e.g. `\texttt{itly.songUploaded(...)}' provides semantic information that `\texttt{mixpanel.track(...)}' lacks~\footnote{Example taken from~\url{https://iterative.ly/docs/migration-guide}}.
+
+\subsubsection{Testing in-app analytics}
+Testing is one way to ascertain whether the analytics is working as intended. From personal experience in the industry testing may be haphazard or minimally done. The lack of testing in these cases has led to no end of downstream issues in terms of the trustworthiness and validation of the analytics. Here we consider several complementary approaches to testing in-app analytics with a focus on the verification aspects (aiming to answer: \emph{``does it work as intended?"}) questions.
+
+Testing Steps:
+\begin{enumerate}
+    \item Build-time verification: concentrates on whether the analytics library and API calls have been integrated into the application correctly.
+    \item Generation of the messages: focuses on whether the intended messages are generated in response to the intended triggers (events, and so on). Testing whether the necessary and appropriate content is in the relevant messages is also in scope. 
+    \item Transmission of messages: given the assumption that data is transmitted from mobile devices to internet-based servers, the messages need to be transmitted in a timely manner. Testing the transmission is similar to a proof-of-posting test. 
+    \item Arrival of the messages: this step focuses on the proof-of-delivery aspects - did the messages successfully arrive without problems (such as corruption, truncation, interception, spoofing, and so on) and did they arrive in order within the expected timescales, \emph{etc.}? 
+    \item Processing of the messages: as analytics inherently involves analysis of the raw messages, testing of the processing aspects helps to determine whether the contents were interpreted correctly. 
+    \item Testing the analysis and reporting: Analytics is little use without the resulting analysis and reports, therefore they also need to be tested they are correct. As relevantly they are also worth validating in terms of usefulness/utility. 
+\end{enumerate}
+
+\subsubsection{Build-time verification} 
+In-app software analytics, in practice, involves incorporating a software component into the rest of the codebase for a mobile app. Typically the software component is a pre-built software library provided by same source as the analytics tool. The intended version of the library needs to be incorporated adequately and remain in the application binary created during the build process.
+
+One of the companies who leading the industry in terms of build-time verification is \href{https://iterative.ly}{Iteratively} who currently provide tools, scripts, and services to check at build time whether a supported analytics library has been adequately incorporated in terms of calling each of the required API calls designed using their tools. They provide implementations for various platforms including Android and iOS~\footnote{e.g. Android Kotlin~\url{https://iterative.ly/docs/interacting-with-the-sdk\#android--kotlin} and iOS Swift~\url{https://iterative.ly/docs/interacting-with-the-sdk\#ios--swift}}. Their scripts can be run as part of a continuous build process and the build script configured to block code from being merged until all of the API calls have been called, they `\texttt{lint}' the source code of the app to perform the checks, ~\cite{using_the_itly_cli_verify_the_instrumentation, using_the_itly_cli_itly_verify}.
+
+The approach, and the supporting tools and scripts as exemplified by Iteratively, demonstrate such verification is practical. To abstract away from the specifics of their offering, the approach is:
+\begin{itemize}
+    \item Establish and design the analytics messages.
+    \item Generate a tracking library containing the appropriate API calls for one or more analytics providers (such as Firebase Analytics, Mixpanel, and so on).
+    \item Modify the source code of the core application to call these API calls (connect, or bind, the app's code with the analytics code).
+    \item Lint the resulting combined library and source code and determine if there are material issues with the implementation.
+\end{itemize}
+
+\subsubsection{Automated testing}
+puppeteer~\cite{using_puppeteer_to_automate_your_google_analytics_testing}
+
+\textbf{TODO} Cite research on looking at what analytics sends, discovered using network monitoring and instrumentation. 
+
+
+
 
 
 \section{Use}
-Peers, engineering process flows, ...
+Peers, engineering process flows, DevOps, ...
 
-\subsection{Select, aggregate, scope, analyse, triage and prioritise clusters}~\label{section-select-aggregate-scope-analyse-triage-and-prioritise}
+Effective use of usage-derived analytics is intended to be mutually beneficial for both the development team and the quality of the app they produce. Data from operations (the use of the app) informs the development team on aspects of how the app is performing and provides feedback on the effects of the development and testing related to the releases of the app in current use. Failures can be used to identify flaws in the app, once these are addressed and the improved version of the app is available to users - the users may then receive an improved user experience. If developers choose to add instrumentation code to their app they may be able to glean additional data related to the use of the app that's germane to flaws and failures.
+
+Examples of instrumentation code in the context of usage analytics include: breadcrumbs, and the recording and reporting of~\emph{`non-fatal exceptions'}. Non-fatal exceptions are exceptions that occur in the running software where the exception is handled within the app without the app crashing. Some crash reporting mechanisms, including passive analytics, rely on the crash emerging from the app when the app is terminated the non-fatal exceptions are not visible using passive analytics or global crash handlers (which 'handle' exceptions that have not been 'caught' or handled elsewhere in the app).
+
+
+
+\subsection{Using failure clusters}~\label{section-select-aggregate-scope-analyse-triage-and-prioritise}
 The proposed approach is intended to achieve practical results efficaciously and address real-world issues that \emph{`move the needle'} i.e. that will deliver positive improvements. 
 
 A half-life of bugs worth addressing, where bugs that surface primarily in older releases of an app are less worthwhile to address as the users of these older releases will either upgrade to a newer release or remain on the older release even though improvements and fixes are available in newer releases. Also, at the time of writing, app stores do not support the equivalent of back-ports of fixes to older releases, they will only offer users the current release available for their device, etc. (Etc. as there may be regional and other restrictions which limit users to older releases. While developers could choose to create specific releases for particular groups of users (\emph{i.e.} the mechanisms exist in some app stores), there is little evidence that they do.)
@@ -224,7 +306,6 @@ Who are the peers for my app?~\footnote{Inspired by:~\href{https://www.biblegate
 Discuss options for peers, and in particular the facilities Google provides to enable developers to compare against their `peers'.
 
 
-
 \subsection{Evaluation criteria for Analytics Tools}
 One of the considerations in terms of using analytics tools is to decide on evaluation criteria. These criteria may range from informal and implicit evaluations to more rigorous and formal approaches. Considerations also include a mix of technical and non-technical aspects such as popularity, brand, perceived ease of initial use, and so on.
 
@@ -308,86 +389,6 @@ Economic effects of whether individuals swear an oath were assessed in two count
 Google provide a free service called pre-launch reports~\cite{google_use_pre_launch_reports}. TBC.
 
 \textbf{TODO} discuss the connection Google provides between results from pre-launch reports and Android Vitals, and the benefits for development teams who a) pay attention to the pre-launch automated testing results b) consider actively expanding their own pre-launch testing (where they may have to connect the crash clusters from Android Vitals with the stack traces recorded in their pre-launch testing).
-
-
-
-
-\noindent
-\rule{\textwidth}{1pt}
-
-Unrestructured content below this line. It needs to be relocated above this line. Once everything's been relocated, remove the line and this text. \textbf{MUST-DO}
-
-\noindent
-\rule{\textwidth}{1pt}
-
-Various data can be potentially collected implicitly and explicitly. What can be collected depends on the observation mechanisms. Observation may be within an app or external to it, for instance by the operating system as Google Android does~\footnote{There are other custom versions of Android, for instance used in Amazon Kindle Fire devices.}. Within an app the observation may focus at a single layer, for instance the visual user interface, or several. The choices of observation mechanisms within an app are made by developers or their stakeholders. The choices external to an app can be made by various people including the platform provider, users, or indirectly using other software including third-party apps, spyware, accessibility software, and so on.
-
-
-
-Analytics, such as user-journeys, can help to answer questions about the usage of the software. They help establish \emph{what-is}. As we understand more about what-is we can then consider \emph{what-would-be-better} and do gap analysis between what-is and what-would-be-better.
-
-
-
-\section{Designing the content/messages} 
-% I'm not sure whether content or messages, or a mix of both words, best encompasses the topic I wish to discuss here. Messages can have content, however sometimes a message is a message by its existence, even with no payload. (2 rings on the home phone when you arrive, told the family you'd arrived without needing to pay for the telephone call. Heartbeat messages in systems, etc.). Also the design may include non-content aspects, content transformations, etc. Anyway, let's get writing. 
-This section applies to messages that an app could emit regardless of the conduit (\emph{i.e.} it applies to logging and using mobile analytics). At the risk of some ambiguity, the term log will be used to reflect both logging and mobile analytics in this section to improve overall readability.
-
-\emph{Related concepts}: The uneven U, computer protocols (layers, formatting, and contents), structured messages, what to log. %MUST_DO expand this section.
-
-There are many choices that can be considered in terms of designing the content/messages. For various reasons developers may pay little strategic attention to logging in their daily work. For those who do choose to consider logging strategically there are various considerations, including:
-What to log, how to log, where to log, data transformations, delivery mechanisms and characteristics.
-
-Developers have control over what to log, how, and when to generate the log messages. They may be constrained in various ways by APIs, message lengths, encoding, and formats, access to messages, and when messages will be transmitted, \emph{etc.} 
-
-It is possible to test the constraints, for instance by writing custom automated tests and/or apps that generate a variety of messages where the outputs are checked somehow. The checking may be partly or completely performed programmatically (we did some unpublished research in this area in 2018).
-
-The purpose of the message may differ in the type and level of information it is intended to convey. Some messages may contain low-level, or detailed, error messages intended to help improve the technical aspects of the software to make the software more robust. Other messages may aim to communicate intent, completion of a task, activity or user-journey in the software. For example, IBM published a paper about software called CX Mobile that aims to record and visualise user journeys for iOS and Android apps~\cite{hu_tealeaf_cxmobile}.
-
-\subsection{Designing logging}
-Unstructured logging can serve immediate needs, for instance to trace code execution or display the value of a variable at run-time. The resulting entries into a log file have limited value in terms of longer term analysis and they may also be harder to identify, filter, and lack relevant content for such analysis.
-
-In the domain of logging both business and research consider logging design important and valuable. 
-
-Implementation choices: 
-
-\subsubsection{Testing logging}
-
-
-
-\subsection{Designing in-app analytics}
-
-Semantic events e.g. `\texttt{itly.songUploaded(...)}' provides semantic information that `\texttt{mixpanel.track(...)}' lacks~\footnote{Example taken from~\url{https://iterative.ly/docs/migration-guide}}.
-
-\subsubsection{Testing in-app analytics}
-Testing is one way to ascertain whether the analytics is working as intended. From personal experience in the industry testing may be haphazard or minimally done. The lack of testing in these cases has led to no end of downstream issues in terms of the trustworthiness and validation of the analytics. Here we consider several complementary approaches to testing in-app analytics with a focus on the verification aspects (aiming to answer: \emph{``does it work as intended?"}) questions.
-
-Testing Steps:
-\begin{enumerate}
-    \item Build-time verification: concentrates on whether the analytics library and API calls have been integrated into the application correctly.
-    \item Generation of the messages: focuses on whether the intended messages are generated in response to the intended triggers (events, and so on). Testing whether the necessary and appropriate content is in the relevant messages is also in scope. 
-    \item Transmission of messages: given the assumption that data is transmitted from mobile devices to internet-based servers, the messages need to be transmitted in a timely manner. Testing the transmission is similar to a proof-of-posting test. 
-    \item Arrival of the messages: this step focuses on the proof-of-delivery aspects - did the messages successfully arrive without problems (such as corruption, truncation, interception, spoofing, and so on) and did they arrive in order within the expected timescales, \emph{etc.}? 
-    \item Processing of the messages: as analytics inherently involves analysis of the raw messages, testing of the processing aspects helps to determine whether the contents were interpreted correctly. 
-    \item Testing the analysis and reporting: Analytics is little use without the resulting analysis and reports, therefore they also need to be tested they are correct. As relevantly they are also worth validating in terms of usefulness/utility. 
-\end{enumerate}
-
-\subsubsection{Build-time verification} 
-In-app software analytics, in practice, involves incorporating a software component into the rest of the codebase for a mobile app. Typically the software component is a pre-built software library provided by same source as the analytics tool. The intended version of the library needs to be incorporated adequately and remain in the application binary created during the build process.
-
-One of the companies who leading the industry in terms of build-time verification is \href{https://iterative.ly}{Iteratively} who currently provide tools, scripts, and services to check at build time whether a supported analytics library has been adequately incorporated in terms of calling each of the required API calls designed using their tools. They provide implementations for various platforms including Android and iOS~\footnote{e.g. Android Kotlin~\url{https://iterative.ly/docs/interacting-with-the-sdk\#android--kotlin} and iOS Swift~\url{https://iterative.ly/docs/interacting-with-the-sdk\#ios--swift}}. Their scripts can be run as part of a continuous build process and the build script configured to block code from being merged until all of the API calls have been called, they `\texttt{lint}' the source code of the app to perform the checks, ~\cite{using_the_itly_cli_verify_the_instrumentation, using_the_itly_cli_itly_verify}.
-
-The approach, and the supporting tools and scripts as exemplified by Iteratively, demonstrate such verification is practical. To abstract away from the specifics of their offering, the approach is:
-\begin{itemize}
-    \item Establish and design the analytics messages.
-    \item Generate a tracking library containing the appropriate API calls for one or more analytics providers (such as Firebase Analytics, Mixpanel, and so on).
-    \item Modify the source code of the core application to call these API calls (connect, or bind, the app's code with the analytics code).
-    \item Lint the resulting combined library and source code and determine if there are material issues with the implementation.
-\end{itemize}
-
-\subsubsection{Automated testing}
-puppeteer~\cite{using_puppeteer_to_automate_your_google_analytics_testing}
-
-\textbf{TODO} Cite research on looking at what analytics sends, discovered using network monitoring and instrumentation. 
 
 
 
