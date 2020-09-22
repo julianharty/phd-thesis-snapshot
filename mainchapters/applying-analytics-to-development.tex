@@ -1,5 +1,5 @@
 \chapter{Applying analytics to development practices}~\label{chapter-applying-analytics-to-development-practices}
-In the context of this thesis, analytics data is based on the software being used, so the software needs to be created and able to run before relevant data is generated.
+In the context of this thesis, analytics data is based on the software being used, so the software needs to be created and able to run before relevant data is generated. Much of the usage data comes from end users using mobile apps on their devices, however it may also be available earlier in the software development lifecycle.
 
 Before going into details of applying analytics to development practices, I will introduce the basis for my theoretical perspective in terms of the ontology and epistemology.
 
@@ -14,25 +14,38 @@ Both these terms are taken from~\cite{marsh2002skin}. While the article is aimed
 \subsection{Ontology}
 Analytics exist and are used across and throughout software development practices. Software is not perfect, it's formed through numerous human endeavours using flawed tools and techniques, no practical software is bug-free, however those involved can improve software through their choices and practices.
 
-How to measure anything concepts...~\cite{hubbard}
+[Almost] anything can be measured sufficiently to be useful. In (\cite{hubbard2014measure}) \emph{How to measure anything, \nth{3} edition} the author argues that anything can be measured and proposes an approach to do so. His framework, called \emph{Applied Information Economics: A Universal Approach to Measurement} is summarised in five steps:
+
+\begin{enumerate}
+    \item Define the decision.
+    \item Determine what you know now.
+    \item Compute the value of additional information. (If none, go to step 5.)
+    \item Measure where the information value is high. (Return to steps 2 and 3 until further measurement is not needed.)
+    \item Make a decision and act on it. (Return to step 1 and repeat as each action creates new decisions.)
+\end{enumerate} %~\cite{hubbard2014measure} (page 9).
+
+This approach helps to frame this research into applying analytics to development practices, especially in terms of the practical aspects and nature of real-world apps, development teams, and user-bases..
 
 \subsection{Epistemology}
-What we can know about mobile analytics and how we can know it... Then more specifically, how we know about the identification and measurement of some flaws in behaviour of software that are considered measures of quality of the software in use. 
+Here we consider the questions: (1a) What we can know about mobile analytics and (1b) how we can know it? Then more specifically, these related questions are key given this research focuses on using mobile analytics to help answer the next question. (2) How we know about the identification and measurement of some flaws in behaviour of software that are considered measures of quality of the software in use? Broadly we can learn from people, use software tools, and use data to answer these questions. In some cases the data comes from a single source, in others cases from several.
 
-We can know through end-to-end testing, through asking the designers, constructors, operators, and users of a system (such as an analytics tool). However, we're also limited by who we can ask, what they are willing/able to communicate, and whether that communication is sufficiently open and transparent to be useful and reliable.
+\textbf{Toolbox of methods, how can we know about mobile analytics and the effects of using them?} 
 
+Mobile analytics comprises software, systems, and sometimes services. Broadly we can read about them, study their source code, analyse, test, and use them directly, and ask others for their perspectives and insights. Rather than go into lots of detail here, several of the appendices of this thesis cover aspects of mobile analytics, in particular, in~\href{chapter-on-mobile-analytics}{\emph{\nameref{chapter-on-mobile-analytics}}}. 
 
-Various data can be potentially collected implicitly and explicitly. What can be collected depends on the observation mechanisms. Observation may be within an app or external to it, for instance by the operating system as Google Android does~\footnote{There are other custom versions of Android, for instance used in Amazon Kindle Fire devices.}. Within an app the observation may focus at a single layer, for instance the visual user interface, or several. The choices of observation mechanisms within an app are made by developers or their stakeholders. The choices external to an app can be made by various people including the platform provider, users, or indirectly using other software including third-party apps, spyware, accessibility software, and so on.
+In terms of learning from people, we can do so by asking the designers, constructors, operators, and users of a system. However, we're also limited by who we can ask, what they are willing/able to communicate, and whether that communication is sufficiently open and transparent to be useful and reliable. We can also learn from information produced by people, and in particular for mobile apps we can use ratings and reviews. Given human behaviour it may also be worth considering aspects such as the provenance of the information sources, fake data, \emph{etc.} especially where there are rewards for slewing the results of the measurements being used in an ecosystem. 
 
+We can know through static analysis tools, automated tests, end-to-end testing, \emph{etc.} and all of these are used by at least some of the developers of mobile apps some of the time. They often take place \textit{before} the software is released to end users.
+
+We can also know through data collected when the software is used. As~\cite{RFC3164} notes in RFC3164, ~\emph{``Since the beginning... operating systems, processes and applications were written to send messages of their own status, or messages to indicate that certain events had occurred. These event messages generally had local significance to the machine operators."}. Mobile apps also write messages locally and developers use them for similar purposes (nuances and differences are discussed in the related work chapter). These local messages can be read by humans locally and/or read by software that delivers them elsewhere. Developers can also add software to their apps to log information for processing elsewhere which is where much of mobile analytics and crash reporting fits in the scheme of things.
+
+Various data can be potentially collected implicitly and explicitly. What can be collected depends on the observation mechanisms. Observation may be within an app or external to it, for instance by the operating system as both iOS  and Google Android do~\footnote{There are other custom versions of Android, for instance used in Amazon Kindle Fire devices. Their details are outside the scope of my research.}(details in the Appendix titled~\href{chapter-on-mobile-analytics}{\emph{\nameref{chapter-on-mobile-analytics}}} ). Within an app the observation may focus at a single layer, for instance the visual user interface, or several. The choices of observation mechanisms within an app are made by developers or their stakeholders. The choices external to an app can be made by various people including the platform provider, users, or indirectly using other software including third-party apps, spyware, accessibility software, and so on.
 
 Analytics, such as user-journeys, can help to answer questions about the usage of the software. They help establish \emph{what-is}. As we understand more about what-is we can then consider \emph{what-would-be-better} and do gap analysis between what-is and what-would-be-better.
 
 Reporting/generating and Observing... What happens within the app stays within the app unless someone looks inside the app or the app reports what's occurring. Observation without action limits the utility of whatever is learned. 
 
-
-Toolbox of methods, how can we know about mobile analytics and the effects of using them?
-
-
+Survivorship bias (\cite{wikipedia_survivorship_bias}) is relevant to understanding the information developers receive, some data does not `survive' the journey from source to developer. And much of the information that is does reach the developers does not survive or, perhaps better put, thrive in terms of being used productively. They have plenty of other demands for their time and attention and much of what could be useful isn't used in practice, therefore the data needs to be sufficiently useful and relevant and improvements tractable for any proposed approach to be used long term in practice.
 
 
 \subsection{The rest of this chapter}
@@ -42,7 +55,7 @@ Related topics are covered in the discussion and future work chapters. Several e
 
 
 \section{Motivation}~\label{motivation-section}
-As mentioned in the introduction chapter, developers are motivated to understand how their software is being used, how it's behaving, and fix at least some of the flaws in their software. Their actual motivations and context will vary based on their context including their work priorities, their current and desired levels of engagement in terms of incorporating and using analytics in their software engineering practices, privacy, data ownership and stewardship, costs, and so on.
+As mentioned in the introduction chapter, developers are motivated to understand how their software is being used, how it's behaving, and fix at least some of the flaws in their software. Their actual motivations and context will vary based on their context including their work priorities, their current and desired \href{subsection-levels-of-engagement}{\emph{levels of engagement}} in terms of incorporating and using analytics in their software engineering practices, privacy, data ownership and stewardship, costs, and so on.
 
 Some motivations may constrain, or limit, their options, for instance if they wish to be responsible the underlying data, or if they have budget constraints.
 
@@ -100,9 +113,12 @@ Various practical aspects of incorporating mobile analytics are in an~\href{prac
 
 
 \subsection{Incorporating passive analytics to development practices}
-As mentioned earlier, passive analytics are those not actively under the control or influence of the development team, they are provided from other sources such as the operating system or the app store. In my research the passive analytics are all managed by an app store: Google Play Console.
+As mentioned earlier, passive analytics are those not actively under the control or influence of the development team, they are provided from other sources such as the operating system or the app store. Developers receive the reports and data they are given access to. 
 
-Later in this thesis, the section titled \href{google_play_console_section}{\emph{\nameref{google_play_console_section}}} provides examples of a variety of reports developers may receive on the performance of their Android app. Developers can integrate and incorporate the passive analytics Google provides through the various reports in order to a) better understand how their app is doing b) change their app so it performs better as reported by these reports.
+(In my research the passive analytics are all managed by an app store: Google Play Console.)
+
+Later in this thesis, the section titled \href{google_play_console_section}{\emph{\nameref{google_play_console_section}}} provides examples of a variety of reports developers may receive on the performance of their Android app. Developers can integrate and incorporate the passive analytics %Google provides through the various reports 
+in order to a) better understand how their app is doing b) change their app so it performs better as reported by these reports.
 
 Here are the reports in the most likely chronological order of being generated if developers follow various recommendations made by Google, \emph{i.e.} to create and take advantage of test releases and use release management tools when rolling out a release of their Android app into production. They are not guaranteed to be produced or be available, and the contents may expire after a period determined by the app store.
 

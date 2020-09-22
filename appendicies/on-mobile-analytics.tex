@@ -1,4 +1,4 @@
-\chapter{On Mobile Analytics}
+\chapter{On Mobile Analytics}~\label{chapter-on-mobile-analytics}
 Mobile Analytics is a specialisation of a general category of software usage analytics and some aspects are in-common. Nonetheless it is distinct and has unique characteristics based on the operating system, the ways libraries are bundled with apps, etc. TBC.
 
 Mobile Analytics, an umbrella term that encompasses various aspects of:
@@ -80,6 +80,12 @@ Trusted (privileged) software may be granted access to one of more of these devi
 A seemingly logical design for Google to collect device-level analytics is through a combination of some software packaged as part of GMS that has privileged access to read the relevant device logs. The logs include the data that is also reported in Google's Android Vitals service (part of Google Play Console). Developers can read these logs locally using a combination of the Android Debug Bridge (adb) software to access the logs on devices that have been enabled in development mode and which have debugging enabled and authorised for the developer's computer. Google provide an API \texttt{android.app.usage}~\footnote{\href{https://developer.android.com/reference/android/app/usage/package-summary.html}{Documentation available at~\texttt{android.app.usage}}.} that provides access to various configuration, event, and usage statistics, amongst others.
 % https://stackoverflow.com/questions/9012361/how-to-track-app-usage-in-android-how-to-detect-when-an-activity-is-launched
 
+\subsubsection{iOS device analytics}
+Apple ask clear direct questions of users and provide clear explanations (at least for those who understand the concepts). Their mobile devices ask users two questions when they first sign into a new release of iOS (on both new and updated devices):
+\begin{itemize}
+    \item \textbf{iPhone Analytics}: \emph{``Help Apple improve its products and services by allowing analytics of usage data from your iPhone. You can change your decision later in Settings. All data is collected using prvacy preserving techniques such as differential privacy and is not associated with you or your account."} The setting can be controlled via \texttt{Settings > Privacy > Analytics \& Improvements} and looking under \texttt{Analytics Data}.
+    \item \textbf{App Analytics}: \emph{``Help app developers improve their apps by choosing to share app activity and crash data with them through Apple. You can change your decision later in Settings."} The setting can be controlled via: \texttt{Settings > Privacy > Analytics \& Improvements Share With App Developers}.
+\end{itemize}
 
 \subsection{Mapping Analytics tools to layers of an app}
 
