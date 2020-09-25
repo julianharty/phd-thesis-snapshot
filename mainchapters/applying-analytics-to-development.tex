@@ -113,22 +113,22 @@ Various practical aspects of incorporating mobile analytics are in an~\href{prac
 
 
 \subsection{Incorporating passive analytics to development practices}
-As mentioned earlier, passive analytics are those not actively under the control or influence of the development team, they are provided from other sources such as the operating system or the app store. Developers receive the reports and data they are given access to. 
+Developers can integrate and incorporate the passive analytics %Google provides through the various reports 
+in order to a) better understand how their app is doing, and b) change their app so it performs better as reported by these reports.
 
-(In my research the passive analytics are all managed by an app store: Google Play Console.)
+As mentioned earlier, passive analytics are those not actively under the control or influence of the development team, they are provided from other sources such as the operating system or the app store. Developers receive the reports and data they are given access to and therefore they need to their approach to suit the material that is provided if they wish to incorporate such analytics into their development practices.
 
-Later in this thesis, the section titled \href{google_play_console_section}{\emph{\nameref{google_play_console_section}}} provides examples of a variety of reports developers may receive on the performance of their Android app. Developers can integrate and incorporate the passive analytics %Google provides through the various reports 
-in order to a) better understand how their app is doing b) change their app so it performs better as reported by these reports.
+In my research the passive analytics are all managed by an app store: Google Play Console. This provides a rich mix of materials including passive analytics both pre and post launch. This section provides an overview of the reports as an example of well-established passive analytics, and later in this thesis, the section titled \href{google_play_console_section}{\emph{\nameref{google_play_console_section}}} provides examples of a variety of reports developers may receive on the performance of their Android app.
 
-Here are the reports in the most likely chronological order of being generated if developers follow various recommendations made by Google, \emph{i.e.} to create and take advantage of test releases and use release management tools when rolling out a release of their Android app into production. They are not guaranteed to be produced or be available, and the contents may expire after a period determined by the app store.
+Here are the reports in the most likely chronological order of being generated if developers follow various recommendations made by Google, \emph{i.e.} to create and take advantage of test releases and use release management tools when rolling out a release of their Android app into production. Note: The reports are not guaranteed to be produced or be available, and the contents may expire after a period determined by the app store.
 
 \begin{enumerate}
-    \item \textbf{Pre-launch reports}: 
-    \item \textbf{Alpha and Beta channels}:
-    \item \textbf{Release Management}: Note this fits with existing research in release management by Shane Mcintosh and Guenther Ruhe, and others.
-    
-    \item (the app) \textbf{Dashboard, including User Feedback}:
-    \item \textbf{Android Vitals}:
+    \item \textbf{Pre-launch reports}: These include various static analysis checks and automated `robot' or `monkey' testing of apps. One of the key innovations is the automated matching of crashes reported in the field with those discovered during the automated testing, indicating the failure was found automatically and pre-launch. It could potentially have been addressed pre-release thereby restricting or even preventing the occurrence for end users.
+    \item \textbf{Alpha and Beta channels}: optional mechanisms to support alpha and beta testing. Usage data is collected from the users' devices configured to do so, processed and reported on. 
+    \item \textbf{Release Management}: Various analytics are collected for a period triggered by an app being released to end users. Releases may be constrained to a subset of users if developers wish. Comparisons with previous releases are available. Note this fits with existing research in release management by Shane Mcintosh and Guenther Ruhe, and others.
+    \item (the app) \textbf{Dashboard}: A dashboard comprising various graphs is provided per released app.  
+    \item \textbf{Android Vitals}: comprised various reports and filters intended to provide software quality related reports and data. 
+    \item \textbf{User Feedback}: comprises various reports, filters, and classification of ratings and reviews. Reviews are translated into English automatically. 
 \end{enumerate}
 
 \subsection{Using passive analytics productively}
@@ -146,20 +146,25 @@ Some crash-reporting libraries offer developers a mechanism to report non-fatal 
 
 \subsection{Testing crash-reporting}
 \begin{itemize}
-    \item Sanity test
-    \item Latency
+    \item \textbf{Sanity test}: as John Stuart Mill might do, a sanity test aims to establish a connection between a `fatal' crash occurring and the incident being reported in the respective analytics report, \emph{i.e.} applying the principles of concomitant variation (\cite{mill1884system}).
+    \item \textbf{Latency}: there will be a delay between when the crash occurs and when it appears in an analytics report. There are several factors which affect the delay including delays in transmission, processing, and reporting. Testing the latency of the system helps to establish the latency of the overall end-to-end process and set the expectations of the development teams.
 \end{itemize}
+
+Some tools and/or reports may have thresholds which require sufficient volume of incidences (such as crashes) before they report them, again testing helps establish whether these thresholds exist in practice.
 
 Testing a system intended to measure quality may adversely affect their rating of your apps and potentially even their willingness to accept you in their system. \emph{c.f.} credit checks may adversely affect your credit score score~\footnote{\url{https://www.experian.co.uk/consumer/guides/searches-and-credit-checks.html}}. The system may not distinguish between your testing of the measurement system and those experienced by end users of the software. Google is adamant they will not accept Android apps that crash: ~\emph{``\textbf{Broken Functionality} We don’t allow apps that crash, force close, freeze, or otherwise function abnormally."}~\cite{google_play_developer_policy_center}.
 
 
+\subsection{Designing in-app analytics}
+Designing in-app analytics has similarities to designing logging, for instance in determining when to send messages and what to include in those messages. For those who can customise~\footnote{Some developers work for organisations where they design and implement proprietary analytics tools, others may customise licensed source code, be it opensource or commercially licensed. Many commercial mobile analytics providers provide their client libraries as opensource projects, for example Segment~\url{https://github.com/segmentio/analytics-android}.} the client-side analytics library they may also be able to influence/design aspects of storing and transmitting the contents of the messages.
 
-
-\subsubsection{Designing in-app analytics}
-
+Design criteria include those that influence the reporting aspects, for instance the semantics of an operation. \textbf{MUST-DO} provide some examples from the joint research post Shonan.~\footnote{Note: aspects of this research have been presented and discussed with various people and organisations, in particular at a NII Shonan meeting in December 2019~\cite{nii_shonan_workshop_152} and recorded in~\cite{nii_shonan_152_workshop_report}. I am engaged in ongoing research into aspects of how mobile app developers use mobile analytics with a group of five researchers internationally. We are jointly writing at least one paper on this research.}
+%
 Semantic events e.g. `\texttt{itly.songUploaded(...)}' provides semantic information that `\texttt{mixpanel.track(...)}' lacks~\footnote{Example taken from~\url{https://iterative.ly/docs/migration-guide}}.
 
-\subsubsection{Testing in-app analytics}
+There is a wide range of scope in terms of the flexibility provided by various analytics tools. Some Analytics tools allow developers to create custom methods (which are named by the developers), others limit developers to using pre-defined methods where the contents of the payload can be customised, and others constrain both the methods and the payload.
+
+\subsection{Testing in-app analytics}
 Testing is one way to ascertain whether the analytics is working as intended. From personal experience in the industry testing may be haphazard or minimally done. The lack of testing in these cases has led to no end of downstream issues in terms of the trustworthiness and validation of the analytics. Here we consider several complementary approaches to testing in-app analytics with a focus on the verification aspects (aiming to answer: \emph{``does it work as intended?"}) questions.
 
 Testing Steps:

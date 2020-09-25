@@ -32,6 +32,7 @@ including various viewpoints of quality e.g. Gerry Weinberg)
         \item Reliability. Introduced in ~\hyperlink{software.quality}{Software Quality}, and then expanded in a subsection~\hyperlink{software.reliability}{\emph{here}}
         \item Then focus on stability (as used by HP and then Google) encompassing reliability, freezes, etc.
         \item Discuss MTBF, usage paths and profiles and their effects on the measured values
+        \item Maslow's hierarchy of needs where reliability is one of the base levels, yet vital. c.f Sommerville.
     \end{itemize}
     \item Measurement and Analytics
     \begin{itemize}
@@ -95,15 +96,40 @@ including various viewpoints of quality e.g. Gerry Weinberg)
 Software quality is multi-faceted. Some facets are more user-centric, such as perceived quality by end-users, which may include aesthetics, responsiveness, brand perception, as much as more technical aspects such as whether an app freezes, crashes, or whether an app corrupts, leaks, or loses data, for instance. I cannot hope to %or it would be impractical and potentially counter-productive to
 cover all the facets even after many years of working and researching in this domain. Instead I have selected the facets germane to my PhD research.
 
-The main software quality my research investigates is reliability as measured through counting and analysing crashes of mobile apps. While these might seem to be mundane compared to more attractive topics such as user experiences, poor reliability can undo the success of an otherwise attractive and performant software application. As Bavota~\emph{et al} observe in~\cite{bavota2014_impact_of_api_change_android} ~\emph{``users easily get frustrated by repeated failures, crashes, and other bugs; hence, they abandon some apps in favor of their competition."} Also app crashes are one of the the three most frequent complaints (together with functional errors and feature requests) found by (~\cite{khalid2015_what_do_mobile_app_users_complain_about}) in their studies of 6,390 low-rated user reviews for 20 free to download iOS apps. And from a practical perspective Google states \emph{``Fixing issues can lead to a better user experience, higher ratings, and more retained installers."} in their pre-launch reports.
+%Expand on software quality generally before leaping into specifics.
+Weinberg stated \emph{"Quality is value to some person"}~\cite{weinberg1992quality}. To paraphrase him, \emph{Quality is in the eye of the beholder}.
+
+\akb{You will need to choose an existing taxonomy of software quality and explain which aspects are relevant to your research before discussing literature from each of these aspects. The Kitchener et al paper below is a good starting point for this.}
+
+Sources of taxonomies and software testing include:~\cite{foidl2018_integrating_software_quality_models_into_risk_based_testing} and ~\cite{kitchenham1996_software_quality_elusive_target}.
+
+\subsection{Papers to consider}
+
+\begin{itemize}
+    \item "Software Quality: The elusive target"~\cite{kitchenham1996_software_quality_elusive_target}. - \emph{'So how do we assess ``adequate" quality in a software product? The context is important.'}, \emph{"A good definition [of software quality] must let us measure quality in a meaningful way. Measurements let us know if our techniques really improve the software, as well as how process quality affects product quality."}
+    \item "Cornering the Chimera"~\cite{dromey1996_cornering_the_chimera}.
+
+\end{itemize}
+
+
+% Placed here with other material on reliability. MUST-DO Decide whether it's still needed and either integrate or remove.
+Reliability is one facet of software quality, and a measure of how reliable (error-free) software is in use. \yijun{Why do you focus on reliability as the only facet of quality after dismissing the other facets? Do you need to worry about correctness as another quality facet related to testing?} 
+
+The performance and reliability quality aspects of software have been key topics for decades, including the work of Raj Jain in his seminal book~\emph{`The art of computer systems performance analysis'}~\cite{jain1991art}, a work that influenced me at the time as well as many others. One example of that influence was research into various software qualities that I and others collaborated in for over a decade, and taught and presented internationally. This included the concept of non-functional requirements and non-functional testing. Three related measures were identified related to requests for service of a computer system: performance if the request was successful, reliability if the request received an error, and availability if the request could not be performed. This is illustrated in Figure~\ref{fig:three-possible-ourcomes}~\footnote{Figure used with permission, and presented in a keynote at the StarEast 2005 conference author~\cite{harty_stareast2005_keynote}}. 
+
+Poor reliability damages the trustworthiness and credibility of software, Ian Sommerville notes:~\emph{``... reliability was probably the most important product attribute as unreliable systems are discarded or never brought into use."}(p. 592, ~\cite{sommerville1989_software_engineering}). One of the key considerations for Sommerville is the operational reliability, and as he notes, in~\cite{mills1987_cleanroom_software_engineering}, removing software faults from seldom used code is unlikely to make a material improvement in the perceived reliability. Effective improvements need to focus on faults in frequently used code, and particularly where the failures are perceived by users of the software.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=14cm]{images/commercetest/raj-jain-performance-reliability-availability.png}
+    \caption{Three possible outcomes}
+    \label{fig:three-possible-ourcomes}
+\end{figure}
+
+The main software quality my research investigates is reliability as measured through counting and analysing crashes of mobile apps. While these might seem to be mundane compared to more attractive topics such as user experiences, poor reliability can undo the success of an otherwise attractive and performant software application. As Bavota~\emph{et al} observe in~\cite{bavota2014_impact_of_api_change_android} ~\emph{``users easily get frustrated by repeated failures, crashes, and other bugs; hence, they abandon some apps in favor of their competition."} Also app crashes are one of the the three most frequent complaints (together with functional errors and feature requests) found by (\cite{khalid2015_what_do_mobile_app_users_complain_about}) in their studies of 6,390 low-rated user reviews for 20 free to download iOS apps. And from a practical perspective Google states \emph{``Fixing issues can lead to a better user experience, higher ratings, and more retained installers."} in their pre-launch reports.
 
 Crashes adversely affect reliability.
 
-Nonetheless, several facets are able to be tracked remotely for mobile apps, an important factor in terms of the ability to facilitate practical approaches aimed at developers of these apps. They can be collected with various degrees of automation and to varying degrees, for instance the time something takes can be recorded at a micro level for a few lines of source code and at a macro level at the app or device level and across many devices and apps. 
-
-There are well-established tools, techniques and practices for recording the time taken. Many of the tools are suited to use locally and directly by a developer, including Memory, App, and Network Profilers~\footnote{\url{https://developer.android.com/studio/profile\#android-studio-tools}}.For remote measurements the tools include Google's Android Vitals and Firebase Performance Monitoring\footnote{\url{https://firebase.google.com/docs/perf-mon}}.
-
-User experience (UX) can be assessed using a wide variety of tools and techniques, such as heatmapping (which uses screen and/or interaction recording), A/B testing frameworks, funnel and journey analytics, and so on. By their very nature they're user-focused and - in practice - seldom incorporated into mobile apps or development practices for mobile apps. Similarly, based on my investigations, they are seldom researched although I have co-written work on this topic including examples of using heatmapping to improve usability of mobile apps~\cite{harty_aymer_playbook_2016}.
 
 %\yijun{Logically I don't see the connection between quality facets => quality (general) => reliability (facet) again, perhaps you want to add some transitions so readers can follow the thoughts.}
 
@@ -120,32 +146,17 @@ Research into faults and faulty programs~\cite{mili2014_on_faults_and_faulty_pro
 
 Improving reliability, provided it does not adversely affect other desirable qualities of a program may be considered a pragmatic and sensible option for developers, especially when they cannot guarantee their software will be fault free and they need to respond quickly to the needs of the market and their end-users.
 
-Weinberg stated \emph{"Quality is value to some person"}~\cite{weinberg1992quality}. To paraphrase him, \emph{Quality is in the eye of the beholder}.
 
-\akb{You will need to choose an existing taxonomy of software quality and explain which aspects are relevant to your research before discussing literature from each of these aspects. The Kitchener et al paper below is a good starting point for this.}
-
-Sources of taxonomies and software testing include:~\cite{foidl2018_integrating_software_quality_models_into_risk_based_testing} and ~\cite{kitchenham1996_software_quality_elusive_target}.
-
-\subsection{Papers to consider}
-
-\begin{itemize}
-    \item "Software Quality: The elusive target"~\cite{kitchenham1996_software_quality_elusive_target}. - \emph{'So how do we assess ``adequate" quality in a software product? The context is important.'}, \emph{"A good definition [of software quality] must let us measure quality in a meaningful way. Measurements let us know if our techniques really improve the software, as well as how process quality affects product quality."}
-    \item "Cornering the Chimera"~\cite{dromey1996_cornering_the_chimera}.
-    \item "QoE Doctor: Diagnosing Mobile App QoE with Automated UI Control and Cross-layer Analysis"~\cite{chen2014qoe}.
-    \item "An Approach to Detect Android Antipatterns"~\cite{hecht2015approach}. Using static analysis to find poor designs that lead to poor quality apps. Their approach could be complementary to mine and to software testing.
-    \item ``Examining the Relationship between FindBugs Warnings and App Ratings"~\cite{khalid2016_examining_the_relationship_between_findbugs_warnings_and_app_ratings} assessed the static-analysis warnings collected using FindBugs with ratings and the associated review comments for 10,000 free-to-download Android apps.
-\end{itemize}
 
 \subsection{Seven Quality Control Tools}
 Ishigawa's work extended beyond the eponymous Ishigawa, or fishbone, diagram (as illustrated in Figure~\ref{fig:ishikawa_example_itil}); he also devised seven basic tools for quality, in turn inspired by W. Ewdards Deming's lectures in Japan in the 1950's~\cite{7_basic_quality_tools_with_R}.
 
 Of these seven tools, two are of particular interest in my research, his diagram to help set this work in context, and Pareto charts (also known as the Pareto distribution diagram), illustrated in one of the appendices~\hyperlink{pareto.diagrams.in.r}{\emph{here}}.
 
-Reliability is one facet of software quality, and a measure of how reliable (error-free) software is in use. \yijun{Why do you focus on reliability as the only facet of quality after dismissing the other facets? Do you need to worry about correctness as another quality facet related to testing?} 
 
 \hypertarget{defects.faults.failures}{}
 \subsection{Software Defects, Faults and Failures}
-\emph{Add a preamble to why this subject is relevant to my research - set this topic in context. Keep the examiner on the read thread of my research.}
+\emph{Add a preamble to why this subject is relevant to my research - set this topic in context. Keep the examiner on the red thread of my research.}
 \yijun{The heading doesn't match yet with the content: what about Faults and Failures? You may consider this standard for one definition:
 \url{https://ece.uwaterloo.ca/~agurfink/ece653/assets/pdf/W01P2-FaultErrorFailure.pdf}}
 
@@ -218,10 +229,16 @@ Another classic paper, from 1993, is by Musa~\emph{``Operational profiles in sof
     \item ``A Methodology and Framework to Simplify Usability Analysis of Mobile Applications" Adding logging to a mobile apps can help developers analyse usability, reducing the effort needed
     
     \item \emph{``How Does Misconfiguration of Analytic Services Compromise Mobile Privacy?"} ICSE 2020. This in turn refers to \emph{``Alde: privacy risk analysis of analytics libraries in the android ecosystem."} 2016, and \emph{``Bug Fixes, Improvements, ... and Privacy Leaks - A Longitudinal Study of PII Leaks Across Android App Versions."} 2018.
+
+    \item "QoE Doctor: Diagnosing Mobile App QoE with Automated UI Control and Cross-layer Analysis"~\cite{chen2014qoe}.
+    \item "An Approach to Detect Android Antipatterns"~\cite{hecht2015approach}. Using static analysis to find poor designs that lead to poor quality apps. Their approach could be complementary to mine and to software testing.
+    \item ``Examining the Relationship between FindBugs Warnings and App Ratings"~\cite{khalid2016_examining_the_relationship_between_findbugs_warnings_and_app_ratings} assessed the static-analysis warnings collected using FindBugs with ratings and the associated review comments for 10,000 free-to-download Android apps.
     
     \item \emph{``Apps, Trackers, Privacy, and Regulators: A Global Study of the Mobile Tracking Ecosystem."} 2018
     
     \item \emph{``Continuously assessing and improving software quality with software analytics tools: a case study"}~\cite{martinez_fernandez2019_continuously_assessing_and_improving_software_quallty_with_software_analytics_tools}.
+    
+    \item \emph{``Toward a learned project-specific fault taxonomy: application of software analytics"}~\cite{kidwell2015_toward_fault_taxonomy_application_of_software_analytics}.
     
 \end{itemize}
 
@@ -235,6 +252,14 @@ Another classic paper, from 1993, is by Musa~\emph{``Operational profiles in sof
 
 Integrated metrics and data about software development projects: dashboards such as~\href{https://bitergia.com/bitergia-analytics/}{Bitergia Analytics} and an online live example of their dashboard~\url{https://onap.biterg.io/app/kibana#/dashboard/Overview?_g=()} aim to provide a holistic view to software development teams of data that matters to them. 
 GrimoreLab~\url{https://chaoss.github.io/grimoirelab/} is used to build various projects including the Bitergia Analytics Platform and~\href{https://cauldron.io/dashboard/1640}{Cauldron.io}. It includes support for a wide variety of data sources (source code management, issues/task management, source code review, mailing lists and forums including stack overflow, continuous integration, synchronous communications, wikis, meeting management, and others). What it does not current support are any analytics data sources which means developers have to look elsewhere and use other tools and dashboards to obtain analytics about how their software is performing and behaving. 
+
+
+% MUST-DO I may need relocate the following paragraphs again, they seem to belong a bit better here than earlier. The idea is to introduce the concept of ways several quality aspects can be measured.
+Nonetheless, several facets are able to be tracked remotely for mobile apps, an important factor in terms of the ability to facilitate practical approaches aimed at developers of these apps. They can be collected with various degrees of automation and to varying degrees, for instance the time something takes can be recorded at a micro level for a few lines of source code and at a macro level at the app or device level and across many devices and apps. 
+
+There are well-established tools, techniques and practices for recording the time taken. Many of the tools are suited to use locally and directly by a developer, including Memory, App, and Network Profilers~\footnote{\url{https://developer.android.com/studio/profile\#android-studio-tools}}.For remote measurements the tools include Google's Android Vitals and Firebase Performance Monitoring\footnote{\url{https://firebase.google.com/docs/perf-mon}}.
+
+User experience (UX) can be assessed using a wide variety of tools and techniques, such as heatmapping (which uses screen and/or interaction recording), A/B testing frameworks, funnel and journey analytics, and so on. By their very nature they're user-focused and - in practice - seldom incorporated into mobile apps or development practices for mobile apps. Similarly, based on my investigations, they are seldom researched although I have co-written work on this topic including examples of using heatmapping to improve usability of mobile apps~\cite{harty_aymer_playbook_2016}.
 
 \subsection{Development Logging}
 Consider a 2D matrix of use of logging (amount, choice of library and API, formatting and customisation), and the range of the logging (local<->logging at a distance). Papers such as \emph{A Methodology and Framework to Simplify Usability Analysis of Mobile Applications}~\url{https://doi.org/10.1109/ASE.2009.12}. Remember to cover this topic in the work we did on logging (And the recent Shonan work). Mention the Shonan workshop in this section too.
@@ -266,8 +291,9 @@ In Industry there are discussions on various ways data can be used to get the mo
 \end{figure}
 %First discovered via \url{https://twitter.com/iteratively/status/1243641701408935936?s=20}
 
-Identifying and designing data....
+% SHOULD-DO write about: Identifying and designing data....
 
+In a short paper~\citep{kidwell2015_toward_fault_taxonomy_application_of_software_analytics}, the authors propose combining fault classification and software analytics for five types of decisions. These are: targetting testing, release planning, judging stability, targeting training, and targeting inspection of software. failure data mined from software analytics tools such as crash reporting tools helps to bring their concepts and ideas to life. Their paper provided initial indicative evidence of their proposals through evaluation of changes to source code for the Eclipse software and discusses the measurement of refactoring to provide more accurate and relevant measurements of the efficacy of the refactoring, rather than considering approaches to improve mobile apps.
 
 \subsection{Privacy and Control}
 
@@ -313,21 +339,23 @@ Also in 2010, early papers were published on various effects of app stores on ac
 
 \subsection{Papers to consider}
 \begin{itemize}
-    \item \textbf{"A survey of app store analysis for software engineering"}~\cite{martin2016survey}.
+    \item \emph{"A survey of app store analysis for software engineering"}~\cite{martin2016survey}.
     
-    \item \textbf{"Why people hate your app: Making sense of user feedback in a mobile app store"}~\cite{fu2013people}. A key paper, many citations (some also highly relevant).
+    \item \emph{"Why people hate your app: Making sense of user feedback in a mobile app store"}~\cite{fu2013people}. A key paper, many citations (some also highly relevant).
     
-    \item "Analyzing and Automatically Labelling The Types of User Issues that are Raised in Mobile App Reviews"~\cite{mcilroy2016analyzing} - discusses crashes, crash libraries, analytics, relatively early paper on the topic.
+    \item \emph{``Analyzing and Automatically Labelling The Types of User Issues that are Raised in Mobile App Reviews"}~\cite{mcilroy2016analyzing} - discusses crashes, crash libraries, analytics, relatively early paper on the topic.
+    
+    \item \emph{``Automatically Discovering, Reporting and Reproducing Android Application Crashes"}~\citep{moran2016_automatically_drr_android_app_crashes}.
     
     \item \emph{``Revisiting the Mobile Software Ecosystems Literature"}~\cite{steglich2019revisiting} Helps to define what an ecosystem is.
     
     \item "Beyond Google Play: A large-scale comparative study of Chinese Android app markets"~\cite{wang2018beyond}.
     
-    \item "Measurement, modeling, and analysis of the mobile app ecosystem"~\cite{petsas2017measurement}.
+    \item \emph{``Measurement, modeling, and analysis of the mobile app ecosystem"}~\cite{petsas2017measurement}.
     
-    \item "A Measurement-based Study on Application Popularity in Android and iOS App Stores"~\cite{liu2015measurement}.
+    \item \emph{``A Measurement-based Study on Application Popularity in Android and iOS App Stores"}~\cite{liu2015measurement}.
     
-    \item "Understanding the Evolution of Mobile App Ecosystems: A Longitudinal Measurement Study of Google Play"~\cite{wang2019understanding} (2019): Lots of interesting questions and observations about Google Play; but they don't seem to consider flaws, or the effects of flaws, in the app store's data collection, algorithms, etc.
+    \item \emph{``Understanding the Evolution of Mobile App Ecosystems: A Longitudinal Measurement Study of Google Play"}~\cite{wang2019understanding} (2019): Lots of interesting questions and observations about Google Play; but they don't seem to consider flaws, or the effects of flaws, in the app store's data collection, algorithms, etc.
     
     \item \emph{``Release Practices for Mobile Apps--What do Users and Developers Think?"}~\cite{nayebi2016release}.
     
