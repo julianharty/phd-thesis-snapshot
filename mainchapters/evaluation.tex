@@ -299,3 +299,24 @@ My research included working with two mature project teams and developers of thr
 
 \section{Summary of evaluation of case studies}
 
+
+Much remains to do in the area of applying mobile analytics to the development practices. Real-world bugs, including several I experienced recently and described next are not likely to be detected by the developers without a combination of some of all of: improved testing practices, rich in-app feedback, and using and applying in-app mobile analytics.
+
+A couple of examples of poor user experiences that don't involve crashes or freezes (so would not be detected using the platform-level analytics) are, the Financial Times Android app: Figure~\ref{fig:ft_android_app_bsod}, and The Times newspaper iOS app: ``Cannot find article: Apologies, this article no longer exists." Figure~\ref{fig:thetimes-ios-this-article-no-longer-exists}. Of these, the missing article could be recorded easily using in-app error reporting (it might be detected by a non-fatal exception using a crash-reporting library or mobile analytics). The black screen is likely to be harder to report on (as if the developers were aware of the potential for the problem they could add error-handling and error-recovery logic).
+
+\begin{figure}[!tbp]
+    \centering
+    \subfloat[What the user sees] {\includegraphics[width=0.45\textwidth]{images/android-screenshots/Screenshot_20200928-073727_FT.jpg}\label{fig:android_ft_GUI}}
+    \hfill
+    \subfloat[The FT app in the task list] {\includegraphics[width=0.45\textwidth]{images/android-screenshots/Screenshot_20200928-073745_FT.jpg}\label{fig:ft_android_app_in_task_list}}
+      \caption{Black screen when notification selected}
+    \label{fig:ft_android_app_bsod}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm]{images/ios-screenshots/The-Times-iOS-Screenshot-2020-09-28.png}
+    \caption{The Times iOS app: ``this article no longer exists" \nth{28} September 2020.}
+    \label{fig:thetimes-ios-this-article-no-longer-exists}
+\end{figure}
+
