@@ -36,6 +36,8 @@ The following hierarchical list includes topics I plan to include in this chapte
     \item Measurement and Analytics
     \begin{itemize}
         \item Views from outside software engineering e.g. how to measure anything book
+        \item Logging
+        \item Telemetry
         \item Software Analytics e.g. Buse and Zimmermann
         \item Software Analytics tools and concepts e.g. free the data.
         \item Sources and mechanisms for collecting data and information about mobile apps
@@ -244,6 +246,8 @@ These have not yet been incorporated into this section on Software Quality.
     
     \item Davenport \textit{et al.} Competing on Analytics (\cite{davenport2006competing_on_analytics}) that proposes several related functions: understanding customers and their contexts (including equipment and settings), product and service quality \emph{``detech quality problems early and minimise them"}, and to \emph{``improve quality, efficacy, and, where applicable, safety of products and services"}.
     
+    \item \emph{Software Telemetry (MEAP)}~\citep{riedesel2020_software_telemetry_meap_v04}. An early draft of a book scheduled to be published in mid 2021 that discusses telemetry including the roots in system logs on early computer systems.
+    
     \item Buse and Zimmermann...~\cite{buse_analytics_2010} 
     
     \item \emph{``Challenges and Benefits from Using Software Analytics in Softeam"} ICSEW 2020 \emph{``In this industry abstract, we describe the challenges and benefits of collecting feedback from customers and systems to support development cycles. In Softeam, we have performed such collection and support in four iterations by means of a software analytics platform. We describe the encountered challenges and the effects of suggested recommendations to improve the software quality of our systems on the metrics of interest."}~\cite{bagnato2020_challenges_and_benefits_from_using_software_analytics_in_softeam}. They use \url{https://github.com/q-rapids}, a ``Quality-aware rapid software development. H2020 Project (Grant no. 732253)". There are relevant publications listed at \url{https://www.q-rapids.eu/publications}.
@@ -417,8 +421,10 @@ In an App Store first the developer then the app store are involved in making a 
 \begin{itemize}
     \item TBC
     \item \textbf{Species of Bugs}
+    \item J2ME write once debug on a million devices quote?
     \begin{itemize}
-        \item "Finding resume and restart errors in Android applications"~\cite{shan2016finding}. Which leads to "Large-scale analysis of framework-specific exceptions in Android apps" (2018) where the exceptions should be detectable by Android Vitals, I hope.
+        \item \emph{``Finding resume and restart errors in Android applications"}~\cite{shan2016finding}. Which leads to "Large-scale analysis of framework-specific exceptions in Android apps" (2018) where the exceptions should be detectable by Android Vitals, I hope.
+        \item \emph{``JInjector"} the makeup of mobile apps~\citep{sama2009using_jinjector}. \emph{``Statistically most of the code in a J2ME application belongs to the GUI;"}. The tool was also applied to Android apps and provided similar capabilities to instrument the GUI. Null Pointer Exceptions (which affect both Android Java apps and J2ME apps) can elude the development and testing pre-release of apps, even from Google-calibre software engineers. Freezing in J2ME apps were also detected, and freezing is one of the factors measured by the Android platform and reported as ANRs.
     \end{itemize}
 \end{itemize}
 
@@ -455,7 +461,7 @@ The facets include automated testing and automated bug reproduction, maximising 
 
 \subsection{Papers to consider}
 \begin{itemize}
-    \item TBC
+    \item \emph{Software analytics for mobile applications--insights \& lessons learned}~\citep{minelli2013_software_analytics_samoa}. Their online site is still up \url{http://samoa.inf.usi.ch/}
 \end{itemize}
 
 Direct vs indirect analytics - 
