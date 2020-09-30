@@ -21,13 +21,12 @@ The following hierarchical list includes topics I plan to include in this chapte
 
 
 \begin{itemize}
-    \item An overview on \emph{software quality}~\hyperlink{software.quality}{\emph{link}}
-including various viewpoints of quality e.g. Gerry Weinberg)
+    \item An overview on~\href{software.quality}{\emph{software quality}} including various viewpoints of quality e.g. Gerry Weinberg):
     \begin{itemize} 
         \item ISO standards
         \item Software defects, faults and failures~\hyperlink{defects.faults.failures}{\emph{link}}
         \item QoE: Quality of Experience
-        \item Classic references e.g. Phadke and perhaps Non-functional requirements in Software Engineering? 
+        \item Classic references e.g. Phadke~\citep{phadke1995_quality_engineering_using_robust_design} and perhaps Non-functional requirements in Software Engineering? 
         \item relevant / related academic research in my field
         \item Reliability. Introduced in ~\hyperlink{software.quality}{Software Quality}, and then expanded in a subsection~\hyperlink{software.reliability}{\emph{here}}
         \item Then focus on stability (as used by HP and then Google) encompassing reliability, freezes, etc.
@@ -49,7 +48,11 @@ including various viewpoints of quality e.g. Gerry Weinberg)
         \item Using Data
         \item Privacy and Control
     \end{itemize}
-    \item Testing
+    \item Software Development Practices
+    \begin{itemize}
+        \item Agile development and the effects on the software that is developed and released.
+        \item Motivations for/of software developers.
+    \end{itemize}
     \item Software Testing
     \begin{itemize}
         \item Schools of Software Testing? Old work that might help set the scene
@@ -93,27 +96,38 @@ including various viewpoints of quality e.g. Gerry Weinberg)
 
 \hypertarget{software.quality}{}
 \section{Software Quality}
-Software quality is multi-faceted. Some facets are more user-centric, such as perceived quality by end-users, which may include aesthetics, responsiveness, brand perception, as much as more technical aspects such as whether an app freezes, crashes, or whether an app corrupts, leaks, or loses data, for instance. I cannot hope to %or it would be impractical and potentially counter-productive to
+Software quality is multi-faceted, and as the article by~\citep{kitchenham1996_software_quality_elusive_target} states, an \emph{elusive target}. This article builds on five different perspectives of quality Some facets are more user-centric, such as perceived quality by end-users, which may include aesthetics, responsiveness, brand perception, other facets focus on more technical aspects such as whether an app freezes, crashes, or whether an app corrupts, leaks, or loses data, for instance. 
+
+
+I cannot hope to %or it would be impractical and potentially counter-productive to
 cover all the facets even after many years of working and researching in this domain. Instead I have selected the facets germane to my PhD research.
 
 %Expand on software quality generally before leaping into specifics.
-Weinberg stated \emph{"Quality is value to some person"}~\cite{weinberg1992quality}. To paraphrase him, \emph{Quality is in the eye of the beholder}.
+In the 1980's and 1990's software quality became an important and established topic, with several seminal publications including:~\citep{garvin1984_what_does_product_quality_really_mean},~\citep{weinberg1992quality}, and~\citep{kitchenham1996_software_quality_elusive_target}. If we start with Weinberg who stated \emph{"Quality is value to some person"}~\cite{weinberg1992quality}. To paraphrase him, \emph{Quality is in the eye of the beholder}. For mobile apps the majority of the beholders are the end users, however the app store could also be considered a beholder, and certainly they have the power to be prosecution, judge and jury when determining which apps are allowed to be live in the app store, and which ones to promote, and which end up lower in the search results.
 
-\akb{You will need to choose an existing taxonomy of software quality and explain which aspects are relevant to your research before discussing literature from each of these aspects. The Kitchener et al paper below is a good starting point for this.}
+Considering the other two papers mentioned earlier, Garvin introduced five approaches to defining quality: 1) transcendent, product-based, user-based, manufacturing-based, and value-based. His work was extended by Kitchenham and Shari Lawrence Pfleeger. One of their key wry observations was that standards, such as ISO 9001 and ISO 9126, and maturity models, such as the Capability Maturity Model, focus on a consistent process rather than a quality product, and that~\emph{``there is little evidence that conformance to process standards guarantees good products."}~\citep{kitchenham1996_software_quality_elusive_target}. To the best of my knowledge, neither ISO standards nor maturity models figure highly for the vast majority of mobile app development teams, therefore I have considered and then chosen not to use the formal software quality models or standards in my research. 
 
-Sources of taxonomies and software testing include:~\cite{foidl2018_integrating_software_quality_models_into_risk_based_testing} and ~\cite{kitchenham1996_software_quality_elusive_target}.
+In their discussion of the value-based view there are several foundations that were highly relevant at the time, where users were involved in product specifications and~\emph{``equating quality to what the customer is will to pay [for]"}. For mobile apps, the users are seldom involved in the specification and they do not pay with money for the vast majority of the apps they use, instead they may pay with their data... So a possible refinement of value-based views for mobile apps is to consider quality to what customers are willing to~\emph{use}? i.e. if they continue to use the app then the quality could be deemed to be adequate.
 
-\subsection{Papers to consider}
+In terms of measuring quality, the authors observed,~\emph{``When users think of software quality, they often think of reliability"}~\citep{kitchenham1996_software_quality_elusive_target}. They later extend this claim and say~\emph{``[users] are also concerned about usability, including ease of installation, learning, and use."}
+%
+For mobile apps, these five approaches are relevant to varying degrees: development teams often internalise Agile concepts into their thinking and their practices, %MUST-DO continue this thought process here.
 
-\begin{itemize}
-    \item "Software Quality: The elusive target"~\cite{kitchenham1996_software_quality_elusive_target}. - \emph{'So how do we assess ``adequate" quality in a software product? The context is important.'}, \emph{"A good definition [of software quality] must let us measure quality in a meaningful way. Measurements let us know if our techniques really improve the software, as well as how process quality affects product quality."}
-    \item "Cornering the Chimera"~\cite{dromey1996_cornering_the_chimera}.
+I will cover the both the product and manufacturing views of quality later in this thesis, particularly in several of the case studies.
 
-\end{itemize}
+% NB there is a lot more relevant and interesting material in the Kitchenham paper - see the handwritten notes on the printed copy for examples.
 
+% \akb{You will need to choose an existing taxonomy of software quality and explain which aspects are relevant to your research before discussing literature from each of these aspects. The Kitchener et al paper below is a good starting point for this.}
+
+In "Software Quality: The elusive target"~\cite{kitchenham1996_software_quality_elusive_target}. their work also presents two further points: The context is important when we aim to assess ``adequate" quality in a software product. And \emph{"A good definition [of software quality] must let us measure quality in a meaningful way. Measurements let us know if our techniques really improve the software, as well as how process quality affects product quality."}
+
+%SHOULD-DO cover Quality of Experience (QoE) here. How users perceive QoE, how users communicate their QoE in an app store ecosystem, etc.
 
 % Placed here with other material on reliability. MUST-DO Decide whether it's still needed and either integrate or remove.
-Reliability is one facet of software quality, and a measure of how reliable (error-free) software is in use. \yijun{Why do you focus on reliability as the only facet of quality after dismissing the other facets? Do you need to worry about correctness as another quality facet related to testing?} 
+Reliability is a key facet of software quality and a measure of how reliable (error-free) software is in use. Poor reliability risks jeopardising mobile apps as few users want to use an unreliable app. 
+%\yijun{Why do you focus on reliability as the only facet of quality after dismissing the other facets? Do you need to worry about correctness as another quality facet related to testing?} 
+
+Maslow's hierarchy of needs~\citep{wikipedia_maslows_hierarchy_of_needs} provides a five-layered conceptual model of human needs, where lower levels dominate higher levels until they are at least partially satisfied. Reliability of software may similarly be one of the lower levels of a hierarchy of software quality, where inadequate reliability dominates until it is adequately satisfied. In some ways adequate reliability may be a hygiene factor for mobile apps and their developers. Once reliability is more than adequate developers can choose to focus more on higher level quality needs such as aesthetics as part of improving usability, and so on.
 
 The performance and reliability quality aspects of software have been key topics for decades, including the work of Raj Jain in his seminal book~\emph{`The art of computer systems performance analysis'}~\cite{jain1991art}, a work that influenced me at the time as well as many others. One example of that influence was research into various software qualities that I and others collaborated in for over a decade, and taught and presented internationally. This included the concept of non-functional requirements and non-functional testing. Three related measures were identified related to requests for service of a computer system: performance if the request was successful, reliability if the request received an error, and availability if the request could not be performed. This is illustrated in Figure~\ref{fig:three-possible-ourcomes}~\footnote{Figure used with permission, and presented in a keynote at the StarEast 2005 conference author~\cite{harty_stareast2005_keynote}}. 
 
@@ -196,6 +210,14 @@ These existing works help to establish the importance of reliability, some of th
 Another classic paper, from 1993, is by Musa~\emph{``Operational profiles in software-reliability engineering"}~\cite{musa1993_operational_profiles} which proposed using an operational profile to guide testing to maximise testing of the most-used operations. For mobile apps a key challenge, firstly there's unlikely to be a single operational profile for many apps given the variety of ways users use those apps how many would be needed to provide adequate coverage? and secondly where does the underlying information come from to determine what the operational profiles need to be in order to test effectively and efficiently? Musa does discuss ways to record the data: potentially Mobile Analytics may help to provide the data needed to establish these operational profiles? 
 
 \textbf{TODO} sum up this section and connect it with Google's concept of Stability metrics to measure software quality for Android apps.
+
+\subsection{Additional papers to consider on software quality}
+These have not yet been incorporated into this section on Software Quality.
+\begin{itemize}
+    \item Sources of taxonomies and software testing include:~\cite{foidl2018_integrating_software_quality_models_into_risk_based_testing} 
+    \item "Cornering the Chimera"~\cite{dromey1996_cornering_the_chimera}.
+
+\end{itemize}
 
 \section{Measurement and Analytics}
 
@@ -301,8 +323,16 @@ UW blog post~\cite{mcquate_I_saw_you_were_online} and the underlying CHI 2020 pa
 
 c.f. using infra-red cameras to detect people in ways they're unfamiliar with and do not expect. 
 
-\section{Testing}
-Testing logging and analytics, especially when many aspects of the systems are provided by third-parties, involves determining causal links between two phenomena. Concommitant variations, introduced in~\cite{mill1884system} 
+\section{Software Development Practices}
+
+Topics include: Agile development and the effects of the software that's developed and released. Motivations for/of software developers.
+
+\subsection{Papers to consider on software development practices}
+\begin{itemize}
+    \item \emph{A systematic review of theory use in studies investigating the motivations of software engineers}~\citep{hall2009systematic}.
+    \item \emph{Designing Engineering Onboarding for 60+ Nationalities}~\citep{harty2020_designing_engineering_onboarding}. Onboarding software developers and staff generally also includes exceptions and exception handling. These exceptions can be collected and analysed to determine where the onboarding is failing. Again there can be the concept of non-fatal and fatal exceptions. Fatal exceptions shouldn't happen ideally, there are mechanisms to handle them adequately in terms of error recovery, however we'd like to know about them and address them.
+    
+\end{itemize}
 
 
 \section{Software Testing}
@@ -323,6 +353,7 @@ Testing logging and analytics, especially when many aspects of the systems are p
     \item Sufficiency (c.f. how Google graded OKRs where 0.7 was the expected, sufficient, amount of progress).
     \item What testing actually gets done for real software, rather than what testing standards, academia, etc. tells us we \emph{should} do.
     \item Probably Approximately Correct.
+    \item Testing logging and analytics, especially when many aspects of the systems are provided by third-parties, involves determining causal links between two phenomena. Concommitant variations, introduced in~\cite{mill1884system}
     \item Who tests the software developers use? for instance the many APIs and libraries? Flaws in this software, created by others, may affect the development teams and the users of their software products, amongst others. This software will include proprietary code and will probably include opensource code, perhaps pre-packaged as libraries of binary code. Some of that software may be poorly maintained, and yet the quality of that software may adversely affect the quality of the code using it. 
 \end{itemize}
 
