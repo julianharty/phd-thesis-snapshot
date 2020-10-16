@@ -1,9 +1,17 @@
 \chapter{Applying analytics to development practices}~\label{chapter-applying-analytics-to-development-practices}
+
+\akb{Helpful if chapter introduction sets context with respect to the research questions - which is what would have preceded this}
+
 In the context of this thesis, analytics data is based on the software being used, so the software needs to be created and able to run before relevant data is generated. Much of the usage data comes from end users using mobile apps on their devices, however it may also be available earlier in the software development lifecycle.
 
+\akb{Explicitly remind readers how analytics data can come from earlier in the development cycle}
 
 \subsection{The rest of this chapter}
 This chapter provides a holistic model pertaining to applying analytics to development practices, including \href{motivation-section}{\textit{motivation}}, \textit{selection}, and \textit{incorporation} of analytics tools; their \textit{use}; and the useful life of the materials provided by the analytics tools. There is some repetition in the chapter as none of the aspects are truly independent and they overlap; for instance, selection may will include aspects of incorporation of analytics libraries in order to learn about them and evaluate them. There are also cross-cutting concerns including privacy aspects and evaluation criteria, these will be covered towards the end of this chapter.
+
+\akb{By using 'including ..' before enumerating the four areas motivation, selection, incorporation and use, you are suggesting that there are other areas that are not covered here. Would be better to link these four areas to the mobile app software engineering context and convince the reader that these three areas cover everything that is relevant to understanding how analytics fit into the context.}
+
+\akb{Also, is there a diagram that helps the reader understand how these four areas, engagement, selection, incorporation and use relate to each other? For example, intuitively I think there is a cyclic relationship where engagement influences selection, which in turn influences incorporation and use and that they in turn influence engagement.}
 
 Related topics are covered in the discussion and future work chapters. Several examples will be included to root the research in the real world in addition to the theoretical underpinnings of the research.
 
@@ -44,6 +52,8 @@ Here are the key decisions:
     \item Triage and prioritise potential issues reported from external sources (pre-launch testing, new releases, active mainstream releases, etc.)
 \end{itemize}
 
+\akb{Can you elaborate on the relationship between these decisions? e.g., Do some outcomes of decision steps determine the next decision to be made? Would be helpful to think about a flow diagram for this decision process, highlighting the inputs needed for each decision point and the possible outcomes}
+
 \textbf{TODO} wrap up this section and introduce the next batch.
 
 
@@ -69,6 +79,8 @@ Various practical aspects of incorporating mobile analytics are in an~\href{prac
 \subsection{Incorporating passive analytics to development practices}
 Developers can integrate and incorporate the passive analytics %Google provides through the various reports 
 in order to a) better understand how their app is doing, and b) change their app so it performs better as reported by these reports.
+
+\akb{Need more explanation of the elements of 'incorporation' that you are going to cover - I need to understand how passive vs. active, designing analytics, testing analytics, etc fit together before the detail that follows.}
 
 As mentioned earlier, passive analytics are those not actively under the control or influence of the development team, they are provided from other sources such as the operating system or the app store. Developers receive the reports and data they are given access to and therefore they need to their approach to suit the material that is provided if they wish to incorporate such analytics into their development practices.
 
