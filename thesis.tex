@@ -5,6 +5,8 @@
 % The following \marginparwidth is to keep the todonotes package happy. It can be revised once the todo's are done and the package removed e.g. to help make the thesis more attractive in PDF format.
 \setlength{\marginparwidth}{2cm}
 \begin{document}
+\dominitoc \tableofcontents
+\dominilof \listoffigures
 % Read https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1):_Basic_Structure
 \frontmatter
 \pagenumbering{roman}
@@ -27,15 +29,18 @@
 
 \renewcommand{\contentsname}{Table of Contents}
 \maxtocdepth{subsection}
+%\mtcaddchapter
 \tableofcontents*
 \addtocontents{toc}{\par\nobreak \mbox{}\hfill{\bf Page}\par\nobreak}
 \clearemptydoublepage
 %
 \listoftables
+%\mtcaddchapter
 \addtocontents{lot}{\par\nobreak\textbf{{\scshape Table} \hfill Page}\par\nobreak}
 \clearemptydoublepage
 %
 \listoffigures
+%\mtcaddchapter
 \addtocontents{lof}{\par\nobreak\textbf{{\scshape Figure} \hfill Page}\par\nobreak}
 %\clearemptydoublepage
 %

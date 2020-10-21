@@ -1,14 +1,22 @@
+\setcounter{mtc}{5}
+% see https://tex.stackexchange.com/questions/36846/minitoc-thesis-template-pdflatex for the use of setcounter for minitoc in this context.
 \chapter{Background}
-Rather than assume you are familiar with the various concepts or leave you to trawl external sources this chapter aims to provide sufficient background about fundamental aspects needed to understand the domain / context of the research. Some of the concepts and terms I use in the rest of my thesis are also explained here.
+Rather than assume you are familiar with the various concepts or leave you to trawl external sources this chapter aims to provide sufficient background about fundamental aspects needed to understand the domain and context of the research. Some of the concepts and terms used in the rest of this thesis are also explained here.
 
 \akb{Need to provide an explanation of the sections you are going to cover and how/why they fit together in the context of the mobile analytics problem domain.}
+
+
+% See also https://tex.stackexchange.com/questions/3001/list-sections-of-chapter-at-beginning-of-that-chapter
+\minitoc 
+\mtcskip 
+\setcounter{mtc}{2} %This is a hack as minitoc seems to have different counters for the toc and the figures. As I'm probably only using minitoc temporarily while working on the chapter I can live with this. See https://tex.stackexchange.com/questions/184135/adding-general-introduction-to-table-of-contents-as-chapter-causes-a-problem to try and align the counters, I parked this issue as not worth the time investment currently. 
+\minilof
 
 \section{Conceptual Model of Apps and App Stores}
 This section introduces a conceptual model of apps and app stores and presents four views of apps in an app store together with various implications of the views, relationships and interactions. 
 
-The research is situated in apps that are available in app stores. App stores house millions of apps and serve billions of users. They also present a rich tapestry of perspectives on software apps and the ecosystem. There has been a great deal of research that focus on particular areas of these apps and sometimes connect these areas as part of the research. My research focuses on an area seldom investigated, namely it focuses on the developer's view of how their app is perceived by the app store.
+The research is situated in apps that are available in app stores. App stores house millions of apps and serve billions of users. They also present a rich tapestry of perspectives on software apps and the ecosystem. There has been a great deal of research that focus on particular areas of these apps and sometimes connect these areas as part of the research. This research focuses on an area seldom investigated, namely it concentrates on the developer's view of how their app is perceived by the app store and whether they can improve the perception by addressing sources of failures.
 
-\akb{style point - the voice of the text jumps around from talking about 'the research' to 'my research', addressing the reader directly to the third person, etc.  Need to stick to a consistent style}
 
 \begin{figure}[ht]
     \centering
@@ -100,7 +108,7 @@ As Figure~\ref{fig:app-store-data-flows} illustrates there are four numbered gro
     %\akb{Not sure what is meant by 'minimal' here. You could describe 'public' as any entity, human or technological, that has access to the app store. Provide an example of a technological entity, e.g., a search engine crawler}
     \item App user: the public can use an existing account or create a new account with the app store that would allow them to become an app user~\footnote{They need to meet the criteria of the app store.}. Note: there may be restrictions or constraints that mean not everyone can install every app on every device, however the general practice is that apps are freely available for app store users to install on any device they possess. 
     \item Developer: developers need to be registered and validated by the app store, the process varies for specific app stores, they often involve payment of a fee and some amount of validating their identity. Some app stores may perform additional checks based on information they and/or others hold.  
-    \item Storeholder: they are generally a legal entity, and certainly for the purposes of this research they are. Apart from a few exceptions (such as F-Droid~\footnote{Details are available online at~\url{https://www.f-droid.org/en/about/}}) they are multi-national major corporations, and again for my research they are.
+    \item Storeholder: they are generally a legal entity, and certainly for the purposes of this research they are. Apart from a few exceptions (such as F-Droid~\footnote{Details are available online at~\url{https://www.f-droid.org/en/about/}}) they are multi-national major corporations.
 \end{enumerate}
 
 
@@ -118,7 +126,7 @@ We have already identified four membership groups involved in app store ecosyste
 Membership matters in particular because of who has access to which data and for how long they have access. Note: Control and `ownership' of the data are also relevant topics, however they are not necessary to comprehend the rest of this topic. % SHOULD-DO consider whether to add material on this topic in the thesis. 
 
 \section{Three layers of an app}
-In some of my earlier work, published in ~\citep{harty_aymer_playbook_2016}, I introduced the concept of three layers of an app. These are illustrated in Figure \ref{fig:3-layers} and shows three primary conceptual layers related to a mobile app.
+In earlier work, published in ~\citep{harty_aymer_playbook_2016}, the concept of three layers of an app was introduced. These are illustrated in Figure \ref{fig:3-layers} and shows three primary conceptual layers related to a mobile app.
 
 \begin{figure}[ht]
     \begin{minipage}{\textwidth}
@@ -170,7 +178,7 @@ Their use will be discussed in more detail in the chapter titled~\href{chapter-a
 
 % https://new-wine.org/resources/blog/living-liminality-lessons-trust-gratitude-prayer-compassion-global-church-dd508239ff5
 
-My research includes case studies and developer reports of examples of analytic tools that cover three of these four layers of analytics. The remaining layer, visual analytics, is described briefly with a few examples, visual analytics is seldom used in production mobile apps and therefore I decided to exclude these libraries from my core research. They may be an interesting topic for future research particularly given some of the potential benefits of visual analytics. % COULD_DO add notes on privacy issues and other complicating factors in this sort of research. 
+This research includes case studies and developer reports of examples of analytic tools that cover three of these four layers of analytics. The remaining layer, visual analytics, is described briefly with a few examples, visual analytics is seldom used in production mobile apps and therefore it was excluded these from the core research. They may be an interesting topic for future research particularly given some of the potential benefits of visual analytics. % COULD_DO add notes on privacy issues and other complicating factors in this sort of research. 
 
 
 \section{Information sources for app developers}
@@ -183,7 +191,7 @@ Developers want and need to know how well their apps are performing from various
     \label{fig:comparing_techniques}
 \end{figure}
 
-There are various techniques that can be used to assess aspects of quality of mobile apps. Figure \ref{fig:comparing_techniques} provides a visual overview of eight techniques. Of these four are code-oriented and the remaining four more user- or usage- oriented. They are ordered in approximate rank of the overhead, effort, or intrusion involved of each technique. % MUST_DO continue and expand this argument. Discuss why exceptions were chosen as one of the core elements of my research and PhD thesis.
+There are various techniques that can be used to assess aspects of quality of mobile apps. Figure \ref{fig:comparing_techniques} provides a visual overview of eight techniques. Of these four are code-oriented and the remaining four more user- or usage- oriented. They are ordered in approximate rank of the overhead, effort, or intrusion involved of each technique. % MUST_DO continue and expand this argument. Discuss why exceptions were chosen as one of the core elements of this research and PhD thesis.
 
 Google's Google Play app store provides developers with answers to all these niggling questions through a developer-oriented user interface called Google Play Console. 
 In Google Play Console they provide various tools, reports and data all aimed at informing developers about how their apps are 'doing' and performing. Broadly, these include an overview page with one line of pre-selected data per app managed by the Google Play \textit{Developer Account}. Then, per app, Google provides an overview dashboard of graphs which, in turn, link to more detailed reports and information which provide greater depth. (Examples are provided in the~\href{chapter-analytics-tools}{\emph{\nameref{chapter-analytics-tools}}} chapter.)  Some graphs only appear when Google's algorithms decide they are relevant, these seem to be related to events and/or volumes of underlying data.
@@ -217,7 +225,8 @@ There are additional sources of \emph{analogue feedback} from people, including 
 \section{Mobile app usage lifecycle}
 Mobile apps have a usage lifecycle, which starts when an app is chosen to be installed and ends with either abandonment or active removal of the app from a device. Figure~\ref{fig:mobile_app_usage_lifecycle}~\footnote{Based on a figure in~\cite{bohmer2011falling_asleep_with_angry_birds}} illustrates the possible stages of a mobile app's life on a user's device. Google Play Console collects data consistent with this lifecycle, analyses it and provides aggregate reports based on their analysis. 
 
-For clarity and completeness there is another lifecycle when the app is running, described in the Android documentation as the \emph{``Processes and Application Lifecycle"}~\cite{android_processes_and_application_lifecycle} These are more detailed and are not included in the reports Google provides (I doubt their details would be recorded either). Note: the processes and application lifecycle may affect how in-app analytics libraries behave, including when they transmit their data to their respective central servers.
+For clarity and completeness there is another lifecycle when the app is running, described in the Android documentation as the \emph{``Processes and Application Lifecycle"}~\cite{android_processes_and_application_lifecycle} These are more detailed and are not included in the reports Google provides developers. %(I doubt their details would be recorded either). 
+Note: the processes and application lifecycle may affect how in-app analytics libraries behave, including when they transmit their data to their respective central servers.
 
 % More info and code samples: https://www.vogella.com/tutorials/AndroidLifeCycle/article.html
 
@@ -228,7 +237,8 @@ For clarity and completeness there is another lifecycle when the app is running,
     \label{fig:mobile_app_usage_lifecycle}
 \end{figure}
 
-A later section~\href{platform-level-analytics}{\emph{\nameref{platform-level-analytics}}} provides details of my understanding of how Google collects the underlying data (they do not document, explain or encourage research in how their system works, We return to their behaviour and the effects later in this introduction). And the chapter \href{software-contributions-chapter}{\emph{\nameref{software-contributions-chapter}}} describes software we developed to help collect data from Google Play Console in order to facilitate both research and to enable developers to collect and use data...
+A later section~\href{platform-level-analytics}{\emph{\nameref{platform-level-analytics}}} provides a proposal of how Google collects the underlying data (they do not document, explain or encourage research in how their system works, We return to their (Google's) reported behaviour and the effects later in this thesis). % MUST-DO add link to: Developers banned from app store ecosystem and their apps removed.
+And the chapter \href{software-contributions-chapter}{\emph{\nameref{software-contributions-chapter}}} describes software we developed to help collect data from Google Play Console in order to facilitate both research and to enable developers to collect and use data...
 
 Crashes are often considered a concrete measure of poor performance of software and there has been extensive research in crashes for Android applications, in particular. I suspect there are various reasons for the focus on crashes as an oracle for testing software, crashes are unambiguous (even if the causes are not) and they are also binary so easy to determine whether software has, or has not, crashed. 
 
@@ -247,9 +257,9 @@ In 2017, Google launched a service called Android Vitals as a new, intrinsic par
 
 
 \section{Analogue and Digital Feedback}~\label{analogue-and-digital-feedback}
-Feedback can help developers to find and choose ways to improve their software. Various researchers have investigated way to understand and use feedback provided by end-users, for instance, in ratings and reviews users provide to the app store. For the purposes of my research I term feedback people provide as \emph{analogue feedback} as it has the richness and complexity of analogue signals, and also challenges of processing and comprehension.
+Feedback can help developers to find and choose ways to improve their software. Various researchers have investigated way to understand and use feedback provided by end-users, for instance, in ratings and reviews users provide to the app store. For the purposes of this research feedback people provides is considered~\emph{analogue feedback} as it has the richness and complexity of analogue signals, and also challenges of processing and comprehension.
 
-In contrast, digital feedback originates from software and is generally deterministic~\footnote{~\url{https://en.wiktionary.org/wiki/deterministic}}. For the purposes of my research I consider digital feedback as that provided by running software where programmers added code to programs to collect data that provides feedback about software use and certain behaviours of that software. The addition of the code may be automated, in part, or wholly, for instance by another program or script. As an example, AppPulse Mobile claims they can add analytics automatically without developers writing a line of code~\footnote{~\url{https://www.microfocus.com/en-us/products/apppulse-mobile-app-apm-monitoring/overview}}.
+In contrast, digital feedback originates from software and is generally deterministic~\footnote{~\url{https://en.wiktionary.org/wiki/deterministic}}. For the purposes of this research~\emph{digital feedback} is provided by running software where programmers added code to programs to collect data that provides feedback about software use and certain behaviours of that software. The addition of the code may be automated, in part, or wholly, for instance by another program or script. As an example, AppPulse Mobile claims they can add analytics automatically without developers writing a line of code~\footnote{~\url{https://www.microfocus.com/en-us/products/apppulse-mobile-app-apm-monitoring/overview}}.
 
 \subsection{Analogue feedback: in-app tools}
 
@@ -330,12 +340,12 @@ Various degrees of choices are available depending on how actively the developme
 
 
 \subsection{Passive Analytics}~\label{subsection-passive-analytics}
-Passive analytics are those not actively under the control or influence of the development team, they are provided from other sources such as the operating system or the app store. In my research the passive analytics are all managed by the app store, Google Play Console.
+Passive analytics are those not actively under the control or influence of the development team, they are provided from other sources such as the operating system or the app store. In the context of this research the passive analytics are all managed by the app store, Google Play, and made available to developers through Google Play Console.
 
 \subsection{Tacit Analytics}~\label{subsection-tacit-analytics}
 Tacit is variously defined as \emph{``Something tacit is implied or understood without question."}~\footnote{\url{https://www.vocabulary.com/dictionary/tacit}}, \emph{``Understood or implied without being stated."}~\footnote{\url{https://www.lexico.com/en/definition/tacit}, Note: Lexico.com is a new collaboration between Dictionary.com and Oxford University Press~\url{https://www.lexico.com/about}}, silent, wordless, or noiseless. 
 %
-It may be something that is inherent in the nature of using many of the third-party analytics libraries. In my research I consider tacit analytics to be that where developers accept whatever default data is collected by an analytics library without the developer needing to do anything more than integrate the library into their app. 
+It may be something that is inherent in the nature of using many of the third-party analytics libraries. In this research~\emph{tacit analytics} is where developers accept whatever default data is collected by an analytics library without the developer needing to do anything more than integrate the library into their app. 
 
 \subsection{Explicit Analytics}~\label{subsection-explicit-analytics}
 Explicit analytics is where developers have actively added code to interact with analytics libraries, for instance by calling methods in the API(s) provided by the library's. There are various degrees of use of the APIs and developers may have various intentions for calling these APIs.

@@ -181,13 +181,18 @@ One of the Android Vitals "qualities" pertains to how often users deny permissio
 
 % https://play.google.com/apps/publish/?account=8841632091579025670#AppHealthDetailsPlace:p=org.catrobat.catroid&appid=4975762901432177859&aho=APP_HEALTH_OVERVIEW&ahdt=PERMISSION_DENIAL&ts=THIRTY_DAYS&ahbt=_APPLICATION
 
-\begin{longtable}{lrrr}
+\begin{table}[ht]
+  \centering
+    \begin{tabular}{lrrr}
         Metric 	&Last 30 days\footnote{As of \nth{18} Nov 2019} 	&Previous 30 days &vs. peers’ median  \\
         Permission denials\footnote{Percentage of daily permission sessions during which users denied permissions. A daily permission session refers to a day during which your app requested at least 1 permission from its user. If a user makes multiple decisions for the same permission, only the final decision at the end of a day is recorded. Transparently explaining the reasons for permission requests can help reduce permission denials.} & 4.74\% 	&4.39\% 	&- \\
 
+    \end{tabular}
     \caption{AndroidVitals: PocketCode: "Permission Denials"} 
     \label{tab:pocketcode_permission_denials}
-\end{longtable}
+\end{table}
+% MUST-DO replace with threeparttable or similar. See https://tex.stackexchange.com/questions/108584/how-best-to-change-the-font-size-etc-of-threeparttables-table-notes/495973#495973
+
 % Thanks to 
 % https://stackoverflow.com/questions/2888817/footnotes-for-tables-in-latex#2891556
 % TODO investigate suggestions from https://texblog.org/2012/02/03/using-footnote-in-a-table/ which look like they'll help improve the formatting of the table while also supporting footnotes.
