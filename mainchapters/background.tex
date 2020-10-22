@@ -221,50 +221,7 @@ As an observation the vast majority of Android developers use the default inbuil
     \item Mobile analytics, can extend and scale logging. For mobile analytics, a minority of developers incorporate custom implementations, however the vast majority who use analytics do so through using third-party analytics libraries such as Google Firebase Analytics, details of the current usage of analytics libraries are provided by AppBrain~\footnote{\url{https://www.appbrain.com/stats/libraries/tag/analytics/android-analytics-libraries}}.
 \end{itemize}
 
-\subsection{Designing the content/messages} 
-% I'm not sure whether content or messages, or a mix of both words, best encompasses the topic I wish to discuss here. Messages can have content, however sometimes a message is a message by its existence, even with no payload. (2 rings on the home phone when you arrive, told the family you'd arrived without needing to pay for the telephone call. Heartbeat messages in systems, etc.). Also the design may include non-content aspects, content transformations, etc. Anyway, let's get writing. 
-This section applies to messages that an app could emit regardless of the conduit (\emph{i.e.} it applies to logging and using mobile analytics). At the risk of some ambiguity, the term log will be used to reflect both logging and mobile analytics in this section to improve overall readability.
-
-\emph{Related concepts}: The uneven U, computer protocols (layers, formatting, and contents), structured messages, what to log. %MUST-DO expand this section.
-
-There are many choices that can be considered in terms of designing the content/messages. For various reasons developers may pay little strategic attention to logging in their daily work. For those who do choose to consider logging strategically there are various considerations, including:
-What to log, how to log, where to log, data transformations, delivery mechanisms and characteristics.
-
-Developers have control over what to log, how, and when to generate the log messages. They may be constrained in various ways by APIs, message lengths, encoding, and formats, access to messages, and when messages will be transmitted, \emph{etc.} 
-
-It is possible to test the constraints, for instance by writing custom automated tests and/or apps that generate a variety of messages where the outputs are checked somehow. The checking may be partly or completely performed programmatically (we did some unpublished research in this area in 2018).
-
-The purpose of the message may differ in the type and level of information it is intended to convey. Some messages may contain low-level, or detailed, error messages intended to help improve the technical aspects of the software to make the software more robust. Other messages may aim to communicate intent, completion of a task, activity or user-journey in the software. For example, IBM published a paper about software called CX Mobile that aims to record and visualise user journeys for iOS and Android apps~\cite{hu_tealeaf_cxmobile}.
-
-
-The distinction between analytics and logging may be murky. A pragmatic heuristic is to use the declared category of the library, tool or service, for instance Firebase analytics would be considered as analytics whereas Timber.io would be considered as logging even though both contain aspects of the other category.
-
-Similar to the concept of black box testing (where software's behaviour is observed and assessed without knowing the internals), external software can observe the behaviours of apps. Google have developed and integrated software that monitors apps running in Google approved versions of Android. The data is collected per device and provided automatically to Google servers if the device has the relevant settings enabled~\cite{google_play_share_usage_and_diagnostics_info_with_google}. This data is processed by Google who provide some portions of the data to the registered developers of that app in the Google Play Store.
-
-\emph{Idea for expansion:} Drop-off in data for a population  c.f. marketing funnels, funnels for shopping carts, etc.
-
-% Mobile Developer's Guide to the fifth dimension
-% available from https://www.dropbox.com/s/no70z2hiod6z7o8/Fifth_Dimension_v1.pdf?dl=0 (took 20 - 30 mins to track down)
-
-\subsection{The mechanics of sending data}
-To be useful the analytics data needs to reach the system that processes, analyses and reports on it. There are various mechanisms that can be used to send data ranging from unlikely (at least for the app store ecosystems and their apps), retyping, transferring using USB devices, etc. to the most likely which uses a valid internet connection over WiFi or a mobile network. 
-
-MUST-DO expand the following lists.
-\begin{itemize}
-    \item Triggers, batching, caps/buffers/limits, availability of any connection, or only approved connection, priorities, latency, delays,
-    \item Permissions (including permissions to access the source data on the device and permission to share it (and permission to use certain connections/times/etc.)
-    \item authorisation and authentication, spoofing and poisoning,
-    \item freshness|staleness of the data, encoding, ...
-    \item Lean data, privacy and sensitivity of the contents, data quality, encoding, ...
-    \item Screening and filtering: who, when, how, why.
-\end{itemize}
-
-Examples:
-\begin{itemize}
-    \item Fabric Crashlytics, batching and caps/limits.
-    \item Mozilla Glean telemetry.
-\end{itemize}
-
+One of the appendices, ~\href{chapter-on-mobile-analytics}{\textit{on mobile analytics}}, provides details of the design of content and messages together with the mechanics of sending the data; in terms of the background material it's enough to be aware that these are both relevant aspects of incorporating and using mobile analytics. 
 
 \section{Conceptual model of usage analytics}
 Usage analytics pertains to recording and analysing the usage of software. Application usage analytics is mentioned in various sources, including patents filed by Google in the USA~\emph{e.g.} for methods and systems to collect and provide application usage analytics to developers~\citep{googlepatent_hyman2016_collecting_application_usage_analytics}. 
