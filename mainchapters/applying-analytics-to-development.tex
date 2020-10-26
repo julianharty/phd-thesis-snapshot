@@ -11,9 +11,12 @@ Much of the usage data comes from end users using mobile apps on their devices, 
 % @Arosha, I've added a sentence that provides an explicit example. I've also got at least one sketch intended to illustrate when mobile analytics data is generated in the software development and usage phases. %SHOULD-DO incorporate the figure in this chapter if not earlier in the thesis.
 
 \subsection{The rest of this chapter}
-This chapter provides a holistic model pertaining to applying analytics to development practices, including \href{motivation-section}{\textit{motivation}}, \textit{selection}, and \textit{incorporation} of analytics tools; their \textit{use}; and the useful life of the materials provided by the analytics tools. \yy{The word "holistic" sets the expectation high: what are the parts of the whole? The word "model" is used but not clear what it is, do you mean "design" instead? The phrase "useful life of the materials" is also quite vague, maybe you mean "longitudinal analysis" instead?} 
+This chapter provides a holistic model pertaining to applying analytics to development practices, including \href{motivation-section}{\textit{motivation}}, \textit{selection}, and \textit{incorporation} of analytics tools; their \textit{use}; and the useful life of the materials provided by the analytics tools. 
+\yy{The word "holistic" sets the expectation high: what are the parts of the whole? The word "model" is used but not clear what it is, do you mean "design" instead? The phrase "useful life of the materials" is also quite vague, maybe you mean "longitudinal analysis" instead?}
 
-There is some repetition in the chapter as none of the aspects are truly independent and they overlap; for instance, selection may include aspects of incorporation of analytics libraries in order to learn about them and evaluate them. \yy{Remove this sentence: I don't think it is a good excuse to say there are overlaps in the chapter that meant to classify the difference kinds of analytics and applications. Try to avoid giving reader an impression this chapter is a brain dump. You need to give a well-thought description centered around the chapter content.}
+% There is some repetition in the chapter as none of the aspects are truly independent and they overlap; for instance, selection may include aspects of incorporation of analytics libraries in order to learn about them and evaluate them. 
+% \yy{Remove this sentence: I don't think it is a good excuse to say there are overlaps in the chapter that meant to classify the difference kinds of analytics and applications. Try to avoid giving reader an impression this chapter is a brain dump. You need to give a well-thought description centered around the chapter content.}
+% Thank you, I've done so by commenting this out. I'll remove it and our comments by the time I finish this round of editing, I'll keep it for now to try and make sure I address your points, and BTW the chapter started as a brain dump :)
 
 There are also cross-cutting concerns including privacy aspects and evaluation criteria, these will be covered towards the end of this chapter.\yy{It is fine to introduce crosscutting concerns. I guess later you need to justify how they crosscut the functionalities, i.e., "design, uses, and analysis" of mobile analytics.}
 
@@ -24,7 +27,8 @@ There are also cross-cutting concerns including privacy aspects and evaluation c
 Related topics are covered in the discussion and future work chapters. Several examples will be included to root the research in the real world in addition to the theoretical underpinnings of the research. \yy{Is there a theoretical component in this chapter at all?}
 
 \section{Motivation}~\label{motivation-section}
-As mentioned in the introduction chapter, developers are motivated to understand how their software is being used, how it's behaving, and fix at least some of the flaws in their software. Their actual motivations and context will vary based on their context including their work priorities, their current and desired \href{subsection-levels-of-engagement}{\emph{levels of engagement}} in terms of incorporating and using analytics in their software engineering practices, privacy, data ownership and stewardship, costs, and so on.\yy{Here "context" means everything? Also it does not make sense to say "context based on context". }
+As mentioned in the introduction chapter, developers are motivated to understand how their software is being used, how it's behaving, and fix at least some of the flaws in their software. Their actual motivations and context will vary based on their context including their work priorities, their current and desired \href{subsection-levels-of-engagement}{\emph{levels of engagement}} in terms of incorporating and using analytics in their software engineering practices, privacy, data ownership and stewardship, costs, and so on.
+\yy{Here "context" means everything? Also it does not make sense to say "context based on context". }
 
 Some motivations may constrain, or limit, their options, for instance if they wish to be responsible the underlying data, or if they have budget constraints.
 
@@ -73,6 +77,8 @@ Selection includes choosing the analytics tools, the data to collect, the evalua
     \item Establish the acceptance criteria, including any design and implementation aspects.
     \item TBC...
 \end{itemize}
+
+
 \yy{A mapping table can be helpful to make it clear which decisions can be helped by which level of engagement. }
 \begin{table}\begin{tabular}{|c|c|c|c|c|c|}\hline
 Decision & L0 & L1 & L2 & L3 & L4 \\\hline
@@ -92,8 +98,9 @@ Legal & & & & & \\\hline
 \end{table}
 
 \section{Incorporation}
-Incorporation of analytics code into an app (include and develop), incorporation of verification into the software construction, testing and release practices, incorporation of analytics results into the development and operational practices. c.f. Buse and Zimmermann's figure~\ref{fig:software_analytics_buse_and_zimmerman_2010} based on Davenport and Harris's \emph{Key questions addressed by analytics} figure 1.1 (page 7 ~\cite{davenport2010analytics_at_work}).
-\yy{You may need to include these diagrams here, otherwise reader may not be able to look up.}
+Incorporation of analytics code into an app (include and develop), incorporation of verification into the software construction, testing and release practices, incorporation of analytics results into the development and operational practices. c.f. Buse and Zimmermann's figure~\ref{fig:software_analytics_buse_and_zimmerman_2010}.
+% \yy{You may need to include these diagrams here, otherwise reader may not be able to look up.}
+% @Yijun, the Buse and Zimmerman figure is in the Related Works chapter, do you think it would help to reproduce it here too? (or to move it to here?). I've also moved the reference to Davenport et al.'s book to the related works chapter as that detail isn't relevant here.
 
 Consider an aside on ways developers include a library in software, and activities libraries can perform actions independently of the app. 
 
