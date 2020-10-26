@@ -22,39 +22,21 @@
 
 \chapter*{Abstract}
 \begin{SingleSpace}
-% \textbf{What was the purpose of your research?} 
-%\initial{T}
-The purpose of this research is to learn whether mobile analytics could help
-%improve the quality of apps practically by helping 
-real-world developers improve the quality of their apps efficiently and effectively. The success of their apps may depend, at least in part, in how their apps are rated using externally determined metrics established by an app store.
-%
-%\initial{T}his research explores the potential of using two complementary sources of data to improve the testing of Android apps. Google provides the first source, known as Android Vitals, using data gathered from Android devices of  users who opt-in to providing various performance data. Google claims \textit{"Exhibiting bad behavior in vitals will negatively affect the user experience in your app and is likely to result in bad ratings and poor discoverability on the Play Store"}% https://developer.android.com/topic/performance/vitals
-%
-% Possibly remove the second source from the thesis, discuss.
-%The second source is gathered by the app, either directly or using a third-party library. Mobile analytics is a  well-established approach to gathering data from apps and may be a viable approach to provide this service. Logging is another mature approach but seldom used by mobile apps. This research aims to provide insights into commonalities and differences between logging and mobile analytics as implementations for this second source of data.
-%The improvements to testing include several distinct aspects: to help us review and assess the effects of our testing of apps now in production, to aid in bug localisation and reproduction, and to generate ideas and insights for future testing.
 
-% \textbf{How was your research designed?}
+The purpose of this research is to learn whether mobile analytics could help
+real-world developers improve the quality of their apps efficiently and effectively. The success of their apps may depend, at least in part, in how their apps are rated using externally determined metrics established by an app store.
+
 Research Design: the research takes a developer-oriented perspective of using two complementary sources of data: 1) platform-level analytics, using Android Vitals as the primary analytics tool, and 2) in-app analytics.
-%
-%The research was applied to several mature opensource Android apps with active install bases of over 500,000 to evaluate Android Vitals, these apps do not collect any in-app data to protect the privacy of their users. One of these apps uses a mainstream crash analytics library which was used to complement and contrast the results provided in the primary analytics tool.
 %
 Action research techniques included roles of embedded developer, guide, and observer across different projects I was involved in. Hackathons were used to experiment with the speed and ability to find and address issues reported in the analytics tools. 
 %
 I designed the research to facilitate ease of future research and reproducibility,~\emph{e.g.} by using  opensource projects as the code, bug reports, and so on are all published and available. Their apps have a combined active userbase of over 500,000 users. One of these apps uses a mainstream crash analytics library which was used to complement and contrast the results provided in the primary analytics tool.
-%We developed and opensourced tools to improve the analysis and research on data and reports provided in Google Play Console and released subsets of the data and reports to the research community. 
+%
 This research was complemented by collaborating with professional developers who provided additional examples and results.
 
-%Physical Android devices, selected by analysing data obtained from Android Vitals, were used to evaluate bug localisation and reproduction. We created software to 'scrape' data from Android Vitals in order to obtain the relevant data from the 1,000's of crash traces; Google do not provide an API.
-
-% \textbf{What were your findings?}
-%My research demonstrates that mobile analytics can be used to improve app quality. Crash rates were reduced markedly, quickly, and effectively by applying techniques described here. 
 Using mobile analytics helped to reduce crash rates markedly, quickly and effectively by applying techniques described here.
 Various limitations and flaws were found in the analytics tools, these provide cause for concern as they may affect the app's placement in the app store, revenues, and also make some issues in the apps harder to identify, prioritise, and fix. We identified ways to compensate for many of these and developed opensource software to facilitate additional analysis. Flaws and bugs were reported to the Android Vitals team at Google who acknowledged they would fix several of them (discussions are ongoing).
-%\initial{S}everal of the more popular Android apps had unusually high crash rates and crashes were more frequent on newer releases of Android. % Secondary finding: nonetheless the apps had high ratings in Google Play.
-%Android Vitals gathers non-personally identifiable information for Android apps. They also only provide reports and related data once volumes are sufficient to pass Google's thresholds to protect the privacy of uses, which means Android Vitals is less useful for apps with lower userbases. 
-% TBD whether we can quantify the thresholds for when Google chooses to display various reports.
-%Android Vitals is in active development by Google with changes and features occurring several times during the research; I discovered bugs in Android Vitals and reported them to Google who acknowledged they would fix several of them; (the discussions are ongoing and Google are very interested in this aspect of my research).
+%
 Several bugs were hard to reproduce, partly as Google deliberately hide some pertinent details from the data they gather. Nonetheless the developers were able to ameliorate or fix the bugs for some issues even when they were not able to reproduce them. 
 
 Android Vitals shows the potential of how the combination of an app store and platform could be used to improve the quality of apps without users needing to actively participate. Some crashes were hard to reproduce and may be impractical to find before the app is released to end users. Developers can determine comparative improvements in their releases, such as whether they fixed a bug, by using Android Vitals and similar analytics tools; \textit{i.e.} mobile analytics may help teams to determine whether they have improved the quality of their app \textit{even with flaws and limitations in the mobile analytics}.
