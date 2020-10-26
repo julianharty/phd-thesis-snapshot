@@ -1,23 +1,29 @@
 \chapter{Applying analytics to development practices}~\label{chapter-applying-analytics-to-development-practices}
 
 \akb{Helpful if chapter introduction sets context with respect to the research questions - which is what would have preceded this}
+\def\yy#1{\color{blue}[YY: #1]\color{black}}
 
-In the context of this thesis, analytics data is based on the software being used, so the software needs to be created and able to run before relevant data is generated. Much of the usage data comes from end users using mobile apps on their devices, however it may also be available earlier in the software development lifecycle.
+In the context of this thesis, analytics data is based on the software being used, so the software needs to be created and able to run before relevant data is generated. 
+Much of the usage data comes from end users using mobile apps on their devices, however it may also be available earlier in the software development lifecycle.
+\yy{Do you need to justify that the thesis only considers Mobile Apps?}
 
 \akb{Explicitly remind readers how analytics data can come from earlier in the development cycle}
 
 \subsection{The rest of this chapter}
-This chapter provides a holistic model pertaining to applying analytics to development practices, including \href{motivation-section}{\textit{motivation}}, \textit{selection}, and \textit{incorporation} of analytics tools; their \textit{use}; and the useful life of the materials provided by the analytics tools. There is some repetition in the chapter as none of the aspects are truly independent and they overlap; for instance, selection may will include aspects of incorporation of analytics libraries in order to learn about them and evaluate them. There are also cross-cutting concerns including privacy aspects and evaluation criteria, these will be covered towards the end of this chapter.
+This chapter provides a holistic model pertaining to applying analytics to development practices, including \href{motivation-section}{\textit{motivation}}, \textit{selection}, and \textit{incorporation} of analytics tools; their \textit{use}; and the useful life of the materials provided by the analytics tools. \yy{The word "holistic" sets the expectation high: what are the parts of the whole? The word "model" is used but not clear what it is, do you mean "design" instead? The phrase "useful life of the materials" is also quite vague, maybe you mean "longitudinal analysis" instead?} 
+
+There is some repetition in the chapter as none of the aspects are truly independent and they overlap; for instance, selection may include aspects of incorporation of analytics libraries in order to learn about them and evaluate them. \yy{Remove this sentence: I don't think it is a good excuse to say there are overlaps in the chapter that meant to classify the difference kinds of analytics and applications. Try to avoid giving reader an impression this chapter is a brain dump. You need to give a well-thought description centered around the chapter content.}
+
+There are also cross-cutting concerns including privacy aspects and evaluation criteria, these will be covered towards the end of this chapter.\yy{It is fine to introduce crosscutting concerns. I guess later you need to justify how they crosscut the functionalities, i.e., "design, uses, and analysis" of mobile analytics.}
 
 \akb{By using 'including ..' before enumerating the four areas motivation, selection, incorporation and use, you are suggesting that there are other areas that are not covered here. Would be better to link these four areas to the mobile app software engineering context and convince the reader that these three areas cover everything that is relevant to understanding how analytics fit into the context.}
 
 \akb{Also, is there a diagram that helps the reader understand how these four areas, engagement, selection, incorporation and use relate to each other? For example, intuitively I think there is a cyclic relationship where engagement influences selection, which in turn influences incorporation and use and that they in turn influence engagement.}
 
-Related topics are covered in the discussion and future work chapters. Several examples will be included to root the research in the real world in addition to the theoretical underpinnings of the research.
-
+Related topics are covered in the discussion and future work chapters. Several examples will be included to root the research in the real world in addition to the theoretical underpinnings of the research. \yy{Is there a theoretical component in this chapter at all?}
 
 \section{Motivation}~\label{motivation-section}
-As mentioned in the introduction chapter, developers are motivated to understand how their software is being used, how it's behaving, and fix at least some of the flaws in their software. Their actual motivations and context will vary based on their context including their work priorities, their current and desired \href{subsection-levels-of-engagement}{\emph{levels of engagement}} in terms of incorporating and using analytics in their software engineering practices, privacy, data ownership and stewardship, costs, and so on.
+As mentioned in the introduction chapter, developers are motivated to understand how their software is being used, how it's behaving, and fix at least some of the flaws in their software. Their actual motivations and context will vary based on their context including their work priorities, their current and desired \href{subsection-levels-of-engagement}{\emph{levels of engagement}} in terms of incorporating and using analytics in their software engineering practices, privacy, data ownership and stewardship, costs, and so on.\yy{Here "context" means everything? Also it does not make sense to say "context based on context". }
 
 Some motivations may constrain, or limit, their options, for instance if they wish to be responsible the underlying data, or if they have budget constraints.
 
@@ -33,6 +39,7 @@ Continuum of levels of engagement, or commitment, by developers:
     \item App incorporates additional code to call one or standard methods using the APIs (\emph{etc.} if other mechanisms are available).
     \item App includes custom reporting where specific parameters are included in relevant API calls.
 \end{enumerate}
+\yy{By the 5 level system, you need to make sure they are in strictly total order, i.e., L4 > L3 > L2 > L1 > L0. I am not certain about L3 > L2.}
 
 The development team have various choices available to them in terms of applying analytics to their software development practices. Their ~\href{subsection-levels-of-engagement}{\emph{levels of engagement}} range from not using analytics at all through to actively using an optimal mix of sources. 
 Sources can include various forms of passive analytics to more hands-on techniques such as incorporating libraries and adding code to the app to report events, activities, and so on. 
@@ -51,6 +58,7 @@ Here are the key decisions:
     \item The useful life of data and reports may exceed the default availability of the data in the analytics tool. Some data is transient, for instance a `daily' report, and unless preserved somehow, not available the following day.
     \item Triage and prioritise potential issues reported from external sources (pre-launch testing, new releases, active mainstream releases, etc.)
 \end{itemize}
+\yy{Are these decisions leading to various levels of engagement? Which one is the cause and which one is the effect? }
 
 \akb{Can you elaborate on the relationship between these decisions? e.g., Do some outcomes of decision steps determine the next decision to be made? Would be helpful to think about a flow diagram for this decision process, highlighting the inputs needed for each decision point and the possible outcomes}
 
@@ -64,12 +72,27 @@ Selection includes choosing the analytics tools, the data to collect, the evalua
     \item Establish the acceptance criteria, including any design and implementation aspects.
     \item TBC...
 \end{itemize}
-
-
-
+\yy{A mapping table can be helpful to make it clear which decisions can be helped by which level of engagement. }
+\begin{table}\begin{tabular}{|c|c|c|c|c|c|}\hline
+Decision & L0 & L1 & L2 & L3 & L4 \\\hline
+Using existing analytics &  &  &  &  & \\
+Incorporating additional analytics & & & & & \\ 
+Filtering analytics for testing & & & & & \\
+Analysing analytics of app and platform & & & & & \\ 
+Analysing life of data  & & & & & \\
+Analysing External sources & & & & & \\\hline
+Compare non-functional qualities & & & & & \\
+Flexibility of API & & & & & \\
+Price & & & & & \\
+Privacy & & & & & \\
+Licensing & & & & & \\
+Legal & & & & & \\\hline
+\end{tabular}\caption{Mapping}\label{tab:my_label}
+\end{table}
 
 \section{Incorporation}
 Incorporation of analytics code into an app (include and develop), incorporation of verification into the software construction, testing and release practices, incorporation of analytics results into the development and operational practices. c.f. Buse and Zimmermann's figure~\ref{fig:software_analytics_buse_and_zimmerman_2010} based on Davenport and Harris's \emph{Key questions addressed by analytics} figure 1.1 (page 7 ~\cite{davenport2010analytics_at_work}).
+\yy{You may need to include these diagrams here, otherwise reader may not be able to look up.}
 
 Consider an aside on ways developers include a library in software, and activities libraries can perform actions independently of the app. 
 
@@ -83,8 +106,11 @@ in order to a) better understand how their app is doing, and b) change their app
 \akb{Need more explanation of the elements of 'incorporation' that you are going to cover - I need to understand how passive vs. active, designing analytics, testing analytics, etc fit together before the detail that follows.}
 
 As mentioned earlier, passive analytics are those not actively under the control or influence of the development team, they are provided from other sources such as the operating system or the app store. Developers receive the reports and data they are given access to and therefore they need to their approach to suit the material that is provided if they wish to incorporate such analytics into their development practices.
+\yy{According to your engagement types, "passive analytics" should be in "using existing analytics" instead of "incorporating additional analytics". Or maybe you are using the verbs "using" and "incorporating" to mean the same thing? Please make sure the classification has no overlaps, otherwise it is not a classification...}
 
-In my research the passive analytics are all managed by an app store: Google Play Console. This provides a rich mix of materials including passive analytics both pre and post launch. This section provides an overview of the reports as an example of well-established passive analytics, and later in this thesis, the section titled \href{google_play_console_section}{\emph{\nameref{google_play_console_section}}} provides examples of a variety of reports developers may receive on the performance of their Android app.
+In my research the passive analytics are all managed by an app store: Google Play Console. 
+\yy{Why? Is it because of the definition, or because of convenience?}
+This provides a rich mix of materials including passive analytics both pre and post launch. This section provides an overview of the reports as an example of well-established passive analytics, and later in this thesis, the section titled \href{google_play_console_section}{\emph{\nameref{google_play_console_section}}} provides examples of a variety of reports developers may receive on the performance of their Android app.
 
 Here are the reports in the most likely chronological order of being generated if developers follow various recommendations made by Google, \emph{i.e.} to create and take advantage of test releases and use release management tools when rolling out a release of their Android app into production. Note: The reports are not guaranteed to be produced or be available, and the contents may expire after a period determined by the app store.
 
@@ -104,7 +130,7 @@ Here are the reports in the most likely chronological order of being generated i
 \subsection{Adding and incorporating a crash-reporting library}
 Crash-reporting libraries need to be incorporated into an application before they can be used, as mentioned in the section on~\href{section-packaging-mobile-apps}{\emph{packaging mobile apps}}. Generally~\footnote{A small minority of developers may follow other practices, nonetheless the principles mentioned here still apply}, the developer adds a few configuration lines to their application's build file (in \texttt{app/build.gradle} for Android apps) and also several lines of code to initialise the library when the application starts. These install the library as the global crash handler for the app, each time the app is started the library is initialised. 
 
-When the library is initialised, it may perform various actions such recording details of the operating system release, the model of device, \emph{etc.}. They may also perform house-keeping activities, for instance Crashlytics transmits crash reports from previous sessions.
+When the library is initialised, it may perform various actions such as recording details of the operating system release, the model of device, \emph{etc.}. They may also perform house-keeping activities, for instance Crashlytics transmits crash reports from previous sessions.
 
 Some crash-reporting libraries offer developers an API to add \emph{breadcrumbs} at run-time. If/when a crash occurs and is reported, the immediately preceding breadcrumb data may help developers piece together possible causes for a particular crash.
 
@@ -260,7 +286,10 @@ Here, material include what's provided by the analytics tools and evidence is wh
 
 For various reasons the analytics tools may limit access to prior material~\emph{e.g. Google removed access to crash reports in Google Play Console because of their policy changes.}, and glitches may mean the material is not available when needed even if it should be available. Therefore it may be useful and prudent for teams to preserve material and evidence independently of the analytics tool. 
 
+\yy{Is this related to Business continuity and incident analysis?}
+
 \section{Cross-cutting concerns}
+\yy{First need to say what do they crosscut, and why crosscut?}
 Privacy, peers, evaluation criteria (including testing, verification and validation).
 
 \subsection{Privacy and Responsibilities for using passive analytics}
@@ -278,3 +307,7 @@ Discuss options for peers, and in particular the facilities Google provides to e
 
 \section{Summary of applying analytics to development practices}
 TODO TBC
+
+\yy{I am very confused after reading the chapter. It doesn't tell me what development practices are, what analytics can do to the development practices (i.e., benefits and why considering analytics). There are applications, but I don't know whether these applications are holistic or not. Other unanswered question is, what is the theoretical underpinning to the chapter?}
+
+\yy{Thinking about your readers, or beneficiaries, are they meant to be software developers? If so, I guess the first question they will have is, what can they learn from your applications of analytics, and how they can do as well (which includes how to incorporate them and how to analyse the reports.} 

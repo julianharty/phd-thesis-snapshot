@@ -259,7 +259,7 @@ illustrates a modern continuous software lifecycle including feedback. We can ob
 
 In contrast, Figure \ref{fig:google-play-app-development-and-feedback} illustrates a similar software lifecycle for Android apps released through Google Play together with the various forms of feedback~\footnote{Here we have excluded feedback from the app store, nonetheless it exists for many app stores.} 
 
-Key differences between typical CI/CD lifecycles and the one for Google Play is the pre-launch testing and the app store providing both user feedback and a service called Android Vitals. The pre-launch reports are generated automatically by Google where the app store runs automated monkey testing on a farm of Android devices and various static analysis checks of releases deployed to any of the test channels. I will explain test channels later on. %MUST-DO actually add information on the test channels and how releases can be promoted to production releases in Google Play.
+Key differences between typical CI/CD lifecycles and the one for Google Play is the pre-launch testing and the app store providing both user feedback and a service called Android Vitals. The pre-launch reports are generated automatically by Google where the app store runs automated monkey testing on a farm of Android devices and various static analysis checks of releases deployed to any of the test channels. They are described in~\href{subsection-test-channels}{Test Channels}. %MUST-DO actually add information on the test channels and how releases can be promoted to production releases in Google Play.
 
 There are additional sources of \emph{analogue feedback} from people, including from alpha and beta testers and end users; and \emph{digital feedback} from Google tools and from usage data collected from the field. These terms are expanded in the following section~\href{analogue-and-digital-feedback}{\emph{\nameref{analogue-and-digital-feedback}}}.
 
@@ -320,6 +320,37 @@ Developers want and need to know how well their apps are performing from various
     \caption{Comparing Techniques}
     \label{fig:comparing_techniques}
 \end{figure}
+
+\begin{table}[ht]
+    \parbox{.40\linewidth}{
+        \centering
+        \begin{tabular}{|l|l|l|}
+            \hline
+            person id & seq id & vector$_1$  \\\hline
+            1 & 1 & 1 \\
+            1 & 2 & 1 \\ \hline
+            1 & 1 & 1 \\ \hline
+            1 & 1 & 1 \\ \hline
+
+        \end{tabular}
+        \caption{HRV Dataset \label{HRVtable}}
+    }
+    \hfill
+    \parbox{.45\linewidth}{
+        \centering
+        \begin{tabular}{|l|l|l|l|}
+            \hline
+            person id & seq id & vector$_1$ & vector$_2$ \\\hline
+
+            1 & 1 &1 &1  \\
+            1 & 2 & 1&1 \\ \hline
+            1 & 1 &1 &1\\ \hline
+            1 & 1 & 1 &1 \\ \hline
+        \end{tabular}
+        \caption{BAC Dataset \label{BACtable}}}
+\end{table}
+
+HRV data in Table \ref{HRVtable} and BAC data in Table \ref{BACtable}.
 
 There are various techniques that can be used to assess aspects of quality of mobile apps. Figure \ref{fig:comparing_techniques} provides a visual overview of eight techniques. Of these four are code-oriented and the remaining four more user- or usage- oriented. They are ordered in approximate rank of the overhead, effort, or intrusion involved of each technique. % MUST-DO continue and expand this argument. Discuss why exceptions were chosen as one of the core elements of this research and PhD thesis.
 
