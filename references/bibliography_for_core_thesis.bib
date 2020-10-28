@@ -170,6 +170,21 @@ month={March},}
   abstract={Concrete and useful suggestions about what constitutes quality software have always been elusive. I suggest a framework for the construction and use of practical, testable quality models for requirements, design and implementation. Such information may be used directly to build, compare, and assess better quality software products.},
 }
 
+@article{fielding2012_triangulation_and_mixed_methods_designs,
+    author = {Nigel G. Fielding},
+    title ={Triangulation and Mixed Methods Designs: Data Integration With New Research Technologies},
+    journal = {Journal of Mixed Methods Research},
+    volume = {6},
+    number = {2},
+    pages = {124-136},
+    year = {2012},
+    doi = {10.1177/1558689812437101},
+    URL = {https://doi.org/10.1177/1558689812437101},
+    eprint = {https://doi.org/10.1177/1558689812437101},
+    abstract = { Data integration is a crucial element in mixed methods analysis and conceptualization. It has three principal purposes: illustration, convergent validation (triangulation), and the development of analytic density or “richness.” This article discusses such applications in relation to new technologies for social research, looking at three innovative forms of data integration that rely on computational support: (a) the integration of geo-referencing technologies with qualitative software, (b) the integration of multistream visual data in mixed methods research, and (c) the integration of data from qualitative and quantitative methods.}
+}
+
+
 @article{floridi2019_five_risks_of_being_unethical,
 author="Floridi, Luciano",
 title="Translating Principles into Practices of Digital Ethics: Five Risks of Being Unethical",
@@ -652,6 +667,13 @@ month = {sep}
   publisher={john wiley \& sons},
   address = {New York, NY, USA.},
   isbn={978-0-471-50336-1}
+}
+
+@book{marr2015bigdatabook,
+  title={Big Data: Using SMART big data, analytics and metrics to make better decisions and improve performance},
+  author={Marr, Bernard},
+  year={2015},
+  publisher={John Wiley \& Sons}
 }
 
 @book{mill1884system,
@@ -1376,6 +1398,24 @@ This paper reports a study analyzing how the fault- and change-proneness of APIs
   organization={IEEE},
   publisher = {IEEE},
   address = {Seoul, South Korea},
+}
+
+@inproceedings{prochlo2017_strong_privacy_analytics_in_the_crowd_46411,
+    author = {Bittau, Andrea and Erlingsson, \'{U}lfar and Maniatis, Petros and Mironov, Ilya and Raghunathan, Ananth and Lie, David and Rudominer, Mitch and Kode, Ushasree and Tinnes, Julien and Seefeld, Bernhard},
+    title = {Prochlo: Strong Privacy for Analytics in the Crowd},
+    year = {2017},
+    isbn = {9781450350853},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3132747.3132769},
+    also_available_at = {https://arxiv.org/abs/1710.00901},
+    doi = {10.1145/3132747.3132769},
+    abstract = {The large-scale monitoring of computer users' software activities has become commonplace, e.g., for application telemetry, error reporting, or demographic profiling. This paper describes a principled systems architecture---Encode, Shuffle, Analyze (ESA)---for performing such monitoring with high utility while also protecting user privacy. The ESA design, and its Prochlo implementation, are informed by our practical experiences with an existing, large deployment of privacy-preserving software monitoring.With ESA, the privacy of monitored users' data is guaranteed by its processing in a three-step pipeline. First, the data is encoded to control scope, granularity, and randomness. Second, the encoded data is collected in batches subject to a randomized threshold, and blindly shuffled, to break linkability and to ensure that individual data items get "lost in the crowd" of the batch. Third, the anonymous, shuffled data is analyzed by a specific analysis engine that further prevents statistical inference attacks on analysis results.ESA extends existing best-practice methods for sensitive-data analytics, by using cryptography and statistical techniques to make explicit how data is elided and reduced in precision, how only common-enough, anonymous data is analyzed, and how this is done for only specific, permitted purposes. As a result, ESA remains compatible with the established workflows of traditional database analysis.Strong privacy guarantees, including differential privacy, can be established at each processing step to defend against malice or compromise at one or more of those steps. Prochlo develops new techniques to harden those steps, including the Stash Shuffle, a novel scalable and efficient oblivious-shuffling algorithm based on Intel's SGX, and new applications of cryptographic secret sharing and blinding. We describe ESA and Prochlo, as well as experiments that validate their ability to balance utility and privacy.},
+    booktitle = {Proceedings of the 26th Symposium on Operating Systems Principles},
+    pages = {441–459},
+    numpages = {19},
+    location = {Shanghai, China},
+    series = {SOSP '17},
 }
 
 @inproceedings{riganelli2019benchmark_android_data_loss_bugs,
