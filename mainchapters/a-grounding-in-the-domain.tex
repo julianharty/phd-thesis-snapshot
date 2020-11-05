@@ -2,21 +2,27 @@
 % see https://tex.stackexchange.com/questions/36846/minitoc-thesis-template-pdflatex for the use of setcounter for minitoc in this context.
 
 
-\chapter{Background}
-Rather than assume you are familiar with the various concepts or leave you to trawl external sources this chapter aims to provide sufficient background about fundamental aspects needed to understand the domain and context of the research. Some of the concepts and terms used in the rest of this thesis are also explained here. 
+\chapter{Preparing the ground}
+\emph{`...there is nothing new under the sun. \\Is there anything of which one can say,``Look! This is something new"?'}~\footnote{\url{https://www.biblegateway.com/passage/?search=Ecclesiastes+1\%3A9-10&version=NIV}}
 
-There are limits of the certainty of closed, proprietary systems including those discussed in this thesis. Therefore, there may be situations where there are differences between these observations and findings and those of other users of these tools. To improve readability the thesis includes some generalisations rather than using qualifiers throughout, such as often, mainly, and so on, unless they materially reflect variations in people's experiences.
+\vspace{10mm}
+
+This chapter provides a grounding in the domain of mobile apps, how developers obtain information, and mobile analytics,~\emph{etc.}  For any individual elements there may be much that is known and seemingly little novelty. And yet, it has become clear that when these elements are combined an interesting and rich domain emerges that can serve developers of their mobile apps.
+
+Before diving into the rest of the chapter, please note, 
+there are limits of the certainty of closed, proprietary systems including those discussed in this thesis. Therefore, there may be situations where there are differences between these observations and findings and those of other users of these tools. To improve readability the thesis includes some generalisations rather than using qualifiers throughout, such as often, mainly, and so on, unless they materially reflect variations in people's experiences.
 
 The chapter introduces five conceptual models, including: a model of apps and app stores, layers of an app and observation points, of analogue and digital feedback, usage analytics, and finally DevOps. These concepts help us understand key considerations for mobile app developers and what they are working with.
 
-The chapter continues with five practical aspects including app development and usage, information sources for developers, and choices for engaging with analytics. Developers need to address these as part of being effective in their work and providing apps of adequate quality. Mobile analytics can provide useful sources of information about problems with the apps in use, and mobile analytics can complement and calibrate other sources of quality related information including software testing. 
+The chapter continues with five practical aspects including app development and usage, information sources for developers, and choices for engaging with analytics. Developers need to address these as part of being effective in their work and providing apps of adequate quality. Mobile analytics can provide useful sources of information, including problems with the apps in use, and mobile analytics can complement and calibrate other sources of quality related information including software testing. 
 
-
+\begin{comment}
 % See also https://tex.stackexchange.com/questions/3001/list-sections-of-chapter-at-beginning-of-that-chapter
 \minitoc 
 \mtcskip 
-\setcounter{mtc}{2} %This is a hack as minitoc seems to have different counters for the toc and the figures. As I'm probably only using minitoc temporarily while working on the chapter I can live with this. See https://tex.stackexchange.com/questions/184135/adding-general-introduction-to-table-of-contents-as-chapter-causes-a-problem to try and align the counters, I parked this issue as not worth the time investment currently. 
+\setcounter{mtc}{4} %This is a hack as minitoc seems to have different counters for the toc and the figures. As I'm probably only using minitoc temporarily while working on the chapter I can live with this. See https://tex.stackexchange.com/questions/184135/adding-general-introduction-to-table-of-contents-as-chapter-causes-a-problem to try and align the counters, I parked this issue as not worth the time investment currently. 
 \minilof
+\end{comment}
 
 \section{Conceptual model of apps and app stores}
 This section introduces a conceptual model of apps and app stores and presents four views of apps in an app store together with various implications of the views, relationships and interactions. 
@@ -232,7 +238,7 @@ As an observation the vast majority of Android developers use the default inbuil
     \item Mobile analytics, can extend and scale logging. For mobile analytics, a minority of developers incorporate custom implementations, however the vast majority who use analytics do so through using third-party analytics libraries such as Google Firebase Analytics, details of the current usage of analytics libraries are provided by AppBrain~\footnote{\url{https://www.appbrain.com/stats/libraries/tag/analytics/android-analytics-libraries}}.
 \end{itemize}
 
-One of the appendices, ~\href{chapter-on-mobile-analytics}{\textit{on mobile analytics}}, provides details of the design of content and messages together with the mechanics of sending the data; in terms of the background material it's enough to be aware that these are both relevant aspects of incorporating and using mobile analytics. 
+One of the appendices, ~\href{chapter-on-mobile-analytics}{\textit{on mobile analytics}}, provides details of the design of content and messages together with the mechanics of sending the data; in terms of establishing a grounding in this topic it is enough to be aware that these are both relevant aspects of incorporating and using mobile analytics.
 
 \section{Conceptual model of usage analytics}
 Usage analytics pertains to recording and analysing the usage of software. Application usage analytics is mentioned in various sources, including patents filed by Google in the USA~\emph{e.g.} for methods and systems to collect and provide application usage analytics to developers~\citep{googlepatent_hyman2016_collecting_application_usage_analytics}. 
@@ -428,30 +434,33 @@ Developers want and need to know how well their apps are performing from various
 \begin{table}[ht]
     \parbox{.40\linewidth}{
         \centering
-        \begin{tabular}{|l|l|l|}
+        \small
+        \begin{tabular}{lll}
+            Technique  & Gen. Effort & Usage Effort  \\
             \hline
-            person id & seq id & vector$_1$  \\\hline
-            1 & 1 & 1 \\
-            1 & 2 & 1 \\ \hline
-            1 & 1 & 1 \\ \hline
-            1 & 1 & 1 \\ \hline
+            Automated Tests  & High  & Medium \\ 
+            Profiling   & 1 & 1 \\
+            Code Quality tools & 1 & 1 \\
+            Logging   & 1 & 1 \\ 
+            Exceptions  & 1 & 1 \\ 
 
         \end{tabular}
-        \caption{HRV Dataset \label{HRVtable}}
+        \caption{Focus: Code \label{HRVtable}}
     }
     \hfill
-    \parbox{.45\linewidth}{
+    \parbox{.40\linewidth}{
         \centering
-        \begin{tabular}{|l|l|l|l|}
+        \small
+        \begin{tabular}{ll}
+            Technique & vector$_1$  \\
             \hline
-            person id & seq id & vector$_1$ & vector$_2$ \\\hline
-
-            1 & 1 &1 &1  \\
-            1 & 2 & 1&1 \\ \hline
-            1 & 1 &1 &1\\ \hline
-            1 & 1 & 1 &1 \\ \hline
+            UX labs, etc. & 1  \\ 
+            Heatmap & 1  \\ 
+            In-app feedback & 1  \\ 
+            App-store reviews & 1  \\
         \end{tabular}
-        \caption{BAC Dataset \label{BACtable}}}
+        \caption{Focus: User \label{BACtable}}}
+    \caption{Comparing techniques}
 \end{table}
 
 HRV data in Table \ref{HRVtable} and BAC data in Table \ref{BACtable}.
@@ -483,5 +492,6 @@ It may be something that is inherent in the nature of using many of the third-pa
 Explicit analytics is where developers have actively added code to interact with analytics libraries, for instance by calling methods in the API(s) provided by the library's. There are various degrees of use of the APIs and developers may have various intentions for calling these APIs.
 
 
-\section{Summary of the background chapter}
-This chapter has introduced various concepts and topics which help provide context for the rest of this thesis. Some additional background material is available in various appendices, including more information on mobile analytics and various software contributions.
+\section{Summary and transition}
+% This chapter has introduced various concepts and topics which help provide context for the rest of this thesis. Some additional background material is available in various appendices, including more information on mobile analytics and various software contributions.
+We now have a grounding in the domain of mobile apps, logging and mobile analytics which is underpinned by research in both academic research and grey literature. The next chapter describes the application of mobile analytics to software development practices for mobile apps.
