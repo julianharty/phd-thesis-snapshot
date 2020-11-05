@@ -211,7 +211,7 @@ In-app feedback enables a wider range of communications and also scope for riche
 In-app feedback has also been proposed for bi-directional communications between developers and users of the app for instance to elicit non-functional requirements~\citep{avellis_harty_yu_towards_mobile_twin_peaks}.
 
 \subsection{Analogue feedback: app store feedback}
-App store feedback, combines a rating (typically using a one- to five- start rating and an optional plain-text comment). It is a subject covered by significant volumes of research which will be discussed in the related works chapter. %MUST-DO actually write up this related research and contrast it with mobile analytics.
+App store feedback, combines a rating (typically using a one- to five- start rating and an optional plain-text comment). It is a subject covered by significant volumes of research and discussed in the related works chapter. %MUST-DO actually write up this related research and contrast it with mobile analytics.
 
 \begin{figure}[ht]
     \centering
@@ -223,10 +223,54 @@ App store feedback, combines a rating (typically using a one- to five- start rat
 \subsection{Digital feedback: logging and mobile analytics}
 The application may incorporate logging and/or mobile analytics. Logging in mobile apps is often used locally, by developers independently of other mechanisms. Mobile analytics is used remotely, as are crash reporting libraries. Figure \ref{fig:matrix-of-logging} illustrates a matrix of logging, where logging and mobile analytics are on the Y axis and local and remote on the X axis. There is a cross-cutting example where the mobile platform observes local events and then forwards the information remotely. A good example is Google Play which appears to be an external observer of data recorded in device logs. Data collection runs locally and is sent to Google servers where Google analyses the data and provides reports to developers for their apps. %SHOULD-DO check for related US patent filings by Google in this area.
 
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lll}
+         Category of logging &Local access?  &Remote access? \\
+         \hline
+         None            &N/A  &N/A \\
+         \texttt{StdOut} &It depends &Unlikely \\
+         Default platform logging library &Yes &Possible \\
+         Enhanced platform logging library &Yes &Possible \\
+         Third-party logging library &as-designed &as-designed \\
+         Proprietary logging library &as-designed &as-designed \\
+         
+    \end{tabular}
+    \caption{Choices available to developers for logging in mobile apps}
+    \label{tab:logging-choices-for-devs}
+\end{table}
+
+Table~\ref{tab:logging-choices-for-devs} identifies various categories of logging available to developers of mobile apps. They range from no active logging in the app (some information is still logged by the platform) to proprietary custom logging libraries which a tiny minority of development teams would chose to do - they may do so to keep their logging as private as practical from the rest of the device.
+
+\texttt{StdOut} is often used in code written for other platforms including Linux that has been ported to mobile platforms. Some people who are unfamiliar with logging libraries who have a superficial understanding of developing for mobile devices may also use print statements in their code (which effectively writes to the standard output) rather than use log statements in their code. There are various nuances of how the standard output and standard error outputs are handled in Android code (Java, Kotlin, etc.) and native code (C/C++) are directed as standard for Android apps. In short, for native code (\emph{e.g.} written in C/C++) as standard the outputs are discarded by `writing' them to~\texttt{/dev/null}. For Android code (\emph{e.g.} written in Java/Kotlin) \texttt{System.out} and \texttt{System.err} can be redirected to the log on some Android releases if the device is configured to do so.
+%MUST-DO add references for https://github.com/android/ndk/issues/671 and https://codelab.wordpress.com/2014/11/03/how-to-use-standard-output-streams-for-logging-in-android-apps/ and https://stackoverflow.com/a/17199704/340175 and https://stackoverflow.com/questions/10531050/redirect-stdout-to-logcat-in-android-ndk
+
+There are various enhanced log libraries, for instance~\texttt{timber} which are used by discerning app developers. These libraries also write to the platform log files. 
+
+To Be Continued. %MUST-DO
+
+\begin{figure}
+    \centering
+    \includegraphics[width=12cm]{images/rough-sketches/apps-on-device-boundaries-sketch.jpeg}
+    \caption{Apps on the device boundaries}
+    \label{fig:apps-on-device-boundaries}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm]{images/rough-sketches/on-device-logging-sketch.jpeg}
+    \caption{On-device logging}
+    \label{fig:on-device-logging}
+\end{figure}
+
+A couple of rough sketches, Figures~\ref{fig:apps-on-device-boundaries} and~\ref{fig:on-device-logging} present two views of apps installed on any given mobile device. These apps are broadly one of three categories: platform, pre-installed (non-removable), and user-installed (removable). At any point one or more of these apps may be running, the rest are idle. The majority of these apps, with the possible exception of system apps, write to one or more shared, common, log files. These log files have a finite size, and once they are filled newer messages overwrite the oldest ones in turn. In Figure~\ref{fig:on-device-logging} the left-most blob, in purple, represents a system app that is able to read the shared system log files. These apps are pre-installed by the manufacturer, they may include those from the provider of the platform, particularly from Google for Android devices that use Google Play, and also some device manufacturers may have similar apps. Other apps are also pre-installed by manufacturers including a suite of apps from Google and some from the manufacturer. They may also include apps from organisations with agreements with the device manufacturer, for instance they may pre-install some games and utilities from partners. TBC.
+
+
+
 \begin{figure}[ht]
     \centering
     \includegraphics[width=15cm]{images/mobile-analytics-playbook/Chart-08-Overview-of-MobileAnalytics.png}
-    \caption{Overview of Mobile Analytics\citep{harty_aymer_playbook_2016}}
+    \caption{Overview of Mobile Analytics~\citep{harty_aymer_playbook_2016}}
     \label{fig:map2016-overview-of-mobile-analytics}
 \end{figure}
 
