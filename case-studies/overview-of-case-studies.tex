@@ -33,15 +33,18 @@ In mid-2019 several commercial Android development teams learned of my research 
 
 \begin{table}[th]
     \centering
-    \begin{tabular}{l|l|r|l}
-      Case Study &Role of Researcher &Apps \\
+    \small
+    \setlength{\tabcolsep}{4pt} %% default is 6pt
+    \begin{tabular}{llrr}
+      Case Study &Role of Researcher &Apps &Active Users\\
       \hline
-       \href{https://play.google.com/store/apps/dev?id=9116215767541857492&hl=en_GB}{Kiwix}  &Embedded &18 \\
-       \href{https://play.google.com/store/apps/developer?id=Catrobat&hl=en_GB}{Catrobat} &Guide &6 \\
-       \href{https://play.google.com/store/apps/dev?id=7665838187257770408}{Greentech Apps} &\textbf{TBD} &10 \\
-       \href{https://play.google.com/store/apps/developer?id=Moonpig.com&hl=en_GB}{Moonpig.com} &Observed &1 \\
-       \href{https://play.google.com/store/apps/details?id=boundless.moodgym&hl=en_GB}{Moodspace app} &Interviewed &1 \\
-       \href{https://play.google.com/store/apps/details?id=com.localhalo.app&hl=en_GB}{Local Halo app} &Observed &1 \\
+       \href{https://play.google.com/store/apps/dev?id=9116215767541857492&hl=en_GB}{Kiwix}  &Embedded &18 &367K\\
+       \href{https://play.google.com/store/apps/developer?id=Catrobat&hl=en_GB}{Catrobat} &Guide &6 &200K\\
+       \href{https://play.google.com/store/apps/dev?id=7665838187257770408}{Greentech Apps} &Observed &10 &987K\\
+       \href{https://play.google.com/store/apps/developer?id=Moonpig.com&hl=en_GB}{Moonpig.com} &Observed &1 &130K\\
+       \href{https://play.google.com/store/apps/details?id=boundless.moodgym&hl=en_GB}{Moodspace app} &Interviewed &1 &20K\\
+       \href{https://play.google.com/store/apps/details?id=com.localhalo.app&hl=en_GB}{Local Halo app} &Observed &1 &1.1K\\
+       Commercial case study &Consultant &1 &1.9M\\
     \end{tabular}
     \caption{Project teams and Commercial apps in the case studies}
     \label{tab:case_studies}
@@ -51,7 +54,13 @@ For the Kiwix case study, the researcher has been an intrinsic long-term member 
 
 For the Catrobat case study, the researcher advised and assisted the project team to apply mobile analytics to their larger, older, and less reliable app: \emph{Pocket Code}. The researcher helped lead a one-day hackathon and otherwise interacted through a bug reporting tool, JIRA, discussions and using shared documents. Pocket Code also included a crash-reporting library which allowed cross-tool comparisons of reports, analytics and data. During the research, the reporting platform for the crash-reporting was migrated to a newer service which provided further insights and comparisons across and between the various mobile analytics tools.
 
+The Greentech apps case study blends public and private sharing of their projects, they track issues in public, the codebase is private. Their active userbase is larger than the combined userbases of the Kiwix and Catrobat mobile apps. The team structure is similar to those for the Kiwix project, where it's a not-for-profit foundation where donations help fund some of the development work however many of the development team are part-time volunteers. Their core team are in Bangladesh, distant from the Western world and their focus is to enable native Bangla speakers to learn and study the Quran. Their priorities differ from those of most projects, the quality of their material is paramount and they sometimes disable support for apps that have serious quality flaws in these materials. 
+
 For the commercial app teams (Moonpig, Moodspace, and LocalHalo), the researcher corresponded with one of the development team for each of the commercial apps and received either direct access to their analytics tools (LocalHalo), or was provided with snapshots (Moonpig and Moodspace). Permission was granted by their respective organisations for their contributions to be used for research purposes.
+
+The corporate case study has an order of magnitude more complexity than the other apps with much higher demands on the software being reliable and performant. The business and the service provided through the client apps are expected to grow massively as the product matures and the software quality improves. While they include clients for MacOS, iOS, Android, webRTC, and Windows desktop operating systems, the case study focuses on the Android client.
+
+How developers of Android apps actually use mobile analytics for remote logging compared to how developers use local logging focuses on the perceived purpose of the logging across over 100 opensource projects on GitHub.com. And the final case study is from the perspective of a startup who are developing and researching tools and techniques to help developers improve their design, implementation and use of usage analytics tools (both web and mobile apps). 
 \newpage
 
 \input{case-studies/kiwix-team-case-study}
@@ -63,10 +72,10 @@ For the commercial app teams (Moonpig, Moodspace, and LocalHalo), the researcher
 \input{case-studies/gtaf-case-study}
 \newpage
 
-\input{case-studies/a-major-corporation-case-study}
+\input{case-studies/developers-experiences-of-mobile-analytics}
 \newpage
 
-\input{case-studies/developers-experiences-of-mobile-analytics}
+\input{case-studies/a-major-corporation-case-study}
 \newpage
 
 \input{case-studies/logging-case-studies}
