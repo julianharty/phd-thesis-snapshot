@@ -2295,6 +2295,15 @@ https://github.com/Displayr/flipTime/graphs/contributors
   quote_1 = {Review times may vary by app. On average, 50\% of apps are reviewed in 24 hours and over 90\% are reviewed in 48 hours.}
 }
 
+@online{chooseanopensourcelicense2020,
+  title = {Choose an open source license},
+  url = {https://choosealicense.com/},
+  author = {Various},
+  organization = {{GitHub, Inc.}},
+  year = {2020},
+  note = {Accessed:~\nth{16} November 2020},
+}
+
 @online{datethics2020_workshop,
   title = {{DatEthics 2020} workshop},
   url = {https://mobilehci-2020.datacentricdesign.org/},
@@ -2312,6 +2321,23 @@ https://github.com/Displayr/flipTime/graphs/contributors
   note = {Retrieved 11 November 2020},  
 }
 
+@online{firebasecrashlytics2020_customize_crash_reports,
+  title = {Customize your Firebase Crashlytics crash reports},
+  url = {https://firebase.google.com/docs/crashlytics/customize-crash-reports?platform=android},
+  author = {{Google Developers}},
+  year = {2020},
+  organization = {{Google Inc.}},
+}
+
+@online{mitlicense2020_ongithub,
+  title = {MIT License},
+  url = {https://choosealicense.com/licenses/mit/},
+  author = {Various},
+  organization = {{GitHub, Inc.}},
+  year = {2020},
+  note = {Accessed:~\nth{16} November 2020},
+}
+
 @online{nngroup_dot_voting,
   title = {Dot Voting: A Simple Decision-Making and Prioritizing Technique in UX},
   url = {https://www.nngroup.com/articles/dot-voting/},
@@ -2319,6 +2345,29 @@ https://github.com/Displayr/flipTime/graphs/contributors
   summary = {By placing colored dots, participants in UX workshops, activities, or collaborative sessions individually vote on the importance of design ideas, features, usability findings, and anything else that requires prioritization.},
   organization = {Nielsen Norman Group},
   author = {Sarah Gibbons},
+}
+
+@online{segment_analytics_for_android_docs,
+  title = {Analytics for Android},
+  url = {https://segment.com/docs/connections/sources/catalog/libraries/mobile/android/#analytics-for-android},
+  year = {2020},
+  organization = {{Segment.io inc}},
+  quote_0 = {Analytics-Android saves up to 1000 calls on disk, and these never expire.},
+}
+
+@online{segmentio_supporting_6_months_offline,
+  title = {Supporting 6 months offline #701},
+  url = {https://github.com/segmentio/analytics-android/issues/701},
+  author = {John Hatton and Prayansh Srivastava},
+  organization = {{SIL International and Segment.io}},
+  year = {2020},
+  details = {Our non-profit reading app is used to support literacy education in developing countries, and the analytics are used to see which books are being read, and how well kids are doing on comprehension questions. We use Segments warehouse service to populate our postgresql DB, then offer public dashboards showing how and where books are being read. So we love that this sdk saves 1000 events while waiting to send them when online. However, that is no longer enough.
+
+  In an upcoming aid project, 1400 tablets containing our app will go out to kids in a super rural part of the Pacific. Every six months, the tablets will be brought together for the purpose of getting new books and collecting analytics. The project needs our app to store up to six months of reading activity; at a minimum of 3 events per tiny book, some kids may blow past the 1000 events. Our event payloads are tiny.
+
+  #1 We are thinking of doing a fork that increases this to 10 * 10,000. Do you see any red flags on that? If you'd rather we submit a PR that makes it configurable, we could do that instead.
+
+  #2 Even during the every-six-months gathering of the tablets, the project would still like to not depend on a rural connection to the internet. They would like to automatically pull the QueueFile off of every machine and store it for later processing. Does that sound feasible? In other words, are there any known barriers to us writing some utility that takes 1400 queue files, then sends each even to Segment, one at a time?}
 }
 
 @online{vitals_scraper_github_package,
