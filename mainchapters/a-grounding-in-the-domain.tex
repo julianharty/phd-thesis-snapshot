@@ -3,7 +3,7 @@
 
 
 \chapter{Preparing the ground}
-\emph{`...there is nothing new under the sun. \\Is there anything of which one can say,``Look! This is something new"?'}~\footnote{\url{https://www.biblegateway.com/passage/?search=Ecclesiastes+1\%3A9-10&version=NIV}}
+\emph{`...there is nothing new under the sun. \\Is there anything of which one can say,``Look! This is something new"?'}~\footnote{\href{https://www.biblegateway.com/passage/?search=Ecclesiastes+1\%3A9-10&version=NIV}{Ecclesiastes Ch:1 vv. 9-10 NIV edition.}}
 
 \vspace{10mm}
 
@@ -155,14 +155,16 @@ We have already identified four membership groups involved in app store ecosyste
 Membership matters in particular because of who has access to which data and for how long they have access. Note: Control and `ownership' of the data are also relevant topics, however they are not necessary to comprehend the rest of this topic. % SHOULD-DO consider whether to add material on this topic in the thesis. 
 
 \section{Conceptual model of layers within apps and observation points}
+Observation can be internal,~\emph{i.e.} built into apps, and external. External includes instrumentation, debugging tools, the operating system at runtime, accessibility interfaces, event listeners, log watchers, and so on (as this is not intended to be an exhaustive list). The observation may also be indirect, for instance using network monitoring software, and/or from remote APIs, REST endpoints, and web servers (with their attendant logging).
+
 \subsection{Three layers of an app}
-In earlier work, published in ~\citep{harty_aymer_playbook_2016}, the concept of three layers of an app was introduced. These are illustrated in Figure \ref{fig:3-layers} and shows three primary conceptual layers related to a mobile app.
+In earlier work, published in ~\citep{harty_aymer_playbook_2016}, the concept of three layers of an app was introduced. These are illustrated in Figure \ref{fig:3-layers} and shows three primary conceptual layers related to a mobile app. 
 
 \begin{figure}[ht]
     \begin{minipage}{\textwidth}
     \centering
     \includegraphics[width=10cm]{images/mobile-analytics-playbook/3-layers.png}
-    \caption[Three layers of an app]{Three layers of an app~\footnote{Image credit: First published in the Mobile Analytics Playbook~\cite{harty_aymer_playbook_2016}}.}
+    \caption[Three layers of an app]{Three layers of an app~\footnote{Image credit: First published in The Mobile Analytics Playbook~\citep{harty_aymer_playbook_2016}}.}
     \label{fig:3-layers}
     \end{minipage}
 \end{figure}
@@ -184,7 +186,7 @@ As Figure~\ref{fig:internal-external-table} illustrates there are internal and e
     \label{fig:internal-external-table}
 \end{figure}
 
-What is test automation? discuss how mobile apps are tested, the unique aspects of using accessibility interfaces, etc.
+%\textbf{SHOULD-DO} Expand the following: What is test automation? discuss how mobile apps are tested, the unique aspects of using accessibility interfaces, etc.
 
 \section{Conceptual model of analogue and digital feedback}~\label{analogue-and-digital-feedback}
 Feedback can help developers to find and choose ways to improve their software. Various researchers have investigated way to understand and use feedback provided by end-users, for instance, in ratings and reviews users provide to the app store. For the purposes of this research feedback people provides is considered~\emph{analogue feedback} as it has the richness and complexity of analogue signals, and also challenges of processing and comprehension.
@@ -350,12 +352,25 @@ This research includes case studies and developer reports of examples of analyti
 \section{Conceptual model for DevOps}
 DevOps recognises the benefits of connecting development and operations of software. a Yin Yang symbol recognises there's some negative in the positive and vice-versa. Conceptually, teams can choose to invest in operations while they're developing to improve the operational aspects of their software, for instance by designing in good operability. Similarly when the software is in use by observing the software's behaviours operations can improve the development. Examples include: considering the how improvements could be developed or the software development lifecycle process improved based on how the software is being used.
 
-\begin{figure}
+\begin{figure}[ht]
     \centering
     \includesvg[scale=0.5]{images/wikipedia/Yin_yang.svg}
     \caption{Yin Yang to represent DevOps}
     \label{fig:yinyang_for_devops}
 \end{figure}
+
+
+
+One of the popular concepts in DevOps is represented by an infinite loop in the shape of a horizontal figure of eight like diagram, illustrated in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}.~\footnote{This example is from a blog post by Atlassian~\url{https://www.atlassian.com/blog/devops/2016-state-of-devops-report} announcing \emph{``The State of DevOps report"} 2016 edition.} There are many variations of this illustration available, perhaps unsurprisingly given the popularity of DevOps and those who write and publish on the topic who may want to give their own spin on the topic.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=13cm]{images/atlassian/atlassian-state-of-devops-report-2016-devopsloop.png}
+    \caption{Atlassian DevOps loop}
+    \label{fig:atlassian-state-of-devops-report-2016-devopsloop}
+\end{figure}
+% https://3kllhk1ibq34qk6sp3bhtox1-wpengine.netdna-ssl.com/wp-content/uploads/devopsloop-1560x760.png
+
 
 
 \section{From conceptual models to practicalities}
@@ -421,17 +436,7 @@ In 2017, Google launched a service called Android Vitals as a new, intrinsic par
 This section starts with an overview of DevOps concept of an infinite loop for software generally before becoming more specialised on DevOps for mobile apps. %SHOULD-DO consider expanding this section. TBD how much I should write about the concepts and terms. 
 The focus here is on data from various stages of a conceptual infinite combined development and operations process to indicate where mobile analytics applies in terms of providing data to the development team. This data includes: log data, static analysis results, test results, release and usage data, and mobile analytics data and reports.
 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=13cm]{images/atlassian/atlassian-state-of-devops-report-2016-devopsloop.png}
-    \caption{Atlassian DevOps loop}
-    \label{fig:atlassian-state-of-devops-report-2016-devopsloop}
-\end{figure}
-% https://3kllhk1ibq34qk6sp3bhtox1-wpengine.netdna-ssl.com/wp-content/uploads/devopsloop-1560x760.png
-
-One of the popular concepts in DevOps is represented by an infinite loop in the shape of a horizontal figure of eight like diagram, illustrated in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}.~\footnote{This example is from a blog post by Atlassian~\url{https://www.atlassian.com/blog/devops/2016-state-of-devops-report} announcing \emph{``The State of DevOps report"} 2016 edition.} There are many variations of this illustration available, perhaps unsurprisingly given the popularity of DevOps and those who write and publish on the topic who may want to give their own spin on the topic.
-
-In October 2020, one of the students taking part in the PhD symposium at the ICST2020 conference presented a variation of this figure that is relevant to this research. In the student's figure their focus was on crash reproduction and this illustration is temporarily illustrated in Figure~\ref{fig:crash-reproduction-icst2020}(~\emph{pending an update from the presenter of that topic}).
+In October 2020, one of the students taking part in the PhD symposium at the ICST2020 conference presented a variation of the DevOps loop (as illustrated earlier in this chapter in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}) that is relevant to this research. In the student's figure their focus was on crash reproduction and this illustration is temporarily illustrated in Figure~\ref{fig:crash-reproduction-icst2020}(~\emph{pending an update from the presenter of that topic}).
 
 \begin{figure}[ht!]
     \centering
@@ -592,7 +597,6 @@ How much information is needed to be actionable? (Thought: This may be more of a
 \textbf{MUST-DO} introduce my concept of resolution.
 
 \textbf{PERHAPS} introduce the concept of app peer groups here?
-
 
 
 \section{Summary and transition}

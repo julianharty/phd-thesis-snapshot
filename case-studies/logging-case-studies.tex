@@ -19,6 +19,18 @@ Unstructured logging can serve immediate needs, for instance to trace code execu
 
 In the domain of logging both business and research consider logging design important and valuable. 
 
+Materials to incorporate on designing logging:
+\begin{itemize}
+    \item Retrace from Stackify: Logging meets monitoring. Full lifecycle APM.~\url{https://stackify.com/}
+    \begin{itemize}
+        \item \url{https://docs.stackify.com/docs/error-and-logs} Logging Rate, Top Errors, Recent Errors, Top Error Chart, Error Rates in dev, test and production.
+        \item Application Performance: Slow Pages, Performance Breakdown, Slow Query, Server Performance, Satisfaction Breakdown.~\url{https://docs.stackify.com/docs/application-performance-widgets}
+        \item Monitoring and Metrics, App Score:~\url{https://docs.stackify.com/docs/app-score-widgets}.
+        \item Centralized Logging: 
+        \item Filters, Fields and Tags, and Querying logs:~\url{https://docs.stackify.com/docs/logs-dashboard}. Monitoring logs. 
+    \end{itemize}Control Which Logs are Sent to Stackify; ~\texttt{Enrich.WithProperty};~\texttt{stackifyLogger.ForContext}~\url{https://docs.stackify.com/docs/errors-and-logs-serilog}. \emph{``Our .NET libraries automatically handle batching, compressing, queuing, throttling, and error retry logic for uploading your application logs."}\url{https://docs.stackify.com/docs/errors-and-logs-net-supported-frameworks}. \url{https://docs.stackify.com/docs/troubleshoot-errors-and-logs-net-configurations} 4 steps to troubleshooting logging to Stackify's systems. And possibly use the App Score somewhere else in the thesis?~\url{https://docs.stackify.com/docs/appscore}
+\end{itemize}
+
 Implementation choices: 
 
 \subsection{Testing logging}
