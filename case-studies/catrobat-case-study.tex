@@ -175,27 +175,32 @@ This was rejected by one of the developers as they wanted to suppress the crash 
 \subsubsection{Permission Denials}
 One of the Android Vitals "qualities" pertains to how often users deny permissions requested by an app. A low percentage (ideally zero) is their target recommendation. As Table \ref{tab:pocketcode_permission_denials} shows, PocketCode has a significant percentage of denials, 4.74\% as of \nth{18} November 2019. In discussion with the project lead, Prof. Wolfgang Slany, during the hackathon, this is a known consideration. The project team aims to improve the behaviour (\emph{i.e.} the design and implementation). The app currently asks users early on for permission to check the memory card in order to find PocketCode projects. As the permission dialog asks about access to read photos and videos, etc.\todo{Add screenshot and correct wording} it does not seem relevant to some users and they say no. As others have determined\todo{add references to design and timing of when to ask users things}  when and how an app asks a user has affects the outcomes.
 
+
 % The following was copy-pasted from Android Vitals on 18th Nov 2019 for the PocketCode app.
 % Metric 	Last 30 days 	Previous 30 days vs. peers’ median The difference between you and the peers’ median
 % Permission denials Percentage of daily permission sessions during which users denied permissions. A daily permission session refers to a day during which your app requested at least 1 permission from its user. If a user makes multiple decisions for the same permission, only the final decision at the end of a day is recorded. Transparently explaining the reasons for permission requests can help reduce permission denials. 	4.74% 	4.39% 	-
 
 % https://play.google.com/apps/publish/?account=8841632091579025670#AppHealthDetailsPlace:p=org.catrobat.catroid&appid=4975762901432177859&aho=APP_HEALTH_OVERVIEW&ahdt=PERMISSION_DENIAL&ts=THIRTY_DAYS&ahbt=_APPLICATION
 
-\begin{table}[ht]
-  \centering
+
+  \bxtable[ht]{{AndroidVitals: PocketCode: "Permission Denials"}}
+  {
+  \begin{minipage}{16cm}
+  %\centering
     \begin{tabular}{lrrr}
         Metric 	&Last 30 days\footnote{As of \nth{18} Nov 2019} 	&Previous 30 days &vs. peers’ median  \\
-        Permission denials\footnote{Percentage of daily permission sessions during which users denied permissions. A daily permission session refers to a day during which your app requested at least 1 permission from its user. If a user makes multiple decisions for the same permission, only the final decision at the end of a day is recorded. Transparently explaining the reasons for permission requests can help reduce permission denials.} & 4.74\% 	&4.39\% 	&- \\
-
+        Permission denials\footnote{Percentage of daily permission sessions during which users denied permissions.\\ A \emph{daily permission session} refers to a day during which your app requested at least 1 permission from its user. If a user makes multiple decisions for the same permission, only the final decision at the end of a day is recorded. Transparently explaining the reasons for permission requests can help reduce permission denials~\citep{androiddevelopers2020_permission_denials}} & 4.74\% 	&4.39\% 	&- \\
     \end{tabular}
-    \caption{AndroidVitals: PocketCode: "Permission Denials"} 
-    \label{tab:pocketcode_permission_denials}
-\end{table}
-% MUST-DO replace with threeparttable or similar. See https://tex.stackexchange.com/questions/108584/how-best-to-change-the-font-size-etc-of-threeparttables-table-notes/495973#495973
 
-% Thanks to 
-% https://stackoverflow.com/questions/2888817/footnotes-for-tables-in-latex#2891556
-% TODO investigate suggestions from https://texblog.org/2012/02/03/using-footnote-in-a-table/ which look like they'll help improve the formatting of the table while also supporting footnotes.
+     
+    \label{tab:pocketcode_permission_denials}
+  \end{minipage}
+}
+
+% Thanks to https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption for the local footnotes.
+% This also helped me find a viable approach: https://tex.stackexchange.com/questions/109467/footnote-in-tabular-environment
+% This also looks good as an alternative: https://texblog.org/2012/02/03/using-footnote-in-a-table/
+
 
 \subsubsection{1 Week on}
 Release 0.9.65 is now the dominant release, with ~4000 sessions between \nth{17} and \nth{23} November, compared to ~600 sessions for the previous release of the app (0.9.64). The overall reported crash rate reduced to 2.10\% for \nth{18} to \nth{23} November, compared to the previous 7 days crash rate of 3.62\%. \textbf{Note these are for releases that predates the hackathon.}
