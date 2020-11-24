@@ -121,7 +121,7 @@ Similarly, issues \href{https://jira.catrob.at/browse/CATROID-413}{CATROID-413 -
 
 From the trace, perhaps it's related to taking a screenshot? Also, the queue delay can be over 18 seconds - far longer than anyone would like:
 
-\texttt{\small{"Input dispatching timed out (org.catrobat.catroid/org.catrobat.catroid.ui.ProjectActivity, Waiting to send non-key event because the touched window has not finished processing certain input events that were delivered to it over 500.0ms ago. Wait queue length: 28. Wait queue head age: 18726.7ms.)"}}
+\texttt{\footnotesize{"Input dispatching timed out \\(org.catrobat.catroid/org.catrobat.catroid.ui.ProjectActivity, \\Waiting to send non-key event because the touched window has not finished processing certain input events that were delivered to it over 500.0ms ago. Wait queue length: 28. Wait queue head age: 18726.7ms.)"}}
 
 \href{https://jira.catrob.at/browse/CATROID-424}{CATROID-424 - ANR in SpriteActivity} This ANR is also reported in newer 0.9.66 (70) and older releases, see \ref{tab:catroid_424}:
 \begin{table}[ht]
@@ -138,7 +138,8 @@ Release	&Instances	&Percent \\
 \end{table}
 
 The error summary is:
-\texttt{\small{
+
+\texttt{\footnotesize{
 Input dispatching timed out (AppWindowToken{c8e9f token=Token{b3ee03e ActivityRecord{4ed08f9 u0 org.catrobat.catroid/.ui.SpriteActivity t12205}}}, Waiting because no window has focus but there is a focused application that may eventually add a window when it finishes starting up.)}}
 
 \href{https://jira.catrob.at/browse/CATROID-425}{CATROID-425 - tgkill crashes} There are various crash clusters for \texttt{tgkill}, 19 in 60 days to \nth{1} December 2019 across all versions of the app and Android versions. These have not been investigated yet. The ticket includes references to various guides to help investigate the causes.
@@ -186,20 +187,20 @@ One of the Android Vitals "qualities" pertains to how often users deny permissio
   \bxtable[ht]{{AndroidVitals: PocketCode: "Permission Denials"}}
   {
   \begin{minipage}{16cm}
-  %\centering
+  \centering
     \begin{tabular}{lrrr}
         Metric 	&Last 30 days\footnote{As of \nth{18} Nov 2019} 	&Previous 30 days &vs. peers’ median  \\
         Permission denials\footnote{Percentage of daily permission sessions during which users denied permissions.\\ A \emph{daily permission session} refers to a day during which your app requested at least 1 permission from its user. If a user makes multiple decisions for the same permission, only the final decision at the end of a day is recorded. Transparently explaining the reasons for permission requests can help reduce permission denials~\citep{androiddevelopers2020_permission_denials}} & 4.74\% 	&4.39\% 	&- \\
+        
+   \label{tab:pocketcode_permission_denials}
     \end{tabular}
-
-     
-    \label{tab:pocketcode_permission_denials}
   \end{minipage}
 }
 
 % Thanks to https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption for the local footnotes.
 % This also helped me find a viable approach: https://tex.stackexchange.com/questions/109467/footnote-in-tabular-environment
 % This also looks good as an alternative: https://texblog.org/2012/02/03/using-footnote-in-a-table/
+% Ditto the following threeparttable example https://blog.modelworks.ch/tables-with-footnotes-in-latex/
 
 
 \subsubsection{1 Week on}
