@@ -42,7 +42,8 @@ Issues need to be reported in JIRA in order for any code to be considered
 \subsection{Summary of the Hackathon}
 The visit (including the presentation at the Graz University of Technology on Friday morning and to Dynatrace\footnote{\url{https://www.dynatrace.com}} on Friday afternoon) helped reinforce the value of creating and using the Vitals-Scraper software to preserve history. 
 
-How many participated (including Wolfgang and Matthias in non-coding capacities). Approximate time spent. Twenty-two (22) issues were raised during the day (tagged: hackathon-2019)\footnote{\url{https://jira.catrob.at/browse/CATROID-426?jql=labels\%20\%3D\%20hackathon-2019}}. Most of these were created in the morning, one for each of the top crashes and ANRs as recorded and ranked in Android Vitals. 
+There was a peak of eight participants from the Catrobat team during the hackathon. This included two people %(including Wolfgang and Matthias)
+in non-coding capacities. Approximate time spent. Twenty-two (22) issues were raised during the day (tagged: hackathon-2019)\footnote{\url{https://jira.catrob.at/browse/CATROID-426?jql=labels\%20\%3D\%20hackathon-2019}}. Most of these were created in the morning, one for each of the top crashes and ANRs as recorded and ranked in Android Vitals. 
 
 \subsection{Results}
 We can group the issues using as follows (already fixed, addressed during the hackathon, pending, rejected).
@@ -174,7 +175,8 @@ Input dispatching timed out (AppWindowToken{c8e9f token=Token{b3ee03e ActivityRe
 This was rejected by one of the developers as they wanted to suppress the crash (which is considered one the app recovers from) through \href{https://jira.catrob.at/browse/CATROID-426}{CATROID-426}. Interestingly the 'fix' did not stop this crash from being reported in 0.9.66 (70).
 
 \subsubsection{Permission Denials}
-One of the Android Vitals "qualities" pertains to how often users deny permissions requested by an app. A low percentage (ideally zero) is their target recommendation. As Table \ref{tab:pocketcode_permission_denials} shows, PocketCode has a significant percentage of denials, 4.74\% as of \nth{18} November 2019. In discussion with the project lead, Prof. Wolfgang Slany, during the hackathon, this is a known consideration. The project team aims to improve the behaviour (\emph{i.e.} the design and implementation). The app currently asks users early on for permission to check the memory card in order to find PocketCode projects. As the permission dialog asks about access to read photos and videos, etc.\todo{Add screenshot and correct wording} it does not seem relevant to some users and they say no. As others have determined\todo{add references to design and timing of when to ask users things}  when and how an app asks a user has affects the outcomes.
+One of the Android Vitals "qualities" pertains to how often users deny permissions requested by an app. A low percentage (ideally zero) is their target recommendation. As Table \ref{tab:pocketcode_permission_denials} shows, PocketCode has a significant percentage of denials, 4.74\% as of \nth{18} November 2019. In discussion with the project lead % Commented out for review purposes:  , Prof. Wolfgang Slany, 
+during the hackathon, this is a known consideration. The project team aims to improve the behaviour (\emph{i.e.} the design and implementation). The app currently asks users early on for permission to check the memory card in order to find PocketCode projects. As the permission dialog asks about access to read photos and videos, etc.\todo{Add screenshot and correct wording} it does not seem relevant to some users and they say no. As others have determined\todo{add references to design and timing of when to ask users things}  when and how an app asks a user has affects the outcomes.
 
 
 % The following was copy-pasted from Android Vitals on 18th Nov 2019 for the PocketCode app.
@@ -254,7 +256,9 @@ I hope the experience of scrolling past the privacy policy here provided you wit
 \subsubsection{Catrobat iOS Pocket Code App}
 A more recent codebase, aimed at providing similar functionality to the Android Pocket Code app. This codebase is written specifically for iOS using the mainstream iOS development tools and development environment. 
 
-In February 2020 the development lead for the iOS app, in conjunction with me and the overall project lead, Professor Wolfgang Slany, decided to add Firebase Analytics to the iOS codebase and implement crash reporting and in-app analytics. 
+In February 2020 the development lead for the iOS app, in conjunction with me and the overall project lead, decided to add Firebase Analytics to the iOS codebase and implement crash reporting and in-app analytics. This was quickly integrated and made available in an interim build of the app which also included some diagnostic features, including the ability to trigger a crash using an unusual pattern of interactions with the GUI of the app (to avoid end users accidentally triggering crashes).
+
+%SHOULD-DO find screenshots of the crash. Update this section with links to the documentation from the test:fest hackathon.
 
 \begin{itemize}
     \item The design document
