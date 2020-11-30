@@ -7,12 +7,16 @@
 
 \vspace{10mm}
 
-This chapter provides a grounding in the domain of mobile apps, how developers obtain information, and mobile analytics,~\emph{etc.}  For any individual elements there may be much that is known and seemingly little novelty. And yet, it has become clear that when these elements are combined an interesting and rich domain emerges that can serve developers of their mobile apps.
+This chapter provides a grounding in the domain of mobile apps, how developers obtain information, and mobile analytics,~\emph{etc.}  
+% MUST-DO revise opening sentence and remove the etc. via \akb
+For any individual elements there may be much that is known and seemingly little novelty. And yet, it has become clear that when these elements are combined an interesting and rich domain emerges that can serve developers of their mobile apps.
 
 Before diving into the rest of the chapter, please note, 
 there are limits of the certainty of closed, proprietary systems including those discussed in this thesis. Therefore, there may be situations where there are differences between these observations and findings and those of other users of these tools. To improve readability the thesis includes some generalisations rather than using qualifiers throughout, such as often, mainly, and so on, unless they materially reflect variations in people's experiences.
 
-The chapter introduces five conceptual models, including: a model of apps and app stores, layers of an app and observation points, of analogue and digital feedback, usage analytics, and finally DevOps. These concepts help us understand key considerations for mobile app developers and what they are working with.
+The chapter introduces five 
+%MUST-DO revise this and the next paragraph once the chapter's contents have settled down.
+conceptual models, including: a model of apps and app stores, layers of an app and observation points, of analogue and digital feedback, usage analytics, and finally DevOps. These concepts help us understand key considerations for mobile app developers and what they are working with.
 
 The chapter continues with five practical aspects including app development and usage, information sources for developers, and choices for engaging with analytics. Developers need to address these as part of being effective in their work and providing apps of adequate quality. Mobile analytics can provide useful sources of information, including problems with the apps in use, and mobile analytics can complement and calibrate other sources of quality related information including software testing. 
 
@@ -23,6 +27,76 @@ The chapter continues with five practical aspects including app development and 
 \setcounter{mtc}{4} %This is a hack as minitoc seems to have different counters for the toc and the figures. As I'm probably only using minitoc temporarily while working on the chapter I can live with this. See https://tex.stackexchange.com/questions/184135/adding-general-introduction-to-table-of-contents-as-chapter-causes-a-problem to try and align the counters, I parked this issue as not worth the time investment currently. 
 \minilof
 \end{comment}
+
+\section{Development practices for mobile apps}
+Few if any developers write perfect software, and this applies also to developers of mobile apps. 
+
+%SHOULD-DO Add the Amphitheatre illustration. And suitable words to explain the concepts.
+
+This section introduces the concept of \textit{Zones} as they apply to finding and potentially fixing issues while developing software. The concepts are inspired by various sources including agile development practices, release management for mobile apps, computer networks, and particularly the use of firewars and `de-militarised-zones' (known as DMZ). 
+
+\subsection{Control (find-fix) zones}
+A find-fix Zone incorporates the scope of finding issues and being able to fix, or at least ameliorate, them. Where issues are discovered in the local Zone, developers can fix the issue without needing to involve others (however they can choose to do so), and indeed some may consider these issues an intrinsic and essential part of iterative software development. Other zones extend beyond the immediate developer and involve other people.
+
+For the purposes of my research I propose three categories of zones:
+\begin{enumerate}
+    \item \textbf{Local Zone}: This is local to the developer of software, tests, resources, designs, and so on.
+    \item \textbf{Mezzo Zone(s)}: These zones involve other people, they may be peers, team members, other people in the organisation, trusted testers, and so on. There may be anything from virtually no zone for solo independent developers working on their own app, to a plethora of zones involving various stages of pre-release testing, checking and approvals in large corporate organisations.
+    \item \textbf{Live Zone}: End users are able to use the released app. The app is finally able to potentially achieve business objectives. 
+\end{enumerate}
+
+These three categories of zones are illustrated in Figure~\ref{fig:my:control-find-fix-zones-overview}. The figure includes a one-way gate, that behaves like the Rubicon in Julius Caesar's time~\citep{wikipedia_rubicon} where the die is cast once a release has been launched in the app store. The release cannot be reverted, at best it can be paused or superseded with another subsequent release. The app now comes into contact with end-users and is expected to achieve the business objectives of the organisation who made it available.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=13cm]{images/my/control-find-fix-zones-a.png}
+    \caption{Control find-fix zones}
+    \label{fig:my:control-find-fix-zones-overview}
+\end{figure}
+
+Figure~\ref{fig:my:control-find-fix-zones-with-information-flows} is a modified version of Figure~\ref{fig:my:control-find-fix-zones-overview} that includes the find-fix information flows. Assuming fixes are made be the development team for the app (rather than improvements that can be addressed in servers, through configuration changes, and so on) then the information about flaws and issues needs to reach that development team somehow. For issues found in external releases (\emph{i.e.} those made available to end-users) 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=13cm]{images/my/control-find-fix-zones-with-information-flows.png}
+    \caption{Control find-fix zones with information flows}
+    \label{fig:my:control-find-fix-zones-with-information-flows}
+\end{figure}
+
+When issues are discovered before the software is released there is the possibility of the developer being able to address them before the software is released (they stakeholders may choose to delay the release to allow this to happen). Where issues are discovered in the released app, unless there are viable mechanisms to patch the app, the fix needs to be made in a subsequent release \textit{and} the end-user needs to use the subsequent release to receive the benefit of the release.
+
+There are two key challenges:
+\begin{enumerate}
+    \item the developer learning about issues in sufficient detail to potentially address them,
+    \item being able to address issues and provide the benefit to users who are, or  may be, affected by it.
+\end{enumerate}
+
+Both these aspects are covered next in terms of the bug-fix process for mobile apps.
+
+\subsection{Bug-fix process for mobile apps}
+%MUST-DO move the following comment to the next chapter once I've drafted the relevant illustrations.
+% In my view, mobile analytics helps in the 'current' timeframe of the development and release process, in that it can provide ranked notifications of various issues (including 'stability' failures: i.e. crashes and ANRs) on a timely basis. 
+
+Given apps have been released and users are using those releases then - there may be issues in the app exposed while it is in-use. Some of these may be noticeable (or perceivable) by the end-users, others not. These issues include 'stability' failures: \textit{i.e.} crashes and ANRs and performance-related issues \textit{e.g.} slow responses, excessive power and network consumption, and so on.
+
+For the development team to actively address any of these failures they need to be aware of them and have sufficient details to take action. Figure~\ref{fig:my:bug-fix-process-for-mobile-apps-in-prod} illustrates past, current, and future, activities for current and future releases of an app. We will return to this figure %in this section and 
+in the next chapter where the effects of applying analytics to the development process is considered.
+%MUST-DO make sure I do return to {fig:my:bug-fix-process-for-mobile-apps-in-prod} in the next chapter, on applying analytics.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=13cm]{images/my/production-bug-fix-process-for-mobile-apps.png}
+    \caption{Bug-fix, process for mobile apps in production}
+    \label{fig:my:bug-fix-process-for-mobile-apps-in-prod}
+\end{figure}
+
+
+Developers might learn of some of these issues from other sources e.g. from colleagues who use the app, from end-users who report issues (e.g. in reviews in the app store, on social-media, and even using in-app feedback if the app's functioning sufficiently etc.). 
+% MUST-DO refer to research in automatically creating automated tests to reproduce crashes and discuss some of the limitations of that research vector. Note: this might be covered in the related works chapter.
+However in my experience, and based on other research, only a subset of the issues are reported by people who use the app, and certainly not all users report all the stability issues all of the time.
+
+Any amelioration or fix that occurs in the app's codebase is only useful to those users who use the newer release of the app that include the improvements. Our research confirms some users continue using older releases of the app unless blocked/prohibited from doing so (there are mechanisms for doing so). Blocking/prohibiting use of older failing versions of the app may be a mixed blessing. Some users may be lost and/or upset by being forced to upgrade the app. However the stability stats in the app store may improve (assuming the intended improvements were effective).
+
 
 \section{Conceptual model of apps and app stores}
 This section introduces a conceptual model of apps and app stores and presents four views of apps in an app store together with various implications of the views, relationships and interactions. 
@@ -565,6 +639,7 @@ Various degrees of choices are available depending on how actively the developme
 
 % More reading
 % https://web.archive.org/web/20120401053907/http://www.wiikno.com/blog/explicit-vs-implicit-data
+% MUST-DO check Patrick's recording of this webinar: https://snowplowanalytics.com/events/explicit-vs-implicit-tracking/ and write up germane items here.
 
 
 \subsection{Passive Analytics}~\label{subsection-passive-analytics}
