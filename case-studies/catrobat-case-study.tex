@@ -189,20 +189,26 @@ during the hackathon, this is a known consideration. The project team aims to im
   \bxtable[ht]{{AndroidVitals: PocketCode: "Permission Denials"}}
   {
   \begin{minipage}{16cm}
-  \centering
+  %\begin{center}
     \begin{tabular}{lrrr}
         Metric 	&Last 30 days\footnote{As of \nth{18} Nov 2019} 	&Previous 30 days &vs. peers’ median  \\
         Permission denials\footnote{Percentage of daily permission sessions during which users denied permissions.\\ A \emph{daily permission session} refers to a day during which your app requested at least 1 permission from its user. If a user makes multiple decisions for the same permission, only the final decision at the end of a day is recorded. Transparently explaining the reasons for permission requests can help reduce permission denials~\citep{androiddevelopers2020_permission_denials}} & 4.74\% 	&4.39\% 	&- \\
-        
+   
    \label{tab:pocketcode_permission_denials}
     \end{tabular}
+     % \end{center}
   \end{minipage}
+  \centering
 }
 
 % Thanks to https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption for the local footnotes.
 % This also helped me find a viable approach: https://tex.stackexchange.com/questions/109467/footnote-in-tabular-environment
 % This also looks good as an alternative: https://texblog.org/2012/02/03/using-footnote-in-a-table/
 % Ditto the following threeparttable example https://blog.modelworks.ch/tables-with-footnotes-in-latex/
+
+% And yet more reading in an attempt to quiesce nag messages (I've yet to succeed)
+% https://latex.org/forum/viewtopic.php?t=31733
+% https://tex.stackexchange.com/questions/237549/center-environment-nag-warning-for-floats-in-beamer
 
 
 \subsubsection{1 Week on}

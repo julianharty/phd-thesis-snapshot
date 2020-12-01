@@ -47,7 +47,7 @@ For the purposes of my research I propose three categories of zones:
 
 These three categories of zones are illustrated in Figure~\ref{fig:my:control-find-fix-zones-overview}. The figure includes a one-way gate, that behaves like the Rubicon in Julius Caesar's time~\citep{wikipedia_rubicon} where the die is cast once a release has been launched in the app store. The release cannot be reverted, at best it can be paused or superseded with another subsequent release. The app now comes into contact with end-users and is expected to achieve the business objectives of the organisation who made it available.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=13cm]{images/my/control-find-fix-zones-a.png}
     \caption{Control find-fix zones}
@@ -56,7 +56,7 @@ These three categories of zones are illustrated in Figure~\ref{fig:my:control-fi
 
 Figure~\ref{fig:my:control-find-fix-zones-with-information-flows} is a modified version of Figure~\ref{fig:my:control-find-fix-zones-overview} that includes the find-fix information flows. Assuming fixes are made be the development team for the app (rather than improvements that can be addressed in servers, through configuration changes, and so on) then the information about flaws and issues needs to reach that development team somehow. For issues found in external releases (\emph{i.e.} those made available to end-users) 
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=13cm]{images/my/control-find-fix-zones-with-information-flows.png}
     \caption{Control find-fix zones with information flows}
@@ -83,7 +83,7 @@ For the development team to actively address any of these failures they need to 
 in the next chapter where the effects of applying analytics to the development process is considered.
 %MUST-DO make sure I do return to {fig:my:bug-fix-process-for-mobile-apps-in-prod} in the next chapter, on applying analytics.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=13cm]{images/my/production-bug-fix-process-for-mobile-apps.png}
     \caption{Bug-fix, process for mobile apps in production}
@@ -289,7 +289,7 @@ In-app feedback has also been proposed for bi-directional communications between
 \subsection{Analogue feedback: app store feedback}
 App store feedback, combines a rating (typically using a one- to five- start rating and an optional plain-text comment). It is a subject covered by significant volumes of research and discussed in the related works chapter. %MUST-DO actually write up this related research and contrast it with mobile analytics.
 
-\begin{figure}[ht]
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=12cm]{images/matrix-of-logging.png}
     \caption{Matrix of logging}
@@ -303,7 +303,7 @@ The application may incorporate logging and/or mobile analytics. Logging in mobi
 
 Figure \ref{fig:matrix-of-logging} illustrates a matrix of logging, where logging and mobile analytics are on the Y axis and local and remote on the X axis. There is a cross-cutting example where the mobile platform observes local events and then forwards the information remotely. A good example is Google Play which appears to be an external observer of data recorded in device logs. Data collection runs locally and is sent to Google servers where Google analyses the data and provides reports to developers for their apps. %SHOULD-DO check for related US patent filings by Google in this area.
 
-\begin{table}[h]
+\begin{table}[!htbp]
     \centering
     \begin{tabular}{lll}
          Category of logging &Local access?  &Remote access? \\
