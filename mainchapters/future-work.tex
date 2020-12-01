@@ -1,10 +1,27 @@
 \chapter{Future work}
 This PhD provides a snapshot of research I have done in recent years. This work fits within a larger body of research with similar overall objectives, to improve both the software and how that software is developed. This chapter introduces various topics related to my ongoing research which may be of interest to the research community.
 
-\section{Evaluating Google Play Console reports}
-With discovering the many and various flaws and quirks in Google's analytics products I decided a set of experiments would help increase the trust and transparency of Android Vitals and Google Play Console. Aspects of these experiments may also be highly relevant to evaluate other analytics tools, products, and services. Some of the experiments could trigger defensive mechanisms used to 'protect' large-scale online services such as Google Play. For instance App Stores, including Google Play, are known to take protective and corrective activities related to fake reviews. Some experiments might want to assess the effectiveness of protective defenses, others may aim to avoid triggering them. 
+\section{Further evaluation of Analytics tools}
 
-Google is known to take punitive actions against developers whom it deems to be related to undesirable behaviours. %MUST-DO add references to examples. 
+With discovering the many and various flaws and quirks in Google's analytics products I decided a set of experiments would help increase the trust and transparency of Android Vitals and Google Play Console. Aspects of these experiments may also be highly relevant to evaluate other analytics tools, products, and services. 
+
+Testing and evaluation of third-party commercial services involves awareness and compliance with ethical aspects and various legal terms and conditions. Some of the experiments could trigger defensive mechanisms used to 'protect' large-scale online services such as Google Play. For instance App Stores, including Google Play, are known to take protective and corrective activities related to fake reviews. Some experiments might want to assess the effectiveness of protective defenses, others may aim to avoid triggering them. 
+
+Google is known to take punitive actions against developers whom it deems to be related to undesirable behaviours. 
+%MUST-DO add references to examples. 
+As various people have discovered to their cost, the service provider may choose to disable access and remove all the apps in Google Play that are deemed - by Google - to be associated with an individual.\cite{Martinez_2019}. Google also blocked developers and their apps not for what \emph{that} developer did, but for what Google decided were infringements by people 'associated' with the developer. This has caused businesses to fold where Android apps were their route to market\cite{Martinez_2019, mark_dodson_medium_story}. We, therefore, restricted our testing, in order to minimise the risk of the apps being blocked. This was to protect the projects who have worked with us, and their apps, otherwise we risk inadvertently blocking apps for a user population of approximately 500,000 users and also the developers of those apps. Google acts as both judge and jury. There has been successful and effective research into the contents of an app store, and Google Play in particular where the researchers successfully circumvented various protection mechanisms in \textbf{YYYY}, 
+% MUST-DO add year, ideally add additional examples
+their research was read-only and able to be scaled out. Research into the analytical tools and reporting requires the developers to identify themselves, pay a fee, and also their activity is tracked to their account. Also there needs to be usage of the apps which is another consideration that would need to be addressed. These constraints and factors indicate previous approaches may be counter-productive and block the research, the researchers, and potentially apps, organisations, and people, related to the researchers:~\emph{caveat investigator!}
+
+
+
+We have requested clarification from Google on what testing would be appropriate, they have yet to provide any specific answers beyond \emph{"whilst we understand that your testing is designed to learn more about how our products work, we cannot treat your app any differently to the others on the store. Our normal policies and mechanisms apply."} They also referred us to the Policy Center, which states \emph{"We don’t allow apps that crash, force close, freeze, or otherwise function abnormally."}~\cite{google_play_policy_center_broken_functionality}. We are in ongoing discussions with the relevant engineering teams at Google to obtain clarification.
+
+Note: In terms of ethical aspects and disclosure, the author read and reviewed various legal materials published by Google for the service being evaluated, including the Google Play Developer Policy Center\cite{google_play_developer_policy_center}, and the Distribution Agreement\cite{google_play_developer_distribution_agreement}. The author has also reported the various issues found with the product and engineering team at Google.
+
+
+
+
 As these actions can include a lifetime ban for the account deemed to have transgressed, and for other accounts it considers are related, the effects of their actions can be far reaching and remove all revenues for an organisation's Android apps where the onus is on the people in that organisation being able to convince Google of the merits of reinstatement often without knowing what the reasons were, what the evidence was, and with no other practical way of restoring their account.
 
 The Google Engineering team have been defensive and guarded in terms of suggestions to help evaluate the behaviours of their system. SHOULD-DO add some examples. 
@@ -132,6 +149,17 @@ Digital twins are variously defined as \emph{``a high-fidelity digital model of 
 A digital twin for mobile apps is likely to include controlled run-time environments including high-fidelity emulators and physical devices since some problems and behaviours may be triggered and/or exposed by particular run-time environment. Mobile Analytics may help inform the selection of run-time environment as well as the identification of software quality concerns. As mobile apps are increasingly used in very sensitive and critical environments where the consequences are material, digital twins may also be used to validate the behaviours and outputs of the apps for end users.
 
 % https://golden.com/wiki/Digital_twin-6MX6WP % repeats the definition from Wikipedia that apparently came from MSFT in 2018.
+
+
+\section{Finding usage failures pre-release}
+Learning about issues, including failures, when the software is in-use is useful and enables developers to address them in subsequent releases. However there may be effective ways to find at least some of these issues \textit{before} the software is released. Hypothetically, static analysis and other code quality tools could find some or even many of the issues. If so, what would the value be to developers in using those tools to find these issues? what are the preceived costs? As research indicates, developers don't use static analysis tools [much] 
+\textbf{MUST-DO} cite the Google Research paper on this topic.
+
+ON a related note, a failure is specific yet may represent a class of similar flaws in a codebase and even in similar codebases. 
+% From Oliveria...
+% Understanding if and when Android abstractions cause programs to fail, in particular due to uncaught exceptions, can make developers use them in a more disciplined way. It raises awareness for the need for catalogs of exception handling bug patterns (Coelho et al., 2011) and bug hazards (Coelho et al., 2015), as well as best practices. Moreover, it can influence code review activities, since code reviewers will know where to look for a common source of potential bugs, for example, calls to the get method of class AsyncTask for which there is no handler. Testers can also leverage this knowledge to create specific tests for common error conditions related to these abstractions. Tool developers can augment their bug finding tools to look for unprotected uses of these abstractions, e.g., activities that run in a GUI thread that has no associated UncaughtExceptionHandler.
+% and: 
+% The expected outcome is a list of typical bug patterns made when using Android abstractions. Based on those findings, we intend to document them in the form of cookbooks with best Android practices. 
 
 \section{Summary of Future Work}
 The thesis is a snapshot of work done to date. The PhD journey and a combination of the relationships and experiences that have been established on the journey have led to various interesting and related areas of ongoing and future work which I am actively engaged in. Please get in contact if you would like to collaborate with any of these and/or with other topics that relate to my research.

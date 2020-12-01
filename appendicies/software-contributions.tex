@@ -17,6 +17,22 @@ This research is not intended to live in a vacuum! One of the aims throughout my
     \item Zipternet\\ \url{https://github.com/ISNIT0/zipternet}\\ A small Android application generator, written in Kotlin, to provide a basic app with sufficient functionality to be potentially realistic and useful. It is similar in concept to the custom apps created and maintained by the Kiwix Android project team.
 \end{itemize}
 
+
+\subsection{Android Stability Analysis}
+In August 2019 we started another opensource project \href{https://github.com/commercetest/android-stability-analysis}{android-stability-analysis}~\citep{android-stability-analysis} to enable scattered crash clusters reported in Android Vitals to be regrouped. Currently, the analysis tool simply matches reported crash clusters with a series of lines that should be common to related crashes, see Listing \ref{listing:codelines}  for an example.
+
+\begin{lstlisting}[caption=Example of lines to match,label=listing:codelines]
+at org.kiwix.kiwixmobile.downloader.
+ DownloadService.pauseDownload(DownloadService.java:266)
+ at org.kiwix.kiwixmobile.downloader.
+    DownloadFragment$DownloadAdapter.
+    setPlayState(DownloadFragment.java:227)
+ at org.kiwix.kiwixmobile.downloader.
+    DownloadFragment$DownloadAdapter.
+    lambda$getView$5(DownloadFragment.java:286)
+\end{lstlisting}
+
+
 \section{Solo projects}
 \begin{itemize}
     \item Android analytics testing\\ \url{https://github.com/commercetest/android-analytics-testing}\\ Notes to help prepare for testing of analytics for Android devices. The notes may also suit testing of analytics on other platforms.

@@ -7,10 +7,10 @@ Google Play provides a public end-user orientated visual view of apps in Google 
 \section{Google Play Console}
 Monthly reports are available for developers to download, they include: Install statistics, Crash statistics, Rating statistics, Reviews and Retained installers. 
 
-Google provides several online help pages on the monthly reports~\cite{google_play_download_and_export_monthly_reports}. They do not describe the fields or the character encoding of the contents of the files. The files start with a two-character code \texttt{0xFE 0xFF} which indicate the contents of the file is encoded as UTF-16 little-endian. These seemingly useful characters can prevent the content from being loaded in many programs and utilities intended to work with CSV data.
+Google provides several online help pages on the monthly reports~\citep{google_play_download_and_export_monthly_reports}. They do not describe the fields or the character encoding of the contents of the files. The files start with a two-character code \texttt{0xFE 0xFF} which indicate the contents of the file is encoded as UTF-16 little-endian. These seemingly useful characters can prevent the content from being loaded in many programs and utilities intended to work with CSV data.
 
 \subsection{Defunct reports}
-Various reports used to be available to download, Google chose to remove them~\cite{google_play_download_and_export_monthly_reports}. The removed reports include: subscription acquisition (removed November 2019), detailed crash and detailed ANR reports (removed May 2018).
+Various reports used to be available to download, Google chose to remove them~\citep{google_play_download_and_export_monthly_reports}. The removed reports include: subscription acquisition (removed November 2019), detailed crash and detailed ANR reports (removed May 2018).
 
 \subsection{Coping with UTF-16 content}
 Google provides the files encoded in UTF-16 format. The default import tool in the R programming language fails to import data in this (or many other encodings). Through research and experiments the following code snippet is able to load downloaded crash reports into a Data Frame in R.
