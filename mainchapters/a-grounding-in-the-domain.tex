@@ -45,23 +45,26 @@ For the purposes of my research I propose three categories of zones:
     \item \textbf{Live Zone}: End users are able to use the released app. The app is finally able to potentially achieve business objectives. 
 \end{enumerate}
 
-These three categories of zones are illustrated in Figure~\ref{fig:my:control-find-fix-zones-overview}. The figure includes a one-way gate, that behaves like the Rubicon in Julius Caesar's time~\citep{wikipedia_rubicon} where the die is cast once a release has been launched in the app store. The release cannot be reverted, at best it can be paused or superseded with another subsequent release. The app now comes into contact with end-users and is expected to achieve the business objectives of the organisation who made it available.
 
-\begin{figure}[H]
+
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=13cm]{images/my/control-find-fix-zones-a.png}
     \caption{Control find-fix zones}
     \label{fig:my:control-find-fix-zones-overview}
 \end{figure}
 
-Figure~\ref{fig:my:control-find-fix-zones-with-information-flows} is a modified version of Figure~\ref{fig:my:control-find-fix-zones-overview} that includes the find-fix information flows. Assuming fixes are made be the development team for the app (rather than improvements that can be addressed in servers, through configuration changes, and so on) then the information about flaws and issues needs to reach that development team somehow. For issues found in external releases (\emph{i.e.} those made available to end-users) 
+These three categories of zones are illustrated in Figure~\ref{fig:my:control-find-fix-zones-overview}. The figure includes a one-way gate, that behaves like the Rubicon in Julius Caesar's time~\citep{wikipedia_rubicon} where the die is cast once a release has been launched in the app store. The release cannot be reverted, at best it can be paused or superseded with another subsequent release. The app now comes into contact with end-users and is expected to achieve the business objectives of the organisation who made it available.
 
-\begin{figure}[H]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=13cm]{images/my/control-find-fix-zones-with-information-flows.png}
     \caption{Control find-fix zones with information flows}
     \label{fig:my:control-find-fix-zones-with-information-flows}
 \end{figure}
+
+Figure~\ref{fig:my:control-find-fix-zones-with-information-flows} is a modified version of Figure~\ref{fig:my:control-find-fix-zones-overview} that includes the find-fix information flows. Assuming fixes are made be the development team for the app (rather than improvements that can be addressed in servers, through configuration changes, and so on) then the information about flaws and issues needs to reach that development team somehow. For issues found in external releases (\emph{i.e.} those made available to end-users) 
+
 
 When issues are discovered before the software is released there is the possibility of the developer being able to address them before the software is released (they stakeholders may choose to delay the release to allow this to happen). Where issues are discovered in the released app, unless there are viable mechanisms to patch the app, the fix needs to be made in a subsequent release \textit{and} the end-user needs to use the subsequent release to receive the benefit of the release.
 
@@ -105,8 +108,7 @@ The vast majority of mobile apps are provided through app stores, and the two la
 
 The research is situated in apps that are available in app stores. App stores house millions of apps and serve billions of users. They also present a rich tapestry of perspectives on software apps and the ecosystem. There has been a great deal of research that focus on particular areas of these apps and sometimes connect these areas as part of the research. This research focuses on an area seldom investigated, namely it concentrates on the developer's view of how their app is perceived by the app store and whether they can improve the perception by addressing sources of failures.
 
-
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=12cm]{images/who-sees-what.png}
     \caption{Four Views of an App Store}
@@ -126,7 +128,7 @@ Developers have the next view, which includes information the app store records 
 Authors and developers are the two end points of ratings and reviews. Authors create them and developers receive them and can choose to respond to them, at least in some app stores. %these conversations. 
 Importantly, their primary communications goes via the app store, rather than being direct, and aspects of these communications are often public for a period. Authors and developers can see their individual ratings and reviews for much longer periods than presented in the public view. The app store can use the ratings to decide on the quality of the app and their assessment may affect various important facets of the app's existence in the app store. For instance, well rated apps may be promoted and poorly rated apps may be demoted in search results. As Google states~\emph{``Apps whose metrics are higher have greater promotability, which raises their ranking in Google Play Store searches."}~\citep{android_vitals_best_practices} Also, poorly rated apps are sometimes subject to additional scrutiny and delays in the release process, as illustrated in Figure~\ref{fig:pocketpaint-to-help-better-protect-users} when the overall rating for a release dropped sufficiently to trigger this change. % The communications and implications will be covered later in this section.
 
-\begin{figure}
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=15cm]{images/android-vitals-screenshots/pocketpaint-to-help-better-protect-users.png}
     \caption{Google Play message for Pocket Paint: To help better protect our users...}
@@ -147,7 +149,7 @@ Note: There are many details related to the trust relationships for those intere
 There are numerous communication paths for mobile apps both with and without an app store being involved. As the vast majority of apps and users use devices and apps that are part of an app store ecosystem (even if they are obtained from other sources, e.g. as often occurs in India) I will only consider the ecosystem that includes an app store in this thesis. Figure~\ref{fig:sources-of-info-with-app-store-background-ch} illustrates various sources of information for apps available in an app store. The sources and communications paths will be considered next. 
 % SHOULD-DO Perhaps a Venn diagram would also complement this illustration?
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=13cm]{images/rough-sketches/sources-of-information-with-app-store-1.png}
     \caption{Sources of information with an App Store}
@@ -162,7 +164,7 @@ An app store is more than the store front, it controls and affects many aspects 
 
 The app store provides various primary communications paths between the various parties involved in the ecosystem. It may be an active party, for instance in some of the reports provided to developers and/or users, and in policy-related matters; or it manages communications between app users and developers. Often the app store's owners define the rules of communications, including details such as whether and when apps can ask users to rate an app.
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=17cm]{images/app-store-data-flows-3d.png}
     \caption{App Store: Communications Paths and Data Flows}
@@ -234,7 +236,7 @@ Observation can be internal,~\emph{i.e.} built into apps, and external. External
 \subsection{Three layers of an app}
 In earlier work, published in ~\citep{harty_aymer_playbook_2016}, the concept of three layers of an app was introduced. These are illustrated in Figure \ref{fig:3-layers} and shows three primary conceptual layers related to a mobile app. 
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \begin{minipage}{\textwidth}
     \centering
     \includegraphics[width=10cm]{images/mobile-analytics-playbook/3-layers.png}
@@ -253,7 +255,7 @@ can be visually observed by sighted users, it can also be observed by Accessibil
 The observation point determines what can be observed and how. 
 As Figure~\ref{fig:internal-external-table} illustrates there are internal and external perspectives on an app for various purposes, including observations, interactions (e.g. through test automation), and emitting information (e.g. through logging, reporting, or mobile analytics). Where the information is observed affects what can be known and what is possible, an insider is privy to information an outsider is not; whereas an outsider has perspective and can potentially perceive things insiders cannot.
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=13cm]{images/internal-external-table.png}
     \caption{Internal and external perspectives of an app}
@@ -267,7 +269,7 @@ Feedback can help developers to find and choose ways to improve their software. 
 
 In contrast, digital feedback originates from software and is generally deterministic~\footnote{~\url{https://en.wiktionary.org/wiki/deterministic}}. For the purposes of this research~\emph{digital feedback} is provided by running software where programmers added code to programs to collect data that provides feedback about software use and certain behaviours of that software. The addition of the code may be automated, in part, or wholly, for instance by another program or script. As an example, AppPulse Mobile claims they can add analytics automatically without developers writing a line of code~\footnote{~\url{https://www.microfocus.com/en-us/products/apppulse-mobile-app-apm-monitoring/overview}}.
 
-\begin{figure}
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=15cm]{images/mobile-analytics-playbook/Chart-07-FeedbackLoops.png}
     \caption{Feedback Loops for mobile apps~\citep{harty_aymer_playbook_2016}}
@@ -329,14 +331,14 @@ There are various enhanced log libraries, for instance~\texttt{timber} which are
 
 To Be Continued. %MUST-DO
 
-\begin{figure}
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=12cm]{images/rough-sketches/apps-on-device-boundaries-sketch.jpeg}
     \caption{Apps on the device boundaries}
     \label{fig:apps-on-device-boundaries}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=8cm]{images/rough-sketches/on-device-logging-sketch.jpeg}
     \caption{On-device logging}
@@ -359,7 +361,7 @@ As an observation the vast majority of Android developers use the default inbuil
 One of the appendices, ~\href{chapter-on-mobile-analytics}{\textit{on mobile analytics}}, provides details of the design of content and messages together with the mechanics of sending the data; in terms of establishing a grounding in this topic it is enough to be aware that these are both relevant aspects of incorporating and using mobile analytics.
 
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=15cm]{images/mobile-analytics-playbook/Chart-08-Overview-of-MobileAnalytics.png}
     \caption{Overview of Mobile Analytics~\citep{harty_aymer_playbook_2016}}
@@ -407,7 +409,7 @@ Conceptually there appear to be four broad levels of usage analytics, these are 
 
 Their use will be discussed in more detail in the chapter titled~\href{chapter-applying-analytics-to-development-practices}{\emph{\nameref{chapter-applying-analytics-to-development-practices}}}. %MUST-DO decide whether layer and level are synonymous, and if not whether to use one term or the other. Anyway I'm aware I may be conflating both terms here and want to improve the precision of whichever term(s) I use. 
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=12cm]{images/4-layers-of-analytics.png}
     \caption{Four Layers of Analytics for Mobile Apps}
@@ -428,7 +430,7 @@ This research includes case studies and developer reports of examples of analyti
 \section{Conceptual model for DevOps}
 DevOps recognises the benefits of connecting development and operations of software. a Yin Yang symbol recognises there's some negative in the positive and vice-versa. Conceptually, teams can choose to invest in operations while they're developing to improve the operational aspects of their software, for instance by designing in good operability. Similarly when the software is in use by observing the software's behaviours operations can improve the development. Examples include: considering the how improvements could be developed or the software development lifecycle process improved based on how the software is being used.
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includesvg[scale=0.5]{images/wikipedia/Yin_yang.svg}
     \caption{Yin Yang to represent DevOps}
@@ -439,7 +441,7 @@ DevOps recognises the benefits of connecting development and operations of softw
 
 One of the popular concepts in DevOps is represented by an infinite loop in the shape of a horizontal figure of eight like diagram, illustrated in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}.~\footnote{This example is from a blog post by Atlassian~\url{https://www.atlassian.com/blog/devops/2016-state-of-devops-report} announcing \emph{``The State of DevOps report"} 2016 edition.} There are many variations of this illustration available, perhaps unsurprisingly given the popularity of DevOps and those who write and publish on the topic who may want to give their own spin on the topic.
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=13cm]{images/atlassian/atlassian-state-of-devops-report-2016-devopsloop.png}
     \caption{Atlassian DevOps loop}
@@ -467,23 +469,22 @@ In contrast, Figure \ref{fig:google-play-app-development-and-feedback} illustrat
 
 Key differences between typical CI/CD lifecycles and the one for Google Play is the pre-launch testing and the app store providing both user feedback and a service called Android Vitals. The pre-launch reports are generated automatically by Google where the app store runs automated monkey testing on a farm of Android devices and various static analysis checks of releases deployed to any of the test channels. They are described in~\href{subsection-test-channels}{Test Channels}. %MUST-DO actually add information on the test channels and how releases can be promoted to production releases in Google Play.
 
-There are additional sources of \emph{analogue feedback} from people, including from alpha and beta testers and end users; and \emph{digital feedback} from Google tools and from usage data collected from the field. These terms are expanded in the section~\href{analogue-and-digital-feedback}{\emph{\nameref{analogue-and-digital-feedback}}}.
 
-
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=13cm]{images/ci-cd-development-and-feedback.png}
     \caption{CI/CD development and feedback, reproduced from~\cite{shahin2019empirical_study_architecting_cd}}
     \label{fig:ci-cd-development-and-feedback}
 \end{figure}
 
-\begin{figure}[ht]
+There are additional sources of \emph{analogue feedback} from people, including from alpha and beta testers and end users; and \emph{digital feedback} from Google tools and from usage data collected from the field. These terms are expanded in the section~\href{analogue-and-digital-feedback}{\emph{\nameref{analogue-and-digital-feedback}}}.
+
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=13cm]{images/google-play-app-development.png}
     \caption{Google Play App Development and Feedback}
     \label{fig:google-play-app-development-and-feedback}
 \end{figure}
-
 
 \section{Mobile app usage lifecycle}
 Mobile apps have a usage lifecycle, which starts when an app is chosen to be installed and ends with either abandonment or active removal of the app from a device. Figure~\ref{fig:mobile_app_usage_lifecycle}~\footnote{Based on a figure in~\cite{bohmer2011falling_asleep_with_angry_birds}} illustrates the possible stages of a mobile app's life on a user's device. Google Play Console collects data consistent with this lifecycle, analyses it and provides aggregate reports based on their analysis. 
@@ -493,7 +494,7 @@ Note: the processes and application lifecycle may affect how in-app analytics li
 
 % More info and code samples: https://www.vogella.com/tutorials/AndroidLifeCycle/article.html
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=12cm]{images/mobile_app_usage_lifecycle.png}
     \caption{Mobile App Usage Lifecycle}
@@ -514,7 +515,7 @@ The focus here is on data from various stages of a conceptual infinite combined 
 
 In October 2020, one of the students taking part in the PhD symposium at the ICST2020 conference presented a variation of the DevOps loop (as illustrated earlier in this chapter in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}) that is relevant to this research. In the student's figure their focus was on crash reproduction and this illustration is temporarily illustrated in Figure~\ref{fig:crash-reproduction-icst2020}(~\emph{pending an update from the presenter of that topic}).
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=14cm]{images/icst-2020/crash-reproduction-icst2020.png}
     \caption{Temporary image: Crash Reproduction}
@@ -523,7 +524,7 @@ In October 2020, one of the students taking part in the PhD symposium at the ICS
 
 Figure~\ref{fig:oberve-and-apply-devops-loop} is revised illustration that shows, in red, the extent software can be observed, and in green of when the results of those observations can be applied to the code. Note: the observations can be applied throughout every phase, for instance during deployment aberrant behaviour observed during the deployment may lead to the deployment being paused.
 
-\begin{figure}[ht!]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=14cm]{images/rough-sketches/hack-of-devops-crash-figure.png}
     \caption{Rough Sketch: Concept of feedback on software and applying it}
@@ -553,7 +554,7 @@ Releases may be acute or chronic in nature. Acute releases are actioned immediat
 
 The actual deployment and market penetration of a new release depends on several factors which may be outside the developer's direct control. This particularly applies for mobile apps made available through an app store where the app store and end-users can block new releases being applied. In my experience across a range of Android apps, for a 100\% rollouts it takes about a week for the new release to be installed on 50\% of the user-base's devices, however the range varies from 3 days to several weeks to reach 50\%.  
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=15.5cm]{images/android-vitals-screenshots/PocketPaint-ActiveUsers-180days-2020-10-29.png}
     \caption{PocketPaint Active Users 180 days by app version}
@@ -565,7 +566,7 @@ The number of users who have your app installed on at least 1 device that has be
 
 Some developers, and some platforms, may incorporate mechanisms to encourage or even try to force users to update their apps. However, doing so may upset and alienate some users. One of the case studies,~\href{section-greentech-apps}{\emph{\nameref{section-greentech-apps}}}, has used these mechanisms and this topic will be expanded in that case study. In contrast, the Kiwix Android app has over 70 releases being reported as active in a 7 day period, some several years old. Figure~\ref{fig:kiwix-30d-active-users} shows the overall active user base and the top ten of the 70+ releases according to Google Play Console~\footnote{Google Play Console limits the graph to ten items on the secondary category.}.
 
-\begin{figure}
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=15.5cm]{images/android-vitals-screenshots/kiwix-ActiveUsers-30-days-2020-10-29.png}
     \caption{Kiwix Android Active Users 30 days by app version}
@@ -585,14 +586,14 @@ TODO Discuss limits on releasing often that lead to an adapted set of working pr
 \section{Information sources for app developers}
 Developers want and need to know how well their apps are performing from various perspectives such as: growth and adoption (\emph{``do we have more users and are they using the app [more] often?"}), users' ratings and reviews (\emph{``do they like our work?"} and in terms of quality (\emph{``does it perform well? is it fast and reliable?"}). 
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics{images/ComparingTechniquesRHS.png}
     \caption{Comparing Techniques}
     \label{fig:comparing_techniques}
 \end{figure}
 
-\begin{table}[ht]
+\begin{table}[htbp!]
     \parbox{.40\linewidth}{
         \centering
         \small

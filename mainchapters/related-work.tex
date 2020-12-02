@@ -3,7 +3,7 @@ My work nestles within the works of many people in various related fields: in so
 
 Android, given its mainly opensource codebase and popularity as a platform (Number 1 globally) is also well researched with 53 papers on the topic at ICSE 2020 and related conferences and workshops \href{https://conferences.computer.org/icse/#!/search}{ICSE 2020 Search Page}, whereas only 3 papers were on the also extremely popular iOS platform at the same set of conferences and workshops.
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=15cm]{images/related-works-ishikawa-diagram-01-oct-2020.png}
     \caption{Ishikawa diagram for topics related to this thesis, }
@@ -135,7 +135,7 @@ The performance and reliability quality aspects of software have been key topics
 
 Poor reliability damages the trustworthiness and credibility of software, Ian Sommerville notes:~\emph{``... reliability was probably the most important product attribute as unreliable systems are discarded or never brought into use."}(p. 592, ~\cite{sommerville1989_software_engineering}). One of the key considerations for Sommerville is the operational reliability, and as he notes, in~\cite{mills1987_cleanroom_software_engineering}, removing software faults from seldom used code is unlikely to make a material improvement in the perceived reliability. Effective improvements need to focus on faults in frequently used code, and particularly where the failures are perceived by users of the software.
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=14cm]{images/commercetest/raj-jain-performance-reliability-availability.png}
     \caption{Three possible outcomes}
@@ -198,7 +198,7 @@ Their work intersects with the work of Dorothy Graham's proposed measure of Defe
 Frankl, Hamlet, and Littlewood discussed operational testing based on expectations of the inputs; in turn a paper by Bishop in 1993~\cite{bishop1993variation} discussed the variation in software survival time depending on differences in the operational input profiles. Failure probabilities are not constant, the paper states the probability of failures decreases as the time from the last failure increases. There are several relevant observations in the paper, including: \emph{"During a failure, restarting the software will have little effect if the input conditions are similar..."} for instance a mobile app may crash repeatedly if a user (for instance) happens to repeat an action that exercises the code that fails. This was observed this behaviour in Kiwix, one of the Android apps under evaluation, where a single crash occurred 55 times for a single user, as Figure~\ref{fig:55-crashes-missing-webview-package-exception}.
 %\yijun{It is good to confirm the points in your observation.}
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=14cm]{images/android-vitals-screenshots/55-crashes-WebViewFactory-MissingWebViewPackageException Screenshot_2019-09-19-kiwix.png}
     \caption{Google Play Console: Missing WebView Package Exception}
@@ -224,7 +224,7 @@ These have not yet been incorporated into this section on Software Quality.
 
 \section{Measurement and Analytics}
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=14cm]{images/Buse_and_Zimmermann_2010_figure.png}
     \caption{Software Analytics, Buse and Zimmerman (2010)}
@@ -233,7 +233,7 @@ These have not yet been incorporated into this section on Software Quality.
 
 Buse and Zimmerman wrote a short paper in 2010 which helped establish the field of:~\emph{``Analytics for Software Development"}~\citep{buse_analytics_2010}. The first figure in that paper is reproduced here as~\ref{fig:software_analytics_buse_and_zimmerman_2010}. They had derived that figure from a more general business-focused diagram in Davenport and Harris's book~\emph{``Analytics at work: Smarter decisions, better results"},  in Figure 1.1, titled\emph{``Key questions addressed by analytics"} and found in page 7 of ~\citep{davenport2010analytics_at_work}).
 
-\begin{figure}[ht!]
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=14cm]{images/hbr/davenport-et-al-competing-on-analytics-2017-competitive-advantage.png}
     \caption{Davenport et al. Analytics for Competitive Advantage}
@@ -314,7 +314,7 @@ After OSX operating system updates, and when new users first login, they are ask
 \subsection{Ways data can be used}
 In Industry there are discussions on various ways data can be used to get the most out of the data. Figure~\ref{fig:i_am_using_data_to} presents a decision tree discussed in an article on when to apply each perspective~\cite{amplitude_are_you_data_driven}. For my research, and for development teams who use analytics, we may choose to use these various perspectives to use analytics data more productively. This work leads to the question of identifying and often designing the data that will need to be collected in order to use it.
 
-\begin{figure}[ht]
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=15cm]{images/data-informed-graphic-ymedia-labs.png}
     \caption{I am using data to... (from Y Media Labs)~\cite{amplitude_are_you_data_driven}}

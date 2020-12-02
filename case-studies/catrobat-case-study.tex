@@ -57,7 +57,7 @@ Early indications are that the fixes related to the WebView have made a material
 % Number of sessions tool-tip: Approximate number of recorded sessions
 % Crash-free sessions tool-tip: Percentage of daily sessions during which your users did not experience any crashes. A daily session refers to a day during which your app was used.
 % Impacted sessions tool-tip: Percentage of daily sessions during which your users experienced at least one crash. A daily session refers to a day during which your app was used.
-\begin{table}[ht]
+\begin{table}[htbp!]
     \centering
     \footnotesize
     \begin{tabular}{r|r|r|r}
@@ -80,7 +80,7 @@ Some of the issues were determined to be 'soft errors' that were leaking to Andr
 
 \href{https://jira.catrob.at/browse/CATROID-418}{CATROID-418 - Crash in PlaySoundAndWaitBrick.addActionToSequence} The author paired with one of the developers on this issue. It is believed to be a bug that can only occur at runtime when the user has deleted the sound file that is being used by the \texttt{PlaySoundAndWaitBrick} which raised an \texttt{IllegalArgumentException} as it cannot determine the path from the Java Object that represented the sound file for this PocketCode visual programming element. We were able to reproduce the error on a local device and implement a fix. The developer thought a similar behaviour might be the cause of the exception reported in issue \href{https://jira.catrob.at/browse/CATROID-419}{419}, this has yet to be investigated.
 
-\begin{table}[ht]
+\begin{table}[htbp!]
     \footnotesize
     \centering
     \begin{tabular}{rll}
@@ -125,7 +125,8 @@ From the trace, perhaps it's related to taking a screenshot? Also, the queue del
 \texttt{\footnotesize{"Input dispatching timed out \\(org.catrobat.catroid/org.catrobat.catroid.ui.ProjectActivity, \\Waiting to send non-key event because the touched window has not finished processing certain input events that were delivered to it over 500.0ms ago. Wait queue length: 28. Wait queue head age: 18726.7ms.)"}}
 
 \href{https://jira.catrob.at/browse/CATROID-424}{CATROID-424 - ANR in SpriteActivity} This ANR is also reported in newer 0.9.66 (70) and older releases, see \ref{tab:catroid_424}:
-\begin{table}[ht]
+
+\begin{table}[htbp!]
     \centering
     \begin{tabular}{r|r|r}
 Release	&Instances	&Percent \\
@@ -145,7 +146,7 @@ Input dispatching timed out (AppWindowToken{c8e9f token=Token{b3ee03e ActivityRe
 
 \href{https://jira.catrob.at/browse/CATROID-425}{CATROID-425 - tgkill crashes} There are various crash clusters for \texttt{tgkill}, 19 in 60 days to \nth{1} December 2019 across all versions of the app and Android versions. These have not been investigated yet. The ticket includes references to various guides to help investigate the causes.
 
-\begin{table}[ht]
+\begin{table}[htbp!]
     \centering
     \footnotesize
     \begin{tabular}{r|l|l}
@@ -186,7 +187,7 @@ during the hackathon, this is a known consideration. The project team aims to im
 % https://play.google.com/apps/publish/?account=8841632091579025670#AppHealthDetailsPlace:p=org.catrobat.catroid&appid=4975762901432177859&aho=APP_HEALTH_OVERVIEW&ahdt=PERMISSION_DENIAL&ts=THIRTY_DAYS&ahbt=_APPLICATION
 
 
-  \bxtable[ht]{{AndroidVitals: PocketCode: "Permission Denials"}}
+  \bxtable[htbp!]{{AndroidVitals: PocketCode: "Permission Denials"}}
   {
   \begin{minipage}{16cm}
   %\begin{center}
@@ -228,7 +229,7 @@ The new release 0.9.66 (70) seems to have made a slight improvement to the overa
 
 The ANR rate is also showing encouraging signs, for the last 7 days (actually it seems to be only for 6 days, from \nth{24} to \nth{29} November 2019 as reported on \nth{1} December 2019) in Table~\ref{tab:ANR_rate_24_to_29_Nov_2019}.
 
-\begin{table}[ht]
+\begin{table}[htbp!]
     \centering
     \footnotesize
     \begin{tabular}{r|r|r|r}

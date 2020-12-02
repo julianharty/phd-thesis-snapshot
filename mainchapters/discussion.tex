@@ -137,7 +137,7 @@ Based on very rough approximations combining my case studies with AppBrain's dow
     \item 1\% (those with > 1,000,000 total downloads) will get extensive value as most/all the reports will be provided.
 \end{itemize}
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth, keepaspectratio]{images/appbrain/AppBrain_Download_Statistics_20-Jun-2019.png}
     \caption{AppBrain: Download distribution of Android apps (June 2019)}
@@ -161,7 +161,7 @@ Android Vitals sometimes reports excessive network usage running in the backgrou
 
 % Isabel mentions why devs don't use paper: https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=emerson+murphy+hill+static+analysis&btnG=
 
-\begin{figure}[ht]
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth, keepaspectratio]{images/android-vitals-screenshots/Excessive_network_usage_by_kiwix_15_jun_2019.png}
     \caption{Excessive background network usage on battery}
@@ -202,7 +202,7 @@ According to the post, the problem did not exist when they designed and launched
 \subsubsection{A related finding in our PocketCode case study}
 In February 2020 the Catrobat team migrated the reporting for their app crash analytics (Crashlytics) from the Fabric website to the Firebase website using an inbuilt migration tool provided by Google who own both services. The migration meant the app's crash data could be viewed in both these websites independently until Google disabled the Firebase website (planned for March, but postponed until \nth{4} May 2020 in response to the effects of the COVID-19 pandemic).  We noticed additional data was available and presented in the reports provided in the Firebase console, as Google describe the website. This includes demographic data \emph{even though this is not collected by our app or - officially - by the crashlytics libarry}! Figure \ref{fig:Firebase-event-demographics-pocketcode-android} provides an example of the relevant section of the `Events' report for the Pocket Code Android app. App developers may, understandably, be unaware that using a library for collecting crash data is also somehow gathering data about demographics, therefore their end user licence agreements (EULA), privacy policy, and so on, may not reflect or incorporate this information to inform the user of what is being collected and why (in potential contravention with GDPR and other legislation).
 
-\begin{figure}[ht]
+\begin{figure}[htbp!]
     \centering
     \includegraphics[width=8cm]{images/firebase/Firebase-event-demographics-pocketcode-android.png}
     \caption{Firebase Event Demographics for Pocket Code Android}
@@ -273,7 +273,7 @@ Much remains to do in the area of applying mobile analytics to the development p
 
 A couple of examples of poor user experiences that don't involve crashes or freezes (so would not be detected using the platform-level analytics) are, the Financial Times Android app: Figure~\ref{fig:ft_android_app_bsod}, and The Times newspaper iOS app: ``Cannot find article: Apologies, this article no longer exists." Figure~\ref{fig:thetimes-ios-this-article-no-longer-exists}. Of these, the missing article could be recorded easily using in-app error reporting (it might be detected by a non-fatal exception using a crash-reporting library or mobile analytics). The black screen is likely to be harder to report on (as if the developers were aware of the potential for the problem they could add error-handling and error-recovery logic).
 
-\begin{figure}[!tbp]
+\begin{figure}[!htbp]
     \centering
     \subfloat[What the user sees] {\includegraphics[width=0.45\textwidth]{images/android-screenshots/Screenshot_20200928-073727_FT.jpg}\label{fig:android_ft_GUI}}
     \hfill
@@ -282,7 +282,7 @@ A couple of examples of poor user experiences that don't involve crashes or free
     \label{fig:ft_android_app_bsod}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=13cm]{images/ios-screenshots/The-Times-iOS-Screenshot-2020-09-28.png}
     \caption{The Times iOS app: ``this article no longer exists" \nth{28} September 2020.}
