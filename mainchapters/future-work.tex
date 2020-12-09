@@ -9,15 +9,15 @@ Testing and evaluation of third-party commercial services involves awareness and
 
 Google is known to take punitive actions against developers whom it deems to be related to undesirable behaviours. 
 %MUST-DO add references to examples. 
-As various people have discovered to their cost, the service provider may choose to disable access and remove all the apps in Google Play that are deemed - by Google - to be associated with an individual.\cite{Martinez_2019}. Google also blocked developers and their apps not for what \emph{that} developer did, but for what Google decided were infringements by people 'associated' with the developer. This has caused businesses to fold where Android apps were their route to market\cite{Martinez_2019, mark_dodson_medium_story}. We, therefore, restricted our testing, in order to minimise the risk of the apps being blocked. This was to protect the projects who have worked with us, and their apps, otherwise we risk inadvertently blocking apps for a user population of approximately 500,000 users and also the developers of those apps. Google acts as both judge and jury. There has been successful and effective research into the contents of an app store, and Google Play in particular where the researchers successfully circumvented various protection mechanisms in \textbf{YYYY}, 
+As various people have discovered to their cost, the service provider may choose to disable access and remove all the apps in Google Play that are deemed - by Google - to be associated with an individual.\citep{Martinez_2019}. Google also blocked developers and their apps not for what \emph{that} developer did, but for what Google decided were infringements by people 'associated' with the developer. This has caused businesses to fold where Android apps were their route to market\citep{Martinez_2019, mark_dodson_medium_story}. We, therefore, restricted our testing, in order to minimise the risk of the apps being blocked. This was to protect the projects who have worked with us, and their apps, otherwise we risk inadvertently blocking apps for a user population of approximately 500,000 users and also the developers of those apps. Google acts as both judge and jury. There has been successful and effective research into the contents of an app store, and Google Play in particular where the researchers successfully circumvented various protection mechanisms in \textbf{YYYY}, 
 % MUST-DO add year, ideally add additional examples
 their research was read-only and able to be scaled out. Research into the analytical tools and reporting requires the developers to identify themselves, pay a fee, and also their activity is tracked to their account. Also there needs to be usage of the apps which is another consideration that would need to be addressed. These constraints and factors indicate previous approaches may be counter-productive and block the research, the researchers, and potentially apps, organisations, and people, related to the researchers:~\emph{caveat investigator!}
 
 
 
-We have requested clarification from Google on what testing would be appropriate, they have yet to provide any specific answers beyond \emph{"whilst we understand that your testing is designed to learn more about how our products work, we cannot treat your app any differently to the others on the store. Our normal policies and mechanisms apply."} They also referred us to the Policy Center, which states \emph{"We don’t allow apps that crash, force close, freeze, or otherwise function abnormally."}~\cite{google_play_policy_center_broken_functionality}. We are in ongoing discussions with the relevant engineering teams at Google to obtain clarification.
+We have requested clarification from Google on what testing would be appropriate, they have yet to provide any specific answers beyond \emph{"whilst we understand that your testing is designed to learn more about how our products work, we cannot treat your app any differently to the others on the store. Our normal policies and mechanisms apply."} They also referred us to the Policy Center, which states \emph{"We don’t allow apps that crash, force close, freeze, or otherwise function abnormally."}~\citep{google_play_policy_center_broken_functionality}. We are in ongoing discussions with the relevant engineering teams at Google to obtain clarification.
 
-Note: In terms of ethical aspects and disclosure, the author read and reviewed various legal materials published by Google for the service being evaluated, including the Google Play Developer Policy Center\cite{google_play_developer_policy_center}, and the Distribution Agreement\cite{google_play_developer_distribution_agreement}. The author has also reported the various issues found with the product and engineering team at Google.
+Note: In terms of ethical aspects and disclosure, the author read and reviewed various legal materials published by Google for the service being evaluated, including the Google Play Developer Policy Center\citep{google_play_developer_policy_center}, and the Distribution Agreement\citep{google_play_developer_distribution_agreement}. The author has also reported the various issues found with the product and engineering team at Google.
 
 
 
@@ -58,8 +58,10 @@ As discussed in section \href{platform-level-analytics}{\emph{\nameref{platform-
 Structure and presentation of content in the Android logs: ...
 Consistency in pertinent events in Android logs (we believe they're consistently formatted with predictable elements always provided, which makes them easier to parse and process).
 
+
+
 \section{Comparing static-analysis warnings with failures reported in usage analytics}
-As the research of~\cite{khalid2016_examining_the_relationship_between_findbugs_warnings_and_app_ratings} found, there were correlations between static analysis warnings for poorly rated apps for three categories of warnings: 1) bad practice, 2) internationalization, and 3) performance. The first and third of these categories are also provided by various analytics tools including Android Vitals. Therefore it may be of interest to research whether there are correlations between static-analysis warnings for these categories and the crash and ANR clusters reported in the appropriate tools. 
+As the research of~\citep{khalid2016_examining_the_relationship_between_findbugs_warnings_and_app_ratings} found, there were correlations between static analysis warnings for poorly rated apps for three categories of warnings: 1) bad practice, 2) internationalization, and 3) performance. The first and third of these categories are also provided by various analytics tools including Android Vitals. Therefore it may be of interest to research whether there are correlations between static-analysis warnings for these categories and the crash and ANR clusters reported in the appropriate tools. 
 
 The results of these comparisons may help in several areas of further research:
 \begin{enumerate}
@@ -99,7 +101,7 @@ There has been some small scale research, involving 12 university students, that
 As Figure~\ref{fig:sources-of-info-with-app-store-future-work-ch}~\footnote{Figure reproduced from Figure~\ref{fig:sources-of-info-with-app-store-background-ch} in an earlier chapter for a better reader experience.} illustrates there are various sources of information, the app store is one of four main routes to provide information (the others are: in-app feedback, other forms of feedback, and in-app analytics).
 
 \section{Privacy-centric analytics in mobile apps}
-There has been some work and research into specific areas of privacy, such as the consideration of PII data collection where some analytics providers tell developers not to collect or process PII data, however there's been little checking or enforcement in the industry at large. A startup, Iteratively~\cite{iteratively_homepage}, is an organisation working to improve the practices around several aspects of privacy in terms of the data that is collected and where and how the data is processed.
+There has been some work and research into specific areas of privacy, such as the consideration of PII data collection where some analytics providers tell developers not to collect or process PII data, however there's been little checking or enforcement in the industry at large. A startup, Iteratively~\citep{iteratively_homepage}, is an organisation working to improve the practices around several aspects of privacy in terms of the data that is collected and where and how the data is processed.
 
 TBC - discuss my work and - security layers, rings, data-plane, data-locality, federated analytics processing.
 
@@ -134,14 +136,55 @@ The Pocket Code Android app included the legacy Fabric Crashlytics analytics lib
 \section{Dynamic, adaptive logging in mobile apps}
 This is a placeholder and a reminder to incorporate some early ideas on this topic in an unpublished paper titled \emph{``Dynamic Distributed Logging and Analytics"}, see \url{https://www.overleaf.com/read/mgcrcqkbsnzh}.
 
+
+
 \section{Using mobile analytics to improve testing of mobile apps}
 % MUST-DO expand this section.
 \begin{itemize}
     \item Using Mobile Analytics to improve the testing of mobile apps. This was work I had hoped to perform as part of this research, various practical constraints meant this was not practical during the PhD.
 \end{itemize}
 
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/rough-sketches/Analytics-driven-testing-including-PICT.jpeg}
+    \caption{Analytics-driven testing}
+    \label{fig:roughsketch:analytics-driven-testing-incl-PICT}
+\end{figure}
+
+The approach consists of various categories of data, some changing quickly and intended to be the main impetus (the analytics data streams), some changing slowly (various repositories of industry data, prior test results, previous analytics for our system, and known tests suitable for our system). There may also be stock levels of available resources for testing e.g. unused devices in a device farm.
+Tools including Microsoft PICT (as a working example) can combine the data to emit test cases (or test permutations) that a candidates to be executed. These can be executed through a combination of humans and/or automation. 
+
+At least two categories of tests to devise:
+\begin{enumerate}
+    \item test gaps – if there are dips in the actual analytics patterns compared to what we’d predict / expect? if so, test into these areas to see if there are problems in the real-world we’d like to try addressing. This may include areas where we can grow the usage and userbase, etc.
+    \item test strengths – where the tests are designed to ensure we do not make things worse for our current userbase and their use of the software. There are similarities with businesses wanting to ensure they retain repeat business, residual profitable/desirable users, and so on.
+\end{enumerate}
+
+A proof-of-concept for analytics driven testing: 
+
+
+\begin{itemize}
+    \item Use single-digit data permutations
+    \item Use one to a few of the available categories of data e.g. Android releases, device models, locale and create a PICT configuration file based on several distinct snapshots of these inputs of permutations.
+    \item Test Strengths testing:
+    \begin{itemize}
+        \item Execute tests based on the output of PICT
+        \item Do mainly manual testing
+        \item Collect analytics results using the same tools (where practical) that provided the production analytics. Compare the patterns of the analytics from the testing to those from the production snapshots.
+    \end{itemize}
+    \item Test Gaps testing:
+    \begin{itemize}
+        \item Provide several data sets of predicted usage volumes.
+        \item Perform differences analysis to compare representative patterns in the analytics with these data sets.
+        \item See if performing the differences accurately determines troughs in the analytics data (where usage is materially less than predicted) and emit test permutations to probe the system to establish whether the system works well for users on those permutations.
+    \end{itemize}
+
+\end{itemize}
+ 
+
+
 \section{Digital twins for software apps}
-Digital twins are variously defined as \emph{``a high-fidelity digital model of a physical system or asset that can be used e.g. to optimize operations and predict faults of the physical system."}~\cite{pokhrel2020_digitaltwin_for_cybersecurity} and \emph{``Digital twins integrate IoT, artificial intelligence, machine learning and software analytics with spatial network graphs"}~\cite{wikipedia__digital_twin} (attributed to Microsoft in 2018 in the Wikipedia article). Twins have been used for various engineering challenges including jet turbine performance engineering and may help transform the engineering lifecycle for many products, including jet turbines~\cite{read2018_digital_takeover_avionics}, cars. As~\cite{pokhrel2020_digitaltwin_for_cybersecurity} observes, digital twins may also represent cyber-security and potentially humble, mobile apps.
+Digital twins are variously defined as \emph{``a high-fidelity digital model of a physical system or asset that can be used e.g. to optimize operations and predict faults of the physical system."}~\citep{pokhrel2020_digitaltwin_for_cybersecurity} and \emph{``Digital twins integrate IoT, artificial intelligence, machine learning and software analytics with spatial network graphs"}~\citep{wikipedia__digital_twin} (attributed to Microsoft in 2018 in the Wikipedia article). Twins have been used for various engineering challenges including jet turbine performance engineering and may help transform the engineering lifecycle for many products, including jet turbines~\citep{read2018_digital_takeover_avionics}, cars. As~\citep{pokhrel2020_digitaltwin_for_cybersecurity} observes, digital twins may also represent cyber-security and potentially humble, mobile apps.
 
 ``A Digital Twin will continuously learn and update itself using data from sensors that monitor various aspects of the real-life product’s environment and operating conditions. It can also factor in historical data from prior usage."~\url{https://www.rolls-royce.com/media/our-stories/discover/2019/how-digital-twin-technology-can-enhance-aviation.aspx}
 % https://www.aerospacetechreview.com/twinning-digital-twins-show-their-power-by-louise-bonnar/
