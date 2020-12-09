@@ -197,7 +197,7 @@ There are various considerations of the adverse implications of allowing, and us
 
 A more involved example started in March 2017 where the Mixpanel JavaScript SDK which inadvertently collected passwords and might have collected other highly sensitive data such as \emph{``where browser plugins (such as the 1Password password manager) and website frameworks place sensitive data into form element attributes."}~\cite{mcclintok_mixpanel_update_on_autotrack_data_collection}. 
 
-According to the post, the problem did not exist when they designed and launched the service in 2016, it was triggered when they updated the version of an external and well regarded library in March 2017. The issue was discovered and reported by a customer in January 2018. Mixpanel deleted the sensitive data their library had collected on behalf of their customers and implemented various corrective actions including in-depth security reviews of existing code. They also had to put in place filters to delete new data on arrival as some of their customers were still using the ill-mannered implementation of their JavaScript SDK. % Also cite paper about when devs do and don't update library versions. 
+According to the post, the problem did not exist when they designed and launched the service in 2016, it was triggered when they updated the version of an external and well regarded library in March 2017. The issue was discovered and reported by a customer in January 2018. Mixpanel deleted the sensitive data their library had collected on behalf of their customers and implemented various corrective actions including in-depth security reviews of existing code. They also had to put in place filters to delete new data on arrival as some of their customers were still using the ill-mannered implementation of their JavaScript SDK. % MUST-DO Also cite paper about when devs do and don't update library versions. 
 
 \subsubsection{A related finding in our PocketCode case study}
 In February 2020 the Catrobat team migrated the reporting for their app crash analytics (Crashlytics) from the Fabric website to the Firebase website using an inbuilt migration tool provided by Google who own both services. The migration meant the app's crash data could be viewed in both these websites independently until Google disabled the Firebase website (planned for March, but postponed until \nth{4} May 2020 in response to the effects of the COVID-19 pandemic).  We noticed additional data was available and presented in the reports provided in the Firebase console, as Google describe the website. This includes demographic data \emph{even though this is not collected by our app or - officially - by the crashlytics libarry}! Figure \ref{fig:Firebase-event-demographics-pocketcode-android} provides an example of the relevant section of the `Events' report for the Pocket Code Android app. App developers may, understandably, be unaware that using a library for collecting crash data is also somehow gathering data about demographics, therefore their end user licence agreements (EULA), privacy policy, and so on, may not reflect or incorporate this information to inform the user of what is being collected and why (in potential contravention with GDPR and other legislation).
@@ -238,7 +238,13 @@ Data ownership and safeguarding.
     \item [Over] trust in decisions made by technology.
 \end{itemize}
 
-\subsubsection{Human behaviours around automation}
+
+\subsection{"Data is the new gold"}
+
+Sensitivity of allowing external access to analytics data, MUST-DO complete this section. 
+% original text: "We can no longer provide this information outside of the company for sensitivity reasons ..."
+
+\subsection{Human behaviours around automation}
 % Confirmation bias (via Isabel)
 The use of software automation can have deep implications on the humans involved, ranging from emotional stress and worries where testers on development teams can get stuck where tools are expected to solve problems (but don't)~\cite{evans2020stuck}, to potentially over-reliance on the decisions made by automation~\cite{cummings2004automation} and a complacency and bias in human interaction with automated and decision support systems~\cite{parasuraman_complacency_and_bias_in_human_use_of_automation}. 
 My experiences of email discussions with the Google Engineering team provided an impression they over-believed in the correctness of their analytics tools and the inability of any outsider 

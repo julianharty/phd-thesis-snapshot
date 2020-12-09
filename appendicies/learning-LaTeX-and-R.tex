@@ -7,9 +7,35 @@ As someone who has been working with developing and testing software, aspects of
 
 The source code of this thesis is littered with comments containing notes and links to various sources of clues on using latex, and I am no master of the topic.
 
+Getting started? here's one place to do so~\url{https://olivierpieters.be/blog/2015/09/21/introduction-to-latex}
+
+As one of the TeX FAQ articles states~\emph{``Tables and figures have a tendency to surprise, by floating away from where they were specified to appear."}~\citep{texfaq_floats}.
+
 The following answer is simply pivotal in my understanding of how figures and tables, etc. (all considered `floats' in LaTeX) are placed in a typeset document~\href{https://tex.stackexchange.com/questions/39017/how-to-influence-the-position-of-float-environments-like-figure-and-table-in-lat/39020#39020}{LaTeX floats terminology}. I now need to consider how I can use this information to improve the positioning of my tables and figures in this thesis. 
 
+Positioning of floats close to their location in the text is also clearly and succinctly covered in the answer on tex stackechange~\href{https://tex.stackexchange.com/a/2282/88466}{Easing the float placement by options}.
 
+The LaTeX project team have written, assembled, and published a wide range of materials on the topic which may well help~\citep{publications_by_the_LaTeX_project_team}. As an example, the previous answer on the tex stackechange site is written up as a document~\href{https://www.latex-project.org/publications/2014-FMi-TUB-tb111mitt-float-placement.pdf}{How to influence the position of float environments like figure and table in LaTeX?}
+
+See also:
+\begin{itemize}
+    \item \href{https://tex.stackexchange.com/questions/2651/should-i-use-center-or-centering-for-figures-and-tables}{Should I use center or centering for figures and tables?}
+    \item \url{https://olivierpieters.be/blog/2015/11/11/tables-in-latex} and~\url{https://olivierpieters.be/blog/2015/10/23/latex-plotting-from-file} also might help if I decide to load data from CSV files into plots or tables.
+    \item \url{https://en.wikibooks.org/wiki/TeX/def} and~\url{https://en.wikibooks.org/wiki/TeX/let}
+\end{itemize}
+
+Learning about the preamble (the latex configuration file and similar info in the thesis.tex file) is usefully described in~\url{https://olivierpieters.be/blog/2016/08/10/latex-preamble}. 
+
+Making sense of various commands, and in particular~\texttt{\\let} was another challenge that I struggled to find explanations for,~\citep{tex_stackechange_let_and_def} unlocked this topic for me -~\texttt{\\let} provides a synonym for an existing command,~\texttt{\\def} defines a new command. See also~\url{https://olivierpieters.be/blog/2016/09/09/defining-new-latex-macros} for additional context and examples of~\texttt{\\newcommand} which is recommended in place of~\texttt{\\let}.
+
+\subsection{Citations, references, and so on}
+
+\begin{itemize}
+    \item \href{https://tex.stackexchange.com/questions/14155/recreating-biblatex-option-autocite-footnote-style-verbose-trad1-in-bibtex}{recreating biblatex option autocite=footnote,style=verbose-trad1 in bibtex} I hope I never need this. It's for if/when I try to adapt and adopt Ralf Jung's thesis template, and just might help me when I'm trying to improve the format of my bibliography.
+    \item Ditto,~\href{https://tex.stackexchange.com/questions/58576/autocite-footnote}{autocite=footnote} is something Ralf uses with biblatex.
+    \item \href{https://tex.stackexchange.com/questions/5091/what-to-do-to-switch-to-biblatex}{What to do to switch to biblatex?} has an illuminating answer:~\url{https://tex.stackexchange.com/a/5105/88466}.
+    \item Some great practical tips on using citations in the text are documented online by John Owens here~\url{https://www.ece.ucdavis.edu/~jowens/biberrors.html} and in~\url{https://freedom-to-tinker.com/2011/02/25/public-service-rant-please-fix-your-bibliography/}.
+\end{itemize}
 
 \section{Learning R}
 
