@@ -1064,6 +1064,24 @@ series = {UbiComp ’10 Adjunct}
   address = {Chicago, Illinois, USA}
 }
 
+@INPROCEEDINGS{deng2017_is_mutation_analysis_effective_at_testing_android_apps,
+  author={L. {Deng} and J. {Offutt} and D. {Samudio}},
+  booktitle={2017 IEEE International Conference on Software Quality, Reliability and Security (QRS)},
+  title={Is Mutation Analysis Effective at Testing Android Apps?},
+  year={2017},
+  volume={},
+  number={},
+  pages={86-93},
+  abstract={
+    Not only is Android the most widely used mobile operating system, more apps have been released and downloaded for Android than for any other OS. However, quality is an ongoing problem, with many apps being released with faults, sometimes serious faults. Because the structure of mobile app software differs from other types of software, testing is difficult and traditional methods do not work. Thus we need different approaches to test mobile apps. In this paper, we identify challenges in testing Android apps, and categorize common faults according to fault studies. Then, we present a way to apply mutation testing to Android apps. Additionally, this paper presents results from two empirical studies on fault detection effectiveness using open-source Android applications: one for Android mutation testing, and another for four existing Android testing techniques. The studies use naturally occurring faults as well as crowdsourced faults introduced by experienced Android developers. Our results indicate that Android mutation testing is effective at detecting faults.},  
+  keywords={Android (operating system);crowdsourcing;fault diagnosis;mobile computing;program diagnostics;program testing;public domain software;software reliability;mutation analysis;Android apps testing;mobile operating system;OS;mobile app software structure;fault detection;open-source Android applications;Android mutation testing;Androids;Humanoid robots;Testing;Crowdsourcing;XML;Wireless fidelity;Fault detection;Android;Software Testing;Mutation Testing;Empirical Evaluation;Crowdsourcing},  
+  doi={10.1109/QRS.2017.19},  
+  ISSN={},  
+  month={July},
+  publisher = {IEEE},
+  address = {Prague, Czech Republic},
+}
+
 @inproceedings{diallo2015_correctness_and_relative_correctness,
   title={Correctness and relative correctness},
   author={Diallo, Nafi and Ghardallou, Wided and Mili, Ali},
@@ -1116,6 +1134,25 @@ series = {UbiComp ’10 Adjunct}
   organization={IEEE},
   doi={10.1145/3180155.3180222},
   abstract={Mobile apps have become ubiquitous. For app developers, it is a key priority to ensure their apps' correctness and reliability. However, many apps still suffer from occasional to frequent crashes, weakening their competitive edge. Large-scale, deep analyses of the characteristics of real-world app crashes can provide useful insights to guide developers, or help improve testing and analysis tools. However, such studies do not exist - this paper fills this gap. Over a four-month long effort, we have collected 16,245 unique exception traces from 2,486 open-source Android apps, and observed that framework-specific exceptions account for the majority of these crashes. We then extensively investigated the 8,243 framework-specific exceptions (which took six person-months): (1) identifying their characteristics (e.g., manifestation locations, common fault categories), (2) evaluating their manifestation via state-of-the-art bug detection techniques, and (3) reviewing their fixes. Besides the insights they provide, these findings motivate and enable follow-up research on mobile apps, such as bug detection, fault localization and patch generation. In addition, to demonstrate the utility of our findings, we have optimized Stoat, a dynamic testing tool, and implemented ExLocator, an exception localization tool, for Android apps. Stoat is able to quickly uncover three previously-unknown, confirmed/fixed crashes in Gmail and Google+; ExLocator is capable of precisely locating the root causes of identified exceptions in real-world apps. Our substantial dataset is made publicly available to share with and benefit the community.},
+}
+
+@INPROCEEDINGS{febrero2017_software_reliability_as_user_perception,
+  author={F. {Febrero} and M. A. {Moraga} and C. {Calero}},
+  booktitle={2017 IEEE International Conference on Software Quality, Reliability and Security (QRS)},
+  title={Software Reliability as User Perception: Application of the Fuzzy Analytic Hierarchy Process to Software Reliability Analysis},
+  year={2017},
+  volume={},
+  number={},
+  pages={224-231},
+  abstract={
+    Software Quality is a multidimensional concept for which Reliability is considered as a key attribute. Notwithstanding, due to its conceptual complexity, there is no common agreement on what Software Reliability is, thus different stakeholders use a variety of Software Reliability views. With the aim to improve our understanding of what Software Reliability means for industrial stakeholders as well as that of contributing to enhance the industrial applicability of Software Quality Models we propose approaching Software Reliability analysis by using structural model based on representative International Standards, which are industry-oriented. As analysis method, since interested on stakeholders' vision of Reliability we will apply the Fuzzy Analytic Hierarchical Process (FAHP) which is designed to manage human assessment, always characterized by a certain degree of vagueness and subjectivity. The rationality of the proposed model and feasibility of the analysis method is proved by the application on a very large industrial system which provides empirical evidence on the conceptual descriptiveness capturing stakeholders' views and industrial applicability in an efficient manner.},  
+  keywords={analytic hierarchy process;fuzzy set theory;human factors;software reliability;user perception;fuzzy analytic hierarchy process;software reliability analysis;FAHP;Software reliability;Software;Stakeholders;Analytical models;Standards;Industries;Empirical Software Engineering;Fuzzy Analytical Hierarchical Process;Quality Analysis and Evaluation;Software Reliability},
+  doi={10.1109/QRS.2017.33},
+  ISSN={},
+  month={July},
+  publisher = {IEEE},
+  address = {Prague, Czech Republic},
+  doi = {10.1109/QRS.2017.33},
 }
 
 @inproceedings{frankl1997choosing_testing_for_reliability,
@@ -1414,6 +1451,24 @@ This paper reports a study analyzing how the fault- and change-proneness of APIs
   pages={13--18},
   year={2015},
   doi = {https://doi.org/10.1145/2757384.2757392},
+}
+
+@INPROCEEDINGS{lu2016_PRADA,
+  author={X. {Lu} and X. {Liu} and H. {Li} and T. {Xie} and Q. {Mei} and D. {Hao} and G. {Huang} and F. {Feng}},
+  booktitle={2016 IEEE/ACM 38th International Conference on Software Engineering (ICSE)},
+  title={PRADA: Prioritizing Android Devices for Apps by Mining Large-Scale Usage Data},
+  year={2016},
+  volume={},
+  number={},
+  pages={3-13},
+  abstract={
+    Selecting and prioritizing major device models are critical for mobile app developers to select testbeds and optimize resources such as marketing and quality-assurance resources. The heavily fragmented distribution of Android devices makes it challenging to select a few major device models out of thousands of models available on the market. Currently app developers usually rely on some reported or estimated general market share of device models. However, these estimates can be quite inaccurate, and more problematically, can be irrelevant to the particular app under consideration. To address this issue, we propose PRADA, the first approach to prioritizing Android device models for individual apps, based on mining large-scale usage data. PRADA adapts the concept of operational profiling (popularly used in software reliability engineering) for mobile apps - the usage of an app on a specific device model reflects the importance of that device model for the app. PRADA includes a collaborative filtering technique to predict the usage of an app on different device models, even if the app is entirely new (without its actual usage in the market yet), based on the usage data of a large collection of apps. We empirically demonstrate the effectiveness of PRADA over two popular app categories, i.e., Game and Media, covering over 3.86 million users and 14,000 device models collected through a leading Android management app in China.},  
+  keywords={collaborative filtering;data mining;smart phones;PRADA;prioritizing android devices for apps;large-scale usage data mining;operational profiling;mobile apps;collaborative filtering technique;Android management app;Androids;Humanoid robots;Data models;Games;Testing;Data mining;Mobile communication;Mobile apps;Android fragmentation;prioritization;usage data},  
+  doi={10.1145/2884781.2884828},
+  ISSN={1558-1225},
+  month={May},
+  publisher = {IEEE},
+  address = {Austin, TX, USA},
 }
 
 @inproceedings{luhana2018streamlining,
@@ -2762,6 +2817,15 @@ https://github.com/Displayr/flipTime/graphs/contributors
   relevance_to_phd={Plan Monitor Improve Decision Making Framework. BTW: supervised by Guenther Ruhe.},
   journal = {" "},
 }
+
+@phdthesis{oliver2018_first_steps_in_retrofitting_a_versatile_sw_testing_architecture,
+  title={First Steps in Retrofitting a Versatile Software Testing Infrastructure to Android},
+  author={Oliver, Carol Anne},
+  year={2018},
+  school = {Florida Institute of Technology},
+  address = {Melbourne, Florida, USA},
+}
+
 
 @phdthesis{shuba2019mobile,
   title={Mobile Data Transparency and Control},
