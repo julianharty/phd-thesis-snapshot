@@ -2,6 +2,7 @@
 @comment{https://tex.stackexchange.com/questions/439328/adding-comments-in-bib-file-that-survive-bibdesks-save}
 @comment{MUST_DO review the content of citations, https://tex.stackexchange.com/questions/400593/warning-empty-institution-and-warning-empty-journal}
 @comment{also useful https://tex.stackexchange.com/questions/175106/make-phd-citations-say-dissertation-rather-than-thesis}
+@comment{https://www.openoffice.org/bibliographic/bibtex-defs.html provides a succinct guide of the main definition types and their fields.}
 
 @comment{Here's a blank template useful to copy, paste and then populate with the details of the reference.}
 \iffalse
@@ -1167,7 +1168,8 @@ doi = {10.1109/ICSTW50294.2020.00015},
 url = {https://doi.ieeecomputersociety.org/10.1109/ICSTW50294.2020.00015},
 publisher = {IEEE Computer Society},
 address = {Los Alamitos, CA, USA},
-month = {oct}
+month = {oct},
+key = {TAIC-PART 2020},
 }
 
 
@@ -2116,6 +2118,14 @@ series = {CODASPY ’19}
   journal = {Medium}
 }
 
+@online{adil2020_sending_logs_from_flutter_apps,
+  title = {Sending logs from Flutter apps in real-time using ELK stack \& MQTT},
+  url = {https://itnext.io/sending-logs-from-flutter-apps-in-real-time-using-elk-stack-mqtt-c24fa0cb9802},
+  author = {Umair Adil},
+  organization = {ITNEXT},
+  year = {2020},
+}
+
 @online{amplitude_are_you_data_driven,
   title = {Are You Data-driven, Data-informed or Data-inspired?},
   url = {https://amplitude.com/blog/data-driven-data-informed-data-inspired},
@@ -2509,6 +2519,58 @@ https://github.com/Displayr/flipTime/graphs/contributors
     author = {Popper Ben},
     urldate = {2019-08-29},
     date = {2019-08-14}
+}
+
+@online{schreckengost2019_extending_elastic_stack_android_adb,
+  title = {Extending the Elastic Stack to Fit Our Needs},
+  url = {https://crossbrowsertesting.com/blog/development/extending-the-elastic-stack-to-fit-our-needs/},
+  author = {Harold Schreckengost},
+  urldate = {2020-12-23},
+  organization = {{SmartBear CrossBrowserTesting}},
+  year = {2019},
+  extract = {
+    we built at CrossBrowserTesting using libbeat was a custom shipper for Android mobile device logs. We have hundreds of real Android devices and trying to keep track of logging across that many devices poses a unique challenge that the majority of businesses will never have.
+    
+    With Androidbeat, our in-house data shipper for Android mobile devices, we had several requirements:
+    
+    It needed to use the standard Android Debug Bridge (adb) functionality built in to Andro
+    It needed to handle temporary unavailability of a device gracefully
+    It needed to be able to add in metadata about the devices attached, such as our unique identifiers, the severity of the logs, and the time the message was sent.
+  }
+}
+
+@online{github2017_k9mail_issue_2705,
+  title = {Deleted mail from inbox is doubled in trash directory},
+  url = {https://github.com/k9mail/k-9/issues/2705},
+  author = {gandogar},
+  year = {2017},
+  key = {K-9 Mail GitHub},
+  organization = {{K-9 Mail}},
+  urldate = {2020-12-23},
+  comment = {The issue was opened on 25 Aug 2017 and took until 24 Apr 2019. Multiple people contributed examples.},
+}
+
+@online{github2020_k9mail_logging_errors,
+  title = {Logging Errors - K-9 Mail},
+  url = {https://github.com/k9mail/k-9/wiki/LoggingErrors},
+  abstract = {K-9 Mail has controllable debug logging. Users can activate logging to help diagnosing problems and errors.},
+  year = {2020},
+  authorx = {Various},
+  key = {K-9 Mail GitHub},
+  organization = {{K-9 Mail}},
+  urldate = {2020-12-23},
+}
+
+@online{github2020_sematext_logsene_android,
+  title = {Sematext Logs is ELK as a Service.},
+  url = {https://github.com/sematext/sematext-logsene-android},
+  authorx = {Various},
+  key = {Sematext GitHub},
+  year = {2020},
+  urldate = {2020-12-23},
+  organization = {{Sematext}},
+  abstract = {
+    Sematext Logs is ELK as a Service. This library lets you collect mobile analytics and log data from your Android applications using Sematext. There is an equivalent library for shipping logs from iOS available... Use the Mobile Application Logs Integration to get out-of-the-box reports with the most important information about your mobile applications.}
 }
 
 @online{timber_io_homepage_2020,
