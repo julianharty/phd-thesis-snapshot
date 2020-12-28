@@ -1019,6 +1019,24 @@ series = {MOBILESoft ’17}
 	file = {foser-2010-buse.pdf:/Users/julianharty/Zotero/storage/6RW75BVR/foser-2010-buse.pdf:application/pdf}
 }
 
+@inproceedings{cai2019_large_scale_study_of_android_incompatibilities,
+  author = {Cai, Haipeng and Zhang, Ziyi and Li, Li and Fu, Xiaoqin},
+  title = {A Large-Scale Study of Application Incompatibilities in Android},
+  year = {2019},
+  isbn = {9781450362245},
+  publisher = {Association for Computing Machinery},
+  url = {https://doi.org/10.1145/3293882.3330564},
+  doi = {10.1145/3293882.3330564},
+  abstract = {
+    The rapid expansion of the Android ecosystem is accompanied by continuing diversification of platforms and devices, resulting in increasing incompatibility issues which damage user experiences and impede app development productivity. In this paper, we conducted a large-scale, longitudinal study of compatibility issues in 62,894 benign apps developed in the past eight years, to understand the symptoms and causes of these issues. We further investigated the incompatibilities that are actually exercised at runtime through the system logs and execution traces of 15,045 apps. Our study revealed that, among others, (1) compatibility issues were prevalent and persistent at both installation and run time, with greater prevalence of run-time incompatibilities, (2) there were no certain Android versions that consistently saw more or less app incompatibilities than others, (3) installation-time incompatibilities were strongly correlated with the minSdkVersion specified in apps, while run-time incompatibilities were most significantly correlated with the underlying platform’s API level, and (4) installation-time incompatibilities were mostly due to apps’ use of architecture-incompatible native libraries, while run-time incompatibilities were mostly due to API changes during SDK evolution. We offered further insights into app incompatibilities, as well as recommendations on dealing with the issues for bother developers and end users of Android apps.},
+booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Software Testing and Analysi (ISSTA 2019)},
+  pages = {216–227},
+  numpages = {12},
+  keywords = {installation failure, run-time failure, Android, compatibility},
+  address = {Beijing, China},
+  series = {ISSTA 2019}
+}
+
 @inproceedings{chen2014qoe,
   title={{QoE Doctor}: Diagnosing mobile app {QoE} with automated {UI} control and cross-layer analysis},
   author={Chen, Qi Alfred and Luo, Haokun and Rosen, Sanae and Mao, Z Morley and Iyer, Karthik and Hui, Jie and Sontineni, Kranthi and Lau, Kevin},
@@ -1211,11 +1229,24 @@ series = {EDBT '13}
 }
 
 @inproceedings{kong2019_mining_android_crash_fixes,
-  title={Mining Android Crash Fixes in the Absence of Issue- and Change-Tracking Systems},
-  author={Kong, Pingfan and Li, Li and Gao, Jun and Bissyand{\'e}, Tegawend{\'e} F and Klein, Jacques},
-  booktitle={The 28th ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2019)},
-  year={2019}
+  author = {Kong, Pingfan and Li, Li and Gao, Jun and Bissyand\'{e}, Tegawend\'{e} F. and Klein, Jacques},
+  title = {Mining Android Crash Fixes in the Absence of Issue- and Change-Tracking Systems},
+  year = {2019},
+  isbn = {9781450362245},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3293882.3330572},
+  doi = {10.1145/3293882.3330572},
+  abstract = {
+    Android apps are prone to crash. This often arises from the misuse of Android framework APIs, making it harder to debug since official Android documentation does not discuss thoroughly potential exceptions.Recently, the program repair community has also started to investigate the possibility to fix crashes automatically. Current results, however, apply to limited example cases. In both scenarios of repair, the main issue is the need for more example data to drive the fix processes due to the high cost in time and effort needed to collect and identify fix examples. We propose in this work a scalable approach, CraftDroid, to mine crash fixes by leveraging a set of 28 thousand carefully reconstructed app lineages from app markets, without the need for the app source code or issue reports. We developed a replicative testing approach that locates fixes among app versions which output different runtime logs with the exact same test inputs. Overall, we have mined 104 relevant crash fixes, further abstracted 17 fine-grained fix templates that are demonstrated to be effective for patching crashed apks. Finally, we release ReCBench, a benchmark consisting of 200 crashed apks and the crash replication scripts, which the community can explore for evaluating generated crash-inducing bug patches.},
+  booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2019)},
+  pages = {78–89},
+  numpages = {12},
+  keywords = {debugging, mining software repository, Android, crash, testing},
+  address = {Beijing, China},
+  series = {ISSTA 2019}
 }
+
 
 @INPROCEEDINGS {taicpart2020_accepted_papers_my_fast_abstract_until_ieee_upload_my_paper,
 author = {},
@@ -2398,6 +2429,7 @@ series = {CODASPY ’19}
   title = {The inside story of Answers: How six people built the number one most popular mobile analytics tool in just a few months},
   url = {https://chang.com/how-six-people-built-the-2-mobile-analytics-tool-in-just-a-few-months-full-article/index.html},
   author = {Wayne Chang},
+  organization = {{Crashlytics}},
   year = {2015},
   note = {Retrieved 2020-Dec-23},
 }
@@ -2692,9 +2724,10 @@ https://github.com/Displayr/flipTime/graphs/contributors
 	file = {Handling five billion sessions a day – in real time:/Users/julianharty/Library/Application Support/Zotero/Profiles/4slbw694.default/zotero/storage/DXUH8T5P/handling-five-billion-sessions-a-day-in-real-time.html:text/html}
 }
 
-@online{twiterdev2015_a_deep_dive_into_the_answers_backend,
+@online{twitterdev2015_a_deep_dive_into_the_answers_backend,
   title = {Twitter Flight 2015 - A Deep Dive into the Answers Backend by Ed Solovey},
   url = {https://youtu.be/G1LrMXR3Zko},
+  organization = {{Twitter}},
   year = {2015},
   urldate = {2020-12-27},
   author = {{Twitter Developers}},
