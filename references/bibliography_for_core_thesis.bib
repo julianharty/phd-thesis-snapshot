@@ -588,6 +588,25 @@ month = {sep}
   publisher={EuroSTAR Conferences},
 }
 
+@comment{Not yet cited the following},
+@article{schelter2018_automating_large_scale_data_quality_verification,
+author = {Schelter, Sebastian and Lange, Dustin and Schmidt, Philipp and Celikel, Meltem and Biessmann, Felix and Grafberger, Andreas},
+title = {Automating Large-Scale Data Quality Verification},
+year = {2018},
+issue_date = {August 2018},
+publisher = {VLDB Endowment},
+volume = {11},
+number = {12},
+issn = {2150-8097},
+url = {https://doi.org/10.14778/3229863.3229867},
+doi = {10.14778/3229863.3229867},
+abstract = {Modern companies and institutions rely on data to guide every single business process and decision. Missing or incorrect information seriously compromises any decision process downstream. Therefore, a crucial, but tedious task for everyone involved in data processing is to verify the quality of their data. We present a system for automating the verification of data quality at scale, which meets the requirements of production use cases. Our system provides a declarative API, which combines common quality constraints with user-defined validation code, and thereby enables 'unit tests' for data. We efficiently execute the resulting constraint validation workload by translating it to aggregation queries on Apache Spark. Our platform supports the incremental validation of data quality on growing datasets, and leverages machine learning, e.g., for enhancing constraint suggestions, for estimating the 'predictability' of a column, and for detecting anomalies in historic data quality time series. We discuss our design decisions, describe the resulting system architecture, and present an experimental evaluation on various datasets.},
+journal = {Proc. VLDB Endow.},
+month = aug,
+pages = {1781–1794},
+numpages = {14}
+}
+
 @article{sen2008_determinants_for_foss_license,
   author = { Ravi   Sen  and  Chandrasekar   Subramaniam  and  Matthew L.   Nelson },
   title = {Determinants of the Choice of Open Source Software License},
@@ -1153,6 +1172,49 @@ series = {UbiComp ’10 Adjunct}
   organization={IEEE},
   doi={10.1145/3180155.3180222},
   abstract={Mobile apps have become ubiquitous. For app developers, it is a key priority to ensure their apps' correctness and reliability. However, many apps still suffer from occasional to frequent crashes, weakening their competitive edge. Large-scale, deep analyses of the characteristics of real-world app crashes can provide useful insights to guide developers, or help improve testing and analysis tools. However, such studies do not exist - this paper fills this gap. Over a four-month long effort, we have collected 16,245 unique exception traces from 2,486 open-source Android apps, and observed that framework-specific exceptions account for the majority of these crashes. We then extensively investigated the 8,243 framework-specific exceptions (which took six person-months): (1) identifying their characteristics (e.g., manifestation locations, common fault categories), (2) evaluating their manifestation via state-of-the-art bug detection techniques, and (3) reviewing their fixes. Besides the insights they provide, these findings motivate and enable follow-up research on mobile apps, such as bug detection, fault localization and patch generation. In addition, to demonstrate the utility of our findings, we have optimized Stoat, a dynamic testing tool, and implemented ExLocator, an exception localization tool, for Android apps. Stoat is able to quickly uncover three previously-unknown, confirmed/fixed crashes in Gmail and Google+; ExLocator is capable of precisely locating the root causes of identified exceptions in real-world apps. Our substantial dataset is made publicly available to share with and benefit the community.},
+}
+
+@inproceedings{flajolet2007_hyper_log_log,
+  TITLE = {{HyperLogLog: the analysis of a near-optimal cardinality estimation algorithm}},
+  AUTHOR = {Flajolet, Philippe and Fusy, {\'E}ric and Gandouet, Olivier and Meunier, Fr{\'e}d{\'e}ric},
+  URL = {https://hal.inria.fr/hal-00406166},
+  BOOKTITLE = {{AofA: Analysis of Algorithms}},
+  ADDRESS = {Juan les Pins, France},
+  EDITOR = {Jacquet, Philippe},
+  PUBLISHER = {{Discrete Mathematics and Theoretical Computer Science}},
+  SERIES = {DMTCS Proceedings},
+  VOLUME = {DMTCS Proceedings vol. AH, 2007 Conference on Analysis of Algorithms (AofA 07)},
+  PAGES = {137-156},
+  YEAR = {2007},
+  MONTH = Jun,
+  KEYWORDS = {cardinality estimation ; Probabilistic algorithm},
+  PDF = {https://hal.inria.fr/hal-00406166v2/file/dmAH0110.pdf},
+  HAL_ID = {hal-00406166},
+  HAL_VERSION = {v2},
+}
+
+@inproceedings{heule2013_hyper_log_log_in_practice,
+author = {Heule, Stefan and Nunkesser, Marc and Hall, Alexander},
+title = {HyperLogLog in Practice: Algorithmic Engineering of a State of the Art Cardinality Estimation Algorithm},
+year = {2013},
+isbn = {9781450315975},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2452376.2452456},
+doi = {10.1145/2452376.2452456},
+abstract = {Cardinality estimation has a wide range of applications and is of particular importance in database systems. Various algorithms have been proposed in the past, and the HyperLogLog algorithm is one of them. In this paper, we present a series of improvements to this algorithm that reduce its memory requirements and significantly increase its accuracy for an important range of cardinalities. We have implemented our proposed algorithm for a system at Google and evaluated it empirically, comparing it to the original HyperLogLog algorithm. Like HyperLogLog, our improved algorithm parallelizes perfectly and computes the cardinality estimate in a single pass.},
+booktitle = {Proceedings of the 16th International Conference on Extending Database Technology},
+pages = {683–692},
+numpages = {10},
+location = {Genoa, Italy},
+series = {EDBT '13}
+}
+
+@inproceedings{kong2019_mining_android_crash_fixes,
+  title={Mining Android Crash Fixes in the Absence of Issue- and Change-Tracking Systems},
+  author={Kong, Pingfan and Li, Li and Gao, Jun and Bissyand{\'e}, Tegawend{\'e} F and Klein, Jacques},
+  booktitle={The 28th ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2019)},
+  year={2019}
 }
 
 @INPROCEEDINGS {taicpart2020_accepted_papers_my_fast_abstract_until_ieee_upload_my_paper,
@@ -2320,6 +2382,26 @@ series = {CODASPY ’19}
     note = {Retrieved 2018-Oct-18}
 }
 
+@online{burke2014_wayne_chang_interview,
+  title = {Wayne Chang, Crashlytics co-founder and Twitter developer lead},
+  url = {https://www.siliconrepublic.com/play/the-interview-wayne-chang-crashlytics-co-founder-and-now-twitter-developer-lead},
+  author = {Elaine Burke},
+  year = {2014},
+  publisher = {{Silicon Republic}},
+  quotes = {
+    The product was built for developers to let them know what caused their apps to crash, down to the line of code.
+    Chang was heavily involved in the creation of Twitter Fabric and, for him, developers will always be at the heart of his concerns. One feature he highlighted was the way in which Twitter Fabric uses Crashlytics data in a way that saves developers from information overload or “analysis paralysis”.
+  }
+}
+
+@online{chang2015_how_six_people_built_crashlytics,
+  title = {The inside story of Answers: How six people built the number one most popular mobile analytics tool in just a few months},
+  url = {https://chang.com/how-six-people-built-the-2-mobile-analytics-tool-in-just-a-few-months-full-article/index.html},
+  author = {Wayne Chang},
+  year = {2015},
+  note = {Retrieved 2020-Dec-23},
+}
+
 @online{exodus_privacy_project,
    title = {exodus},
    key = {exodus privacy project},
@@ -2366,6 +2448,21 @@ series = {CODASPY ’19}
   author = {Richard J. Kinch {Phd}},
   year = {1999},
   organization = {{TrueTeX}},
+}
+
+@online{littledata2020_google_analytics_doesnt_match_shopify,
+  title = {Why your Google Analytics data doesn't match your Shopify data},
+  url = {https://drive.google.com/file/d/1VTxaih8TVZ9V9hLekKVEgmHP55JdeoB4/view},
+  year = {2020},
+  key = {Littledata},
+  organization = {Littledata},
+  sections = {
+    1. Top 6 reasons for innacuracy[sic],
+    2. How a data mismatch damages your bottom line,
+    3. Comparing different tracking methods,
+  },
+  note = {The guide appears to be incomplete.},
+  urldate = {2020-12-28},
 }
 
 @online{noyb2020_noyb_files_complaint_against_apples_tracking_code_idfa,
@@ -2583,6 +2680,25 @@ https://github.com/Displayr/flipTime/graphs/contributors
   quote_1 = {Do more with your logs. Structured data, events, context, timings, metrics? We've got you covered.},
   quote_2 = {User Context. Always know which user generated which log with automatic user context.},
   quote_3 = {Tail a user},
+}
+
+@online{twitter2015_edsolovey_handling_5B_sessions_a_day_in_real_time,
+	title = {Handling five billion sessions a day – in real time},
+	url = {https://blog.twitter.com/engineering/en_us/a/2015/handling-five-billion-sessions-a-day-in-real-time.html},
+	urldate = {2017-10-16},
+	author = {@edsolovey},
+	year = {2015},
+	organization = {{Twitter}},
+	file = {Handling five billion sessions a day – in real time:/Users/julianharty/Library/Application Support/Zotero/Profiles/4slbw694.default/zotero/storage/DXUH8T5P/handling-five-billion-sessions-a-day-in-real-time.html:text/html}
+}
+
+@online{twiterdev2015_a_deep_dive_into_the_answers_backend,
+  title = {Twitter Flight 2015 - A Deep Dive into the Answers Backend by Ed Solovey},
+  url = {https://youtu.be/G1LrMXR3Zko},
+  year = {2015},
+  urldate = {2020-12-27},
+  author = {{Twitter Developers}},
+  abstract = {Answers is a real-time, opinionated mobile analytics product. In the 15 months since its public launch, Answers has grown to be one of the most widely adopted mobile analytics SDK's. Today it links over a million events per second, and every day processes more than 6 billion mobile app sessions across tens of thousands of mobile apps. This talk will briefly introduce the product and go over some of the back-end architecture design that helps us scale it to these volumes: stream/batch processing, probabilistic data structures, intelligent event grouping during stream processing, tailored key-value schemas, and sampling.},
 }
 
 @online{zipternet_github,

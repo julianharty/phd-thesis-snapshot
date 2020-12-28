@@ -63,7 +63,44 @@ Examples:
 \begin{itemize}
     \item Fabric Crashlytics, batching and caps/limits.
     \item Mozilla Glean telemetry.
+    \item MQTT~\citep{adil2020_sending_logs_from_flutter_apps}
+
+    
 \end{itemize}
+
+Wayne Chang, one of the co-founders of Crashlytics, wrote about the genesis of Crashlytics from 2011 to 2013~\citep{chang2015_how_six_people_built_crashlytics}. The started was created to develop ``an SDK that would make it easier for app developers to uncover why their apps were crashing." %They realised their SDK also collected normal analytics data.
+Twitter acquired the startup, their first of the acquisitions of Crashlytics. Once they knew their crash reporting library met the needs of developers they devised a mobile analytics that would provide answers to developers of mobile apps. They called the mobile analytics product: ~\emph{Answers}. Their product became a tremendous success with developers, and `Answers' grew to handling 5 billion events every day, in real-time, within 7 months of the launch of the service~\citep{chang2015_how_six_people_built_crashlytics, twitter2015_edsolovey_handling_5B_sessions_a_day_in_real_time}. These became integrated in a service called \href{https://fabric.io}{fabric.io}~\footnote{Now owned and operated by Google~\url{https://firebase.google.com/}.} One of the goals of Fabric was to use \emph{``Crashlytics data in a way that saves developers from information overload or “analysis paralysis”."}~\citep{burke2014_wayne_chang_interview}. 
+% https://www.siliconrepublic.com/play/the-interview-wayne-chang-crashlytics-co-founder-and-now-twitter-developer-lead
+
+%%% More material available at the following if it's worth expanding this topic.
+% https://twitter.com/answersio "Answers is the analytics engine that powers the Fabric platform."
+% https://thenextweb.com/twitter/2014/07/15/crashlytics-answers/
+% https://youtu.be/G1LrMXR3Zko Twitter Flight 2015 - A Deep Dive into the Answers Backend by Ed Solovey
+% Part of Twitter Flight 2015 - Mobile Track https://www.youtube.com/playlist?list=PLFKjcMIU2WsjRto4UpcU_k3ESIY-XOSi6
+
+
+\section{Designing the analytics platform}
+When Twitter owned and operated Crashlytics their service handled five billion sessions per day in 2015. They designed designed the device to server communication to reduce the bandwidth and network usage and batched the data. They stored the events of the device until it was safely transmitted. And to minimise latency of the data arriving various client-side triggers attempted to send data quickly yet without adversely affecting the user-experience~\citep{twitter2015_edsolovey_handling_5B_sessions_a_day_in_real_time}.
+
+In a video recording on YouTube~\citep{twiterdev2015_a_deep_dive_into_the_answers_backend}, the same employee Ed Solovey, describes how they designed the backend architecture of their online analytics service, Answers, at Twitter's conference `Twitter Flight 2015'. This conference was aimed at developers, and this talk one of six they provided in the Mobile Track.
+
+\begin{itemize}
+    \item Lambda Architecture included parallel batch and realtime layers. The realtime layer was covered in this YouTube talk.
+    \item Ideal: linear scaling in \# of events, together with key challenges: 
+    \begin{itemize}
+        \item Daily Active Users - Cardinality: They needed a set that holds millions of members,
+        \item Retention - Set membership: They needed multiple sets that hold thousands of members each: these were calculated for D30, D7, and D1 (30, 7 and 1 day) daily active usage,
+        \item Session Duration - Median of millions of data points. They needed a sorted list of millions of data points.
+    \end{itemize}
+    \item Probabilistic Data Structures: a very small tradeoff in accuracy loss to provide a huge gain in space or time complexity. They wanted space savings:
+    \begin{itemize}
+        \item \emph{Hyper Log Log}~\citep{flajolet2007_hyper_log_log, heule2013_hyper_log_log_in_practice} which they used to track daily active users. It uses \nth{1000} of the space of a brute force approach. The loss in accuracy is less than 1\%.
+        \item \emph{Bloom Filter} is used to track retention and set membership. It uses \nth{100} of the memory with less than 1\% error rate. The calculation is much more granular than tracking daily active users and therefore the reduction in memory use is smaller,
+        \item \emph{Session Duration} - they created their own algorithm which reduced memory use to \nth{500} of the brute force approach, with less than 1\% error rate.
+    \end{itemize}
+    
+\end{itemize}
+
 
 
 \subsection{Visual (GUI-level) analytics}
