@@ -117,6 +117,30 @@ From various online discussions~\footnote{Examples of discussions on iOS crash l
 The iOS analytics include some of the reporting and analysis provided by Google in the Google Play Store tools, for instance~\emph{``...how crashes break down across OS versions and different devices"}~\cite{apple2020_how_to_review_your_apps_crash_logs}. Their reports currently lack some of the more sophisticated reporting that Google Play and Android Vitals provide. Nonetheless, sufficient raw elements are available to developers to enable them to discover crashes and memory issues from end users in order to address these. Apple also launched Feedback Assistant in 2019 with the aim of enabling people to submit effective bug reports using either an app or a website~\cite{appledeveloper2020_bug_reporting_feedback_assistant_for_developers}. Authorised members of the app's development team can access and review the feedback reports using similar tools~\cite{appledeveloper2020_bug_reporting_feedback_assistant_for_developers}.
 
 
+\subsection{Dynamics of sizes of development teams}
+Source \url{https://twitter.com/GergelyOrosz/status/1345288831029956610}
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c}
+        Mobile app team size &Percent  \\
+        Up to 5 devs &53.5\% \\
+        5-20         &25.9\% \\
+        More than 20 &8.9\% \\
+        More than 50 &11.6\% \\
+    \end{tabular}
+    \caption{Native app mobile development team size~\citep{gergelyorosz2021_twitter_mobile_app_poll}}
+    \label{tab:gergelyorosz_twitter_team_size_survey_02_jan_2021}
+\end{table}
+
+A twitter survey that finished on \nth{2} January 2021 had 818 votes; the results are shown in Table~\ref{tab:gergelyorosz_twitter_team_size_survey_02_jan_2021}. 
+%
+Companies with more than 20 engineers include: Uber (100+), % Why is the Uber App So LArge?? https://www.youtube.com/watch?v=zmeCYiD0hnE 
+WayFair (100+), Gojek Indonesia (80+ on Android, iOS similar), % 50M+ downloads, 3M6 ratings, a super-app https://play.google.com/store/apps/details?id=com.gojek.app 
+Twitter (70+ for iOS, 70+ for Android), Rappi (70 android, 60 iOS), iFood (50+ Android consumer app), Android music app (50+ per mobile platform), Target (80), BumbleEng (40 Android devs, similar for iOS), Xing (30+ for Android), Skyscanner (`~30 per platform'), Garmin (about 30 per platform, excluding those working on internal libraries), `>50 Mercado Libre | nasdaq: Meli', Just Eat (20+ per platform), hotels.com have several subteams - Expedia estimated at 50 per platform, `many native devs at Walmart', unnamed enterprise app 40 Android app developers, 80\% via agencies, `At 
+@Falabella\_India we are 29 engineers working on Falabella ecommerce app. 12 are Android Engineers, 13 are iOS Engineers and 4 are QA Engineer.', N26 (`more than 20 ios/android engineers'), 19 in total at thecodeside.com, SoundCloud (`under 20 if you count per platform')~\citep{gergelyorosz2021_twitter_mobile_app_poll}.
+
+
 \subsection{Quis custodiet ipsos custodes?}
 \url{https://en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F}
 Who watches the watchers? The app store is all powerful, promoting one app, demoting or even blocking another. What it reports is expected to be taken on trust. And who has time or resources to check or verify the veracity of what is being reported and to whom? 
@@ -134,7 +158,7 @@ Fail Early has bee argued as a helpful policy in various contexts MUST-DO expand
 
 In contrast a lukewarm, and sometimes expedient approach, is where developers add minimalist \texttt{try\{\}...catch\{\}} handlers to wrap the code that may throw an exception. These exceptions are no longer `unhandled' however nor are they adequately handled in terms of the application providing error management, or attempts to recover from the error, or informing the user of a problem that's occurred, and so on. MUST-DO provide some code snippet examples and analysis of the prevalence of the use of this approach.
 
-COULD-DO link to OkHttp 2.0 documentation on RxJava and error handling.
+COULD-DO link to OkHttp 2.0 documentation on RxJava and error handling. MUST-DO add the OkHttpv3 example from the large case study in the relevant section, then discuss the example here.
 
 Failure rates include: unhandled exceptions, ANRs, and errors. Errors include: handled exceptions that are recovered from, caught exceptions, logic errors, calculation and content errors, and many others. 
 
