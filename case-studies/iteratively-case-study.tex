@@ -67,25 +67,28 @@ These topics were chosen to help Iteratively with planning their product roadmap
     \small
     \setlength{\tabcolsep}{4pt} %% default is 6pt
     %% With thanks to http://tex.my/how-to-deal-with-wide-tables/ for the \tabcolsep tip
-    \begin{tabular}{lrrrrrrrrrr}
-         &A  &B  &C  &D  &E  &F  &G  &H  &I  &J \\
+    \begin{tabular}{lr|rrrrrrrrrrrrr}
+    % SHOULD-DO Added column span over the participants, reduce the heavy lines on the table.
+                     &Sum &A  &B  &C  &D  &E  &F  &G  &H  &I  &J &K &L &M\\
     \hline     
-    Testability          &3  &3  &3  &1  &   &3  &3  &1  &5  &3 \\
-    Audit SDK            &   &2  &   &   &2  &2  &3  &1  &2  &1 \\
-    Metrics              &   &   &   &   &   &1  &   &   &   &  \\
-    Property library     &1  &3  &3  &2  &3  &2  &1  &   &   &1 \\
-    Health Dashboard     &2  &   &2  &   &3  &   &2  &2  &   &2 \\
-    Alerting             &3  &2  &   &2  &   &2  &   &4  &   &3 \\
-    Data Pipeline        &1  &   &2  &   &2  &   &1  &2  &3  &  \\
+    Testability         &29 &3  &3  &3  &1  &   &3  &3  &1  &5  &3 &  &3 &1\\
+    Audit SDK           &24 &   &2  &   &   &2  &2  &3  &1  &2  &1 &3 &3 &5\\
+    Metrics             &5  &   &   &   &   &   &1  &   &   &   &  &  &1 &3\\
+    Property library    &18 &1  &3  &3  &2  &3  &2  &1  &   &   &1 &1 &1 & \\
+    Health Dashboard    &16 &2  &   &2  &   &3  &   &2  &2  &   &2 &2 &  &1\\
+    Alerting            &17 &3  &2  &   &2  &   &2  &   &4  &   &3 &  &1 & \\
+    Data Pipeline       &16 &1  &   &2  &   &2  &   &1  &2  &3  &  &4 &1 & \\
          
     \end{tabular}
     \caption{10 dots voting Iteratively market research}
     \label{tab:10dots_voting_iteratively}
 
 \end{table}
+% My spreadsheet https://docs.google.com/spreadsheets/d/1Acti8klc6JvLu_NAR7t7cC8XdMHx-FIkfSHcqt_srwc/edit#gid=0 
 
-The first ten sets of dot votes rank the choices as follows: Testability (25), Property Library (16), Alerting (16), Audit SDK (13), Health Dashboard (13), Data Pipeline (11), and lastly Metrics (1). 
+The first ten sets of dot votes rank the choices as follows: Testability (25), Property Library (16), Alerting (16), Audit SDK (13), Health Dashboard (13), Data Pipeline (11), and lastly Metrics (1). The next three sets of dot votes cement testability as the \#1 ranking, they also bump up auditing the use of the SDK to second place in the rankings, and even metrics gets a boost to 5 votes in total. 
 
+With 13 sets of votes, the ranking is still volatile and the scores unlikely to be sufficiently robust to depend on. Nonetheless several indications are starting to emerge. 
 These votes indicate testability is the most desired property for designing and implementing analytics where the analytics can help shape and drive automated testing of software based on production usage characteristics. Participants who use Iteratively's services score property library highly as they have experienced the value in this capability. And scores for data pipeline are limited as some of the respondents professed they preferred alternatives to using Iteratively to provide the data pipeline. The interviews indicated that data pipelines are more important than the score indicates.
 
 The seven topics were chosen quickly and not necessarily intended to be comprehensive. One omission we discussed is the area that encompasses: privacy, Personally Identifiable Information (PII), and compliance, nonetheless these are believed to be important to Iteratively's current and potential customers and an area they are actively working on.
