@@ -99,9 +99,16 @@ In email discussions of my research in 2020 one of the leading authors in the fi
 
 
 \section{Do the concepts scale?}
-
+This research is limited to apps available in Google Play for practical reasons. Here we consider whether the approach could scale beyond Google Play for Android apps, and later whether the approach could work for other platforms.
 
 \subsection{Beyond Google Play?}
+Other Android app stores are available, particularly in China as Wang ~\emph{et al} (2018)~\cite{wang2018_beyond_google_play} describes. Of the Chinese app stores, in 2018 only 2 (Tencent Myapp, and 360 Market) provided a quality rating. Their work indicates that at least some app stores are not likely to provide stability analytics similar, or equivalent, to those Google provides in Google Play Console and Android Vitals. Developers, therefore, would need to implement any analytics into their app rather than rely on the app store. 
+
+Another major app store for Android apps is the \href{https://developer.amazon.com/apps-and-games}{Amazon appstore}, which includes `millions of devices in over 236 countries and territories'. They provide an \href{https://developer.amazon.com/settings/console/home}{amazon developer console} which offers a subset of the Google Play Console's features together with some Amazon specific product and service offerings. 
+
+Many, but not all, of Google Firebase Android SDKs are able to be used beyond Google Play. The other SDKs require Google Play services which is part of the Google Android platform. And uniquely, firebase-analytics only provides `\emph{automatic insights such as demographics are only available on devices with Google Play services.}'~\citep{firebasesupport2020_dependencies_of_firebase_sdks_on_google_play_services}. 
+
+
 
 \subsection{Beyond Android?}
 
@@ -118,9 +125,10 @@ The iOS analytics include some of the reporting and analysis provided by Google 
 
 
 \subsection{Dynamics of sizes of development teams}
-Source \url{https://twitter.com/GergelyOrosz/status/1345288831029956610}
+Development teams range from one person part-time to many people who work full time on particular mobile apps. A twitter survey that finished on \nth{2} January 2021 had 818 votes; the results are shown in Table~\ref{tab:gergelyorosz_twitter_team_size_survey_02_jan_2021}. %Source \url{https://twitter.com/GergelyOrosz/status/1345288831029956610}. 
+The author, Gergley Orosz, asked anyone with more than 20 mobile engineers to add their company name in a reply. At least 22 people did so, they follow in approximate~\footnote{As the contents of answers varied an absolute order is hard to establish.} descending order.
 
-\begin{table}[]
+\begin{table}[htbp!]
     \centering
     \begin{tabular}{c|c}
         Mobile app team size &Percent  \\
@@ -133,12 +141,16 @@ Source \url{https://twitter.com/GergelyOrosz/status/1345288831029956610}
     \label{tab:gergelyorosz_twitter_team_size_survey_02_jan_2021}
 \end{table}
 
-A twitter survey that finished on \nth{2} January 2021 had 818 votes; the results are shown in Table~\ref{tab:gergelyorosz_twitter_team_size_survey_02_jan_2021}. 
-%
-Companies with more than 20 engineers include: Uber (100+), % Why is the Uber App So LArge?? https://www.youtube.com/watch?v=zmeCYiD0hnE 
+In addition to the survey respondents with teams Companies with more than 20 engineers include: Uber (100+), % Why is the Uber App So LArge?? https://www.youtube.com/watch?v=zmeCYiD0hnE 
 WayFair (100+), Gojek Indonesia (80+ on Android, iOS similar), % 50M+ downloads, 3M6 ratings, a super-app https://play.google.com/store/apps/details?id=com.gojek.app 
 Twitter (70+ for iOS, 70+ for Android), Rappi (70 android, 60 iOS), iFood (50+ Android consumer app), Android music app (50+ per mobile platform), Target (80), BumbleEng (40 Android devs, similar for iOS), Xing (30+ for Android), Skyscanner (`~30 per platform'), Garmin (about 30 per platform, excluding those working on internal libraries), `>50 Mercado Libre | nasdaq: Meli', Just Eat (20+ per platform), hotels.com have several subteams - Expedia estimated at 50 per platform, `many native devs at Walmart', unnamed enterprise app 40 Android app developers, 80\% via agencies, `At 
 @Falabella\_India we are 29 engineers working on Falabella ecommerce app. 12 are Android Engineers, 13 are iOS Engineers and 4 are QA Engineer.', N26 (`more than 20 ios/android engineers'), 19 in total at thecodeside.com, SoundCloud (`under 20 if you count per platform')~\citep{gergelyorosz2021_twitter_mobile_app_poll}.
+%%%%
+% COULD-DO cross-reference the development teams with their apps, possibly in tabular format to see if there's a pattern between team size and approximate userbase of the app. Note unless the actual active user counts are available they would need to be estimated based on the installation buckets Google Play Console provides. As I've discovered these counts vary significantly so we'd need to guesstimate and provide error-bars. A bubble chart might be useful.
+
+% Also, COULD-DO For the 107 Android apps we reviewed post Shonan #152, are there any patterns between the use of Firebase Analytics and the active developer userbase?
+
+Many of these large teams will have apps that include crash and in-app analytics, and they are likely to have multiple people accessing and using analytics reports. They may include multiple people contributing code related to using the respective crash and in-app analytics APIs which may lead to gaps and inconsistencies in the application of these tools unless the entire team works hard to maintain consistency in their practices. Tools, such as those provided by Iterative.ly (a tool vendor introduced in one of the case studies in this thesis) aim to help provide coherence, clarity and consistence in the use of mobile analytics. Software development style guides, software quality utilities, and productive code reviews, may also help to establish, maintain and even improve the practices. In the opensource projects evaluated in one of the case studies \textbf{MUST-DO} write that up and extend this section... the developers were found to update their use of mobile analytics for logging less frequently than other aspects of their code.
 
 
 \subsection{Quis custodiet ipsos custodes?}
@@ -299,9 +311,6 @@ Users are not the only people who many abandon apps, developers do so too. By th
 \subsection{The Reaper Cometh}
 AppBrain is a business that actively monitors and reports on Android Apps in the Google Play Store. The business was founded by two other ex-Google engineers. They state Google is actively culling Android apps from the Google Play store and estimate approximately 16\% of apps are \emph{"low quality apps"} and \emph{"unlikely to be useful"}~\footnote{\url{https://www.appbrain.com/stats/number-of-android-apps}} % Percentage of low quality apps: 16%
 
-
-\subsection{Other Android App Stores?}
-Note: this research is limited to apps available in Google Play for practical reasons. Other Android app stores are available, particularly in China as Wang ~\emph{et al} (2018)~\cite{wang2018beyond} describes. Of the Chinese app stores, in 2018 only 2 (Tencent Myapp, and 360 Market) provided a quality rating. 
 
 \subsection{Applicability to Other App Stores?}
 App Stores were popularised for mobile apps for Android, iOS, and other smartphone platforms now extinct (\emph{e.g.} Windows Mobile), even if App Stores existed several years before smartphones did. % COULD_DO cite early versions of the Mobile Developer's Guide to the Galaxy, etc.
