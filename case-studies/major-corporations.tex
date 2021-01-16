@@ -26,13 +26,38 @@ Android Vitals provides a unique source of information, on ANR errors. Microsoft
 
 Blind spots exist, as do inconsistencies in the various end-to-end data collection and reporting in each analytics offering. 
 
+
+
 \subsection{Uber}
 MUST-DO write up notes from 14-Jan-2021.
 
 Cite various recent public articles and videos on Uber's engineering practices and team size.
 
-\subsection{TODO}
-Migrate the material on engineering team sizes to this area of the case studies. Gergely's twitter survey findings.
+
+\subsection{Dynamics of sizes of development teams}
+Development teams range from one person part-time to many people who work full time on particular mobile apps. A twitter survey that finished on \nth{2} January 2021 had 818 votes; the results are shown in Table~\ref{tab:gergelyorosz_twitter_team_size_survey_02_jan_2021}. %Source \url{https://twitter.com/GergelyOrosz/status/1345288831029956610}. 
+The author, Gergley Orosz, asked anyone with more than 20 mobile engineers to add their company name in a reply. At least 22 people did so, they follow in approximate~\footnote{As the contents of answers varied an absolute order is hard to establish.} descending order.
+
+\begin{table}[htbp!]
+    \centering
+    \begin{tabular}{c|c}
+        Mobile app team size &Percent  \\
+        Up to 5 devs &53.5\% \\
+        5-20         &25.9\% \\
+        More than 20 &8.9\% \\
+        More than 50 &11.6\% \\
+    \end{tabular}
+    \caption{Native app mobile development team size~\citep{gergelyorosz2021_twitter_mobile_app_poll}}
+    \label{tab:gergelyorosz_twitter_team_size_survey_02_jan_2021}
+\end{table}
+
+In addition to the survey respondents with teams Companies with more than 20 engineers include: Uber (100+), % Why is the Uber App So LArge?? https://www.youtube.com/watch?v=zmeCYiD0hnE 
+WayFair (100+), Gojek Indonesia (80+ on Android, iOS similar), % 50M+ downloads, 3M6 ratings, a super-app https://play.google.com/store/apps/details?id=com.gojek.app 
+Twitter (70+ for iOS, 70+ for Android), Rappi (70 android, 60 iOS), iFood (50+ Android consumer app), Android music app (50+ per mobile platform), Target (80), BumbleEng (40 Android devs, similar for iOS), Xing (30+ for Android), Skyscanner (`~30 per platform'), Garmin (about 30 per platform, excluding those working on internal libraries), `>50 Mercado Libre | nasdaq: Meli', Just Eat (20+ per platform), hotels.com have several subteams - Expedia estimated at 50 per platform, `many native devs at Walmart', unnamed enterprise app 40 Android app developers, 80\% via agencies, `At 
+@Falabella\_India we are 29 engineers working on Falabella ecommerce app. 12 are Android Engineers, 13 are iOS Engineers and 4 are QA Engineer.', N26 (`more than 20 ios/android engineers'), 19 in total at thecodeside.com, SoundCloud (`under 20 if you count per platform')~\citep{gergelyorosz2021_twitter_mobile_app_poll}.
+%%%%
+% COULD-DO cross-reference the development teams with their apps, possibly in tabular format to see if there's a pattern between team size and approximate userbase of the app. Note unless the actual active user counts are available they would need to be estimated based on the installation buckets Google Play Console provides. As I've discovered these counts vary significantly so we'd need to guesstimate and provide error-bars. A bubble chart might be useful.
+
 
 \subsection{Some observations in common}
 For the larger corporations where the multiple engineering teams combine to develop, maintain and operate mobile apps multiple sources of analytics are used. These often include a mix of external commercial services together with at least one proprietary logging and analytics service. In these examples the organisations see the benefits of integrating their various analytical sub-systems and invest significantly to integrate and streamline the various sources to enable and facilitate consistent reporting across products, platforms, and apps.
