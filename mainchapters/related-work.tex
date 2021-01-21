@@ -25,6 +25,7 @@ The following hierarchical list includes topics I plan to include in this chapte
     \begin{itemize} 
         \item ISO standards
         \item Software defects, faults and failures~\hyperlink{defects.faults.failures}{\emph{link}}
+        \item Bug investigation and localisation
         \item QoE: Quality of Experience
         \item Classic references e.g. Phadke~\citep{phadke1995_quality_engineering_using_robust_design} and perhaps Non-functional requirements in Software Engineering? 
         \item relevant / related academic research in my field
@@ -146,12 +147,47 @@ Poor reliability damages the trustworthiness and credibility of software, Ian So
 
 The main software quality my research investigates is reliability as measured through counting and analysing crashes of mobile apps. While these might seem to be mundane compared to more attractive topics such as user experiences, poor reliability can undo the success of an otherwise attractive and performant software application. As Bavota~\emph{et al} observe in~\cite{bavota2014_impact_of_api_change_android} ~\emph{``users easily get frustrated by repeated failures, crashes, and other bugs; hence, they abandon some apps in favor of their competition."} Also app crashes are one of the the three most frequent complaints (together with functional errors and feature requests) found by (\cite{khalid2015_what_do_mobile_app_users_complain_about}) in their studies of 6,390 low-rated user reviews for 20 free to download iOS apps. And from a practical perspective Google states \emph{``Fixing issues can lead to a better user experience, higher ratings, and more retained installers."} in their pre-launch reports.
 
-Crashes adversely affect reliability.
+Crashes adversely affect reliability. They also increase the risk of users abandoning a mobile app~\citep{dimensionalresearch2015_mobile_app_use_and_abandonment}. Development teams need ways to manage risks, they also need ways to conceptualise and personalise risks according to~\citep{pfleeger2000_risky_business}. In a set of handouts paraphrases the description of risk management elegantly as \textit{``Plans to avoid these unwanted events or, if they are inevitable, minimize their negative consequences."}~\citep{amland2002_slides}~\footnote{Note: these slides are based on by a similar peer-reviewed paper of a case study that applied risk-based testing in a financial [non-mobile] application~\citep{Amland_2000_rbt_financial_case_study}.}
 
 
 %\yijun{Logically I don't see the connection between quality facets => quality (general) => reliability (facet) again, perhaps you want to add some transitions so readers can follow the thoughts.}
 
 Crash data is impersonal and oft requested and collected by operating systems and applications. For instance, when an Apple operating system is updated users are asked a couple of questions including whether they are willing to share crash data with Apple and with developers [of apps].
+
+\textbf{Bug investigation and localisation}: A failure, such as a crash, provides a data point. A challenge of interest to both research and industrial practice is to learn enough about the failure to be able to make an actionable decision. Bug investigation and fault localisation 
+are critical activities where participants frequently have various constraints they need to work within including the time they have available, the return on investment of each stage of their work, and so on.
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.5\textwidth]{images/mobile-analytics-playbook/TBS.png}
+    \caption{TBS diagram, originally in~\citep{harty_aymer_playbook_2016}}
+    \label{fig:my_tbs_diagram}
+\end{figure}
+
+% c.f. T.B.S. Jon Bach
+Bug investigation takes time and incurs various costs, with rare exceptions it is not done voluntarily. Repurposing and generalising Jon Bach's work on a concept he devised called ``TBS" metrics and reproduced below:
+
+“TBS” metrics. Test design and execution means scanning the product and looking for problems. Bug investigation and reporting is what happens once the tester stumbles into behavior that looks like it might be a problem. Session setup is anything else testers do that makes the first two tasks possible, including tasks such as configuring equipment, locating materials, reading manuals, or writing a session report."~\citep{bach2000_sbtm}
+
+Software Design and Development encapsulates the work developers of mobile apps \emph{intend} to do to create and improve mobile apps. Bug investigation and reproduction describes their focus when they are involved in understanding failure of their app. And session setup is anything else they need to do to make the first two tasks possible. Perhaps \emph{``DBS" metrics} would be a useful complement to ``TBS" metrics?
+
+One of the arguments Jon Bach makes in various presentations is to maximise the T and minimise the B.S. This is illustrated in Figure~\ref{fig:my_tbs_diagram}.
+
+% If practical include examples of Jon's squiggle diagrams, e.g. see slide 15 in  https://www.slideshare.net/TechWellPresentations/exploratory-testing-is-now-in-session
+
+As many practitioners know, time spent investigating and addressing failures and related flaws in the code is time that is not available to work on features or other new stuff. As I discovered in one case study in particular, the development team may choose to only fix failures they perceive as easy to find and fix. One of the open challenges is to reduce the perceived and actual effort developers need to apply to address runtime failures in their mobile apps. 
+%
+Perhaps application of mobile analytics can improve bug investigation and bug localisation? 
+
+
+
+MUST-DO continue by writing about \citep{avizienis2004_basic_concepts_and_taxonomy}.
+
+
+Diagnosis:
+
+Repair: where the effort is materially less than the benefits that result from the repair. 
+
 
 One of the measures applied here is using \emph{relative correctness}, a concept introduced in~\cite{diallo2015_correctness_and_relative_correctness}, ~\emph{``the
 property of a program to be more-correct than another with respect to a given specification"}. The authors believe using relative correctness as a concept leads to simpler programs enhanced  in steps. This approach, of stepwise correctness-enhancing transformations, may be useful and productive in terms of using mobile analytics to improve the quality of software, and in particular the mobile apps used in our case studies. 
