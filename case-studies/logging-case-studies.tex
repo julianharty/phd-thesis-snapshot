@@ -14,12 +14,42 @@ Logging orients to line-item details and analytics to patterns in what has been 
 \textit{This subsection is to remind me of my various sources for this case study. This entire subsection needs removing once I've done so.}
 \begin{itemize}
     \item My draft paper on improving logging.
-    \item The NIER 2021 paper, under review currently.
+    \item The MOBILESoft 2021 paper, under review currently.
     \item Various notes in `Notes' on my macbook account.
     \item Bits and pieces related to Shonan Meeting 152. The report provides a useful reminder. Note, for my hysteresis concept we can also add the adaption and application of enterprise tools e.g. using ELK stack.  
 \end{itemize}
 
 %After covering various aspects of logging in proprietary apps and codebases, this section addresses three topics with a common focus on logging and logging tools available in opensource projects. It covers two aspects, with a subsequent discussion on the design and testing of logging:
+
+As we learn to program we also enjoy seeing the program output things to show it's doing something under our control, when we run the program we see messages being output, when we don't run it, we don't - concomitant variation in action!~\citep{mill1884system}. Listing~\ref{code:basic_example} is a representative example of the sort of program some of us would have written in BASIC, equivalent output statements exist in many programming languages. Examples to say `Hello World' are available in 28 programming languages~\citep{helloworld2017}. 
+
+% https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted
+\begin{listing}
+\caption{A representative first BASIC program} \label{code:basic_example}
+\begin{minted}{basic}
+10 cls
+20 print "Hello, world!"
+30 sleep
+40 end
+\end{minted}
+Source: \href{https://en.wikibooks.org/wiki/BASIC_Programming/Beginning_BASIC/Your_First_Program}{en.wikibooks.org/wiki/BASIC\_Programming/Beginning\_BASIC/Your\_First\_Program}
+\end{listing}
+
+Programmers continue to write and use output statements to observe aspects of what a program is doing, the values of variables, and so on. This includes programmers who develop mobile apps. They can use core components in a programming language, such as a \texttt{printf\{'...'\}} statement, logging libraries, such as \texttt{Log.w\{'...'\}} from the core \mintinline{java}|Android.util.Log|
+library, custom logging libraries such as timber, and proprietary libraries. They can also use Mobile Analytics libraries for logging purposes which is what led to this case study.
+% https://tex.stackexchange.com/questions/45756/inline-code-and-short-verb-with-minted
+
+Mobile platforms include an operating system that runs on the device; both Android and iOS are based on UNIX. UNIX includes three standard terminal I/O devices: \texttt{stdin}, \texttt{stdout}, and \texttt{stderr}. Of interest here are \texttt{stdout} and \texttt{stderr} which are both output devices, that output text and errors respectively. Developers can therefore use these in their programs, albeit the platform providers (Google and Apple) recommend developers use logging libraries instead. These I/O devices can be redirected the log files on the devices as various people note.
+
+\textbf{Android} includes: comparing ways to redirect \texttt{stdout} to logcat [the standard Android log]~\citep{krysmanski2012_so_redirect-stdout-to-logcat-in-android-NDK, rcdailey2018_ndk_redirect_to_logcats}, and an elegant solution for native code is described in~\citep{tsiombikas2014_native_NDK_stdio_to_android_log}.
+
+\textbf{iOS} includes: 
+
+By default the output of programs are local to the computer the program runs on. This characteristic limits the ability for programmers to observe or analyse the outputs, they need to be local and see the logs as they are generated. 
+%
+When programs run remotely from the developer they cannot see the logs directly. Many tools exist for collecting and analysing logs from servers and systems, conversely few tools exist to obtain logs from end-user device, which include their smartphones and tablets. Nonetheless, runtime logs are still of interest to developers of mobile apps both for local debugging (generally pre-release) and for remote analysis.
+
+
 
 \subsection{How do developers of opensource Android apps use Firebase Analytics?}
 \begin{enumerate}
