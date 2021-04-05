@@ -10,16 +10,68 @@ This leads to several related questions that underpin this main question \emph{i
 
 \akb{There are a lot of sub-questions below. You will need to focus on the ones you have data to evaluate, or have more abstract formulations that cover groups of sub-questions.}
 
-\yijun{If possible, you may need to dig out a few MobileSoft research papers to give evidence that these research questions have not been addressed in literature, e.g., 
-@inproceedings{inproceedings,
-author = {Nagappan, Meiyappan and Shihab, Emad},
-year = {2016},
-month = {03},
-pages = {21-32},
-title = {Future Trends in Software Engineering Research for Mobile Apps},
-doi = {10.1109/SANER.2016.88}
-},
-whether the future work of some paper suggests one does not know the sources, value, or impact of mobile analytics to assess and improve app quality? Is there nothing in the general SE literature studying the "analytics" to "general software quality" problem? If there are such general work, how does "mobile analytics" and "app quality" differentiate the RQs to existing ones...}
+\yijun{If possible, you may need to dig out a few MobileSoft research papers to give evidence that these research questions have not been addressed in literature, e.g., \emph{Future Trends in Software Engineering Research for Mobile Apps}~\citep{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}, whether the future work of some paper suggests one does not know the sources, value, or impact of mobile analytics to assess and improve app quality? Is there nothing in the general SE literature studying the "analytics" to "general software quality" problem? If there are such general work, how does "mobile analytics" and "app quality" differentiate the RQs to existing ones...}
+
+\begin{mdframed}[style=MyFrame]
+\emph{Future Trends in Software Engineering Research for Mobile Apps}~\citep{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} focuses attention on the software development life-cycle, as illustrated in Figure~\ref{fig:nagappan2016_future_trends_in_sw_eng_for_mobile_apps_figure_1_annotated}, it does not investigate usage or operational aspects.
+
+    {\centering
+    \includegraphics[width=11cm]{images/related-work/future-trends-in-sweng-for-mobile-apps-fig-1-annotated.png}
+    \captionof{figure}{Annotated version of the framework for presenting the state-of-the-art in software engineering for mobile apps SANER2016~\citep{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}}
+    \label{fig:nagappan2016_future_trends_in_sw_eng_for_mobile_apps_figure_1_annotated}
+    } % Thanks to https://tex.stackexchange.com/a/232290/88466
+
+Mining review data for various forms of data including requests for bug fixes as is using rating as an assessment of goodness. 
+Figure~\ref{fig:nagappan2016_future_trends_in_sw_eng_for_mobile_apps_figure_2_annotated} is an annotated version of their `Figure 2'. Various sources of information can be used by the development team, of these ratings and reviews are broadly researched, whereas device-level and app-level analytics have not been previously researched.
+
+    {\centering
+    \includegraphics[width=12cm]{images/related-work/future-trends-in-sweng-for-mobile-apps-fig-2-annotated-with-highlights.png}
+    \captionof{figure}{Annotated version of the various stakeholders in the modern app store ecosystemSANER2016~\citep{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}}
+    \label{fig:nagappan2016_future_trends_in_sw_eng_for_mobile_apps_figure_2_annotated}
+    }
+
+One of the key challenges identified is restricted access to data held by the app store, and that the only way to gather historical information is to continually mine the app store on a regular basis.
+
+Are failure data potentially a form of requirements? (in a similar fashion to leveraging reviews in the app store to extract `requirements'). And similarly can complaints and failure data be combined to help developers prioritise issues they should consider addressing (the paper restricted the discussion to prioritising issues the developers should be \textit{testing} for).
+
+The authors of the paper discuss limitations they experienced, perhaps without being aware that developers of Android apps have long term access to all the reviews of their apps. Details of how developers can download these and other reports, including the data structures, are available online~\citep{google_play_download_and_export_monthly_reports}. 
+
+\emph{``Linares-Vasquez et al. [56] propose MonkeyLab, which mines recorded executions to guide the testing of Android mobile apps."}
+
+Building on a point made in this paper: \emph{``the future of app quality engineering is data driven."} % cite 97.
+
+\emph{``Thus even if the app is tested on one device, there is no guarantee that it may work on another device."} - I agree. They don't provide any substance for this statement.
+
+\emph{``The area of software maintenance is one of the most researched areas in Software Engineering. However, due to the fact that mobile apps is a young subarea within SE, the maintenance of mobile applications remains to be largely undiscovered."} - My work does investigate aspects of maintenance. 
+
+\emph{``Syer et al. [93] compares mobile apps to larger “traditional” software systems in terms of size and time to fix defects. They find that mobile apps resemble Unix utilities, i.e., they tend to be small and developed by small groups. They also find that mobile apps tend to respond to reported defects quickly."} - Check the details of what quickly means and how the teams discovered the defects.
+
+\emph{``Bavota et al. [16], show that the quality (in terms of change and fault-proneness) of the APIs used by Android apps negatively impacts their success, in terms of user ratings. Similarly, McDonnell et al. [65], study the stability and adoption rates for the APIs in the Android ecosystem."} - Skim read both these papers to determine their relevance.
+
+\emph{``Another line of work examined Android-related bug reports. Bhattacharya et al. [18] study 24 mobile Android apps in order to understand the bug-fixing process. They find that mobile bug reports are of high quality, especially for security related bugs. Martie et al. [63] analyzed topics in the Android platform bugs in order to uncover the most debated topics over time. Similarly, Liu et al. [58] detected and characterized performance bugs among Android apps."} - Looks at how the bugs were fixed and compare the practices they detected with those I'm aware of. Are platform bugs that relevant? They look at performance bugs (Android Vitals also reports performance issues, Firebase Analytics has tools for performance tracking), I'm looking mainly into reliability measurements and issues.
+
+Following on from the challenges and future directions section on maintenance research for mobile apps: do researchers focus in areas where the streetlights are rather than where the problems are? \emph{i.e.} on where they can find material to study rather than on issues that practically affect the majority of developers of apps?
+
+\emph{``One interesting line of future research is in estimating the maintenance cost for a mobile app. Currently there are just anecdotal estimates [3]."} - Skim read this paper.
+
+An opening gambit for my research: \emph{``Finally as mentioned in Section IX, there are several companies that collect operational data from mobile apps that have been installed on millions of devices. Most of these companies provide the app developers with the data and some rudimentary analysis on them. There is a wide variety of reliability and performance problems that can be solved by building tools and approaches that mine such operational data (past work has barely scratched the surface of such a problem by looking more at the server side of mobile applications than the client side [92])."}
+
+Monetization is a post-release measurement, where revenues and other business-oriented metrics are applied to consider the successfulness of a mobile app. Although the paper focuses on small development teams (see the following quote as an example) in my experience many developers have measures they use in order to assess their prior work and focus their immediate future work. 
+\emph{``In such apps where the development organization is small, often the developers will also have to make several engineering decisions that could affect their bottom line. Therefore software engineering researchers have examined how we can provide data to mobile app developers so that they can make these decisions in a more careful fashion."} This may be useful to support the bug triage process that developers use when determining which of the reliability bugs they choose to fix.
+
+\emph{``Currently there are also several analytics companies (AppAnnie [1], Quettra [9], Crittercism [6] etc.) that provide valuable usage data to developers for improving their monetization strategies. They track the downloads of apps, and how the apps are being used, when users purchase things from the app etc. These companies are able to track such user data, by incorporating tracking libraries in the mobile devices. Using this information developers are able to make smarter data driven decisions with respect to making their app more successful. However, most of these recommendations are more from a marketing perspective than software engineering perspective."}
+There's a lot to unpack here. Firstly although this topic discusses monetization strategies, the use of analytics can also help developers make smarter data driven decisions with respect to making their app more successful from a~\emph{software engineering} perspective. Secondly, the tracking libraries mentioned here are added to the app rather than to the device. 
+\begin{itemize}
+    \item AppAnnie~\citep{appannie2021}: 
+    \item Crittercism: rebranded as Apteligent, which was acquired by VMWare in 2017. A few traces remain on StackOverflow and GitHub, etc. of Crittercism's analytics products of 2015. Essentially crash reporting. Some integration into enterprise systems e.g. to Splunk.
+    \item Quettra: Acquired by SimilarWeb~\citep{techcrunch2015_quettra_mobile_analytics_acquired} their focus was described as a deep understanding of the users, which was then intended to help developers improve retention and also improve targeting of adverts.
+\end{itemize}
+
+\emph{``There has been some recent initial work in this direction where Bavota et al. [16] looked at the impact of using certain APIs on the ratings and Tian et al. [94] model a set of factors (like size of app, complexity of app and its UI, quality of the library code etc.) against the ratings. They were able to find that there is initial evidence that high rated apps have a certain DNA (certain value for various factors)."}
+
+
+\end{mdframed}
+
 
 \subsection{Sources}
 \begin{itemize}

@@ -195,6 +195,17 @@
 %\usepackage[version=0.96]{pgf}	
 				
 \usepackage{adjustbox}
+\usepackage{mdframed}               % Put a border around text that spans pages https://tex.stackexchange.com/a/36528/88466 
+\mdfdefinestyle{MyFrame}{%
+    linecolor=blue,
+    outerlinewidth=2pt,
+    roundcorner=20pt,
+    innertopmargin=\baselineskip,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=20pt,
+    innerleftmargin=20pt,
+    userdefinedwidth=14cm,
+    backgroundcolor=gray!50!white}
 
 \widowpenalty=1000
 \clubpenalty=1000

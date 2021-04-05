@@ -126,8 +126,8 @@ The iOS analytics include some of the reporting and analysis provided by Google 
 
 
 \subsection{Quis custodiet ipsos custodes?}
-\url{https://en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F}
-Who watches the watchers? The app store is all powerful, promoting one app, demoting or even blocking another. What it reports is expected to be taken on trust. And who has time or resources to check or verify the veracity of what is being reported and to whom? 
+\url{https://en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes\%3F}
+Who watches the watchers? The app store is all powerful, promoting one app, demoting or even blocking another. What it reports is expected to be taken on trust. And who has time or resources to check or verify the veracity of what is being reported and to whom? As the Editorial Board of the Financial Times proposed three rules to build trust in the use of automated algorithms in decision making~\emph{``algorithms that companies and governments deploy in sensitive areas such as healthcare, education, policing, justice and workplace monitoring should be subject to audit and comprehension by outside experts."}\citep{ft2021_building_trust_in_ai_systems_is_essential}. Given the revenues, powers and business implications of the major app stores, I believe they should also be subject to audit and comprehension by outside experts.
 
 
 \subsection{Necessary? Sufficient?}
@@ -138,7 +138,7 @@ In 2019 Menzies in his paper \emph{``Take Control: On the Unreasonable Effective
 \emph{``Specifically, the number of variables required to make predictions about SE projects is remarkably small which means that (a) most of the things we think might affect software quality have little impact in practice; (b) controlling just a few key variables can be enough to improve software quality."}
 
 \section{Trade-offs of: ``Fail Early"?}
-Fail Early has bee argued as a helpful policy in various contexts MUST-DO expand and provide examples. When developers do not write exception handlers for parts of their code, unhandled exceptions cause the app to crash when they occur. The user may be annoyed by this behaviour if the crash visibly~\footnote{Here visibility refers to the user noticing the crash and being aware of the crash adversely impacting their experience.}  affects their use of the app. The aphorism, \emph{`every cloud has a silver lining'}, may yet hold true in these circumstances provided developers become aware of the crash and choose to address it suitably, as these crashes are detected by various mobile analytics tools and platforms and then reported to the development team.
+Fail Early has been argued as a helpful policy in various contexts MUST-DO expand and provide examples. When developers do not write exception handlers for parts of their code, unhandled exceptions cause the app to crash when they occur. The user may be annoyed by this behaviour if the crash visibly~\footnote{Here visibility refers to the user noticing the crash and being aware of the crash adversely impacting their experience.}  affects their use of the app. The aphorism, \emph{`every cloud has a silver lining'}, may yet hold true in these circumstances provided developers become aware of the crash and choose to address it suitably, as these crashes are detected by various mobile analytics tools and platforms and then reported to the development team.
 
 In contrast a lukewarm, and sometimes expedient approach, is where developers add minimalist \texttt{try\{\}...catch\{\}} handlers to wrap the code that may throw an exception. These exceptions are no longer `unhandled' however nor are they adequately handled in terms of the application providing error management, or attempts to recover from the error, or informing the user of a problem that's occurred, and so on. MUST-DO provide some code snippet examples and analysis of the prevalence of the use of this approach.
 
@@ -147,6 +147,14 @@ COULD-DO link to OkHttp 2.0 documentation on RxJava and error handling. MUST-DO 
 Failure rates include: unhandled exceptions, ANRs, and errors. Errors include: handled exceptions that are recovered from, caught exceptions, logic errors, calculation and content errors, and many others. 
 
 Even \textit{if} an app catches and 'handles' every exception it may not be truly reliable \textit{i.e.} there may be various errors that occur that do not lead to a runtime exception or an ANR. As such, the measured failure rate - assuming it is accurate or undercounting - is the lower bound of the true error rate.
+
+\section{Mitigation techniques}
+
+Reduce the incidence, reduce the severity, fix if and when practical given the many constraints the team, and the individuals,  are operate under.
+
+
+Extend discussion to game theory.
+
 
 
 \section{Android Vitals}
