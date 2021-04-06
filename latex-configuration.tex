@@ -61,7 +61,7 @@
 
 % https://tex.stackexchange.com/questions/99809/box-or-sidebar-for-additional-text for the following code
 \usepackage{wrapfig}
-\usepackage{tcolorbox}
+\usepackage[many]{tcolorbox}
 \usepackage{lipsum}
 
 \newenvironment{WrapText}[1][r]
@@ -206,6 +206,12 @@
     innerleftmargin=20pt,
     userdefinedwidth=14cm,
     backgroundcolor=gray!50!white}
+
+
+\usepackage{array,tabularx,longtable,tabu}
+\usepackage{colortbl,tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{tikzmark}
 
 \widowpenalty=1000
 \clubpenalty=1000

@@ -1,39 +1,76 @@
 \section{Glossary with Abbreviations}
 
-\begin{table}
-\resizebox{\textwidth}{!}{%
-\footnotesize
-\begin{tabular}{@{}>{\bfseries}p{4.8cm}p{9.9cm}@{}}
-\small
+\newcounter{headercounter}
+\newcommand{\boxedheader}[1]{%
+  \stepcounter{headercounter}%
+  \begin{tikzpicture}[remember picture]
+  \path[thick,rounded corners=1mm,draw=gray,fill=gray!40!white,overlay]
+    (-0.2,-0.25\baselineskip) rectangle ([xshift=2mm,yshift=0.75\baselineskip]pic cs:tableright\roman{headercounter});
+  \end{tikzpicture}%
+  #1
+  \tikzmark{tableright\roman{headercounter}}\\%
+}
 
+\begin{comment}
+% This is hidden as it is a hack that doesn't work well however it does set the heading box to full width unlike the one below. However I've spent far more time on this than it justifies at this stage.
+
+\newtcolorbox{mybox}[1][]{%
+    enhanced jigsaw,
+    boxrule=0.5pt,
+    left=0pt,right=0pt,top=0mm,bottom=0mm, 
+    colback = gray!20,
+    height=2cm,
+    arc=1mm,
+}
+
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{1cm}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\begin{mybox}
+\begin{longtabu} to \linewidth {@{\,}XZ@{}}
+    \textbf{Term}  & \textbf{Description and remarks} 
+\end{longtabu}%
+\end{mybox}%
+\end{comment}
+
+\newcolumntype{Z}{>{\raggedright\arraybackslash}p{10cm}}
+
+\begin{longtabu} to \linewidth {@{\,}X[1]Z@{}} %\linewidth {@{}Xcr@{}}
+\boxedheader{\textbf{Term} & \textbf{Description and remarks} \extracolsep{\fill} } \\
 Analogue Feedback & Here, used to identify feedback from human sources. Generally this feedback is intentional \emph{i.e.} the person chooses to provide the feedback. The feedback may vary massively from one instance to another.\\
 
 Android Vitals & \\
 
-ANR & Abbreviation for \emph{Application Not Responding} \\
+ANR & Abbreviation for \emph{Application Not Responding}.\\
 
-Application~\mbox{Not Responding} & A term originated by Google to identify when an Android app stops responding to users for over 5 seconds. \\
+Application~\mbox{Not Responding} & A term originated by Google to identify when an Android app stops responding to users for over 5 seconds~\citep{google_play_view_crashes_and_ANR_errors}.\\
 
 Developer account & For the purposes of this research we use Google's concept of a Google Play Developer Account, described variously in~\cite{google_play_how_to_use_the_play_console, google_play_launch_checklist}. Developers need to register for an account, pay a one-time fee, and agree to abide by various policies, terms, and conditions. Someone who has a developer account can invite other people to share aspects of their account.\\
 
 Digital Feedback & Here used to identify feedback from running software, generated automatically. The feedback is structured and the structure generally consistent.\\
 Google Play Console & \\
 
-Error & ``An \textbf{error} is a system state that may cause a failure."~\citep{abreu2007_on_the_accuracy_of_spectrum_based_fault_localization}, based on~\citep{avizienis2004_basic_concepts_and_taxonomy} \\
+Error & ``An \textbf{error} is a system state that may cause a failure."~\citep{abreu2007_on_the_accuracy_of_spectrum_based_fault_localization}, based on~\citep{avizienis2004_basic_concepts_and_taxonomy}.\\
 
 EULA & End User License Agreement. \\
 
 Event demographics & \emph{`Percentage of events triggered by each age group and gender.'} (Source: Google Firebase Analytics tooltip).\\
 
-Failure & ``A \textbf{failure} is an event that occurs when delivered service deviates from correct service. "~\citep{abreu2007_on_the_accuracy_of_spectrum_based_fault_localization}, based on~\citep{avizienis2004_basic_concepts_and_taxonomy}\\
+Explicit Feedback &For example, in the form of reviews and comments~\citep{maalej2016_towards_data_driven_requirements_engineering}. \\
 
-Fault & ``A fault is the cause of an error in the system."~\citep{abreu2007_on_the_accuracy_of_spectrum_based_fault_localization}, based on~\citep{avizienis2004_basic_concepts_and_taxonomy}\\
+Failure & ``A \textbf{failure} is an event that occurs when delivered service deviates from correct service. "~\citep{abreu2007_on_the_accuracy_of_spectrum_based_fault_localization}, based on~\citep{avizienis2004_basic_concepts_and_taxonomy}.\\
 
-GDPR &\href{https://gdpr-info.eu/}{General Data Protection Regulation}. \\ 
+Failure Repositories &A central location in which data pertaining to failures of software is stored and managed. Notes: Definition based on a service, ~\href{https://languages.oup.com/google-dictionary-en/}{Oxford Languages}, jointly provided by Google and Oxford University Press. Mentioned but not defined in various sources including:~\citep{maalej2016_towards_data_driven_requirements_engineering}, and exemplified in~\citep{cfdr_usenix}.\\
+
+Fault & ``A fault is the cause of an error in the system."~\citep{abreu2007_on_the_accuracy_of_spectrum_based_fault_localization}, based on~\citep{avizienis2004_basic_concepts_and_taxonomy}.\\
+
+GDPR &\href{https://gdpr-info.eu/}{General Data Protection Regulation}.\\ 
+
+Implicit Feedback &Automatically collected information about software usage~\citep{maalej2016_towards_data_driven_requirements_engineering}.\\
 
 Platform &Here, a platform includes an operating system, related software resources (including APIs and services), and an ecosystem including an app store. Google Android and Apple's iOS are both mobile platforms. They run on end-user devices and capture aspects of the software that runs on those devices. Platform services can monitor apps from the time they are installed until they are removed. \\
 
-QoE & Abbreviation for \emph{Quality of Experience} \\
+QoE & Abbreviation for \emph{Quality of Experience}.\\
 
 Quality of Experience & Oft used in Mobile Telecommunications to measure network transmission characteristics. Here used so we can more easily identify and consider the quality of experiences such as \emph{User Experience}. TBD whether to focus on perceived experience as perceived by end users of an app.\\
 
@@ -43,15 +80,30 @@ Service Provider &An organisation, often commercial, which includes software, an
 
 Stability &A software quality identified initially by HP as part of their FunDex. It was subsequently used by Google to identify and measure two related indications of software failures: crashes and freezes. \\ %SHOULD_DO add references to cite both sources. 
 
-UX & Abbreviation for User Experience \\
-\end{tabular}}
-\caption{Glossary with Abbreviations}
-\end{table}
+UX & Abbreviation for User Experience. \\
+
+\caption{Glossary with Abbreviations} \\
+\end{longtabu}
+
+
+%\end{table}
 
 % Thanks to https://tex.stackexchange.com/questions/503784/how-to-arrange-tabular-in-alphabetical-order for the table formatting.
 % and to get it to fit on a page https://tex.stackexchange.com/questions/27097/changing-the-font-size-in-a-table
 % And the following to help me stop "Application Not Responding" from being split mid-word: https://texfaq.org/FAQ-wdnohyph
 % https://tex.stackexchange.com/questions/121832/breaking-words-at-the-end-of-line/121835
 %  https://tex.stackexchange.com/questions/380613/hyphenat-not-hyphenating-words-with-hyphens
+
+% Replaced the previous structure with longtabu, a package that's caused some furore in the TeX community to enable the glossary to run to several pages
+% https://tex.stackexchange.com/questions/201419/longtabu-rounded-box-in-the-header provided the main example
+% I reached the above from https://tex.stackexchange.com/questions/201387/how-to-combine-mdframed-and-tabu however I abandoned the mdframed eventually as my table was longer than a page.
+% https://sites.google.com/site/simonthelwall/home/latex provided some useful additional notes and has lots of other useful examples, including working with citations and tufte document templates.
+
+% Possible alternatives
+% If I can get my head around the following:
+% https://tex.stackexchange.com/questions/501097/split-table-on-two-pages 
+
+% Or try applying the following which will add column headings
+% https://tex.stackexchange.com/a/456976/88466 
 
 \clearpage
