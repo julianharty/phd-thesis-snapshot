@@ -212,6 +212,15 @@ Crashes adversely affect reliability. They also increase the risk of users aband
 
 Crash data is impersonal and oft requested and collected by operating systems and applications. For instance, when an Apple operating system is updated users are asked a couple of questions including whether they are willing to share crash data with Apple and with developers [of apps].
 
+Unresponsive software~\emph{e.g.} when software freezes, is also problematic and may lead to poor user experiences and apps being abandoned and uninstalled. In contrast to crashes, unresponsive software may be harder to measure unequivocally. In Android Google established the term \emph{Application Not Responding (ANR)} and imbued it with distinct measurable criteria %TODO add these.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
 \textbf{Bug investigation and localisation}: A failure, such as a crash, provides a data point. A challenge of interest to both research and industrial practice is to learn enough about the failure to be able to make an actionable decision. Bug investigation and fault localisation 
 are critical activities where participants frequently have various constraints they need to work within including the time they have available, the return on investment of each stage of their work, and so on.
 
@@ -349,7 +358,7 @@ Buse and Zimmerman wrote a short paper in 2010 which helped establish the field 
     \item Buse and Zimmermann...~\cite{buse_analytics_2010} 
     
     \item \emph{``Challenges and Benefits from Using Software Analytics in Softeam"} ICSEW 2020 \emph{``In this industry abstract, we describe the challenges and benefits of collecting feedback from customers and systems to support development cycles. In Softeam, we have performed such collection and support in four iterations by means of a software analytics platform. We describe the encountered challenges and the effects of suggested recommendations to improve the software quality of our systems on the metrics of interest."}~\cite{bagnato2020_challenges_and_benefits_from_using_software_analytics_in_softeam}. They use \url{https://github.com/q-rapids}, a ``Quality-aware rapid software development. H2020 Project (Grant no. 732253)". There are relevant publications listed at \url{https://www.q-rapids.eu/publications}.
-    \item \emph{``"} \emph{``automatically collected usage data, logs, and interaction traces could improve feedback quality and help developers understand feedback and react to it. We call this automatically collected information about software usage implicit feedback."}~\citep{maalej2016_towards_data_driven_requirements_engineering}. 
+    \item \emph{``"} \emph{``automatically collected usage data, logs, and interaction traces could improve feedback quality and help developers understand feedback and react to it. We call this automatically collected information about software usage implicit feedback."}~\citep{maalej2016_towards_data_driven_requirements_engineering}. They claim~\emph{``Thermal tracking of a user’s finger movement on touchscreens is a common approach for usage data analysis."} however I'm not aware of evidence to support this claim either from a research or a practitioner's perspective. (There's a PhD thesis on this topic published \emph{after} this paper: \href{http://usir.salford.ac.uk/id/eprint/37784/}{`Investigating the usability of touch-based user interfaces'}.
     
     \item ``A Methodology and Framework to Simplify Usability Analysis of Mobile Applications" Adding logging to a mobile apps can help developers analyse usability, reducing the effort needed
     
@@ -368,6 +377,8 @@ Buse and Zimmerman wrote a short paper in 2010 which helped establish the field 
     \item \emph{``Toward a learned project-specific fault taxonomy: application of software analytics"}~\cite{kidwell2015_toward_fault_taxonomy_application_of_software_analytics}.
     
     \item \emph{``A measurement study of tracking in paid mobile applications"}~\citep{seneviratne2015_a_measurement_study_of_tracking_in_paid_mobile_apps}. Of the trackers this paper identified, 14\% of paid apps and 11\% of free apps used trackers that provided utilities such as crash and/or bug reporting and 28\% of paid apps and 24\% free apps used trackers that provided analytics (some of these also collected information on crashes). Their process was quite involved in order for the researchers to identify the trackers, currently (in 2021) various online services including the exodus-privacy~\citep{exodus_privacy_project} and AppBrain~\citep{appbrain} provide such information for Android apps freely. Virtually everyone of the 300 participants' devices had at least one tracker incorporated into at least one app on their device. 50\% of the users had more than 25 trackers. Therefore, this research confirms tracking in mobile apps is endemic and has been performed for years. 
+    
+    \item \emph{``A Recipe for Responsiveness: Strategies for Improving Performance in Android Applications"}~\citep{nilsson2016_a_recipe_for_responsiveness_for_improving_android_apps_spotify_masters} presents some of the challenges of measuring and improving the performance of a particular, very popular Android app: Spotify~\footnote{\href{https://play.google.com/store/apps/details?id=com.spotify.music&hl=en_GB&gl=US}{Spotify: Free Music and Podcasts Streaming}.}. Several of the measurements described in the paper were later integrated into Google Play Console's Android Vitals service. The author created an additional tool that profiles the performance of UI elements and provided the results as three traffic-light indicators for: Draw, Layout, Execute. The work was well received within Spotify, however as the tool was not applied to other apps and is not available the impact of this research seems to be limited.
     
 \end{itemize}
 
@@ -542,6 +553,19 @@ Also in 2010, early papers were published on various effects of app stores on ac
     
     \item \emph{``Are apps ready for new Android releases?"}~\cite{guilardi_are_apps_ready_for_new_android_releases}. A current (2020) paper where the researchers discovered that developers are slow to revise and update their Android apps for new releases of the operating system. Some of the apps have flaws exposed when running on new versions of the operating system. For apps to retain their quality they need to be updated, new releases of the operating system are one such reason. (Releases of libraries another, new contexts of use, etc. another...).
     
+    \item \emph{``Revisiting Prior Empirical Findings For Mobile Apps: An Empirical Case Study on the 15 Most Popular Open-Source Android Apps"}~\citep{syer2013_empirical_findings_for_mobile_apps} is work from 2013 (when Google Code was still a major active public source code repository) that compares the codebases of 15 opensource mobile apps with 5 other opensource desktop/server projects. A key finding in their research includes the development process - where there are frequent releases yet the development and release processes are immature. albeit based on codebases from 2011 so a decade ago is still relevant. They ask various open-ended questions:
+    \begin{itemize}
+        \item Does such a high frequency of releases mitigate the lack of testing? 
+        \item If there are frequent releases for the mobile app, then does quality matter as much?
+        \item Is the project in a constant beta testing state? 
+        \item Does the platform provide sufficient support for building high quality apps quickly? 
+        \item Is the frequent release only influenced by the demand factor in the app store? 
+        \item Are the developers of mobile apps more skilled or do they have more resources at hand? 
+        \item Or, are mobile apps themselves less complex to develop?
+    \end{itemize}
+    
+    Perhaps the cost of failures in the app store was/is perceived to be low in the Google Play app store, at least for these 15 opensource apps? Later work investigated aspects such as the release frequency~\citep{nayebi2016release}
+    
 \end{itemize}
 
 
@@ -656,6 +680,7 @@ Their work demonstrates that usage data for several app categories was useful to
 \label{rw-mobile-analytics-papers}
 \subsection{Papers to consider}
 \begin{itemize}
+    \item \emph{``"}~\citep{parate2016_RECKON_an_analytics_framework_for_app_developers_HP_AppPulseMobile} describes how automatic instrumentation of mobile apps using mobile analytics tools including HP's App Pulse Mobile is able to help developers better understand their users. 
     \item \emph{```Bad Smells" in software analytics papers'}~\citep{menzies2019_badsmells_in_software_analytics}.
     \item \emph{Software analytics for mobile applications--insights \& lessons learned}~\citep{minelli2013_software_analytics_samoa}. Their online site is still up \url{http://samoa.inf.usi.ch/}
 \end{itemize}

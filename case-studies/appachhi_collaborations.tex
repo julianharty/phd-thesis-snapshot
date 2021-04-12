@@ -1,0 +1,205 @@
+
+
+Papers to help create automated tests with less human effort.
+http://www.cs.berkeley.edu/~wtchoi/paper/oopsla13.pdf 
+
+http://lib.ugent.be/fulltxt/RUG01/001/887/083/RUG01-001887083_2012_0001_AC.pdf (Skim until chapters 5 & 6)
+
+Feb 2016
+I've been reading about InfoStretch's products and services. Several seem relevant and of interest
+
+http://www.infostretch.com/tools/mobile-application-testing-synchro/
+
+http://www.infostretch.com/tools/application-monitoring-attesto/ (monitor, mend, mature)
+
+I thought you might be interested in comparing what they offer and how their products interface with the apps and app stores.
+
+Ciao and all the best
+
+
+Julian
+
+[Nandan Pujar] Hi Julian,
+
+Some quick updates to bring you in sync with whats happening on our side:
+
+1) The entire company is in "Customer Engagement" mode. All of us are dedicating our focus on one of the below things ONLY
+a) Market reach out - i.e engage with customers by showing them the value we can deliver immediately
+b) Delivery - i.e either at pre-engagement or post-engagement we partake scripting, playback, report verification & validation for the customers in pipeline
+c) Product hardening - i.e fixing bugs/ enhancing existing UI to delivery customer value effectively
+
+2) What are we delivering? - 
+"Data coverage" driven test automation. 
+
+2a) Whats the value prop?
+- We are picking up the core "search"/ "form input" workflows of apps (primarily in eCom & travel segments), 
+- We are researching their keywords manually (idea is to engage with them later to write plugins that can pick up these keywords from their analytics), 
+- We are creating scripts for the workflows+keyword combination
+- Scripts are also enabled with "Response time tracking" that lets us mark them fail if the response time is greater than the acceptable delays
+- We are generating playback reports on WiFi/2G/3G/4G and sharing them with customers (Sample reports are attached)
+- Reports for customers covered so far are available under this folder:
+https://drive.google.com/open?id=0Bw1LiwvI_izTWl9LNW90UGZKeUE
+- Once they engage we want them to expand:
+** Keywords
+** Flows (Data coverage ones)
+** Devices
+** Conditions
+** Regular checks on every build release
+
+Please share your views/ comments & critique on this value prop
+
+3) Why this now? How long this mode? 
+Our engagement with various VC firms are indicating that we are close to getting a term sheet if we have a few "customer wow stories". At the end of this activity a VC firm should be able to call a PO or VP Engineering to understand how they used the product & how they liked it. We need funding to progress any product dev & roadmap activities.
+
+4) What about competition research/ user stories/ use cases/ analytics driven test automation/ dev-ops around these etc.,?
+All are in pause mode right now & will be kick started with double speed as soon as the term sheets are signed.
+
+That said I will still try to make time for the InfoStretch research & let you know what I think. No time commitments though :(
+
+Regards,
+Nandan Pujar
+
+
+Nandan,
+Firstly here's some thoughts on the reports, I'll then discuss the value proposition
+
+The reports
+Separately with Mr Rao, we've discussed what duration to use to identify the tipping point where customers may become unhappy/frustrated/etc. with response times in the UI. I'm finding several research papers that might help refine the current set of figures [1]
+The red/green blocks don't tell me much - for instance I don't know how far off target the results were. e.g. if we were able to reduce delays by 0.1/0.2/0.5/1.0/.. secs how many of these test results would now pass? Perhaps a heatmap would help visualise the differences between the target and actual results? Anyway, there must be better ways to communicate more information and increase the value of the reports.
+How come all the Installs pass for PayTM? Surely if I were to download the app over 2G it'd take longer than 5 seconds purely for the download. However if you're only measuring the time taken to install the app once it's on the device then the speed of the network seems to be irrelevant (apart from possibly the OS and/or the App sending a message containing the result of the installation).
+ For Practo: what do the greyish blocks indicate?
+Generally I don't know what the scripts do or when they start and finish the measurements of time taken. As you may recall I questioned the example scripts I saw in Pradeep's pitch video where they had hardcoded delays. How confident are we that our scripts and our measurements are correct, accurate, and appropriate, and where our scripts are performant (rather than wasting time)?
+Overall providing a pass/fail condition based on time taken compared to a fairly arbitrary measurement (at least at this stage - see the first point) provides a crude performance measurement that might have some value to some people. At the moment the reports don't hint at how much to improve, what the effects of making improvements will be, etc. For me, these reports don't seem to be a compelling improvement on the state-of-practice in the industry (for those that do quite a bit of testing of their apps).
+The value proposition
+The proposition seems to be part-way towards where we'd like to be. I'm fine with having humans-in-the-loop to do things like extract keywords, etc. Assuming you're able to actively obtain and use data from the apps being used (from various sources, particularly: ratings in app stores, posts on social media, and - of course - in-app analytics) then you're able to demonstrate and test our core proposal that analytics-driven testing is tremendously valuable albeit that we're not yet able to demonstrate a high-bandwidth, automated recommendation and testing product.
+
+What I have less confidence in, is whether the proposed approach will be enough to get the testimonies demanded by the investors. You're closer to the customers, the investors, etc. than I am, so I hope you, Pradeep, etc. have good & close working relationships with customers to help align the product offerings with their needs to maximise the value they perceive in the offerings.
+
+Network Conditions: At MWC I saw that TestPlant (who create and provide the venerable EggPlant test automation software) had a branded network device intended to modify the network conditions. I'm guessing they either repainted another commercial product or have a generic network device running linux and a bunch of network rules that constrain the network. This approach has been used for a decade or more by technically competent engineers, often within a company. Even successful commercial companies generally do something similar. There's a bunch of research on flaws with the commonly used algorithms (that purport to simulate various networks and network conditions) which means these approaches seldom accurately predict the real-world behaviours. There are algorithms that do (I've discussed these with engineers working with HPE's Network Virtualization product (ex Shunra who were acquired by HP) - they do use valid algorithms, and I may be able to obtain permission to use the HPE product set - just not at the moment for various reasons.
+
+Devices: I'm encountering various strands of feedback about problems with current high-end Samsung devices. In some senses they could be treated as a distinct key platform from generic Android offered on most other devices. Working effectively on a mix of in-the-hand devices and those available over the Internet e.g. in device farms is important. Personally I think TestDroid offer the best service of the non-giants, however over time, the giants are likely to own more of the market and the others may be marginalised and/or have to rethink their business models. Data on devices is available from various sources, again in-app analytics is a great source, however Developer consoles, feedback in app stores, etc. and market data can provide enough to provide around 80% of the value (the Pareto principle seems to apply from my perspective).
+
+Flows are key - and an area where the ability to harvest data from in-app analytics may accelerate and increase the value that's provided.
+
+Final thoughts on the proposal and the business (from my elevated and remote perspective). Appachhi has done well on a modest budget. I don't yet see the 'wow' in the current offerings, I do in your concepts and ideas we discuss. The current approach and value proposition is more of an 'expert' mechanical turk service than the envisaged automated, integrated service. It's possible to improve the product-offering using HPE products and with their official support, however the current valuation and the cost of obtaining the stock limit my ability to get them involved at the moment. [We've yet to resolve issuing me the 0.5% as an example and there are significant financial implications based on the current understanding and model were more stock to be issued to non Indians AFAIK]. 
+
+I hope this feedback is timely and helpful. As ever, I'm happy to discuss with you (and Pradeep if he'd like to be involved).
+
+All the best and speak soon
+PS: Here's the [1] 
+
+\url{https://web.eecs.umich.edu/~jflinn/group/papers/mobisys15.pdf} - read about the user-perceived latency and here's one extract I've highlighted the network latency for LTE~\emph{"Figures 5 and 6 show average latencies and 95\% confidence intervals for Sudoku and Poker, respectively. For 100 ms round-trip network latency, which is the typical delay for current LTE networks, Tango reduced user-perceived latency for Sudoku by 0.6 seconds (50\%). For Poker at 100 ms network latency, Tango reduced the user-perceived latency by 1.9 seconds (68\%). Over WiFi, Tango decreased user-perceived latency for Sudoku and Poker by 0.6 seconds (53\%) and 1.9 seconds (68\%), respectively"}
+
+\url{http://www.cs.umich.edu/cse/awards/pdfs/outatime.pdf} refers to 95th percentiles for latencies on various networks of 600ms:3G, 300ms:Wi-Fi, 400ms:LTE - they refer to another earlier paper for this data. More interesting is their discussion of Mean Opinion Score (MOS) and see Figure 14 in particular - the figure is a bit small and stark, however it helps capture and communicate a key measurement and success factor for apps in my view.
+
+I think we could offer valuable insights to customers by testing their apps on instrumented Android devices. Instrumented = a custom version of Android that provides detailed data on:
+\begin{itemize}
+    \item Interactions
+    \item Battery
+    \item CPU
+    \item Memory usage
+\end{itemize}
+There have been various academic research projects where they customise the Android OS to provide various forms of Instrumentation. TaintDroid and AppScope are the main projects I'm currently aware of. They would need to be installed on particular device models. e.g. a Samsung Galaxy S3 is one of the devices used with AppScope installed AFAIK.
+
+
+The idea then is:
+\begin{itemize}
+    \item Install AppScope (and/or TaintDroid) on appropriate devices (ones that are supported by the custom OS)
+    \item Install each customer's app, in turn (don't have more than one customer's app installed for confidentiality reasons as the instrumentation can show all the running apps, etc.)
+    \item Do a bunch of testing of the installed client app and collect the data
+    \item Analyse and present that data to the client with our insights.
+    \item Invoice them for the work :)
+\end{itemize}
+Let me know what you think of this idea and how much you'd like to explore it. I can spend an appropriate amount of time providing more details, and helping remotely, etc. (if it's not a viable idea for Appachhi currently then there's little point me going into detail, etc).
+
+Thanks
+
+Julian
+
+8 Oct 2015
+Sharing: PhD & potentially public
+Nandan,
+I'd mentioned the concepts of online and offline models for automated testing. Here's an example paper that describes these approaches for 'model based testing'.
+\url{http://www.cs.tut.fi/tapahtumat/testaus08/Olli-Pekka.pdf}
+
+We can apply similar concepts for using analytics driven testing where we can use offline (batch processing) and/or online (adaptive) approaches to determining things like:
+\begin{itemize}
+    \item Do we run an existing combination of test case, device and run-time conditions (network characteristics, power setting, RAM, CPU, etc), or not?
+    \item Do we vary one or more of these factors e.g. the device to run the test on before running the test, or not?
+    \item Can software automatically generate the test script (typically in executable code) based on the inputs and machine learning algorithms we've used to process analytics data?
+\end{itemize}
+Techniques such as Orthogonal Arrays can be used to help assess the results of running permutations of tests: "Quality Engineering using Robust Design" a book by Phadke, explains what's involved and how the approach works. The idea is to run a variety of related tests, and then assess the results to determine which of the inputs/conditions affect the results. Those that don't seem to affect the results can be ignored and possibly removed from the tests - simplifying the tests and reducing the number of wasteful tests that need to be run. Another technique is using 'truth tables' and particularly \url{https://en.wikipedia.org/wiki/Karnaugh_map} 
+
+I'm glad these discussions are useful & hope we'll manage to work together in person in India soon.
+
+20 Oct 2015
+
+Pl consider the below writeup. I have replaced test-executions with test-runs
+
+---------
+
+Driving Test Automation through Mobile analytics
+
+
+
+One of the corner stone of test practices worldwide is the act of observing the app users, user behaviour, app behaviour, app run time environment & the testing+test results itself to improve testing. These types of analytics can be used by different fraternities of testing - Eg: UX testing can use user-behaviors/ heat maps, Performance testers use app environment data & so on. 
+
+
+
+One of the key uses of Analytics that Appachhi Technologies is exploring & putting to good use for our customers, is in the space of Test Automation. Test automation refers to testing that can run without human intervention. This is enabled by programming “test scripts” that can run repetitively on different builds of an app and produce app test reports. Typically test scripts are run repeatedly under different conditions* to observe the app’s behaviour (functionality, consistency & performance). The test scripts can also be run with multiple data values to observe & record the app behaviour (Data coverage). Running the same script on different devices gives Device coverage. All these variants help an app developer to assess the app’s behaviour in a near (simulated) real time environment before it hits the app store. This can identify issues that might occur post launch & minimise its impact before the launch (by fixing those issues).
+
+
+
+However the number of test-runs** that these variants create increases exponential as the number of variants increase. Eg: Lets consider that a typical eCommerce app has 25-30 app workflows that directly affect their eCommerce business***. Each of these workflows will need to be tested on an average 50 datasets. Lets assume that this app has become widely distributed & hence now runs actively on more than 400 different Android device variants. According to our research at Appachhi there are atleast 25 conditions that these workflows need to be tested under. This means the app owner can run a total of -
+
+
+
+= 30 (workflows) * 50 (datasets) * 400 (devices) * 25 (conditions)
+
+= 15 Million test-runs
+
+This is impractical for multiple reasons:
+\begin{enumerate}
+    \item Not all tests are necessary - Eg: 
+    \begin{enumerate}
+        \item Instead of running on all 40 Samsung devices we can run the tests on those unique 20 Samsung devices that sufficiently “cover”**** the Samsung base.
+        \item Similarly running all 25 condition simulation on all 400 devices is an overkill. Testing will need to be restricted to a selective set of device*condition combinations
+    \end{enumerate}
+    \item Running all tests is prohibitively expensive. Eg: Even at 10cents per test, the above testrun would cost the app owner \$500,000. Imagine running this for every build released across the year.
+\end{enumerate}
+
+This situation hence necessitates an “intelligent”, “data-driven” automation approach that can maximise the risk assesment while performing only “relevant” tests.
+
+
+
+This can be solved by using the past & current analytics of the app.
+
+
+
+Below are a few simple solutions that showcase how we use analytics to drive our customers "Automation test plans" at Appachhi.
+
+\begin{enumerate}
+    \item Rather than test the workflows on all the devices, we build a target device group (per customer) that includes their
+    \begin{enumerate}
+        \item Top X devices based on number of users (This varies dynamically almost on a daily basis)
+        \item Top Y crashing devices (this again varies in real time)
+        \item A representative set of devices chosen from our OS*ScreenSize matrix
+        \item a few more similar factors
+    \end{enumerate}
+    \item When a crash happens we test those workflows around which the crash occurred, on the device that crashed. If no root cause is established we increase condition coverage. Still if root cause is not established then increase device coverage & so on.
+\end{enumerate}
+
+With such an intelligent & analytics driven test approach business risks can be minimised while focusing the testing on what is relevant (value driven). 
+
+
+
+
+
+*conditions - lab simulations of run time environments
+
+** running a script once = 1 test-run
+
+*** Typically referred to as Critical paths of the app
+
+****Device coverage needs to take care that there is sufficient representation of OS variants/ Screen size variants & hardware variants.
+

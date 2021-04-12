@@ -1,6 +1,123 @@
 \chapter{Analytics Tools used in this research}~\label{chapter-analytics-tools}
 This chapter complements the `On Mobile Analytics` chapter. That chapter covers the key elements and concepts, this one describes the analytics tools we used during my research.
 
+\begin{itemize}
+    \item Android Vitals (integrated into Google Play Console)
+    \item AppPulse Mobile (when owned by HP)
+    \item Azetone heat mapping together with some collaboration with Appsee
+    \item count.ly
+    \item Crashlytics (when owned by Google and branded as Fabric, and briefly after it was migrated to Firebase)
+    \item Flight Recorder (now defunct)
+    \item Iteratively
+    \item Microsoft App Center
+    \item Google Firebase Analytics
+    \item Google Play Console (2018-2020 and 2020-2021 editions)
+\end{itemize}
+
+\section{AppPulse Mobile}
+
+Open API \href{https://github.com/MicroFocus/apmobile-openapiclient/blob/master/doc/AppPulse_Mobile_Open_API_Guide.pdf}{Open API Guide} and a  \href{https://github.com/MicroFocus/apmobile-openapiclient}{sample client for AppPulse Mobile's Open API}
+
+\begin{itemize}
+    \item ``...tested an hybrid application, this requires to turn a special flag in the instrumentation process, I assume it wasn’t turned on and that is the reason for not capturing some of the things." However: the \texttt{-hybrid} instrumentation flag which doesn't actually seem to exist in 1.96, perhaps it's only in a pre-release version
+    \item ``AppPulse mobile requires internet access from the mobile device. We monitor the user actions, crashes etc. and report the statistics back to HP SaaS servers – sending the data is done over the internet."
+    \item HP have made improvements to AppPulse Mobile as a result of working with me, so their library now captures more of the user actions (Sept 2015).
+\end{itemize}
+
+Findings: 
+\begin{enumerate}
+    \item How well does the client library cope in terms of storing and subsequently forwarding events, messages, whatever, in the following circumstances?
+    \begin{enumerate}
+        \item Use of a proxy server?
+        \item When connected to a Wi-Fi that doesn't have internet access e.g. a local internal hotspot?
+        \item When the network is unavailable e.g. when the device is in 'flight mode' without Wi-Fi or mobile network access?
+    \end{enumerate}
+    \item I saw an example where my app crashed on an Android 2.3 device (and old Google Nexus One) where AppPulse Mobile didn't record the crash.
+    \item The FunDex score varied more than I expected, and sometimes changed as I navigated around the various sections of the UI. A pattern seemed to start to emerge but I didn't test it sufficiently to describe it accurately.
+    \item Some UI events, and other events, don't seem to be captured by AppPulse Mobile. Examples include:
+    \begin{enumerate}
+        \item Read aloud text on the screen (triggered from a menu option)
+        \item Navigation in a WebView
+        \item Changing ease of access settings and other UI preferences
+    \end{enumerate}
+\end{enumerate}
+
+I'd also appreciate knowing more about the data transmission aspect, such as message sizes, frequency of sending, whether it aggregates several events into a single transmission, etc.
+
+BTW: I wonder how much it's been used with apps that support multiple UI languages (Kiwix for Android supports 100+). The screen labels are sometimes derived from the display language so they seem to be treated as separate elements in the user flows.]
+
+Results:
+\begin{itemize}
+    \item The development team of the Analytics tool observed: ``I instrumented the apk, in general the instrumentation works. I do see some gaps, some missing actions, it’s because the application loads the content from the local file system - it seems that sometimes we don’t inject the instrumentation fast enough. I investigating it now and will let you know about the progress. [The] -hybrid flag is used in the java code internally, the shell script just passes the parameters." % Email source: https://mail.google.com/mail/u/0/#search/apppulse+mobile/FMfcgxmMlGKpJrtjFNcbGDcwpvBHHBjv
+    \item 
+\end{itemize}
+
+\section{Heatmapping: Azetone and Appsee}
+
+hotjar.com article on 8 tests using heatmaps.
+
+\subsection{Azetone (in 2015)}
+\begin{itemize}
+    \item ``by default our SDKs are reporting back to the servers with a delay which can be up to 15 hours (to minimize bandwidth and resource consumption)"
+    \item  \texttt{IntentReceiver com.immersion.android.haptics.HapticFeedbackManager\$HapticFeedbackBroadcastReceiver@41d4fe50} integrated into their Android SDK
+    \item Record in admin mode ``make sure you use connect to your App in Admin mode to gather the different screens you want Heatmaps on…"
+    \item Configuration options: optional call to increase the level of logging, explicit call to set the dispatch period to 240 seconds,
+    \item Flaws in the reports: A system that's never been used should indicate it's never been used and is 'at-rest', whereas I've currently used (got) 20 users and even improvements on last month. application's name still appears as abcdef in the dashboard
+\end{itemize}
+Sources include email correspondence and my notes at the time.
+
+\href{https://www.azetone.com/mobile-ux-analytics/}{Understand, Optimize and Personalize your UX - UX Analytics for iOS and Android}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=16cm]{images/azetone/azetone_dashboard_flaws_for_kiwix_2015.png}
+    \caption{Azetone flaws in the dashboard}
+    \label{fig:azetone_dashboard_flaws_for_kiwix_2015}
+\end{figure}
+
+
+
+\subsection{AppSee (in 2015)}
+Individual recordings, aggregate heatmaps: Slide 4: ``Visualize both single user data (user replay) and aggregated user behaviour (touch heatmaps)" This point is insightful, and explains how both individual information and aggregate information are relevant and useful.
+
+Slide 5: I like the comparison between "Gives the Why" and "Gives the What". However I think the quote favours themselves (as one might expect) and underplays how other mobile analytics can help. Also, from a privacy perspective, there's a general dislike and disquiet about such intrusive monitoring (visual monitoring, recording interactions, etc.) I sent you the spreadsheet with the results from my questionnaire on 17th, so app developers need to carefully consider whether visual analytics is worth the extra bandwidth usage and intrusion into users' privacy. 
+
+
+
+AppSee far more polished than Azetone.
+\href{https://youtu.be/GQ2DoINkba4?t=554}{Appsee-Optimizely Webinar: How to Perform the Ultimate A B Test with UX Analytics}
+
+\url{https://medium.com/@Appseecom}
+
+\url{https://www.slideshare.net/SafeDK/how-to-work-compliantly-with-3rd-parties}
+
+SafeDK published a short video on YouTube that explains how libraries are not your code yet you are responsible as an app developer for the libraries you include. Their SDK at the time (2015) enabled developers to have fine-grained near real-time control over aspects of the libraries embedded in their app and also provided analytics on those libraries.
+
+More info: 
+http://blog.safedk.com/technology/what-you-should-know-about-your-sdks-and-your-app-start-time/
+http://blog.safedk.com/sdk-economy/5-steps-in-choosing-the-right-3rd-party-tools-sdks-for-your-mobile-app/
+and http://blog.safedk.com/sdk-economy/do-you-know-what-your-sdks-did-last-summer/
+
+
+
+\section{Flight Recorder}
+Screen Recording: 
+Watch, understand and improve
+\begin{itemize}
+    \item \textbf{REC} We record screen captures of sessions that show you each and every action your users take drilldown by events and watch the videos that matter.
+    \item \textbf{Touches \& Swipes} Recorded and summarized as heat maps. See the most touched areas screen by screen.
+    \item \textbf{User Based Sessions} A user centric vision \& action capability to the sessions. You just need to call FlightRecorder SDK's User ID method, that's all.
+\end{itemize}
+Source: \url{https://web.archive.org/web/20150717030554/http://www.flightrecorder.io/feature/screen-recording}
+
+About Unlimited Crash Reports: 
+Every plan has session limits, if you exceed your limits, FlightRecorder runs locally ( by default this option is enabled, you can disable it remotely also ), if a crash occurs, SDK sends all the data for that session. It deletes the recordings and other tracked datas for non-crashed sessions from local.~\url{https://web.archive.org/web/20150717030349/http://www.flightrecorder.io/feature/crash-reporting}
+
+Combined API/HTTP Logs and Exceptions with recordings of app activities. \url{https://web.archive.org/web/20150901043518/https://www.flightrecorder.io/feature/http-requests-and-response-logging}. Touch Heatmaps
+Visualize the clicks and swipes of your users and uncover usage patterns. Recorded and summarized as heat maps. See the most touched areas screen by screen.~\url{https://web.archive.org/web/20150823000332/http://flightrecorder.io/feature/touch-heat-maps}
+
+\href{https://web.archive.org/web/20151104224311/http://help.flightrecorder.co/quick-start/}{Flight Recorder: Quick Start Guides for iOS and Android}.
+
 \section{Google Play Console incorporating Android Vitals}\label{google_play_console_section}
 
 \subsection{Key Components of Google Play Console}
