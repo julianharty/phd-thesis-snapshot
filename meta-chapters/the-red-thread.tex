@@ -1,7 +1,7 @@
 \chapter{The Red Thread for this thesis}
-\textbf{Always connect software engineering, mobile analytics, and reliability.}
+\textbf{\textit{NB}: Always connect software engineering, mobile analytics, and reliability.}
 
-Implicit feedback mechanisms provided by various forms of usage analytics (mobile analytics). Some of these are instigated by developers, others are instigated by library and/or platform providers. The feedback mechanisms are used to identify probable issues in mobile apps where the development team then choose to address at least a subset of those issues with the aim of improving the quality-in-use~\citep{} of future releases of that app. 
+Implicit feedback mechanisms provided by various forms of usage analytics (mobile analytics) can improve developers' awareness of how the software is being used and how it is behaving. Some of these sources of feedback are instigated by developers using logging and/or mobile analytics APIs, others are instigated by library and/or platform providers. The feedback mechanisms are used to identify probable issues in mobile apps where the development team then choose to address at least a subset of those issues with the aim of improving the quality-in-use~\citep{} of future releases of that app. Of the various forms of mobile analytics this research concentrates on \textbf{platform-level analytics} together with \textbf{crash and error analytics}. It applies these forms of analytics with a focus on \textbf{stability} for Android apps available in Google Play Store.
 
 The research is mainly empirical owing to the nature of usage analytics and the analytics tools which thrive on volume and realism. Mixed methods were used to expand the research, for instance by using static analysis into how developers use and maintain remote logging in the codebases of their Android apps. The case studies include examples where the researcher was:
 \begin{enumerate}
@@ -26,7 +26,7 @@ For any given release of a mobile app there are three phases:
 \begin{enumerate}
     \item Building the product: which may incorporate practices and tools intended to ship a `quality product'. Some teams also incorporate logging and reporting to help measure the behaviours of the app in use, post release.
     \item The Release: For some projects this may be as simple as uploading a new binary and making it fully available. For others they may incorporate decisions and mechanisms to make each release with the aim of de-risking any undesirable/adverse effects of the new release.
-    \item Live, where end users install and use the release of the app.
+    \item Live: where end users install and use the release of the app.
 \end{enumerate}
 
 Figure~\ref{fig:red-thread-for-this-thesis} illustrates these three phases together with some of the dynamics \emph{e.g.} of rollout and disuse of a release, and of feedback from whatever sources that the development teams can choose to pay attention to and apply.
@@ -43,15 +43,24 @@ Diligent developers and development teams can materially improve the stability/r
 
 \begin{figure}
     \centering
-    \includegraphics[width=15cm]{images/my/Conceptual_prereq_tree_Applying_Theory_of_Constraints_to_using_Mobile_Analytics_to_improve_Mobile_Apps.jpeg}
-    \caption{Using Mobile Analytics to improve Mobile Apps ToC Conceptual PreRequisites Tree}
+    \includegraphics[width=12.5cm]{images/my/Conceptual_prereq_tree_Applying_Theory_of_Constraints_to_using_Mobile_Analytics_to_improve_Mobile_Apps.jpeg}
+    \caption{Conceptual Prerequisites Tree: Using mobile analytics to improve mobile apps}
     \label{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps}
 \end{figure}
 
-Figure~\ref{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps} illustrates a conceptual pre-requisite tree (applying Theory of Constraints, see~\citep{goldratt2017_necessary_but_not_sufficient, lepore1999_deming_and_goldratt, scheinkopf1999_thinking_for_a_change}). 
+Figure~\ref{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps} illustrates a conceptual prerequisite tree \footnote{(applying Theory of Constraints, see~\citep{goldratt2017_necessary_but_not_sufficient, lepore1999_deming_and_goldratt, scheinkopf1999_thinking_for_a_change})}. 
+%
+The underpinnings in terms of being able to improve mobile apps are threefold: 
+\begin{enumerate}
+    \item Users need to use the app. The app's behaviours will include errors and failures.
+    \item The app needs connectivity together with at least one form of mobile analytics.
+    \item Developers need to understand the outputs of mobile analytics and address pertinent issues in future releases of the app.
+\end{enumerate}
+
+Some issues can be ameliorated externally to the app, for instance though changes to servers that support API requests from apps, however many need changes to the app in order to be effective. For apps released as compiled binary files (the vast majority in iOS and Android app stores), improvements are generally made to a subsequent release than the one(s) where the failures have been occurring. And these subsequent releases need to be installed by the user population and used similarly in order to determine whether the improvements were worthwhile. Some users keep older releases and others stop using the app. 
 
 
-[4] Joorabchi, Mona Erfani, Ali Mesbah, and Philippe Kruchten. "Real challenges in mobile app development." Empirical Software Engineering and Measurement, 2013 ACM/IEEE International Symposium on 10 Oct. 2013: 15-24.
+% [4] Joorabchi, Mona Erfani, Ali Mesbah, and Philippe Kruchten. "Real challenges in mobile app development." Empirical Software Engineering and Measurement, 2013 ACM/IEEE International Symposium on 10 Oct. 2013: 15-24.
 
 
 Many developers fail to address all the issues identified through use of mobile analytics and a key influence is their perceived ability to successfully address issues identified by the analytics. Furthermore, these issues are collectively only one of many demands for their time and attention. Human, organisational, and business factors all influence the extent mobile analytics is a) used and b) the results addressed. This research touches on both the mechanics of applying mobile analytics together with the `game' which are the higher-level human nature aspects which affect the application and the value of applying the mechanics. Figure~\ref{fig:the-mechanics-the-game} provides a simple illustration of the game and the mechanics.
@@ -63,4 +72,12 @@ Many developers fail to address all the issues identified through use of mobile 
     \label{fig:the-mechanics-the-game}
 \end{figure}
 
-Analytics providers have a major influence on the efficacy of the application of mobile analytics. There are limitations and flaws in the various tools this research has encountered regardless of their source (\emph{e.g.} in-house proprietary, opensource, free and paid-for commercial proprietary offerings). Nonetheless, flawed offerings are still able to be used to deliver improvements in the mobile apps. Specialised startups such as Iteratively aim to increase the coherence of embedded analytics (those embedded into the apps) while also increasing compliance. 
+Analytics providers have a major influence on the efficacy of the application of mobile analytics. There are limitations and flaws in the various tools this research has encountered regardless of their source (\emph{e.g.} in-house proprietary, opensource, free and paid-for commercial proprietary offerings). Nonetheless, flawed offerings are still able to be used to deliver improvements in the mobile apps. Specialised startups such as Iteratively aim to increase the coherence of embedded analytics (those embedded into the apps) while also increasing compliance. HP's AppPulse Mobile provided no-code analytics for mobile apps where their tools automatically instrumented the binary to add the analytics; several providers offered GUI interaction recording and `heatmaps' generated using aggregated recordings of touch screen interactions.
+
+Those who applied the results of mobile analytics were able to increase the stability/reliability of their mobile apps. The amounts of improvements varied based on various factors such as:
+\begin{itemize}
+    \item The starting point for the app.
+    \item The amount of ongoing engagement of the development team.
+    \item The choices of mobile analytics services and the use of proactive event recording using the related analytics libraries.
+    \item The sources and causes of some of the issues being reported - some where far harder to diagnose than others, and several originated outside the actually codebase of the mobile app where it might be impractical to truly fix the source of the issue.
+\end{itemize}
