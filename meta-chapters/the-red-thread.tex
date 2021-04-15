@@ -1,5 +1,11 @@
-\chapter{The Red Thread for this thesis}
+\section{The Red Thread for this thesis}
+\label{section_read_thread}
 \textbf{\textit{NB}: Always connect software engineering, mobile analytics, and reliability.}
+If every component in the system were reliable and complete we might not need or benefit from mobile analytics. Indeed they would be a distraction and wasteful. However, in the real-world every component be it software, service, system, person, or device has flaws and limitations. We are not omnipresent or omniscient - could mobile analytics provide remote insights into a small yet vital subset of software quality into helping development teams understand how their apps are performing in terms of their (un-)reliability? and can that information be used to help the developers address at least some of the underlying causes of the failures?
+
+Information needs to flow from users' devices and reach the developers somehow in order for developers to understand the performance of their apps. Given the ongoing examples of misdeeds and corruptions in the application of data collected from user's activities and user's content - the dynamics of the information gathered, processed, and transferred in support of mobile analytics is also pertinent. 
+
+Developer can plan for the future operations of the app in several ways, such as embedding code within an app to record events, context, and other data. They generally use an API to do so. They can also plan various processes, ~\emph{e.g.} their release, bug investigation, and triage processes. Others may choose not to plan ahead; As many have observed, including the business guru Peter Drucker,~\emph{Not making a decision is a decision}, as summed up in Truth 31 in the book by~\cite{gunther2013truth_about_better_decision_making}.
 
 Implicit feedback mechanisms provided by various forms of usage analytics (mobile analytics) can improve developers' awareness of how the software is being used and how it is behaving. Some of these sources of feedback are instigated by developers using logging and/or mobile analytics APIs, others are instigated by library and/or platform providers. The feedback mechanisms are used to identify probable issues in mobile apps where the development team then choose to address at least a subset of those issues with the aim of improving the quality-in-use~\citep{} of future releases of that app. Of the various forms of mobile analytics this research concentrates on \textbf{platform-level analytics} together with \textbf{crash and error analytics}. It applies these forms of analytics with a focus on \textbf{stability} for Android apps available in Google Play Store.
 
@@ -18,7 +24,7 @@ The research includes several aspects seldom studied owing to the challenges of 
 \begin{figure}
     \centering
     \includegraphics[width=15cm]{images/rough-sketches/Red-Thread-Rough-Sketch.jpeg}
-    \caption{Red Thread Illustration for this thesis}
+    \caption{The lifecycle of a release and where mobile analytics provides feedback}
     \label{fig:red-thread-for-this-thesis}
 \end{figure}
 
@@ -57,7 +63,11 @@ The underpinnings in terms of being able to improve mobile apps are threefold:
     \item Developers need to understand the outputs of mobile analytics and address pertinent issues in future releases of the app.
 \end{enumerate}
 
-Some issues can be ameliorated externally to the app, for instance though changes to servers that support API requests from apps, however many need changes to the app in order to be effective. For apps released as compiled binary files (the vast majority in iOS and Android app stores), improvements are generally made to a subsequent release than the one(s) where the failures have been occurring. And these subsequent releases need to be installed by the user population and used similarly in order to determine whether the improvements were worthwhile. Some users keep older releases and others stop using the app. 
+Some issues can be ameliorated externally to the app, for instance though changes to servers that support API requests from apps, however many need changes to the app in order to be effective. 
+
+If time-machines were available in software development developers might be able to go back in time and repair the current application on the user's mobile device. Conversely, a time-machine could enable users to return to the time and context when an event such as a failure occurred in order to help the developers understand contributory factors that led up to the failure and the aftermath. In 1999, time-machine computing was introduced as a way to help manage time in computing environments, for instance using a desktop environment - `TimeScape' - that supported time travelling on the computer, and time-casting to restore the application's context~\citep{rekimoto1999_time_machine_computing}. In mobile analytics, breadcrumbs~\citep{MacLean2015_pro_android_5_book} can be generated to help \emph{post-hoc} analysis of events that preceded a failure, and particularly crashes. 
+%
+For apps released as compiled binary files (the vast majority in iOS and Android app stores), improvements are generally made to a subsequent release than the one(s) where the failures have been occurring. And these subsequent releases need to be installed by the user population and used similarly in order to determine whether the improvements were worthwhile. Some users keep older releases and others stop using the app. 
 
 
 % [4] Joorabchi, Mona Erfani, Ali Mesbah, and Philippe Kruchten. "Real challenges in mobile app development." Empirical Software Engineering and Measurement, 2013 ACM/IEEE International Symposium on 10 Oct. 2013: 15-24.
@@ -81,3 +91,8 @@ Those who applied the results of mobile analytics were able to increase the stab
     \item The choices of mobile analytics services and the use of proactive event recording using the related analytics libraries.
     \item The sources and causes of some of the issues being reported - some where far harder to diagnose than others, and several originated outside the actually codebase of the mobile app where it might be impractical to truly fix the source of the issue.
 \end{itemize}
+
+\noindent
+\rule{\textwidth}{0.4pt}
+
+The case studies illustrate manifold facets of applying (and ignoring) mobile analytics across various contexts of engagement, across various types of app, and from several perspectives including the organizations who create the mobile analytics.
