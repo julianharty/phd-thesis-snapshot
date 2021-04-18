@@ -50,11 +50,13 @@
 \mainmatter
 \pagenumbering{arabic}
 %
-\chapter*{Meta materials}
+\setcounter{chapter}{-1}
+\chapter{Meta materials - not part of the final thesis}
 \input{meta-chapters/meta-chapter-introduction}
 \input{meta-chapters/inventories}
 \input{meta-chapters/the-red-thread}
 \input{meta-chapters/project-plan-for-this-thesis}
+\input{meta-chapters/actions.tex}
 
 \input{mainchapters/introduction}
 \input{mainchapters/researchquestions}
@@ -64,20 +66,15 @@
 
 \input{mainchapters/related-work}
 \input{mainchapters/a-grounding-in-the-domain}
-\input{mainchapters/applying-analytics-to-development}
+\input{case-studies/case-studies}
 \input{mainchapters/code-needed}
-\input{case-studies/overview-of-case-studies}
+
+
+%%%%% Order and grouping of the following TBD
 \input{mainchapters/evaluation}
-
-
-%\input{ResearchQuestions.tex}
-%\input{ResearchMethods.tex}
-%\input{FindingsAndResults.tex}
-%\input{SourcesOfData.tex}
-%\input{TestingAnalytics.tex}
-%\input{disonnance.tex}x
-%\input{OngoingWork.tex}
+\input{mainchapters/applying-analytics-to-development}
 \input{mainchapters/discussion.tex}
+
 \input{mainchapters/conclusions}
 \input{mainchapters/future-work}
 
@@ -87,12 +84,14 @@
 \backmatter
 \bibliographystyle{ACM-Reference-Format}
 \refstepcounter{chapter}
+\label{the-bibliography-follows}
 \bibliography{./references/bibliography_for_core_thesis,./case-studies/catrobat-case-study,./references/bibliography_on_phd_experience}
 %%%% TODO Consider having separate sections e.g. for books and/or a separate bibliography for AppendixB.
 
 % \clearemptydoublepage
 %\appendix
 \chapter{Thesis Countdown :)}
+\label{the-appendicies-follow}
 \input{appendicies/thesis_countdown}
 
 \input{appendicies/miscellaneous-topics}
@@ -101,11 +100,7 @@
 \input{meta-chapters/data-sources}
 \input{case-studies/analytics-tools}
 \input{appendicies/on-mobile-analytics}
-
-\chapter{Amazon Kindle Fire Development}
 \input{appendicies/amazondevelopment}
-
-\input{meta-chapters/actions.tex}
 
 % Add index
 %\printindex
