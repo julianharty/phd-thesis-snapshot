@@ -27,18 +27,20 @@ In the research developers were able to improve the measured reliability for eac
     \emph{Dan Harmon's story telling circle}
 \end{comment}
 
-Before going into details, I will introduce the basis for my theoretical perspective in terms of the ontology and epistemology.
+
 
 \section{Ontology and Epistemology}
+Before going into details, I will introduce the basis for my theoretical perspective in terms of the ontology and epistemology.~\footnote{
 \begin{itemize}
     \item Ontology \( \rightarrow \) a theory of `being' (existence).
     \item Epistemology \( \rightarrow \) what we can know about the microcosm/the world and how we can know it (a theory of knowledge).
 \end{itemize}
 
 Both these terms are taken from~\cite{marsh2002skin}. While the article is aimed at social science research, it introduces both topics and their relationships clearly and practically~\footnote{Note: newer versions of the introductory material is published in a book: \href{https://www.macmillanihe.com/page/detail/Theory-and-Methods-in-Political-Science/?K=9781137603517}{\emph{``Theory and Methods in Political Science (\nth{4} Edition)".}}}.
+}
 
 \subsection{Ontology}
-Analytics exist and are used across and throughout software development practices. Software is not perfect, it's formed through numerous human endeavours using flawed tools and techniques, no practical software is bug-free, however those involved can improve software through their choices and practices.
+Analytics exist and are used across and throughout software development practices. Software is not perfect, it's formed through numerous human endeavours using flawed tools and techniques. No practical software is bug-free, nonetheless those involved can improve software through their choices and practices.
 
 [Almost] anything can be measured sufficiently to be useful. In (\cite{hubbard2014measure}) \emph{How to measure anything, \nth{3} edition} the author argues that anything can be measured and proposes an approach to do so. His framework, called \emph{Applied Information Economics: A Universal Approach to Measurement} is summarised in five steps:
 
@@ -121,49 +123,12 @@ Each source of feedback may stem from humans (for example, in reviews) or from s
 \subsection{Research Strategy}
 
 
-\section{Findings}\label{findings-section}
-\yijun{Is it too early to reveal the findings here? Maybe you can prepare the reviewers by presenting the findings as confirmation of some "hypothesis", and first discuss about these hypothesis before introducing the facts? It will be good to move 1.5 Research Questions here and articulate them as hypothesis or early hypothesis?}
-
-The application of mobile analytics has enabled each of the development teams who participated in the research to materially improve their measured reliability. 
-
-For the first case study the reliability was improved approximately 12x for the main Kiwix Android application by applying the approach identified in this research. 
-During the initial improvement stages the reliability of the project's custom apps did not improve. These custom apps are built using the main application's source code, and when the improved codebase was used to create new releases of the custom apps their reliability also improved several fold.
-
-\begin{figure}[htbp!]
-    \centering
-    \includegraphics[width=\textwidth]{images/annotated_pocketcode_90_day_fabric_crashlytics_report.jpg}
-    \caption{Pocket Code improvements in crash rate, in 90 days}
-    %\Description{Pocket Code: When the project team investigated crashes they improved the reliability}
-    \label{fig:pocketcode_improvements_in_crash_rate}
-\end{figure}
-
-An unacceptably high crash rate for the key Pocket Code Android app were tamed within two releases and 7 weeks by applying the approach described in this thesis. The changes needed to make the improvements were small. Figure \ref{fig:pocketcode_improvements_in_crash_rate} shows the improvement in crash rate as measured by Fabric Crashlytics. When the experiment started the crash rate was nearly four times the maximum threshold recommended by Google in their Android Vitals service and the project team had not been able to address the crash rate despite applying many of the recognised and recommended software development practices over several years~\cite{adamsen2015systematic_catrobat, luhana2018streamlining, ali2019behavior_catrobat, ali2019using_catrobat, hirsch2019approach_catrobat, schranz2019contributors_catrobat, slany2014tinkering}.
-
-The developers continue to actively use mobile analytics to highlight potential quality issues and address pertinent issues promptly. One of the project teams chose to add an additional analytics tool to both their Android and iOS apps with the objective of improving the teams understanding of broader quality concerns. These quality concerns now also include usability. The team aims to use the data to improve the usability and user experience for their current and future users. They are designing the analytics to retain and protect user privacy, both important and highly relevant concerns.
-
-Mobile Analytics can be incorporated as additional sources of information for development teams in harmony with other sources of information - it is not exclusive or exhaustive.
-
-The analytics tools Google provides to developers of Android apps in Google Play Console have value despite the many flaws my research uncovered in their tools and reports. Some are mentioned in published papers~\cite{harty_google_play_console_insightful_development_using_android_vitals_and_pre_launch_reports, harty_better_android_apps_using_android_vitals, harty_improving_app_quality_despite_flawed_mobile_analytics}, the current known set are in this thesis. The research identified major differences in the reports and analytics provided by two analytics tools from the same company. There were both internal and cross-tool flaws and inconsistencies. Some of these have already been reported to Google in preparation for a full report to be submitted on completion of some ongoing research.
-
-Fully automated pre-launch reports are effective at finding some quality flaws in Android apps at no financial cost and minimal effort by the app developers. These reports are provided by the app store and intended to help developers identify quality issues with their Android apps in order to address these issues so they do not affect end-users.
-
-\subsection{The following section to be revised and moved}
-
- 
-
-Google Play uses data collected automatically from users opted-in to provide usage and diagnostics data to Google. The data is collected at a per-device level, which means that one device could potentially report data from several user accounts, conversely for users who use multiple devices some may provide the data while others do not.
 
 
-I instigated and led the development of several opensource software utilities to help record and preserve reports and underlying failure data from Google Play Console and Android Vitals. We have successfully extended the capabilities of the utilities and further extensions are practical. Research benefits:
-\begin{itemize}
-    \item Evidence preserved for analysis:
-    \item Data can now be compared and further assessed:
-    \item Data and contents can be shared by developers of Android apps with other researchers - extending the body of knowledge about crashes (un-reliability) and ANRs (run-time unresponsiveness). \emph{bringing previously unknown data, practices and tools into the open so others can understand them, make more informed decisions, and perform further research.}
-\end{itemize}
+\subsection{On Findings}
+\yijun{It will be good to move 1.5 Research Questions here and articulate them as hypothesis or early hypothesis? It is too early to reveal the findings here Maybe you can prepare the reviewers by presenting the findings as confirmation of some "hypothesis", and first discuss about these hypothesis before introducing the facts? }
 
-I made data available~\cite{harty_wama_dataset_examples} for further research based on data originally only made available to app developers. Larger volumes of data are available upon request.
 
-The research has been presented at various conferences and workshops, including at NII Shonan~\footnote{NII Shonan hosts highly collaborative workshops on various topics with participants from multiple continents~\citep{acm_shonan_workshops_2020}.} in 2019 at meeting 152 on "Release Engineering for Mobile Applications"~\footnote{~\url{https://shonan.nii.ac.jp/seminars/152/}}. 
 
 \section{Outline of this thesis}
 Bugs are ubiquitous in software (even one of the most respected software engineers, Donald E. Knuth, recognises, publicly acknowledges, \emph{and pays for}~\cite{knuth_trutex, wikipedia__knuth_reward_checks_2020} bugs found in his creations. And self-aware developers expect there will be bugs in their software. \emph{``You are entitled to a reward of at least 0x$1.00 ($2.56) if you are the first person to report a bona-fide error not on those lists."} Donald E. Knuth~\cite{knuth_the_bank_of_san_serriffe}
