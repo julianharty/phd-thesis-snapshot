@@ -1,11 +1,89 @@
 \section{Red Thread for the Case Studies}
 \label{section-case-studies-red-thread}
 
-Dimensions of the case studies:
+Each case study needs to be formatted consistently so that the reader can find and compare any of them with any of the others, and establish patterns and connections as they're reading them, if indeed there are intentional patterns, orderings, and so on (beyond chronological).
+
+
+``Empirical research methods in software engineering"~\citep{Wohlin2003_empirical_research_methods_in_software_engineering}.
+
+
+\subsection{Dimensions of the app case studies}
+
 \begin{itemize}
-    \item Role of the researcher:
-    \item Development practices of the project:
-    \item Analytics sources: External, external + crash reporting, external + commercial internal, external, internal, and proprietary.
-    \item Engagement level of the team:
-    \item Privacy concerns: 
+    \item Role of the researcher?
+    \item What are the focal points in this case study?
+    \item Development practices of the project?
+    \item Analytics sources: External, external + crash reporting, external + commercial internal, external, internal, and proprietary?
+    \item Engagement level of the team?
+    \item Privacy concerns?
+    \item What opportunities did the case study present?
+    \item What were the objectives (when I started the case study) compare and contrast with what actually happened? 
+    \item What were the \textbf{F}indings and \textbf{I}nsights gleaned from each?
+    \item What were the limitations of the tools that restricted the abilities to effect improvements? What were the limitations of the engineering practices that limited the improvements?
+\end{itemize}
+
+
+\definecolor{Gray}{gray}{0.9}
+\begin{sidewaystable}
+    \centering
+    \tiny
+    \tabcolsep=0.06cm
+    %\rowcolors{1}{green}{pink}
+    \begin{tabular}{lrrlllllllll}
+        Label &Apps &Volumes &Role     &Focii       &Dev Practices &Analytics       &Objectives                   &Privacy &Opportunities &F.\&I. \\
+        \hline
+        \rowcolor{Gray}
+        Catrobat &2  &70.9K  &Coach     &Crashlytics &Sophisticated &Crashlytics    &M.A. vs. Clean Code          &Strong       &Open          &Immediate improvements \\
+                 &   &190K   &Observer  &Control     &\textit{ditto} &              &Control for above            &ditto        &Open          &N/A \\ 
+        
+        \rowcolor{Gray}
+        C1       &1  &1M+   &Consultant &at Scale   &Laminar        &Many           &Stability, Ways of Working   &Known        &Large-scale   &Rich \\
+        GTAF     &11 &1.1M  &Observer   &Priorities &Team+          &Various        &Accurate local language apps &Strong       &Distinct view &Their priorities \\
+        
+        \rowcolor{Gray}
+        Kiwix    &1  &150K  &Embedded   &P-o-C      &Team+          &Android Vitals &Suppress crash rate          &V.Strong     &Open, \nth{1} case study &It works!\\
+                 &1  &58.9K &Observer   &Control    &\textit{ditto} &\textit{ditto} &Control for above            &\textit{ditto} &\textit{ditto} &\textit{ditto} \\
+        \rowcolor{Gray}
+                 &16 &222K  &Observer   &Scaling    &\textit{ditto} &\textit{ditto} &Measure scaling              &\textit{ditto} &\textit{ditto} &\textit{ditto} \\
+        LocalHalo &1 &1.1K  &Observer   &Startup    &Cross-platform &Sentry.io      &New business view            &Unknown   &React-Native app &\\
+        \rowcolor{Gray}
+        Moodspace &1 &19.2K &Observer   &Startup    &TBC            &Crashlytics    &New business view            &Unknown   &            &Feedback on M.A.\\
+        Moonpig  &1  &138K  &Observer   &Firebase   &Clean Code     &Firebase       &Leading edge practices       &Known     &Firebase insights &Insightful \\ 
+    
+        \rowcolor{Gray}
+        Big C's  &10\textsuperscript{1} &10\textsuperscript{7} &Observer &Multi-teams &N/A &N/A      &Large corporate         &Unknown   &Big picture &   \\
+    \end{tabular}
+    \caption{Overview of App Case Studies}
+    \label{tab:overview_of_app_case_studies}
+\end{sidewaystable}
+%%%% Notes on compressing tables
+% https://tex.stackexchange.com/questions/10766/how-to-make-really-wide-tables-narrower
+% https://stackoverflow.com/questions/2563498/making-latex-tables-smaller
+% https://en.wikibooks.org/wiki/LaTeX/Tables#Resize_tables 
+% Smaller text finally worked after applying the tips from https://tex.stackexchange.com/a/56011/88466
+% Row colors https://texblog.org/2011/04/19/highlight-table-rowscolumns-with-color/
+% Rotate table https://tex.stackexchange.com/questions/370393/how-to-rotate-the-large-table-and-caption/370394
+
+
+
+
+\textbf{Joe's suggestions}
+Format as a mini-paper with an abstract per case study
+
+What research questions does it answer?
+What’s the context? Mobile app? Web? Reporting tools? Library?
+What’s the company? Org structure? Communication tools?
+What tools were used? MS App Center, Android Vitals, etc. Crashlytics, Testing Frameworks, Collaboration tools,
+Team structure?
+How many users?
+Do the devs have access to the tools? how integrated into the development practices?
+Future work for each case study.
+
+\subsection{Classifications of Mobile Analytics tools}
+
+\begin{itemize}
+    \item To consider: which projects was the tool used in/relevant to?
+    \item What was the tool used for?
+    \item What insights did we glean from using the tool?
+    \item If anythings made the tool distinctive, what were those things and why are they distinctive in the context of developers using mobile analytics?
 \end{itemize}
