@@ -1,6 +1,50 @@
 \section{Catrobat Android Apps}
 \label{section-catrobat-case-study}
+
+\setminted{fontsize=\small,baselinestretch=1}
+
+\subsection*{Evidence}
+  \begin{minted}[
+    gobble=4,
+    frame=single,
+    fontsize=\tiny,
+    breaklines=true
+  ]{yaml}
+    evidence available :
+      vitals-scraper : ~/sandbox/vitals-scraper-logs/android-stability-analysis/data/from-android-vitals
+      google-play-console-reports : ~/Dropbox/Google Play Console Reports/reports/catrobat/pocketcode/crashes
+      various-materials : in Dropbox
+      co-written-paper : WAMA 2019
+    evidence-needed : 
+      Releases and their release dates.
+      Latest status of the tickets raised at the hackathon.
+      Current stability metrics for the 2 apps.
+  \end{minted}
+
+%%%%%
+% Stuff on minted
+% https://tex.stackexchange.com/questions/35546/minted-setstretch-and-font-size
+% https://tex.stackexchange.com/questions/484788/how-to-change-overall-font-size-of-minted
+% https://tex.stackexchange.com/questions/399340/change-font-size-in-minted
+% https://tex.stackexchange.com/questions/531738/minted-environment-not-working-in-overleaf
+% Revisit the following if I include minted more often https://tex.stackexchange.com/questions/103141/set-global-options-for-inputminted
+
+\subsection{Abstract}
+We ran a 1-day hackathon with six of the core development team for the Pocket Code Android app where we identified the top ten crashes and top ten ANRs for the app using reports provided in Android Vitals. These were recorded in the project's JIRA system; the crash reports were correlated with Fabric Crashlytics also used in the Pocekt Code app. The team worked on a subset of these 20 issues during the hackathon and in the following weeks. The crash rate was halved within 2 releases of the app and six weeks of the hackathon. 
+
+The improvement was particularly impressive as the team's clean coding practices and their sophisticated `best practices' had not managed to effect a similar improvement in the previous months. Further scope for improvement is likely. However, the improvements petered out after the the owner for runtime stability left the team shortly after these two releases were deployed. New stability issues have emerged in more recent releases, indicating a tendency to entropy in codebases and their products unless runtime failures are actively monitored and addressed.
+
+Changes enforced by Google led to the migration from Fabric Crashlytics to Firebase Crashlytics for reporting purposes. The team discovered personal information was being collected and reported by Google \textit{despite the Crashlytics SDK remaining unchanged and intended only to report on crashes and errors}. The project leader chose to stop actively using Crashlytics in the project as a result in order to protect the privacy of the end users.
+
+% Applying advice from https://nssmic.ieee.org/2019/wp-content/uploads/sites/2/2019/02/Abstract_Style_Guide.pdf
+% See also https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/structure-your-paper/ 
+
 \subsection{Introduction to the Catrobat Case Study}
+% Joe's notes this is not compelling and doesn't compare with the other case studies.
+% Why Catrobat, what did I gain, similarities and contrasts, why include in the PhD.
+% Existing best practices, assiduously applied didn't reduce the crash rate, my approach did! :)
+% Needs to be applied on a long term basis.
+
 This case study includes an extremely and unusually well researched and properly developed app and codebase where many of the perceived good practices were and are assiduously applied on an ongoing basis. The codebase is far more complex than the Kiwix Android apps and the app is significantly richer in terms of the features and functionality.
 
 This case-study includes some in-app analytics, in the form of a crash reporting tool called Crashlytics. This additional source of analytics identified additional concerns with analytics tools as the two sources of analytics (Google Play Console and Crashlytics) had significant differences in their calculations and reports. It illustrates the efficacy of investigating crashes reported by the analytics where relatively minor effort was needed to identify and fix causes of poor reliability.
@@ -46,7 +90,7 @@ The visit (including the presentation at the Graz University of Technology on Fr
 There was a peak of eight participants from the Catrobat team during the hackathon. This included two people %(including Wolfgang and Matthias)
 in non-coding capacities. Approximate time spent. Twenty-two (22) issues were raised during the day (tagged: hackathon-2019)\footnote{\url{https://jira.catrob.at/browse/CATROID-426?jql=labels\%20\%3D\%20hackathon-2019}}. Most of these were created in the morning, one for each of the top crashes and ANRs as recorded and ranked in Android Vitals. 
 
-\subsection{Results}
+\subsection{Immediate Results}
 We can group the issues using as follows (already fixed, addressed during the hackathon, pending, rejected).
 
 \subsubsection{Already fixed} JIRA issue 405\footnote{\url{https://jira.catrob.at/browse/CATROID-405}} was the \#1 issue with over 2000 crashes reported in the 30 days preceding the hackathon (and over 3200 in the lifetime of the app). However, it had already been addressed in JIRA issue 379\footnote{"media download progress dialog crashers" \url{https://jira.catrob.at/browse/CATROID-379}} and incorporated in to the most recent release \footnote{Release:
@@ -247,9 +291,65 @@ The ANR rate is also showing encouraging signs, for the last 7 days (actually it
 
 % MUST_DO add screenshots and summaries of the progress made with subsequent releases of Pocket Code for Android.
 
+\begin{table}[htbp!]
+    \centering
+    \footnotesize
+    \tabcolsep=0.06cm
+    \begin{tabular}{r|r|r|r|r}
+    \small
+        App version &Impacted sessions &Crash-free sessions &Number of sessions &Period \\
+        \hline
+        72 (0.9.68) &1.26\% &   98.74\%     &~9K  &11-Jan-2020 to 08-Feb-2020 \\
+        71 (0.9.67) &1.25\% &   98.17\%     &~14K &11-Jan-2020 to 08-Feb-2020 \\
+        70 (0.9.66) &1.65\% &   98.35\%     &~5K  &04-Jan-2020 to 01-Feb-2020 \\
+        69 (0.9.65) &2.05\% &	97.95\% 	&~2K  &22-Oct-2019 to 19-Nov-2019 \\
+        \hline
+        66 (0.9.64) &3.61\% &   96.39\% 	&~16K &22-Oct-2019 to 19-Nov-2019 \\
+    \end{tabular}
+    \caption{AndroidVitals: Improvement in crash-rate post Hackathon}
+    \label{tab:androidvitals_crashrate_post_hackathon}
+\end{table}
+
+Some notes on Table~\ref{tab:androidvitals_crashrate_post_hackathon}:
+\begin{enumerate}
+    \item The data was reported for thirty day periods, one of three durations available in the user interface. All figures were calculated and provided by Google's Android Vitals analytics.
+    \item The reports exclude small aggregate counts that fail to meet Google's reporting thresholds.
+    \item The percentages fluctuate depending on where releases are in their maturity (their production lifecycle). Therefore these values are spot figures calculated that day and indicative rather than necessarily being suitable for calculating ratios for different periods.
+    \item These reports appear to be regenerated once a day, roughly 24 hours apart.
+    \item It is unclear whether the underlying data is filtered to limit it to apps only installed by end users of production releases from Google Play.
+\end{enumerate}
+
+
+\subsection{Findings and Results}
+
+Android Vitals `Bad Behavior' alerts colour coded and intended to help developers quickly notice and respond to high error rates, as illustrated in Figure~\ref{fig:android-vitals-pocketcode-alerts-23-jan-2020}. %Evidence AppHealthOverviewPlace_8841632091579025670_org.catrobat.catroid_1579796386172.png
+
+\begin{figure}
+    \centering
+    \includegraphics[width=12cm]{images/google-play-console/android-vitals-pocketcode-alerts-23-jan-2020.png}
+    \caption{Android Vitals overview, bad behaviours (Pocket Code example)}
+    \label{fig:android-vitals-pocketcode-alerts-23-jan-2020}
+\end{figure}
+
+No plots for either Pocket Code or Pocket Paint for the ANRs and for the crashes on \nth{10} February 2020, as illustrated in Figure~\ref{fig:android-vitals-pocketcode-broken-graph-10-feb-2020}. 
+%Evidence AppHealthDetailsPlace_8841632091579025670_org.catrobat.paintroid_1581848687528.png and AppHealthDetailsPlace_8841632091579025670_org.catrobat.catroid_1581848687528.png and AppDashboardPlace_8841632091579025670_org.catrobat.paintroid_1581848687528  
+
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{images/google-play-console/android-vitals-pocketcode-broken-graph-10-feb-2020.png}
+    \caption{Android Vitals graph data missing for~\nth{10} Feb 2020 (Pocket Code example)}
+    \label{fig:android-vitals-pocketcode-broken-graph-10-feb-2020}
+\end{figure}
+Illogical results for installed userbase. %Evidence various graphs.
 
 \subsection{Discussion}
 Effects of being measured is a well-known in work, business, etc. One of the effects here was that 'soft-crashes' were reaching Android Vitals and therefore significantly and adversely affecting the crash rate (see \cite{CATDROID-426-JIRA}).
+
+\subsubsection{Validity considerations}
+\begin{itemize}
+    \item Inconsistencies in the practices
+    \item Inconsistencies in the tools
+\end{itemize}
 
 \subsubsection{Peer Groups}
 The Pocket Code Android app had a significantly higher crash-rate compared to its peer group, as Figure \ref{fig:pocketcode_peer_crash_rate_18_nov_2019} shows in section \href{android-vitals-peer-groups}{\emph{\nameref{android-vitals-peer-groups}}} shows. While this may be undesirable, the Pocket Code app had incredible richness and complexity compared to the perceived peer apps, for instance it includes support for generating native Android apps, an app store, generation of rich, graphical games, as examples of some of the rich capabilities on offer.

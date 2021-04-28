@@ -24,3 +24,14 @@ There can be areas that blur between policy and strategy, for instance on whethe
 Hypothesis - does Google Play rollout to the users suffering most first?
 
 \subsubsection{Daily Health Checks}
+These are daily health checks for mature releases, typically at least a week old. A good approximation for the actual time is the time taken to reach around 70\% of the peak of the eventual steady state peak/maximum for this release~\footnote{Note: this is a heuristic based on observing many releases and the realisation that some of the userbase will not install a particular release}.
+
+% 0.707 is the RMS of a sine wave, and perhaps coincidentally seems to be about the right number to use for the boundary value for the transition from new release rollout to steady state where the behaviour tends to be more predictable and stable in terms of quality metrics such as reliability, stability, and performance.
+
+\begin{enumerate}
+    \item For those using internal (in-app) analytics, check for any new issues especially in the most recent release, rapidly accelerating issues, emerging trends, outages, gaps in data, and so on.
+    \item Check the external (platform) analytics if they are available.
+    \item Check the progress for active tickets that have been raised for recent releases (including the current release). Similar check for any regressions in the current release where fixes of bugs in previous releases have supposedly been addressed.
+\end{enumerate}
+
+These checks may be combined with other daily project and team health checks depending on the scope of the individual's role, responsibility, and so on. For instance, developers may also check the state of branches, pull requests, and recent commits in the codebase, or codebases~\footnote{For instance of server-side systems, APIs provided by others within and outside the organisation, and so on.}, pertaining to the app.
