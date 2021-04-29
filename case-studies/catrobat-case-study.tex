@@ -1,6 +1,33 @@
 \section{Catrobat Android Apps}
 \label{section-catrobat-case-study}
 
+\subsection*{Rationale}
+\marian{Need to connect this case study with the thesis: what was the goal and show the key contributions. Rationale for this case study. which gave me the chance to look at .... Rationale for the intervention.}
+
+This case study built on the experiences of the Kiwix case study in several relevant ways:
+\begin{itemize}
+    \item To evaluate the replicability of being able to improve the stability of Android apps with another team and codebase.
+    \item With the researcher playing a different role, of coach rather than being embedded in the core development team. Would the development team be able to make the improvements themselves?
+    \item It included in-app crash analytics using another analytics tool which provided the opportunity to compare and contrast what the tools provide the development team and their respective utility. 
+    \item The Fabric Crashlytics SDK provided the ability for developers to report handled exceptions `Errors' a feature unavailable from Google's Android platform analytics.
+\end{itemize}
+
+Common attributes of Kiwix and this project include:
+\begin{itemize}
+    \item They are large, mature opensource projects with multiple Android apps that share some code in common. 
+    \item Note: there are also separate distinct codebases for additional platforms however these were excluded from this research.
+    \item They are developed by a mix of participants with a wide range of development skills.
+    \item They both participate in Google's \href{https://summerofcode.withgoogle.com/}{Summer of Code} program
+    \item They both have some paid development work done as a seamless part of the overall project in terms of the team structures, ways of working, and so on.
+\end{itemize}
+
+The rationale for the intervention (what I did) was to explore whether improvements could be made with as little as a day of coaching an existing development team without other material changes to their current testing, use of code quality tools, or release practices. The coaching was to help them use existing analytics data they already had available where the focus would be on establishing changes they could make to the application's source code to address various crashes and ANRs.
+
+\subsection*{Contributions of this case study}
+
+
+
+
 \setminted{fontsize=\small,baselinestretch=1}
 
 \subsection*{Evidence}
@@ -19,6 +46,7 @@
       Releases and their release dates.
       Latest status of the tickets raised at the hackathon.
       Current stability metrics for the 2 apps.
+      Check the evidence I have from Fabric Crashlytics and the comparisons I made between the results of both Fabric and Google Play Console.
   \end{minted}
 
 %%%%%
@@ -27,17 +55,24 @@
 % https://tex.stackexchange.com/questions/484788/how-to-change-overall-font-size-of-minted
 % https://tex.stackexchange.com/questions/399340/change-font-size-in-minted
 % https://tex.stackexchange.com/questions/531738/minted-environment-not-working-in-overleaf
+% https://tex.stackexchange.com/questions/132849/how-can-i-change-the-font-size-of-the-number-in-minted-environment
 % Revisit the following if I include minted more often https://tex.stackexchange.com/questions/103141/set-global-options-for-inputminted
 
+
 \subsection{Abstract}
-We ran a 1-day hackathon with six of the core development team for the Pocket Code Android app where we identified the top ten crashes and top ten ANRs for the app using reports provided in Android Vitals. These were recorded in the project's JIRA system; the crash reports were correlated with Fabric Crashlytics also used in the Pocekt Code app. The team worked on a subset of these 20 issues during the hackathon and in the following weeks. The crash rate was halved within 2 releases of the app and six weeks of the hackathon. 
+We ran a 1-day hackathon with six of the core development team for the Pocket Code Android app where we identified the top ten crashes and top ten ANRs for the app using reports provided in Android Vitals. These were recorded in the project's JIRA system; the crash reports were correlated with Fabric Crashlytics also used in the Pocket Code app. The team worked on a subset of these 20 issues during the hackathon and in the following weeks. The crash rate was halved within 2 releases of the app and six weeks of the hackathon. 
+
+\marian{Needs a sense of the change was that was introduced by my intervention. Focal points of analysis: were the developers ignoring stuff? did their behaviour change? \textbf{I need to add the researcher point of view}. Make explicit the utility of the analytics, there are early signs in~\href{catrobat-case-study-findings-and-results}{\nameref{catrobat-case-study-findings-and-results}}.}
 
 The improvement was particularly impressive as the team's clean coding practices and their sophisticated `best practices' had not managed to effect a similar improvement in the previous months. Further scope for improvement is likely. However, the improvements petered out after the the owner for runtime stability left the team shortly after these two releases were deployed. New stability issues have emerged in more recent releases, indicating a tendency to entropy in codebases and their products unless runtime failures are actively monitored and addressed.
 
 Changes enforced by Google led to the migration from Fabric Crashlytics to Firebase Crashlytics for reporting purposes. The team discovered personal information was being collected and reported by Google \textit{despite the Crashlytics SDK remaining unchanged and intended only to report on crashes and errors}. The project leader chose to stop actively using Crashlytics in the project as a result in order to protect the privacy of the end users.
 
+Aspects of this case study were published and presented at WAMA 2019 in~\citep{harty_better_android_apps_using_android_vitals} and I also released a data set to make it freely available to the research community~\citep{harty_wama_dataset_examples}. 
+ 
 % Applying advice from https://nssmic.ieee.org/2019/wp-content/uploads/sites/2/2019/02/Abstract_Style_Guide.pdf
 % See also https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/structure-your-paper/ 
+
 
 \subsection{Introduction to the Catrobat Case Study}
 % Joe's notes this is not compelling and doesn't compare with the other case studies.
@@ -45,35 +80,50 @@ Changes enforced by Google led to the migration from Fabric Crashlytics to Fireb
 % Existing best practices, assiduously applied didn't reduce the crash rate, my approach did! :)
 % Needs to be applied on a long term basis.
 
-This case study includes an extremely and unusually well researched and properly developed app and codebase where many of the perceived good practices were and are assiduously applied on an ongoing basis. The codebase is far more complex than the Kiwix Android apps and the app is significantly richer in terms of the features and functionality.
+The Android app in this case study is an extremely and unusually well researched and properly developed app and codebase. The project started in 2010, has had over 1,300 contributors, 4 million downloads, and 350 thousand active users, and is used in 180+ nations in 60+ languages~\citep{catrobat_project}. There are at least 216 contributors for the Android Pocket Code app~\citep{github_catroid}.
+
+Many perceived good practices were and are assiduously applied on an ongoing basis, for instance:~\href{https://github.com/Catrobat/Catroid}{Test-Driven Development, Clean Code}~\citep{catrobat_first_steps_into}, a documented consistent~\href{https://github.com/Catrobat/Catroid/wiki/Workflow}{workflow} and \href{https://github.com/Catrobat/Catroid/wiki/Creating-a-pull-request}{Pull Requests}, and \href{https://jenkins.catrob.at/job/Catroid/}{Continuous Integration}. The codebase is far more complex than the Kiwix Android apps and the app is significantly richer in terms of the features and functionality~\citep{mueller2019_pocketcode}.
 
 This case-study includes some in-app analytics, in the form of a crash reporting tool called Crashlytics. This additional source of analytics identified additional concerns with analytics tools as the two sources of analytics (Google Play Console and Crashlytics) had significant differences in their calculations and reports. It illustrates the efficacy of investigating crashes reported by the analytics where relatively minor effort was needed to identify and fix causes of poor reliability.
 
-Furthermore, the project team chose to invest their energies into supporting a testing workshop in Poland and to introducing application-level in-app analytics to both their Android and iOS PocketCode apps. Their actions indicate the project team recognise the benefits of applying and incorporating analytics into their software development and quality improvement practices.
+The case study included two main events, 1) a hackathon in November 2019 and 2) participation in a pre-conference workshop in Poland in February 2020. 
+The hackathon focus was to improve code quality based on failures and issues reported in Android Vitals (cross-referenced with those reported in Fabric Crashlytics). The workshop was intended to foster collaboration between software testers and the development team while also using mobile analytics that incorporated mobile analytics into the workshop.
+
 
 \subsection{Potted History of the Project}
+TODO Discuss with Marian, Arosha and Yijun on whether this material is useful for providing context.
 \begin{enumerate}
     \item Rationale:
-    \item Involvement of under-grads and post-grads. Master's theses (ask for stats).
+    \item Involvement of under-grads and post-grads. Master's theses: (at least 8 published theses focus on the Catrobat project~\footnote{Available from \url{https://diglib.tugraz.at/search}.}).
     \item External contributors: translations, rich community contributions of PocketCode apps, ...
     \item Catrobat foundation, and funded work.
     \item Software Development, testing, maintenance,...
 \end{enumerate}
-Rationale,
-Involvement of under-grads and post-grads. Master's theses (ask for stats)
-Catrobat foundation, and funded work.
 
 \subsubsection{Catrobat Software Engineering Practices}
 Approach to development, testing, deployment, production monitoring, ...
 
-The project uses Jenkins to run continuous builds for PocketCode and other related projects \url{https://jenkins.catrob.at/job/Catroid/}. Most of the builds are for the Develop code branch \url{https://jenkins.catrob.at/job/Catroid/job/develop/}.
+The project uses Jenkins to run continuous builds for PocketCode and other related projects \url{https://jenkins.catrob.at/job/Catroid/}. Most of the builds are for the Develop code branch \url{https://jenkins.catrob.at/job/Catroid/job/develop/}. The deployment practices have also been streamlined by combining Jenkins and Fastlane where various tasks people find tedious and are error-prone were automated to reduce deployment errors~\citep{luhana2018streamlining}.
 
-At the start of the case study the crash rate of the Pocket Code app remained stubbornly high despite the extensive use of code quality tools and practices, automated testing, continuous builds and so on. In the product view of quality, ~\citep{kitchenham1996_software_quality_elusive_target}, observed that the approach of taking a product view of quality~\emph{``is frequently adoptd by software-metrics advocates, who assume that measuring and controlling internal product properties (internal quality indicators) will result in improved external product behavior (quality in use)."}~\footnote{US English spelling was used in the original article so used here in the quotation.} Back when the article was published, in 1996, the authors stated \emph{``more research was needed to determine which aspects of internal quality affect the product's use."}
+The project applies various forms of test automation including unit, integration, and UI tests~\citep{luhana2018streamlining}. In addition they incorporate Behavior Driven Testing (BDD), described in detail in~\citep{ali2019using_catrobat}; and the project also uses Cucumber to automatically test the support for BiDi (\underline{Bi}-\underline{Di}rectional) text in the user interface~\citep{ayyal2016automated_bidi_testing, awwad2017_automated_bidi_testing, ali2019behavior_catrobat}. To provide some perspective, they would be one of the top few ranked projects in terms of using automated tests compared with the survey of developers of opensource Android apps~\citep{linares2017_how_do_developers_test_android_apps}, and given the project's investment in custom visual testing tiles in addition to all the other forms of automated testing could be argued to be preeminent across all the opensource Android projects. 
+
+
+\subsubsection{Opening gambit}
+At the start of the case study the crash rate of the Pocket Code app remained stubbornly high despite the extensive use of code quality tools and practices, automated testing, continuous builds and so on. They also had access to two sources of crash analytics. What were they missing?
+
+One possible hypothesis is the team were overly focusing their efforts in pre-release activities. \citep{kitchenham1996_software_quality_elusive_target}, observed that the approach of taking a product view of quality~\emph{``is frequently adopted by software-metrics advocates, who assume that measuring and controlling internal product properties (internal quality indicators) will result in improved external product behavior (quality in use)."}~\footnote{US English spelling was used in the original article so used here in the quotation.} Would working backwards from the failures help the team address the quality in use more effectively?
 
 \subsection{Method}
-Discussions, co-organised a hackathon in Graz, Austria at the project's parent university, planned for 24 hours from 9am 16th November 2019. 
+% It should include a statement of the main focus of the case study, as well as 'what you did'.
+The main focus of this case-study was twofold: 1) to evaluate whether a hackathon driven by existing analytics would help the team materially improve the quality in use of their more complex Android app, and 2) to investigate Fabric Crashlytics as an additional source of analytics about the (un-) reliability of the app.
 
-Hackathon focus: to improve code quality based on failures and issues reported in Android Vitals (cross-referenced with those reported in Fabric Crashlytics).
+The approach, jointly selected by the project lead %Professor Wolfgang Slany
+and myself as the primary researcher,
+was to co-organise a hackathon in Graz, Austria at the project's parent university, planned for 24 hours from 9am on \nth{16} November 2019. We agreed to invite and include an individual who combined extensive experience of hosting and leading hackathons with his nimble, rapid software development expertise. This individual would help to add vigour to the hackathon as the project team was not familiar with hackathons and would benefit from additional encouragement from a fellow developer who `knew the ropes' while also `demonstrating by example'.
+
+We further agreed to two optional introductory sessions on the day before, the~\nth{15} November 2019. In the morning I would present a combination of topics related to mobile app quality, experiences of working in industry, and using analytics to improve software quality. In the afternoon a group of us would visit one of the industry leaders in system-wise monitoring, management and analytics who had a regional office nearby.
+
+
 
 \subsection{The Project's Working Practices}
 Specific roles, who can do what.
@@ -120,10 +170,10 @@ Early indications are that the fixes related to the WebView have made a material
 The change was to remove a progress dialog for media downloads. The development team was not able to reproduce the crash according to the JIRA ticket or the code review in the pull request \#3362\footnote{\url{https://github.com/Catrobat/Catroid/pull/3362/files}}. And yet the fix seems to have had the desired effect in terms of the crash rate. The effect on the UX is not known.
 
 \subsubsection{Addressed During the Hackathon}
-Some of the issues were determined to be 'soft errors' that were leaking to Android Vitals even though the app handled / recovered from them. These were addressed through the work recorded in  \href{https://jira.catrob.at/browse/CATROID-426}{CATROBAT-426}. Table \ref{tab:hackathon_2019_jira_addressed} provides a brief summary of all the issues addressed in the hackathon.
+Some of the issues were determined to be `soft errors' that were leaking to Android Vitals even though the app handled / recovered from them. These were addressed through the work recorded in  \href{https://jira.catrob.at/browse/CATROID-426}{CATROBAT-426}. Table \ref{tab:hackathon_2019_jira_addressed} provides a brief summary of all the issues addressed in the hackathon.
 
 
-\href{https://jira.catrob.at/browse/CATROID-418}{CATROID-418 - Crash in PlaySoundAndWaitBrick.addActionToSequence} The author paired with one of the developers on this issue. It is believed to be a bug that can only occur at runtime when the user has deleted the sound file that is being used by the \texttt{PlaySoundAndWaitBrick} which raised an \texttt{IllegalArgumentException} as it cannot determine the path from the Java Object that represented the sound file for this PocketCode visual programming element. We were able to reproduce the error on a local device and implement a fix. The developer thought a similar behaviour might be the cause of the exception reported in issue \href{https://jira.catrob.at/browse/CATROID-419}{419}, this has yet to be investigated.
+\href{https://jira.catrob.at/browse/CATROID-418}{CATROID-418 - Crash in PlaySoundAndWaitBrick.addActionToSequence} The author paired with one of the developers on this issue. It is believed to be a bug that can only occur at runtime when the user has deleted the sound file that is being used by the \texttt{PlaySoundAndWaitBrick} which raised an \texttt{IllegalArgumentException} as it cannot determine the path from the Java Object that represented the sound file for this PocketCode visual programming element. We were able to reproduce the error on a local device and implement a fix. The developer thought a similar behaviour might be the cause of the exception reported in issue \href{https://jira.catrob.at/browse/CATROID-419}{419}; this has yet to be investigated.
 
 \begin{table}[htbp!]
     \footnotesize
@@ -261,7 +311,7 @@ during the hackathon, this is a known consideration. The project team aims to im
 % and https://tex.stackexchange.com/questions/2275/keeping-tables-figures-close-to-where-they-are-mentioned
 
 \subsubsection{1 Week on}
-Release 0.9.65 is now the dominant release, with ~4000 sessions between \nth{17} and \nth{23} November, compared to ~600 sessions for the previous release of the app (0.9.64). The overall reported crash rate reduced to 2.10\% for \nth{18} to \nth{23} November, compared to the previous 7 days crash rate of 3.62\%. \textbf{Note these are for releases that predates the hackathon.}
+Release 0.9.65 is now the dominant release, with ~4000 sessions between \nth{17} and \nth{23} November, compared to ~600 sessions for the previous release of the app (0.9.64). The overall reported crash rate reduced to 2.10\% for \nth{18} to \nth{23} November, compared to the previous 7 days crash rate of 3.62\%. \textbf{Note these are for releases that predate the hackathon.}
 
 During a call with Professor Slany on \nth{25} November, he mentioned they had planned to release a new version of the app on Friday to address the loss of Fabric Crashlytics data and several improvement related to the hackathon; however their Jenkins build was coincidentally broken that day \url{https://jenkins.catrob.at/job/Catroid/job/develop/1098/} where the build failed to complete for over 54 hours. The cause was being investigated. According to logs on Jenkins it may be related to Docker not being available \texttt{Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?} \footnote{\url{https://jenkins.catrob.at/view/Catroid/job/Catroid/job/develop/1102/execution/node/27/log/}}
 
@@ -312,7 +362,7 @@ The ANR rate is also showing encouraging signs, for the last 7 days (actually it
 
 Some notes on Table~\ref{tab:androidvitals_crashrate_post_hackathon}:
 \begin{enumerate}
-    \item The data was reported for thirty day periods, one of three durations available in the user interface. All figures were calculated and provided by Google's Android Vitals analytics.
+    \item The data was reported for thirty-day periods, one of three durations available in the user interface. All figures were calculated and provided by Google's Android Vitals analytics.
     \item The reports exclude small aggregate counts that fail to meet Google's reporting thresholds.
     \item The percentages fluctuate depending on where releases are in their maturity (their production lifecycle). Therefore these values are spot figures calculated that day and indicative rather than necessarily being suitable for calculating ratios for different periods.
     \item These reports appear to be regenerated once a day, roughly 24 hours apart.
@@ -321,6 +371,7 @@ Some notes on Table~\ref{tab:androidvitals_crashrate_post_hackathon}:
 
 
 \subsection{Findings and Results}
+\label{catrobat-case-study-findings-and-results}
 
 Android Vitals `Bad Behavior' alerts colour coded and intended to help developers quickly notice and respond to high error rates, as illustrated in Figure~\ref{fig:android-vitals-pocketcode-alerts-23-jan-2020}. %Evidence AppHealthOverviewPlace_8841632091579025670_org.catrobat.catroid_1579796386172.png
 
@@ -343,7 +394,7 @@ No plots for either Pocket Code or Pocket Paint for the ANRs and for the crashes
 Illogical results for installed userbase. %Evidence various graphs.
 
 \subsection{Discussion}
-Effects of being measured is a well-known in work, business, etc. One of the effects here was that 'soft-crashes' were reaching Android Vitals and therefore significantly and adversely affecting the crash rate (see \cite{CATDROID-426-JIRA}).
+Effects of being measured is a well-known in work, business, etc. One of the effects here was that `soft-crashes' were reaching Android Vitals and therefore significantly and adversely affecting the crash rate (see \cite{CATDROID-426-JIRA}).
 
 \subsubsection{Validity considerations}
 \begin{itemize}
@@ -351,8 +402,12 @@ Effects of being measured is a well-known in work, business, etc. One of the eff
     \item Inconsistencies in the tools
 \end{itemize}
 
+Furthermore, the project team chose to invest their energies into supporting a testing workshop in Poland and to introducing application-level in-app analytics to both their Android and iOS PocketCode apps (later reversed as explained in the discussion). Their actions indicate the project team recognise the benefits of applying and incorporating analytics into their software development and quality improvement practices.
+
+When the ~\citep{kitchenham1996_software_quality_elusive_target} article was published, in 1996, the authors stated \emph{``more research was needed to determine which aspects of internal quality affect the product's use."}. This case study provided a different focus - on identifying and addressing frequent causes of failures. The change in focus was effective and efficient in terms of the effort and elapsed time expended. It provides another piece in the jigsaw that may help researchers to work backwards from failures in the field to the root causes of these failures and the efficacy and suitability of the various tools and practices engineering teams apply during software creation and internal testing.
+
 \subsubsection{Peer Groups}
-The Pocket Code Android app had a significantly higher crash-rate compared to its peer group, as Figure \ref{fig:pocketcode_peer_crash_rate_18_nov_2019} shows in section \href{android-vitals-peer-groups}{\emph{\nameref{android-vitals-peer-groups}}} shows. While this may be undesirable, the Pocket Code app had incredible richness and complexity compared to the perceived peer apps, for instance it includes support for generating native Android apps, an app store, generation of rich, graphical games, as examples of some of the rich capabilities on offer.
+The Pocket Code Android app had a significantly higher crash-rate compared to its peer group, as Figure \ref{fig:pocketcode_peer_crash_rate_18_nov_2019} shows in section \href{android-vitals-peer-groups}{\emph{\nameref{android-vitals-peer-groups}}} shows. While this may be undesirable, the Pocket Code app had incredible richness and complexity compared to the perceived peer apps; for instance it includes support for generating native Android apps, an app store, generation of rich, graphical games, as examples of some of the rich capabilities on offer.
 
 
 \subsubsection{Slower growth of user-base}
@@ -377,6 +432,9 @@ In February 2020 the development lead for the iOS app, in conjunction with me an
     \item Early discoveries (discussed at the workshop in Poland on \nth{28} February 2020.
 \end{itemize}
 TBC
+
+\subsection{Codicil for this case study}
+The case study started with a single core event - the hackathon in Graz and the ramifications of that hackathon. However one of the ramifications was an agreement to collaborate and participate in a subsequent workshop in Wroclaw, Poland at a conference primarily organised by and for software testers. That workshop did not go to plan for a couple of key reasons. Covid-19 had started to permeate Poland immediately before the conference which necessitated the conference organisers having to make wide-ranging major adaptions to the design of the conference and to the programme as some speakers had symptoms of covid-19. Second, the conference organisers were the bulk of the participants for the workshop and couldn't spend the time they'd intended in the workshop since they had to attend to everything else, and third some of the intended participants were asked to stay home to reduce the risk of the event becoming `a superspreader'~\citep{cave2020covid}.
 
 \subsection{Summary of the Catrobat Case Study}
 TBC
