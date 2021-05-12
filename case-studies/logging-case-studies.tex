@@ -1,5 +1,81 @@
 \section{Research in logging practices}
 \label{section-research-in-logging-practices}
+
+
+\subsection*{Rationale}
+\marian{Need to connect this case study with the thesis: what was the goal and show the key contributions. Rationale for this case study. which gave me the chance to look at .... Rationale for the intervention.}
+
+This case study investigates and illustrates how developers have chosen to use mobile analytics to effectively provide remote logging from the field when their application is being used. The case study presents empirical research into characteristics of mobile analytics logging including the density of logging code, the frequency of updates to this code, and also what is being logged. Logging is an endemic practice in software engineering and the realisation that developers have chosen to use mobile analytics effectively for remote logging is relevant in terms of its use for measuring and potentially improving the reliability of their apps.
+
+This case study gave me the chance to look at the historical practices of hundreds of developers of actively maintained Android apps. The goal was to increase understanding of what these developers have used the most popular and prevalent mobile analytics service (Firebase Analytics) for. It also presented an excellent opportunity for international collaboration with a mix of fledgling and highly experienced researchers in areas related to my research.
+
+\textbf{Still TBD} how to weave in, and integrate, the earlier work Joe and I did to analyse local logging and the software we created to help analyse log messages. It was a precursor to the collaborative research and certainly helped inform my thinking and aspects of my collaboration with the rest of the authors, first at the Shonan, and then subsequently in the joint research that led to the MOBILESoft 2021 paper. In my view the work with Joe on log analysis aligns with the case study however none of us actually applied that work to the collaborative case study discussed in this section.
+
+\par\noindent\rule{\textwidth}{0.4pt}
+
+\subsection*{Contributions of this case study}
+\begin{itemize}
+    \item Insights into the footprint and overhead of what developers of 57 Android apps actively log, together with an understanding that developers of 50 more Android apps chose to simply integrate Firebase into their app and [presumably] rely on the default information Firebase provides them.
+    \item An example of collaborative research I helped lead in an area related to my PhD.
+    \item Identifying differences between internal and external logs/logging.
+    \item A connection established between logging and mobile analytics.
+    \item TBC the intersection between using mobile analytics \textit{and} crash reporting.
+\end{itemize}
+
+
+\setminted{fontsize=\small,baselinestretch=1}
+
+\subsection*{Evidence}
+  \begin{minted}[
+    gobble=4,
+    frame=single,
+    fontsize=\tiny,
+    breaklines=true
+  ]{yaml}
+    evidence available :
+      public reproduction package : \url{https://github.com/mobileanalyticslogs/mobileanalyticslogging}
+      local private reproduction : ~/sandbox/apmtracker and~\url{https://github.com/julianharty/research-in-logging-practices}
+      co-written-paper : MOBILESoft 2021
+    evidence-needed : 
+      An assessment of which of the 107 projects also incorporate crash analytics.
+  \end{minted}
+
+\subsection{Introduction}
+(Highlight key features of case, similarities and differences w.r.t. other cases);
+
+
+\subsection{Context}
+(Product/Project overview, Developer characteristics, tools, methods, key challenges for product/project);
+
+\subsection{Analytics intervention}
+(Describe what you did with analytics in the context of the case); 
+
+Some notes to develop here:
+\begin{itemize}
+    \item Via Ian Shang and Haonan Zang: they only found only 7 apps use that firebase logging in F-Droid. This is almost the inverse of what commercial developers do in their Android apps, where over 62\% of all apps include Firebase Analytics, and over 90\% of the top applications do. We extended the research to use a GHTorrent snapshot from \nth{1} June 2019 of all the projects on github.com.
+
+\end{itemize}
+
+\subsection{Outcomes} 
+(Describe the outcomes resulting from the intervention); 
+
+\subsection{Discussion} 
+(Explore what these outcomes mean for the use of analytics in mobile software more generally)
+
+\begin{itemize}
+    \item Threats to validity include: opensource projects not being very representative of commercial apps; our method where we relied on prior work for our comparisons; use of basic regular expressions; use of srcml that doesn't support Kotlin.
+    \item It's an open question whether the opensource developers are using Firebase analytics for similar purposes to the purposes identified in our research. This can be cross-correlated with the interview with Jakob D. where they used Firebase Analytics to capture runtime issues. Admittedly a tiny sample of 4 responses replied to Maurício Aniche's request on Twitter~\url{https://twitter.com/mauricioaniche/status/1250687381914750976} %A copy of the tweet and replies is stored in my misc references folder.
+    \begin{itemize}
+        \item Pedro Pessoa \href{https://twitter.com/pedpess}{@pedpess} Apr 16, 2020 Replying to @mauricioaniche \emph{``Depends... Usually, critical parts of the biz. For instance, if I can order something from the app, I wanna know if the order succeeded or failed and why... For pure native, I was using Firebase - Crashlytics. Lately, for React Native, Sentry."}
+        \item Marabesi Personal computerFlag of Brazil \href{https://twitter.com/MatheusMarabesi}{@MatheusMarabesi} Apr 16, 2020 Replying to @mauricioaniche \emph{``Sentry/bugsnag"}
+        \item Robson Soares Amorim \href{https://twitter.com/AmorimRob}{@AmorimRob} Apr 16, 2020 Replying to  @mauricioaniche \emph{``Currently, using App Center to track logs from crashs and custom errors messages in try catchs blocks, personalized events (user clicked on button save, for example). Also, the analytics data provided is very useful for viewing new version adoptions, user session time, devices .."}
+        \item Roman Sirokov \href{https://twitter.com/RSirokov}{@RSirokov} Apr 16, 2020 Replying to  @mauricioaniche \emph{``@Firebase has a lot of extremely helpful cross-platform tools; starting from detailed crashlytics, going to app’s performance metrics and user analytics. It’s also possible to implement custom events."}
+    \end{itemize}
+\end{itemize}
+
+\par\noindent\rule{\textwidth}{0.4pt}
+~\textbf{Earlier material follows}
+
 Logging and mobile analytics intersect with each other, particularly in terms of how they are implemented and in using them to record aspects of the runtime behaviour of software. Previous case studies in this thesis focused on the use and application of various forms of mobile analytics, this section focuses on some of the details of the implementation of logging and the use of mobile analytics to provide a form of remote logging. 
 
 Here we cover:

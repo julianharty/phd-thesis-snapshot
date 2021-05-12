@@ -10,7 +10,11 @@ This case study built on the experiences of the Kiwix case study in several rele
     \item With the researcher playing a different role, of coach rather than being embedded in the core development team. Would the development team be able to make the improvements themselves?
     \item It included in-app crash analytics using another analytics tool which provided the opportunity to compare and contrast what the tools provide the development team and their respective utility. 
     \item The Fabric Crashlytics SDK provided the ability for developers to report handled exceptions `Errors' a feature unavailable from Google's Android platform analytics.
+    \item It enabled the evaluation of a shorter hackathon approach to applying analytics to improve reliability.
 \end{itemize}
+
+
+\akb{Suggested general structure for the case studies: §1 Introduction (Highlight key features of case, similarities and differences w.r.t. other cases); §2 Context (Product/Project overview, Developer characteristics, tools, methods, key challenges for product/project); §3 Analytics intervention (Describe what you did with analytics in the context of the case); §4 Outcomes (Describe the outcomes resulting from the intervention); §5 Discussion (Explore what these outcomes mean for the use of analytics in mobile software more generally)}
 
 Common attributes of Kiwix and this project include:
 \begin{itemize}
@@ -140,7 +144,7 @@ The visit (including the presentation at the Graz University of Technology on Fr
 There was a peak of eight participants from the Catrobat team during the hackathon. This included two people %(including Wolfgang and Matthias)
 in non-coding capacities. Approximate time spent. Twenty-two (22) issues were raised during the day (tagged: hackathon-2019)\footnote{\url{https://jira.catrob.at/browse/CATROID-426?jql=labels\%20\%3D\%20hackathon-2019}}. Most of these were created in the morning, one for each of the top crashes and ANRs as recorded and ranked in Android Vitals. 
 
-\subsection{Immediate Results}
+\subsection{Immediate outcomes post Hackathon}
 We can group the issues using as follows (already fixed, addressed during the hackathon, pending, rejected).
 
 \subsubsection{Already fixed} JIRA issue 405\footnote{\url{https://jira.catrob.at/browse/CATROID-405}} was the \#1 issue with over 2000 crashes reported in the 30 days preceding the hackathon (and over 3200 in the lifetime of the app). However, it had already been addressed in JIRA issue 379\footnote{"media download progress dialog crashers" \url{https://jira.catrob.at/browse/CATROID-379}} and incorporated in to the most recent release \footnote{Release:
@@ -364,13 +368,13 @@ Some notes on Table~\ref{tab:androidvitals_crashrate_post_hackathon}:
 \begin{enumerate}
     \item The data was reported for thirty-day periods, one of three durations available in the user interface. All figures were calculated and provided by Google's Android Vitals analytics.
     \item The reports exclude small aggregate counts that fail to meet Google's reporting thresholds.
-    \item The percentages fluctuate depending on where releases are in their maturity (their production lifecycle). Therefore these values are spot figures calculated that day and indicative rather than necessarily being suitable for calculating ratios for different periods.
+    \item The percentages fluctuate depending on where releases are in their maturity (their production lifecycle). Therefore these values are spot figures calculated that day and indicative rather than necessarily being suitable for calculating ratios for different periods. % c.f. https://gradcoach.com/nominal-ordinal-interval-ratio/ This point is probably worth expanding on - that it's unwise to simply compare absolute values to determine 'better' and 'worse' in terms of the quality of the actual app. Instead we're getting the equivalent of spot prices of how that release, etc. fared that period. Proivde examples from Kiwix (WebView) and the large industrial case study. Note this material should probably be in an overall chapter rather than this case study. Here we can forward reference that material.
     \item These reports appear to be regenerated once a day, roughly 24 hours apart.
     \item It is unclear whether the underlying data is filtered to limit it to apps only installed by end users of production releases from Google Play.
 \end{enumerate}
 
 
-\subsection{Findings and Results}
+\subsection{Findings and Results of the Case Study}
 \label{catrobat-case-study-findings-and-results}
 
 Android Vitals `Bad Behavior' alerts colour coded and intended to help developers quickly notice and respond to high error rates, as illustrated in Figure~\ref{fig:android-vitals-pocketcode-alerts-23-jan-2020}. %Evidence AppHealthOverviewPlace_8841632091579025670_org.catrobat.catroid_1579796386172.png
