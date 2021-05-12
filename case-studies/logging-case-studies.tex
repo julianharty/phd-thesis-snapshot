@@ -36,31 +36,118 @@ This case study gave me the chance to look at the historical practices of hundre
       public reproduction package : \url{https://github.com/mobileanalyticslogs/mobileanalyticslogging}
       local private reproduction : ~/sandbox/apmtracker and~\url{https://github.com/julianharty/research-in-logging-practices}
       co-written-paper : MOBILESoft 2021
+      joedocs : various notes.
+        \url{https://joedocs.com/julianharty/site/apm-logging-research}
+      zoom : various meeting recordings.
+      overleaf: drafts and the final paper for MOBILESoft 2021
     evidence-needed : 
       An assessment of which of the 107 projects also incorporate crash analytics.
-  \end{minted}
+      Review Luca's list of 8K verified Android apps on GitHub.
+      Are any of the 107 apps on f-droid? How many are in the 8K verified Android apps from Luca Pascarella et al.?
+  \end{minted}  
+
+
 
 \subsection{Introduction}
-(Highlight key features of case, similarities and differences w.r.t. other cases);
+\emph{(Highlight key features of case, similarities and differences w.r.t. other cases);}
+
+This case study provides an additional perspective: that of investigating what various opensource Android developers have used Firebase Analytics for in their Android apps. It complements the development team case studies (where I worked with and/or interviewed the developers) by studying the contents and history of source code of 107 projects. It mines software repositories hosted on~\href{https://github.com/}{GitHub} and compares the use of the foremost mobile analytics SDK (Google's Firebase Analytics) for logging compared to the use of local logging.
+
+Where these apps are in Google Play the developers would already have access to Google Play Console and Android Vitals, yet they have chosen to incorporate an additional analytics library into their app's codebase to log various details. 
+
+Similarities to other case studies include: the projects are for live, actively maintained, Android projects and apps. Mobile Analytics is at the core of the case study. It investigates the use of mobile analytics by the development teams. The research has been collaborative in nature and aims to lead to further research.
 
 
 \subsection{Context}
-(Product/Project overview, Developer characteristics, tools, methods, key challenges for product/project);
+\emph{(Product/Project overview, Developer characteristics, tools, methods, key challenges for product/project);}
 
-\subsection{Analytics intervention}
-(Describe what you did with analytics in the context of the case); 
+The project was initiated in December 2019 during various breakout sessions I participated in at Shonan Workshop 152~\citep{nii_shonan_workshop_152} where we, a group of researchers, agreed we would like to learn more about mobile analytics being used for logging by mobile apps. The initial group comprised of three late stage PhD students~\footnote{Two of these successfully defended their thesis during this case study.} and two associate professors. We were subsequently joined by an additional early stage PhD candidate who led the initial searches for suitable projects and who also wrote the source code and scripts used to perform the core analysis of these projects.
+
+As one of the professors (\href{https://users.encs.concordia.ca/~shang/}{Weiyi Shang}) had extensive, recent, and relevant experience of two key and related aspects, namely 1) analysis of local logging practices in opensource Android apps~\citep{zeng2019studying_logging_practices_fdroid} and 2) in using the srcML analysis tool we used these to bootstrap our research.
+
+\subsubsection{Methods} 
+Collaboration using github for data analysis and source code, overleaf, google docs both text and spreadsheets, joedocs, zoom calls including recordings, emails. Filter using keyword firebaseanalytics, exclude toy and inactive projects. 
+
+\textbf{Identify the projects to analyse}
+The first pass was to identify Android apps on F-Droid that included Firebase Analytics. 7 were found. These were paradoxically too few for the research to be material and too many as F-Droid state they do not accept any apps with Firebase or other non-open Analytics SDKs. We therefore decided to analyse public projects hosted on GitHub. We chose to use the GHTorrent offline repository of GitHub projects~\citep{gousios2012_ghtorrent_githubs_data_from_a_firehose} for the initial selection and filtering of projects. 
+
+\textbf{Selecting active real-world apps}
+
+\textbf{Establish the codebook}
+
+\textbf{Apply the codebook on a larger, representative, sample}
+
+
+\textbf{Key challenges} included finding suitable projects on f-droid, identifying suitable projects on GitHub, agreeing on the classifications, \href{subsection_srcml_working_with_kotlin_files}{working with Kotlin source files}, and the collaboration in general given the range of locations and timezones of the authors. 
+
+\subsubsection{Working with Kotlin source files}
+\label{subsection_srcml_working_with_kotlin_files}
+
+\begin{listing}
+\begin{minted}[
+    gobble=2,
+    frame=single,
+    fontsize=\tiny,
+    breaklines=true
+  ]{bash}
+  # Download and install srcML from their project’s website
+
+  srcml -V
+  # 1.0.0 etc.
+
+  srcml --show-language ./main/src/main/java/com/google/android/apps/muzei/MuzeiActivity.kt
+  # no visible output
+
+  ln -s  ./main/src/main/java/com/google/android/apps/muzei/MuzeiActivity.kt MuzeiActivity.java
+
+  srcml --show-language MuzeiActivity.java#Java
+  srcml MuzeiActivity.java -o MuzeiActivity.xml
+  vim MuzeiActivity.*
+\end{minted}
+\caption{Bash commands to show how srcml can be coerced into analysing Kotlin files}
+\label{listing:bash_example_srcml_does_kotlin}
+\end{listing}
+
+One of the challenges we encountered was in how to analyse source code written in Kotlin~\footnote{Kotlin is increasingly popular both for new Android apps and many developers are migrating code from Java to Kotlin in existing apps. Up to date estimates of the growth of Kotlin are available from AppBrain~\href{https://www.appbrain.com/stats/libraries/details/kotlin/kotlin}{Kotlin - Android SDK statistics | AppBrain}, for example.}. 
+The software tool we used for this research, \href{https://www.srcml.org/}{srcML}, did not support Kotlin directly at the time of the case study, it only supported C, C++, Java and C\#. Our solution was crude yet appeared to be adequate for the purposes of our research; we created symbolic links for each Kotlin source file where the link has a \texttt{.java} extension. Listing~\ref{listing:bash_example_srcml_does_kotlin} illustrates the approach. We checked the XML files that srcML generated for these files together with the results of the regular expression matches to confirm this approach was sufficient~\footnote{Details about srcML including the XML it generates are available on the project's \href{https://www.srcml.org/about.html}{About} page}. 
+
+\subsection{Findings and Results}
+\textit{(Describe what you did with analytics in the context of the case);} 
+
+
+
+
+\begin{listing}
+\begin{minted}[
+    gobble=4,
+    frame=single,
+    fontsize=\tiny,
+    breaklines=true
+  ]{kotlin}
+      private fun configureLogging() {
+        if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
+    }
+\end{minted}
+\caption{Source~\href{https://github.com/duckduckgo/Android/blob/2f3d42be6a972551c2330daccba6ff4039e1c1a8/app/src/main/java/com/duckduckgo/app/global/DuckDuckGoApplication.kt\#L177-L179}{Lines 177-179 of DuckDuckGoApplication.kt}}
+\label{listing:duckduckgo_timber_debug_logging}
+\end{listing}
+
+The short source code snippet in Listing~\ref{listing:duckduckgo_timber_debug_logging} provides an example of how developers can choose to vary, or control, the behaviour of the logging for particular builds of their app.
+
+
 
 Some notes to develop here:
 \begin{itemize}
-    \item Via Ian Shang and Haonan Zang: they only found only 7 apps use that firebase logging in F-Droid. This is almost the inverse of what commercial developers do in their Android apps, where over 62\% of all apps include Firebase Analytics, and over 90\% of the top applications do. We extended the research to use a GHTorrent snapshot from \nth{1} June 2019 of all the projects on github.com.
+    \item Via Ian Shang and Haonan Zang: they only found only 7 apps use that firebase logging in F-Droid. The inclusion policy of F-Droid effectively excludes any apps that use Firebase (which they list explicitly as a blocker, along with Crashlytics.)~\url{https://f-droid.org/en/docs/Inclusion_Policy/}. The lack of Firebase Analytics in F-Droid is almost the inverse of what commercial developers do in their Android apps, where over 62\% of all apps include Firebase Analytics, and over 90\% of the top applications do. We extended the research to use a GHTorrent snapshot from \nth{1} June 2019 of all the projects on github.com.
+    \item From Luca Pascarella (co-author of the paper) \emph{``I have a list of 8k verified Android apps hosted on Github"}
 
 \end{itemize}
 
 \subsection{Outcomes} 
-(Describe the outcomes resulting from the intervention); 
+\textit{(Describe the outcomes resulting from the intervention); }
 
 \subsection{Discussion} 
-(Explore what these outcomes mean for the use of analytics in mobile software more generally)
+\textit{(Explore what these outcomes mean for the use of analytics in mobile software more generally)}
 
 \begin{itemize}
     \item Threats to validity include: opensource projects not being very representative of commercial apps; our method where we relied on prior work for our comparisons; use of basic regular expressions; use of srcml that doesn't support Kotlin.
