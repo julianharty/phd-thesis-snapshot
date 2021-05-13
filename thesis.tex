@@ -42,6 +42,17 @@
 \listoffigures
 %\mtcaddchapter
 \addtocontents{lof}{\par\nobreak\textbf{{\scshape Figure} \hfill Page}\par\nobreak}
+
+
+% https://tex.stackexchange.com/a/99656/5125
+\renewcommand{\listoflistings}{%
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Sourcecode Listings}%
+    \listof{listing}{Sourcecode Listings}%
+}
+\listoflistings
+
 %\clearemptydoublepage
 %
 %

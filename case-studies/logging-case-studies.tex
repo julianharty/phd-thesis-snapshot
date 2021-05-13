@@ -1,6 +1,12 @@
 \section{Research in logging practices}
 \label{section-research-in-logging-practices}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{images/mobile-analytics-logging/musical-illustration.jpg}
+    \caption{Musical representation of commits for local and mobile analytics logging}
+    \label{fig:mobile_analytics_logging_musical_illustration}
+\end{figure}
 
 \subsection*{Rationale}
 \marian{Need to connect this case study with the thesis: what was the goal and show the key contributions. Rationale for this case study. which gave me the chance to look at .... Rationale for the intervention.}
@@ -63,15 +69,36 @@ Similarities to other case studies include: the projects are for live, actively 
 
 The project was initiated in December 2019 during various breakout sessions I participated in at Shonan Workshop 152~\citep{nii_shonan_workshop_152} where we, a group of researchers, agreed we would like to learn more about mobile analytics being used for logging by mobile apps. The initial group comprised of three late stage PhD students~\footnote{Two of these successfully defended their thesis during this case study.} and two associate professors. We were subsequently joined by an additional early stage PhD candidate who led the initial searches for suitable projects and who also wrote the source code and scripts used to perform the core analysis of these projects.
 
-As one of the professors (\href{https://users.encs.concordia.ca/~shang/}{Weiyi Shang}) had extensive, recent, and relevant experience of two key and related aspects, namely 1) analysis of local logging practices in opensource Android apps~\citep{zeng2019studying_logging_practices_fdroid} and 2) in using the srcML analysis tool we used these to bootstrap our research.
+As one of the professors (\href{https://users.encs.concordia.ca/~shang/}{Weiyi Shang}) had extensive, recent, and relevant experience of two key and related aspects, namely 1) analysis of local logging practices in opensource Android apps~\citep{zeng2019studying_logging_practices_fdroid} and 2) in using the srcML analysis tool we used these to bootstrap our research. Similarly, the GHTorrent offline repository of GitHub projects~\citep{gousios2012_ghtorrent_githubs_data_from_a_firehose} was chosen for the initial selection and filtering of projects based on his recommendation and prior research experience. 
 
 \subsubsection{Methods} 
-Collaboration using github for data analysis and source code, overleaf, google docs both text and spreadsheets, joedocs, zoom calls including recordings, emails. Filter using keyword firebaseanalytics, exclude toy and inactive projects. 
+
 
 \textbf{Identify the projects to analyse}
-The first pass was to identify Android apps on F-Droid that included Firebase Analytics. 7 were found. These were paradoxically too few for the research to be material and too many as F-Droid state they do not accept any apps with Firebase or other non-open Analytics SDKs. We therefore decided to analyse public projects hosted on GitHub. We chose to use the GHTorrent offline repository of GitHub projects~\citep{gousios2012_ghtorrent_githubs_data_from_a_firehose} for the initial selection and filtering of projects. 
+The first pass was to identify Android apps on F-Droid that included Firebase Analytics. 7 were found. These were paradoxically too few for the research to be material and too many as F-Droid state they do not accept any apps with Firebase or other non-open Analytics SDKs. We therefore decided to analyse public projects hosted on GitHub. 
+
 
 \textbf{Selecting active real-world apps}
+GitHub.com contains a vast range of projects and the nature of git where forks of projects are encouraged and trivial to do meant we needed to filter out duplicates, toy, and inactive projects. Various signals were used to perform the filtering including the number of project stars, the volume and recency of commits, etc.
+
+We further filtered the projects by searching for the keyword firebaseanalytics. An example of the query is \url{https://github.com/search?q=\%22implementation+\%27com.google.firebase\%3Afirebase-analytics\%27\%22&type=Code}. These match a pattern used in \texttt{app/build.gradle} a standard file in virtually all Android projects. Listing~\ref{listing:trashout_ancient_firebaseanalytics_version} provides an example of one of the search results. A quick indication this project is no longer actively maintained is the version number at the end of the line of code, version 15.0.1 of Firebase Analytics was current in Spring of 2018 (as confirmed by the release history for Firebase: \url{https://firebase.google.com/support/release-notes/android#version_1502})~\footnote{Oddly this lists release 15.0.0 and 15.0.2 and does not have an entry for 15.0.1, yet 15.0.1 is found in examples online.}.
+
+\begin{listing}
+\begin{minted}[
+    gobble=4,
+    frame=single,
+    fontsize=\tiny,
+    breaklines=true
+  ]{groovy}
+      implementation 'com.google.firebase:firebase-analytics:15.0.1'
+\end{minted}
+\caption{Source~\href{https://github.com/TrashOut/Android/blob/e897c1c05629f3f5da23516fdfbd24870f773166/app/build.gradle\#L88}{Line 88 of app/build.gradle for TrashOut Android}}
+\label{listing:trashout_ancient_firebaseanalytics_version}
+\end{listing}
+%%%% Note groovy is the language code to use for gradle, see https://pygments.org/docs/lexers/
+
+\textbf{Establish and maintain coherence across the team}
+
 
 \textbf{Establish the codebook}
 
@@ -79,6 +106,13 @@ The first pass was to identify Android apps on F-Droid that included Firebase An
 
 
 \textbf{Key challenges} included finding suitable projects on f-droid, identifying suitable projects on GitHub, agreeing on the classifications, \href{subsection_srcml_working_with_kotlin_files}{working with Kotlin source files}, and the collaboration in general given the range of locations and timezones of the authors. 
+
+\textbf{Methods for effective collaboration}
+As a codicil to the methods section, here is a brief overview of the methods used to collaborate as researchers. 
+
+We used a private GitHub repo for the data analysis and source code until the first paper was written. Overleaf was used as our collaborative editor for academic writing and subsequent publications. In addition two online services were used for written work: 1) google docs for ad-hoc documents and spreadsheets, and 2) \href{https://joedocs.com/}{JoeDocs}~\footnote{JoeDocs was co-created and is subsequently maintained by a friend, collaborator, and colleague - Joseph Reeve. JoeDocs provided a practical alternative to Google Docs, especially during the first lockdown for COVID-19 where various online services were struggling to cope.}. 
+
+A series of meetings used Zoom video calls and many of these calls were recorded with the full agreement of the group so we could review to meetings afterwards, for instance if anyone missed a meeting. Of course, emails were also endemic. I made notes for many of the meetings and these are freely available for our group of researchers.
 
 \subsubsection{Working with Kotlin source files}
 \label{subsection_srcml_working_with_kotlin_files}
@@ -160,6 +194,13 @@ Some notes to develop here:
     \end{itemize}
 \end{itemize}
 
+
+\subsection*{Further Work}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \par\noindent\rule{\textwidth}{0.4pt}
 ~\textbf{Earlier material follows}
 
