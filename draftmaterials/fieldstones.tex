@@ -314,3 +314,241 @@ Achieved by identifying the impact of analytical data usage through case studies
 
 Source <\url{https://teams.microsoft.com/l/message/19:de282fda0ad24a9d9bacd8fd70b7b139@thread.tacv2/1619691994442?tenantId=0e2ed455-96af-4100-bed3-a8e5fd981685&amp;groupId=d428d54e-83c9-442e-a725-663d8c01fcc3&amp;parentMessageId=1602680681312&amp;teamName=PGForum (team)&amp;channelName=General&amp;createdTime=1619691994442}>
 \end{mdframed}
+
+For a V2 of the Mobile Analytics Playbook, Antoine proposed an interesting approach A copy of the contents is in the HP AppPulseMobile folder and the email source is in a comment in latex % https://mail.google.com/mail/u/0?ui=2&ik=3d29c9d0f3&view=lg&permmsgid=msg-f%3A1529879579280404426&ser=1
+
+As a follow-up to our discussions, I started to capture a list of all the steps a mobile app (front end) team is going through.
+
+The purpose is to:
+
+-          make sure we are all aware of what a mobile front-end devops framework looks like (self-enablement, tech partnership, etc.)
+
+-          Come up with a solution-driven story that enables HPE reps to identify low-hanging fruit and help customers (buy now) increase their maturity model
+
+ 
+
+Here the fundamentals behind it:
+
+-          Build: Everything with a CI, a pipeline and a delivery are the most practical place where devOps starts, and the collaboration starts between the groups.
+
+-          Monitor: Once the app is available on the app stores, all attributes of the user experience are being tracked
+
+-          Optimize: Apply analytics to development and testing, and generate better insight into the business
+
+\subsection{email notes on Google IO talks on Firebase 2016}
+% Email source https://mail.google.com/mail/u/0/#search/apppulse+mobile/FMfcgxmQHThNhTMPzbrSXPvcDRktDdnK
+\nth{21} May 2016
+
+Yijun,
+Thank you very much. I've watched that one \url{https://www.youtube.com/watch?v=tb2GZ3Bh4p8} which provides a good overview, and am now watching one that focuses on testing https://www.youtube.com/watch?v=4fyhgHQYG1U 
+
+Here are some short reminders of topics to consider:
+Pre-launch report: crashes, screenshots, and security issues (based on what the app consists of c.f. SafeDK)
+Robo Crawler - creates instrumentation tests in Espresso. 
+Crash Analytics at 14:00 \url{https://www.youtube.com/watch?v=4fyhgHQYG1U} They discuss clustering (which is interesting and useful)
+Firebase Analytics, Audiences, and experiments
+
+Buckets
+Breadcrumbs (to traceback from crashes, similar to HP's AppPulse Mobile breadcrumbs).
+
+They're not discussing the use of analytics to help with the testing. 
+Speak in a couple of hours, and thanks again for pointing out this key topic.
+
+Julian
+
+PS: I've made some more detailed notes while watching both videos which I've pasted in below:
+
+\textbf{First video (Firebase overview for developers)}
+Google Firebase
+
+App quality services
+
+test lab for android
+
+crash analytics
+
+new analytics product
+
+Developer experience matters
+
+Cross Platform
+
+Integrated suite of tools
+
+Firebase console - single home to manage your app
+
+Firebase Analytics
+
+designed for apps
+
+event and user centric
+
+connects across Firebase (features)
+
+Free and unlimited
+
+Main view of all key metrics for your app: activity, revenue from in-app purchases, user engagement, where they’re coming from, distribution of app versions across devices, locations, demographics, user interests, retention. Cohort analytics.
+
+How often a user has made a mistake.
+
+Audiences - groups of users based on behaviours e.g. those who made an in-app purchase. Can take targeted actions.
+
+(Ad) network attribution
+
+Funnels: how many users made it through the tutorial.
+
+Realtime database works when the device is offline, designed to then update from the Google servers.
+
+Hosting your domain on Firebase now f-o-c.
+
+Firebase Storage: handles poor connectivity. Supports Google Edge Caching.
+
+Firebase Remote Config from central to devices - roll out of new features without needing a new app in the app store.
+
+Conditions are used to control how the app behaves for Audience(s) of users (and other options e.g. by device model).
+
+Cloud Test Lab being rebranded - test lab for Android. Tests on most popular devices, run a custom set of instrumentations tests and robotests using a spider of your app. Combine with crash analytics for what you didn’t catch. 
+
+Run a robotest - upload an APK. Demo failed. Pick set of devices and Android versions. Provides screenshots, videos of walking through the app. Exceptions, from running tests shown. 
+
+9.3K of crashes, 119 clusters, then prioritised by number of errors or number of users. Type of iOS version affected, Device affected. 
+
+Integrations with other Google services - Google Play in-app purchases appear directly in the console as do ANR’s flow through to Crash Reporting.
+
+James Tamplin - the techie doing the demo, etc.
+
+Francis Ma 
+
+Growing a business with Firebase.
+
+Acquisition of users, engage users, 
+
+currently high-friction to invite new users. Firebase provides dynamic links custom to the user’s device, checks the app is installed, else downloads the correct app, and then deep links into the relevant section of the app. 
+
+Firebase invites. Drop-in widget for sharing.
+
+AdWords: Universal App Campaigns. 
+
+NPR video: Getting users into the content as quickly as possible.
+
+App behaviour now unpredictable from the user’s perspective as it can be reconfigured remotely. Could be perturbing for some users.
+
+My thought: Can we outsource packages of testing from Firebase? Results should then reintegrate into the product’s dashboard.
+
+\url{isapp.com/io} 
+
+\url{firebase.google.com}
+
+\textbf{Second video (on testing)}
+
+Ahmed Mounir Gad - Product Manager at Firebase Test Lab
+
+Fergus Hurley: on the Google Play Developer Console
+
+Ali Abdelhadi:  Product Manager on Firebase Crash Reporting
+
+Michael Bailey:  Android Engineer at American Express
+
+Iordanis from Shazam
+
+Quality = Success
+
+51\% of 1-star reviews due to stability issues. on Google Play.
+
+Nice bug net image for Monitor. 
+
+Develop->Release->Monitor
+
+Photo of device lab in Google Data Centre. Amazing Infrastructure so you don’t need to buy or maintain devices. Android Studio. CI command line integrations Jenkins, CircleCI and TeamCity.
+
+RoboCrawler. Builds an activity map. Creates a video of the app. Espresso Test Recorder. Launch app on the phone, capture the interactions, builds a fully reusable test script in Espresso. 
+
+@9:40 ish Pre-launch report
+
+crashes, screenshots, and security
+
+screenshots: helps identify usability issues - human detects the layout problems, rather than using automation :(
+
+known vulnerabilities - detected in your codebase. 
+
+60\% of top 1000 apps running alpha & beta channels.
+
+Firebase crash reporting: 13:25  
+
+Build an audience of crashing users
+
+Control it remotely using Remote Config
+
+Monitor errors using Crash Reporting
+
+Send notifications to re-engage: to apologise, and maybe offer a discount to keep the users sweet
+
+Build a test case to retest the fix. Run this before launch of the updated app.
+
+Existing app users:
+
+Shazam
+
+PicCollage
+
+Amex
+
+Foursquare
+
+Skyscanner
+
+KKbox
+
+Lollicam
+
+Busbud
+
+WeMesh
+
+Fabulous
+
+@27 mins Espresso tests with Async behaviour. Not yet supported, considering adding delays even though they know it’s not a good solution. They generate code we have to hack to get working.
+
+@28 mins - discussion on when to run the tests in CI on branches, etc.
+
+Modular SDK to keep size of SDK down.
+
+comparison with old vs new crash reporting. 
+
+Branding Firebase
+
+Can clients enter feedback not just errors using the feedback of Firebase e.g. so a user can report odd behaviour.
+
+Custom identifiers in exceptions: not implemented yet, has some privacy implications, a top request.
+
+Testing an app that uses a camera. Mock the input to the camera in instrumentation tests. But back of camera taped to stop people using the camera to view other apps. The answer wasn’t adequate to solve the testing challenge of video processing of rich videos.
+
+Amex 1000+ instrumentation tests - run in shards. Run tests in parallel with code reviews. 
+
+Any cross-platform examples of success - test lab only for Android. 
+
+cf appium - not supported on the test lab. UI Automator 2.0, Espresso and Robotium are supported.
+
+Login testing supported for Google login flows. They’re adding support for other logins.
+
+Scaling
+
+app popular in Kenya unique devices and OS versions, how do they request these devices in the lab, and how will the test lab scale to Google scale. Google taking care of getting the diversity of devices, and making devices available. 
+
+How do you test remote check deposit e.g. that uses the camera. Amex doesn’t test the app that uses a camera. Split the testing into 2 parts: firing the camera, and then processing the image.
+
+How to get the screenshots - are they automatic? Robo interacts for about 5 mins, takes a screenshot roughly once a second. then optimising looking for screen diffs. Espresso is supported with an API for screenshots. Screenshots only for dummy accounts in pre-launch, no screenshots in live.
+
+What is the role for QA in this environment? no need to spend time on test setup of the environment, etc. Now the QA team can focus on the testing. 
+
+@42 mins Espresso Test Recorder - record your script once and run it in the cloud.
+
+
+Average crash rate of apps - Google won’t tell which are the crashiest apps. Could investigate how to compare with peers anonymously. 
+
+Quality is more than crashes: NPS. Performance testing they’ll start thinking about. 
+
+Testing the look and feel rather than the functionality - today people can look at the screenshots, Google looking at Accessibility. 
+
+Any Android app can be tested. 
+

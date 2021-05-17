@@ -20,6 +20,8 @@ This chapter complements the `On Mobile Analytics` chapter. That chapter covers 
 
 Open API \href{https://github.com/MicroFocus/apmobile-openapiclient/blob/master/doc/AppPulse_Mobile_Open_API_Guide.pdf}{Open API Guide} and a  \href{https://github.com/MicroFocus/apmobile-openapiclient}{sample client for AppPulse Mobile's Open API}
 
+``Open API – Resource Usage: Extract battery usage and cellular usage data to create custom reports integrated with external systems and dashboards. New APIs help you mine resource usage metrics from your user’s devices and operating systems." from ``What's New in AppPulse Summer '16 Release"
+
 \begin{itemize}
     \item ``...tested an hybrid application, this requires to turn a special flag in the instrumentation process, I assume it wasn’t turned on and that is the reason for not capturing some of the things." However: the \texttt{-hybrid} instrumentation flag which doesn't actually seem to exist in 1.96, perhaps it's only in a pre-release version
     \item ``AppPulse mobile requires internet access from the mobile device. We monitor the user actions, crashes etc. and report the statistics back to HP SaaS servers – sending the data is done over the internet."
@@ -51,8 +53,21 @@ BTW: I wonder how much it's been used with apps that support multiple UI languag
 Results:
 \begin{itemize}
     \item The development team of the Analytics tool observed: ``I instrumented the apk, in general the instrumentation works. I do see some gaps, some missing actions, it’s because the application loads the content from the local file system - it seems that sometimes we don’t inject the instrumentation fast enough. I investigating it now and will let you know about the progress. [The] -hybrid flag is used in the java code internally, the shell script just passes the parameters." % Email source: https://mail.google.com/mail/u/0/#search/apppulse+mobile/FMfcgxmMlGKpJrtjFNcbGDcwpvBHHBjv
-    \item 
+    \item [I discovered] AppPulse Mobile did not deliver events that occurred when the device had no internet connection. I proposed improvements to the AppPulse Mobile SDK so that it would store timestamped events locally and transmit them when the network connection was available. The improvements included considerations on the server-side processing of delayed events. %Original notes follow, the email source is: https://mail.google.com/mail/u/0/#search/apppulse+mobile/FMfcgxmNwpbfZkVPJpqFPrKMZjTjwxGW
+    \item A bug in an analytics SDK didn't release memory for objects while scrolling a very long image list ( cart list) which caused the app to crash in production. An unanswered question was whether the built APK file was checked after the crashes occurred to determine whether optimisation practices such as zipalign were run correctly on it \url{https://developer.android.com/studio/command-line/zipalign.html} which reduces the memory footprint at runtime. Sources private correspondence with the SDK provider % https://mail.google.com/mail/u/0/#search/apppulse+mobile/FMfcgxmQHnbPSVLJShFHXvrxlccmzrJD
 \end{itemize}
+
+\begin{comment}
+I've asked earlier to see if you could get AppPulse Mobile to be able to collect data (the analytics events) when there's no suitable network available, and where the data is safely recorded locally on the mobile device until such time as a viable network connection is available, then the data would be transmitted to the receiving AppPulse Mobile servers.
+
+There are some design implications. Here are the main ones I consider:
+Timestamping of event records. Perhaps the event records are already timestamped. If not, they, and their timestamps need to be transmitted, if we want to accurately process them.
+Reporting of the data. As some data may arrive hours or even days after data that's been sent synchronously (from devices that had a working network connection), then reports may need to be recalculated and possibly retransmitted (and available as an update via the Open API's). There may need to be cutoffs in the system, possibly in the acceptance of 'old' data, possibly in the automated reports, possibly elsewhere.
+How much data would be stored for how long on the local devices? FYI IIRC one of the similar genre of mobile analytics stores 5 discrete crashes while offline. Any more cause some data to be discarded. I don't know the details. It would be possible to calculate summary statistics and transmit those in cases where the AppPulse Mobile library has exceeded it's design/implementation/runtime storage limit(s). I'd hope the data could be stored for long periods and in relatively large volumes in terms of records. There are various techniques available to compress the data that's transmitted.
+Having offline collection can help capture usage data and usage patterns that occur when the network is not available. In some cases the patterns may only happen when there's no viable network. For instance, apps may offer specific functionality when working in 'offline mode'.
+
+Various competitors include support for offline data collection. My expectation is that as more people use AppPulse Mobile some will discover the lack of offline data collection and cause them to adversely consider the product as a result.
+\end{comment}
 
 \section{Heatmapping: Azetone and Appsee}
 
