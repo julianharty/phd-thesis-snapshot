@@ -1,5 +1,101 @@
 \section{Kiwix Android Apps}
 \label{section-kiwix-case-study}
+
+\subsection{Introduction of Kiwix Android Case Study}
+%Introduce Kiwix at the risk of repetition. 
+% TODO replace URLs with citations.
+Kiwix makes knowledge available to people with no or limited internet access (\emph{i.e.} four billion people). Anyone is free to use the software and the content. The project includes an offline reader for online content like Wikipedia, Project Gutenberg, or TED Talks and the project also develops and maintains software to download, compress, package, and make content easy to download and share~\citep{kiwix_about_the_project}.
+
+The project provides offline access to Wikipedia materials and many other read-only materials including TED talks, StackExchange sites, interactive science simulations, and others. \url{https://diff.wikimedia.org/2017/10/02/offline-access-wikipedia-kiwix/}
+
+The project comprises various Android apps all based on a common opensource codebase. The crash rate had been excessive for several years and far exceeded the bad behaviour threshold Google Play dictated. This is a long-term case study lasting several years to date and still live.
+
+The project team actively exclude any tracking or analytics within the app to minimise the risk of harm to users of the app, in some parts of the world Wikipedia is banned \url{https://en.wikipedia.org/wiki/Censorship\_of\_Wikipedia} and by design the app makes Wikipedia content freely available and easy to distribute peer to peer (and it has been downloaded in response to bans of the main Wikipedia web site~\url{https://twitter.com/KiwixOffline/status/968493031224733697?s=20}). The apps are also available on Google Play and the apps are popular there. The project team agreed they were willing to use the analytics Google Play provides about their apps and these analytics provide the basis for this case study.
+
+Google Play obtains, processes, and provides analytics of Android apps from opted-in devices that incorporate Google Play Services (installed over 10 billion times \url{https://play.google.com/store/apps/details?id=com.google.android.gms&hl=en\_GB&gl=US} and installed on several billion Android devices (\url{https://en.wikipedia.org/wiki/Android_(operating_system) 2B+ in 2017}). These analytics include stability metrics for Android apps on those devices where developers are provided the analytics for their apps free of charge.
+Note: Google Apps are available to download from third-party websites, particularly \url{https://www.teamandroid.com/gapps/}. 
+
+
+The development team was relatively large and fluid ranging from teenagers to several professional developers and their active contribution periods ranged from weeks to many years. The developers reviewed the code using pull requests.  The codebase included some application level automated tests; and the project included a continuous build, and used a commercial device farm provided free of charge by bitbar.com 
+
+One of the apps was chosen as the experiment and another as the control to determine whether the crash rate could be reduced through applying information Google Play provides in Google Play Console.
+
+This was the first of the case studies and opened the research into the effects of applying analytics gathered at the platform (Android) level. Key distinctions include: the ability to perform a controlled experiment, to then see results of what happened when the experiment’s code was rolled out to the rest of the sibling apps, and the long terms effects of pursuing crashes and fixing them over a series of releases.
+
+Key similarities include the use of Google Play Console analytics (virtually all the projects use it to varying degrees), and the improvements (reductions) in failures through applying the techniques. 
+
+\subsection{Context}
+\textit{(Product/Project overview, Developer characteristics, tools, methods, key challenges for product/project).}
+
+\subsubsection{Product/Project overview}
+The project provides offline access to Wikipedia materials and many other read-only materials including TED talks, StackExchange sites, interactive science simulations, and others. \url{https://diff.wikimedia.org/2017/10/02/offline-access-wikipedia-kiwix/}. 
+
+It is mature as a project and led by several highly experienced contributors, two volunteers co-founded the project and others joined over the years. From the outset the project has been open, and the software is also open sourced. It has received various grants and awards to help sustain the project and some of the funds pay for a hybrid mix of developers, where some are paid for at least some of their contributions. The Android codebase is one of many maintained by the project. 
+
+Various codebases, including Android, use and depend on another codebase written in C++ to process the custom ZIM file format developed by and for this project. The open ZIM project (\url{https://wiki.openzim.org/wiki/OpenZIM}) and codebases are closely related and integrated with the Kiwix project and codebases, nonetheless it is distinct and separate. 
+
+\subsubsection{Developer characteristics}
+One of the many benefits of the project’s openness is the visibility into the developers who have developed and maintained the source code \url{https://github.com/kiwix/kiwix-android/graphs/contributors}. Many of the contributors joined as volunteers through Google Summer of Code \url{https://summerofcode.withgoogle.com/} or Google Code-in \url{https://codein.withgoogle.com/archive/}~\footnote{Google Code-in was shutdown and the history archived by Google in 2020.}, and several of these became core contributors for a year or more, and some of these now work for leading technology businesses. 
+
+Life-members: the two co-founders of the Kiwix project also contribute to the codebase at times. They are both long-term software developers across various programming languages and codebases.
+
+Professional developer: sufficient funds were made available to fund a professional Android developer for a period of just under 20 months. (Severe cutbacks in funding as part of the manifold effects of COVID-19 restrictions ceased their involvement).
+
+Miscellaneous contributors: including the author and several people I introduced. Occasionally Software Engineers from Google contributed their time to help the project, for instance as part of what Google call Google Serve (I used to be involved in this when I was an employee of Google from 2006 to 2010).
+
+The vast majority of the contributors had developing for Android as a primary interest, unsurprising as this is the Android app for the project.
+
+\subsubsection{Tools}
+For the case study the main measurement tool we used was Google Play Console and Android Vitals in particular. Standard, commonplace Android Development tools such as Android Studio https://developer.android.com/studio (the default IDE) were and are used by the developers. The source code was and is hosted on GitHub \url{https://github.com/kiwix/kiwix-android}.
+
+\subsubsection{Related tools}
+The tools suited a mainstream large Android opensource project, i.e. the tools and services were free-of-charge. Many are provided by commercial organisations such as Google, GitHub, Travis-CI, and \href{https://bitbar.com/}{BitBar} (since acquired by \href{https://smartbear.com/}{SmartBear}). Often the tools are popular and widely used, e.g. Junit and Espresso frameworks for the automated tests. The project uses continuous builds, at the start of the case study it used travis-ci the project migrated to GitHub actions in late 2019, early 2020 \url{https://github.com/kiwix/kiwix-android/issues/1593}.
+
+The project uses various frameworks and libraries, many are listed in the project README~\url{https://github.com/kiwix/kiwix-android} (e.g. Espresso isn’t listed, however it’s used by the project \url{https://github.com/kiwix/kiwix-android/search?q=espresso}).
+
+Code coverage is tracked automatically online using a free service called Codecov \url{https://codecov.io/gh} The line coverage according to this tool ranged between roughly 32\% and 43\% \url{https://app.codecov.io/gh/kiwix/kiwix-android}  
+
+The codebase could be built from a fresh installation from the source on GitHub.com; I mention this as relatively few project can actually be compiled and built. There had been significant investment in establishing the vanilla build process (which relied on several binaries being pre-built as part of sibling projects).
+
+The resources used in the app are translated using translatewiki.net which also supports many other projects \url{https://translatewiki.net/wiki/Translating:Kiwix} and \url{https://diff.wikimedia.org/2011/08/20/kiwix-localisation-is-supported-at-translatewiki-net/}.
+
+The project, and various related projects, are automatically built on a nightly basis and made freely available online \url{http://download.kiwix.org/nightly/}.
+
+\subsubsection{Methods}
+[I’m not sure what this topic should include – should it be the methods applied in the case study? or those applied by the project/product team? Both? or something else entirely?] Anyway, I’m writing some notes on the methods used by the development team.
+
+The development team had few of the practices considered part of Agile development – no sprints, no scrum master, no story points, etc. Nor was it waterfall, so few signs of requirement documents, test plans, and so on. The project did and does use 3 templates on GitHub to help organise new work requests \url{https://github.com/kiwix/kiwix-android/tree/develop/.github/ISSUE\_TEMPLATE} and occasionally created small lightweight projects \url{https://github.com/kiwix/kiwix-android/projects?query=is\%3Aclosed} 
+
+However as mentioned in the Tools topic, the project did have some automated tests, a CI, used pull requests, code coverage reports, a public issue tracker, code reviews, and so on.
+
+Several key contributors had at least read-only access to Google Play Console for one or more of the apps. I have had read-only access to the organisation’s Google Play Account for several years (access at the organisation level enables access to download monthly reports in addition to viewing the details of any of the particular apps).
+
+The set of project members on GitHub.com is updated from time to time, probably a couple of times a year (For example, I am no longer currently a member as of the end of December 2020 as I didn’t contribute any code in 2020).
+
+\subsubsection{Key challenges for the product/project}
+\textit{[Here my focus is mainly on technical challenges. Let me know if you’d like me to cover other challenges.]}
+
+Few of project contributors want to write tests, sort out build or testing infrastructure, or fix bugs. Although the project did run the automated tests on several physical devices there was marginal perceived value in doing so, and few of the development team had access to the testing service. (It wasn’t practical to materially expand who could access the service provided by Bitbar which was oriented more towards paying customers. Access to the service was donated as a favour to me).
+
+Many new volunteer contributors want to contribute new code rather than maintain existing code, especially existing code where failures lurk. 
+
+\subsection{Analytics intervention}
+\textit{(Describe what you did with analytics in the context of the case). Focus on this and the next sections since they’re core to the thesis.}
+
+\subsection{Outcomes}
+\textit{(Describe the outcomes resulting from the intervention). Not the speculative analysis, here it’s the concrete analysis of what was done.}
+
+\subsection{Discussion}
+\textit{(Explore what these outcomes mean for the use of analytics in mobile software more generally).}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\par\noindent\rule{\textwidth}{0.4pt}
+~\textbf{Earlier material follows}
+
+
 \subsection{Introduction of Kiwix Android Case Study}
 % Joe's notes this is not compelling and doesn't compare with the other case studies.
 % Why Kiwix, what did I gain, similarities and contrasts, why include in the PhD.
