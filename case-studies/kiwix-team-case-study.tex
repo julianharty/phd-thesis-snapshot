@@ -4,9 +4,9 @@
 \subsection{Introduction of Kiwix Android Case Study}
 %Introduce Kiwix at the risk of repetition. 
 % TODO replace URLs with citations.
-Kiwix makes knowledge available to people with no or limited internet access (\emph{i.e.} four billion people). Anyone is free to use the software and the content. The project includes an offline reader for online content like Wikipedia, Project Gutenberg, or TED Talks and the project also develops and maintains software to download, compress, package, and make content easy to download and share~\citep{kiwix_about_the_project}.
+Kiwix makes knowledge available to people with no or limited internet access (\emph{i.e.} four billion people). Anyone is free to use the software and the content. The project includes an offline reader for online content like Wikipedia, Project Gutenberg, or TED Talks and the project also develops and maintains software to download, compress, package, and make content easy to download and share~\citep{kiwix_about_the_project, gomez2017_wikimedia_kiwix_article}.
 
-The project provides offline access to Wikipedia materials and many other read-only materials including TED talks, StackExchange sites, interactive science simulations, and others. \url{https://diff.wikimedia.org/2017/10/02/offline-access-wikipedia-kiwix/}
+The project provides offline access to Wikipedia materials and many other read-only materials including TED talks, StackExchange sites, interactive science simulations, and others~\citep{kiwix_about_the_project, gomez2017_wikimedia_kiwix_article}. 
 
 The project comprises various Android apps all based on a common opensource codebase. The crash rate had been excessive for several years and far exceeded the bad behaviour threshold Google Play dictated. This is a long-term case study lasting several years to date and still live.
 
@@ -28,11 +28,13 @@ Key similarities include the use of Google Play Console analytics (virtually all
 \textit{(Product/Project overview, Developer characteristics, tools, methods, key challenges for product/project).}
 
 \subsubsection{Product/Project overview}
-The project provides offline access to Wikipedia materials and many other read-only materials including TED talks, StackExchange sites, interactive science simulations, and others. \url{https://diff.wikimedia.org/2017/10/02/offline-access-wikipedia-kiwix/}. 
+The Kiwix project was created in 2006 to help ensure people can access the \emph{``sum of all human knowledge"}~\citep{coillet2016-wikimedia-kiwix-ten-years}. Annually over a million people download it and the content packages the project creates and provides free of charge~\citep{coillet2016-wikimedia-kiwix-ten-years}.
 
-It is mature as a project and led by several highly experienced contributors, two volunteers co-founded the project and others joined over the years. From the outset the project has been open, and the software is also open sourced. It has received various grants and awards to help sustain the project and some of the funds pay for a hybrid mix of developers, where some are paid for at least some of their contributions. The Android codebase is one of many maintained by the project. 
+It is mature as a project and led by several highly experienced contributors, two volunteers co-founded the project and others joined over the years. From the outset the project has been open, and the software is also open sourced~\citep{sutherland2014_wikimedia_on_kelson}. It has received various grants and awards to help sustain the project and some of the funds pay for a hybrid mix of developers, where some are paid for at least some of their contributions. The Android codebase is one of many maintained by the project~\citep{gaudin2017_wikimedia_kiwix_android}. 
 
-Various codebases, including Android, use and depend on another codebase written in C++ to process the custom ZIM file format developed by and for this project. The open ZIM project (\url{https://wiki.openzim.org/wiki/OpenZIM}) and codebases are closely related and integrated with the Kiwix project and codebases, nonetheless it is distinct and separate. 
+Various codebases, including Android, use and depend on another codebase written in C++ to process the custom ZIM file format developed by and for this project~\citep{gaudin2017_wikimedia_kiwix_android}. The open ZIM project (\url{https://wiki.openzim.org/wiki/OpenZIM}) and codebases are closely related and integrated with the Kiwix project and codebases, nonetheless it is distinct and separate.
+
+\textbf{SHOULD-DO} add figure illustrating how custom apps are constructed.
 
 \subsubsection{Developer characteristics}
 One of the many benefits of the project’s openness is the visibility into the developers who have developed and maintained the source code \url{https://github.com/kiwix/kiwix-android/graphs/contributors}. Many of the contributors joined as volunteers through Google Summer of Code \url{https://summerofcode.withgoogle.com/} or Google Code-in \url{https://codein.withgoogle.com/archive/}~\footnote{Google Code-in was shutdown and the history archived by Google in 2020.}, and several of these became core contributors for a year or more, and some of these now work for leading technology businesses. 
@@ -62,7 +64,7 @@ The resources used in the app are translated using translatewiki.net which also 
 The project, and various related projects, are automatically built on a nightly basis and made freely available online \url{http://download.kiwix.org/nightly/}.
 
 \subsubsection{Methods}
-[I’m not sure what this topic should include – should it be the methods applied in the case study? or those applied by the project/product team? Both? or something else entirely?] Anyway, I’m writing some notes on the methods used by the development team.
+%\emph{[I’m not sure what this topic should include – should it be the methods applied in the case study? or those applied by the project/product team? Both? or something else entirely?] Anyway, I’m writing some notes on the methods used by the development team.}
 
 The development team had few of the practices considered part of Agile development – no sprints, no scrum master, no story points, etc. Nor was it waterfall, so few signs of requirement documents, test plans, and so on. The project did and does use 3 templates on GitHub to help organise new work requests \url{https://github.com/kiwix/kiwix-android/tree/develop/.github/ISSUE\_TEMPLATE} and occasionally created small lightweight projects \url{https://github.com/kiwix/kiwix-android/projects?query=is\%3Aclosed} 
 
@@ -82,12 +84,19 @@ Many new volunteer contributors want to contribute new code rather than maintain
 \subsection{Analytics intervention}
 \textit{(Describe what you did with analytics in the context of the case). Focus on this and the next sections since they’re core to the thesis.}
 
+\href{glossary_android_vitals}{Android Vitals} was the source of the analytics for this case study. It provided statistics and details of crashes for the more popular Kiwix Android apps; as we discovered Android Vitals does not provide statistics or reports for the less popular apps; why this occurs will be discussed in the \href{case-study-kiwix-discussion}{Discussion section} of this case study. 
+
+The reported crash rates were compared for the core Kiwix app and various custom apps. Kiwix had the highest crash rate, followed by the PHeT application~\footnote{The PHeT application has since been renamed \href{https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomphet}{Chemistry and Physics simulations}. The content source,~\href{https://phet.colorado.edu/}{University of Colorado Boulder}, have since released their own Android app, called~\href{https://play.google.com/store/apps/details?id=edu.colorado.phet.androidApp}{PhET Simulations}, and the Kiwix team agreed to rename our app to enable their app to be more easily discovered by new users of either app. The contents were and still are freely available to be used. For completeness, I was involved in some of the initial work for this project and also contributed translations and support to the upstream PHeT project.} 
+
+
+
 \subsection{Outcomes}
 \textit{(Describe the outcomes resulting from the intervention). Not the speculative analysis, here it’s the concrete analysis of what was done.}
 
-\subsection{Discussion}
+\subsection{Discussion}~\label{case-study-kiwix-discussion}
 \textit{(Explore what these outcomes mean for the use of analytics in mobile software more generally).}
 
+\textbf{MUST-DO} explain why statistics and reports aren't available for less popular apps.
 
 
 
