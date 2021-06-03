@@ -1,3 +1,6 @@
+
+\setcode{utf8}
+
 \section{Kiwix Android Apps}
 \label{section-kiwix-case-study}
 
@@ -86,7 +89,96 @@ Many new volunteer contributors want to contribute new code rather than maintain
 
 \href{glossary_android_vitals}{Android Vitals} was the source of the analytics for this case study. It provided statistics and details of crashes for the more popular Kiwix Android apps; as we discovered Android Vitals does not provide statistics or reports for the less popular apps; why this occurs will be discussed in the \href{case-study-kiwix-discussion}{Discussion section} of this case study. 
 
-The reported crash rates were compared for the core Kiwix app and various custom apps. Kiwix had the highest crash rate, followed by the PHeT application~\footnote{The PHeT application has since been renamed \href{https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomphet}{Chemistry and Physics simulations}. The content source,~\href{https://phet.colorado.edu/}{University of Colorado Boulder}, have since released their own Android app, called~\href{https://play.google.com/store/apps/details?id=edu.colorado.phet.androidApp}{PhET Simulations}, and the Kiwix team agreed to rename our app to enable their app to be more easily discovered by new users of either app. The contents were and still are freely available to be used. For completeness, I was involved in some of the initial work for this project and also contributed translations and support to the upstream PHeT project.} 
+At the start of the case study all the apps had a crash rate above Google's Bad Behavior Threshold of 1.09\% as Table~\ref{tab:gpc_kiwix_apps_11_feb2019} illustrates. The total count of active installs was 252,490 according to Google Play Console with the core Kiwix app the most popular with 101,873 installs, followed by WikiMed in English with 55,357 installs, and then Chemistry \& Physics simulations with 37,244 installs. All the apps were very highly rated, ranging from 4.74 to 4.43 stars~\footnote{Google announced changes to the rating calculations in May 2019~\citep{androiddevelopersblog2019_io2019_whats_new_in_play}. Developers were able to see both the current and the new ratings for several months in Google Play Console before Google rolled out the new ratings to the public facing store front of Google Play. These changes mean ratings pre and post Summer 2019 are not safe to compare directly.}.
+
+The reported crash rates were compared for the core Kiwix app and various custom apps. Kiwix had the highest crash rate, followed by the PHeT application\footnote{The PHeT application has since been renamed \href{https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomphet}{Chemistry and Physics simulations}. The content source,~\href{https://phet.colorado.edu/}{University of Colorado Boulder}, have since released their own Android app, called~\href{https://play.google.com/store/apps/details?id=edu.colorado.phet.androidApp}{PhET Simulations}, and the Kiwix team agreed to rename our app to enable their app to be more easily discovered by new users of either app. The contents were and still are freely available to be used~\url{https://phet.colorado.edu/en/licensing}. For completeness, I was involved in some of the initial work for this project and also contributed translations and support to the upstream PHeT project.}.
+%
+The rest of the custom applications had a range of crash rate from 1.77\% to 1.13\% (Table~\ref{tab:gpc_kiwix_apps_11_feb2019}.
+
+\begin{comment}
+    
+
+	% 252490					
+\begin{table}[]
+    \centering
+    \tiny
+    \begin{tabular}{lrrrrl}
+App name                                &Active installs	&Avg. rating / Total \#	&Crashes	&Crash Rate		&Last update    \\
+    %醫學維基百科(離線版)                    &                   &                       &           &               &                \\
+org.kiwix.kiwixcustomwikimedzh          &3,297	            &4.45 / 220		        &31	        &NA		        &Sep 6, 2018    \\
+    %医療ウィキペディア(オフライン)	         &                   &                       &           &               &                \\
+org.kiwix.kiwixcustomwikimedja          &1,498	            &4.63 / 27              &46	        &NA             &Sep 6, 2018    \\
+    %ମେଡିକାଲ ଉଇକିପିଡିଆ (ଅଫଲାଇନ	              &                   &                       &           &               &                \\
+org.kiwix.kiwixcustomwikimedor		    & 242	            &4.72 / 102             &3	        &NA             &Sep 9, 2018    \\
+    	%ویکی‌پدیای پزشکی آفلاین%             &                   &                       &           &               &                \\
+org.kiwix.kiwixcustomwikimedfa		    &2,935	            &4.60 / 610		        &5	        &NA		        &Sep 20, 2018 \\
+	%ويكيبيديا الطبية بلا إنترنت%	          &                   &                       &           &               &               \\					
+org.kiwix.kiwixcustomwikimedar		    &11,940	            &4.65 / 2,477	        &424	    &1.77           &Sep 12, 2018   \\
+WikiVoyage Europe - Offline Travel Guide        &                   &                       &           &               &   \\
+org.kiwix.kiwixcustomwikivoyageeurope	&712	            &4.59 / 59		        &0	        &NA             &Dec 16, 2018 \\
+Wikivoyage - Offline Travel Guide	            &                   &                       &           &               &   \\					
+org.kiwix.kiwixcustomwikivoyage			&5,680	            &4.73 / 706             &71	        &1.22           &Dec 16, 2018   \\
+WikiSpecies		                                &                   &                       &           &               &   \\					
+org.kiwix.kiwixcustomwikispecies		&141	            &4.58 / 43              &0	        &NA	            &Sep 11, 2018   \\
+
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table}	
+\end{comment}
+
+
+\begin{table}
+    \centering
+    \tabcolsep=0.06cm
+    \tiny
+    \begin{tabular}{lrrrrrl}
+
+	App name &Active Installs & Average rating & Total ratings & Crashes & Crash Rate & Last Update \\ 
+	\begin{CJK*}{UTF8}{bkai}醫學維基百科(離線版)\end{CJK*} &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikimedzh & 3,297  & 4.45 & 220 & 31 & NA & Sep 6, 2018 \\
+	\begin{CJK*}{UTF8}{gbsn}医療ウィキペディア(オフライン)\end{CJK*} &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikimedja & 1,498  & 4.63 & 27 & 46 & NA & Sep 6, 2018 \\ 
+	% ମେଡିକାଲ ଉଇକିପିଡିଆ (ଅଫଲାଇନ
+	Wiki Medicine (in Odia) &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikimedor &242  & 4.72 & 102 & 3 & NA & Sep 9, 2018 \\ 
+	%ویکی‌پدیای پزشکی آفلاین &  &  &  &  &  &  \\ 
+    Wiki Medicine (in Farsi) &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikimedfa &2,935  & 4.60 & 610 & 5 & NA &  Sep 20, 2018 \\ 
+%	ويكيبيديا الطبية بلا إنترنت &  &  &  &  &  &  \\
+	Wiki Medicine (in Arabic) &  &  &  &  &  &  \\
+	org.kiwix.kiwixcustomwikimedar &11,940  & 4.65 & 2477 & 424 & 1.77\% & Sep 12, 2018 \\ 
+	WikiVoyage Europe - Offline Travel Guide &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikivoyageeurope &712  & 4.65 & 59 & 0 & NA & Dec 16, 2018 \\ 
+	Wikivoyage - Offline Travel Guide &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikivoyage &5,680  & 4.73 & 706 & 71 & 1.22\% &Dec 16, 2018  \\ 
+	WikiSpecies &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikispecies &141  & 4.58 & 43 & 0 & NA & Sep 11, 2018 \\ 
+	WikiMed mini - Offline Medical Wikipedia &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikimedmini &8,883  & 4.58 & 507 & 343 & 1.5\% &  Aug 31, 2018 \\  
+	WikiMed - Wikipedia Medizin (Offline) &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikimedde &5,174  & 4.74 & 259 & 56 & NA &  Dec 16, 2018 \\ 
+	WikiMed - Wikipédia médicale hors-ligne &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikimedfr &12,163  & 4.68 & 1674 & 832 & 1.19\% &  Sep 4, 2018 \\  
+	WikiMed - Wikipédia Médica Offline &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikimedpt &347  & 4.71 & 95 & 10 & NA & Dec 16, 2018 \\ 
+	WikiMed - Wikipedia Médica Offline &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikimedes &4,947  & 4.74 & 760 & 326 & 1.83\% & Dec 16, 2018 \\
+	WikiMed - Offline Medical Wikipedia &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomwikimed &55,357  & 4.69 & 16685 & 2810 & 1.13\% & Sep 6, 2018 \\ 
+	Kiwix, Wikipedia offline &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixmobile &101,873  & 4.52 & 14427 & 12140 & 5.07\% & Aug 8, 2018 \\ 
+	Encyclopédie de la Tunisie &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomtunisie &27  & 4.43 & 7 & 3 & NA & Sep 22, 2018 \\ 
+	Enciclopedia de Venezuela &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomvenezuela &30  & 4.63 & 8 & 1 & NA & Sep 11, 2018 \\ 
+	Chemistry \& Physics simulations &  &  &  &  &  &  \\ 
+	org.kiwix.kiwixcustomphet &37,244  & 4.65 & 1910 & 1050 & 4.08\% & Sep 24, 2018 \\ 
+
+\end{tabular}		
+    \caption{Google Play Console statistics for published Kiwix Apps @\nth{11} Feb 2019}
+    \label{tab:gpc_kiwix_apps_11_feb_2019}
+\end{table}					
 
 
 
