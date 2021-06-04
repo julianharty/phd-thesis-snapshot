@@ -36,6 +36,24 @@ Source: \url{https://developer.android.com/guide/topics/ui/settings}
 
 Preferences, permissions, and usage analytics share similarities in terms of considerations such as informed consent, whether the settings are temporary or permanent, and so on.
 
+\subsection{The WebView component}~\label{section-webview-component}
+
+(something that's used in a vast number of Android apps in my experience, including eBay, GMail~\footnote{\url{https://www.google.com/appsstatus\#hl=en&v=issue&sid=1&iid=aa75515d184a2423be444d676b7ebf45}}), and many others. The BBC development team wrote a detailed and rich blog post~\url{https://www.bbc.co.uk/blogs/internet/entries/3533ce9c-393a-43d8-8f44-0c46214c86aa} on their use of WebViews to host their JavaScript based games for several years. The article includes Wardley Mapping diagrams that position their use of analytics amongst other technologies.
+
+Notes, to be expanded:
+\begin{itemize}
+    \item \url{https://www.theverge.com/2021/3/22/22345696/google-android-apps-crashing-fix-system-webview} and \url{https://9to5google.com/2021/04/20/android-webview-crash-fix/}
+    \item \url{https://play.google.com/store/apps/details?id=com.google.android.webview} 1,000,000,000+ installs, 5,930,222 ratings on \nth{3} June 2021.
+    \item \url{https://www.appbrain.com/app/android-system-webview/com.google.android.webview} and possibly discuss the effects of custom WebViews such as from ASUS~\url{https://www.appbrain.com/app/asus-webview/com.asus.webview}
+    \item \url{https://www.google.com/appsstatus/ir/fw6156fs1panucr.pdf} Google's explanation of what happened and how they intend to improve matters.
+    \item BBC iPlayer app description from \nth{5} April 2021~\citep{bbc_iplayer_app_april_2021_webview_information}.
+    \item \url{https://www.bbc.co.uk/news/technology-56496783}
+    \item \url{https://www.bbc.com/pidgin/world-56481802}
+\end{itemize}
+
+
+
+\subsection{...TBD...}
 If we focus on Android apps what are the implications and how relevant are the approaches and results?
 
 \section{On Measurement}
@@ -88,7 +106,7 @@ One of the challenges in this research has been to balance internal, external an
 
 \begin{enumerate}
     \item When developers pay attention to flaws reported in analytics tools they are able to effect improvements to the app which significantly reduce the failure rate and improve the stability of the apps for end users.
-    \item Developers will release updates that unintentionally and or exacerbate the failure rate, despite their best intentions. They need to pay ongoing attention to the reported failures if they wish to maintain or decrease the measured stability of their apps as both their app and the ecosystems evolve~\footnote{Ecosystems evolve as new devices, operating system releases, networks, updates to libraries, and to other related apps and components (such as the Google WebView component), etc. change.}.
+    \item Developers will release updates that unintentionally and or exacerbate the failure rate, despite their best intentions. They need to pay ongoing attention to the reported failures if they wish to maintain or decrease the measured stability of their apps as both their app and the ecosystems evolve~\footnote{Ecosystems evolve as new devices, operating system releases, networks, updates to libraries, and to other related apps and components (such as the Google \href{ection-webview-component}{WebView component}), etc. change.}.
 \end{enumerate}
 
 \subsubsection{Validity from the Google Engineering Team}
