@@ -3,6 +3,10 @@
 
 \section{Kiwix Android Apps}
 \label{section-kiwix-case-study}
+Relying solely on analytics and reports provided by the Google Android's platform and presented in Google Play Console, we were able to reduce the crash rates of a family of Android apps. 
+%
+We chose the most sophisticated and complex of the Android apps, which also had the highest Crash rate at the time. By applying what the team learned about crashes reported in Android Vitals the team was able to reduce the crash rate of this app several fold. When the improved codebase was used to refresh various custom apps their crash rates also decreased several fold.
+
 
 \subsection{Introduction of Kiwix Android Case Study}
 %Introduce Kiwix at the risk of repetition. 
@@ -101,7 +105,7 @@ The rest of the custom applications had a range of crash rate from 1.77\% to 1.1
     \centering
     \tabcolsep=0.06cm
     \tiny
-    \begin{tabular}{lrrrrrl}
+    \begin{tabular}{lrrrrrr}
 
 	App name &Active Installs & Average rating & Total ratings & Crashes & Crash Rate & Last Update \\ 
 	%\begin{CJK*}{UTF8}{bkai}醫學維基百科(離線版)\end{CJK*} &  &  &  &  &  &  \\ 
@@ -175,6 +179,20 @@ We chose not to select the Chemistry \& Physics simulations as the contents were
 
 \textbf{MUST-DO} explain why statistics and reports aren't available for less popular apps.
 
+\subsection{Summary of Kiwix Android Case Study}
+% Joe's notes this is not compelling and doesn't compare with the other case studies.
+% Why Kiwix, what did I gain, similarities and contrasts, why include in the PhD.
+
+This is a long term study, where I was embedded as part of the development team for a period of the case study. We demonstrated it was practical to use only external, platform, analytics and still able to be effective in reducing the crash rate. For projects that do not use in-app crash reporting the platform tools are sufficient to make material improvements \emph{when the team actively monitors and addresses the crashes reported in the platform level analytics}. The practices need to be applied on a long term basis; with the loss of the project lead who focused on addressing the runtime failures the failure rates are increasing. Entropy increases.
+
+The case study was very useful in terms of providing  control and experiment apps. It was also the first of the experiments that set the scene and the direction for further case-studies.
+
+The analytics reported on both \href{glossary_jvm}{JVM} and native crashes (written in C++) where that code is external and shared with various projects. 
+
+% Provided materials published in various of my papers
+This case study also led to the discovery of various flaws in Google Play Console and Android Vitals which led to the meetings, discussions and writing the report for the Google Engineering team. They have improved their product iteratively - v2 still had some flaws v3 has addressed some of these and similarly reduced some of the operability headaches.
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -182,16 +200,7 @@ We chose not to select the Chemistry \& Physics simulations as the contents were
 ~\textbf{Earlier material follows}
 
 
-\subsection{Introduction of Kiwix Android Case Study}
-% Joe's notes this is not compelling and doesn't compare with the other case studies.
-% Why Kiwix, what did I gain, similarities and contrasts, why include in the PhD.
-% Long term study, embedded as part of the development team for a period. Used only external, platform, analytics and still able to be effective.
-% Provided materials published in various of my papers
-% Led to the discovery of various flaws in Google Play Console and Android Vitals which led to the meetings, discussions and writing the report for the Google Engineering team. They have improved their product iteratively - v2 still had some flaws v3 has addressed some of these and similarly reduced some of the operability headaches.
-% Very useful in terms of providing  control and experiment apps. 
-% The first of the experiments that set the scene and the direction for further case-studies.
-% Reported on native crashes (written in C++) where that code is external and shared with various projects. 
-% The practices need to be applied on a long term basis; with the loss of the project lead who focused on addressing the runtime failures the failure rates are increasing. Entrophy increases.
+
 
 Relies solely on analytics and reports provided by the platform. We chose the most sophisticated and complex of the Android apps, which also had the highest Crash rate at the time. By applying what the team learned about crashes reported in Android Vitals the team was able to reduce the crash rate of this app several fold. When the improved codebase was used to refresh various custom apps their crash rates also decreased several fold.
 
