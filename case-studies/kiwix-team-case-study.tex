@@ -9,6 +9,28 @@ We chose the most sophisticated and complex of the Android apps, which also had 
 
 Note: I have been involved in various aspects of Kiwix since 2014 including helping with the Android app, with manual and automated testing, with the PHeT project mentioned here, and so on.
 
+\setminted{fontsize=\small,baselinestretch=1}
+
+\subsection*{Evidence}
+  \begin{minted}[
+    gobble=4,
+    frame=single,
+    fontsize=\tiny,
+    breaklines=true
+  ]{yaml}
+    evidence available :
+      vitals-scraper : ~/sandbox/vitals-scraper-logs/android-stability-analysis/data/from-android-vitals
+      google-play-console-reports : ~/Dropbox/Google Play Console Reports/reports/catrobat/pocketcode/crashes
+      various-materials : in Dropbox
+      co-written-paper : MOBILESoft 2019~\citep{harty_google_play_console_insightful_development_using_android_vitals_and_pre_launch_reports}, WAMA 2019~\citep{harty_better_android_apps_using_android_vitals}, MOBILESoft 2020~\citep{harty_improving_app_quality_despite_flawed_mobile_analytics}, ICST 2020~\citep{harty2020_how_can_software_testing_be_improved_by_analytics_to_deliver_better_apps}.
+    evidence-needed : 
+      Supporting materials for Phase 2:
+      Supporting materials for Phase 3: 
+      Releases and their release dates.
+      Latest status of the tickets related  to crashes and ANRs.
+      Current stability metrics for the Kiwix apps.
+  \end{minted}
+
 \subsection{Introduction of Kiwix Android Case Study}
 %Introduce Kiwix at the risk of repetition. 
 % TODO replace URLs with citations.
@@ -185,6 +207,64 @@ We chose not to select the Chemistry \& Physics simulations as the contents were
 \subsection{Outcomes}
 \textit{(Describe the outcomes resulting from the intervention). Not the speculative analysis, here it’s the concrete analysis of what was done.}
 
+This case study led to several distinct forms of outcomes. The first was the dramatic improvement in the crash rate of firstly the experiment app - Kiwix. The second was the development and adoption of opensource software - Vitals Scraper - which facilitated the collection and retention of otherwise ephemeral analytics information. And the third was the collaboration with the engineering team for Google Play Console as we discovered and reported various flaws in Google Play Console and Android Vitals.
+
+%%%% Table generated originally by Spread-LaTeX
+%\begin{adjustwidth}{-1 cm}{-1 cm}
+\begin{threeparttable}[!htp]\centering
+\caption{Reductions in Crash Rates}\label{tab:kiwix-evaluation-reductions-in-crash-rates}
+\scriptsize
+\begin{tabularx}\textwidth{llrr} % SHOULD-DO I'd like to reduce the width slightly.
+\toprule
+%& & & & \\
+&\multicolumn{3}{c}{30-day crash rates reported in Android Vitals~\tnote{0}} \\
+\midrule
+\multirow{2}{*}{.} &\multicolumn{2}{c}{Kiwix Apps} \\
+Stage &Release&\cellcolor[HTML]{efefef}Experiment &Control  \\
+
+&\cellcolor[HTML]{efefef}&\cellcolor[HTML]{efefef}Kiwix & WikiMed English \\
+
+1 &0 
+  &\cellcolor[HTML]{efefef}5.07\% &1.13\% \\
+2 &1 &\cellcolor[HTML]{efefef}3.12\%~\tnote{1} &\multirow{2}{*}{\cellcolor[HTML]{A8A8A8}}... \\
+3 &2~\tnote{2} &\cellcolor[HTML]{efefef}1.59\%~\tnote{3} & \cellcolor[HTML]{A8A8A8}... \\
+  &3 &\cellcolor[HTML]{efefef}0.53\%~\tnote{4} &1.09\%~\tnote{5} \\
+4 &4 &\cellcolor[HTML]{efefef}0.72\%~\tnote{6} &0.60\%~\tnote{7} \\
+  &4~\tnote{8} 
+&\cellcolor[HTML]{efefef}0.55\% &0.41\% \\
+  &5 &\cellcolor[HTML]{efefef}0.40\%~\tnote{9} &0.26\%~\tnote{10} \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+  \item[0] Except when otherwise noted.
+  \item[1] Kiwix Release 2.5 with the previous custom download facility replaced by a Google Android downloader.
+  \item[2] The code is under 25 lines including 10 lines of comments~\url{https://github.com/kiwix/kiwix-android/pull/1388}.
+  \item[3] Aggregate crash rate over 7 days for versions 2.4, 2.5.1, 2.5.2, 2.5.3 (to Aug \nth{26} 2019).
+  \item[4] Previous 30 days crash rate, before release 3.1.2 pushed the crash rate up (same graph as TODO).
+  \item[5] \emph{Unchanged release from the first control.}
+  \item[6] Includes 3.1.2 which had an average (mean) crash rate of roughly 1.7\% (roughly \nth{31} Dec 2019).
+  \item[7] A mixed set of crash rates, averaged by Android Vitals. For the first updated release of Wikimed (the 2019-12 release).
+  \item[8] As usage increased of the more reliable releases the averages declined.
+  \item[9] The crash rates for releases 3.2.1 are 0.23\% and 3.3.1 are 0.31\%
+  \item[10] Release 2020-03 actually has a crash rate of around 0.05\% the numbers are higher as there are still significant volumes of usage on the previous 2 releases.
+
+\end{tablenotes}
+\end{threeparttable}
+%\end{adjustwidth}
+\vspace{5mm}
+%%%% Isabel recommends creating a timeline instead - sounds good SHOULD-DO
+
+Table~\ref{tab:kiwix-evaluation-reductions-in-crash-rates} provides a comparison of the crash rates for the experiment and the control apps over four stages of this case study. There were three phases that interleave with these four stages.
+
+The stages are:
+\begin{enumerate}
+    \item The baseline,
+    \item Simplifying the most buggy code (which was the downloader),
+    \item Applying the concepts in the research to the experiment,
+    \item The new normal.
+\end{enumerate}
+
+\subsubsection{Improvements in the crash rates}
 Improvements in the crash rate came in three phases:
 \begin{enumerate}
     \item Replacing the custom downloader with core Android functionality in version 2.5 of the Kiwix app.
@@ -207,13 +287,61 @@ One of the major changes in version 2.5 was the replacement of the in-house down
 %
 The developers ended up fixing some of the causes of the most frequent crashes with a surprisingly small amount of code of under 25 lines (including 10 lines of text added to the release log)\footnote{\url{https://github.com/kiwix/kiwix-android/pull/1388}}.
 
-MUST-DO provide details of the improvements made after the implementation.
+\textbf{MUST-DO} provide details of the improvements made after the implementation.
 
 
 \textbf{Phase 3}: Several developers for the Kiwix project, the lead developer in particular, have been actively reviewing crashes reported by Android Vitals, filing issues, and addressing the causes of the crashes in order to reduce the crash rate and improve the app's stability. Evidence issues that mention crash: 133 closed, 6 open. \footnote{\url{https://github.com/kiwix/kiwix-android/issues?utf8=\%E2\%9C\%93&q=is\%3Aissue+crash}}
 %TODO in a longer work, analyse each issue to identify the source of the crash.
 
 Several releases later, each with various changes and improvements aimed at fixing causes of crashes the crash rate was materially lower than when we started, at the time of writing the overall crash rate for the last 7 days is 0.54\% which is inflated because the rash rate for the previous release (3.1.2) spiked at 1.38\%, compared to 0.18\% for release (3.0.5 -  the last production release) and 0.25\% for the recently released fix (3.1.3).
+
+\subsubsection{Vitals Scraper}
+~\href{section-vitals-scraper}{\emph{Vitals Scraper}} was developed to facilitate the collection, preservation, and sharing of reports and data presented in Google Play Console and Android Vitals. Details of the software's design and implementation are discussed in the~\href{chapter-code-needed}{\nameref{chapter-code-needed}} chapter.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=7cm]{images/google-play-console/Dashboard - Kiwix-Google-Play-Console-(2019-Jun-14)-p1.png}
+    \includegraphics[width=7cm]{images/google-play-console/Dashboard - Kiwix-Google-Play-Console-(2019-Jun-14)-p3.png}
+    \newline
+    \includegraphics[width=7cm]{images/google-play-console/Dashboard - Kiwix-Google-Play-Console-(2019-Jun-14)-p2.png}
+    \includegraphics[width=7cm]{images/google-play-console/Dashboard - Kiwix-Google-Play-Console-(2019-Jun-14)-p4.png}
+    \caption{Print web page of Dashboard in Google Play Console}
+    \label{fig:screenshot-dashboard-gpc-kiwix}
+\end{figure}
+
+To help illustrate why tools such as Vitals Scraper was developed, Figure~\ref{fig:screenshot-dashboard-gpc-kiwix}, shows the results of printing the dashboard for the Kiwix app in Google Play Console on \nth{14} June 2019, in order to record the analytics reports for the app. Content is poorly formatted and split across pages, and web page pop-ups sometimes overlaid and obscured the contents of the report. (Some of the flaws illustrated in the contents of the report will be discussed shortly).
+
+Vitals Scraper was able to extract data from various on-screen reports that wasn't otherwise available. It also generated cleaner reports saved as images. Vitals Scraper was jointly developed with Joseph Reeve as an opensource project and tested independently by a lead developer of one of the commercial app projects mentioned later in this thesis as part of evaluating the applicability and generality of the software. It could be scripted and run unattended to facilitate data collection at scale and as an ongoing basis.
+
+In terms of this research, Vitals Scraper was used to collect analytics reports for multiple projects and development teams including the Kiwix apps. 
+
+
+\subsubsection{Flaws in the analytics}~\label{section-flaws-in-the-analytics}
+Various flaws and/or limitations were discovered in the analytics through using them. Their discovery led eventually to collaborating with the relevant engineering team at Google who were responsible for the analytics and for Google Play Console, which is discussed in the next topic.
+
+You may already have noticed that the previous two figures both contain visible flaws. Figure~\ref{fig:kiwix_crash_rate_drops_v2_5} has a gap in the graph, and figure~\ref{fig:screenshot-dashboard-gpc-kiwix} already illustrates at least one flaw, where two reports (the installs by user and uninstalls by user) were repeated in the dashboard for the Kiwix application (on the first and second pages of the print out). 
+
+Fourteen of the flaws were published in a poster that supported my short paper at MOBILESoft 2020~\citep{harty_improving_app_quality_despite_flawed_mobile_analytics}. The flaws discovered in Google Play Console and Android Vitals are also itemised in Table~\ref{tab:issues-in-google-play-console-reports} in the discussion chapter which combines flaws from several case studies.
+
+A key consideration is to determine if they were local in scope or more general. They were cross-checked in several dimensions:
+\begin{itemize}
+    \item Across apps on the same Google Play Console account.
+    \item Across multiple Google Play Console accounts.
+    \item For other logins.
+    \item With the engineering team who created and provided the analytics service. 
+\end{itemize}
+
+All of these checks eventually use the same source of analytics data - that gathered by Google Play Services running on end-user Android devices~\footnote{More precisely, by design, the data is collected from Android devices where the device manufacturers have satisfied Google's requirements where those devices have various Google software pre-installed. There ~\emph{may} be additional sources of the data e.g. where Google Apps have been installed subsequently using GApps~\citep{opengapps} or similar services including~\citep{nikgapps}.}.
+%
+Subsequent case studies extend the comparisons to additional sources of analytics for similar analytics events, particularly crashes.
+
+As some flaws are data dependent sometimes they cannot be checked for every app and every login for every period. On this basis there may be other flaws that I did not experience.
+
+When several of the flaws emerged they were reported to Google through two channels. The first is available to Android developers when they are using Google Play Console, through a feedback menu option in the Google Play Console user interface. The second was through directly contacting a public member of the product team for Google Play Console and Android Vitals, at that time Fergus Hurley. 
+
+\subsubsection{Collaboration with Google}~\label{section-collaboration-with-google}
+
+
 
 
 \subsection{Discussion}~\label{case-study-kiwix-discussion}
