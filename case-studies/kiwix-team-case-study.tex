@@ -258,6 +258,7 @@ Table~\ref{tab:kiwix-evaluation-reductions-in-crash-rates} provides a comparison
 
 The stages are:
 \begin{enumerate}
+    \itemsep0em
     \item The baseline,
     \item Simplifying the most buggy code (which was the downloader),
     \item Applying the concepts in the research to the experiment,
@@ -267,6 +268,7 @@ The stages are:
 \subsubsection{Improvements in the crash rates}
 Improvements in the crash rate came in three phases:
 \begin{enumerate}
+    \itemsep0em
     \item Replacing the custom downloader with core Android functionality in version 2.5 of the Kiwix app.
     \item Targeted crash fixes found and addressed during a hackathon in Stockholm, Sweden.
     \item Ongoing crash fixes, combined with migration of code from Java to Kotlin.
@@ -285,15 +287,66 @@ One of the major changes in version 2.5 was the replacement of the in-house down
 
 \textbf{Phase 2}: Following initial discussions about the crashes being reported in Android Vitals for version 2.5.0 of the Kiwix application, a group of the developers for the Kiwix projects collaborated on a week-long hackathon in Stockholm in August 2019. One of the areas the developers worked on was to focus on identifying and addressing some of the biggest contributors to the high crash rate. 
 %
-The developers ended up fixing some of the causes of the most frequent crashes with a surprisingly small amount of code of under 25 lines (including 10 lines of text added to the release log)\footnote{\url{https://github.com/kiwix/kiwix-android/pull/1388}}.
 
-\textbf{MUST-DO} provide details of the improvements made after the implementation.
+\begin{figure}
+    \centering
+    \includegraphics[width=14cm]{images/github/kiwix-pr1388-extract-1.png}
+    \caption{First material change in PR-1388 for Kiwix Android}
+    \label{fig:kiwix_pr1388_extract_1}
+\end{figure}
 
 
-\textbf{Phase 3}: Several developers for the Kiwix project, the lead developer in particular, have been actively reviewing crashes reported by Android Vitals, filing issues, and addressing the causes of the crashes in order to reduce the crash rate and improve the app's stability. Evidence issues that mention crash: 133 closed, 6 open. \footnote{\url{https://github.com/kiwix/kiwix-android/issues?utf8=\%E2\%9C\%93&q=is\%3Aissue+crash}}
-%TODO in a longer work, analyse each issue to identify the source of the crash.
+\begin{figure}
+    \centering
+    \includegraphics[width=14cm]{images/github/kiwix-pr1388-extract-2.png}
+    \caption{Second material change in PR-1388 for Kiwix Android}
+    \label{fig:kiwix_pr1388_extract_2}
+\end{figure}
 
-Several releases later, each with various changes and improvements aimed at fixing causes of crashes the crash rate was materially lower than when we started, at the time of writing the overall crash rate for the last 7 days is 0.54\% which is inflated because the rash rate for the previous release (3.1.2) spiked at 1.38\%, compared to 0.18\% for release (3.0.5 -  the last production release) and 0.25\% for the recently released fix (3.1.3).
+
+The developers ended up fixing some of the causes of the most frequent crashes with a surprisingly small amount of code of under 25 lines (including 10 lines of text added to the release log)\footnote{\url{https://github.com/kiwix/kiwix-android/pull/1388}}. Figures~\ref{fig:kiwix_pr1388_extract_1} and~\ref{fig:kiwix_pr1388_extract_2} illustrate the material changes that were made to address two of the crashes. The first adds another null check: \small{\texttt{currentWebViewIndex < mWebViews.size() \&\&}}. 
+The second catches an \texttt{IllegalArgumentException} if one occurs. 
+
+According to Android Vitals, the crash rate was more than halved once release 2.5.3 had rolled out to the majority of the userbase, for example for the 30-day period of \nth{19} Aug 2019 to \nth{16} Sep 2019 the overall crash rate was 1.47\% for the Kiwix app. Figure~\ref{fig:kiwix_android_vitals_with_gaps_2019_09_20} is the source of this data. Several aspects of this figure will be discussed in more detail in the \href{section-flaws-in-the-analytics}{\nameref{section-flaws-in-the-analytics}} topic. For now, the main point to highlight in this figure is the difference between the crash rates for two different builds of the 2.5.3 release, 0.96\% for 6220503 versus 2.22\% for 5220503. These builds were for different hardware architectures of Android where crashes related to Android App Bundles occurred more often for the 5220503 release. Further analysis of these crashes are in the~\href{kiwix-android-app-bundling-crashes}{\nameref{kiwix-android-app-bundling-crashes}} topic.  
+
+\begin{figure}
+    \centering
+    \includegraphics[width=12.5cm]{images/android-vitals-screenshots/Screeenshot_2019_09_20_Android_Vitals_Overview_Kiwix_Google_Play_Console.png}
+    \caption{Android Vitals overview for Kiwix, 30 day view on \nth{20} Sep 2019}
+    \label{fig:kiwix_android_vitals_with_gaps_2019_09_20}
+\end{figure}
+
+
+Various developers continued to make corrective changes to the codebase which made ongoing incremental improvements to the app released to the \texttt{2.5.x} releases. 
+
+
+
+\textbf{Phase 3}: Several developers for the Kiwix project, the lead developer in particular, have been actively reviewing crashes reported by Android Vitals, filing issues, and addressing the causes of the crashes in order to reduce the crash rate and improve the app's stability. For the Kiwix project crashes are tracked as issues on GitHub, on~\nth{11} June 2021 there are 182 closed and 8 open issues that mention `crash': 182 closed, 8 open % Was 133 closed, 6 open.
+\footnote{\url{https://github.com/kiwix/kiwix-android/issues?q=is\%3Aissue+crash}}
+%COULD-DO analyse each issue to identify the source of the crash.
+
+Several releases later, each with various changes and improvements aimed at fixing causes of crashes the crash rate was materially lower than when we started, in early 2020 the overall crash rate for the last 7 days was 0.54\% which is inflated because the rash rate for the previous release (3.1.2) spiked at 1.38\%, compared to 0.18\% for release (3.0.5 -  the last production release) and 0.25\% for the recently released fix (3.1.3).
+
+\textbf{Post case study}
+This case study was scaled back in early 2020, however I continued to monitor it as a background activity with the agreement of the project leads. One of the many side-effects of the Covid-19 pandemic was a significant reduction in funding for the Kiwix project in Summer 2020 which culminated in the end of the funded lead-developer role for the Android codebase. The lead developer finished working on the project in late 2020 and since then the project has been mainly maintained by a mix of volunteers on a part-time basis. 
+
+The crash and ANR rates have both increased in 2021, and are 0.73\% and 0.46\% respectively for the 30 days to \nth{11} June 2021 for the Kiwix Android app (the most recent release is v3.4.4 released on \nth{20} May 2021). Many of the most common crashes are related to the embedded WebView component 
+
+\textbf{A Quick discussion on perspectives and views}. 
+One of the key challenges when trying to interpret Android Vitals analytics is to determine comparisons and to establish reference points. For instance, are the recent crashes related to the embedded WebView component related to changes in the app, in the Android platform, to a particular device manufacturer? 
+
+For instance, the most frequent crash in the 60 days to \nth{11} Jun 2021 has only occurred on Huawei devices for the most recent release of the Kiwix app (3.4.4). The crash is:
+
+\begin{lstlisting}
+java.lang.IllegalStateException
+org.kiwix.kiwixmobile.core.main.CoreReaderFragment.webViewFailedLoading
+\end{lstlisting}
+
+that affected 16 users a total of 96 times in these 60 days. % https://play.google.com/console/developers/9116215767541857492/app/4975184706939091905/vitals/crashes?errorType=CRASH&versionCode=6230404%2C5230404%2C4230404%2C3230404&days=60&installedFrom=PLAY_STORE
+Could this be related to The US government's ban on Huawei including the prevention of Google software from being installed on new Huawei models?~\footnote{\url{https://www.cnet.com/news/huawei-ban-timeline-chinese-company-android-rival-coming-phones-tablets/}} and/or the Android WebView component being disabled, or yet another as yet unknown cause? Understanding the reasons may help the developer decide on a suitable method to address the runtime failure in the app and/or provide a better user-experience.
+
+
+
 
 \subsubsection{Vitals Scraper}
 ~\href{section-vitals-scraper}{\emph{Vitals Scraper}} was developed to facilitate the collection, preservation, and sharing of reports and data presented in Google Play Console and Android Vitals. Details of the software's design and implementation are discussed in the~\href{chapter-code-needed}{\nameref{chapter-code-needed}} chapter.
@@ -458,6 +511,10 @@ As Ogien reports in~\href{https://forum.unity.com/threads/unity-2017-2-crashes-v
     \caption{Unity 2017.2 Android-Vitals annotated graph (\url{https://forum.unity.com/threads/unity-2017-2-crashes-vs-5-6-2f1.511995/}}
     \label{fig:unity-2017-2-android-vitals-annotated-graph}
 \end{figure}
+
+
+\subsubsection{Android App Bundling}~\label{kiwix-android-app-bundling-crashes}
+MUST-DO complete this section
 
 MUST-DO Discuss the augmented crash stack trace utility, how it works, and why we did~\emph{not} use it in Google Play apps.
 
