@@ -111,7 +111,7 @@ One of the challenges in this research has been to balance internal, external an
 
 \subsubsection{Validity from the Google Engineering Team}
 
-MUST\_DO Use the beyond Google Play paper to help support the validity of my research.
+
 
 \subsubsection{Other validation}
 In email discussions of my research in 2020 one of the leading authors in the field, \href{https://scholar.google.com/citations?user=zuUsFkgAAAAJ&hl=en&oi=sra}{Li Li}, confirmed the novelty, importance and relevance of my research.
@@ -122,16 +122,48 @@ In email discussions of my research in 2020 one of the leading authors in the fi
 This research is limited to apps available in Google Play for practical reasons. Here we consider whether the approach could scale beyond Google Play for Android apps, and later whether the approach could work for other platforms.
 
 \subsection{Beyond Google Play?}
-Other Android app stores are available, particularly in China as Wang ~\emph{et al} (2018)~\cite{wang2018_beyond_google_play} describes. Of the Chinese app stores, in 2018 only 2 (Tencent Myapp, and 360 Market) provided a quality rating. Their work indicates that at least some app stores are not likely to provide stability analytics similar, or equivalent, to those Google provides in Google Play Console and Android Vitals. Developers, therefore, would need to implement any analytics into their app rather than rely on the app store. 
+Other Android app stores are available, particularly in China as~\citep{wang2018_beyond_google_play} describes. Of the Chinese app stores, in 2018 only 2 (Tencent Myapp, and 360 Market) provided a quality rating. Their work indicates that at least some app stores are not likely to provide stability analytics similar, or equivalent, to those Google provides in Google Play Console and Android Vitals. Developers, therefore, would need to implement any analytics into their app rather than rely on the app store. Two more recent app stores are discussed next: Huawei and Amazon.
 
+\textbf{Huawei}: 
+Huawei needed a comprehensive alternative to the Google Android ecosystem, driven by the ramifications of the ongoing ban in the USA~\citep{androidauthority2021_the_huawei_ban}. 
+% And https://www.cnet.com/news/huawei-ban-timeline-chinese-company-android-rival-coming-phones-tablets/
+They have been ramping up their app store~\citep{androidauthority2021_huawei_app_gallery}, known as \href{https://appgallery.huawei.com/}{HUAWEI App Gallery}. According to~\citep{vodafone2021_huawei_appgallery}, it had over 180 billion downloads in the past year - which would infer lots of usage of those downloaded apps and very likely lots of crashes! 
+%
+In 2020, Huawei announced \emph{``HUAWEI is one of the world's top three application store"} [sic]~\citep{huawei2020_press_release_on_hms_ecosystem}, serving 600 million Huawei device users. In March 2021, Huawei stated they have over 2.7 million developers outside the Chinese Mainland~\citep{}. 
+Huawei are rolling out their Android operating system HarmonyOS to a wide range of their existing devices~\footnote{\url{https://www.huaweicentral.com/huawei-harmonyos-upgrade-plan-devices-and-rollout-time-list/}} which may accelerate the growth of activity in their app ecosystem. In short, they have a large and growing ecosystem with lots of apps and users of those apps.
+
+Huawei provide an optional Analytics SDK for developers~\citep{huawei_analyticskit}; in turn it provides a crash and error reporting SDK together with a Codelab~\citep{huawei_crashservice_codelab} and examples~\citep{huawei_crashservice_github_examples}. Their crash reporting appears to be integrated in an online console for developers~\footnote{\url{https://developer.huawei.com/consumer/en/console}~\citep{huawei_introduction_to_appgallery_connect_crash_service}}. They also provide a programmatic data export service~\citep{huawei_analyticskit_dataexport_codelab}. According to one of their developer-oriented articles~\citep{huawei_introduction_to_appgallery_connect_crash_service}, \emph{``The crash rate of a problem is greater than the threshold 1\%"}~\citep{huawei_introduction_to_appgallery_connect_crash_service}, which is similar to Google's bad behavior threshold of 1.09\%.
+
+\begin{comment}
+\begin{itemize}
+    \item How to enable the Analytics service~\url{https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-enabling-0000001050745155-V5}
+    \item Pre-release Check for their Analytics SDK \url{https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/android-pre-release-check-0000001050420841-V5}, which includes a spreadsheet (which I've downloaded) that covers basic sanity testing.
+    \item Lots of clear articles (still lacking in various details) that help to understand how their analytics SDK behaves and how that behaviour can be modified (and checked) by developers. For example~\citep{huawei_accessing_analytics_kit}.
+    \item Cloud Testing articles \href{https://forums.developer.huawei.com/forumPortal/en/topic/0201271583209350068}{Part 1} and \href{}{Part 2}. And a more structured article~\url{https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-cloudtest-introduction-0000001083002880}.
+    \item Developer reports he cannot see crashes for the productFlavor that should use the Huawei crash reporting~\url{https://stackoverflow.com/questions/64800108/can-not-see-crashes-for-android-on-appgallery-connect}. It's not clear whether a) the library needs to be instantiated by the application at runtime, b) if there'll be conflicts between the Huawei and Google Firebase crashlytics libraries and/or instantiation.
+    \item \url{https://developer.huawei.com/consumer/en/appgallery/} marketing to the developers.
+    \item \url{https://developer.huawei.com/consumer/en/codelabsPortal/index} HUAWEI Codelabs.
+    \item \url{https://stackoverflow.com/questions/tagged/huawei-mobile-services} Active support from Huawei for developers.
+    \item \url{https://stackoverflow.com/questions/67885601/react-native-app-crashes-while-launching-after-implementing-hmscore} Interesting answer from Shirley who works for Huawei I believe about how their support HMS Core on non-Huawei devices \url{https://stackoverflow.com/a/67886284/340175} - Details saved in my references in the HUAWEI folder.
+    \item App Rollbacks \textit{are} supported! \url{https://developer.huawei.com/consumer/en/doc/distribution/app/agc-help-rollback-0000001146534647}
+    \item Developers can provide messages in the app store for their users \url{https://developer.huawei.com/consumer/en/doc/distribution/app/agc-help-developers-message-0000001146438657}
+\end{itemize}
+\end{comment}
+
+Key differences between their provision and that provided by Google include the lack of integrated platform (device-level) analytics from the Operating System, the need for developers to integrate a full Analytics SDK in order to then use the crash and error reporting SDK. They do not mention of the equivalent of Android Vitals. In terms of pre-release checks and testing, they provide various elements that offer similar capabilities to the pre-packaged pre-launch reports that Google Play Console provides. For example, they have an Integration Check~\citep{huawei_appgallery_integration_check} which appears to perform various forms of static analysis and Cloud Testing~\citep{huawei_appgallery_cloud_testing} that in turn includes similar automated testing capabilities. 
+
+As Huawei develops HarmonyOS and their app store, potentially platform-level analytics could be added and made available by Huawei in future.
+
+\textbf{Amazon app store}: 
 Another major app store for Android apps is the \href{https://developer.amazon.com/apps-and-games}{Amazon appstore}, which includes `millions of devices in over 236 countries and territories'. They provide an \href{https://developer.amazon.com/settings/console/home}{amazon developer console} which offers a subset of the Google Play Console's features together with some Amazon specific product and service offerings. 
 
 Many, but not all, of Google Firebase Android SDKs are able to be used beyond Google Play. The other SDKs require Google Play services which is part of the Google Android platform. And uniquely, firebase-analytics only provides `\emph{automatic insights such as demographics are only available on devices with Google Play services.}'~\citep{firebasesupport2020_dependencies_of_firebase_sdks_on_google_play_services}. 
 
 
+\textbf{Could the techniques improve reliability beyond Google Play?} 
+These brief introductions into Huawei's and Amazon's, global app store ecosystems indicate there provide sufficient developer-oriented tools and services for developers to be able to measure reliability of their Android-like apps were they distributed in these app stores, and to be able to use the analytics offered by these providers (and potentially other analytics providers, for instance Countly claims their Android SDK should work on HarmonyOS~\citep{countly_which_operating_systems_are_supported}) to identify reliability issues and potentially address them. Neither of these ecosystems currently provide the richness of the Google Play Console or Android Vitals, they could choose to do so in future and the underlying Android based operating systems could gather similar data, at least from a technical perspective.
 
 \subsection{Beyond Android?}
-
 
 Apple also provides a platform and an app store (called the `App Store'). 
 

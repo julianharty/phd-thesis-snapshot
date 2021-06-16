@@ -2708,12 +2708,37 @@ series = {CODASPY ’19}
   }
 }
 
+@misc{androidauthority2021_huawei_app_gallery,
+  title = {Huawei’s Play Store alternative has gotten better, but it’s the apps that count},
+  url = {https://www.androidauthority.com/huawei-app-gallery-review-1101306/},
+  author = {Robert Triggs},
+  year = {2021},
+  organization = {{Android Authority}},
+}
+
+@misc{androidauthority2021_the_huawei_ban,
+  title = {The Huawei ban explained: A complete timeline and everything you need to know},
+  url = {https://www.androidauthority.com/huawei-google-android-ban-988382/},
+  author = {C. Scott Brown},
+  note = {Most recent update at the time of writing was the \nth{12} May 2021.},
+  year = {2021},
+  organization = {{Android Authority}},
+}
+
 @misc{books_in_print_donald_knuth,
   title = {Books in Print by Donald E. Knuth},
   url = {https://cs.stanford.edu/~knuth/books.html},
   year = {1999},
   author = {Donald E. Knuth},
   quote = {Click web links for current news about each book of interest. Lists of errors and amendments can be downloaded as plain TeX files or read from DVI files or PostScript files cited on the relevant web pages. You are entitled to a reward of at least 0x$1.00 ($2.56) if you are the first person to report a bona-fide error not on those lists. Each page tells you how to report an error for the book in question.},
+}
+
+@misc{countly_which_operating_systems_are_supported,
+  title = {Countly Help Center - Which operating systems are supported?}
+  url = {https://support.count.ly/hc/en-us/articles/360037754031-Android\#which-operating-systems-are-supported},
+  year = {2021},
+  organization = {Countly},
+  note = {Their Android SDK help page was last modified at: June 02, 2021 13:14}
 }
 
 @misc{fdroidwebsite,
@@ -2801,6 +2826,135 @@ series = {CODASPY ’19}
   },
 }
 
+@misc{huawei_accessing_analytics_kit,
+  title = {Analytics Kit - Accessing Analytics Kit},
+  url = {https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/android-accessing-0000001050161888-V5},
+  author = {HUAWEI Developers},
+  year = {2021},
+  organization = {{Huawei}},
+  set_event_reporting_policies = {
+    Four policies can be combined to determine when the Analytics SDK will attempt to send events. Screenshot of details saved in my dropbox.
+  }  
+}
+
+@misc{huawei_analyticskit,
+  title = {Analytics Kit - APP Intelligent Analysis Service - HUAWEI Developer},
+  url = {https://developer.huawei.com/consumer/en/hms/huawei-analyticskit},
+  author = {HUAWEI Developers},
+  year = {2021},
+  organization = {{Huawei}},
+  abstract = {Provides free data analysis for a wide range of devices and platforms, so you can make informed decisions on product optimization and marketing based on your users' behavior.},
+}
+
+@misc{huawei_analyticskit_dataexport_codelab,
+  title = {Analytics Kit (Data Export)},
+  url = {https://developer.huawei.com/consumer/en/codelabsPortal/carddetails/HMSAnalyticsKit-Data-Export},
+  author = {HUAWEI Developers},
+  year = {2021},
+  organization = {{Huawei}},  
+}
+
+@misc{huawei_analyticskit_pre_release_check,
+  title = {Analytics Kit - Pre-release Check},
+  url = {https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/android-pre-release-check-0000001050420841-V5#EN-US_TOPIC_0000001055224472__sd34f1bf539604a8bbea6cbfc6f7ba4b4},
+  author = {HUAWEI Developers},
+  year = {2021},
+  organization = {{Huawei}}, 
+  notice = {
+    Since HUAWEI Analytics Kit 4.0.3.300, the HMS Core Analytics SDK for Android has been significantly improved in terms of stability, security, and reliability. If the SDK you integrated is earlier than 4.0.3.300, please upgrade it to 4.0.3.300 or later before April 30, 2021. From May 1, 2021, Analytics Kit will not receive data reported by the Analytics SDK earlier than 4.0.3.300 for Android. If you have integrated Remote Configuration, App Linking, or Crash, you also need to upgrade their SDKs for Android before April 30, 2021. Otherwise, functions that depend on Analytics Kit will become unavailable.
+  }
+}
+
+@misc{huawei_appgallery_cloud_testing,
+  title = {AppGallery Connect Help Center - Cloud Testing},
+  url = {https://developer.huawei.com/consumer/en/doc/distribution/app/agc-help-cloud-test-0000001156844797},
+  author = {HUAWEI Developers},
+  year = {2021},
+  organization = {{Huawei}},   
+}
+
+@misc{huawei_crashservice_codelab,
+  title = {AppGallery Connect Crash Service Development},
+  url = {https://developer.huawei.com/consumer/en/codelabsPortal/carddetails/CrashService},
+  alternate_url = {https://developer.huawei.com/consumer/en/codelab/CrashService},
+  author = {Huawei Developers},
+  year = {2021},
+  organization = {{Huawei}},
+}
+
+@online{huawei_introduction_to_appgallery_connect_crash_service,
+  title = {Introduction to AppGallery Connect Crash Service},
+  url = {https://forums.developer.huawei.com/forumPortal/en/topic/0204405648104650146},
+  author = {Ritesh Chanchal},
+  year = {2020},
+  extracts = {
+  Crash Service notification
+  Crash service monitors app in real time and notifies developer if any crash occurs. Developers will be reminded if a crash meets the following condition in last one hour:
+    1. The crash rate of a problem is greater than the threshold 1\%
+    2. Number of app launches is greater than 500.
+    3. No crash notification has been triggered for this problem before. That is, the system does not repeatedly send notifications for the same problem.
+    
+  Tips and Tricks
+    1.   Huawei Crash services work on non-Huawei device.
+    2.   AGConnectCrash.getInstance().testIt(mContext) triggers app crash. Make sure to comment or remove it before releasing your app.
+    3.   Crash Service takes around 1 to 3 minutes to post the crash logs on App Gallery connect dashboard/console.
+    4.   Crash SDK collects App and system data.
+      System data :
+      AAID, Android ID (obtained when AAID is empty), system type, system version, ROM version, device brand, system language, device model, whether the device is rooted, screen orientation, screen height, screen width, available memory space, available disk space, and network connection status.
+      App data: 
+      APK name, app version, crashed stack, and thread stack.
+    5.   The Crash SDK collects data locally and reports data to the collection server through HTTPS after encrypting the data.
+    
+    The Crash SDK collects data locally and reports data to the collection server through HTTPS after encrypting the data.
+  }
+}
+
+
+@misc{huawei_crashservice_github_examples,
+  title = {huaweicodelabs/CrashService},
+  url = {https://github.com/huaweicodelabs/CrashService},
+  author = {Various developers},
+  year = {2021},
+  organization = {{Huawei}},
+}
+
+@misc{huawei_appgallery_connect_service_whitepaper,
+  title = {AppGallery Connect Service White Paper},
+  url = {https://developer.huawei.com/consumer/en/doc/distribution/app/agc-help-service-white-paper-0000001156658451},
+  year = {2021},
+  
+}
+
+
+@misc{huawei_appconnect_terms_of_service,
+  title = {Statement About AppGallery and Privacy},
+  url = {https://consumer.huawei.com/minisite/cloudservice/hiapp/privacy-statement.htm?code=SG&branchid=2&language=en_US#},
+  year = {2021},
+  data_collection_includes = {
+  The following categories of information will be collected and used in order for you to use the service:
+    •Account information, such as name, email address, phone number, date of birth, and third-party account login data.
+    •Network information, such as IP address.
+    •Service usage information, such as operation logs.
+    •Browser information, such as cookies.
+  The data controller is Aspiegel SE, a subsidiary of Huawei in Ireland. Your data will also be used for analytical and service improvement purposes. For more information about how we process your data and about your rights, including the right to object, please click here.
+  }
+}
+
+@misc{huawei_appgallery_integration_check,
+  title = {AppGallery Connect Help Center - Integration Check},
+  url = {https://developer.huawei.com/consumer/en/doc/distribution/app/agc-help-self-check-0000001100158786},
+  author = {HUAWEI Developers},
+  year = {2021},
+  organization = {{Huawei}},   
+}
+
+@misc{huawei2020_press_release_on_hms_ecosystem,
+  title = {Huawei Accelerates the Development of the HMS Ecosystem in Anticipation of the 5G Era},
+  url = {https://www.prnewswire.com/news-releases/huawei-accelerates-the-development-of-the-hms-ecosystem-in-anticipation-of-the-5g-era-301010305.html},
+  author = {Huawei Consumer Business Group},
+  organization = {Cision US Inc.},
+  year = {2020},
+}
 @misc{ibm_mobile_foundation_7_1_app_crash_analytics,
   title = {Foundation 7.1 Accessibility and Application Crash Analytics Support is now available},
   author = {Chevy Hungerford},
@@ -2928,6 +3082,20 @@ series = {CODASPY ’19}
   author = {Joe Sutherland},
   year = {2014},
   organization = {{Wikimedia Foundation}},
+}
+
+@misc{vodafone2021_huawei_appgallery,
+  title = {Vodafone | What is the Huawei AppGallery?},
+  url = {https://www.vodafone.co.uk/mobile/brands/huawei/appgallery},
+  organization = {{Vodafone UK}},
+  year = {2021},
+  abstract = {
+    AppGallery is the official Huawei app platform, like the Google Play Store or the App Store. It’s safe to use, and has a four-layer detection mechanism to ensure app security. You can search for, download, manage, and share apps in the AppGallery. 
+
+    Simply browse and download the apps you want and discover more exclusive offers, innovative experiences and fun, in-app activities.
+
+    It has over one million applications worldwide, and has had over 180 billion cumulative application downloads in the past year. Currently, there are more than 45,000 apps available.
+  }
 }
 
 @misc{wikipedia_ecological_validity,

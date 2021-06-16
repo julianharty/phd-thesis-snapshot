@@ -1,0 +1,26 @@
+\section{Possible experiments}
+Here are placeholders for various experiments that could help us better understand aspects of the systems we're researching and working with.
+
+\subsection{Experiments with WebViews}~\label{section-experiments-with-webviews}
+WebViews are key to many Android apps and some of the reliability issues are related to the WebViews on devices and how the apps incorporate and interact with the WebViews on the devices. Here are some notes that might help the research into these components...
+
+\textbf{Update in parallel}
+
+\testbf{Whose WebView is the app using?}
+\begin{itemize}
+    \item Some general interactions with WebViews, similar to how Kiwix uses it: \url{https://stackoverflow.com/questions/4229494/webview-link-click-open-default-browser}, \url{https://stackoverflow.com/questions/4066438/android-webview-how-to-handle-redirects-in-app-instead-of-opening-a-browser?rq=1}, 
+    \item Detecting the WebView \url{https://stackoverflow.com/questions/31848320/detect-android-webview} and particularly the recent answer \url{https://stackoverflow.com/a/66867979/340175}
+    \item Brief discussion on an alternative the developer can embed in their Android app \url{https://stackoverflow.com/questions/51200745/is-there-any-alternative-to-webviews-in-android}
+    \item Example from a few years ago that uses Chrome Tabs rather than a WebView~\url{https://lynxbee.com/webview-alternative-how-to-open-website-faster-using-chrome-custom-tabs-in-android-using-kotlin/}, could be useful for Kiwix? However if it needs Chrome to be installed it might be counter productive.
+    \item Interesting discusssion from a PhoneGap perspective, sadly dated (last updated 2015) \url{https://github.com/jessemonroy650/top-phonegap-mistakes/blob/master/webview-alternatives.md}
+    \item Simple WebView wrapper Android app from 2015, might be enough to get started with the detection of the WebView being used? \url{http://www.human-element.com/easy-android-app-development-webview}
+    \item Recent and relevant, however the following requires the Android device to be rooted \url{https://android.gadgethacks.com/how-to/ditch-googles-webview-switch-androids-system-browser-bromite-0384227/}. The project discussed in the article is \url{https://github.com/Magisk-Modules-Repo/bromitewebview}. (and see \url{https://github.com/bromite/bromite}, \url{https://ungoogled-software.github.io/}, and \url{https://www.androidacy.com/}.
+    \item A piece in the jigsaw, Chrome becomes the replacement for the WebView component in Android 7.0 \url{https://www.androidpolice.com/2016/07/20/google-explains-chrome-will-become-webview-android-7-0/}
+    \item The respondent asks about updates to a Huawei WebView component \url{https://consumer.huawei.com/en/community/details/Application-is-not-working-after-latest-update/topicId_151570/}. There are other superficial comments about a Huawei WebView, I've yet to find strong evidence it exists.
+\end{itemize}
+
+
+
+\testbf{Analytics and WebViews}
+
+What about: crashes in WebViews, ANRs, poor performance?
