@@ -526,3 +526,107 @@ As~\citep{kidwell2015_toward_fault_taxonomy_application_of_software_analytics} n
 
 \subsection{Summary of Kiwix Android Case Study}
 TBC
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\par\noindent\rule{\textwidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The following material is here until it's integrated with the rest of the case study. It came from the Evaluation chapter.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\par\noindent\rule{\textwidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Evaluation of the Kiwix case study}
+%%%% Table generated originally by Spread-LaTeX
+%\begin{adjustwidth}{-1 cm}{-1 cm}
+\begin{threeparttable}[!htp]\centering
+\caption{Reductions in Crash Rates}\label{tab:evaluation-reductions-in-crash-rates}
+\scriptsize
+\begin{tabularx}\textwidth{lrrr} % SHOULD-DO I'd like to reduce the width slightly.
+\toprule
+%& & & & \\
+&\multicolumn{3}{c}{30-day crash rates reported in Android Vitals~\tnote{0}} \\
+\midrule
+\multirow{2}{*}{.} &\multicolumn{2}{c}{Kiwix Apps} \\
+Stage &Release&\cellcolor[HTML]{efefef}Experiment &Control  \\
+
+&\cellcolor[HTML]{efefef}&\cellcolor[HTML]{efefef}Kiwix & WikiMed English \\
+
+1 &0 
+  &\cellcolor[HTML]{efefef}5.07\% &1.13\% \\
+2 &1 &\cellcolor[HTML]{efefef}3.12\%~\tnote{1} &\multirow{2}{*}{\cellcolor[HTML]{A8A8A8}}... \\
+3 &2~\tnote{2} &\cellcolor[HTML]{efefef}1.59\%~\tnote{3} & \cellcolor[HTML]{A8A8A8}... \\
+  &3 &\cellcolor[HTML]{efefef}0.53\%~\tnote{4} &1.09\%~\tnote{5} \\
+4 &4 &\cellcolor[HTML]{efefef}0.72\%~\tnote{6} &0.60\%~\tnote{7} \\
+  &4~\tnote{8} 
+&\cellcolor[HTML]{efefef}0.55\% &0.41\% \\
+  &5 &\cellcolor[HTML]{efefef}0.40\%~\tnote{9} &0.26\%~\tnote{10} \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+  \item[0] Except when otherwise noted.
+  \item[1] Kiwix Release 2.5 with the previous custom download facility replaced by a Google Android downloader.
+  \item[2] The code is under 25 lines including 10 lines of comments~\url{https://github.com/kiwix/kiwix-android/pull/1388}.
+  \item[3] Aggregate crash rate over 7 days for versions 2.4, 2.5.1, 2.5.2, 2.5.3 (to Aug \nth{26} 2019).
+  \item[4] Previous 30 days crash rate, before release 3.1.2 pushed the crash rate up (same graph as TODO).
+  \item[5] \emph{Unchanged release from the first control.}
+  \item[6] Includes 3.1.2 which had an average (mean) crash rate of roughly 1.7\% (roughly \nth{31} Dec 2019).
+  \item[7] A mixed set of crash rates, averaged by Android Vitals. For the first updated release of Wikimed (the 2019-12 release).
+  \item[8] As usage increased of the more reliable releases the averages declined.
+  \item[9] The crash rates for releases 3.2.1 are 0.23\% and 3.3.1 are 0.31\%
+  \item[10] Release 2020-03 actually has a crash rate of around 0.05\% the numbers are higher as there are still significant volumes of usage on the previous 2 releases.
+
+\end{tablenotes}
+\end{threeparttable}
+%\end{adjustwidth}
+\vspace{5mm}
+%%%% Isabel recommends creating a timeline instead - sounds good SHOULD-DO
+
+Table~\ref{tab:evaluation-reductions-in-crash-rates} provides a numerical summary of five releases of two of the Kiwix Android apps. There are four stages in this case study:
+
+\begin{enumerate}
+    \itemsep0em
+    \item The baseline
+    \item Simplifying the most buggy code
+    \item Applying the concepts in the research to the experiment
+    \item The new normal: %ongoing improvements to the experiment app \emph{and} applying these improvements to the custom apps (including the previous control app).
+\end{enumerate}
+% Great ideas to reduce space in list items in https://tex.stackexchange.com/questions/6081/reduce-space-between-enumerated-items
+% COULD-DO I've only applied the basic suggestion for this single list so far, might be worth thesis wide changes as the thesis matures.
+
+The active part of the experiment started in stage 3 of this case study, although the initial research into the feasibility started several months earlier during the baseline stage.
+
+\subsection{Stage 1: the baseline}
+Before the experiment started there was little focus on finding and fixing causes of crashes. The development team did fix some sporadically, however they seldom used the reports from Android Vitals to identify crashes or address them.
+
+The core app included an integrated download facility to download content to a user's local device. Files sizes ranged from a few MB to over 60GB and could take several days to download, especially in areas where connectivity wasn't ideal.  This integrated download facility provided users with several useful features, for example, they could pause and restart downloads. It also had an integrated recovery mechanism to restart and continue partial downloads after a failure, and it provided users with a progress indicator. However, this custom download facility had numerous bugs and was the largest source of crashes in real world use.
+
+The custom apps were pre-packaged with content (which Google Play Services downloaded at the same time as downloading the app's binary). They did not need, and did not include the custom downloader. This meant their crash rates were significantly better (lower) than the core app managed.
+
+\subsection{Stage 2: simplifying the most buggy code}
+The first release, release 1 in the table, predated the hackathon (which was the start of the experiment). In this release the lead developer decided to replace a large body of custom code with generic downloader code rather than focus on fixing individual sections of code. The custom code was considered too problematic to fix. However, there was a trade-off by increasing the reliability there was a reduction in usability and also an impact on what happened when downloads stopped or otherwise failed before completion.
+
+\subsection{Stage 3: applying the research concepts of the experiment app}
+I convinced the the leaders of the Kiwix project that we might be able to reduce the crash rate significantly by applying the concepts described in chapter 5. They had slowly become increasingly aware of the excessively high crash rate and the potential impact on both users and the app store's ranking of the apps based on the high crash rates. 
+
+We agreed we would start by focusing on several of the most frequently occurring crashes as reported in Android Vitals. The opportunity to do so was at a week-long hackathon in Stockholm in August 2019. I led the discussions and analysis with several of the volunteer developers at the hackathon. 
+
+Following this discussion and analysis about the crashes being reported in Android Vitals for version \texttt{2.5.0} of the core application, the developers fixed several of the causes of the most frequent crashes with a surprisingly small amount of code of under 25 lines (including 10 lines of text added to the release log)\footnote{\url{https://github.com/kiwix/kiwix-android/pull/1388}}.
+
+Various developers continued to make corrective changes to the codebase which made ongoing incremental improvements to the app released to the \texttt{2.5.x} releases. 
+
+\subsection{Stage 4: the new normal}
+The improvements in the reliability of the core app were sufficiently compelling \emph{and} the reliability of the custom apps sufficiently poor that the development team chose to refresh the majority of the custom apps, including the one used as the control (WikiMed English). Note: Various details of the crash rate at the time and the plan to migrate the custom apps are included in~\url{https://github.com/kiwix/kiwix-android/issues/1426}. 
+
+All the apps share a common codebase, they are created using a common set of build scripts, they differ in their data contents, various `resources'~\footnote{\emph{``Resources are the additional files and static content that your code uses, such as bitmaps, layout definitions, user interface strings, animation instructions, and more."}~\url{https://developer.android.com/guide/topics/resources/providing-resources}}, and the custom apps exclude file management and download features as the contents are pre-packaged as part of the build process instead.
+
+Several releases later, each with various changes and improvements aimed at fixing causes of crashes the crash rate was materially lower than when we started, at the time of writing the overall crash rate for the last 7 days is 0.54\% which is inflated because the rash rate for the previous release (\texttt{3.1.2}) spiked at 1.38\%, compared to 0.18\% for release (\texttt{3.0.5} -  the last production release) and 0.25\% for the recently released fix (\texttt{3.1.3}).
+
+\subsection{Overall evaluation of the Kiwix case study}
+Within five months the project was able to reduce the crash rate of the core application from over 3\% to around a tenth of that figure. One of the main causes was the focus on addressing the most prevalently reported crash clusters in Android Vitals. This was not the only cause, the software was also being revised and updated, this included replacing some of the existing Java code with Kotlin equivalents. 
+
+Empirical research in Android apps that migrate from Java to Kotlin indicate the code quality often improves in tandem according to static analysis of the binary files of various releases of the studied opensource apps~\cite{GoisMateus2019_an_empirical_study_on_the_quality_of_android_apps_in_kotlin}. That work does not investigate exceptions or crashes, it does include the Kiwix Android project~\footnote{Kiwix is listed as one of the projects their research investigated:~\url{https://github.com/UPHF/kotlinandroid/blob/master/docs/fdroid_all.md}.}. However, their research predates both my case study and when the Kiwix codebase transitioned to Kotlin.
+
+The Kiwix Android project team continue to file bug reports and address them, for instance {\small~\href{https://github.com/kiwix/kiwix-android/issues/2104}{\texttt{github.com/kiwix/kiwix-android/issues/2104}}} 
+provides an example of the lead developer raising a bug report for a crash reported by Android Vitals; and \\{\small ~\href{https://github.com/kiwix/kiwix-android/issues?q=is\%3Aissue+\%22crash+report\%22+}{\texttt{github.com/kiwix/kiwix-android/issues?q=is\%3Aissue+\%22crash+report\%22+}}} provides an up-to-date view of issues labeled with ``crash report". 
+
+In conclusion, addressing crash reports is now performed actively by the developers and the crash rate of all the Android apps updated since the start of the case study have improved.
