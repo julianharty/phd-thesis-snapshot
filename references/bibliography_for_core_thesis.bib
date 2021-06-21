@@ -2702,6 +2702,20 @@ series = {CODASPY ’19}
   part_of = {http://www.testingeducation.org/course_notes/amland_stale/cm_200212_exploratorytesting/},
 }
 
+@misc{android_dropboxmanager,
+  title = {DropBoxManager - Android Developers},
+  url = {https://developer.android.com/reference/android/os/DropBoxManager},
+  year = {2021},
+  organization = {{Android Developers}},
+  author = {{Android Developers}},
+  abstract = {
+    Enqueues chunks of data (from various sources -- application crashes, kernel log records, etc.). The queue is size bounded and will drop old data if the enqueued data exceeds the maximum size. You can think of this as a persistent, system-wide, blob-oriented "logcat".
+
+    DropBoxManager entries are not sent anywhere directly, but other system services and debugging tools may scan and upload entries for processing.
+  },
+  note = {Last retrieved 31 July 2020},  
+}
+
 @misc{android_processes_and_application_lifecycle,
   url = {https://developer.android.com/guide/components/activities/process-lifecycle},
   title = {Processes and Application Lifecycle},
@@ -3035,6 +3049,15 @@ author = {HUAWEI Developers},
 
     The IBM MobileFirst Operational Analytics Console now provides accessibility features.
   },
+}
+
+@misc{khan2019_medium_filtering_adb_logcat_efficiently,
+  title = {Filtering Android adb logcat efficiently in bash command line},
+  url = {https://medium.com/@hissain.khan/filtering-android-adb-logcat-efficiently-in-bash-command-line-4992fb1acd61},
+  author = {Sazzad Hissain Khan},
+  year = {2019},
+  publisher = {Medium},
+  organization = {Samsung},
 }
 
 @misc{knuth_the_bank_of_san_serriffe,
@@ -3573,6 +3596,15 @@ author = {HUAWEI Developers},
   note = {Retrieved 2020-Dec-23},
 }
 
+@online{ebling2018_so_s9_specific_webview_device_crash_report,
+  title = {S9/S9+ specific WebView device crash report},
+  url = {https://stackoverflow.com/questions/49645746/s9-s9-specific-webview-device-crash-report},
+  year = {2018},
+  author = {Andrew Ebling},
+  organization = {Stack Exchange},
+  publisher = {Stack Overflow},  
+}
+
 @online{exodus_privacy_project,
    title = {exodus},
    key = {exodus privacy project},
@@ -3793,6 +3825,15 @@ https://github.com/Displayr/flipTime/graphs/contributors
   year = {2012},
   organization = {Stack Exchange},
   publisher = {Stack Overflow},
+}
+
+@online{learner2011_so_how_to_access_anrs_and_tombstones,
+  title = {how to access android files /data/anr/traces.txt and /data/tombstones/tombstones},
+  url = {https://stackoverflow.com/questions/5467972/how-to-access-android-files-data-anr-traces-txt-and-data-tombstones-tombstones},
+  year = {2011},
+  author = {learner},
+  organization = {Stack Exchange},
+  publisher = {Stack Overflow},  
 }
 
 @online{mopinion2017_top11_mobile_in_app_feedback_tools,
@@ -4132,6 +4173,33 @@ https://github.com/Displayr/flipTime/graphs/contributors
   note = {Last checked on 2020-11-02},
   quote1 = {Apps whose metrics are higher have greater promotability, which raises their ranking in Google Play Store searches. They also are more likely to be eligible for the New & Updated and Editor's Choice collections on Google Play, and to be nominated in the Google Play Awards.},
   year = {2019},
+}
+
+@misc{android2010_froyo_highlights_new_developer_services,
+  title = {Android 2.2 Platform Highlights - New Developer Services},
+  url = {https://web.archive.org/web/20100722094037/https://developer.android.com/sdk/android-2.2-highlights.html#DeveloperServices},
+  year = {2010},
+  author={{Android Project}},
+  organization ={{Android Developers}},
+  note = {Source: Wayback Machine: Last checked on 2021-06-17},
+
+}
+
+@misc{android_platform_system_crash_reporter,
+  title = {[Android] platform/system/crash\_reporter - Git at Google},
+  url = {https://android.googlesource.com/platform/system/crash_reporter/},
+  author={{Android Project}},
+  year = {2016},
+  organization = {{Google Inc.}},
+  abstract = {
+    crash_reporter is a deamon running on the device that saves the call stack of crashing programs. It makes use of the Breakpad library.
+
+    During a build, Breakpad symbol files are generated for all binaries. They are packaged into a zip file when running m dist, so that a developer can upload them to the crash server.
+
+    On a device, if the user has opted in to metrics and crash reporting, a Breakpad minidump is generated when an executable crashes, which is then uploaded to the crash server.
+
+    On the crash server, it compares the minidump's signature to the symbol files that the developer has uploaded, and extracts and symbolizes the stack trace from the minidump.
+  }
 }
 
 @misc{android_webview_privacy,

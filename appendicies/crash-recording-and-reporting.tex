@@ -1,0 +1,43 @@
+\chapter{Crash recording and reporting [in Android]}~\label{chapter-crash-recording-and-reporting-in-android}
+Fixing crashes is hard especially if the developers do not have any visibility into them. 
+
+
+Google Android developers reported a new developer service ``Android Application Error Reports" as part of Android 2.2, known as Froyo. Two sentences were all that was provided:~\emph{``New bug reporting feature for Android Market apps enables developers to receive crash and freeze reports from their users. The reports will be available when they log into their publisher account."}~\citep{android2010_froyo_highlights_new_developer_services}.
+
+\textbf{COULD-DO} Add notes on the clues I found on how Google implement their approach.
+
+Android includes a class, \texttt{DropBoxManager} which enqueues chunkss of data from various sources including application crashes. As the documentations for the class says \emph{`` You can think of this as a persistent, system-wide, blob-oriented "logcat"."}~\citep{android_dropboxmanager}. The documentation also explains other system services and debugging tools may scan and upload these entries for processing.
+
+\url{}
+
+\href{https://github.com/operando/Android-Command-Note}{adb shell dumpsys dropbox}
+
+
+
+
+\subsection{Discussions on Stack Overflow}
+\begin{itemize}
+    \item \href{https://stackoverflow.com/questions/66471628/detecting-crashes-when-someone-else-implement-my-sdk}{Detecting crashes when someone else implement my sdk}
+    \item \href{https://stackoverflow.com/questions/67138663/how-to-make-fake-ndk-crashes-in-android-in-order-to-test-crashlytics-integration}{How to make fake NDK crashes in Android in order to test Crashlytics integration?}
+    \item \href{How do I obtain crash-data from my Android application?}{How do I obtain crash-data from my Android application?} - a relatively early SO question that has lots of answers.
+    \item \href{https://stackoverflow.com/questions/20763011/android-saving-logs-on-every-run-for-crash-report}{Android saving logs on every run for crash report}
+    \item \href{https://stackoverflow.com/questions/63190868/masive-error-after-updating-to-firebase-crashlytics-sdk}{Masive error after updating to Firebase Crashlytics SDK} - Google developers acknowledged there were issues and issued a new release that they believed fixed the issue \href{https://github.com/firebase/firebase-android-sdk/issues/2013}{java.util.concurrent.RejectedExecutionException in Crashlytics \#2013} They did not elaborate.
+    \item \href{https://stackoverflow.com/questions/64381093/crash-logged-java-lang-runtimeexception-that-only-happens-in-android-8-1-api}{Crash logged 'java.lang.RuntimeException' that only happens in android 8.1 (API 27), stack trace is not pointing to our code, how to debug?}
+    \item \href{https://stackoverflow.com/questions/59926756/report-all-android-crashes-to-own-api}{Report all Android crashes to own API} and a suggested approach \url{https://stackoverflow.com/a/64382151/340175}
+    \item What ACRA records in their recent SDK release \url{https://github.com/ACRA/acra/wiki/ReportContent}
+    \item \href{https://stackoverflow.com/questions/3378550/android-crash-reporting-library-pre-froyo}{Android crash reporting library (pre Froyo)}
+    \item A StackOverflow discussion on how to read the files for ANRs and tombstones on Android devices~\citep{learner2011_so_how_to_access_anrs_and_tombstones}. The question is from 2011 and in terms of the Android ecosystem, lots has changed including restrictions in access permissions and in the operating system. Nonetheless, the questions and answers provide information on where the data on ANRs and similar runtime data, are stored.
+    \item A StackOverflow discussion on the Android adb shell dumpsys tool~\url{https://stackoverflow.com/questions/11201659/whats-the-android-adb-shell-dumpsys-tool-and-what-are-its-benefits}. The adb dumpsys command can report on the dropbox service as well as many other services. 
+\end{itemize}
+
+\subsection{Additional sources}
+\begin{itemize}
+    \item An old opensource project from 2010, \href{https://code.google.com/archive/p/android-send-me-logs/}{Google Code Archive - Android, send me logs!} that parsed the on-device logs with the aim of detecting force closes (which often occur after an unhandled exception or ANR). From reading the source code it's not clear how it actually determines an app has been force-closed. Note it's based on a longer running project, ~\href{https://code.google.com/archive/p/android-log-collector/}{Google Code Archive - Android Log Collector} which continued until 2012. For anyone who wishes to revitalise this work, the newest version of Android Log Collector may be well worth incorporating.
+    
+    \item Source of Android's~\href{https://android.googlesource.com/platform/frameworks/base/+/master/services/core/java/com/android/server/DropBoxManagerService.java}{DropBoxManagerService.java}. There's an interesting comment in the source code on the design they've implemented: \emph{``A single circular buffer (a la logcat) would be simpler, but this way we can handle fat/bursty data (like 1MB+ bugreports, 300KB+ kernel crash dumps, and 100KB+ ANR reports) without swamping small, well-behaved data streams (event statistics, profile data, etc)."}~\footnote{There's some relatively simple analysis of this class online \url{https://www.programmersought.com/article/66131178515/}.}
+    
+    \item \texttt{adb logcat} is a practical mechanism to inspect and query the various Android logs on a device. \citep{khan2019_medium_filtering_adb_logcat_efficiently} provides practical tips that may help with using \texttt{adb logcat} efficiently and effectively, for instance to query the device's crash log. Android reference documentation for logcat~\footnote{\url{https://developer.android.com/studio/command-line/logcat}}, and in particular the section on~\href{https://developer.android.com/studio/command-line/logcat#alternativeBuffers}{Viewing alternative log buffers} lists the various logs accessible using logcat.
+    
+    Google publishes the source code for the system crash\_reporter in the Android platform~\citep{android_platform_system_crash_reporter}. It includes various details on how and when crashes are reported and uploaded. See also \href{https://git.halogenos.org/halogenOS/android\_system\_core/src/commit/33c59358525052c788a2d170d326b8b1cf810dd1/metricsd/metrics_collector.cc}{metrics\_collector.cc} from HalogenOS/android\_system\_core. Note HalogenOS is based on the Android Open Source Project and shares much of the source code.
+\end{itemize}
+
