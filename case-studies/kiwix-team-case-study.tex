@@ -38,9 +38,14 @@ Kiwix makes knowledge available to people with no or limited internet access (\e
 
 The project provides offline access to Wikipedia materials and many other read-only materials including TED talks, StackExchange sites, interactive science simulations, and others~\citep{kiwix_about_the_project, gomez2017_wikimedia_kiwix_article}. 
 
-The project comprises various Android apps all based on a common opensource codebase. The crash rate had been excessive for several years and far exceeded the bad behaviour threshold Google Play dictated. This is a long-term case study lasting several years to date and still live.
+The project comprises various Android apps all based on a common opensource codebase. The core case study captures activities from early 2019 to early 2020; however the project is a long-term, ongoing project and I am still involved with it. Several post case-study updates will be covered in later chapters. The crash rate had been excessive for over a year and far exceeded the bad behaviour threshold Google Play specified. 
 
-\akb{Provide dates over which the excessive crash rate was noted? Also, while the project is a long-term, ongoing project, your case study captures its activity during a specific window.}
+The case study started with a period of observation and discussion of the crash rate in particular as it had increased repeatedly and to such an extent that the 2.3 release had been aborted by the project team, various details follow.
+
+In mid-April 2018 the reported crash rate was 1.53\%~\footnote{Details available in \href{https://github.com/kiwix/kiwix-android/issues/712}{issue 712} for the Kiwix Android project, the main app releases were version 2.2 and 2.3 at the time.}. By mid-June 2018 the overall crash rate had increased to 1.71\%~\footnote{The crash rate for version 2.2 was 2.03\% in the 30 days to \nth{14} June 2018.}. The rollout for 2.3 was aborted in February 2019~\footnote{The milestone for this release and the issues that were addressed is available online~\url{https://github.com/kiwix/kiwix-android/milestone/1?closed=1}.} as there was a crash that affected 10\% to 20\% of the users (according to the lead developer at the time). The crash rate for the app averaged over 5\% in January and February 2019. 
+
+
+%\akb{Provide dates over which the excessive crash rate was noted? Also, while the project is a long-term, ongoing project, your case study captures its activity during a specific window.}
 
 The project team actively exclude any tracking or analytics within the app to minimise the risk of harm to users of the app. This is because in some parts of the world Wikipedia is banned \url{https://en.wikipedia.org/wiki/Censorship\_of\_Wikipedia} and usage may result in oppression, prison, and so on. By design the app makes Wikipedia content freely available and easy to distribute peer to peer (and it has been downloaded in response to bans of the main Wikipedia web site~\url{https://twitter.com/KiwixOffline/status/968493031224733697?s=20}). The apps are also available on Google Play and the apps are popular there. The project team agreed they were willing to use the analytics Google Play provides about their apps and these analytics provide the basis for this case study.
 
@@ -56,7 +61,7 @@ This was the first of the case studies and opened the research into the effects 
 
 Key similarities include the use of Google Play Console analytics (virtually all the projects use it to varying degrees), and the improvements (reductions) in failures through applying the techniques. 
 
-\akb{I like this summary of the key differences and similarities}
+%\akb{I like this summary of the key differences and similarities}
 
 \subsection{Context}
 \textit{(Product/Project overview, Developer characteristics, tools, methods, key challenges for product/project).}
@@ -132,9 +137,9 @@ Analytics was used to select which app(s) to focus on, to determine the replacem
 
 \href{glossary_android_vitals}{Android Vitals} was the source of the analytics for this case study. It provided statistics and details of crashes for the more popular Kiwix Android apps; as we discovered Android Vitals does not provide statistics or reports for the less popular apps; why this occurs will be discussed in the \href{case-study-kiwix-discussion}{Discussion section} of this case study. 
 
-\akb{As noted above, it would be good to have dates over which the observations recorded in the case study were recorded so that the reader understands when 'the start of the case study' was}
+%\akb{As noted above, it would be good to have dates over which the observations recorded in the case study were recorded so that the reader understands when 'the start of the case study' was}
 
-At the start of the case study all the apps had a crash rate above Google's Bad Behavior Threshold of 1.09\% as Table~\ref{tab:gpc_kiwix_apps_11_feb_2019} illustrates. The total count of active installs was 252,490 according to Google Play Console with the core Kiwix app the most popular with 101,873 installs, followed by WikiMed in English with 55,357 installs, and then Chemistry \& Physics simulations with 37,244 installs. All the apps were very highly rated, ranging from 4.74 to 4.43 stars~\footnote{Google announced changes to the rating calculations in May 2019~\citep{androiddevelopersblog2019_io2019_whats_new_in_play}. Developers were able to see both the current and the new ratings for several months in Google Play Console before Google rolled out the new ratings to the public facing store front of Google Play. These changes mean ratings pre and post Summer 2019 are not safe to compare directly.}.
+At the start of the case study, in February 2019, all the apps had a crash rate above Google's Bad Behavior Threshold of 1.09\% as Table~\ref{tab:gpc_kiwix_apps_11_feb_2019} illustrates. The total count of active installs was 252,490 according to Google Play Console with the core Kiwix app the most popular with 101,873 installs, followed by WikiMed in English with 55,357 installs, and then Chemistry \& Physics simulations with 37,244 installs. All the apps were very highly rated, ranging from 4.74 to 4.43 stars~\footnote{Google announced changes to the rating calculations in May 2019~\citep{androiddevelopersblog2019_io2019_whats_new_in_play}. Developers were able to see both the current and the new ratings for several months in Google Play Console before Google rolled out the new ratings to the public facing store front of Google Play. These changes mean ratings pre and post Summer 2019 are not safe to compare directly.}.
 
 The reported crash rates were compared for the core Kiwix app and various custom apps. Kiwix had the highest crash rate, followed by the PHeT application\footnote{The PHeT application has since been renamed \href{https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomphet}{Chemistry and Physics simulations}. The content source,~\href{https://phet.colorado.edu/}{University of Colorado Boulder}, have since released their own Android app, called~\href{https://play.google.com/store/apps/details?id=edu.colorado.phet.androidApp}{PhET Simulations}, and the Kiwix team agreed to rename our app to enable their app to be more easily discovered by new users of either app. The contents were and still are freely available to be used~\url{https://phet.colorado.edu/en/licensing}. For completeness, I was involved in some of the initial work for this project and also contributed translations and support to the upstream PHeT project.}.
 %
@@ -431,10 +436,68 @@ As some flaws are data dependent sometimes they cannot be checked for every app 
 
 When several of the flaws emerged they were reported to Google through two channels. The first is available to Android developers when they are using Google Play Console, through a feedback menu option in the Google Play Console user interface. The second was through directly contacting a public member of the product team for Google Play Console and Android Vitals, at that time Fergus Hurley. 
 
+\begin{comment}
+The bugs include inconsistencies in the crash rate, reported variously as 6.75\%, 5.48\%, and 5.07\% for the main Kiwix app. The values are found in various sections of the data, however, it's not clear why each is favored in particular areas of the Reports.
+
+\nth{14} March 2019
+FYI I've also found the counts of Crashes (11.99K) https://play.google.com/apps/publish/?account=9116215767541857492#AppDashboardPlace:p=org.kiwix.kiwixmobile&appid=4975184706939091905  is higher than either the last 30 days of crashes and even the combination of crashes and ANRs (assuming my copy+paste and manual editing didn't lose any data). https://play.google.com/apps/publish/?account=9116215767541857492#StatisticsPlace:p=org.kiwix.kiwixmobile&appid=4975184706939091905&statms=DAILY_ANDROID_METRICS_CRASHES&statms=DAILY_ANDROID_METRICS_ANRS&statg=DAILY&ts=THIRTY_DAYS I've attached the calculations in an Excel spreadsheet so you can check these if you wish.
+
+I've made quite a few changes, partly after a good discussion today with Fergus Hurley at Google who challenged lots of details in the flaws section and wanted as much feedback and suggestions as possible on ways I'd like the tools improved.
+\end{comment}
+
+\begin{comment}
+Issues reported using Google Play Developer Support on \nth{19} June 2018, Google replied on \nth{19} July 2018, one month later (many times longer than their published response time of a few days at the time).
+
+Please see a copy of your initial inquiry:
+
+"The pre-launch reports indicate the tests aren't actually running these 
+days. Instead it states the app is incompatible with all 14 devices with 
+the following error message: "Devices incompatible with APK" 
+
+And I had asked for these two items in response:
+Which APK version code you wish to view the pre-launch report for?
+Screenshot of the page you're viewing(these are really helpful!)
+
+\nth{24} July 2018: 
+ I'm still seeing some test runs in the pre-launch report that claim some devices aren't compatible, and also many more test runs that don't seem to run any tests at all. 
+
+It's not obvious why sometimes the number of devices varies - do you have any idea why? e.g. sometimes the tests seem to be scheduled on 9 devices, other times 7, and often 0
+
+I've attached a couple of screenshots.
+And here's a URL for the test run with 7 devices
+https://play.google.com/apps/publish/?account=9116215767541857492#PreLaunchReportPlace:p=org.kiwix.kiwixmobile&plrtab=CRASH&plrvc=1181980
+and here with 9 
+https://play.google.com/apps/publish/?account=9116215767541857492#PreLaunchReportPlace:p=org.kiwix.kiwixmobile&plrtab=SCREENSHOTS&plrvc=181980
+
+Also, in case you're interested, the Pixel 2 device sometimes reports an extremely long start up e.g. 16K (presumably milliseconds) as shown in one of the attached screenshots however, watching the video it's clear the tests are interacting with the app and the app is responding within a couple of seconds. This quirk seems to happen mainly on the Pixel 2 - perhaps there's a bug in how it (the device model) reports activity? Any suggestions?
+
+And sorry I realise I didn't provide an example of where the pre-launch report claims the devices/the app are incompatible. Here you go, a screen shot and here's the URL
+https://play.google.com/apps/publish/?account=9116215767541857492#PreLaunchReportPlace:p=org.kiwix.kiwixmobile&plrvc=4181770&plrtab=SCREENSHOTS
+This is from 26th June, there were only 1 set of reports, all on 26th June so I'm presuming we tried to push one release, probably with various platform-specific APKs.
+
+Thanks for your reply and detailed notes, screenshots. Really helps us investigate! 
+
+For the varying number of compatible devices on each APK upload, I checked in with our team and it seems they may vary from time to time. If you're noticing, especially that all devices show as completely incompatible and no tests are run, you may want to upload a new APK to try.
+
+Secondly, thanks for reporting the behavior on the long startup time. I’ve documented this and escalated to our technical team for further investigation. Our team is working to resolve this issue for you as soon as possible.
+
+I appreciate your patience and I’ll let you know the moment I have an update. 
+
+Also I'd appreciate whatever you can discover about why the set of devices varies from one test run to another. e.g. is it random, based on load, or availability, or something hard to guess like the day of the week multiplied by the current temperature in NYC?
+
+I understand your point. I’ll be sure to pass along your specific feedback to our product team on showing the reason for incompatibility. We’re continually adding new features and functionality, so please stay tuned.
+
+For your second question, the help center mentions the following, and sadly I am not able to provide further information than this: 
+Test devices are selected based on a wide range of criteria, including popularity, crash frequency, screen resolutions, manufacturers, operating systems, and more. The selection of test devices may vary. 
+For your reference, there is a custom test functionality which gives you the ability to choose the device types and testing method. If you’d like to create a custom test using Firebase Test Lab for Android, at the top of your screen, you’ll see a “Run Custom Tests” banner if you're able to run a custom test. To begin, select Get Started. You can learn more about this feature in the Firebase documentation.
+
+All the above was forwarded to Fergus who confirmed he'd forwarded the issues to the relevant team (March 2019).
+\end{comment}
+
 \subsubsection{Collaboration with Google}~\label{section-collaboration-with-google}
+In February 2019 I was reintroduced to the Engineering Director at Google Play and the head of the Google Play Console engineering team, Milena Nikolic, by a work colleague on a recent professional engagement who thought Google may be interested in my research and findings related to Google Play Console. After an in-person discussion about my research and findings she, in turn, introduced me to Fergus Hurley who was the Product Manager for Android Vitals at the time. He took an active interest in my research, including reviewing and cross-checking various details of flaws in Android Vitals and Google Play I had discovered and reported to Google. 
 
-
-
+In terms of research hygiene, the research into the behaviours of Google Play Console and Android Vitals were debated and cross-checked with Google, and my paper~\citep{harty_google_play_console_insightful_development_using_android_vitals_and_pre_launch_reports} was reviewed by the Product Manager who was acknowledged with his permission in the paper.
 
 
 \subsection{Discussion}~\label{case-study-kiwix-discussion}
@@ -442,9 +505,18 @@ When several of the flaws emerged they were reported to Google through two chann
 
 \textbf{MUST-DO} explain why statistics and reports aren't available for less popular apps.
 
+`` it [information] only shows up for apps that have enough data to be privacy compliant"~\footnote{unpublished correspondence with Google.}.
+
 \textbf{MUST-DO} describe about the flaws discovered in GPC and Android Vitals and the discussions with Google Engineering.
 
+\begin{comment}
+Links to docs:
+Android Developer Documentation: https://developer.android.com/topic/performance/vitals
+Play Console Help Center: https://support.google.com/googleplay/android-developer/answer/7385505?hl=en-GB
+Overview video: https://www.youtube.com/watch?v=vj3Y8L5HLdg
 
+ https://android-developers.googleblog.com/2018/12/wrapping-up-for-2018-with-google-play.html, https://android-developers.googleblog.com/2017/07/android-vitals-increase-engagement-and.html and https://developer.android.com/topic/performance/vitals/ 
+\end{comment}
 
 \subsection{Summary of Kiwix Android Case Study}
 % Joe's notes this is not compelling and doesn't compare with the other case studies.
@@ -452,7 +524,9 @@ When several of the flaws emerged they were reported to Google through two chann
 
 This is a long term study, where I was embedded as part of the development team for a period of the case study. We demonstrated it was practical to use only external, platform, analytics and still able to be effective in reducing the crash rate. For projects that do not use in-app crash reporting the platform tools are sufficient to make material improvements \emph{when the team actively monitors and addresses the crashes reported in the platform level analytics}. The practices need to be applied on a long term basis; with the loss of the project lead who focused on addressing the runtime failures the failure rates are increasing. Entropy increases.
 
-\akb{Include point about long term engagement needing tools like Vitals Scraper to provide data that can be used analyse performance of the app over time?}
+%\akb{Include point about long term engagement needing tools like Vitals Scraper to provide data that can be used analyse performance of the app over time?}
+
+The user interface of Google Play Console and Android Vitals was interactive and Google had removed an earlier feature where historic crashes could be downloaded for further analysis which meant the user interface was ephemeral, reports could not be stored easily (and even printing the reports as PDF files or on paper didn't capture the contents well) the user interface required human input and navigation, and retaining information for historical and trend analyses was difficult. Vitals Scraper was developed to address facilitate my ongoing research of this and other projects and enabled data, reports, crashes and ANRs to be recorded in ways that enabled comparisons and analysis. 
 
 The case study was very useful in terms of providing  control and experiment apps. It was also the first of the experiments that set the scene and the direction for further case-studies.
 

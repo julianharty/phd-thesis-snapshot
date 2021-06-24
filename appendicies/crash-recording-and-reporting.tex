@@ -34,10 +34,19 @@ Android includes a class, \texttt{DropBoxManager} which enqueues chunkss of data
 \begin{itemize}
     \item An old opensource project from 2010, \href{https://code.google.com/archive/p/android-send-me-logs/}{Google Code Archive - Android, send me logs!} that parsed the on-device logs with the aim of detecting force closes (which often occur after an unhandled exception or ANR). From reading the source code it's not clear how it actually determines an app has been force-closed. Note it's based on a longer running project, ~\href{https://code.google.com/archive/p/android-log-collector/}{Google Code Archive - Android Log Collector} which continued until 2012. For anyone who wishes to revitalise this work, the newest version of Android Log Collector may be well worth incorporating.
     
-    \item Source of Android's~\href{https://android.googlesource.com/platform/frameworks/base/+/master/services/core/java/com/android/server/DropBoxManagerService.java}{DropBoxManagerService.java}. There's an interesting comment in the source code on the design they've implemented: \emph{``A single circular buffer (a la logcat) would be simpler, but this way we can handle fat/bursty data (like 1MB+ bugreports, 300KB+ kernel crash dumps, and 100KB+ ANR reports) without swamping small, well-behaved data streams (event statistics, profile data, etc)."}~\footnote{There's some relatively simple analysis of this class online \url{https://www.programmersought.com/article/66131178515/}.}
+    \item Source of Android's~\href{https://android.googlesource.com/platform/frameworks/base/+/master/services/core/java/com/android/server/DropBoxManagerService.java}{DropBoxManagerService.java}. There's an interesting comment in the source code on the design they've implemented: \emph{``A single circular buffer (a la logcat) would be simpler, but this way we can handle fat/bursty data (like 1MB+ bugreports, 300KB+ kernel crash dumps, and 100KB+ ANR reports) without swamping small, well-behaved data streams (event statistics, profile data, etc)."}~\footnote{There's some relatively simple analysis of this source code class file online \url{https://www.programmersought.com/article/66131178515/}.}
     
     \item \texttt{adb logcat} is a practical mechanism to inspect and query the various Android logs on a device. \citep{khan2019_medium_filtering_adb_logcat_efficiently} provides practical tips that may help with using \texttt{adb logcat} efficiently and effectively, for instance to query the device's crash log. Android reference documentation for logcat~\footnote{\url{https://developer.android.com/studio/command-line/logcat}}, and in particular the section on~\href{https://developer.android.com/studio/command-line/logcat#alternativeBuffers}{Viewing alternative log buffers} lists the various logs accessible using logcat.
     
     Google publishes the source code for the system crash\_reporter in the Android platform~\citep{android_platform_system_crash_reporter}. It includes various details on how and when crashes are reported and uploaded. See also \href{https://git.halogenos.org/halogenOS/android\_system\_core/src/commit/33c59358525052c788a2d170d326b8b1cf810dd1/metricsd/metrics_collector.cc}{metrics\_collector.cc} from HalogenOS/android\_system\_core. Note HalogenOS is based on the Android Open Source Project and shares much of the source code.
+\end{itemize}
+
+A native crash was reported in \href{Kiwix Android - Issue 896}{https://github.com/kiwix/kiwix-android/issues/896} for the Kiwix Android project. The issue includes an extract from an Android log file with various details related to the crash dump. Two in particular are relevant to the topic of crash recording and reporting: 
+
+\begin{itemize}
+    \item \texttt{ /system/bin/tombstoned: Tombstone written to: /data/tombstones//tombstone\_08}: confirming where the tombstone files are written, and
+    
+    \item \texttt{DropBoxManagerService: Dropping: data\_app\_native\_crash (2918 > 0 bytes)}: where DropBoxManagerService records it's discarding details of the native crash (it doesn't contain any clues why it's doing so).
+
 \end{itemize}
 
