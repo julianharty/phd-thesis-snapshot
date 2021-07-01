@@ -143,7 +143,7 @@ At the start of the case study, in February 2019, all the apps had a crash rate 
 
 The reported crash rates were compared for the core Kiwix app and various custom apps. Kiwix had the highest crash rate, followed by the PHeT application\footnote{The PHeT application has since been renamed \href{https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomphet}{Chemistry and Physics simulations}. The content source,~\href{https://phet.colorado.edu/}{University of Colorado Boulder}, have since released their own Android app, called~\href{https://play.google.com/store/apps/details?id=edu.colorado.phet.androidApp}{PhET Simulations}, and the Kiwix team agreed to rename our app to enable their app to be more easily discovered by new users of either app. The contents were and still are freely available to be used~\url{https://phet.colorado.edu/en/licensing}. For completeness, I was involved in some of the initial work for this project and also contributed translations and support to the upstream PHeT project.}.
 %
-The rest of the custom applications had a range of crash rate from 1.77\% to 1.13\% (Table~\ref{tab:gpc_kiwix_apps_11_feb2019}.
+The rest of the custom applications had a range of crash rate from 1.77\% to 1.13\% (Table~\ref{tab:gpc_kiwix_apps_11_feb_2019}).
 
 \begin{table}
     \centering
@@ -205,7 +205,7 @@ Initial analysis of the crash rates across the Kiwix apps found several clusters
     \item Crashes in the Chemistry \& Physics simulations app. These crashes were related to the contents which was multi-layered JavaScript with deeply nested calls. The JavaScript powered the simulations and wasn't intended to run in a WebView container, WebViews and some of their effects will be discussed later in this case study and also later in this thesis in the~\href{section-webview-component}{WebView Component section}.
 \end{enumerate}
 
-We decided to focus on using analytics to effect improvements in the main Kiwix app and use WikiMed in English as the control. 
+In March 2019, we~\footnote{The Android project leads at that time and myself} decided to focus on using analytics to effect improvements in the main Kiwix app and use WikiMed in English as the control. 
 \begin{itemize}
     \item There were several reasons for selecting the Kiwix app as the experiment: it contained all the functionality\footnote{baring a tiny amount of code used in the custom apps} and it could process all the contents that the various custom apps contained therefore just about any of the current crashes could potentially be addressed through working on this app. Furthermore as the custom apps were derived from this app fixes in the codebase for the Kiwix app could percolate to the custom apps in future. 
     \item WikiMed in English was the second-most popular app in the family and was highly representative of many of the custom apps in terms of the contents and the likely usage.
@@ -214,6 +214,46 @@ We decided to focus on using analytics to effect improvements in the main Kiwix 
 We chose not to select the Chemistry \& Physics simulations as the contents were highly specific and if we focused on fixing crash clusters specific to this app they may not effect improvements in the crash rates of many of the other apps in the family. (To be clear, we agreed the specific crashes were still relevant and would be worth addressing, however they weren't the main focus of the work.) 
 % MUST-DO Check with Joe what changes were made in the JavaScript to improve the processing and reliability of the PHeT contents. IIRC Joe did some work, possibly in Lyon, to improve the JavaScript contents.
 
+Three bug clusters were identified through the analysis: the download manager, Android Lifecycle management, and content processing. The development lead was pressed for time and believed the causes of these bug clusters were hard to address. Various approaches were considered including paying for some off-shore developers to sift through the code for clues of the causes; however these were not followed through, partly because of the perceived complexity of a) solving the bugs, b) ensuring they were actually fixed, c) integrating with the Android platform. 
+% See email conversation https://mail.google.com/mail/u/0/?q=kiwix+crash+rate+#search/kiwix+crash+rate/QgrcJHrhsvdVtDQRKfRGJrZmpsMLLCfQJcL
+
+\subsubsection{Crash reproduction mini-experiments} 
+Two mini-experiments were established during this case study with the aim of evaluating crash reproduction of crashes reported by the mobile analytics. These were: 1) testing interactively on a physical device 2) using CrashScope as the authors of that research claimed it was effective at reproducing crashes.
+
+\textbf{Mini-experiment: device-specific interactive testing} 
+Android Vitals sometimes includes the crash rate for specific device models when Google has sufficient data to publish this statistic for that device. One of the devices with a high crash rate was a sm-g532 model. This is a Samsung phone. The model code matches several branded models. As part of the research I decided to procure one of these devices to determine whether crashes could be reproduced when using this device.  
+
+\textbf{Method}: Various sources are available online to map the model code to the branded models. For this case study \url{https://desktop.firmware.mobi/} was used, and one of the matching models was purchased: the Samsung Galaxy Grand Prime Plus Black G532 8GB. 
+
+The then current version of Kiwix was installed on this device and the app was used interactively with the aim of triggering one or more of the crashes being reported in Android Vitals. We were not able to explicitly reproduce any of the reported crashes during several sessions of testing over several weeks. 
+
+\textbf{Results}: Given the volume of that testing the results are not definitive and it would be inappropriate to form conclusions from this testing. Percentages over a population of sessions do not necessarily distinguish between a subset of users who have perennial crashes consistently or crashes that occur less frequently over a larger portion of the userbase. There may be other, currently unknown contributory factors that led to the crashes for users on those device models.
+
+\textbf{Mini-experiment: using CrashScope}
+The aim of this experiment was to see if CrashScope can trigger some of the crashes automatically that are reported in Android Vitals (part of the Google Play Console). A version of CrashScope is available online~\footnote{at~\url{http://173.255.245.197:8080/CrashScope/index.xhtml}, obtained from the project's homepage~\citep{crashscope_project_homepage}}. In~\citep{moran2016_automatically_drr_android_app_crashes} the authors were able to find distinct crashes with CrashScope compared to other automated testing tools and their automatically bug-reproduction reports were well liked by the students who used them to try to reproduce these crashes (which they frequently managed to do). However, \textit{the crashes it found were not necessarily crashes that occur for end users and there was little indication whether it could find crashes that are occurring for end users.} 
+
+Therefore, it seemed a useful experiment would be to determine whether CrashScope could reproduce actual crashes that affected end users; particularly given the subsequent publication on CrashScope being a practical tool for automated testing of Android applications~\citep{moran2017_crashscope_a_practical_tool_for_automated_testing_of_android_apps}.  Furthermore, as the Kiwix Android codebase is opensource and the apps are popular the experiment could help explore the utility of CrashScope in terms of its use for real-world, popular, Android apps.
+
+\textbf{Method}: An account was created on the public CrashScope site. Two of the Kiwix Android apps were uploaded as APK files: 1) the \href{https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomphet}{Chemistry and Physics Simulations app} (known as PhET), and 2) the core Kiwix app. The PhET app was downloaded using an online service, APKCombo~\citep{apkcombo_website_about_us}, that facilitates such downloads; and it was used as the PhET app, like all the Kiwix Android custom apps, uses expansion files~\citep{apk_expansion_files} containing the contents. The expansion files are packaged using the Android specific OBB format
+%
+\footnote{The URL used to download the app was \url{https://apkcombo.com/en-gb/chemistry-physics-simulations/org.kiwix.kiwixcustomphet/download/obb} to download the APK and then the \href{glossary-obb-file-format}{OBB} file for the app. Their website explained how and where to copy the OBB file for the app to access it (they need to be in a particular location for the app to find the contents of the expansion file.}.
+
+\textbf{Results}: 
+CrashScope had no facility to upload, include, or use expansion files. I contacted one of the authors of the project, at the time it was not practical for them to add support which meant CrashScope was (and still is not) able to test any apps with expansion files.
+
+The Kiwix app did not appear in their user interface and there were no indications the app had been tested by CrashScope. Similarly I contracted the same author of the project at the time and subsequently. For various reasons, unfortunately, they have been unable to provide a viable environment or any version of CrashScope either in source code or binary formats~\footnote{The authors had intended to make the project available as an opensource project.}.
+
+\textbf{Summary of mini-experiments}
+Neither of the mini-experiments were successful at reproducing crashes reported in the field. In the author's experience app developers~\footnote{The practical limitations of being able to reproduce crashes is also corroborated by numerous \textit{ad-hoc} informal discussions with development teams for many apps in industry.} are frequently faced with failures they are not able to reproduce practically. This indicates app development teams may need other practical mechanisms to determine whether failures have been ameliorated or even fixed. Concepts such as relative correctness e.g. in~\citep{ghardallou2016debugging_without_testing} show promise in terms of comparing the failures reported in subsequent releases of an app, the absence of a particular failure \textit{might} indicate the failure has at least been partly addressed provided the developers have made attempts to address at least one possible cause of the failure. In some instances, failures have remained submerged for several releases - for instance with the Kiwix Android app, in September 2019 there were 55 crashes reported for a \texttt{WebViewFactory MissingWebViewPackageException}; see Figure~\ref{fig:55-crashes-missing-webview-package-exception}. This crash disappeared for several releases before reappearing. The disappearance might have been for various reasons, one possible one was simply the particular user who was adversely affected stopped using the app. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13.5cm]{images/android-vitals-screenshots/55-crashes-WebViewFactory-MissingWebViewPackageException_2019-09-19-kiwix_trimmed.png}
+    \caption{Kiwix Android 55 crashes for one user}
+    \label{fig:55-crashes-WebViewFactory-MissingWebViewPackageException}
+\end{figure}
+
+\FloatBarrier
 
 \subsection{Outcomes}
 \textit{(Describe the outcomes resulting from the intervention). Not the speculative analysis, here it’s the concrete analysis of what was done.}
@@ -370,10 +410,6 @@ Various developers continued to make corrective changes to the codebase which ma
 
 Several releases later, each with various changes and improvements aimed at fixing causes of crashes the crash rate was materially lower than when we started, in early 2020 the overall crash rate for the last 7 days was 0.54\% which is inflated because the rash rate for the previous release (3.1.2) spiked at 1.38\%, compared to 0.18\% for release (3.0.5 -  the last production release) and 0.25\% for the recently released fix (3.1.3).
 
-\textbf{Post case study}
-This case study was scaled back in early 2020, however I continued to monitor it as a background activity with the agreement of the project leads. One of the many side-effects of the Covid-19 pandemic was a significant reduction in funding for the Kiwix project in Summer 2020 which culminated in the end of the funded lead-developer role for the Android codebase. The lead developer finished working on the project in late 2020 and since then the project has been mainly maintained by a mix of volunteers on a part-time basis. 
-
-The crash and ANR rates have both increased in 2021, and are 0.73\% and 0.46\% respectively for the 30 days to \nth{11} June 2021 for the Kiwix Android app (the most recent release is v3.4.4 released on \nth{20} May 2021). Many of the most common crashes are related to the embedded WebView component... TBC
 
 \textbf{A Quick discussion on perspectives and views}. 
 One of the key challenges when trying to interpret Android Vitals analytics is to determine comparisons and to establish reference points. For instance, are the recent crashes related to the embedded WebView component related to changes in the app, in the Android platform, to a particular device manufacturer? 
@@ -492,6 +528,13 @@ Test devices are selected based on a wide range of criteria, including popularit
 For your reference, there is a custom test functionality which gives you the ability to choose the device types and testing method. If you’d like to create a custom test using Firebase Test Lab for Android, at the top of your screen, you’ll see a “Run Custom Tests” banner if you're able to run a custom test. To begin, select Get Started. You can learn more about this feature in the Firebase documentation.
 
 All the above was forwarded to Fergus who confirmed he'd forwarded the issues to the relevant team (March 2019).
+\end{comment}
+
+\begin{comment}
+My email to Nick Fortescue (Googler on SO)
+
+Started with \url{https://stackoverflow.com/questions/54519393/the-number-of-downloads-in-firebase-is-30x-different-from-the-google-console}
+"The project has some thorny problems, particularly related to lifecycle bugs and our crash rate according to the Dev Console is around 5\%. I'm working with Fergus to see how we can improve the app and Android Vitals"
 \end{comment}
 
 \subsubsection{Collaboration with Google}~\label{section-collaboration-with-google}
