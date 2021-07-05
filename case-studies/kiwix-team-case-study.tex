@@ -92,15 +92,19 @@ Life-members: the two co-founders of the Kiwix project also contribute to the co
 
 Professional developer: sufficient funds were made available to fund a professional Android developer for a period of just under 20 months. (Severe cutbacks in funding as part of the manifold effects of COVID-19 restrictions ceased their involvement).
 
-Miscellaneous contributors: including the author and several people I introduced. Occasionally Software Engineers from Google contributed their time to help the project, for instance as part of what Google call Google Serve~\footnote{(I used to be involved in Google Serve when I was an employee of Google from 2006 to 2010.)}.
+Miscellaneous contributors: including me, and several people I introduced. Occasionally Software Engineers from Google contributed their time to help the project, for instance as part of what Google call Google Serve~\footnote{(I used to be involved in Google Serve when I was an employee of Google from 2006 to 2010.)}.
+
+%\akb{You will need to tidy up the language to be consistent in how you refer to yourself - e.g., I am not sure if 'author' and you are the same person in the paragraph above - would be best to write in 3rd-person as far as possible}
 
 The vast majority of the contributors had developing for Android as a primary interest, unsurprising as this is the Android app for the project.
 
 \subsubsection{Tools}
-For the case study the main measurement tool we used was Google Play Console and Android Vitals in particular. Standard, commonplace Android Development tools such as Android Studio https://developer.android.com/studio (the default IDE) were and are used by the developers. The source code was and is hosted on GitHub \url{https://github.com/kiwix/kiwix-android}.
+For the case study the main measurement tools we used were Google Play Console and Android Vitals in particular. Standard, commonplace Android Development tools such as Android Studio https://developer.android.com/studio (the default IDE) were and are used by the developers. The source code was and is hosted on GitHub \url{https://github.com/kiwix/kiwix-android}.
+
+%\akb{Main tool or tools?}
 
 \subsubsection{Related tools}
-The tools suited a mainstream large Android opensource project, i.e. the tools and services were free-of-charge. Many are provided by commercial organisations such as Google, GitHub, Travis-CI, and \href{https://bitbar.com/}{BitBar} (since acquired by \href{https://smartbear.com/}{SmartBear}). Often the tools are popular and widely used, e.g. Junit and Espresso frameworks for the automated tests. The project uses continuous builds, at the start of the case study it used travis-ci the project migrated to GitHub actions in late 2019, early 2020 \url{https://github.com/kiwix/kiwix-android/issues/1593}.
+The tools suited a large mainstream Android opensource project, i.e. the tools and services were free-of-charge. Many are provided by commercial organisations such as Google, GitHub, Travis-CI, and \href{https://bitbar.com/}{BitBar} (since acquired by \href{https://smartbear.com/}{SmartBear}). Often the tools are popular and widely used, e.g. Junit and Espresso frameworks for the automated tests. The project uses continuous builds, at the start of the case study it used travis-ci the project migrated to GitHub actions in late 2019, early 2020 \url{https://github.com/kiwix/kiwix-android/issues/1593}.
 
 The project uses various frameworks and libraries, many are listed in the project README~\url{https://github.com/kiwix/kiwix-android} (e.g. Espresso isn’t listed, however it’s used by the project \url{https://github.com/kiwix/kiwix-android/search?q=espresso}).
 
@@ -126,14 +130,22 @@ The set of project members on GitHub.com is updated from time to time, probably 
 \subsubsection{Key challenges for the product/project}
 \textit{[Here my focus is mainly on technical challenges. Let me know if you’d like me to cover other challenges.]}
 
-Few of project contributors want to write tests, sort out build or testing infrastructure, or fix bugs. Although the project did run the automated tests on several physical devices there was marginal perceived value in doing so, and few of the development team had access to the testing service. (It wasn’t practical to materially expand who could access the service provided by Bitbar which was oriented more towards paying customers. Access to the service was donated as a favour to me).
+Few of project contributors want to write tests, sort out build or testing infrastructure, or fix bugs. Although the project did run the automated tests on several physical devices there was marginal perceived value in doing so, and few of the development team had access to the testing service which further discouraged their involvement in the automated tests as they couldn't see the tests running or the test results~\footnote{(It wasn’t practical to materially expand who could access the service provided by Bitbar which was oriented more towards paying customers. Access to the service was donated as a favour to me).}.
+
+%\akb{How is the parenthetical point / last sentence relevant to the research?}
 
 Many new volunteer contributors want to contribute new code rather than maintain existing code, especially existing code where failures lurk. 
 
 \subsection{Analytics intervention}
 \textit{(Describe what you did with analytics in the context of the case). Focus on this and the next sections since they’re core to the thesis.}
 
-Analytics was used to select which app(s) to focus on, to determine the replacement of high-functionality/low-reliability custom code with low-functionality/high-reliability code, and to prioritise the crash clusters to address over several releases of the experiment/treatment app.
+Analytics was used to select which app(s) to focus on, to determine the replacement of high-functionality/low-reliability custom code with low-functionality/high-reliability code, and to prioritise the crash clusters to address over several releases of the experiment/treatment app. 
+\begin{itemize}
+    \item Google Play Console provided details of the install base for the various Kiwix Android apps and it also provided a dashboard for each of these apps, these sources were used to help select which apps to focus on - those that were popular and would have lots of data.
+    \item Android Vitals was used to provide the other information, on the custom downloader code and to determine which crash clusters to focus on.
+\end{itemize}
+
+%\akb{Check consistency with paragraph above where both Google Play Console and Vitals were mentioned as the main measurement (i.e. analytics?) tools.}
 
 \href{glossary_android_vitals}{Android Vitals} was the source of the analytics for this case study. It provided statistics and details of crashes for the more popular Kiwix Android apps; as we discovered Android Vitals does not provide statistics or reports for the less popular apps; why this occurs will be discussed in the \href{case-study-kiwix-discussion}{Discussion section} of this case study. 
 
@@ -143,7 +155,7 @@ At the start of the case study, in February 2019, all the apps had a crash rate 
 
 The reported crash rates were compared for the core Kiwix app and various custom apps. Kiwix had the highest crash rate, followed by the PHeT application\footnote{The PHeT application has since been renamed \href{https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomphet}{Chemistry and Physics simulations}. The content source,~\href{https://phet.colorado.edu/}{University of Colorado Boulder}, have since released their own Android app, called~\href{https://play.google.com/store/apps/details?id=edu.colorado.phet.androidApp}{PhET Simulations}, and the Kiwix team agreed to rename our app to enable their app to be more easily discovered by new users of either app. The contents were and still are freely available to be used~\url{https://phet.colorado.edu/en/licensing}. For completeness, I was involved in some of the initial work for this project and also contributed translations and support to the upstream PHeT project.}.
 %
-The rest of the custom applications had a range of crash rate from 1.77\% to 1.13\% (Table~\ref{tab:gpc_kiwix_apps_11_feb_2019}).
+The rest of the custom applications had a range of crash rates from 1.77\% to 1.13\% (Table~\ref{tab:gpc_kiwix_apps_11_feb_2019}).
 
 \begin{table}
     \centering
@@ -211,8 +223,8 @@ In March 2019, we~\footnote{The Android project leads at that time and myself} d
     \item WikiMed in English was the second-most popular app in the family and was highly representative of many of the custom apps in terms of the contents and the likely usage.
 \end{itemize}
 
-We chose not to select the Chemistry \& Physics simulations as the contents were highly specific and if we focused on fixing crash clusters specific to this app they may not effect improvements in the crash rates of many of the other apps in the family. (To be clear, we agreed the specific crashes were still relevant and would be worth addressing, however they weren't the main focus of the work.) 
-% MUST-DO Check with Joe what changes were made in the JavaScript to improve the processing and reliability of the PHeT contents. IIRC Joe did some work, possibly in Lyon, to improve the JavaScript contents.
+We chose not to select the Chemistry \& Physics simulations as the contents were highly specific~\footnote{Furthermore, at the time the JavaScript libraries used in the simulations had high demands and would not run as-is on older Android devices. One of the Kiwix developers used a transpilation step to enable the simulations to run on these older devices, nonetheless the simulations were sometimes slow to load and less reliable than we desired. Again, all challenges that were well worth addressing (and the team did so), however they meant we chose not to use this app in the experiment.} 
+and if we focused on fixing crash clusters specific to this app they may not effect improvements in the crash rates of many of the other apps in the family. (To be clear, we agreed the specific crashes were still relevant and would be worth addressing, however they weren't the main focus of the work.) 
 
 Three bug clusters were identified through the analysis: the download manager, Android Lifecycle management, and content processing. The development lead was pressed for time and believed the causes of these bug clusters were hard to address. Various approaches were considered including paying for some off-shore developers to sift through the code for clues of the causes; however these were not followed through, partly because of the perceived complexity of a) solving the bugs, b) ensuring they were actually fixed, c) integrating with the Android platform. 
 % See email conversation https://mail.google.com/mail/u/0/?q=kiwix+crash+rate+#search/kiwix+crash+rate/QgrcJHrhsvdVtDQRKfRGJrZmpsMLLCfQJcL
@@ -225,7 +237,7 @@ Android Vitals sometimes includes the crash rate for specific device models when
 
 \textbf{Method}: Various sources are available online to map the model code to the branded models. For this case study \url{https://desktop.firmware.mobi/} was used, and one of the matching models was purchased: the Samsung Galaxy Grand Prime Plus Black G532 8GB. 
 
-The then current version of Kiwix was installed on this device and the app was used interactively with the aim of triggering one or more of the crashes being reported in Android Vitals. We were not able to explicitly reproduce any of the reported crashes during several sessions of testing over several weeks. 
+The then current version of Kiwix was installed on this device~\footnote{Current and historical releases of the Kiwix app are freely available online at \url{http://download.kiwix.org/release/kiwix-android/}.} and the app was used interactively with the aim of triggering one or more of the crashes being reported in Android Vitals. We were not able to explicitly reproduce any of the reported crashes during several sessions of testing over several weeks. 
 
 \textbf{Results}: Given the volume of that testing the results are not definitive and it would be inappropriate to form conclusions from this testing. Percentages over a population of sessions do not necessarily distinguish between a subset of users who have perennial crashes consistently or crashes that occur less frequently over a larger portion of the userbase. There may be other, currently unknown contributory factors that led to the crashes for users on those device models.
 
@@ -258,7 +270,11 @@ Neither of the mini-experiments were successful at reproducing crashes reported 
 \subsection{Outcomes}
 \textit{(Describe the outcomes resulting from the intervention). Not the speculative analysis, here it’s the concrete analysis of what was done.}
 
-This case study led to several distinct forms of outcomes. The first was the dramatic improvement in the crash rate of the experiment app - Kiwix. The second was the development and adoption of opensource software - Vitals Scraper - which facilitated the collection and retention of otherwise ephemeral analytics information. And the third was the collaboration with the engineering team for Google Play Console as we discovered and reported various flaws in Google Play Console and Android Vitals.
+%\akb{The unsuccessful mini experiments make it hard to pick out which of the analytics related actions contributed to the first outcome reported below}
+
+This case study led to several distinct forms of outcomes. The first was the dramatic improvement in the crash rate of the experiment app - Kiwix. The second was the development and adoption of opensource software - Vitals Scraper - which facilitated the collection and retention of otherwise ephemeral analytics information. And the third was the collaboration with the engineering team for Google Play Console as we discovered and reported various flaws in Google Play Console and Android Vitals. 
+
+The mini-case studies did not provide direct outcomes (as neither provided the intended results). Instead they provided a couple of indicators that inform ongoing engineering practices and research. The first indicator, is that some failures may be impractical to reproduce within the time and other resources available at the time to the development team. Analytics tools such that measure [un-] reliability may help those teams measure the effects of their changes once the release is being used. The second indicator is that even promising research tools may also be impractical to apply beyond the immediate ecosystem that created that tool or after that research was published. The group that created CrashScope also provided a running instance of it at the time, however the service has not functioned on demand and the underlying software isn't available for others to use. Opensourcing the code of such tools provides an incomplete approach to enabling others to use and reuse the work. The code needs to include adequate support and ideally be maintained on an ongoing basis, something that seldom occurs for a multitude of reasons.
 
 %%%% Table generated originally by Spread-LaTeX
 %\begin{adjustwidth}{-1 cm}{-1 cm}
@@ -371,6 +387,7 @@ One of the major changes in version 2.5 was the replacement of the in-house down
 \textbf{Phase 2}: Following initial discussions about the crashes being reported in Android Vitals for version 2.5.0 of the Kiwix application, a group of the developers for the Kiwix projects collaborated on a week-long hackathon in Stockholm in August 2019. One of the areas the developers worked on was to focus on identifying and addressing some of the biggest contributors to the high crash rate. 
 %
 
+%%%%% Consider whether to convert the following two visual figures to code listings so they can be included in the Code Listings in the table of contents. 
 \begin{figure}
     \centering
     \includegraphics[width=14cm]{images/github/kiwix-pr1388-extract-1.png}
@@ -538,7 +555,18 @@ Started with \url{https://stackoverflow.com/questions/54519393/the-number-of-dow
 \end{comment}
 
 \subsubsection{Collaboration with Google}~\label{section-collaboration-with-google}
-In February 2019 I was reintroduced to the Engineering Director at Google Play and the head of the Google Play Console engineering team, Milena Nikolic, by a work colleague on a recent professional engagement who thought Google may be interested in my research and findings related to Google Play Console. After an in-person discussion about my research and findings she, in turn, introduced me to Fergus Hurley who was the Product Manager for Android Vitals at the time. He took an active interest in my research, including reviewing and cross-checking various details of flaws in Android Vitals and Google Play I had discovered and reported to Google. 
+In February 2019 I was reintroduced to the Engineering Director at Google Play and the head of the Google Play Console engineering team, Milena Nikolic, by a work colleague on a recent professional engagement who thought Google may be interested in my research and findings related to Google Play Console. After an in-person discussion about my research and findings she introduced me to Fergus Hurley who was the Product Manager for Android Vitals at the time. He took an active interest in my research, including reviewing and cross-checking various details of flaws in Android Vitals and Google Play I had discovered and reported to Google. 
+
+One of the other case studies in particular, with the Catrobat project, overlapped this case study on the Kiwix project. The Collaboration with Google expanded in both depth and breadth as the analytics used by that project (Fabric Crashlytics in addition to Google Play Console and Android Vitals) provided additional vantage points and additional flaws surfaced through the collective analytics being used across the case studies. 
+
+Google then introduced me to several senior members of the engineering team for Google Play Console and Android Vitals and requested a comprehensive report on the flaws and issues found through my research. This report was written and shared with them, it is based on a subset of the information and results presented in this thesis (which includes more recent updates and results from additional case studies). The team stated they do not acknowledge contributions, nonetheless they have ended up addressing some of the flaws and some of the requests for improvements to Google Play Console and Android Vitals. Hopefully the report and the collaboration had some postive influence, yet I'm aware of the rick of falling into the \textit{post hoc fallacy}~\citep{wikipedia_post_hoc_fallacy}, and illustrated in Figure~\ref{fig:xkcd-correlation}.
+
+\begin{figure}
+    \centering
+    \includegraphics{images/xkcd/correlation-552.png}
+    \caption{XKCD: Correlation, source \url{https://xkcd.com/552/}, used with permission.}
+    \label{fig:xkcd-correlation}
+\end{figure}
 
 In terms of research hygiene, the research into the behaviours of Google Play Console and Android Vitals were debated and cross-checked with Google, and my paper~\citep{harty_google_play_console_insightful_development_using_android_vitals_and_pre_launch_reports} was reviewed by the Product Manager who was acknowledged with his permission in the paper.
 
@@ -546,9 +574,10 @@ In terms of research hygiene, the research into the behaviours of Google Play Co
 \subsection{Discussion}~\label{case-study-kiwix-discussion}
 \textit{(Explore what these outcomes mean for the use of analytics in mobile software more generally).}
 
-\textbf{MUST-DO} explain why statistics and reports aren't available for less popular apps.
+Android Vitals is of limited value for low-volume apps as several reports are only available once there are data volumes to enable the data to be anonymized sufficiently to protect users' privacy. As the product owner confirmed at the time: \emph{``... it [information] only shows up for apps that have enough data to be privacy compliant"}~\footnote{unpublished correspondence with Google.}.
 
-`` it [information] only shows up for apps that have enough data to be privacy compliant"~\footnote{unpublished correspondence with Google.}.
+As reported in~\citep{harty_google_play_console_insightful_development_using_android_vitals_and_pre_launch_reports}, the Android Vitals reports were more relevant for apps with 10,000+ active users. Paradoxically, the threshold may be lower for apps which fail more often as they would generate more failure reports. However, actively testing this hypothesis may have adverse lifetime effects for the person who releases such poorly behaving apps, and knowingly doing so contravenes Google's policy for Google Play~\citep{google_play_developer_policy_center}~\footnote{The relevant section of the policy is currently available at:~\url{https://support.google.com/googleplay/android-developer/topic/9876964?hl=en&ref_topic=9858052,9857238,2856718,} and supported by training material at~\url{https://playacademy.exceedlms.com/student/path/65190-comply-with-google-play-s-spam-and-minimum-functionality-policies}}.
+
 
 \textbf{MUST-DO} describe about the flaws discovered in GPC and Android Vitals and the discussions with Google Engineering.
 
@@ -566,6 +595,7 @@ Overview video: https://www.youtube.com/watch?v=vj3Y8L5HLdg
 % Why Kiwix, what did I gain, similarities and contrasts, why include in the PhD.
 
 This is a long term study, where I was embedded as part of the development team for a period of the case study. We demonstrated it was practical to use only external, platform, analytics and still able to be effective in reducing the crash rate. For projects that do not use in-app crash reporting the platform tools are sufficient to make material improvements \emph{when the team actively monitors and addresses the crashes reported in the platform level analytics}. The practices need to be applied on a long term basis; with the loss of the project lead who focused on addressing the runtime failures the failure rates are increasing. Entropy increases.
+% c.f. working with tech debt which has similar behaviours
 
 %\akb{Include point about long term engagement needing tools like Vitals Scraper to provide data that can be used analyse performance of the app over time?}
 
