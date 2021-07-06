@@ -38,6 +38,32 @@ There's an opportunity to discuss limitations in current analytics infrastructur
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \par\noindent\rule{\textwidth}{0.4pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Placeholder notes \nth{6} July 2021 on}
+Stuff to integrate as this chapter is rewritten includes:
+
+Various ideas described in~\cite{kinshuman2009_debugging_in_the_very_large, kinshuman2011_debugging_in_the_very_large} e.g. on statistics-based debugging. See the annotations on the printed copy of~\citep{kinshuman2011_debugging_in_the_very_large}. 
+
+\emph{``An early mantra of our team was, ``data not decibels." Programmers use data from WER to prioritize debugging so that they fix the bugs that affect the most users, not just the bugs hit by
+the loudest customers."}~\citep{kinshuman2009_debugging_in_the_very_large}. 
+
+Microsoft has a relatively large pool of users for pre-releases (ITU releases) unlike most app developers therefore their approach may not be viable for app developers who may need to rely more on post-release analytics.
+
+Platform providers who collect platform level analytics (e.g. Google Android, Huawei Harmony OS, Apple iOS, etc.) have insights into not only the behaviours of the application code, they also have data on the stability of libraries and could use this data to help both library developers and app developers to address flaws related to the libraries being used in apps.
+
+Microsoft uses the term bucket while Android Vitals uses the term cluster as a container for grouping together failures considered to be common according to their respective algorithms. The Microsoft WER papers discuss various flaws in their bucketing algorithm and yet the pragmatic and productive results they obtain despite these flaws.
+
+According to Microsoft, users have to opt-in and explicitly grant Windows permission to send reports to Microsoft. More recently Microsoft removed the ability for end users to opt-out of sending diagnostics data eg.. from 2015~\url{https://www.computerworld.com/article/2968288/windows-10-makes-diagnostic-data-collection-compulsory.html} and from 2021~\url{https://redmondmag.com/articles/2021/03/03/reclaim-privacy-from-windows-2.aspx} which mentions the ability for end users to at least see and delete the data that's collected \emph{``Microsoft not only allows you to delete the diagnostic data it has collected, you can also use the Diagnostic Data Viewer to see exactly what data has been collected."} NB the screenshot shows the viewer entails up to 1GB of storage! Interestingly in~\citep{kinshuman2009_debugging_in_the_very_large} they mention Microsoft provides corporate administrators with the ability to collect the data on a private server and to control what information is sent to Microsoft. It's called `Corporate Error Reporting' (CER).
+
+Statistics-based debugging compare and contrast with analytics-based debugging.
+
+MSFT measure deployment using WER. \emph{``Finally, both Microsoft and a number of third parties use the WER database to check for regressions. Similar to the strategies for measuring deployment, we look at error report volumes over time to determine if a software fix had the desired effect of reducing errors. We also look at error report volumes around major software releases to quickly identify and resolve new errors that may appear with the new release."}~\citep{kinshuman2009_debugging_in_the_very_large}.
+
+WER seems far more dynamic in terms of data collection; and it also aims to provide recommendations to end users to obtain fixes. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\par\noindent\rule{\textwidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 \section{Evaluation of common threads in the case studies}

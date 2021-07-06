@@ -219,6 +219,7 @@ Unresponsive software~\emph{e.g.} when software freezes, is also problematic and
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+The impact of various recognised forms of code refactoring has been considered in terms of internal code quality metrics for 300 opensource Android applications in~\citep{Hamdi2021empirical}. Their approach is laudable, for instance in checking the code they select belongs to live apps in Google Play. However the quality metrics they use are related to internal code quality rather than quality-in-use. As they note, the developers they studied performed many code refactorings that had no detected improvements to internal code quality. Unless the changes lead to practical improvements in the maintainability or runtime behaviours of the app, they represent an opportunity cost burden, as the developers have spent their time and energies on work that doesn't provide material improvements. In summary, this research and the underlying work published on the project's opensource site~\footnote{\url{https://github.com/stilab-ets/Android-refactoring}} provide some useful foundations for analysis of live, opensource, Android apps. However their work does not assess software qualities likely to matter to end users of these apps such as reliability, performance, UX, and so on.
 
 
 
@@ -246,6 +247,8 @@ One of the arguments Jon Bach makes in various presentations is to maximise the 
 As many practitioners know, time spent investigating and addressing failures and related flaws in the code is time that is not available to work on features or other new stuff. As I discovered in one case study in particular, the development team may choose to only fix failures they perceive as easy to find and fix. One of the open challenges is to reduce the perceived and actual effort developers need to apply to address runtime failures in their mobile apps. 
 %
 Perhaps application of mobile analytics can improve bug investigation and bug localisation? 
+
+\textbf{MUST-DO} The sources of bugs may be outside the immediate lines of code changed by developers. TBC~\citep{10.1145/3239235.3267436}
 
 
 
@@ -350,6 +353,12 @@ Buse and Zimmerman wrote a short paper in 2010 which helped establish the field 
 
 
 \subsection{References/Sources to consider}
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm]{images/related-work/buse2012-edited-figure-2.png}
+    \caption{Revised Figure 2 from~\citep{buse2012_information_needs_for_software_development_analytics}}
+    \label{fig:buse2012-edited-figure-2}
+\end{figure}
 \begin{itemize}
 
     \item Davenport \textit{et al.} Competing on Analytics (\cite{davenport2017competing_on_analytics}) figure 1. Note: Google with version 4 of Google Analytics, launched in October 2020, are offering some machine learning based analytics to their customers, for instance to help marketeers... TBC. MUST-DO continue this topic and provide references to sources.
@@ -359,6 +368,23 @@ Buse and Zimmerman wrote a short paper in 2010 which helped establish the field 
     \item \emph{Software Telemetry (MEAP)}~\citep{riedesel2020_software_telemetry_meap_v04}. An early draft of a book scheduled to be published in mid 2021 that discusses telemetry including the roots in system logs on early computer systems.
     
     \item Buse and Zimmermann...~\cite{buse_analytics_2010} 
+    
+    \item \emph{``Information needs for software development analytics"}~\citep{buse2012_information_needs_for_software_development_analytics}. They asked 110 Microsofties, a mix of development leads and managers about their use of software development analytics. MUST-DO discuss how my work and their guidelines for software development analytics align. What does my work add to their work? What does it provide that they identified back in 2012? Their focus seems to be more on the code than the product of the code (apps and the services (and the qualities of those services) those apps provide to end users). What information do mobile app developers need in terms of improving the reliability of their apps? How can the developers make good decisions in this area?
+    \begin{itemize}
+        \item ~\emph{``we ultimately want to} empower software development teams to independently gain and share insight \emph{from their data without relying on a separate entity"}
+        \item \emph{``Analytics can help: monitor a project; know what's really working; improve efficiency; manage risk; anticipate changes; evaluate past decisions."}
+        
+        \item Oddly, Figure 2 in their paper seems to have a mistake in the direction of More Difficult from Information to Insight, see~\ref{buse2012-edited-figure-2}.
+        
+        \item \emph{``In other words, both developers and managers find it more important to understand the past than try to predict the future; echoing George Santayana, “those who cannot remember the past are condemned to repeat it.”"}.
+        
+        \item From Figure 4 in their work, Failure Information (\emph{``reports of crashes or other problems"})is in the top 3 that the development leads would use and top for managers when making decisions relevant to their engineering process. Telemetry (\emph{``user benchmarks"} would be used by around 80\% of development leads and 90\% of managers in the survey.
+        
+        \item \emph{``The landscape of artifacts and indicators in software engineering is well known, but the concrete decisions they might support are not. We conjecture that understanding how managers and developers can make use of information is critical to understanding what information should be delivered to them."}. My research somewhat inverts this by looking at what's being delivered in terms of commercial, pre-existing mobile analytics and considers how that information has been used to improve the reliability of the mobile apps that were the source of the raw information.
+        
+    \end{itemize}~\citep{buse2012_information_needs_for_software_development_analytics}.
+    
+    \item The data collection and analysis of Android Vitals has some similarities with Microsoft's `Windows Error Reporting' (WER) which they describe in an article in 2011~\citep{kinshuman2011_debugging_in_the_very_large} and a longer conference paper from 2009~\citep{kinshuman2009_debugging_in_the_very_large}. Similarities include both mechanisms being designed to work effectively at scale of at least a billion end-user machines/devices, capturing crash data, and using error statistics as a tool in debugging. Differences include the platform (Android), the lack of automatic diagnosis (which WER provided), and most relevantly, Google provides several million third-party developers with access to data for the apps they are responsible for and provides them with various comparative analytics of the technical performance of their app compared to those apps of their peers. (Microsoft provided 700 third-party developers, for instance of device drivers, with WER information, and the paper provides a concrete example of how one vendor addressed the top 20 reported issues for their code, and how the fixes percolated out to the end users and halved the percentage of all kernel crashes attributed to that vendor (from 7.6\% to 3.8\%)).
     
     \item \emph{``Challenges and Benefits from Using Software Analytics in Softeam"} ICSEW 2020 \emph{``In this industry abstract, we describe the challenges and benefits of collecting feedback from customers and systems to support development cycles. In Softeam, we have performed such collection and support in four iterations by means of a software analytics platform. We describe the encountered challenges and the effects of suggested recommendations to improve the software quality of our systems on the metrics of interest."}~\cite{bagnato2020_challenges_and_benefits_from_using_software_analytics_in_softeam}. They use \url{https://github.com/q-rapids}, a ``Quality-aware rapid software development. H2020 Project (Grant no. 732253)". There are relevant publications listed at \url{https://www.q-rapids.eu/publications}.
     \item \emph{``"} \emph{``automatically collected usage data, logs, and interaction traces could improve feedback quality and help developers understand feedback and react to it. We call this automatically collected information about software usage implicit feedback."}~\citep{maalej2016_towards_data_driven_requirements_engineering}. They claim~\emph{``Thermal tracking of a user’s finger movement on touchscreens is a common approach for usage data analysis."} however I'm not aware of evidence to support this claim either from a research or a practitioner's perspective. (There's a PhD thesis on this topic published \emph{after} this paper: \href{http://usir.salford.ac.uk/id/eprint/37784/}{`Investigating the usability of touch-based user interfaces'}.
@@ -444,6 +470,7 @@ In Industry there are discussions on various ways data can be used to get the mo
 % SHOULD-DO write about: Identifying and designing data....
 
 In a short paper~\citep{kidwell2015_toward_fault_taxonomy_application_of_software_analytics}, the authors propose combining fault classification and software analytics for five types of decisions. These are: targetting testing, release planning, judging stability, targeting training, and targeting inspection of software. failure data mined from software analytics tools such as crash reporting tools helps to bring their concepts and ideas to life. Their paper provided initial indicative evidence of their proposals through evaluation of changes to source code for the Eclipse software and discusses the measurement of refactoring to provide more accurate and relevant measurements of the efficacy of the refactoring, rather than considering approaches to improve mobile apps.
+
 
 \subsection{Privacy and Control}
 

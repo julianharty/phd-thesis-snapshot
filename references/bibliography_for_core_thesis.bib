@@ -440,6 +440,34 @@ numpages = {6}
   month={May},
 }
 
+@article{kinshuman2011_debugging_in_the_very_large,
+    author = {Kinshumann, Kinshuman and Glerum, Kirk and Greenberg, Steve and Aul, Gabriel and Orgovan, Vince and Nichols, Greg and Grant, David and Loihle, Gretchen and Hunt, Galen},
+    title = {Debugging in the (Very) Large: Ten Years of Implementation and Experience},
+    year = {2011},
+    issue_date = {July 2011},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {54},
+    number = {7},
+    issn = {0001-0782},
+    url = {https://doi.org/10.1145/1965724.1965749},
+    doi = {10.1145/1965724.1965749},
+    abstract = {Windows Error Reporting (WER) is a distributed system that automates the processing
+    of error reports coming from an installed base of a billion machines. WER has collected
+    billions of error reports in 10 years of operation. It collects error data automatically
+    and classifies errors into buckets, which are used to prioritize developer effort
+    and report fixes to users. WER uses a progressive approach to data collection, which
+    minimizes overhead for most reports yet allows developers to collect detailed information
+    when needed. WER takes advantage of its scale to use error statistics as a tool in
+    debugging; this allows developers to isolate bugs that cannot be found at smaller
+    scale. WER has been designed for efficient operation at large scale: one pair of database
+    servers records all the errors that occur on all Windows computers worldwide.},
+    journal = {Commun. ACM},
+    month = jul,
+    pages = {111–116},
+    numpages = {6}
+}
+
 @article{kitchenham1996_software_quality_elusive_target,
   title={Software quality: the elusive target [special issues section]},
   author={Kitchenham, Barbara and Pfleeger, Shari Lawrence},
@@ -1204,6 +1232,41 @@ abstract="In recent years the amount of literature published about mobile applic
 isbn="978-3-319-49094-6"
 }
 
+@inproceedings{10.1145/3239235.3267436,
+author = {Rodr\'{\i}guez-P\'{e}rez, Gema and Zaidman, Andy and Serebrenik, Alexander and Robles, Gregorio and Gonz\'{a}lez-Barahona, Jes\'{u}s M.},
+title = {What If a Bug Has a Different Origin? Making Sense of Bugs without an Explicit Bug Introducing Change},
+year = {2018},
+isbn = {9781450358231},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3239235.3267436},
+doi = {10.1145/3239235.3267436},
+abstract = {Background: Many studies in the software research literature on bug fixing are built
+upon the assumption that "a given bug was introduced by the lines of code that were
+modified to fix it", or variations of it. Although this assumption seems very reasonable
+at first glance, there is little empirical evidence supporting it. A careful examination
+surfaces that there are other possible sources for the introduction of bugs such as
+modifications to those lines that happened before the last change an changes external
+to the piece of code being fixed. Goal: We aim at understanding the complex phenomenon
+of bug introduction and bug fix. Method: We design a preliminary approach distinguishing
+between bug introducing commits (BIC) and first failing moments (FFM). We apply this
+approach to Nova and ElasticSearch, two large and well-known open source software
+projects. Results: In our initial results we obtain that at least 24% bug fixes in
+Nova and 10% in ElasticSearch have not been caused by a BIC but by co-evolution, compatibility
+issues or bugs in external API. Merely 26--29% of BICs can be found using the algorithm
+based on the assumption that "a given bug was introduced by the lines of code that
+were modified to fix it". Conclusions: The approach allows also for a better framing
+of the comparison of automatic methods to find bug inducting changes. Our results
+indicate that more attention should be paid to whether a bug has been introduced and,
+when it was introduced.},
+booktitle = {Proceedings of the 12th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement},
+articleno = {52},
+numpages = {4},
+keywords = {SZZ algorithm, bug-introducing change, empirical study},
+location = {Oulu, Finland},
+series = {ESEM '18}
+}
+
 @INPROCEEDINGS{abreu2007_on_the_accuracy_of_spectrum_based_fault_localization,
   author={R. {Abreu} and P. {Zoeteweij} and A. J. C. {van Gemund}},
   booktitle={Testing: Academic and Industrial Conference Practice and Research Techniques - MUTATION (TAICPART-MUTATION 2007)},
@@ -1374,6 +1437,22 @@ series = {MOBILESoft ’17}
 	year = {2010},
 	pages = {77--80},
 	file = {foser-2010-buse.pdf:/Users/julianharty/Zotero/storage/6RW75BVR/foser-2010-buse.pdf:application/pdf}
+}
+
+@INPROCEEDINGS{buse2012_information_needs_for_software_development_analytics,  
+  author={Buse, Raymond P. L. and Zimmermann, Thomas},  
+  booktitle={2012 34th International Conference on Software Engineering (ICSE)},   
+  title={Information needs for software development analytics},   
+  year={2012},  
+  volume={},  
+  number={},  
+  pages={987-996},  
+  abstract={
+    Software development is a data rich activity with many sophisticated metrics. Yet engineers often lack the tools and techniques necessary to leverage these potentially powerful information resources toward decision making. In this paper, we present the data and analysis needs of professional software engineers, which we identified among 110 developers and managers in a survey. We asked about their decision making process, their needs for artifacts and indicators, and scenarios in which they would use analytics. The survey responses lead us to propose several guidelines for analytics tools in software development including: Engineers do not necessarily have much expertise in data analysis; thus tools should be easy to use, fast, and produce concise output. Engineers have diverse analysis needs and consider most indicators to be important; thus tools should at the same time support many different types of artifacts and many indicators. In addition, engineers want to drill down into data based on time, organizational structure, and system architecture.},  
+  keywords={}, 
+  doi={10.1109/ICSE.2012.6227122},
+  ISSN={1558-1225},
+  month={June},
 }
 
 @inproceedings{cai2019_large_scale_study_of_android_incompatibilities,
@@ -1601,6 +1680,33 @@ location = {Genoa, Italy},
 series = {EDBT '13}
 }
 
+@inproceedings{kinshuman2009_debugging_in_the_very_large,
+    author = {Glerum, Kirk and Kinshumann, Kinshuman and Greenberg, Steve and Aul, Gabriel and Orgovan, Vince and Nichols, Greg and Grant, David and Loihle, Gretchen and Hunt, Galen},
+    title = {Debugging in the (Very) Large: Ten Years of Implementation and Experience},
+    year = {2009},
+    isbn = {9781605587523},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/1629575.1629586},
+    doi = {10.1145/1629575.1629586},
+    abstract = {Windows Error Reporting (WER) is a distributed system that automates the processing
+    of error reports coming from an installed base of a billion machines. WER has collected
+    billions of error reports in ten years of operation. It collects error data automatically
+    and classifies errors into buckets, which are used to prioritize developer effort
+    and report fixes to users. WER uses a progressive approach to data collection, which
+    minimizes overhead for most reports yet allows developers to collect detailed information
+    when needed. WER takes advantage of its scale to use error statistics as a tool in
+    debugging; this allows developers to isolate bugs that could not be found at smaller
+    scale. WER has been designed for large scale: one pair of database servers can record
+    all the errors that occur on all Windows computers worldwide.},
+    booktitle = {Proceedings of the ACM SIGOPS 22nd Symposium on Operating Systems Principles},
+    pages = {103–116},
+    numpages = {14},
+    keywords = {blue screen of death, statistics-based debugging., error reports, bucketing, classifying, minidump, labeling},
+    location = {Big Sky, Montana, USA},
+    series = {SOSP '09}
+}
+
 @inproceedings{kong2019_mining_android_crash_fixes,
   author = {Kong, Pingfan and Li, Li and Gao, Jun and Bissyand\'{e}, Tegawend\'{e} F. and Klein, Jacques},
   title = {Mining Android Crash Fixes in the Absence of Issue- and Change-Tracking Systems},
@@ -1781,6 +1887,24 @@ series = {MSR '18}
   publisher = {ACM},
   address = {Virtual},
 }
+
+@inproceedings{Hamdi2021empirical,
+  author={Hamdi, Oumayma and Ouni, Ali and AlOmar, Eman Abdullah and Ó Cinnéide, Mel and Mkaouer, Mohamed Wiem},  
+  alternative_author=Hamdi, Oumayma and Ouni, Ali and AlOmar, Eman Abdullah and {\'O} Cinn{\'e}ide, Mel and Mkaouer, Mohamed Wiem},
+  booktitle={2021 IEEE/ACM 8th International Conference on Mobile Software Engineering and Systems (MobileSoft)}, 
+  title={An Empirical Study on the Impact of Refactoring on Quality Metrics in Android Applications},  
+  year={2021}, 
+  volume={},  
+  number={},  
+  pages={28-39},  
+  abstract={
+    Mobile applications must continuously evolve, sometimes under such time pressure that poor design or implementation choices are made, which inevitably result in structural software quality problems. Refactoring is the widely-accepted approach to ameliorating such quality problems. While the impact of refactoring on software quality has been widely studied in object-oriented software, its impact is still unclear in the context of mobile apps. This paper reports on the first empirical study that aims to address this gap. We conduct a large empirical study that analyses the evolution history of 300 open-source Android apps exhibiting a total of 42,181 refactoring operations. We analyze the impact of these refactoring operations on 10 common quality metrics using a causal inference method based on the Difference-in-Differences (DiD) model. Our results indicate that when refactoring affects the metrics it generally improves them. In many cases refactoring has no significant impact on the metrics, whereas one metric (LCOM) deteriorates overall as a result of refactoring. These findings provide practical insights into the current practice of refactoring in the context of Android app development.},  
+  keywords={}, 
+  doi={10.1109/MobileSoft52590.2021.00010}, 
+  ISSN={}, 
+  month={May},
+}
+
 
 @inproceedings{harty_better_android_apps_using_android_vitals,
 author = {Harty, Julian and M\"{u}ller, Matthias},

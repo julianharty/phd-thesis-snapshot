@@ -1,0 +1,107 @@
+  % exclusion_rationale = {}
+
+@inproceedings{10.1145/3196398.3196434,
+  author = {Mahmoudi, Mehran and Nadi, Sarah},
+  title = {The Android Update Problem: An Empirical Study},
+  year = {2018},
+  isbn = {9781450357166},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3196398.3196434},
+  doi = {10.1145/3196398.3196434},
+  abstract = {
+    Many phone vendors use Android as their underlying OS, but often extend it to add new functionality and to make it compatible with their specific phones. When a new version of Android is released, phone vendors need to merge or re-apply their customizations and changes to the new release. This is a difficult and time-consuming process, which often leads to late adoption of new versions. In this paper, we perform an empirical study to understand the nature of changes that phone vendors make, versus changes made in the original development of Android. By investigating the overlap of different changes, we also determine the possibility of having automated support for merging them. We develop a publicly available tool chain, based on a combination of existing tools, to study such changes and their overlap. As a proxy case study, we analyze the changes in the popular community-based variant of Android, LineageOS, and its corresponding Android versions. We investigate and report the common types of changes that occur in practice. Our findings show that 83\% of subsystems modified by LineageOS are also modified in the next release of Android. By taking the nature of overlapping changes into account, we assess the feasibility of having automated tool support to help phone vendors with the Android update problem. Our results show that 56\% of the changes in LineageOS have the potential to be safely automated.
+  },
+  booktitle = {Proceedings of the 15th International Conference on Mining Software Repositories},
+  pages = {220–230},
+  numpages = {11},
+  keywords = {Android, merge conflicts, software evolution, software merging},
+  location = {Gothenburg, Sweden},
+  series = {MSR '18},
+  exclusion_rationale = {
+    This research focuses on vendor specific modifications to the Android OS based on LineageOS. While it's interesting, it's not relevant to using analytics, doesn't touch on apps, and doesn't discuss software-in-use quality aspects.
+  }
+}
+
+@inproceedings{10.1145/3052973.3052990,
+    author = {Taylor, Vincent F. and Martinovic, Ivan},
+    title = {To Update or Not to Update: Insights From a Two-Year Study of Android App Evolution},
+    year = {2017},
+    isbn = {9781450349444},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3052973.3052990},
+    doi = {10.1145/3052973.3052990},
+    abstract = {Although there are over 1,900,000 third-party Android apps in the Google Play Store,
+    little is understood about how their security and privacy characteristics, such as
+    dangerous permission usage and the vulnerabilities they contain, have evolved over
+    time. Our research is two-fold: we take quarterly snapshots of the Google Play Store
+    over a two-year period to understand how permission usage by apps has changed; and
+    we analyse 30,000 apps to understand how their security and privacy characteristics
+    have changed over the same two-year period. Extrapolating our findings, we estimate
+    that over 35,000 apps in the Google Play Store ask for additional dangerous permissions
+    every three months. Our statistically significant observations suggest that free apps
+    and popular apps are more likely to ask for additional dangerous permissions when
+    they are updated. Worryingly, we discover that Android apps are not getting safer
+    as they are updated. In many cases, app updates serve to increase the number of distinct
+    vulnerabilities contained within apps, especially for popular apps. We conclude with
+    recommendations to stakeholders for improving the security of the Android ecosystem.},
+    booktitle = {Proceedings of the 2017 ACM on Asia Conference on Computer and Communications Security},
+    pages = {45–57},
+    numpages = {13},
+    keywords = {android, vulnerability, app, longitudinal, permission},
+    location = {Abu Dhabi, United Arab Emirates},
+    series = {ASIA CCS '17},
+    exclusion_rationale = {
+      The research work is interesting in terms of studying how Android apps tended to become more vulnerable and also to put the user's information at risk. They applied the OWASP Mobile Top 10 (from 2014, despite the 2016 list predating the paper being published~\url{https://owasp.org/www-project-mobile-top-10/}). They also encourage app stores to consider checking for vulnerabilities when apps are uploaded to the app store and the separation of permissions for libraries from those used by the core app. However I've decided the paper isn't sufficiently relevant to include in my thesis currently as:
+      - It's dated
+      - It doesn't actually answer the update question posed in the title, at least not from the end user's perspective
+      - The focus is on security and privacy rather than the use of mobile analytics, or on reliability aspects.
+      I may yet decide to include it depending on the focus my final thesis takes.
+    }
+}
+
+@article{10.1109/MPRV.2011.1,
+    author = {Butler, Margaret},
+    title = {Android: Changing the Mobile Landscape},
+    year = {2011},
+    issue_date = {January 2011},
+    publisher = {IEEE Educational Activities Department},
+    address = {USA},
+    volume = {10},
+    number = {1},
+    issn = {1536-1268},
+    url = {https://doi.org/10.1109/MPRV.2011.1},
+    doi = {10.1109/MPRV.2011.1},
+    abstract = {The mobile phone landscape changed last year with the introduction of smart phones
+    running Android, a platform marketed by Google. Android phones are the first credible
+    threat to the iPhone market. Not only did Google target the same consumers as iPhone,
+    it also aimed to win the hearts and minds of mobile application developers. On the
+    basis of market share and the number of available apps, Android is a success.},
+    journal = {IEEE Pervasive Computing},
+    month = jan,
+    pages = {4–7},
+    numpages = {4},
+    keywords = {Apple App Store, Android, iPhone, BlackBerry, App Inventor for Android, Technovation, Android, App Inventor for Android, iPhone, Apple App Store, BlackBerry, Technovation},
+    exclusion_rationale = {Too early in the evolution of Android, seems also factually incorrect as Android launched in 2008. Not relevant, however it is cited by various papers of interest to my research, hence it's here to show I chose to exclude it.},
+}
+
+@inproceedings{gray1986_why_do_computers_stop_and_what_can_be_done_about_it,
+  author    = {Jim Gray},
+  title     = {Why Do Computers Stop and What Can Be Done About It?},
+  booktitle = {Fifth Symposium on Reliability in Distributed Software and Database
+               Systems, {SRDS} 1986, Los Angeles, California, USA, January 13-15,
+               1986, Proceedings},
+  pages     = {3--12},
+  publisher = {{IEEE} Computer Society},
+  year      = {1986},
+  month     = {Jan},
+  timestamp = {Mon, 06 Nov 2017 16:35:11 +0100},
+  biburl    = {https://dblp.org/rec/conf/srds/Gray86.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org},
+  exclusion_rationale = {
+    Ancient work far removed from mobile analytics. It might be more relevant to cite: Why Do Internet Services Fail, and What Can Be Done About It? or even write something similar for why do mobile apps fail, etc.?
+    
+    BTW the technical report available online is dated 1985, I wonder if the 1986 paper is identical in terms of the contents?
+  }
+}
