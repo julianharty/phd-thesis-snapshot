@@ -72,6 +72,9 @@ My research into the \emph{use} of mobile analytics tools led into research into
 \subsection{Inaccuracies in software analytics generally}
 Other inaccuracies in various analytics tools provide a backdrop to this research in mobile analytics. For instance, from the domain of ecommerce web sites, a startup, Littledata~\footnote{\href{https://www.littledata.io/}{www.littledata.io/}}, claims 80\% of Shopify merchants are missing at least 20\% of transaction data for those that use Google Analytics to track their transactions and revenues~\citep{littledata2020_google_analytics_doesnt_match_shopify}. The company provides software which claims to provide 100\% accuracy and offer their customers a 30-day free trial to enable a three-way comparison between Google Analytics, Shopify's standard tracker, and their `solution'. Unfortunately for them, the incomplete and misspelt eBook waters-down reduces the confidence in their claims of providing 100\% accuracy. Also, even if two of the systems agree on the transactions and finances these systems are not necessarily correct. Additional evidence, for instance, of all the source events would be needed to cross-verify that what any of the systems report actually matches the inputs.
 
+\section{Debugging in the large}
+Debugging in the large is a term presented in Microsoft's research into Windows Error Reporting~\href{glossary-wer}{(WER)} where large scale collection of errors from end-user devices can help developers detect, prioritise, and address various errors that may not appear during development and local testing of the software~\citep{kinshuman2011_debugging_in_the_very_large}. The various mobile analytics services analysed during this research also support debugging in the large (and they suffer from some of the flaws that were reported in WER a decade ago).
+
 \section{Threats to Validity}
 
 Let us consider validity from a practical, pragmatic perspective. 
@@ -204,28 +207,76 @@ It's encouraging to see Huawei's honesty which increases their credibility in th
 \subsection{Necessary? Sufficient?}
 Freezes and crashes may adversely impact a user's perspective, Google may limit the visibility of apps that score poorly in terms of 'stability' as I will cover later in my thesis. However, are performant applications sufficient to thrive? There may be other barriers, or hurdles, developers need to overcome such as providing software that is attractive, serves whatever the user wants to do, and is intuitive.
 
+Research published by Microsoft on Windows Error Reporting (WER) states~\emph{``WER augments, but does not replace, other methods for improving software quality."}~\citep{kinshuman2009_debugging_in_the_very_large, kinshuman2011_debugging_in_the_very_large}. Similarly, using mobile analytics to find and prioritise failures to address augments rather than replaces other methods for improving software quality. For failures that are able to be detected and reported using mobile analytics - relying solely on using mobile analytics to detect and address them may overwhelm developers in fix, patch and release cycles rather than other improvements to the app. Furthermore users of these failing apps may simply stop using it, reject it, and the developers who provide the app~\citep{dimensionalresearch2015_mobile_app_use_and_abandonment}. Other quality issues that mobile analytics does not capture, need to be addressed using other techniques and tools.
+
 In 2019 Menzies in his paper \emph{``Take Control: On the Unreasonable Effectiveness of Software Analytics"}~\cite{menzies2019take} indicates that a small number of predictable software analytics variables can be used to predict software qualities for projects. 
 
 \emph{``Specifically, the number of variables required to make predictions about SE projects is remarkably small which means that (a) most of the things we think might affect software quality have little impact in practice; (b) controlling just a few key variables can be enough to improve software quality."}
 
+
 \section{Trade-offs of: ``Fail Early"?}
-Fail Early has been argued as a helpful policy in various contexts MUST-DO expand and provide examples. When developers do not write exception handlers for parts of their code, unhandled exceptions cause the app to crash when they occur. The user may be annoyed by this behaviour if the crash visibly~\footnote{Here visibility refers to the user noticing the crash and being aware of the crash adversely impacting their experience.}  affects their use of the app. The aphorism, \emph{`every cloud has a silver lining'}, may yet hold true in these circumstances provided developers become aware of the crash and choose to address it suitably, as these crashes are detected by various mobile analytics tools and platforms and then reported to the development team.
+Fail Early has been argued as a helpful policy in various contexts MUST-DO expand and provide examples. Fail Fast mentioned in~\citep{gray1986_why_do_computers_stop_and_what_can_be_done_about_it} but not explained or discussed. Make bugs easy [easier] to find~\citep{shore2004_fail_fast_software_debugging}.
+
+The benefits of applying a fail fast approach are described in~\citep{shore2004_fail_fast_software_debugging} with the aim of immediate and visible failure. For rare failures and those the developer cannot easily track down, this approach may help the developer learn about causes of the failures (for instance by raising an explicit exception in the program) where the failure is reported by mobile analytics. For platform level analytics, these fail fast failures would result in crash clusters reported by the analytics. However, Android Vitals does not currently include the message portion of exceptions. The examples in~\citep{shore2004_fail_fast_software_debugging} make extensive use of the messages for communications, so when developers rely on platform-level analytics they may need to consider ways to augment the communications of failures (such as incorporating a crash reporting library or service into their app)~\footnote{We did explore an alternative approach, where the application code added meta-information as an entry in the stack trace as a proof-of-concept, the implementation is available online at~\url{https://github.com/ISNIT0/AndroidCrashDummy/blob/cfa7f0817c436d7e657741e0a5d9a76644e5a898/app/src/main/java/com/example/user/androidtestapp/MainActivity.java\#L28-L50}.  However, we decided not to release an app in Google Play with this capability at the time.}. For in-app analytics the developer has the option to report the error using the respective API. An example of reporting an error with additional parameters is shown in Listing~\ref{listing:microsoft-app-center-handled-exception}~\footnote{The Microsoft App Center documentation is released under a Creative Commons Attribution 4.0 International Public License~\href{https://github.com/MicrosoftDocs/appcenter-docs/blob/live/LICENSE}{App Center Docs LICENSE}.}.
+
+\begin{listing}
+\begin{minted}[
+    gobble=4,
+    frame=single,
+    fontsize=\tiny,
+    breaklines=true
+  ]{java}
+try {
+    // your code goes here.
+} catch (Exception exception) {
+    Map<String, String> properties = new HashMap<String, String>() {{
+        put("Category", "Music");
+        put("Wifi", "On");
+    }};
+    Crashes.trackError(exception, properties, null);
+}
+\end{minted}
+\caption[Microsoft AppCenter: example of reporting a crash in Android]{Example of reporting a crash in Android.  Source~\href{https://docs.microsoft.com/en-us/appcenter/sdk/crashes/android}{ Microsoft App Center documentation}}
+\label{listing:microsoft-app-center-handled-exception}
+\end{listing}
+
+
+When developers do not write exception handlers for parts of their code, unhandled exceptions cause the app to crash when they occur. The user may be annoyed by this behaviour if the crash visibly~\footnote{Here visibility refers to the user noticing the crash and being aware of the crash adversely impacting their experience.}  affects their use of the app. The aphorism, \emph{`every cloud has a silver lining'}, may yet hold true in these circumstances provided developers become aware of the crash and choose to address it suitably, as these crashes are detected by various mobile analytics tools and platforms and then reported to the development team.
 
 In contrast a lukewarm, and sometimes expedient approach, is where developers add minimalist \texttt{try\{\}...catch\{\}} handlers to wrap the code that may throw an exception. These exceptions are no longer `unhandled' however nor are they adequately handled in terms of the application providing error management, or attempts to recover from the error, or informing the user of a problem that's occurred, and so on. MUST-DO provide some code snippet examples and analysis of the prevalence of the use of this approach.
 
-COULD-DO link to OkHttp 2.0 documentation on RxJava and error handling. MUST-DO add the OkHttpv3 example from the large case study in the relevant section, then discuss the example here.
+To add to the complexities, app stores are seldom disinterested observers. If the measured crash rate increases beyond what they deem an acceptable threshold (1\% for Huawei %~\citep{huawei_introduction_to_appgallery_connect_crash_service}
+, 1.09\% for Google Play's bad behavior threshold) they may reduce the visibility of the app in the app store and/or otherwise mark it down. Therefore developers need to be mindful of their strategy to crashes and crash reporting and aim to keep the overall failure rate of their app well below any bad behaviour threshold.
 
+Using software libraries can also add to the complexities; and some have sophisticated error handling strategies which include expectations on how developers will write their code to use that library adequately. RxJava is a very popular library for Android apps. That library explicitly changed their error handling strategy in version 2.0 and require developers to abide by their requirements for error handling~\footnote{\url{https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0\#error-handling}}. In version 2.0~\emph{``RxJava defaults to printing the Throwable's stacktrace to the console and calls the current thread's uncaught exception handler."}. The wiki page goes on to say~\citep{``Unfortunately, RxJava can't tell which of these out-of-lifecycle, undeliverable exceptions should or shouldn't crash your app."} So developers who use this library may end up with their app terminating abruptly where the reported crash rate also increases as a result.
+
+% MUST-DO subject to approval or a suitable alternative example: add the OkHttpv3 example from the large case study in the relevant section, then discuss the example here.
+
+\textbf{Measuring reliability}: 
 Failure rates include: unhandled exceptions, ANRs, and errors. Errors include: handled exceptions that are recovered from, caught exceptions, logic errors, calculation and content errors, and many others. 
 
 Even \textit{if} an app catches and 'handles' every exception it may not be truly reliable \textit{i.e.} there may be various errors that occur that do not lead to a runtime exception or an ANR. As such, the measured failure rate - assuming it is accurate or undercounting - is the lower bound of the true error rate.
 
 \section{Mitigation techniques}
+Summary: \textit{Reduce the incidence, reduce the severity, prevent the trigger, fix if and when practical given the many constraints the team, and the individuals,  are operate under.}
 
-Reduce the incidence, reduce the severity, fix if and when practical given the many constraints the team, and the individuals,  are operate under.
+\subsection{Approaches to reducing failure rate}
+There are many approaches to reducing the measured failure rate. The `logical' one is to fix whatever the cause is, or at least write code that handles causes robustly, reliably and in ways that serve the user well. And if this is easy and practical many developers and projects will adopt this approach. However like many things that involve people and their motivations they may choose other approaches for various reasons, such as:
 
+\begin{itemize}
+    \item Information gathering: where the cause of a failure is not known and not understood, programmers may add code to collect and report additional information to enable them to learn enough about the context of the failure in order to address it once they have learned enough to do so.
+    \item Error masking: for instance, catching an exception so it does not get reported or counted.
+    \item Error avoiding: change the flow of control of the code so the unreliable path is avoided where practical.
+    \item Reduce the incidence: in a similar way to back-off retry algorithms used elsewhere in software~\footnote{For example, back-off algorithms were designed into Ethernet retransmissions, in logins after previous logins failed, and used in GMail for retrying failed connections, \emph{etc.}} apps can be coded to reduce the frequency of failures. 
+    %%%% See also https://github.com/OWASP/owasp-masvs/blob/master/Document/0x09-V4-Authentication_and_Session_Management_Requirements.md
+    % https://mobile-security.gitbook.io/mobile-security-testing-guide/general-mobile-app-testing-guide/0x04e-testing-authentication-and-session-management
+    \item Functional amputation: generally that of failing code deemed so flawed it is not worth trying to correct. Post amputation a replacement may be provided, perhaps from another source and either used instead or grafted into the current project (for instance using an external software library). The replacement of the custom downloader in Kiwix Android is one example where this approach was used.
+    \item Blocking: Prevent users from using the app on devices where severe problems occur, \emph{``... exclude those devices until a fix is available."} is one approach recommended in Google's Android Vitals Best Practices~\cite{android_vitals_best_practices}.
+\end{itemize}
 
-Extend discussion to game theory.
+Note: a reviewer of an earlier version of the above list argued they were merely bad software development practices - perhaps. And yet, empirically they are practiced to varying degrees and may mitigate against high failure rates when it is impractical to fix a cause quickly, completely, and efficaciously.
 
+Fixing bugs may be considered a chore~\citep{scrumdictionary_chore} by many, and there are discussions in the context of Agile software development practices whether work on bugs should be allocated story points~\emph{etc.} Those who fix bugs rather than work on features may be perceived as adding less value to a project or team, hence the seemingly illogical `bad' practices may actually be logical in terms of game theory. Interesting research is emerging in applying game theories to software development~\citep{GAVIDIACALDERON2021_game_theoretic_analysis_of_software_development_practices} and may help provide insights into how sources of crashes and other failures are addressed in practice and lead to improvements to reliability of mobile apps through applying game theories.
 
 
 \section{Android Vitals}
@@ -249,7 +300,7 @@ Based on very rough approximations combining my case studies with AppBrain's dow
 \subsection{Who gets sufficient usage to see more detailed reports?}
 Our limited insight into Android Vitals already indicates that reports are only provided when there is sufficient data collected to 'prime the pump'. It may be possible to estimate how many apps of those in Google Play Store are likely to have enough volumes of usage data. Google makes various recommendations for developers on how to apply the results Android Vitals reports \url{https://developer.android.com/distribute/best-practices/develop/android-vitals} however the developers can't do much until Android Vitals actually shows them the data. For apps with less than about 50k active installs \textit{("Installs on Active Devices (devices online in the past 30 days with this app installed)}." according to Google Play Console's tool tip). These counts are around 20\% to 30\% of the total install count for various apps used in our research \textit{e.g.} the active installs would be around 20k for an app that shows at having 100,000+ [total] installs to end users in Google Play.
 
-Data provided by AppBrain\cite{appbrain_download_statistics_june_2019} was used to estimate the populations of apps that are not likely to generate enough data to see various reports in Android Vitals.
+Data provided by AppBrain~\cite{appbrain_download_statistics_june_2019} was used to estimate the populations of apps that are not likely to generate enough data to see various reports in Android Vitals.
 % wikimedes 5373 active installs - Crash rate by app version only (not device or Android version).
 % wikimedzh 3769 active installs - no Android Vitals reports
 % wikimedfa 2807 active installs - no Android Vitals reports
@@ -314,7 +365,7 @@ In February 2020 the Catrobat team migrated the reporting for their app crash an
 Practical options:
 \begin{itemize}
     \item Do as others do?
-    \item Proportionate exchange of value: users do not pay for the app, and few actively provide feedback. Organ donation is far more intrusive and yet English law is changing\footnote{\url{https://www.organdonation.nhs.uk/uk-laws/}} to presume consent\cite{NHS_organ_donation_in_england} 
+    \item Proportionate exchange of value: users do not pay for the app, and few actively provide feedback. Organ donation is far more intrusive and yet English law is changing\footnote{\url{https://www.organdonation.nhs.uk/uk-laws/}} to presume consent~\cite{NHS_organ_donation_in_england} 
     \item Offer an opt-out
     \item Offer an opt-in
     \item leave the user to take action to provide information c.f. Kiwix-Android and Android Daisy Reader.

@@ -165,6 +165,32 @@ Trusted (privileged) software may be granted access to one of more of these devi
 A seemingly logical design for Google to collect device-level analytics is through a combination of some software packaged as part of GMS that has privileged access to read the relevant device logs. The logs include the data that is also reported in Google's Android Vitals service (part of Google Play Console). Developers can read these logs locally using a combination of the Android Debug Bridge (adb) software to access the logs on devices that have been enabled in development mode and which have debugging enabled and authorised for the developer's computer. Google provide an API \texttt{android.app.usage}~\footnote{\href{https://developer.android.com/reference/android/app/usage/package-summary.html}{Documentation available at~\texttt{android.app.usage}}.} that provides access to various configuration, event, and usage statistics, amongst others.
 % https://stackoverflow.com/questions/9012361/how-to-track-app-usage-in-android-how-to-detect-when-an-activity-is-launched
 
+\begin{table}
+    \centering
+    \small\addtolength{\tabcolsep}{-6pt} % See https://latex.org/forum/viewtopic.php?t=803
+    \begin{tabular}{llcc}
+         Error             &Reporting Trigger  &WER &Android Vitals \\
+         \hline
+         Kernel Crash      &Crash dump found in page file on boot. &Y &? \\ 
+         Application Crash &Unhandled process exception. &Y &Y \\
+         \hline
+         Application Hang  &Failure to process user input for 5 seconds. &Y &Y \\
+         Service Hang      &Service thread times out. &Y &? \\
+         \hline
+         Install Failure   &OS or application installation fails. &Y &P \\
+         AppCompat Issue   &Program calls deprecated API. &Y &U \\
+         Custom Error      &Program calls WER APIs. &Y &N \\
+         \hline
+         Timer Assert* &User scenario takes longer than expected. &Y &N \\
+         Ship Assert* &Invariant violated in program code. &Y &N\\
+    \end{tabular}
+    \caption[WER and Android Vitals Error Reporting]{WER and Android Vitals Error Reporting, Based on Figure 6. Errors reported by WER~\citep{kinshuman2009_debugging_in_the_very_large} \\ \footnotesize *Asserts require custom code in each Windows program. Legend: U - Unlikely, P - Probable, Y - Yes, N - No, ? - unknown.}
+    \label{tab:wer-and-android-vitals-errors}
+\end{table}
+% See https://stackoverflow.com/questions/2888817/footnotes-for-tables-in-latex for tips on formatting the table with internal notes.
+
+Table~\ref{tab:wer-and-android-vitals-error} maps the information Android Vitals reports onto the errors Windows Error Reporting (WER) reported in 2009, as described in~\citep{kinshuman2009_debugging_in_the_very_large}. Google does not publish the actual information that is captured by their Android platform level services, these are based on analysis of Google Play Console and Android Vitals from a developer's (end-user) perspective. Android Vitals does not publish any API for app developers to use (they might have APIs for other stakeholders) therefore they do not offer app developers similar features to those provided in WER at the time the respective papers were published by Microsoft~\citep{kinshuman2009_debugging_in_the_very_large, kinshuman2011_debugging_in_the_very_large}~\footnote{Given the most recent of those papers was written a decade ago, there are very likely to have been multiple changes to the API WER provides.}. A publication written by Google's Android team that describes how Google Play Services and Android Vitals actually works and the design concerns would be illuminating. Similarly, publishing research on how platform analytics are tested, verified and validated would help to increase the confidence they are working acceptably, reliably and safely.
+
 \subsubsection{iOS device analytics}
 Apple ask clear direct questions of users and provide clear explanations (at least for those who understand the concepts). Their mobile devices ask users two questions when they first sign into a new release of iOS (on both new and updated devices):
 \begin{itemize}

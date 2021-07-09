@@ -317,6 +317,23 @@ url="https://doi.org/10.1007/s13347-019-00354-x"
   year={1984}
 }
 
+@article{GAVIDIACALDERON2021_game_theoretic_analysis_of_software_development_practices,
+    title = {Game-theoretic analysis of development practices: Challenges and opportunities},
+    journal = {Journal of Systems and Software},
+    volume = {159},
+    pages = {110424},
+    year = {2020},
+    issn = {0164-1212},
+    doi = {https://doi.org/10.1016/j.jss.2019.110424},
+    url = {https://www.sciencedirect.com/science/article/pii/S0164121219301980},
+    author = {Carlos Gavidia-Calderon and Federica Sarro and Mark Harman and Earl T. Barr},
+    keywords = {Game theory, Empirical analysis, Technical debt, Software engineering practices},
+    abstract = {
+      Developers continuously invent new practices, usually grounded in hard-won experience, not theory. Game theory studies cooperation and conflict; its use will speed the development of effective processes. A survey of game theory in software engineering finds highly idealised models that are rarely based on process data. This is because software processes are hard to analyse using traditional game theory since they generate huge game models. We are the first to show how to use game abstractions, developed in artificial intelligence, to produce tractable game-theoretic models of software practices. We present Game-Theoretic Process Improvement (GTPI), built on top of empirical game-theoretic analysis. Some teams fall into the habit of preferring “quick-and-dirty” code to slow-to-write, careful code, incurring technical debt. We showcase GTPI’s ability to diagnose and improve such a development process. Using GTPI, we discover a lightweight intervention that incentivises developers to write careful code: add a singlecode reviewer who needs to catch only 25\% of kludges. This 25\% accuracy is key; it means that a reviewer does not need to examine each commit in depth, making this process intervention cost-effective.
+  }
+}
+
+
 @article{gerlich2015app,
   title={App consumption: An exploratory analysis of the uses \& gratifications of mobile apps},
   author={Gerlich, R Nicholas and Drumheller, Kristina and Babb, Jeffry and De'Armond, De'Arno},
@@ -663,6 +680,32 @@ address = {Los Alamitos, CA, USA},
 month = {sep}
 }
 
+@article{murphy2004_automating_software_failure_reporting...,
+author = {Murphy, Brendan},
+title = {Automating Software Failure Reporting: We Can Only Fix Those Bugs We Know About.},
+year = {2004},
+issue_date = {November 2004},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {2},
+number = {8},
+issn = {1542-7730},
+url = {https://doi.org/10.1145/1036474.1036498},
+doi = {10.1145/1036474.1036498},
+abstract = {There are many ways to measure quality before and after software is released. For
+commercial and internal-use-only products, the most important measurement is the user’s
+perception of product quality. Unfortunately, perception is difficult to measure,
+so companies attempt to quantify it through customer satisfaction surveys and failure/behavioral
+data collected from its customer base. This article focuses on the problems of capturing
+failure data from customer sites. To explore the pertinent issues I rely on experience
+gained from collecting failure data from Windows XP systems, but the problems you
+are likely to face when developing internal (noncommercial) software should not be
+dissimilar.},
+journal = {Queue},
+month = nov,
+pages = {42–48},
+numpages = {7}
+}
 
 @ARTICLE{musa1993_operational_profiles,  
     author = {J. D. {Musa}},  
@@ -875,6 +918,24 @@ numpages = {14}
   abstract={Smartphone apps create and handle a large variety of ``instance'' data that has to persist across runs, such as the current navigation route, workout results, antivirus settings, or game state. Due to the nature of the smartphone platform, an app can be paused, sent into background, or killed at any time. If the instance data is not saved and restored between runs, in addition to data loss, partially-saved or corrupted data can crash the app upon resume or restart. While smartphone platforms offer API support for data-saving and data-retrieving operations, the use of this API is ad-hoc: left to the programmer, rather than enforced by the compiler. We have observed that several categories of bugs---including data loss, failure to resume/restart or resuming/restarting in the wrong state---are due to incorrect handling of instance data and are easily triggered by just pressing the `Home' or `Back' buttons. To help address this problem, we have constructed a tool chain for Android (the KREfinder static analysis and the KREreproducer input generator) that helps find and reproduce such incorrect handling. We have evaluated our approach by running the static analysis on 324 apps, of which 49 were further analyzed manually. Results indicate that our approach is (i) effective, as it has discovered 49 bugs, including in popular Android apps, and (ii) efficient, completing on average in 61 seconds per app. More generally, our approach helps determine whether an app saves too much or too little state.},
 }
 
+@article{shore2004_fail_fast_software_debugging,
+  title={Fail fast [software debugging]},
+  author={Shore, Jim},
+  journal={IEEE Software},
+  volume={21},
+  number={5},
+  pages={21--25},
+  year={2004},
+  publisher={IEEE},
+  abstract={
+    The most annoying aspect of software development is debugging. We don't mind the kinds of bugs that yield to a few minutes inspection. The bugs we hate are the ones that show up only after hours of successful operation, under unusual circumstances, or whose stack traces lead to dead ends. Fortunately, there's a simple technique that dramatically reduces the number of these bugs in our software. It won't reduce the overall number of bugs, at least not at first, but it'll make most defects much easier to find. The technique is to build our software to "fail fast".
+  },  
+  keywords={}, 
+  doi={10.1109/MS.2004.1331296}, 
+  ISSN={1937-4194},
+  month={Sep.},
+}
+
 @article{slany2014tinkering,
   title={Tinkering with Pocket Code, a Scratch-like programming app for your smartphone},
   author={Slany, Wolfgang},
@@ -928,6 +989,21 @@ numpages = {14}
   pages={3394--3434},
   year={2019},
   publisher={Springer}
+}
+
+@article{zou2016_uilog,
+  title={Uilog: Improving log-based fault diagnosis by log analysis},
+  author={Zou, De-Qing and Qin, Hao and Jin, Hai},
+  journal={Journal of computer science and technology},
+  volume={31},
+  number={5},
+  pages={1038--1052},
+  year={2016},
+  publisher={Springer},
+  doi = {10.1007/s11390-016-1678-7},
+  url = {https://doi.org/10.1007/s11390-016-1678-7},
+  abstract = {In modern computer systems, system event logs have always been the primary source for checking system status. As computer systems become more and more complex, the interaction between software and hardware increases frequently. The components will generate enormous log information, including running reports and fault information. The sheer quantity of data is a great challenge for analysis relying on the manual method. In this paper, we implement a management and analysis system of log information, which can assist system administrators to understand the real-time status of the entire system, classify logs into different fault types, and determine the root cause of the faults. In addition, we improve the existing fault correlation analysis method based on the results of system log classification. We apply the system in a cloud computing environment for evaluation. The results show that our system can classify fault logs automatically and effectively. With the proposed system, administrators can easily detect the root cause of faults.},
+  some_intersting_citations_on_log_design = {https://scholar.google.com/scholar?cites=6588326960360905008&as_sdt=2005&sciodt=0,5&hl=en},
 }
 
 @book{benioff_trailblazer_2019,
@@ -1813,6 +1889,29 @@ numpages = {4},
 keywords = {mining software repositories, dataset, Android},
 location = {Gothenburg, Sweden},
 series = {MSR '18}
+}
+
+@inproceedings{gray1986_why_do_computers_stop_and_what_can_be_done_about_it,
+  author    = {Jim Gray},
+  title     = {Why Do Computers Stop and What Can Be Done About It?},
+  booktitle = {Fifth Symposium on Reliability in Distributed Software and Database
+               Systems, {SRDS} 1986, Los Angeles, California, USA, January 13-15,
+               1986, Proceedings},
+  pages     = {3--12},
+  publisher = {{IEEE} Computer Society},
+  year      = {1986},
+  month     = {Jan},
+  timestamp = {Mon, 06 Nov 2017 16:35:11 +0100},
+  biburl    = {https://dblp.org/rec/conf/srds/Gray86.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org},
+  exclusion_rationale = {
+    Ancient work far removed from mobile analytics. It might be more relevant to cite: Why Do Internet Services Fail, and What Can Be Done About It? or even write something similar for why do mobile apps fail, etc.?
+    
+    BTW the technical report available online is dated 1985, I wonder if the 1986 paper is identical in terms of the contents?
+  }
+  inclusion_rationale = {
+   It's the likely source of the concept of Heisenbug which I want to mention in the related work chapter.
+  }
 }
 
 @INPROCEEDINGS{greenheld2018_automating_developers_responses_to_app_reviews,
@@ -3350,6 +3449,23 @@ author = {HUAWEI Developers},
   author = {Anne Gomez},
   year = {2017},
   organization = {{Wikimedia Foundation}},
+}
+
+@misc{scrumdictionary_chore,
+  title = {"Chore."},
+  author = {{ScrumDictionary.com}}, 
+  note = {Accessed, \nth{08} July 2021},
+  year = {2021},
+  url = {https://scrumdictionary.com/term/chore/},
+}
+
+@misc{segmentio_analytics_android_issue_770_fake_implementation_for_testing,
+  title = {Fake Implementation for Segment Analytics \#770},
+  url = {https://github.com/segmentio/analytics-android/issues/770},
+  year = {2021},
+  month = {Jul},
+  author = {Saad Farooq},
+  organization = {Segment},
 }
 
 @misc{sutherland2014_wikimedia_on_kelson,

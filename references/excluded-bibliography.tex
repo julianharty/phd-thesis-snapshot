@@ -86,22 +86,54 @@
     exclusion_rationale = {Too early in the evolution of Android, seems also factually incorrect as Android launched in 2008. Not relevant, however it is cited by various papers of interest to my research, hence it's here to show I chose to exclude it.},
 }
 
-@inproceedings{gray1986_why_do_computers_stop_and_what_can_be_done_about_it,
-  author    = {Jim Gray},
-  title     = {Why Do Computers Stop and What Can Be Done About It?},
-  booktitle = {Fifth Symposium on Reliability in Distributed Software and Database
-               Systems, {SRDS} 1986, Los Angeles, California, USA, January 13-15,
-               1986, Proceedings},
-  pages     = {3--12},
-  publisher = {{IEEE} Computer Society},
-  year      = {1986},
-  month     = {Jan},
-  timestamp = {Mon, 06 Nov 2017 16:35:11 +0100},
-  biburl    = {https://dblp.org/rec/conf/srds/Gray86.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org},
-  exclusion_rationale = {
-    Ancient work far removed from mobile analytics. It might be more relevant to cite: Why Do Internet Services Fail, and What Can Be Done About It? or even write something similar for why do mobile apps fail, etc.?
-    
-    BTW the technical report available online is dated 1985, I wonder if the 1986 paper is identical in terms of the contents?
+@inproceedings{musuvathi2008_finding_and_reproducing_heisenbugs,
+  title={Finding and Reproducing Heisenbugs in Concurrent Programs.},
+  author={Musuvathi, Madanlal and Qadeer, Shaz and Ball, Thomas and Basler, Gerard and Nainar, Piramanayagam Arumuga and Neamtiu, Iulian},
+  year = {2008},
+  exclusion_rationale = {TBD, I've yet to read the paper, hence this is on hold and not yet suitable to include in the thesis.}
+}
+
+@inproceedings{weissenbacher2012explaining,
+  title={Explaining heisenbugs},
+  author={Weissenbacher, Georg},
+  booktitle={Runtime Verification},
+  volume={9333},
+  year={2012},
+  url = {https://publik.tuwien.ac.at/files/PubDat_244157.pdf},
+  abstract = {
+    Heisenbugs are complex software bugs that alter their behaviour when attempts to isolate them are made. The term heisenbug is a pun on the name of physicist Werner Heisenberg and refers to bugs whose analysis is complicated by the probe effect, an unintended alteration of system behaviour caused by an observer.
+
+    Heisenbugs are most prevalent in concurrent systems, where the interplay of multiple threads running on multi-core processors leads to intricate effects not anticipated by the developer. Faced with a heisenbug, it is the tedious task of the programmer to reproduce the erroneous behaviour and analyse its cause before the bug can be fixed.
+
+    It is exactly in these situations that automated analyses are the most desirable. Model checkers and systematic testing tools, for instance, can automatically reproduce erroneous executions manifesting the bug. The subsequent inspection of the error trace, however, is still a time-consuming process that requires substantial insight. 
+
+    My group developed two approaches to analyse erroneous executions and explain concurrency bugs, attacking the problem from different angles. In both cases, the goal is to allow the programmer to focus on the essence of the bug rather than the specifics of the failed execution. On the one hand, we use data mining to extract explanations from execution logs by juxtaposing successful runs of the program with failed executions. The resulting explanations highlight potentially problematic data dependencies that frequently occur in failing executions. The second approach relies on static analysis and automated reasoning to obtain a slice of an erroneous execution trace that reflects the core of the problem.
+
+    After introducing both approaches, I will discuss their advantages as well as shortcomings, and explain differences regarding soundness and comprehensibility using case studies and empirical results.
   }
+  exclusion_rationale = {This is solely an abstract. While it explains heisenbugs well I don't think I need to include an explanation of them. If I do, this will become a relevant reference.}
+}
+
+@InProceedings{10.1007/978-3-642-13166-0_32,
+    author="Brito, Miguel A.
+    and de S{\'a}-Soares, Filipe",
+    editor="Lytras, Miltiadis D.
+    and Ordonez De Pablos, Patricia
+    and Avison, David
+    and Sipior, Janice
+    and Jin, Qun
+    and Leal, Walter
+    and Uden, Lorna
+    and Thomas, Michael
+    and Cervai, Sara
+    and Horner, David",
+    title="Computer Programming: Fail Fast to Learn Sooner",
+    booktitle="Technology Enhanced Learning. Quality of Teaching and Educational Reform",
+    year="2010",
+    publisher="Springer Berlin Heidelberg",
+    address="Berlin, Heidelberg",
+    pages="223--229",
+    abstract="Computer programming is not only to know about the languages or the processes, it is essentially to know how to do it. This involves a constructivist approach in learning. For a newbie in computer programming it is hard to understand the difference between know-about disciplines and the know-how-to-do-it ones. This leads to failure because when they understand they aren't able to solve a programming problem it is usually too late to catch all the time meanwhile lost. Our solution is to get them to fail soon enough. This way they still have time to recover from an eventually bad start.",
+    isbn="978-3-642-13166-0",
+    exclusion_rationale = {The research is on undergraduate learning and how to help them learn in time. It's not on my topic at all.}
 }
