@@ -121,6 +121,15 @@ Eventually the Android operating system included Accessibility APIs and incorpor
 \subsubsection{Heatmapping for mobile apps}
 %MUST_DO Include examples from AppSee that were in the mobile analytics playbook.
 
+\textbf{Fieldstones for heatmapping} 
+\begin{itemize}
+    \item Integration of heatmapping into Android apps: UserExperior~\url{https://userexperior.com/developer-docs/native-android}; UXCam~\url{https://help.uxcam.com/hc/en-us/articles/115000966252-Android-Integration}.
+    \item Article on the genesis of UXMap and the demise of AppSee~\citep{uxcam_hackermoon_2020_heatmapping}.
+    \item \textbf{Issue Analytics} 
+    \item \url{https://uxcam.com/blog/the-complete-sdk-map-2020/}
+    \item Apteligent \href{https://www.apmdigest.com/the-crash-and-burn-report-findings}{The "Crash and Burn" Report Findings} (Images found via this article with similar content probably based on the primary source \href{https://www.androidheadlines.com/2016/12/apteligent-puts-number-crash-churn-relationship.html}{Apteligent Puts Number On The Crash-Churn Relationship} from 2016.)
+\end{itemize}
+
 % SHOULD_DO combine these figures as sub-figures. Trim whitespace on Azetone image.
 \begin{figure}[htbp!]
     \begin{minipage}{\textwidth}
@@ -155,6 +164,18 @@ Learn more about Appsee's work: ~\url{https://www.youtube.com/watch?v=aRN_XrxNCN
     \end{minipage}
 \end{figure}
 % https://texfaq.org/FAQ-ftncapt
+
+\subsection{Heatmapping to reduce crash rates?}
+``Insights from UserExperior drove a 30\% reduction in our app crashes. Our customer behavior data lives in UserExperior, so we can quickly identify and take action on any roadblocks across our UI/UX " - attributed to Deeksha Anand, Aditya Birla Health Insurance Limited~\url{https://userexperior.com/heatmaps}. 
+
+\begin{comment}
+Request sent to Deeksha A, on \nth{12} July 2021
+"Deeksha,
+I found a quote attributed to you https://userexperior.com/heatmaps on how you reduced crashes by 30\% using their service. I'd appreciate your insights into how you did so as I'm investigating ways we can make mobile apps more reliable. To give you some context I was one of the early senior quality engineers at Google (from 2006 - 2010) and have worked in the industry for many years seeking ways to help team make apps reliable and trustworthy. I'm also working on background PhD research to back up industry experiences with deeper insights. You're welcome to learn more about my insights on improving app reliability and performance if that's any help for your work.
+
+All the best, Julian"
+\end{comment}
+
 
 \subsection{Platform-level analytics}~\label{platform-level-analytics}
 Mobile software platforms include an operating system that runs on end-user devices such as smartphones and tablet devices. Operating systems are responsible for running software, including apps. They may also be responsible for stopping apps, for instance to recover from adverse conditions such as frozen apps (that are no longer responsive for the user), crashes (where the app does not handle the crash adequately), or to free up resources for other purposes. Mobile operating systems often incorporate one or more centralised log buffers~\footnote{Buffers are also often called files in the context of logging, buffers have a finite storage and older events are eventually overwritten.}, when application software writes log messages % SHOULD-DO check the following: or to STDOUT (the standard output stream used by traditional programs and still available to apps)

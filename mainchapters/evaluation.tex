@@ -1,103 +1,41 @@
 \chapter{Evaluation}
 \label{chapter-evaluation}
 
-This chapter evaluates the research performed during the PhD.
-
-%%% Notes on this chapter from call with Arosha and Yijun on 11 June 2021
-
-\textbf{MUST-DO}: Evaluate the RQ's here at the highest level of abstraction. 
-by applying section 1.4.1 on ~\href{section-sources}{\nameref{section-sources}}, ~\href{section-value}{\nameref{section-value}}, and ~\href{section-impact}{\nameref{section-impact}} for each case study.
-
-% Try creating a table.
-
-% Software without boundaries. Bashar paper, via Yijun 01-Jul-2021
-
-\textbf{Actions:} 
-\begin{itemize}
-    \item Remove the case study specific materials from this chapter. Echo / summarise/draw on what was presented in the case studies. 
-    \item Refactor the current contents as it's moved around.
-    \item This chapter should aim to close the questions. 
-    \item Note: small case studies are unlikely to be major contributions to this chapter.
-\end{itemize}
+This chapter evaluates the \href{section-research-questions}{\nameref{section-research-questions}} presented in the Introduction. It also evaluates the research, case studies and analytics tools. In addition this chapter establishes common themes that span more than one case study and discusses threats to validity of the research. 
 
 
+\section{Evaluation of the Research Questions}
+\textbf{MUST-DO}: Evaluate the RQ's here at the highest level of abstraction by applying section 1.4.1 on ~\href{section-sources}{\nameref{section-sources}}, ~\href{section-value}{\nameref{section-value}}, and ~\href{section-impact}{\nameref{section-impact}} for each case study.
+% Suggestion: try creating a table.
 
-Do I have a methodological perspective I'd like to present here?
-e.g.
-% Methodological perspectives:
-\begin{itemize}
-    \item Top down approach? (This might apply if I were involved in designing an analytics service to help developers improve the reliability of their apps.)
-    \item Crash reduction plan? (A common perspective for the projects I've worked with.) 
-    \item Collect everything? analyse later? (An exploratory approach where the methodology emerges with experience.)
-\end{itemize}
+Evaluation of the core research question~\href{core-research-question}{\emph{``How can applying analytics improve software development and software testing for mobile apps?"}}
 
+The Kiwix Android project illustrated manifold reductions in crash rates for new releases of the apps that used the codebase that included various fixes to address failures reported by Android Vitals. There were ongoing improvements over a series of releases. A couple of these releases focused primarily on crash fixes, others included new features and migration of the codebase from Java to Kotlin in addition to interim crash fixes. 
+The migration spans several years and is ongoing. The migration to Kotlin was for a range of reasons including the goal of obviating some of the causes of crashes.
 
-There's an opportunity to discuss limitations in current analytics infrastructure. Discussion for acceptable technical debt (c.f. countries debt burden as percent of GDP)
+The results for software testing were far more limited in terms of the Kiwix Android case study as we were unable to reproduce crashes on one of the device models that encountered higher than average crash rates. \emph{One of the as-yet unwritten industrial case studies provides several examples where mobile analytics was useful in terms of testing that project's Android app.}
 
+\subsection{Evaluation of Sources}
+There are many sources of mobile analytics. This research evaluated one of the most pervasive platform-level analytics and the one that explicitly aims to help developers improve the qualities of their mobile apps. It also evaluates several in-app analytics services that provide crash and error reporting and identifies various differences in the results of the platform-level and in-app analytics in terms of crash reporting in particular.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\par\noindent\rule{\textwidth}{0.4pt}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Placeholder notes \nth{6} July 2021 on}
-Stuff to integrate as this chapter is rewritten includes:
+When projects include in-app analytics the developers tend to rely more on the reports provided by their respective services rather than using Android Vitals for crash reporting. 
 
-Various ideas described in~\cite{kinshuman2009_debugging_in_the_very_large, kinshuman2011_debugging_in_the_very_large} e.g. on statistics-based debugging. See the annotations on the printed copy of~\citep{kinshuman2011_debugging_in_the_very_large}. 
+Two of the projects (Kiwix and Catrobat) chose to exclude in-app analytics of any form because of the development teams' concerns related to the information gathered by the analytics provider potentially compromising the privacy of end users, and another project reluctantly migrated from Fabric Crashlytics to Firebase's implementation (which collects more data).
 
-\emph{``An early mantra of our team was, ``data not decibels." Programmers use data from WER to prioritize debugging so that they fix the bugs that affect the most users, not just the bugs hit by
-the loudest customers."}~\citep{kinshuman2009_debugging_in_the_very_large}. 
+Preliminary investigation at a local (small) scale was conducted in two providers of heatmapping software (Appsee and Azetone). Of these, Appsee's offering worked reliably and indicated the potential of heatmapping to detect interaction flaws in screen design for Android apps based patterns detected in aggregated usage data. The Azetone service was problematic to commission and their reports had significant errors in them which were not corrected during the evaluation period despite discussions with their CEO and CTO. A combination of factors meant the research stopped at this preliminary stage: there are more privacy implications when using heatmapping compared to code-oriented reliability metrics and there wasn't a suitable, available app for a larger scale evaluation of the capabilities and behaviours of heatmapping in popular, production apps. As AppBrain indicates, the market penetration of Appsee is minute, in 0.07\% of Android apps~\footnote{As of \nth{12} July 2021} (not helped by the company being acquired and the product being discontinued).
 
-Microsoft has a relatively large pool of users for pre-releases (ITU releases) unlike most app developers therefore their approach may not be viable for app developers who may need to rely more on post-release analytics.
+\subsection{Evaluation of Value}
 
-Platform providers who collect platform level analytics (e.g. Google Android, Huawei Harmony OS, Apple iOS, etc.) have insights into not only the behaviours of the application code, they also have data on the stability of libraries and could use this data to help both library developers and app developers to address flaws related to the libraries being used in apps.
+\subsection{Evaluation of Impact}
 
-Microsoft uses the term bucket while Android Vitals uses the term cluster as a container for grouping together failures considered to be common according to their respective algorithms. The Microsoft WER papers discuss various flaws in their bucketing algorithm and yet the pragmatic and productive results they obtain despite these flaws.
-
-According to Microsoft, users have to opt-in and explicitly grant Windows permission to send reports to Microsoft. More recently Microsoft removed the ability for end users to opt-out of sending diagnostics data eg.. from 2015~\url{https://www.computerworld.com/article/2968288/windows-10-makes-diagnostic-data-collection-compulsory.html} and from 2021~\url{https://redmondmag.com/articles/2021/03/03/reclaim-privacy-from-windows-2.aspx} which mentions the ability for end users to at least see and delete the data that's collected \emph{``Microsoft not only allows you to delete the diagnostic data it has collected, you can also use the Diagnostic Data Viewer to see exactly what data has been collected."} NB the screenshot shows the viewer entails up to 1GB of storage! Interestingly in~\citep{kinshuman2009_debugging_in_the_very_large} they mention Microsoft provides corporate administrators with the ability to collect the data on a private server and to control what information is sent to Microsoft. It's called `Corporate Error Reporting' (CER).
-
-Statistics-based debugging compare and contrast with analytics-based debugging.
-
-MSFT measure deployment using WER. \emph{``Finally, both Microsoft and a number of third parties use the WER database to check for regressions. Similar to the strategies for measuring deployment, we look at error report volumes over time to determine if a software fix had the desired effect of reducing errors. We also look at error report volumes around major software releases to quickly identify and resolve new errors that may appear with the new release."}~\citep{kinshuman2009_debugging_in_the_very_large}.
-
-WER seems far more dynamic in terms of data collection; and it also aims to provide recommendations to end users to obtain fixes~\citep{kinshuman2011_debugging_in_the_very_large}.
-
-\emph{``Given finite programmer resources, WER helps focus effort on the bugs that have the biggest impact on the most users."}~\citep{kinshuman2009_debugging_in_the_very_large}. Similarly, Android Vitals and other crash analytics helps developers focus on the bugs that have the biggest impact on the most users.
-
-\emph{``Bucketing Effectiveness"} Secondary (etc.) buckets/clusters were observed in the three main analytics services~\footnote{Android Vitals, Crashlytics, Microsoft App Center} studied during this research. None of the development teams systematically checked all the contents of all the buckets/clusters and the ephemeral nature of the reports and empirical nature of the research meant the error rate of the bucketing/clustering has not been calculated. (Microsoft in comparison published their analysis of the effectiveness of their bucketing algorithm in~\citep{kinshuman2009_debugging_in_the_very_large}.) Flaws in the bucketing/clustering reduce the likelihood app developers will maximise their effectiveness in terms of addressing the most frequent and pervasive bugs.
-
-\emph{``While not ideal, WER's bucketing heuristics are in practice effective in identifying and quantifying the occurrence of errors caused by bugs in both software and hardware."}~\citep{kinshuman2009_debugging_in_the_very_large}. Similarly, while the bucketing/clustering wasn't ideal in any of the analytics tools studied in this research, the developers of the apps were able to address many of the issues being reported, and the reasons they did not address issues was not related to flaws in the grouping of the underlying failures.
-
-
-\emph{``Results from the development of Windows Vista, mentioned in Section 1, suggest that present static analysis and model checking tools will find at least 20 bugs for every one bug found by WER. \textbf{However, the bugs found by WER are crucial as they are the bugs which have slipped past tools in the development cycle.}"}~\citep{kinshuman2009_debugging_in_the_very_large}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\par\noindent\rule{\textwidth}{0.4pt}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 \section{Evaluation of common threads in the case studies}
-The case studies both led to significant improvements to the measured reliability of the treatment app. 
+The opensource case studies both led to significant improvements to the measured reliability of the treatment app. 
 
 For the Kiwix project this reduction was one of the main reasons why they then chose to update the codebase for the majority of their custom apps~\footnote{The Kiwix project team decided some seldom used apps were not worth updating.}. They achieved similar improvements in the measured reliability despite only using the default analytics provided by Google Play Console. 
 
 For the Catrobat project the development teams chose to add crash and mobile analytics to their iOS app which had neither previously and mobile analytics to their Android app, as it already incorporated crash analytics.
-
-\section{Evaluation of the Catrobat case study}
-The developers were able to significantly improve the reliability of their major Android app: Pocket Code, through applying a variation of the process identified in my research. The minor app, called Pocket Paint, is a separately packaged version of the drawing (paint) functionality in Pocket Code.
-
-The project team were able to use two sources of analytics on crashes: Google Play Console incorporating Android Vitals, and Fabric Crashlytics. There were differences in the outputs and results of these tools, these are discussed later in this chapter, nonetheless they contained a common set of crashes and fixing the crash was reflected in both tools.
-
-The project has a particularly and unusually mature process and focus on software quality as part of being an essential year-long module for various undergraduate courses and also used for post graduate research at Masters and PhD level. Nonetheless the crash rate was stubbornly high and exceeded Google's limit before we started the case study.
-
-TBC
-
-Still to do:
-\begin{itemize}
-    \item Intermittent focus on addressing crashes
-    \item Loss of Crashlytics data for a period through a mistake configuring a release.
-    \item The inclusion of Firebase Analytics in the Android app.
-    \item The inclusion of Crash and Firebase Analytics in the iOS app, including ongoing work: See Firebase in iOS app https://jira.catrob.at/browse/CATTY-371?jql=text%20~%20%22firebase%22%20ORDER%20BY%20created%20DESC 
-    \item Proposal to move to privacy-friendly analytics tools. 
-\end{itemize}
 
 
 
@@ -281,7 +219,7 @@ My research included working with two mature project teams and developers of thr
 \subsection{Validation of the concepts}
 \textbf{MUST-DO}: Revise to reflect the recently added case studies. 
 
-My practical research focuses on two sets of Android applications, those of the Kiwix and Catrobat project teams. According to data and reports Google provides the development teams their active user-bases are 362,595 for the Kiwix project across 18 published apps, and 148,966 for the Catrobat project across 6 published apps. %data obtained on 16th May 2020.
+My practical research includes on two sets of opensource Android applications, those of the Kiwix and Catrobat project teams. According to data and reports Google provides the development teams their active user-bases are 362,595 for the Kiwix project across 18 published apps, and 148,966 for the Catrobat project across 6 published apps. %data obtained on 16th May 2020.
 TODO map these apps to the buckets in the table from the 'beyond Google Play' paper.
 
 While these apps include a useful variety of user populations (from 10's of users to 150K+ across many countries and tens of apps) they could be perceived as a \emph{drop in the ocean} of the millions of apps currently available in the Google Play app store. Also, both project teams are non commercial, and may have different working dynamics from commercial development projects and teams. As my research was inspired from my consulting work with businesses who rely on the success of their apps I chose to supplement these two projects by engaging with developers from several commercial development teams. These include: Moonpig, Moodspace, and LocalHalo. Each values and uses analytics data during their development process to assess post-launch issues with their apps. From time to time things go awry with the behaviours of one or more of their releases and analytics helps them to identify and respond to issues before they become pervasive. For the LocalHalo app, \emph{TODO add details}... For Moonpig \emph{TODO add details}...
@@ -292,3 +230,68 @@ In Spring 2019 I reported various flaws or potential anomalies in various report
 
 \section{Summary of evaluation of the research}
 
+
+\section{Fieldstones for this chapter to be used where appropriate}
+The following material includes various notes to guide the structure and writing of this chapter. Some are actions, others are notes to be incorporated into the thesis. 
+% Software without boundaries. Bashar paper, via Yijun 01-Jul-2021
+
+\textbf{Actions:} 
+\begin{itemize}
+    \item Remove the case study specific materials from this chapter. Echo / summarise/draw on what was presented in the case studies. 
+    \item Refactor the current contents as it's moved around.
+    \item This chapter should aim to close the questions. 
+    \item Note: small case studies are unlikely to be major contributions to this chapter.
+\end{itemize}
+
+
+
+Do I have a methodological perspective I'd like to present here?
+e.g.
+% Methodological perspectives:
+\begin{itemize}
+    \item Top down approach? (This might apply if I were involved in designing an analytics service to help developers improve the reliability of their apps.)
+    \item Crash reduction plan? (A common perspective for the projects I've worked with.) 
+    \item Collect everything? analyse later? (An exploratory approach where the methodology emerges with experience.)
+\end{itemize}
+
+
+There's an opportunity to discuss limitations in current analytics infrastructure. Discussion for acceptable technical debt (c.f. countries debt burden as percent of GDP)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\par\noindent\rule{\textwidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Placeholder notes \nth{6} July 2021 on}
+Stuff to integrate as this chapter is rewritten includes:
+
+Various ideas described in~\cite{kinshuman2009_debugging_in_the_very_large, kinshuman2011_debugging_in_the_very_large} e.g. on statistics-based debugging. See the annotations on the printed copy of~\citep{kinshuman2011_debugging_in_the_very_large}. 
+
+\emph{``An early mantra of our team was, ``data not decibels." Programmers use data from WER to prioritize debugging so that they fix the bugs that affect the most users, not just the bugs hit by
+the loudest customers."}~\citep{kinshuman2009_debugging_in_the_very_large}. 
+
+Microsoft has a relatively large pool of users for pre-releases (ITU releases) unlike most app developers therefore their approach may not be viable for app developers who may need to rely more on post-release analytics.
+
+Platform providers who collect platform level analytics (e.g. Google Android, Huawei Harmony OS, Apple iOS, etc.) have insights into not only the behaviours of the application code, they also have data on the stability of libraries and could use this data to help both library developers and app developers to address flaws related to the libraries being used in apps.
+
+Microsoft uses the term bucket while Android Vitals uses the term cluster as a container for grouping together failures considered to be common according to their respective algorithms. The Microsoft WER papers discuss various flaws in their bucketing algorithm and yet the pragmatic and productive results they obtain despite these flaws.
+
+According to Microsoft, users have to opt-in and explicitly grant Windows permission to send reports to Microsoft. More recently Microsoft removed the ability for end users to opt-out of sending diagnostics data eg.. from 2015~\url{https://www.computerworld.com/article/2968288/windows-10-makes-diagnostic-data-collection-compulsory.html} and from 2021~\url{https://redmondmag.com/articles/2021/03/03/reclaim-privacy-from-windows-2.aspx} which mentions the ability for end users to at least see and delete the data that's collected \emph{``Microsoft not only allows you to delete the diagnostic data it has collected, you can also use the Diagnostic Data Viewer to see exactly what data has been collected."} NB the screenshot shows the viewer entails up to 1GB of storage! Interestingly in~\citep{kinshuman2009_debugging_in_the_very_large} they mention Microsoft provides corporate administrators with the ability to collect the data on a private server and to control what information is sent to Microsoft. It's called `Corporate Error Reporting' (CER).
+
+Statistics-based debugging compare and contrast with analytics-based debugging.
+
+MSFT measure deployment using WER. \emph{``Finally, both Microsoft and a number of third parties use the WER database to check for regressions. Similar to the strategies for measuring deployment, we look at error report volumes over time to determine if a software fix had the desired effect of reducing errors. We also look at error report volumes around major software releases to quickly identify and resolve new errors that may appear with the new release."}~\citep{kinshuman2009_debugging_in_the_very_large}.
+
+WER seems far more dynamic in terms of data collection; and it also aims to provide recommendations to end users to obtain fixes~\citep{kinshuman2011_debugging_in_the_very_large}.
+
+\emph{``Given finite programmer resources, WER helps focus effort on the bugs that have the biggest impact on the most users."}~\citep{kinshuman2009_debugging_in_the_very_large}. Similarly, Android Vitals and other crash analytics helps developers focus on the bugs that have the biggest impact on the most users.
+
+\emph{``Bucketing Effectiveness"} Secondary (etc.) buckets/clusters were observed in the three main analytics services~\footnote{Android Vitals, Crashlytics, Microsoft App Center} studied during this research. None of the development teams systematically checked all the contents of all the buckets/clusters and the ephemeral nature of the reports and empirical nature of the research meant the error rate of the bucketing/clustering has not been calculated. (Microsoft in comparison published their analysis of the effectiveness of their bucketing algorithm in~\citep{kinshuman2009_debugging_in_the_very_large}.) Flaws in the bucketing/clustering reduce the likelihood app developers will maximise their effectiveness in terms of addressing the most frequent and pervasive bugs.
+
+\emph{``While not ideal, WER's bucketing heuristics are in practice effective in identifying and quantifying the occurrence of errors caused by bugs in both software and hardware."}~\citep{kinshuman2009_debugging_in_the_very_large}. Similarly, while the bucketing/clustering wasn't ideal in any of the analytics tools studied in this research, the developers of the apps were able to address many of the issues being reported, and the reasons they did not address issues was not related to flaws in the grouping of the underlying failures.
+
+
+\emph{``Results from the development of Windows Vista, mentioned in Section 1, suggest that present static analysis and model checking tools will find at least 20 bugs for every one bug found by WER. \textbf{However, the bugs found by WER are crucial as they are the bugs which have slipped past tools in the development cycle.}"}~\citep{kinshuman2009_debugging_in_the_very_large}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\par\noindent\rule{\textwidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -5,9 +5,18 @@
 % Establish your research territory by situating your research in a broader context. 
 % Establish and justify your niche by describing why your research is needed. 
 % Explain the significance of your research by describing how you conducted your research.
-Billions of people use mobile apps on two main mobile platforms Google Android and Apple iOS and their related operating systems, and Android is integrated into additional mobile platforms including Kindle OS and various Chinese manufacturer's devices. There are millions of these mobile apps developed by millions of developers across the globe. Failures in these apps can adversely affect the experiences of end-users, businesses who provide apps, and/or goods and services through mobile apps. 
+Billions of people use mobile apps on two main mobile platforms Google Android and Apple iOS and their related operating systems, and Android is integrated into additional mobile platforms including Kindle OS and various Chinese manufacturer's ecosystems, particularly Huawei with HarmonyOS. There are millions of these mobile apps developed by millions of developers across the globe. Failures in these apps can adversely affect the experiences of end-users, businesses who provide apps, and/or goods and services through mobile apps. 
 
-This thesis focuses on the most used operating system - Android - in it's most popular and mature platform - Google Android - to discover whether mobile analytics can help the developers improve the stability of their apps. A default mobile analytics service is integrated into the Google Android platform and available free of charge for all developers of apps in the Google Play App store so it was selected as the default analytics tool for this research as it is prevalent, widespread, and also one of the quality signals Google uses to decide whether to promote apps in their app store. The default mobile analytics service is complemented with research in additional analytics tools to provide perspective and contrast in their various characteristics and capabilities.
+This thesis focuses on the most used operating system - Android - in it's most popular and mature platform - Google Android - to discover whether mobile analytics can help the developers improve the stability of their apps. 
+%
+Stability is a prerequisite for an app to be viable in the marketplace and several key app stores clearly state unreliable apps~\emph{e.g.} apps that crash, will be marked down and possibly ejected from the app store~\citep{appleappstore2021_app_completeness, google_play_policy_center_broken_functionality, huaweidevelopers_appgallery_review_guidelines}. Apple states~\emph{``On average, over 40\% of app rejections are for Guideline 2.1 – Performance: App Completeness."}~\citep{appleappstore2021_review_avoiding_common_app_rejections} with crashes and debugs listed as the first rejection reason. Crashes are undesirable and commonplace therefore one of the key software qualities in use where analytics may be able to help measure and improve reliability for end users. 
+% See also a developer's question about releasing iOS apps with known crashes https://developer.apple.com/forums/thread/68770
+
+Furthermore, even leading technology companies release software that crashes, some have the misfortune to release software that crashes other apps inadvertently as Google discovered in Spring 2021~\citep{bbcnews2021_google_fixes_crashing_android_app_issues}. And App developers, including the BBC for their iPlayer app, posted advice to end users on the issue in Google Play~\citep{bbc_iplayer_app_april_2021_webview_information}.
+
+An increase in crashes led to an increase in `churn'~\footnote{Churn is also known as attrition and is used to measure users who leave a collective group over a specific period~\url{https://en.wikipedia.org/wiki/Churn_rate}.} according to an industry report of up to six times the average rate of churn~\citep{levy2016_crash_and_churn_report, levy2017_the_crash_and_burn_report_findings}~\footnote{Note: Apteligent was acquired by VMWare in 2017 and few of their online materials remain available.}. % A counter point is that a few organisations can survive crashes in their app, for instance Facebook according to https://9to5google.com/2016/01/04/facebook-intentionally-made-its-android-app-crash-to-test-how-addicted-users-are/ However this is not likely to be the norm for other app developers who lack the scale and pull of Facebook's platform.
+
+A default mobile analytics service is integrated into the Google Android platform and available free of charge for all developers of apps in the Google Play App store so it was selected as the default analytics tool for this research as it is prevalent, widespread, and also one of the quality signals Google uses to decide whether to promote apps in their app store. The default mobile analytics service is complemented with research in additional analytics tools to provide perspective and contrast in their various characteristics and capabilities.
 
 \yijun{Should talk about quality (echoing the title), then talk about reliability and other quality issues.}
 
@@ -166,12 +175,13 @@ Where practical, triangulation of data and analytics reports was used to help in
 \section{Research Questions}
 \label{section-research-questions}
 
-My hypothesis is that using mobile analytics can help improve both the work development teams do and the quality of the product they create. Here work includes the development, bug investigation, and testing of the software being created. For the quality of the product I'm focusing on a subset of qualities, which are technology-centric.
+My research hypothesis is that using mobile analytics can help improve both the work development teams do and the quality of the product they create. Here work includes the development, bug investigation, and testing of the software being created. For the quality of the product I'm focusing on a subset of qualities, which are technology-centric.
 
 The domain of mobile apps was selected for the research as mobile apps are ubiquitous, extremely popular, and have interesting and challenging contexts of use. And within the range of mobile apps the research ended up focusing on Android apps for various reasons including: the analytics tools available, the relative glut of suitable apps available for research, my prior experience and expertise, and their market share.
 
 The core question the research aims to consider is: 
-\emph{How can applying analytics improve software development and software testing?} Here the assumption is that analytics can help, as stated by Buse and Zimmermann ~(\citeyear{buse_analytics_2010}); and \emph{``with explicit and implicit feedback now available (almost) continuously, questions arise. How can practitioners use this information and integrate it into their development processes [to decide when to release updates]?"}~\citep{maalej2016_towards_data_driven_requirements_engineering}.
+\emph{How can applying analytics improve software development and software testing for mobile apps?}~\label{overall-research-question}
+Here the assumption is that analytics can help, as stated by Buse and Zimmermann ~(\citeyear{buse_analytics_2010}); and \emph{``with explicit and implicit feedback now available (almost) continuously, questions arise. How can practitioners use this information and integrate it into their development processes [to decide when to release updates]?"}~\citep{maalej2016_towards_data_driven_requirements_engineering}.
 
 This leads to several related questions that underpin this main question \emph{i.e.}, These are grouped in three categories: sources, value, and impact.
 
@@ -210,9 +220,17 @@ Here the focus is on whether the value has sufficient impact for anyone else to 
 \subsection{On Findings}
 \yijun{It will be good to move 1.5 Research Questions here and articulate them as hypothesis or early hypothesis? It is too early to reveal the findings here Maybe you can prepare the reviewers by presenting the findings as confirmation of some "hypothesis", and first discuss about these hypothesis before introducing the facts? }
 
+The research  the hypothesis 
+
 
 
 \section{Outline of this thesis}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\par\noindent\rule{\textwidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The following need relocating}
 Bugs are ubiquitous in software (even one of the most respected software engineers, Donald E. Knuth, recognises, publicly acknowledges, \emph{and pays for}~\cite{knuth_trutex, wikipedia__knuth_reward_checks_2020} bugs found in his creations. And self-aware developers expect there will be bugs in their software. \emph{``You are entitled to a reward of at least 0x$1.00 ($2.56) if you are the first person to report a bona-fide error not on those lists."} Donald E. Knuth~\cite{knuth_the_bank_of_san_serriffe}
 
 Even top development teams are likely to learn of bugs they were not able to find, and cannot reproduce. For instance, Google's Android Auto Team have asked for help from end users to identify patterns that may help the team find and address a long-running and frustrating bug in Android Auto~\footnote{\url{https://support.google.com/androidauto/thread/2865341?msgid=44437416}}. As reported by \texttt{autoevolution} in May 2020:  
