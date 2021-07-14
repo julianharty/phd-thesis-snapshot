@@ -241,6 +241,10 @@ Bug investigation takes time and incurs various costs, with rare exceptions it i
 
 “TBS” metrics. Test design and execution means scanning the product and looking for problems. Bug investigation and reporting is what happens once the tester stumbles into behavior that looks like it might be a problem. Session setup is anything else testers do that makes the first two tasks possible, including tasks such as configuring equipment, locating materials, reading manuals, or writing a session report."~\citep{bach2000_sbtm}
 
+A practical and systemic approach to bug investigation is available in both a book~\citep{zeller2009_why_programs_fail} and a free online course~\citep{zeller2012_udacity_software_debugging_course}. While the materials are practical, they do not include using software analytics.
+
+\emph{``Where is the bug and how is it fixed? an experiment with practitioners"}~\citep{bohme2017_where_is_the_bug_and_how_is_it_fixed} MUST-DO continue. Similarly, `You Cannot Fix What You Cannot Find! An Investigation of Fault Localization Bias in Benchmarking Automated Program Repair Systems' has a wonderful starting title, however the bug finding techniques seem to assume the bugs are within the code of the system rather than considering external and/or combinatorial factors e.g. from the OS release, third-party libraries, firmware, timing issues, and so on. Also I'm not aware of any app developers using or relying on automated fault repair tools so perhaps that paper isn't that relevant?
+
 Software Design and Development encapsulates the work developers of mobile apps \emph{intend} to do to create and improve mobile apps. Bug investigation and reproduction describes their focus when they are involved in understanding failure of their app. And session setup is anything else they need to do to make the first two tasks possible. Perhaps \emph{``DBS" metrics} would be a useful complement to ``TBS" metrics?
 
 One of the arguments Jon Bach makes in various presentations is to maximise the T and minimise the B.S. This is illustrated in Figure~\ref{fig:my_tbs_diagram}.
@@ -370,6 +374,9 @@ Buse and Zimmerman wrote a short paper in 2010 which helped establish the field 
     
     \item \emph{Software Telemetry (MEAP)}~\citep{riedesel2020_software_telemetry_meap_v04}. An early draft of a book scheduled to be published in mid 2021 that discusses telemetry including the roots in system logs on early computer systems.
     
+    \item \emph{``Software Analytics, so what?"}~\citep{menzies2013_software_analytics_so_what} to set the context.
+    
+    
     \item Buse and Zimmermann...~\cite{buse_analytics_2010} 
     
     \item \emph{``Information needs for software development analytics"}~\citep{buse2012_information_needs_for_software_development_analytics}. They asked 110 Microsofties, a mix of development leads and managers about their use of software development analytics. MUST-DO discuss how my work and their guidelines for software development analytics align. What does my work add to their work? What does it provide that they identified back in 2012? Their focus seems to be more on the code than the product of the code (apps and the services (and the qualities of those services) those apps provide to end users). What information do mobile app developers need in terms of improving the reliability of their apps? How can the developers make good decisions in this area?
@@ -413,6 +420,8 @@ Buse and Zimmerman wrote a short paper in 2010 which helped establish the field 
     \item \emph{``User interaction-based profiling system for Android application tuning"}~\citep{lee2014_user_interaction_based_profiling_system_for_android_app_tuning} Correlation or causation, needing to investigate... I've discussed one of their figures in many presentations on Mobile Analytics. To be continued...
     
     \item \emph{``A Recipe for Responsiveness: Strategies for Improving Performance in Android Applications"}~\citep{nilsson2016_a_recipe_for_responsiveness_for_improving_android_apps_spotify_masters} presents some of the challenges of measuring and improving the performance of a particular, very popular Android app: Spotify~\footnote{\href{https://play.google.com/store/apps/details?id=com.spotify.music&hl=en_GB&gl=US}{Spotify: Free Music and Podcasts Streaming}.}. Several of the measurements described in the paper were later integrated into Google Play Console's Android Vitals service. The author created an additional tool that profiles the performance of UI elements and provided the results as three traffic-light indicators for: Draw, Layout, Execute. The work was well received within Spotify, however as the tool was not applied to other apps and is not available the impact of this research seems to be limited.
+    
+    \item It might be worth using Dataclysm~\citep{rudder2014dataclysm} and some analysis on the contents of the book \url{https://medium.com/@crypto_dealer/thoughts-on-dataclysm-by-christian-rudder-a7fcd09f423c} as examples of how analytics can provide insights in many domains, including what people want, how people present themselves and how they behave. c.f. \citep{GAVIDIACALDERON2021_game_theoretic_analysis_of_software_development_practices} to compensate for the characteristics identified in Dataclysm.
     
 \end{itemize}
 
