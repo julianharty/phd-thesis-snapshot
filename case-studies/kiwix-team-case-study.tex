@@ -3,9 +3,20 @@
 
 \section{Kiwix Android Apps}
 \label{section-kiwix-case-study}
-Relying solely on analytics and reports provided by the Google Android's platform and presented in Google Play Console, we were able to reduce the crash rates of a family of Android apps. 
+Relying on analytics and reports provided by the Google Android's platform and presented in Google Play Console, we were able to reduce the crash rates of a family of Android apps. 
 %
-We chose the most sophisticated and complex of the Android apps, which also had the highest Crash rate at the time. By applying what the team learned about crashes reported in Android Vitals the team was able to reduce the crash rate of this app several fold. When the improved codebase was used to refresh various custom apps their crash rates also decreased several fold.
+We chose the most sophisticated and complex of the Android apps, which also had the highest Crash rate at the time (see Table~\ref{tab:gpc_kiwix_apps_11_feb_2019}). The reduction went from over 5\% to under 0.25\% during the case study.
+
+Figure~\ref{fig:android-vitals-kiwix-android-crash-rate-vs-peers} provides an illustrative example of the crash rate for Kiwix Android. The comparison with its peers, apps in the same category across Google Play, also shows Kiwix Android was in the bottom 7\% in terms of crash rate in that category. So the app was unreliable by either measure.
+
+By applying what the team learned about crashes reported in Android Vitals the team was able to reduce the crash rate of this app several fold. When the improved codebase was used to refresh various custom apps their crash rates also decreased several fold.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm]{images/android-vitals-screenshots/Example-crash-rate-vs-peers 10-jun-2019.png}
+    \caption{Android Vitals Kiwix Android crash rate vs peers \nth{10} June 2019}
+    \label{fig:android-vitals-kiwix-android-crash-rate-vs-peers}
+\end{figure}
 
 Note: I have been involved in various aspects of Kiwix since 2014 including helping with the Android app, with manual and automated testing, with the PHeT project mentioned here, and so on.
 
@@ -34,11 +45,11 @@ Note: I have been involved in various aspects of Kiwix since 2014 including help
 \subsection{Introduction of Kiwix Android Case Study}
 %Introduce Kiwix at the risk of repetition. 
 % TODO replace URLs with citations.
-Kiwix makes knowledge available to people with no or limited internet access (\emph{i.e.} four billion people). Anyone is free to use the software and the content. The project includes an offline reader for online content like Wikipedia, Project Gutenberg, or TED Talks and the project also develops and maintains software to download, compress, package, and make content easy to download and share~\citep{kiwix_about_the_project, gomez2017_wikimedia_kiwix_article}.
+Kiwix makes knowledge available to people with no or limited internet access (\emph{i.e.} four billion people) by providing highly compressed content and a reader for the bespoke compression format. Anyone is free to use the software and the content. The project includes an offline reader for online content like Wikipedia, Project Gutenberg, or TED Talks and the project also develops and maintains software to download, compress, package, and make content easy to download and share~\citep{kiwix_about_the_project, gomez2017_wikimedia_kiwix_article}.
 
 The project provides offline access to Wikipedia materials and many other read-only materials including TED talks, StackExchange sites, interactive science simulations, and others~\citep{kiwix_about_the_project, gomez2017_wikimedia_kiwix_article}. 
 
-The project comprises various Android apps all based on a common opensource codebase. The core case study captures activities from early 2019 to early 2020; however the project is a long-term, ongoing project and I am still involved with it. Several post case-study updates will be covered in later chapters. The crash rate had been excessive for over a year and far exceeded the bad behaviour threshold Google Play specified. 
+The Android project comprises various apps all based on a common opensource codebase. The core case study captures activities from early 2019 to early 2020; however the project is a long-term, ongoing project and I am still involved with it. Several post case-study updates will be covered in later chapters. The crash rate had been excessive for over a year and far exceeded the bad behaviour threshold Google Play specified. 
 
 The case study started with a period of observation and discussion of the crash rate in particular as it had increased repeatedly and to such an extent that the 2.3 release had been aborted by the project team, various details follow.
 
@@ -53,7 +64,7 @@ Google Play obtains, processes, and provides analytics of Android apps from opte
 Note: Google Apps are available to download from third-party websites, particularly \url{https://www.teamandroid.com/gapps/}. 
 
 
-The development team was relatively large and fluid ranging from teenagers to several professional developers and their active contribution periods ranged from weeks to many years. The developers reviewed the code using pull requests.  The codebase included some application level automated tests; and the project included a continuous build, and used a commercial device farm provided free of charge by bitbar.com 
+The development team was relatively large and fluid ranging from teenagers to several professional developers and their active contribution periods ranged from weeks to many years~\footnote{Kiwix Android had 96 Contributors to the GitHub project at the time of writing~\url{https://github.com/kiwix/kiwix-android/graphs/contributors}}. The developers reviewed the code using pull requests.  The codebase included some application level automated tests; and the project included a continuous build, and used a commercial device farm provided free of charge by bitbar.com 
 
 One of the apps was chosen as the experiment and another as the control to determine whether the crash rate could be reduced through applying information Google Play provides in Google Play Console.
 
@@ -113,13 +124,13 @@ For the case study the main measurement tools we used were Google Play Console a
 %\akb{Main tool or tools?}
 
 \subsubsection{Related tools}
-The tools suited a large mainstream Android opensource project, i.e. the tools and services were free-of-charge. Many are provided by commercial organisations such as Google, GitHub, Travis-CI, and \href{https://bitbar.com/}{BitBar} (since acquired by \href{https://smartbear.com/}{SmartBear}). Often the tools are popular and widely used, e.g. Junit and Espresso frameworks for the automated tests. The project uses continuous builds, at the start of the case study it used travis-ci the project migrated to GitHub actions in late 2019, early 2020 \url{https://github.com/kiwix/kiwix-android/issues/1593}.
+The software development tools suited a large mainstream Android opensource project, i.e. the tools and services were free-of-charge. Many are provided by commercial organisations such as Google, GitHub, Travis-CI, and \href{https://bitbar.com/}{BitBar} (since acquired by \href{https://smartbear.com/}{SmartBear}). Often the tools are popular and widely used, e.g. Junit and Espresso frameworks for the automated tests. The project uses continuous builds, at the start of the case study it used travis-ci the project migrated to GitHub actions in late 2019, early 2020 \url{https://github.com/kiwix/kiwix-android/issues/1593}.
 
-The project uses various frameworks and libraries, many are listed in the project README~\url{https://github.com/kiwix/kiwix-android} (e.g. Espresso isn’t listed, however it’s used by the project \url{https://github.com/kiwix/kiwix-android/search?q=espresso}).
+The Kwixi Android project uses various frameworks and libraries, many are listed in the project README~\url{https://github.com/kiwix/kiwix-android} (e.g. Espresso isn’t listed, however it’s used by the project \url{https://github.com/kiwix/kiwix-android/search?q=espresso}).
 
-Code coverage is tracked automatically online using a free service called Codecov \url{https://codecov.io/gh} The line coverage according to this tool ranged between roughly 32\% and 43\% \url{https://app.codecov.io/gh/kiwix/kiwix-android}  
+Code coverage is tracked automatically online using a free service called Codecov \url{https://codecov.io/gh} The line coverage according to this tool ranged between roughly 32\% and 43\% \url{https://app.codecov.io/gh/kiwix/kiwix-android}~\emph{i.e.} where there are one or more automated tests that execute a given line of source code.  
 
-The codebase could be built from a fresh installation from the source on GitHub.com; I mention this as relatively few projects can actually be compiled and built. There had been significant investment in establishing the vanilla build process (which relied on several binaries being pre-built as part of sibling projects).
+The codebase could be built from a fresh installation from the source on GitHub.com; This is mentioned as relatively few projects can actually be compiled and built as-is. There had been significant investment in establishing the vanilla build process (which relied on several binaries being pre-built as part of sibling projects).
 
 The resources used in the app are translated using translatewiki.net which also supports many other projects \url{https://translatewiki.net/wiki/Translating:Kiwix} and \url{https://diff.wikimedia.org/2011/08/20/kiwix-localisation-is-supported-at-translatewiki-net/}.
 
@@ -148,7 +159,8 @@ Many new volunteer contributors want to contribute new code rather than maintain
 \subsection{Analytics intervention}
 \textit{(Describe what you did with analytics in the context of the case). Focus on this and the next sections since they’re core to the thesis.}
 
-Analytics was used to select which app(s) to focus on, to determine the replacement of high-functionality/low-reliability custom code with low-functionality/high-reliability code, and to prioritise the crash clusters to address over several releases of the experiment/treatment app. 
+Analytics was used to select which app(s) to focus on, to determine the replacement of high-functionality/low-reliability custom code with low-functionality/high-reliability code, and to prioritise the crash clusters to address over several releases of the experiment/treatment app. It was also used to measure the effects of the analytics interventions.
+
 \begin{itemize}
     \item Google Play Console provided details of the install base for the various Kiwix Android apps and it also provided a dashboard for each of these apps, these sources were used to help select which apps to focus on - those that were popular and would have lots of data.
     \item Android Vitals was used to provide the other information, on the custom downloader code and to determine which crash clusters to focus on.
@@ -222,9 +234,16 @@ WikiMed (in Chinese)  &  &  &  &  &  &  \\
 
 Initial analysis of the crash rates across the Kiwix apps found several clusters in the crashes, some where common to several apps - unsurprisingly since they shared a common codebase, others were specific to a particular app. Two examples illustrate specific crash clusters:
 \begin{enumerate}
-    \item Crashes in the downloader - this code was only active in the main Kiwix Android app, none of the custom apps used the downloader, hence it wasn't a surprise these crashes were only reported in the main app.
+    \item Crashes in the downloader - this code was only active in the main Kiwix Android app, none of the custom apps used the downloader, hence it wasn't a surprise these crashes were only reported in the main app. In Figure~\ref{fig:android-vitals-kiwix-android-example-crash-clusters-10-jun-2019} all three of most frequent crash clusters were in the download service. 
     \item Crashes in the Chemistry \& Physics simulations app. These crashes were related to the contents which was multi-layered JavaScript with deeply nested calls. The JavaScript powered the simulations and wasn't intended to run in a WebView container, WebViews and some of their effects will be discussed later in this case study and also later in this thesis in the~\href{section-webview-component}{WebView Component section}.
 \end{enumerate}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm]{images/android-vitals-screenshots/Example-crash-clusters 10-jun-2019.png}
+    \caption{Android Vitals: Kiwix Android crash clusters snapshot on \nth{10} June 2019}
+    \label{fig:android-vitals-kiwix-android-example-crash-clusters-10-jun-2019}
+\end{figure}
 
 In March 2019, we~\footnote{The Android project leads at that time and myself} decided to focus on using analytics to effect improvements in the main Kiwix app and use WikiMed in English as the control. 
 \begin{itemize}
@@ -353,16 +372,22 @@ The core app included an integrated download facility to download content to a u
 The custom apps were pre-packaged with content (which Google Play Services downloaded at the same time as downloading the app's binary). They did not need, and did not include the custom downloader. This meant their crash rates were significantly better (lower) than the core app managed.
 
 \subsection{Stage 2: simplifying the most buggy code}
-The first release, release 1 in the table, predated the hackathon (which was the start of the experiment). In this release the lead developer decided to replace a large body of custom code with generic downloader code rather than focus on fixing individual sections of code. The custom code was considered too problematic to fix. However, there was a trade-off by increasing the reliability there was a reduction in usability and also an impact on what happened when downloads stopped or otherwise failed before completion.
+The first release, release 1 in the table, predated the hackathon (which was the start of the experiment). In this release the lead developer decided to replace a large body of custom code with generic downloader code rather than focus on fixing individual sections of code~\footnote{The combined commit with this change is~\href{https://github.com/kiwix/kiwix-android/commit/fcac33cf2daed5cea98387743c5c5dc52d59e09a}{commit fcac33cf2daed5cea98387743c5c5dc52d59e09a}}. The custom code was considered too problematic to fix. However, there was a trade-off by increasing the reliability there was a reduction in usability and also an impact on what happened when downloads stopped or otherwise failed before completion. The crash rate reduced to under 2\% once most users had the release with the new downloader installed.
 
 \subsection{Stage 3: applying the research concepts of the experiment app}
 I convinced the the leaders of the Kiwix project that we might be able to reduce the crash rate significantly by applying the concepts described in chapter 5. They had slowly become increasingly aware of the excessively high crash rate and the potential impact on both users and the app store's ranking of the apps based on the high crash rates. 
 
-We agreed we would start by focusing on several of the most frequently occurring crashes as reported in Android Vitals. The opportunity to do so was at a week-long hackathon in Stockholm in August 2019. I led the discussions and analysis with several of the volunteer developers at the hackathon. 
+We agreed we would start by focusing on several of the most frequently occurring crashes as reported in Android Vitals. The opportunity to do so was at a week-long hackathon in Stockholm in August 2019. I led the discussions and analysis with several of the volunteer developers at the hackathon.
 
-Following this discussion and analysis about the crashes being reported in Android Vitals for version \texttt{2.5.0} of the core application, the developers fixed several of the causes of the most frequent crashes with a surprisingly small amount of code of under 25 lines (including 10 lines of text added to the release log)\footnote{\url{https://github.com/kiwix/kiwix-android/pull/1388}}.
+Following this discussion and analysis about the crashes being reported in Android Vitals for version \texttt{2.5.0} of the core application, the developers fixed several of the causes of the most frequent crashes with a surprisingly small amount of code of under 25 lines (including 10 lines of text added to the release log)\footnote{\url{https://github.com/kiwix/kiwix-android/pull/1388}}. Of interest, at least one of the fixes had actually been made and committed to a pending major release of the app but wasn't applied to the current production release~\emph{until the effects of the crash was made visible using analytics}. Details of the crash report and fix are available online~\url{https://github.com/kiwix/kiwix-android/issues/1261}~\footnote{The release was rolled out in Google Play to end users in stages from \nth{19} to \nth{23} August 2019 in stages, through an overabundance of caution given the small footprint and nature of the changes.}. The crash rate stabilised around 1.1\% once the majority of userbase had release 2.5.3 installed; it would have been lower were it not for the \texttt{UnsatisfiedLinkError} exceptions, discussed next.
 
-Various developers continued to make corrective changes to the codebase which made ongoing incremental improvements to the app released to the \texttt{2.5.x} releases. 
+Several new crash clusters emerged for \texttt{UnsatisfiedLinkError} exceptions. These were not directly related to the crash fixes in the \texttt{2.5.x} releases, instead they were related to the project choosing to apply advice from Google to use App Bundles~\citep{android_app_bundle}~\footnote{In practice, app releases often include a mix of bug fixes together with other changes so it is sometimes impractical to measure the effects of bug fixes in isolation. Similar challenges and behaviours exist in code commits,~\citep{partachi2020_flexme_untangling_commits} discusses that topic well. Nonetheless approaches used to detangle commits are unlikely to work as-is for releases as releases need to satisfy other constraints. Release planning and release management are discussed in~\href{chapter-related-work}{\nameref{chapter-related-work}}}.
+%
+With App Bundles Google Play took responsibility for delivering the correct app binaries to suit the end-user's device's hardware architecture~\emph{e.g.} ARM 32-bit, ARM-64 bit, Intel 64-bit, and so on. However, sometimes the users seemed to receive one or more binaries that didn't run on their device which led to this crash. What wasn't well published is enabling App Bundles is similar to Caesar crossing the Rubicon~\footnote{\url{https://grammarist.com/idiom/cross-the-rubicon/}} - there's no turning back. Therefore, rather than having the option to revert to `fat binaries' the project had to find an approach that worked in the context of App Bundles. As the Kiwix Android apps include a native library, written in C++, the solution needed to work for native code in addition to managed code.
+
+There's quite a detailed issue report available on GitHub.com,~\href{https://github.com/kiwix/kiwix-android/issues/1259}{Issue 1259 - Crash Report: \texttt{UnsatisfiedLinkError} reported in Android Vitals for 2.5.x users}. The cause required in-depth investigation, changes to the build process, and changes to the application code in order to reduce the likelihood of the incorrect binaries being deployed to the end user devices.
+
+Various developers continued to make corrective changes to the codebase which made ongoing incremental improvements to the app released to the \texttt{2.5.x} releases.
 
 \subsection{Stage 4: the new normal}
 The improvements in the reliability of the core app were sufficiently compelling \emph{and} the reliability of the custom apps sufficiently poor that the development team chose to refresh the majority of the custom apps, including the one used as the control (WikiMed English). Note: Various details of the crash rate at the time and the plan to migrate the custom apps are included in~\url{https://github.com/kiwix/kiwix-android/issues/1426}. 

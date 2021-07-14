@@ -936,6 +936,22 @@ numpages = {14}
   month={Sep.},
 }
 
+@article{sirianni1979_caesars_decision_to_cross_the_rubicon,
+ ISSN = {07702817, 22959076},
+ URL = {http://www.jstor.org/stable/41651462},
+ online_copy = {https://www.persee.fr/doc/antiq_0770-2817_1979_num_48_2_1955},
+ author = {Frank A. Sirianni},
+ journal = {L'Antiquité Classique},
+ number = {2},
+ pages = {636--638},
+ publisher = {L'Antiquité Classique},
+ title = {CAESAR'S DECISION TO CROSS THE RUBICON},
+ volume = {48},
+ year = {1979}
+}
+
+
+
 @article{slany2014tinkering,
   title={Tinkering with Pocket Code, a Scratch-like programming app for your smartphone},
   author={Slany, Wolfgang},
@@ -2593,6 +2609,35 @@ location = {New York City, New York},
 series = {SmartObjects '16}
 }
 
+@inproceedings{partachi2020_flexme_untangling_commits,
+    author = {P\^{a}rundefinedachi, Profir-Petru and Dash, Santanu Kumar and Allamanis, Miltiadis and Barr, Earl T.},
+    title = {Flexeme: Untangling Commits Using Lexical Flows},
+    year = {2020},
+    isbn = {9781450370431},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3368089.3409693},
+    doi = {10.1145/3368089.3409693},
+    abstract = {Today, most developers bundle changes into commits that they submit to a shared code
+    repository. Tangled commits intermix distinct concerns, such as a bug fix and a new
+    feature. They cause issues for developers, reviewers, and researchers alike: they
+    restrict the usability of tools such as git bisect, make patch comprehension more
+    difficult, and force researchers who mine software repositories to contend with noise.
+    We present a novel data structure, the ��-NFG, a multiversion Program Dependency Graph
+    augmented with name flows. A ��-NFG directly and simultaneously encodes different
+    program versions, thereby capturing commits, and annotates data flow edges with the
+    names/lexemes that flow across them. Our technique, Flexeme, builds a ��-NFG from
+    commits, then applies Agglomerative Clustering using Graph Similarity to that ��-NFG
+    to untangle its commits. At the untangling task on a C# corpus, our implementation,
+    Heddle, improves the state-of-the-art on accuracy by 0.14, achieving 0.81, in a fraction
+    of the time: Heddle is 32 times faster than the previous state-of-the-art.},
+    booktitle = {Proceedings of the 28th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+    pages = {63–74},
+    numpages = {12},
+    keywords = {graph kernels, clustering, commint untangling},
+    location = {Virtual Event, USA},
+    series = {ESEC/FSE 2020}
+}
 
 @inproceedings{pielot2015attention,
   title={When attention is not scarce-detecting boredom from mobile phone usage},
@@ -3004,6 +3049,43 @@ series = {CODASPY ’19}
   part_of = {http://www.testingeducation.org/course_notes/amland_stale/cm_200212_exploratorytesting/},
 }
 
+@misc{android_android_vitals_guide,
+  title = {Use Android vitals to improve your app's performance, stability, and size},
+  url = {https://developer.android.com/distribute/best-practices/develop/android-vitals},
+  organization = {{Android Developers}},
+  author = {{Android Developers}},
+  year = {2020},
+  note = {Last retrieved 13 July 2021},  
+}
+
+@misc{android_app_bundle,
+  title = {Android App Bundle - Android Developers},
+  url = {https://developer.android.com/platform/technology/app-bundle},
+  organization = {{Android Developers}},
+  author = {{Android Developers}},
+  year = {2021},
+  note = {Last retrieved 13 July 2021},  
+}
+
+@misc{android_guidelines_core_app_quality,
+  url = {https://developer.android.com/docs/quality-guidelines/core-app-quality},
+  title = {Core app quality - Android Developers},
+    organization = {{Android Developers}},
+  author = {{Android Developers}},
+  year = {2021},
+  note = {Last retrieved 14 July 2021}, 
+  abstract = {
+    Core app quality - Last updated: May 17, 2021
+    This checklist defines a set of core quality criteria and associated tests to help you assess the quality of your app. Some of these criteria might be easy to miss, and the tests help you remember to include them in your test plans.
+
+    The checklist highlights the minimum quality that all apps should meet. Your testing will likely go well beyond what's described here.
+
+    Each item in the quality checklist has a unique ID which you might find helpful to use when you communicate with your team. You can also view the previous version of these guidelines [https://developer.android.com/docs/quality-guidelines/2021/02].
+  }
+  extract = {
+    Stability	PS-S1	CR-all SD-1	The app does not crash or block the UI thread causing ANR (Android Not Responding”) errors. Utilize Google Play’s pre-launch report to identify potential stability issues. After deployment, pay attention to the Android Vitals page in the Google Play developer console.}
+}
+
 @misc{android_dropboxmanager,
   title = {DropBoxManager - Android Developers},
   url = {https://developer.android.com/reference/android/os/DropBoxManager},
@@ -3025,6 +3107,20 @@ series = {CODASPY ’19}
   author = {{Android Developers}},
   year = {2020},
   note = {Last retrieved 31 July 2020},
+}
+
+@misc{android_store_listing_guide,
+  title = {Improve your app’s quality and discoverability},
+  url = {https://developer.android.com/distribute/best-practices/launch/store-listing},
+  year = {2020},
+  organization = {{Android Developers}},
+  author = {{Android Developers}},
+  note = {Last retrieved 13 July 2021},   
+  extracts = {
+    The Google Play Store is committed to connecting users with a diverse catalog of high quality apps. Our recommendations are composed of a mix of human curation and algorithmic calculations, of which, the two largest components considered are relevance and quality. The best practices below explain how we evaluate quality for your app, independent of which user might download it.
+    
+    Review the Android vitals dashboard to see how your app is performing on core vitals metrics including crash rate, ANR rate, excessive wakeups, and stuck partial wake locks in the background. Look at peer benchmarks to see how you measure up to others in your category.
+  }
 }
 
 @online{appbrain,
