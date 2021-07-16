@@ -466,3 +466,8 @@ Implementation choices:
 \subsection{Testing logging}
 Unit testing of logging to date has not been widely available as a core capability of the logging libraries. There are several possible approaches to asserting the logging is as expected, these include recording the log output \emph{within} the software \emph{i.e.} in memory, and checking what has been written to an actual log [file]. The first approach is described in \citep{altindag2020_unit_testing_log_messages_made_easy} and made available as an opensource project called LogCaptor~\citep{log-captor-github-project}. The second approach was implemented jointly by myself and Joseph Reeve and made available as an opensource project~\citep{android_log_assert}. Both these approaches assert that what was intended to be in the log actually appears there. At the time of writing, the LogCaptor includes richer examples. Our work supports the standard Android logging API in addition to custom logging libraries. As both projects are opensourced and have permissive licenses there is the opportunity to improve either or both of them and for cross-fertilisation.
 
+\begin{comment}
+\begin{itemize}
+    \item \url{https://cran.r-project.org/web/packages/logger/vignettes/Intro.html} and the related more detailed references~\url{https://daroczig.github.io/logger/articles/customize_logger.html} and \url{https://daroczig.github.io/logger/articles/anatomy.html} which has a very clear figure~\footnote{\url{https://github.com/daroczig/logger/blob/master/vignettes/logger_structure.svg}} representing how logging is implemented.
+\end{itemize}
+\end{comment}

@@ -201,6 +201,18 @@ month={March},}
   publisher={Springer}
 }
 
+@article{cruz2019_guess_what_test_your_app,
+  title={To the attention of mobile software developers: guess what, test your app!},
+  author={Cruz, Luis and Abreu, Rui and Lo, David},
+  journal={Empirical Software Engineering},
+  volume={24},
+  number={4},
+  pages={2438--2468},
+  year={2019},
+  publisher={Springer},
+  doi = {10.1007/s10664-019-09701-0},
+}
+
 @article{davenport2006competing_on_analytics,
   title={Competing on analytics},
   author={Davenport, Thomas H and others},
@@ -643,7 +655,7 @@ numpages = {6}
   abstract = {Accelerometer-based activity recognition (AAR) attracted a lot of attentions due to the wide spread of smartphones with energy-efficiency. However, since accelerometer data contains individual characteristics; AAR might raise privacy concerns. Although numerous privacy preservation approaches, such as ”privacy filtering, differential privacy, and inferential privacy”, have been proposed to conceal sensitive information, unfortunately they cannot address the privacy problem associated with AAR. In this paper, we report our efforts to control the use of the AAR while preserving the privacy. To achieve this task, our method leverages a connection to agglomerative information bottleneck, through which the amount of disclosed data can be compressed so that irrelevant private information can be reduced, and a connection to general privacy statistical inference framework, where both of the privacy leakage and utility accuracy are considered as mutual information. Our experimental results have shown that the proposed solution can greatly reduce privacy leakage while maintaining a relative good utility.},
 }
 
-@ARTICLE{menzies2013_software_analytics_so_what,
+@article{menzies2013_software_analytics_so_what,
   author={Menzies, Tim and Zimmermann, Thomas},
   journal={IEEE Software}, 
   title={Software Analytics: So What?}, 
@@ -1845,6 +1857,41 @@ location = {Genoa, Italy},
 series = {EDBT '13}
 }
 
+@inproceedings{khalid2014_prioritizing_the_devices_to_test_your_app_on_casestudy_android_games,
+    author = {Khalid, Hammad and Nagappan, Meiyappan and Shihab, Emad and Hassan, Ahmed E.},
+    title = {Prioritizing the Devices to Test Your App on: A Case Study of Android Game Apps},
+    year = {2014},
+    isbn = {9781450330565},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/2635868.2635909},
+    doi = {10.1145/2635868.2635909},
+    abstract = { Star ratings that are given by the users of mobile apps directly impact the revenue
+    of its developers. At the same time, for popular platforms like Android, these apps
+    must run on hundreds of devices increasing the chance for device-specific problems.
+    Device-specific problems could impact the rating assigned to an app, given the varying
+    capabilities of devices (e.g., hardware and software). To fix device-specific problems
+    developers must test their apps on a large number of Android devices, which is costly
+    and inefficient. Therefore, to help developers pick which devices to test their apps
+    on, we propose using the devices that are mentioned in user reviews. We mine the user
+    reviews of 99 free game apps and find that, apps receive user reviews from a large
+    number of devices: between 38 to 132 unique devices. However, most of the reviews
+    (80%) originate from a small subset of devices (on average, 33%). Furthermore, we
+    find that developers of new game apps with no reviews can use the review data of similar
+    game apps to select the devices that they should focus on first. Finally, among the
+    set of devices that generate the most reviews for an app, we find that some devices
+    tend to generate worse ratings than others. Our findings indicate that focusing on
+    the devices with the most reviews (in particular the ones with negative ratings),
+    developers can effectively prioritize their limited Quality Assurance (QA) efforts,
+    since these devices have the greatest impact on ratings. },
+    booktitle = {Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+    pages = {610–620},
+    numpages = {11},
+    keywords = {Mobile apps, Android fragmentation, Device prioritization},
+    location = {Hong Kong, China},
+    series = {FSE 2014}
+}
+
 @inproceedings{kinshuman2009_debugging_in_the_very_large,
     author = {Glerum, Kirk and Kinshumann, Kinshuman and Greenberg, Steve and Aul, Gabriel and Orgovan, Vince and Nichols, Greg and Grant, David and Loihle, Gretchen and Hunt, Galen},
     title = {Debugging in the (Very) Large: Ten Years of Implementation and Experience},
@@ -2229,6 +2276,33 @@ series = {MOBILESoft ’20}
   month={Aug},
 }
 
+@inproceedings{jha2019_characterizing_android_specific_crash_bugs,
+author = {Jha, Ajay Kumar and Lee, Sunghee and Lee, Woo Jin},
+title = {Characterizing Android-Specific Crash Bugs},
+year = {2019},
+publisher = {IEEE Press},
+abstract = {Android platform provides a unique framework for app development. Failure to comply
+with the framework may result in serious bugs. Android platform is also evolving rapidly
+and developers extensively use APIs provided by the framework, which may lead to serious
+compatibility bugs if developers do not update the released apps frequently. Furthermore,
+Android apps run on a wide range of memory-constrained devices, which may cause various
+device-specific and memory-related bugs. There are several other Android-specific
+issues that developers need to address during app development and maintenance. Failure
+to address the issues may result in serious bugs manifested as crashes. In this paper,
+we perform an empirical study to investigate and characterize various Android-specific
+crash bugs, their prevalence, root causes, and solutions by analyzing 1,862 confirmed
+crash reports of 418 open source Android apps. The investigation results can help
+app developers in understanding, preventing, and fixing the Android-specific crash
+bugs. Moreover, the results can help app developers and researchers in designing effective
+bug detection tools for Android apps.},
+booktitle = {Proceedings of the 6th International Conference on Mobile Software Engineering and Systems},
+pages = {111–122},
+numpages = {12},
+keywords = {Android apps, crash bug analysis, mining crash bugs, characterizing crash bugs},
+location = {Montreal, Quebec, Canada},
+series = {MOBILESoft '19}
+}
+
 @inproceedings{johnson2013_why_dont_devs_use_static_analysis,
   title={Why don't software developers use static analysis tools to find bugs?},
   author={Johnson, Brittany and Song, Yoonki and Murphy-Hill, Emerson and Bowdidge, Robert},
@@ -2283,19 +2357,6 @@ series = {MSR 2014}
     month={Oct},
     address={Berlin, Germany},
     publisher={IEEE},
-}
-
-@inproceedings{kumar_characterizing_android_specific_crash_bugs,
-    author = {Jha, Ajay Kumar and Lee, Sunghee and Lee, Woo Jin},
-    title = {Characterizing Android-Specific Crash Bugs},
-    year = {2019},
-    publisher = {IEEE Press},
-    booktitle = {Proceedings of the 6th International Conference on Mobile Software Engineering and Systems},
-    pages = {111–122},
-    numpages = {12},
-    keywords = {Android apps, characterizing crash bugs, mining crash bugs, crash bug analysis},
-    location = {Montreal, Quebec, Canada},
-    series = {MOBILESoft ’19}
 }
 
 @inproceedings{lee2014_user_interaction_based_profiling_system_for_android_app_tuning,
@@ -2691,6 +2752,35 @@ series = {SmartObjects '16}
     keywords = {graph kernels, clustering, commint untangling},
     location = {Virtual Event, USA},
     series = {ESEC/FSE 2020}
+}
+
+@inproceedings{patro2013_capturing_mobile_experience_in_the_wild,
+    author = {Patro, Ashish and Rayanchu, Shravan and Griepentrog, Michael and Ma, Yadi and Banerjee, Suman},
+    title = {Capturing Mobile Experience in the Wild: A Tale of Two Apps},
+    year = {2013},
+    isbn = {9781450321013},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/2535372.2535391},
+    doi = {10.1145/2535372.2535391},
+    abstract = {We present a long term and large scale study of the experience of mobile users through
+    two popular but contrasting applications in the wild. To conduct this study, we implemented
+    a measurement framework and library, called Insight, which has been deployed on these
+    two applications that are available through Apple's App Store and Google's Android
+    Market. One of them, Parallel Kingdom (PK), is a popular massively multiplayer online
+    role-playing game (MMORPG) which has over a million unique users distributed more
+    than 120 countries. The other application, StudyBlue (SB), is an educational application
+    with over 160,000 unique users. Our study spans most of the life of the PK game (more
+    than 3 years) while our deployment with SB has been running for over a year now. We
+    use Insight to collect diverse information about network behavior, application usage
+    and footprints, platform statistics, user actions, and various factors affecting application
+    revenues.},
+    booktitle = {Proceedings of the Ninth ACM Conference on Emerging Networking Experiments and Technologies},
+    pages = {199–210},
+    numpages = {12},
+    keywords = {network performance, application usage, mobile applications, mmorpg},
+    location = {Santa Barbara, California, USA},
+    series = {CoNEXT '13}
 }
 
 @inproceedings{pielot2015attention,
@@ -3249,6 +3339,27 @@ series = {CODASPY ’19}
   }
 }
 
+@misc{bitbar2019_smartbear_acquired_bitbar,
+  title = {SmartBear Acquires Bitbar to Enhance Mobile Testing Automation Offering},
+  url = {https://bitbar.com/blog/smartbear-acquires-bitbar/},
+  author = {Delfin Vassallo},
+  year = {2019},
+  organization = {{Bitbar Technologies}},
+  publisher = {{SmartBear Inc.}},
+  note = {Accessed \nth{16} July 2021},
+}
+
+@misc{bolt2019_how_to_programmatically_capture_screen_on_android,
+  title = {How to programmatically capture screen on Android: a comprehensive guide},
+  url = {https://medium.com/bolt-labs/how-to-programmatically-capture-screen-on-android-a-comprehensive-guide-f500c95e455a},
+  author = {Yaroslav Shevchuk},
+  year = {2019},
+  publisher = {{Medium Inc.}},
+  abstract = {
+    At Bolt, we encourage employees to use the products we’re building, to provide feedback that helps us continuously improve. To make this process as simple and efficient as possible, we’ve added a special button to the version of the Android app used by employees internally. Upon tap, it gathers device logs, captures screen image, prompts for a description and sends everything directly to special channel with support representatives. Building a robust screen capturing mechanisms has its pitfalls, and we want to share results and the knowledge we gained with the community.
+  }
+}
+
 @misc{books_in_print_donald_knuth,
   title = {Books in Print by Donald E. Knuth},
   url = {https://cs.stanford.edu/~knuth/books.html},
@@ -3611,6 +3722,39 @@ author = {HUAWEI Developers},
   year = {2017},
   organization = {Apteligent},
   publisher = {APM digest},
+}
+
+@misc{li2017_mining_device_Specific_app_usage_patterns,
+      title={Mining Device-Specific Apps Usage Patterns from Large-Scale Android Users}, 
+      author={Huoran Li and Xuan Lu},
+      year={2017},
+      eprint={1707.09252},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE}
+}
+
+@misc{lotan2015_apple_apps_and_algorithmic_glitches,
+  title = {Apple, Apps and Algorithmic Glitches - A data analysis of iTunes’ top chart algorithm},
+  url = {https://medium.com/message/apple-apps-and-algorithmic-glitches-f7bc8dd2cda6},
+  author = {Gilad Lotan},
+  year = {2015},
+  publisher = {{Medium Inc.}},
+  extract = {
+    On October 29th and December 18th, 2014, something very strange happened to the iTunes top apps chart. Like an earthquake shaking up the region, all app positions in the chart were massively rearranged, some booted off completely. These two extremely volatile days displayed rank changes that are orders of magnitude higher than the norm — lots of apps moving around, lots of uncertainly.
+    
+    If you build apps for iOS devices, you know that the success of your app is contingent on chart placement. If you use apps on iPhones and iPads, you should realize just how difficult it is for app developers to get you to download their app. Apple deploys an algorithm that identifies the Top Apps across various categories within its iTunes app store. This is effectively a black box. We don’t know exactly how it works, yet many have come to the conclusion that the dominant factor affecting chart placement is the number of downloads within a short period of time.
+  }
+}
+
+@misc{lotan2015_apples_app_charts,
+  title = {Apple’s App Charts: 2015 Data and Trends …or how much harder it is to get into the top charts},
+  url = {https://medium.com/i-data/apple-s-app-charts-2015-data-and-trends-abb95300df57},
+  author = {Gilad Lotan},
+  year = {2015},
+  publisher = {{Medium Inc.}},
+  extract = {
+    I did not observe glitches in this year’s data. The algorithmic system governing the charts appears to have reached some level of stability. On the one hand, a stable system is great — it is predictable, there’s less uncertainty, which makes planning easier. But on the other had, there’s a stronger “rich get richer effect” — once an app makes it to an advantageous position, it’s heightened visibility reinforces it’s continued ranking.
+  }
 }
 
 @misc{mcclintok_mixpanel_update_on_autotrack_data_collection,
@@ -4681,6 +4825,30 @@ https://github.com/Displayr/flipTime/graphs/contributors
   url = {https://www.comparitech.com/blog/information-security/firebase-misconfiguration-report/},
   year = {2020},
   publisher = {{Comparitech}},
+}
+
+@misc{crittercism2015_homepage,
+  title = {Mobile Application Intelligence - Crittercism},
+  url = {https://web.archive.org/web/20150908160428/https://www.crittercism.com/},
+  year = {2015},
+  author = {{Crittercism, Inc.}},
+  claims = {
+    Let Crittercism give you insight to success. We monitor billions of digital customer experiences each day. Deliver great functionality so users stay engaged with your app.
+
+
+    Protect your mobile revenue. Monitor how and when your app stops working so you can resolve problems before they cost you users.
+    Keep your developer’s life simple. With just one line of code, your team can organize and prioritize errors for a stronger plan of attack.
+    Diagnose critical issues, see which devices and operating systems cause trouble, and prioritize bug fixes for the biggest business impact.
+    Crittercism takes less than five minutes to install, runs in the background, and comes with world-class support (just in case).
+    
+    Don’t let small issues become big problems. Using a complete set of tools, get real-time data that shows where and how errors occur so you can resolve issues quickly and keep your app running seamlessly.
+
+    Transaction Monitoring. Monitor critical mobile workflows such as login, checkout, and barcode scan.Track revenue at risk, success rates, and slow transactions that could lead to abandonment.
+    
+    Crash & Error Monitoring. See all mobile app crashes (and gracefully handled exceptions) in real time from the end users perspective so you’re in the know, not the last to know.
+    
+    3rd Party API Monitoring. Poorly performing APIs take a toll on your business revenue. Get latencies, error rates, data bandwidth and the number of API requests so you can troubleshoot.
+  }
 }
 
 @misc{dave2020_reuters_firebase_squeeze,

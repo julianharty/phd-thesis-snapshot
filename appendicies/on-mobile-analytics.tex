@@ -105,32 +105,36 @@ In a video recording on YouTube~\citep{twitterdev2015_a_deep_dive_into_the_answe
 
 
 
-\subsection{Visual (GUI-level) analytics}
+\subsection{Visual (GUI-level) analytics}~\label{section-visual-gui-analytics}
 
 \subsubsection{A potted-history of related work}
 When Android was publicly launched in 2008, a team of Google engineers, including myself, developed various utilities and applications to help make Android more useful and usable for people with visual impairments. The project became known as the \emph{eyes-free} project and the source code was released as the, now archived, \href{https://code.google.com/archive/p/eyes-free/}{\texttt{eyes-free}} opensource project. 
 
-A key aspect of that work was the implementation of code that 'overlaid' the user interface within an app and intercepted touch events Android sent to the app in response to user interactions with the touch screen. The library and apps were presented by various Google engineers at the time, for instance by T.V. Raman and Charles Chen at Google I/O 2009~\footnote{ \href{http://transcriptvids.com/v/xS-ju61vOQw.html}{link to the video with transcription} for ease of searching for the overlay~\texttt{TouchGestureControlOverlay}. The slides are available at~\url{https://docs.huihoo.com/google/io/2009/Th_0115_EyesFreeUserInteraction.pdf} and a version of the library in one of my also archived projects~\href{https://github.com/julianharty/android-daisy-epub-reader/blob/master/src/com/google/marvin/widget/GestureOverlay.java}{\texttt{GestureOverlay} in Android DAISY ePub Reader}.} 
+A key aspect of that work was the implementation of code that 'overlaid' the user interface within an app and intercepted touch events Android sent to the app in response to user interactions with the touch screen. The library and apps were presented by various Google engineers at the time, for instance by T.V. Raman and Charles Chen at Google I/O 2009~\footnote{ \href{http://transcriptvids.com/v/xS-ju61vOQw.html}{link to the video with transcription} for ease of searching for the overlay~\texttt{TouchGestureControlOverlay}. The slides are available at~\url{https://docs.huihoo.com/google/io/2009/Th_0115_EyesFreeUserInteraction.pdf} and a version of the library in one of my archived projects~\href{https://github.com/julianharty/android-daisy-epub-reader/blob/master/src/com/google/marvin/widget/GestureOverlay.java}{\texttt{GestureOverlay} in Android DAISY ePub Reader}.} 
 
-I am not aware of any work that extended our work at the time, however I believe it would be practical to extend that code to include GUI-level analytics by reporting the touch events, together with some basic information about the app version, device model, settings, and screen orientation to be able to use the event data.
+The Gesture Overlay code could emit start and end co-ordinates for touchscreen interactions. What it didn't do was also capture the rendered GUI as presented on the device's screen. To implement heatmapping a visual rendering of the screen would be needed, this topic is discussed in detail in~\citep{bolt2019_how_to_programmatically_capture_screen_on_android} and the author's company provides an opensourced library to do so~\footnote{An older StackOverflow topic also discusses ways to record the screen and take screenshots \href{https://stackoverflow.com/questions/32513379/how-to-record-screen-and-take-screenshots-using-android-api}{How to record screen and take screenshots, using Android API?}}. 
+
+I am not aware of any work that extended our work at the time, however I believe it would be practical to extend that code to include GUI-level analytics by reporting the touch events, together with some basic information about the app version, device model, settings, the rendered screen, and the screen orientation to be able to use the event data.
 
 Eventually the Android operating system included Accessibility APIs and incorporated Text-To-Speech (TTS) support directly, for instance the popular~\href{https://support.google.com/accessibility/android/answer/6283677?hl=en}{TalkBack Screen Reader}. In tandem several commercial companies released TTS 'engines', which meant the apps and utilities the team had developed became less necessary. In summary our work started with providing a custom overlay that developers incorporated into their app, and became less relevant once the platform had sufficient support for Accessibility.
 
 %SHOULD_DO discuss heatmapping tools for non-mobile platforms e.g. web, and perhaps even desktop. Also cite relevant research. 
 
 \subsubsection{Heatmapping for mobile apps}
-%MUST_DO Include examples from AppSee that were in the mobile analytics playbook.
+%MUST_DO Include examples from Appsee that were in the mobile analytics playbook.
 
 \textbf{Fieldstones for heatmapping} 
 \begin{itemize}
     \item Integration of heatmapping into Android apps: UserExperior~\url{https://userexperior.com/developer-docs/native-android}; UXCam~\url{https://help.uxcam.com/hc/en-us/articles/115000966252-Android-Integration}.
-    \item Article on the genesis of UXMap and the demise of AppSee~\citep{uxcam_hackermoon_2020_heatmapping}.
+    \item Article on the genesis of UXMap and the demise of Appsee~\citep{uxcam_hackermoon_2020_heatmapping}.
     \item \textbf{Issue Analytics} 
     \item \href{https://uxcam.com/}{UXCam} \url{https://uxcam.com/blog/the-complete-sdk-map-2020/}. The same organisation provides rich features in their SDK such as Hiding sensitive data: \url{https://help.uxcam.com/hc/en-us/articles/360041516012-Hide-Sensitive-Data}. See also~\url{https://uxcam.com/blog/top-heatmap-analysis-tools/}
     \item UXCam provide some interesting analysis of various apps e.g. \url{https://uxcam.com/blog/new-york-times-offline-strategy/}
     \item Apteligent \href{https://www.apmdigest.com/the-crash-and-burn-report-findings}{The "Crash and Burn" Report Findings} (Images found via this article with similar content probably based on the primary source \href{https://www.androidheadlines.com/2016/12/apteligent-puts-number-crash-churn-relationship.html}{Apteligent Puts Number On The Crash-Churn Relationship} from 2016.)
     \item Heatmaps are one of the best tools for observing user behaviour \citep{inapptics2017_mobile_heatmap_visualise_user_behaviour}.
     \item \href{https://www.smartlook.com/mobile-analytics/}{Another startup providing heatmapping together with event tracking}. They offer an \href{https://smartlook.github.io/docs/sdk/android?platform=android}{Android SDK}, and \href{https://smartlook.github.io/docs/sdk/conceptual/event-tracking?platform=android}{Event Tracking}. IT looks polished in terms of the depth and richness of the documentation.
+    \item Archived hotjar.com article on 8 tests using heatmaps \url{https://web.archive.org/web/20150910114624/https://www.hotjar.com/heatmaps}
+
 \end{itemize}
 
 % SHOULD_DO combine these figures as sub-figures. Trim whitespace on Azetone image.
@@ -156,9 +160,31 @@ Learn more about Appsee's work: ~\url{https://www.youtube.com/watch?v=aRN_XrxNCN
 
 ~\url{https://www.youtube.com/watch?v=GQ2DoINkba4}
 
-AppSee's acquisition and a possible alternative \url{https://uxcam.com/blog/solution-appsee-acquisition/} \url{https://uxcam.com/appsee} maps the features between the old AppSee offering and the one from UXCam. This article mentioned integrating heatmaps to understand what led to crashes in an app, however it doesn't provide any details on that page, more information and some mocked-up screenshots are available \url{https://uxcam.com/blog/fix-bugs-in-your-app-with-issue-analytics/}. They appear to be running late in terms of functionality mentioned in this article. 
+Appsee's acquisition and a possible alternative \url{https://uxcam.com/blog/solution-appsee-acquisition/} \url{https://uxcam.com/appsee} maps the features between the old Appsee offering and the one from UXCam. This article mentioned integrating heatmaps to understand what led to crashes in an app, however it doesn't provide any details on that page, more information and some mocked-up screenshots are available \url{https://uxcam.com/blog/fix-bugs-in-your-app-with-issue-analytics/}. They appear to be running late in terms of functionality mentioned in this article. 
 
-~\subsubsection{Extending GUI to Multimodal UI analytics}
+
+
+\subsubsection{Flight Recorder}
+Screen Recording: 
+Watch, understand and improve
+\begin{itemize}
+    \item \textbf{REC} We record screen captures of sessions that show you each and every action your users take drilldown by events and watch the videos that matter.
+    \item \textbf{Touches \& Swipes} Recorded and summarized as heat maps. See the most touched areas screen by screen.
+    \item \textbf{User Based Sessions} A user centric vision \& action capability to the sessions. You just need to call FlightRecorder SDK's User ID method, that's all.
+\end{itemize}
+Source: \url{https://web.archive.org/web/20150717030554/http://www.flightrecorder.io/feature/screen-recording}
+
+About Unlimited Crash Reports: 
+Every plan has session limits, if you exceed your limits, FlightRecorder runs locally ( by default this option is enabled, you can disable it remotely also ), if a crash occurs, SDK sends all the data for that session. It deletes the recordings and other tracked datas for non-crashed sessions from local.~\url{https://web.archive.org/web/20150717030349/http://www.flightrecorder.io/feature/crash-reporting}
+
+Combined API/HTTP Logs and Exceptions with recordings of app activities. \url{https://web.archive.org/web/20150901043518/https://www.flightrecorder.io/feature/http-requests-and-response-logging}. Touch Heatmaps
+Visualize the clicks and swipes of your users and uncover usage patterns. Recorded and summarized as heat maps. See the most touched areas screen by screen.~\url{https://web.archive.org/web/20150823000332/http://flightrecorder.io/feature/touch-heat-maps}
+
+\href{https://web.archive.org/web/20151104224311/http://help.flightrecorder.co/quick-start/}{Flight Recorder: Quick Start Guides for iOS and Android}.
+
+
+
+\subsubsection{Extending GUI to Multimodal UI analytics}
 
 \begin{figure}[htbp!]
     \begin{minipage}{\textwidth}
@@ -223,6 +249,26 @@ Apple ask clear direct questions of users and provide clear explanations (at lea
     \item \textbf{iPhone Analytics}: \emph{``Help Apple improve its products and services by allowing analytics of usage data from your iPhone. You can change your decision later in Settings. All data is collected using prvacy preserving techniques such as differential privacy and is not associated with you or your account."} The setting can be controlled via \texttt{Settings > Privacy > Analytics \& Improvements} and looking under \texttt{Analytics Data}.
     \item \textbf{App Analytics}: \emph{``Help app developers improve their apps by choosing to share app activity and crash data with them through Apple. You can change your decision later in Settings."} The setting can be controlled via: \texttt{Settings > Privacy > Analytics \& Improvements Share With App Developers}.
 \end{itemize}
+
+
+\subsection{Analytics of libraries for mobile apps}
+\url{https://www.slideshare.net/SafeDK/how-to-work-compliantly-with-3rd-parties}
+
+SafeDK published a short video on YouTube that explains how libraries are not your code yet you are responsible as an app developer for the libraries you include. Their SDK at the time (2015) enabled developers to have fine-grained near real-time control over aspects of the libraries embedded in their app and also provided analytics on those libraries.
+
+More info: 
+http://blog.safedk.com/technology/what-you-should-know-about-your-sdks-and-your-app-start-time/
+http://blog.safedk.com/sdk-economy/5-steps-in-choosing-the-right-3rd-party-tools-sdks-for-your-mobile-app/
+and http://blog.safedk.com/sdk-economy/do-you-know-what-your-sdks-did-last-summer/
+
+\emph{``3rd Party API Monitoring: Poorly performing APIs take a toll on your business revenue. Get latencies, error rates, data bandwidth and the number of API requests so you can troubleshoot."}~\citep{crittercism2015_homepage}.
+
+More recent developments in this field:
+\begin{itemize}
+    \item \url{https://www.moesif.com/blog/monitoring/third-party/How-To-Monitor-Third-Partry-API-Integrations/}
+    \item \href{https://www.dynatrace.com/news/blog/how-to-detect-impacting-3rd-party-api-calls-with-dynatrace-real-user-monitoring/}{How to detect impacting 3rd Party API calls with Dynatrace Real User Monitoring (RUM)} provides clear and attractive examples. 
+\end{itemize}
+
 
 OSX: Data \& Privacy
 
@@ -318,3 +364,6 @@ Some quirks in the system at rest and never been used: as the following extract,
 \end{figure}
 
 Comment from their CEO \emph{``FYI, by default our SDKs are reporting back to the servers with a delay which can be up to 15 hours (to minimize bandwidth and resource consumption)."}. However, during my limited evaluation no heatmaps appeared in their dashboard for our project.
+
+\section{TBD topics}
+Gartner have published numerous commercial articles related to mobile analytics and have lots of useful material, however it's not clear to what extent it can be cited or referenced. COULD-DO ask them for permission (and for material they'd be willing to share). \nth{15} July 2021, I've asked an OU librarian a) if we have access to Gartner Reports via the OU library service and b) for insights on being able to reference their work. 

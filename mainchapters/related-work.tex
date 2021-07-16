@@ -368,6 +368,8 @@ Buse and Zimmerman wrote a short paper in 2010 which helped establish the field 
 \end{figure}
 \begin{itemize}
 
+    \item \emph{``Capturing Mobile Experience in the Wild: A Tale of Two Apps"}~\citep{patro2013_capturing_mobile_experience_in_the_wild}. Also mention the respective GitHub projects \url{https://github.com/patroashish/InsightClient} and \url{https://github.com/patroashish/InsightServers}.
+
     \item Davenport \textit{et al.} Competing on Analytics (\cite{davenport2017competing_on_analytics}) figure 1. Note: Google with version 4 of Google Analytics, launched in October 2020, are offering some machine learning based analytics to their customers, for instance to help marketeers... TBC. MUST-DO continue this topic and provide references to sources.
     
     \item Davenport \textit{et al.} Competing on Analytics (\cite{davenport2006competing_on_analytics}) that proposes several related functions: understanding customers and their contexts (including equipment and settings), product and service quality \emph{``detect quality problems early and minimise them"}, and to \emph{``improve quality, efficacy, and, where applicable, safety of products and services"}.
@@ -377,7 +379,7 @@ Buse and Zimmerman wrote a short paper in 2010 which helped establish the field 
     \item \emph{``Software Analytics, so what?"}~\citep{menzies2013_software_analytics_so_what} to set the context.
     
     
-    \item Buse and Zimmermann...~\cite{buse_analytics_2010} 
+    \item Buse and Zimmermann...~\cite{buse_analytics_2010} e.g. \emph{“We distinguish between questions of information which can be directly measured, from questions of insight which arise from a careful analytic analysis and provide managers with a basis for action.”}
     
     \item \emph{``Information needs for software development analytics"}~\citep{buse2012_information_needs_for_software_development_analytics}. They asked 110 Microsofties, a mix of development leads and managers about their use of software development analytics. MUST-DO discuss how my work and their guidelines for software development analytics align. What does my work add to their work? What does it provide that they identified back in 2012? Their focus seems to be more on the code than the product of the code (apps and the services (and the qualities of those services) those apps provide to end users). What information do mobile app developers need in terms of improving the reliability of their apps? How can the developers make good decisions in this area?
     \begin{itemize}
@@ -618,6 +620,8 @@ Also in 2010, early papers were published on various effects of app stores on ac
     
     Perhaps the cost of failures in the app store was/is perceived to be low in the Google Play app store, at least for these 15 opensource apps? Later work investigated aspects such as the release frequency~\citep{nayebi2016release}
     
+    \item Both Medium articles by Gilad Lotan in 2015 on Apple's App Store rankings provide intersting colour to the discussion of the rankings over time~\citep{lotan2015_apple_apps_and_algorithmic_glitches, lotan2015_apples_app_charts}; however they're not directly relevant to software development practices so might not be that relevant.
+    
 \end{itemize}
 
 
@@ -659,6 +663,9 @@ In the work of~\citep{khalid2015_what_do_mobile_app_users_complain_about} the au
 % via Oliveria...
 % Bhattacharya et al. (2013) performed an in-depth empirical study on bugs in 24 widely-used open-source Android apps from diverse categories such as communication, tools, and media. They sought to understand the nature of bugs and bug-fixing processes associated with smartphone platforms and apps. They defined several metrics to analyze the bug fixing process. They showed how differences in bug life-cycles can affect the bug fixing process and performed a study of Android security bugs. 
 
+\emph{``Characterizing Android-Specific Crash Bugs"}~\citep{jha2019_characterizing_android_specific_crash_bugs} TBC.
+
+
 Data loss bugs: When apps lose data they also lose the trust of users. One cause of data loss in Android apps has been investigated recently (2019) in ~\cite{riganelli2019benchmark_android_data_loss_bugs} where the authors found 19.2\% of the Android apps they evaluated lost data. The data losses were of one particular type - where the app failed to save and/or restore data when the app was stopped and restarted. There are other causes of data loss for mobile apps including database, network and storage errors, for example. They claim some of these bugs may surface as crashes in the app at a later stage, after the data was lost and the app resumed, however their examples did not seem to result in crashes. \yijun{Data loss is definitely a sign of lack of integrity. Sometimes it is required to lose some user data for privacy protection. Maybe you can refine the definitely more precisely to refer to "retaining the data that users care".} \yijun{I think one of the gaps is that the data loss bug that does not lead to crashes are actually bugs too. This is kind of important to justify your work will be different from other app testing literature that focus on detecting crash related bugs.}
 
 To the authors' credit they provide extensive material including automated tests for the vast majority of the bugs~\footnote{\url{https://gitlab.com/learnERC/DataLossRepository}}. They were able to create automated tests that reproduced 110 of the 116 errors and were able to automatically detect 98 out of the 110 errors they were able to reproduce.
@@ -672,6 +679,8 @@ One of the considerations this work helps to illustrate is the many challenges o
 
 \subsection{Papers to consider}
 \begin{itemize}
+    \item \emph{``To the attention of mobile software developers: guess what, test your app!"}~\citep{cruz2019_guess_what_test_your_app}.
+    
     \item \emph{``PRADA: Prioritizing Android Devices for Apps by Mining Large-Scale Usage Data"}~\citep{lu2016_PRADA}. 
         
     \item \emph{``Automatically Discovering, Reporting and Reproducing Android Application Crashes"}~\citep{moran2016_automatically_drr_android_app_crashes}.
@@ -681,6 +690,8 @@ One of the considerations this work helps to illustrate is the many challenges o
     \item \emph{``Mining Android Crash Fixes in the Absence of Issue- and Change-Tracking Systems"}~\citep{kong2019_mining_android_crash_fixes}.
     
     \item \emph{``How do Developers Test Android Applications?"}~\citep{linares2017_how_do_developers_test_android_apps}. Quote:~\emph{``“I mostly do manual testing due to the limited size of my apps. I sometimes use a custom replay system (built into the app) to duplicate bugs after I come across them. This method is usually combined with manual testing (printing debug information to the log) to pinpoint the cause”."}
+    
+    \item \emph{``Prioritizing the Devices to Test Your App on: A Case Study of Android Game Apps"}~\citep{khalid2014_prioritizing_the_devices_to_test_your_app_on_casestudy_android_games}.
     
     \item \emph{``First Steps in Retrofitting a Versatile Software Testing Infrastructure to Android"}~\citep{oliver2018_first_steps_in_retrofitting_a_versatile_sw_testing_architecture}.
     
@@ -739,6 +750,7 @@ Their work demonstrates that usage data for several app categories was useful to
     \item \emph{``"}~\citep{parate2016_RECKON_an_analytics_framework_for_app_developers_HP_AppPulseMobile} describes how automatic instrumentation of mobile apps using mobile analytics tools including HP's App Pulse Mobile is able to help developers better understand their users. 
     \item \emph{```Bad Smells" in software analytics papers'}~\citep{menzies2019_badsmells_in_software_analytics}.
     \item \emph{Software analytics for mobile applications--insights \& lessons learned}~\citep{minelli2013_software_analytics_samoa}. Their online site is still up \url{http://samoa.inf.usi.ch/}
+    \item \emph{``Mining Device-Specific Apps Usage Patterns from Large-Scale Android Users"}~\citep{li2017_mining_device_Specific_app_usage_patterns}
 \end{itemize}
 
 Direct vs indirect analytics - 

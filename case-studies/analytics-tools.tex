@@ -16,6 +16,8 @@ This chapter complements the `On Mobile Analytics` chapter. That chapter covers 
     \item Google Play Console (2018-2020 and 2020-2021 editions)
 \end{itemize}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%% AppPulseMobile %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{AppPulse Mobile}
 
 Open API \href{https://github.com/MicroFocus/apmobile-openapiclient/blob/master/doc/AppPulse_Mobile_Open_API_Guide.pdf}{Open API Guide} and a  \href{https://github.com/MicroFocus/apmobile-openapiclient}{sample client for AppPulse Mobile's Open API}
@@ -69,9 +71,24 @@ Having offline collection can help capture usage data and usage patterns that oc
 Various competitors include support for offline data collection. My expectation is that as more people use AppPulse Mobile some will discover the lack of offline data collection and cause them to adversely consider the product as a result.
 \end{comment}
 
-\section{Heatmapping: Azetone and Appsee}
 
-hotjar.com article on 8 tests using heatmaps.
+%%%%%%%%%%%%%%%%%%%%%%%% HEAT-MAPPING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Heatmapping: Azetone and Appsee}~\label{section-heatmapping}
+Two heatmapping offerings were evaluated in 2015~\footnote{The date is particularly relevant as the industry has moved on significantly and one of these companies acquired in the interim.} partly in preparation for The Mobile Analytics Playbook~\citep{harty_aymer_playbook_2016} and partly to learn more about their capabilities in terms of providing mobile analytics. The two offerings were Azetone, provided by a French company, and Appsee, an Israeli company. %Confirmation https://techcrunch.com/2013/10/21/appsee/ 
+
+The main focus of this case study was to determine characteristics of commercial heatmapping offerings for Android apps as a proof-of-concept for any further research. The evaluations were with the support and permission of the two companies who provided the offerings, they also provided additional materials about their products. 
+
+There are various prerequisites to using the products:
+\begin{enumerate}
+    \item Obtain an account and the respective SDK key. Some providers offer either time-limited or a free tier that generally includes a subset of their overall service offering. 
+    \item Integrate the relevant SDK and add the necessary call to the SDK passing in the SDK key as a parameter.
+    \item Deploying the app with the integrated SDK and the app being used to generate the raw data that is then processed as part of the service.
+    \item Observing the analytics provided online.
+\end{enumerate}
+
+If the analytics are to be calibrated then the usage needs to be known so the analytics and reports can be compared to the actual source activities.
+
+
 
 \subsection{Azetone (in 2015)}
 \begin{itemize}
@@ -79,7 +96,19 @@ hotjar.com article on 8 tests using heatmaps.
     \item  \texttt{IntentReceiver com.immersion.android.haptics.HapticFeedbackManager\$HapticFeedbackBroadcastReceiver@41d4fe50} integrated into their Android SDK
     \item Record in admin mode ``make sure you use connect to your App in Admin mode to gather the different screens you want Heatmaps on…"
     \item Configuration options: optional call to increase the level of logging, explicit call to set the dispatch period to 240 seconds,
-    \item Flaws in the reports: A system that's never been used should indicate it's never been used and is 'at-rest', whereas I've currently used (got) 20 users and even improvements on last month. application's name still appears as abcdef in the dashboard
+    \item Flaws in the reports: A system that's never been used should indicate it's never been used and is 'at-rest', whereas I've currently used (got) 20 users and even improvements on last month. application's name still appears as abcdef in the dashboard.
+    \item  I decided to apply for a free trial of Azetone, however I discovered they a) don't make the Android SDK available, they only email (automatically) the iOS one, and b) they prohibit using with opensource softwware - so I've emailed their generic 'welcome' email address asking for permission to use their SDK with opensource apps, as I want to try it with Kiwix, etc.
+    \item I've been trying to use Azetone's heatmap software / service. So far I've found numerous problems trying to get started, including various login problems, broken links, problems creating an app, naming an app, etc. I've yet to actually try integrarting their SDK, however I hope I'll now be able to finally do so.
+    \item (mid Aug 2015) A quick update: I've made some progress with Azetone and first David (the CTO) then Philippe (who you know) introduced themselves after I'd sent them various feedback on the challenges I was facing and my observations of their platform. Philippe kindly explained they'd recently launched the self-service model (before the handheld their customers through the process). He also offered an extension until the end of November in return for my feedback and help. All good stuff. I decided to explain our relationship and that I know of his work, it seemed a good time to do so now I've got this far in the process. I've yet to see any results from using their heatmap SDK (I'm trying it with Kiwix again, as I did for AppPulse Mobile). I'll keep going until I/we either get it to work or they tell me it's broken.
+    \item (27 Aug 2015) When I tried to create an application called kiwix-android I don't get an error message when I press 'create' or any other indication that anything's happened apart from the name I used diappears. When I then try to navigate elsewhere in the UI I'm taken to a login page. That login page doesn't accept my login with the correct password (one your site assigned after I used the 'forgot my password' service. However when I used the back button in my browser I was able to return to the dashboard UI. I eventually tried a simple, stupid application name of abcdef (IIRC) which was accepted and then displayed a fancy dashboard. Please can you improve your web site so:
+    \begin{itemize}
+        \item a) it allows more complex application names (I wanted to create kiwix-android and kiwix-ios, for instance)
+        \item b) it tells the user if the name is not acceptable
+        \item c) it does not force me to login again for no sane reason
+        \item d) if it does, please at least let me login properly rather than having to use by browser's back button :)
+    \end{itemize}
+    \item (\nth{27} Aug 2015) Hmmm, do you have real users using this web site? I ask what seems like an insane question as I managed to get redirected to \texttt{'localhost'} i.e. a link intended to go to your internal computer, rather than your production web site. Here's the URL I was taken to: \url{http://localhost/azt\_dashboard/html/dashboard/res\_initialize.php} when I clicked the Resources link (see below for the raw text)  \url{https://dashboard.azetone.com/application.php} (the URL which contains the broken link)
+
 \end{itemize}
 Sources include email correspondence and my notes at the time.
 
@@ -94,47 +123,49 @@ Sources include email correspondence and my notes at the time.
 
 
 
-\subsection{AppSee (in 2015)}
+\subsection{Appsee (in 2015)}
 Individual recordings, aggregate heatmaps: Slide 4: ``Visualize both single user data (user replay) and aggregated user behaviour (touch heatmaps)" This point is insightful, and explains how both individual information and aggregate information are relevant and useful.
 
 Slide 5: I like the comparison between "Gives the Why" and "Gives the What". However I think the quote favours themselves (as one might expect) and underplays how other mobile analytics can help. Also, from a privacy perspective, there's a general dislike and disquiet about such intrusive monitoring (visual monitoring, recording interactions, etc.) I sent you the spreadsheet with the results from my questionnaire on 17th, so app developers need to carefully consider whether visual analytics is worth the extra bandwidth usage and intrusion into users' privacy. 
 
+\begin{figure}
+    \centering
+      \begin{minipage}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{images/my/kiwix-appsee-slide.png}
+        \caption{Slide gesture recorded by Appsee}
+      \end{minipage}
+      \hfill
+      \begin{minipage}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{images/my/kiwix-appsee-zoom-dezoom.png}
+        \caption{Zoom and Dezooms recorded by Appsee}
+      \end{minipage}
+    \caption*{Examples of Heatmapping using Appsee integrated into Kiwix Android}
+    \label{fig:heatmapping-examples-kiwix-appsee}
+\end{figure}
+% Thanks to https://tex.stackexchange.com/questions/148438/putting-two-images-beside-each-other
 
+Appsee far more polished than Azetone. For example, good first impressions of their terms of service and privacy agreements. It offered additional integration e.g. custom event messages, \href{https://web.archive.org/web/20150416132023/https://www.appsee.com/features/remote-configuration}{remote configuration}, \href{https://web.archive.org/web/20150317060748/https://www.appsee.com/features/crash-recordings}{recording of crashes and events that preceded the crashes}.
 
-AppSee far more polished than Azetone.
-\href{https://youtu.be/GQ2DoINkba4?t=554}{Appsee-Optimizely Webinar: How to Perform the Ultimate A B Test with UX Analytics}
+\begin{comment}
+(From 2015)
+
+While simple app analytics are great in providing numbers, they don’t reveal the full story. Appsee helps in understanding the reasons behind the numbers, while focusing on user behaviour. Appsee provides single session tracking, in addition to simple yet powerful reports based on aggregated data, and it's true power is the combination of the two. For example: you can see that 30\% of users quit the app from a certain screen, and then drill down to the single sessions to understand why.
+
+In addition, Appsee provides visual analytics (such as heatmaps) - and automatically tracks all events in the app - so you don't have to think what to track, and makes sure that no interesting data is missed.~\href{https://web.archive.org/web/20150317073340/https://www.appsee.com/features/appsee-vs-analytics}{Appsee vs. Simple App Analytics}
+\end{comment}
+
+\href{https://youtu.be/GQ2DoINkba4?t=554}{Appsee-Optimizely Webinar: How to Perform the Ultimate A B Test with UX Analytics} %I've a copy of the slides sent by the then CEO Zahi
+
+See also \url{https://www.youtube.com/watch?v=aRN\_XrxNCNE} %https://www.youtube.com/watch?v=aRN_XrxNCNE&spfreload=10
+
 
 \url{https://medium.com/@Appseecom}
 
-\url{https://www.slideshare.net/SafeDK/how-to-work-compliantly-with-3rd-parties}
-
-SafeDK published a short video on YouTube that explains how libraries are not your code yet you are responsible as an app developer for the libraries you include. Their SDK at the time (2015) enabled developers to have fine-grained near real-time control over aspects of the libraries embedded in their app and also provided analytics on those libraries.
-
-More info: 
-http://blog.safedk.com/technology/what-you-should-know-about-your-sdks-and-your-app-start-time/
-http://blog.safedk.com/sdk-economy/5-steps-in-choosing-the-right-3rd-party-tools-sdks-for-your-mobile-app/
-and http://blog.safedk.com/sdk-economy/do-you-know-what-your-sdks-did-last-summer/
 
 
+More information is available in \href{section-visual-gui-analytics}{section-visual-gui-analytics} on some early work pertaining to mobile app heatmaps. It also includes some recent updates on commercial heatmapping analytics.
 
-\section{Flight Recorder}
-Screen Recording: 
-Watch, understand and improve
-\begin{itemize}
-    \item \textbf{REC} We record screen captures of sessions that show you each and every action your users take drilldown by events and watch the videos that matter.
-    \item \textbf{Touches \& Swipes} Recorded and summarized as heat maps. See the most touched areas screen by screen.
-    \item \textbf{User Based Sessions} A user centric vision \& action capability to the sessions. You just need to call FlightRecorder SDK's User ID method, that's all.
-\end{itemize}
-Source: \url{https://web.archive.org/web/20150717030554/http://www.flightrecorder.io/feature/screen-recording}
-
-About Unlimited Crash Reports: 
-Every plan has session limits, if you exceed your limits, FlightRecorder runs locally ( by default this option is enabled, you can disable it remotely also ), if a crash occurs, SDK sends all the data for that session. It deletes the recordings and other tracked datas for non-crashed sessions from local.~\url{https://web.archive.org/web/20150717030349/http://www.flightrecorder.io/feature/crash-reporting}
-
-Combined API/HTTP Logs and Exceptions with recordings of app activities. \url{https://web.archive.org/web/20150901043518/https://www.flightrecorder.io/feature/http-requests-and-response-logging}. Touch Heatmaps
-Visualize the clicks and swipes of your users and uncover usage patterns. Recorded and summarized as heat maps. See the most touched areas screen by screen.~\url{https://web.archive.org/web/20150823000332/http://flightrecorder.io/feature/touch-heat-maps}
-
-\href{https://web.archive.org/web/20151104224311/http://help.flightrecorder.co/quick-start/}{Flight Recorder: Quick Start Guides for iOS and Android}.
-
+%%%%%%%%%%%%%%%%%%%%%%%% Google Play Console w/Android Vitals %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Google Play Console incorporating Android Vitals}\label{google_play_console_section}
 
 \subsection{Key Components of Google Play Console}
@@ -188,6 +219,22 @@ Figure~\ref{fig:gpc-release-dashboard-pocketcode-v0.9.75} provides an example of
 \subsection{Test channels}\label{subsection-test-channels}
 MUST-DO complete this section.
 
+\subsubsection{GPC Pre-launch Reports issues}
+(December 2020)
+
+\begin{itemize}
+    \item \url{https://github.com/firebase/firebase-android-sdk/issues/2161}
+    \item \url{https://stackoverflow.com/questions/64706041/fatal-exception-firebase-messaging-intent-handle-java-lang-noclassdeffounder}
+    \item \url{https://issuetracker.google.com/issues/160907013}
+    \item \url{https://forum.unity.com/threads/error-during-google-app-submission-java-lang-noclassdeffounderror-aewt.1005593/}    
+\end{itemize}
+
+
+
+
+
+
+
 \subsection{Android Vitals}
 \subsubsection{Android Vitals UI}
 
@@ -218,6 +265,7 @@ The reports are only made available for accounts which have 'global' read-only a
 Google transitioned all users of Google Play Console from the previous version to a revamped version between June and 2nd November 2020. Developers were able to continue using the older version during the transition period by choosing the `classic' Play Console, this caused a URL parameter to be added~\texttt{\&noredirect} as demonstrated here
 \url{https://play.google.com/apps/publish/?account=nnnnnnnnnnnnnn\&noredirect#AppListPlace} (the account number has been replaced to protect that account).
 
+%%%%%%%%%%%%%%%%%%%%%%%% Fabric Crashlytics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fabric Crashlytics}
 
 \begin{itemize}
@@ -231,6 +279,8 @@ Google transitioned all users of Google Play Console from the previous version t
 
 Google retired the Fabric products, including Fabric Crashlytics on \nth{4} May 2020. They provided a range of similar product offerings in Firebase. For Fabric Crashlytics they continue to support the Fabric Client API (presumably so developers did not need to modify their apps to continue collecting crash data) however the reports differ in the Firebase Console, and developers had to explicitly migrate their apps from Fabric to Firebase. The Catrobat development team experienced insurmountable issues trying to migrate all bar one of their Android apps that used Fabric Crashlytics. Seemingly a common flaw also prevents the project team from adding Crashlytics to new apps in their Firebase Account. The workaround the team used was to create a second unrelated account in Firebase and to use that account to configure Crashlytics for apps. %SHOULD-DO discuss the final migration process with Wolfgang and the Android and iOS development teams.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%% Firebase %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Firebase}
 Firebase has come a long way from modest beginnings in 2011~\url{https://techcrunch.com/2012/04/19/firebase-post-launch/} and a change in focus~\url{https://techcrunch.com/2012/05/22/firebase-funding/} through acquisition by Google and further acquisitions~\url{https://www.crunchbase.com/organization/firebase}. Firebase analytics, incorporating Crashlytics, is now by far the most popular analytics library included in Android apps in Google Play. 
 
@@ -238,8 +288,10 @@ Firebase has come a long way from modest beginnings in 2011~\url{https://techcru
 
 \subsection{Firebase Analytics}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%% Microsoft AppCenter %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Microsoft AppCenter}
-App Center combines various tools and utilities and includes in-app mobile analytics and crash reporting. According to AppBrain is is installed in over 10 thousand apps and those apps have been downloaded over 23 billion times by \nth{25} November 2020.
+App Center combines various tools and utilities and includes in-app mobile analytics and crash reporting. According to AppBrain is is installed in over 10 thousand apps and those apps have been downloaded over 3 billion times by \nth{25} November 2020 and in over 13 thousand apps and 30 billion downloads by \nth{16} July 2021. It is in \nth{8} place in the Analytics library category for Android apps.. It's also in 6.24\% of top apps, partly as it's included in top Microsoft apps (Microsoft OneDrive, Ecel and Word 1 billion+ per app, LinkedIn 500 million, Mirosoft Office 100 million, and Skype Beta 5 million). It's installed in 1.76\% of new apps and 0.24\% of new app installs~\footnote{App data sourced from~\url{https://www.appbrain.com/stats/libraries/details/appcenter/visual-studio-app-center}}.  
 
 \begin{table}[htbp!]
     \centering
