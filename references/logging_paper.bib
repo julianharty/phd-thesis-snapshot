@@ -1,0 +1,631 @@
+ @article{Oliveira_Borges_Silva_Cacho_Castor_2018_android_error_handling, 
+   title={Do android developers neglect error handling? a maintenance-Centric study on the relationship between android abstractions and uncaught exceptions},
+   volume={136},
+   ISSN={0164-1212},
+   DOI={https://doi.org/10.1016/j.jss.2017.10.032},
+   abstractNote={All the mainstream programming languages in widespread use for mobile app development provide error handling mechanisms to support the implementation of robust apps. Android apps, in particular, are usually written in the Java programming language. Java includes an exception handling mechanism that allows programs to signal the occurrence of errors by throwing exceptions and to handle these exceptions by catching them. All the Android-specific abstractions, such as activities and asynctasks, can throw exceptions when errors occur. When an app catches the exceptions that it or the libraries upon which it depends throw, it can resume its activity or, at least, fail in a graceful way. On the other hand, uncaught exceptions can lead an app to crash, particularly if they occur within the main thread. Previous work has shown that, in real Android apps available at the Play Store, uncaught exceptions thrown by Android-specific abstractions often cause these apps to fail. This paper presents an empirical study on the relationship between the usage of Android abstractions and uncaught exceptions. Our approach is quantitative and maintenance-centric. We analyzed changes to both normal and exception handling code in 112 versions extracted from 16 software projects covering a number of domains, amounting to more than 3 million LOC. Change impact analysis and exception flow analysis were performed on those versions of the projects. The main finding of this study is that, during the evolution of the analyzed apps, an increase in the use of Android abstractions exhibits a positive and statistically significant correlation with the number of uncaught exception flows. Since uncaught exceptions cause apps to crash, this result suggests that these apps are becoming potentially less robust as a consequence of exception handling misuse. Analysis of multiple versions of these apps revealed that Android developers usually employ abstractions that may throw exceptions without adding the appropriate handlers for these exceptions. This study highlights the need for better testing and verification tools with a focus on exception handling code and for a change of culture in Android development or, at least, in the design of its APIs.},
+   journal={Journal of Systems and Software},
+   author={Oliveira, Juliana and Borges, Deise and Silva, Thaisa and Cacho, Nelio and Castor, Fernando},
+   year={2018},
+   pages={1–18}
+}
+
+@book{chuvakin2012_logging_and_log_management,
+  title={Logging and log management: the authoritative guide to understanding the concepts surrounding logging and log management},
+  author={Chuvakin, Anton and Schmidt, Kevin and Phillips, Chris},
+  year={2012},
+  publisher={Elsevier},
+  doi={10.1016/C2010-0-65241-2},
+  isbn = {978-1-59749-635-3},
+  pages = {460},
+  abstract = {Logging and Log Management: The Authoritative Guide to Understanding the Concepts Surrounding Logging and Log Management introduces information technology professionals to the basic concepts of logging and log management. It provides tools and techniques to analyze log data and detect malicious activity. The book consists of 22 chapters that cover the basics of log data; log data sources; log storage technologies; a case study on how syslog-ng is deployed in a real environment for log collection; covert logging; planning and preparing for the analysis log data; simple analysis techniques; and tools and techniques for reviewing logs for potential problems. The book also discusses statistical analysis; log data mining; visualizing log data; logging laws and logging mistakes; open source and commercial toolsets for log data collection and analysis; log management procedures; and attacks against logging systems. In addition, the book addresses logging for programmers; logging and compliance with regulations and policies; planning for log analysis system deployment; cloud logging; and the future of log standards, logging, and log analysis. This book was written for anyone interested in learning more about logging and log management. These include systems administrators, junior security engineers, application developers, and managers.},
+}
+
+@book{harty2015mobile,
+  title={The Mobile Analytics Playbook: A Practical Guide to Better Testing},
+  author={Harty, J and Aymer, A},
+  publisher={Hewlett Packard Enterprise},
+  year={2015},
+  isbn = {978-0-9970694-0-2},
+  pages = {146},
+}
+
+@inproceedings{wieman2017experience,
+  title={An experience report on applying passive learning in a large-scale payment company},
+  author={Wieman, Rick and Aniche, Maur{\'\i}cio Finavaro and Lobbezoo, Willem and Verwer, Sicco and van Deursen, Arie},
+  booktitle={2017 IEEE International Conference on Software Maintenance and Evolution (ICSME)},
+  pages={564--573},
+  year={2017},
+  organization={IEEE}
+}
+
+@misc{logmatic_logging_2016,
+	title = {Logging best {Practices} - {Beyond} {Application} {Monitoring}},
+	url = {https://logmatic.io/blog/beyond-application-monitoring-discover-logging-best-practices/},
+	urldate = {2017-12-19},
+	author = {Logmatic},
+	month = mar,
+	year = {2016},
+	file = {Logging best Practices -:/Users/julianharty/Zotero/storage/C4TQQCVN/beyond-application-monitoring-discover-logging-best-practices.html:text/html}
+}
+
+
+@inproceedings{zhu_learning_2015,
+	title = {Learning to Log: Helping Developers Make Informed Logging Decisions},
+	isbn = {978-1-4799-1934-5},
+	url = {http://ieeexplore.ieee.org/document/7194593/},
+	doi = {10.1109/ICSE.2015.60},
+	shorttitle = {Learning to Log},
+	abstract = {Logging is a common programming practice of practical importance to collect system runtime information for postmortem analysis. Strategic logging placement is desired to cover necessary runtime information without incurring unintended consequences (e.g., Performance overhead, trivial logs). However, in current practice, there is a lack of rigorous specifications for developers to govern their logging behaviours. Logging has become an important yet tough decision which mostly depends on the domain knowledge of developers. To reduce the effort on making logging decisions, in this paper, we propose a "learning to log" framework, which aims to provide informative guidance on logging during development. As a proof of concept, we provide the design and implementation of a logging suggestion tool, Log Advisor, which automatically learns the common logging practices on where to log from existing logging instances and further leverages them for actionable suggestions to developers. Specifically, we identify the important factors for determining where to log and extract them as structural features, textual features, and syntactic features. Then, by applying machine learning techniques (e.g., Feature selection and classifier learning) and noise handling techniques, we achieve high accuracy of logging suggestions. We evaluate Log Advisor on two industrial software systems from Microsoft and two open-source software systems from Git Hub (totally 19.1M {LOC} and 100.6K logging statements). The encouraging experimental results, as well as a user study, demonstrate the feasibility and effectiveness of our logging suggestion tool. We believe our work can serve as an important first step towards the goal of "learning to log".},
+	pages = {415--425},
+	publisher = {{IEEE}},
+	author = {Zhu, Jieming and He, Pinjia and Fu, Qiang and Zhang, Hongyu and Lyu, Michael R. and Zhang, Dongmei},
+	urldate = {2020-07-02},
+	date = {2015-05},
+}
+@article{HASSELBRING2020100019,
+title = "Kieker: A monitoring framework for software engineering research",
+journal = "Software Impacts",
+volume = "5",
+pages = "100019",
+year = "2020",
+issn = "2665-9638",
+doi = "https://doi.org/10.1016/j.simpa.2020.100019",
+url = "http://www.sciencedirect.com/science/article/pii/S2665963820300063",
+author = "Wilhelm Hasselbring and André {van Hoorn}",
+keywords = "Software engineering research, Monitoring, Dynamic analysis, Software performance, Reverse engineering",
+}
+@ARTICLE{hengtse,  author={H. {Li} and W. {Shang} and B. {Adams} and M. {Sayagh} and A. E. {Hassan}},  journal={IEEE Transactions on Software Engineering},   title={A Qualitative Study of the Benefits and Costs of Logging from Developers' Perspectives},   year={2020},  volume={},  number={},  pages={1-1},}
+
+@article{shang2013jsep,
+	author = {Weiyi Shang  and Zhen Ming Jiang and Bram Adams  and  Ahmed E. Hassan and Michael W. Godfrey  and Mohamed Nasser  and Parminder Flora},
+	title = {An exploratory study of the evolution of communicated information about the execution of large software systems},
+	journal = {Journal of Software: Evolution and Process},
+	volume = {26},
+	number = {1},
+	pages = {3-26},
+	year={2013},
+	keywords = {reverse engineering, software evolution, communicated information, execution log analysis},
+	doi = {10.1002/smr.1579},
+}
+
+@Article{shang2015studying,
+author="Shang, Weiyi
+and Nagappan, Meiyappan
+and Hassan, Ahmed E.",
+title="Studying the relationship between logging characteristics and the code quality of platform software",
+journal="Empirical Software Engineering",
+year="2015",
+month="Feb",
+day="01",
+volume="20",
+number="1",
+pages="1--27",
+issn="1573-7616",
+doi="10.1007/s10664-013-9274-8",
+url="https://doi.org/10.1007/s10664-013-9274-8"
+}
+
+@inproceedings{boyuanlogutility,
+author = {Chen, Boyuan and Jiang, Zhen Ming (Jack)},
+title = {Studying the Use of Java Logging Utilities in the Wild},
+year = {2020},
+booktitle = {Proceedings of the 42th International Conference on Software Engineering},
+series = {ICSE '20}
+}
+
+
+
+@article{Zhi2019AnES,
+  title={An Exploratory Study of Logging Configuration Practice in Java},
+  author={C. Zhi and Jianwei Yin and S. Deng and Maoxin Ye and Min Fu and Tao Xie},
+  journal={2019 IEEE International Conference on Software Maintenance and Evolution (ICSME)},
+  year={2019},
+  pages={459-469}
+}
+
+@inproceedings{kabinna2016logging,
+  author    = {Suhas Kabinna and
+               Cor{-}Paul Bezemer and
+               Weiyi Shang and
+               Ahmed E. Hassan},
+  editor    = {Miryung Kim and
+               Romain Robbes and
+               Christian Bird},
+  title     = {Logging library migrations: a case study for the apache software foundation
+               projects},
+  booktitle = {Proceedings of the 13th International Conference on Mining Software
+               Repositories, {MSR} 2016, Austin, TX, USA, May 14-22, 2016},
+  pages     = {154--164},
+  publisher = {{ACM}},
+  year      = {2016},
+  url       = {https://doi.org/10.1145/2901739.2901769},
+  doi       = {10.1145/2901739.2901769},
+  timestamp = {Tue, 06 Nov 2018 16:57:14 +0100},
+  biburl    = {https://dblp.org/rec/conf/msr/KabinnaBSH16.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+@inproceedings{kabinna2016examining,
+  title={Examining the stability of logging statements},
+  author={Kabinna, Suhas and Shang, Weiyi and Bezemer, Cor-Paul and Hassan, Ahmed E},
+  booktitle={2016 IEEE 23rd International Conference on Software Analysis, Evolution, and Reengineering (SANER)},
+  volume={1},
+  pages={326--337},
+  year={2016},
+  organization={IEEE}
+}
+@Article{Kabinna2018emse,
+	author="Kabinna, Suhas and Bezemer, Cor-Paul and Shang, Weiyi and Syer, Mark D.	and Hassan, Ahmed E.",
+	title="Examining the stability of logging statements",
+	journal="Empirical Software Engineering",
+	year="2018",
+	month="Feb",
+	day="01",
+	volume="23",
+	number="1",
+	pages="290--333",
+	issn="1573-7616",
+	doi="10.1007/s10664-017-9518-0",
+}
+
+@INPROCEEDINGS{Kabinna2016msr, 
+	author={S. Kabinna and C. P. Bezemer and W. Shang and A. E. Hassan}, 
+	booktitle={2016 IEEE/ACM 13th Working Conference on Mining Software Repositories (MSR)}, 
+	title={Logging Library Migrations: A Case Study for the Apache Software Foundation Projects}, 
+	year={2016}, 
+	volume={}, 
+	number={}, 
+	pages={154-164}, 
+	ISSN={}, 
+	month={May},
+}
+
+
+
+@article{yizengemse,
+  author    = {Yi Zeng and
+               Jinfu Chen and
+               Weiyi Shang and
+               Tse{-}Hsun (Peter) Chen},
+  title     = {Studying the characteristics of logging practices in mobile apps:
+               a case study on F-Droid},
+  journal   = {Empir. Softw. Eng.},
+  volume    = {24},
+  number    = {6},
+  pages     = {3394--3434},
+  year      = {2019},
+  url       = {https://doi.org/10.1007/s10664-019-09687-9},
+  doi       = {10.1007/s10664-019-09687-9},
+  timestamp = {Tue, 25 Aug 2020 16:58:33 +0200},
+  biburl    = {https://dblp.org/rec/journals/ese/ZengCSC19.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{Chowdhury2017AnES,
+  title={An exploratory study on assessing the energy impact of logging on Android applications},
+  author={S. Chowdhury and S. D. Nardo and A. Hindle and Z. M. Jiang},
+  journal={Empirical Software Engineering},
+  year={2017},
+  volume={23},
+  pages={1422-1456}
+}
+
+@inproceedings{yuan2012characterizing,
+	location = {Piscataway, {NJ}, {USA}},
+	title = {Characterizing Logging Practices in open-source software},
+	isbn = {978-1-4673-1067-3},
+	url = {http://dl.acm.org/citation.cfm?id=2337223.2337236},
+	series = {{ICSE} '12},
+	abstract = {Software logging is a conventional programming practice. As its efficacy is often important for users and developers to understand what have happened in production run, yet software logging is often done in an arbitrarily manner. So far, there have been little study for understanding logging practices in real world software. This paper makes the first attempt (to the best of our knowledge) to provide quantitative characteristic study of the current log messages within four pieces of large open-source software. First, we quantitatively show that software logging is pervasive. By examining developers’ own modifications to logging code in revision history, we find that they often do not make the log messages right in their first attempts, and thus need to spend significant amount of efforts to modify the log messages as after-thoughts. Our study further provides several interesting findings on where developers spend most of their efforts in modifying the log messages, which can give insights for programmers, tool developers, and language and compiler designers to improve the current logging practice. To demonstrate the benefit of our study, we built a simple checker based on one of our findings and effectively detected 138 new problematic logging code from studied software (24 of them are already confirmed and fixed by developers).},
+	pages = {102--112},
+	booktitle = {Proceedings of the 34th International Conference on Software Engineering},
+	publisher = {{IEEE} Press},
+	author = {Yuan, Ding and Park, Soyeon and Zhou, Yuanyuan},
+	year = {2012},
+	keywords = {log message, log quality, empirical study, failure diagnosis},
+	organization={IEEE},
+}
+
+@inproceedings{Barik2016,
+	title        = {The Bones of the System: A Case Study of Logging and Telemetry at Microsoft},
+	author       = {T. {Barik} and R. {DeLine} and S. {Drucker} and D. {Fisher}},
+	year         = 2016,
+	booktitle    = {2016 IEEE/ACM 38th International Conference on Software Engineering Companion},
+	series       = {ICSE Companion '16},
+	pages        = {92--101}
+}
+@inproceedings{Nagaraj:2012:SCA:2228298.2228334,
+	title        = {Structured Comparative Analysis of Systems Logs to Diagnose Performance Problems},
+	author       = {Nagaraj, Karthik and Killian, Charles and Neville, Jennifer},
+	year         = 2012,
+	booktitle    = {Proceedings of the 9th USENIX Conference on Networked Systems Design and Implementation},
+	series       = {NSDI'12},
+	pages        = {26--26}
+}
+@inproceedings{syer2013leveraging,
+	title        = {Leveraging performance counters and execution logs to diagnose memory-related performance issues},
+	author       = {Syer, Mark D and Jiang, Zhen Ming and Nagappan, Meiyappan and Hassan, Ahmed E and Nasser, Mohamed and Flora, Parminder},
+	year         = 2013,
+	booktitle    = {Proceedings of the 29th IEEE International Conference on Software Maintenance},
+	series       = {ICSM '13},
+	pages        = {110--119}
+}
+@inproceedings{jiang2008automatic,
+	title        = {Automatic identification of load testing problems},
+	author       = {Jiang, Zhen Ming and Hassan, Ahmed E and Hamann, Gilbert and Flora, Parminder},
+	year         = 2008,
+	booktitle    = {Proceedings of the 2008 IEEE International Conference on Software Maintenance},
+	series       = {ICSM '08},
+	pages        = {307--316}
+}
+@inproceedings{mariani2008automated,
+	title        = {Automated Identification of Failure Causes in System Logs},
+	author       = {L. Mariani and F. Pastore},
+	year         = 2008,
+	booktitle    = {Proceedings of the 19th International Symposium on Software Reliability Engineering},
+	series       = {ISSRE '08},
+	pages        = {117--126}
+}
+@inproceedings{Fu:2009:EAD:1674659.1677044,
+	title        = {Execution Anomaly Detection in Distributed Systems Through Unstructured Log Analysis},
+	author       = {Fu, Qiang and Lou, Jian-Guang and Wang, Yi and Li, Jiang},
+	year         = 2009,
+	booktitle    = {Proceedings of the 9th IEEE International Conference on Data Mining},
+	series       = {ICDM '09},
+	pages        = {149--158}
+}
+@inproceedings{Xu:2009:OSP:1674659.1677125,
+	title        = {Online System Problem Detection by Mining Patterns of Console Logs},
+	author       = {Xu, Wei and Huang, Ling and Fox, Armando and Patterson, David and Jordan, Michael},
+	year         = 2009,
+	booktitle    = {Proceedings of the 2009 Ninth IEEE International Conference on Data Mining},
+	series       = {ICDM '09},
+	pages        = {588--597}
+}
+@inproceedings{fu2013contextual,
+	title        = {Contextual Analysis of Program Logs for Understanding System Behaviors},
+	author       = {Fu, Qiang and Lou, Jian-Guang and Lin, Qingwei and Ding, Rui and Zhang, Dongmei and Xie, Tao},
+	year         = 2013,
+	booktitle    = {Proceedings of the 10th Working Conference on Mining Software Repositories},
+	series       = {MSR '13},
+	pages        = {397--400}
+}
+@inproceedings{Xu:2009:DLS:1629575.1629587,
+	title        = {Detecting Large-scale System Problems by Mining Console Logs},
+	author       = {Xu, Wei and Huang, Ling and Fox, Armando and Patterson, David and Jordan, Michael I.},
+	year         = 2009,
+	booktitle    = {Proceedings of the ACM SIGOPS 22Nd Symposium on Operating Systems Principles},
+	location     = {Big Sky, Montana, USA},
+	publisher    = {ACM},
+	address      = {New York, NY, USA},
+	series       = {SOSP '09},
+	pages        = {117--132},
+	doi          = {10.1145/1629575.1629587},
+	isbn         = {978-1-60558-752-3},
+	url          = {http://doi.acm.org/10.1145/1629575.1629587},
+	numpages     = 16,
+	acmid        = 1629587,
+	keywords     = {console log analysis, monitoring, pca, problem detection, source code analysis, statistical learning, tracing}
+}
+@inproceedings{Shang:2013:ADB:2486788.2486842,
+ author = {Shang, Weiyi and Jiang, Zhen Ming and Hemmati, Hadi and Adams, Bram and Hassan, Ahmed E. and Martin, Patrick},
+ title = {Assisting Developers of Big Data Analytics Applications when Deploying on Hadoop Clouds},
+ booktitle = {Proceedings of the 2013 International Conference on Software Engineering},
+ series = {ICSE '13},
+ year = {2013},
+ location = {San Francisco, CA, USA},
+ pages = {402--411},
+ numpages = {10},
+} 
+
+@article{chen2017characterizing,
+  title={Characterizing logging practices in Java-based open source software projects--a replication study in Apache Software Foundation},
+  author={Chen, Boyuan and Jiang, Zhen Ming Jack},
+  journal={Empirical Software Engineering},
+  volume={22},
+  number={1},
+  pages={330--374},
+  year={2017},
+  publisher={Springer}
+}
+@inproceedings{Yuan:2010:SED:1736020.1736038,
+ author = {Yuan, Ding and Mai, Haohui and Xiong, Weiwei and Tan, Lin and Zhou, Yuanyuan and Pasupathy, Shankar},
+ title = {SherLog: Error Diagnosis by Connecting Clues from Run-time Logs},
+ booktitle = {Proceedings of the 15th International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)},
+ year = {2010},
+ pages = {143--154},
+ numpages = {12},
+} 
+@article{chowdhury2017exploratory,
+  title={An exploratory study on assessing the energy impact of logging on Android apps},
+  author={Chowdhury, Shaiful and Di Nardo, Silvia and Hindle, Abram and Jiang, Zhen Ming Jack},
+  journal={Empirical Software Engineering},
+  pages={1--35},
+  year={2017},
+  publisher={Springer}
+}
+
+
+
+@inproceedings{10.1145/2901739.2901774,
+author = {Ahmed, Tarek M. and Bezemer, Cor-Paul and Chen, Tse-Hsun and Hassan, Ahmed E. and Shang, Weiyi},
+title = {Studying the Effectiveness of Application Performance Management (APM) Tools for Detecting Performance Regressions for Web Applications: An Experience Report},
+year = {2016},
+isbn = {9781450341868},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2901739.2901774},
+doi = {10.1145/2901739.2901774},
+abstract = {Performance regressions, such as a higher CPU utilization than in the previous version of an application, are caused by software application updates that negatively affect the performance of an application. Although a plethora of mining software repository research has been done to detect such regressions, research tools are generally not readily available to practitioners. Application Performance Management (APM) tools are commonly used in practice for detecting performance issues in the field by mining operational data.In contrast to performance regression detection tools that assume a changing code base and a stable workload, APM tools mine operational data to detect performance anomalies caused by a changing workload in an otherwise stable code base. Although APM tools are widely used in practice, no research has been done to understand 1) whether APM tools can identify performance regressions caused by code changes and 2) how well these APM tools support diagnosing the root-cause of these regressions.In this paper, we explore if the readily accessible APM tools can help practitioners detect performance regressions. We perform a case study using three commercial (AppDynamics, New Relic and Dynatrace) and one open source (Pinpoint) APM tools. In particular, we examine the effectiveness of leveraging these APM tools in detecting and diagnosing injected performance regressions (excessive memory usage, high CPU utilization and inefficient database queries) in three open source applications. We find that APM tools can detect most of the injected performance regressions, making them good candidates to detect performance regressions in practice. However, there is a gap between mining approaches that are proposed in state-of-the-art performance regression detection research and the ones used by APM tools. In addition, APM tools lack the ability to be extended, which makes it hard to enhance them when exploring novel mining approaches for detecting performance regressions.},
+booktitle = {Proceedings of the 13th International Conference on Mining Software Repositories},
+pages = {1–12},
+numpages = {12},
+location = {Austin, Texas},
+series = {MSR '16}
+}
+
+
+@inproceedings{10.1109/ASE.2019.00069,
+author = {Tang, Yutian and Zhan, Xian and Zhou, Hao and Luo, Xiapu and Xu, Zhou and Zhou, Yajin and Yan, Qiben},
+title = {Demystifying Application Performance Management Libraries for Android},
+year = {2019},
+isbn = {9781728125084},
+publisher = {IEEE Press},
+url = {https://doi.org/10.1109/ASE.2019.00069},
+doi = {10.1109/ASE.2019.00069},
+abstract = {Since the performance issues of apps can influence users' experience, developers leverage application performance management (APM) tools to locate the potential performance bottleneck of their apps. Unfortunately, most developers do not understand how APMs monitor their apps during the runtime and whether these APMs have any limitations. In this paper, we demystify APMs by inspecting 25 widely-used APMs that target on Android apps. We first report how these APMs implement 8 key functions as well as their limitations. Then, we conduct a large-scale empirical study on 500,000 Android apps from Google Play to explore the usage of APMs. This study has some interesting observations about existing APMs for Android, including 1) some APMs still use deprecated permissions and approaches so that they may not always work properly; 2) some app developers use APMs to collect users' privacy information.},
+booktitle = {Proceedings of the 34th IEEE/ACM International Conference on Automated Software Engineering},
+pages = {682–685},
+numpages = {4},
+keywords = {empirical study, Android, application performance management library},
+location = {San Diego, California},
+series = {ASE '19}
+}
+
+
+
+
+@inproceedings{he_experience_2016,
+	title = {Experience Report: System Log Analysis for Anomaly Detection},
+	isbn = {978-1-4673-9002-6},
+	url = {http://ieeexplore.ieee.org/document/7774521/},
+	doi = {10.1109/ISSRE.2016.21},
+	shorttitle = {Experience Report},
+	abstract = {Anomaly detection plays an important role in management of modern large-scale distributed systems. Logs, which record system runtime information, are widely used for anomaly detection. Traditionally, developers (or operators) often inspect the logs manually with keyword search and rule matching. The increasing scale and complexity of modern systems, however, make the volume of logs explode, which renders the infeasibility of manual inspection. To reduce manual effort, many anomaly detection methods based on automated log analysis are proposed. However, developers may still have no idea which anomaly detection methods they should adopt, because there is a lack of a review and comparison among these anomaly detection methods. Moreover, even if developers decide to employ an anomaly detection method, re-implementation requires a nontrivial effort. To address these problems, we provide a detailed review and evaluation of six state-of-the-art log-based anomaly detection methods, including three supervised methods and three unsupervised methods, and also release an open-source toolkit allowing ease of reuse. These methods have been evaluated on two publicly-available production log datasets, with a total of 15,923,592 log messages and 365,298 anomaly instances. We believe that our work, with the evaluation results as well as the corresponding findings, can provide guidelines for adoption of these methods and provide references for future development.},
+	pages = {207--218},
+	publisher = {{IEEE}},
+	author = {He, Shilin and Zhu, Jieming and He, Pinjia and Lyu, Michael R.},
+	urldate = {2017-03-15},
+	date = {2016-10},
+	keywords = {{ICST}2018, mobicom2017}
+}
+
+@online{sripatanaskul_inception:_2016,
+	title = {Inception: How {LinkedIn} Deals with Exception Logs {\textbar} {LinkedIn} Engineering},
+	url = {https://engineering.linkedin.com/blog/2016/12/inception--how-linkedin-deals-with-exception-logs},
+	author = {Sripatanaskul, Toon and Cai, Zhengyu},
+	urldate = {2017-08-03},
+	date = {2016-12-16},
+	keywords = {{ICST}2018},
+	file = {Inception\: How LinkedIn Deals with Exception Logs | LinkedIn Engineering:/Users/julianharty/Library/Application Support/Zotero/Profiles/4slbw694.default/zotero/storage/X7ZA4JBE/inception--how-linkedin-deals-with-exception-logs.html:text/html}
+}
+
+@online{nurkiewicz_10_2017,
+	title = {10 Tips for Proper Application Logging {\textbar} Java Code Geeks - 2017},
+	url = {https://www.javacodegeeks.com/2011/01/10-tips-proper-application-logging.html},
+	author = {Nurkiewicz, Tomasz},
+	urldate = {2017-08-19},
+	keywords = {{ICST}2018},
+	file = {10 Tips for Proper Application Logging | Java Code Geeks - 2017:/Users/julianharty/Library/Application Support/Zotero/Profiles/4slbw694.default/zotero/storage/35MQB5C5/10-tips-proper-application-logging.html:text/html}
+}
+
+
+@article{king_log_2017,
+	title = {To log, or not to log: using heuristics to identify mandatory log events – a controlled experiment},
+	volume = {22},
+	issn = {1382-3256, 1573-7616},
+	url = {http://link.springer.com/10.1007/s10664-016-9449-1},
+	doi = {10.1007/s10664-016-9449-1},
+	shorttitle = {To log, or not to log},
+	pages = {2684--2717},
+	number = {5},
+	journaltitle = {Empirical Software Engineering},
+	author = {King, Jason and Stallings, Jon and Riaz, Maria and Williams, Laurie},
+	urldate = {2017-09-08},
+	date = {2017-10},
+	langid = {english},
+	keywords = {{ICST}2018}
+}
+
+
+@article{shang_studying_2015,
+	title = {Studying the relationship between logging characteristics and the code quality of platform software},
+	volume = {20},
+	issn = {1573-7616},
+	url = {https://doi.org/10.1007/s10664-013-9274-8},
+	doi = {10.1007/s10664-013-9274-8},
+	abstract = {Platform software plays an important role in speeding up the development of large scale applications. Such platforms provide functionalities and abstraction on which applications can be rapidly developed and easily deployed. Hadoop and {JBoss} are examples of popular open source platform software. Such platform software generate logs to assist operators in monitoring the applications that run on them. These logs capture the doubts, concerns, and needs of developers and operators of platform software. We believe that such logs can be used to better understand code quality. However, logging characteristics and their relation to quality has never been explored. In this paper, we sought to empirically study this relation through a case study on four releases of Hadoop and {JBoss}. Our findings show that files with logging statements have higher post-release defect densities than those without logging statements in 7 out of 8 studied releases. Inspired by prior studies on code quality, we defined log-related product metrics, such as the number of log lines in a file, and log-related process metrics such as the number of changed log lines. We find that the correlations between our log-related metrics and post-release defects are as strong as their correlations with traditional process metrics, such as the number of pre-release defects, which is known to be one the metrics with the strongest correlation with post-release defects. We also find that log-related metrics can complement traditional product and process metrics resulting in up to 40 \% improvement in explanatory power of defect proneness. Our results show that logging characteristics provide strong indicators of defect-prone source code files. However, we note that removing logs is not the answer to better code quality. Instead, our results show that it might be the case that developers often relay their concerns about a piece of code through logs. Hence, code quality improvement efforts (e.g., testing and inspection) should focus more on the source code files with large amounts of logs or with large amounts of log churn.},
+	pages = {1--27},
+	number = {1},
+	journaltitle = {Empirical Software Engineering},
+	shortjournal = {Empirical Software Engineering},
+	author = {Shang, Weiyi and Nagappan, Meiyappan and Hassan, Ahmed E.},
+	date = {2015-02-01},
+	keywords = {{ICST}2018}
+}
+
+@online{stackoverflow_logging_best_practices,
+	title = {android - Logging best practices and thoughts - Stack Overflow},
+	url = {https://stackoverflow.com/questions/26109046/logging-best-practices-and-thoughts},
+	author = {Various},
+	urldate = {2017-10-02},
+	keywords = {{ICST}2018},
+	file = {android - Logging best practices and thoughts - Stack Overflow:/Users/julianharty/Library/Application Support/Zotero/Profiles/4slbw694.default/zotero/storage/AANNJCMF/logging-best-practices-and-thoughts.html:text/html}
+}
+
+@inproceedings{king_log_2014,
+	title = {Log your {CRUD}: design principles for software logging mechanisms},
+	isbn = {978-1-4503-2907-1},
+	url = {http://dl.acm.org/citation.cfm?doid=2600176.2600183},
+	doi = {10.1145/2600176.2600183},
+	shorttitle = {Log your {CRUD}},
+	abstract = {According to a 2011 survey in healthcare, the most commonly reported breaches of protected health information involved employees snooping into medical records of friends and relatives. Logging mechanisms can provide a means for forensic analysis of user activity in software systems by proving that a user performed certain actions in the system. However, logging mechanisms often inconsistently capture user interactions with sensitive data, creating gaps in traces of user activity. Explicit design principles and systematic testing of logging mechanisms within the software development lifecycle may help strengthen the overall security of software. The objective of this research is to observe the current state of logging mechanisms by performing an exploratory case study in which we systematically evaluate logging mechanisms by supplementing the expected results of existing functional black-box test cases to include log output. We perform an exploratory case study of four open-source electronic health record ({EHR}) logging mechanisms: {OpenEMR}, {OSCAR}, Tolven {eCHR}, and {WorldVistA}. We supplement the expected results of 30 United States government-sanctioned test cases to include log output to track access of sensitive data. We then execute the test cases on each {EHR} system. Six of the 30 (20\%) test cases failed on all four {EHR} systems because user interactions with sensitive data are not logged. We find that viewing protected data is often not logged by default, allowing unauthorized views of data to go undetected. Based on our results, we propose a set of principles that developers should consider when developing logging mechanisms to ensure the ability to capture adequate traces of user activity.},
+	pages = {1--10},
+	publisher = {{ACM} Press},
+	author = {King, Jason and Williams, Laurie},
+	urldate = {2017-10-02},
+	date = {2014},
+	langid = {english},
+	keywords = {{ICST}2018}
+}
+
+
+@inproceedings{king_enabling_2015,
+	title = {Enabling forensics by proposing heuristics to identify mandatory log events},
+	isbn = {978-1-4503-3376-4},
+	url = {http://dl.acm.org/citation.cfm?doid=2746194.2746200},
+	doi = {10.1145/2746194.2746200},
+	abstract = {Software engineers often implement logging mechanisms to debug software and diagnose faults. As modern software manages increasingly sensitive data, logging mechanisms also need to capture detailed traces of user activity to enable forensics and hold users accountable. Existing techniques for identifying what events to log are often subjective and produce inconsistent results. The objective of this study is to help software engineers strengthen forensic-ability and user accountability by 1) systematically identifying mandatory log events through processing of unconstrained natural language software artifacts; and 2) proposing empirically-derived heuristics to help determine whether an event must be logged. We systematically extract each verb and object being acted upon from natural language software artifacts for three open-source software systems. We extract 3,513 verb-object pairs from 2,128 total sentences studied. Two raters classify each verb-object pair as either a mandatory log event or not. Through grounded theory analysis of discussions to resolve disagreements between the two raters, we develop 12 heuristics to help determine whether a verb-object pair describes an action that must be logged. Our heuristics help resolve 882 (96\%) of 919 disagreements between the two raters. In addition, our results demonstrate that the proposed heuristics facilitate classification of 3,372 (96\%) of 3,513 extracted verb-object pairs as either mandatory log events or not.},
+	pages = {1--11},
+	publisher = {{ACM} Press},
+	author = {King, Jason and Pandita, Rahul and Williams, Laurie},
+	urldate = {2017-10-02},
+	date = {2015},
+	langid = {english},
+	keywords = {{ICST}2018}
+}
+
+@inproceedings{10.5555/2664446.2664449,
+author = {Gousios, Georgios and Spinellis, Diomidis},
+title = {GHTorrent: GitHub's Data from a Firehose},
+year = {2012},
+isbn = {9781467317610},
+publisher = {IEEE Press},
+abstract = {A common requirement of many empirical software engineering studies is the acquisition and curation of data from software repositories. During the last few years, GitHub has emerged as a popular project hosting, mirroring and collaboration platform. GitHub provides an extensive rest api, which enables researchers to retrieve both the commits to the projects' repositories and events generated through user actions on project resources. GHTorrent aims to create a scalable off line mirror of GitHub's event streams and persistent data, and offer it to the research community as a service. In this paper, we present the project's design and initial implementation and demonstrate how the provided datasets can be queried and processed.},
+booktitle = {Proceedings of the 9th IEEE Working Conference on Mining Software Repositories},
+pages = {12–21},
+numpages = {10},
+keywords = {repository, events, dataset, GitHub, commits},
+location = {Zurich, Switzerland},
+series = {MSR '12}
+}
+
+@INPROCEEDINGS{elyasov2012_log_based_testing,  
+  author={A. {Elyasov}},
+  booktitle={2012 34th International Conference on Software Engineering (ICSE)},
+  title={Log-based testing},
+  year={2012},
+  volume={},
+  number={},
+  pages={1591-1594},
+  abstract={This thesis presents an ongoing research on using logs for software testing. We propose a complex and generic logging and diagnosis framework, that can be efficiently used for continuous testing of future Internet applications. To simplify the diagnosis of logs we suggest to reduce its size by means of rewriting.},  
+  keywords={Internet;program testing;log-based testing;software testing;logging framework;diagnosis framework;future Internet application continuous testing;rewriting;Instruments;Internet;Libraries;Graphical user interfaces;Automation;Software testing;log file analysis;instrumentation;rewriting},
+  doi={10.1109/ICSE.2012.6227029},
+  ISSN={1558-1225},
+  month={June},
+}
+
+@inproceedings{harty2020improving,
+  title={Improving app quality despite flawed mobile analytics},
+  author={Harty, Julian},
+  booktitle={Proceedings of the IEEE/ACM 7th International Conference on Mobile Software Engineering and Systems},
+  pages={21--22},
+  year={2020},
+  publisher = {IEEE},
+}
+
+@inproceedings{10.1145/3377811.3380408,
+  author = {Chen, Boyuan and Jiang, Zhen Ming (Jack)},
+  title = {Studying the Use of Java Logging Utilities in the Wild},
+  year = {2020},
+  isbn = {9781450371216},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3377811.3380408},
+  doi = {10.1145/3377811.3380408},
+  abstract = {Software logging is widely used in practice. Logs have been used for a variety of purposes like debugging, monitoring, security compliance, and business analytics. Instead of directly invoking the standard output functions, developers usually prefer to use logging utilities (LUs) (e.g., SLF4J), which provide additional functionalities like thread-safety and verbosity level support, to instrument their source code. Many of the previous research works on software logging are focused on the log printing code. There are very few works studying the use of LUs, although new LUs are constantly being introduced by companies and researchers. In this paper, we conducted a large-scale empirical study on the use of Java LUs in the wild. We analyzed the use of 3, 856 LUs from 11,194 projects in GitHub and found that many projects have complex usage patterns for LUs. For example, 75.8\% of the large-sized projects have implemented their own LUs in their projects. More than 50\% of these projects use at least three LUs. We conducted further qualitative studies to better understand and characterize the complex use of LUs. Our findings show that different LUs are used for a variety of reasons (e.g., internationalization of the log messages). Some projects develop their own LUs to satisfy project-specific logging needs (e.g., defining the logging format). Multiple uses of LUs in one project are pretty common for large and very largesized projects mainly for context like enabling and configuring the logging behavior for the imported packages. Interviewing with 13 industrial developers showed that our findings are also generally true for industrial projects and are considered as very helpful for them to better configure and manage the logging behavior for their projects. The findings and the implications presented in this paper will be useful for developers and researchers who are interested in developing and maintaining LUs.},
+  booktitle = {Proceedings of the ACM/IEEE 42nd International Conference on Software Engineering},
+  pages = {397–408},
+  numpages = {12},
+  keywords = {logging practices, logging code, empirical software engineering},
+  location = {Seoul, South Korea},
+  series = {ICSE '20}
+}
+
+@INPROCEEDINGS{andrews1998_testing_using_log_file_analysis,
+  author={J. H. {Andrews}},
+  booktitle={Proceedings 13th IEEE International Conference on Automated Software Engineering (Cat. No.98EX239)},
+  title={Testing using log file analysis: tools, methods, and issues},
+  year={1998},
+  volume={},
+  number={},
+  pages={157-166},
+  abstract={Large software systems often keep log files of events. Such log files can be analyzed to check whether a run of a program reveals faults in the system. We discuss how such log files can be used in software testing. We present a framework for automatically analyzing log files, and describe a language for specifying analyzer programs and an implementation of that language. The language permits compositional, compact specifications of software, which act as test oracles; we discuss the use and efficacy of these oracles for unit- and system-level testing in various settings. We explore methodological issues such as efficiency and logging policies, and the scope and limitations of the framework. We conclude that testing using log file analysis constitutes a useful methodology for software verification, somewhere between current testing practice and formal verification methodologies.},
+  keywords={program testing;software tools;specification languages;formal specification;program verification;program testing;log file analysis;software tools;system faults;specification language;test oracles;unit-level testing;system-level testing;logging policies;software verification;formal verification;System testing;Programming profession;Computer science;Identity-based encryption;Reactive power;Formal specifications;Formal verification;Prototypes},
+  doi={10.1109/ASE.1998.732614},
+  ISSN={},
+  month={Oct},
+}
+
+@INPROCEEDINGS{zhou2020_mobilogleak,
+  author={R. {Zhou} and M. {Hamdaqa} and H. {Cai} and A. {Hamou-Lhadj}},
+  booktitle={2020 IEEE 27th International Conference on Software Analysis, Evolution and Reengineering (SANER)},
+  title={MobiLogLeak: A Preliminary Study on Data Leakage Caused by Poor Logging Practices},   
+  year={2020},
+  volume={},
+  number={},
+  pages={577-581},
+  abstract={Logging is an essential software practice that is used by developers to debug, diagnose and audit software systems. Despite the advantages of logging, poor logging practices can potentially leak sensitive data. The problem of data leakage is more severe in applications that run on mobile devices, since these devices carry sensitive identification information ranging from physical device identifiers (e.g., IMEI MAC address) to communications network identifiers (e.g., SIM, IP, Bluetooth ID), and application-specific identifiers related to the location and the users' accounts. This preliminary study explores the impact of logging practices on data leakage of such sensitive information. Particularly, we want to investigate whether log-related statements inserted into an application code could lead to data leakage. While studying logging practices in mobile applications is an active research area, to our knowledge, this is the first study that explores the interplay between logging and security in the context of mobile applications for Android. We propose an approach called MobiLogLeak, an approach that identifies log statements in deployed apps that leak sensitive data. MobiLogLeak relies on taint flow analysis. Among 5,000 Android apps that we studied, we found that 200 apps leak sensitive data through logging.},
+  keywords={mobile computing;program diagnostics;security of data;MobiLogLeak;data leakage;software practice;software systems;sensitive data;mobile devices;sensitive identification information;physical device identifiers;communications network identifiers;application-specific identifiers;log-related statements;application code;mobile applications;log statements;logging practices;security;taint flow analysis;Android apps;Taint Flow Analysis;Mobile Applications;Data Leakage;Logging Practices},  
+  doi={10.1109/SANER48275.2020.9054831},
+  ISSN={1534-5351},
+  month={Feb},
+}
+
+@misc{spivey2010embedded_mobile_analytics_in_a_mobile_device_patent,
+  title={Embedded mobile analytics in a mobile device},
+  author={Spivey, Anthony Wayne and Rockafellow, Blane E and Smoak, Frank Andrew and Collins, Keith},
+  year={2010},
+  month=feb # "~18",
+  publisher={Google Patents},
+  note={US Patent App. 12/393,576}
+}
+
+@online{appbrain_firebase,
+  url = {https://www.appbrain.com/stats/libraries/details/firebase/firebase},
+  title = {Firebase},
+  year = {2020},
+  author = {{AppBrain}},
+}
+
+@online{appbrain_logging_libraries,
+  url = {https://www.appbrain.com/stats/libraries/tag/logging/logging-libraries},
+  title = {Logging libraries},
+  year = {2020},
+  author = {{AppBrain}},
+}
+
+@online{firebase_log_events,
+  title = {Log events | Firebase},
+  url = {https://firebase.google.com/docs/analytics/events},
+  year = {2020},
+  author = {{Google Developers}},
+  organization = {{Google Inc.}},
+  abstract = {This guide shows you how to log events in your app. [for iOS, Android, and Web]
+    Events provide insight on what is happening in your app, such as user actions, system events, or errors.
+
+    Analytics automatically logs some events for you; you don't need to add any code to receive them. If your app needs to collect additional data, you can log up to 500 different Analytics Event types in your app. There is no limit on the total volume of events your app logs...},
+}
+
+@online{sample_size_calculator,
+  title = {Sample Size Calculator},
+  url = {https://surveysystem.com/sscalc.htm},
+  year = {2012},
+  author = {{Creative Research Systems}}
+}
+
+@online{nii_shonan_152,
+  title = {Release Engineering for Mobile Applications},
+  url = {https://shonan.nii.ac.jp/seminars/152/},
+  year = {2019},
+}
