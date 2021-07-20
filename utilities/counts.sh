@@ -13,3 +13,9 @@ grep -r -c -i \cite --include \*.tex * | sort -t : -k 2 -n
 # get word and line counts in each tex file
 echo "=== Show word counts per file, sorted numerically by line count."
 find . -name "*.tex" | xargs wc | sort -n
+
+texcount -v0 case-studies/mainchapters*
+texcount -v0 case-studies/*
+texcount -v0 appendicies/*
+texcount -v0 frontmatter/*
+texcount -v0 meta-chapters/*
