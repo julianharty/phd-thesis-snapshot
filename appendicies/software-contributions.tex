@@ -1,9 +1,9 @@
 \chapter{Software Contributions}
-\label{appendix-software-contributions}
+\label{app:software-contributions}
 
 This research is not intended to live in a vacuum! One of the aims throughout my research has been to contribute potentially useful software and materials and make it freely available for whoever wishes to use and improve it. This chapter itemises various projects on GitHub that I contributed to. Many of the projects I instigated and often co-developed them with Joseph Reeve a friend and part-time colleague on an occasional basis. He is a prolific, fast and responsive software developer (see~\url{https://github.com/isnit0} for his activities on GitHub) and enabled me to expand the research significantly rather than relying on my limited software development skills. 
 
-\section{Co-developed GitHub projects}
+\section{Co-developed GitHub projects}~\label{subsec:co-developed-github-projects}
 \begin{itemize}
     \item AndroidCrashDummy\\ \url{https://github.com/ISNIT0/AndroidCrashDummy}\\ A small Android app to test logging and exceptions.
     \item AndroidLogAssert\\ \url{https://github.com/ISNIT0/AndroidLogAssert}\\ A library to facilitate and test log messages for Android apps.
@@ -20,7 +20,7 @@ This research is not intended to live in a vacuum! One of the aims throughout my
 \end{itemize}
 
 
-\subsection{Android Stability Analysis}
+\subsection{Android Stability Analysis}~\label{subsec:android-stability-analysis}
 In August 2019 we started another opensource project \href{https://github.com/commercetest/android-stability-analysis}{android-stability-analysis}~\citep{android-stability-analysis} to enable scattered crash clusters reported in Android Vitals to be regrouped. Currently, the analysis tool simply matches reported crash clusters with a series of lines that should be common to related crashes, see Listing \ref{listing:codelines}  for an example.
 
 \begin{lstlisting}[caption=Example of lines to match,label=listing:codelines]
@@ -35,7 +35,7 @@ at org.kiwix.kiwixmobile.downloader.
 \end{lstlisting}
 
 
-\section{Solo projects}
+\section{Solo projects}~\label{sec:solo-projects}
 \begin{itemize}
     \item Android analytics testing\\ \url{https://github.com/commercetest/android-analytics-testing}\\ Notes to help prepare for testing of analytics for Android devices. The notes may also suit testing of analytics on other platforms.
 
@@ -45,7 +45,7 @@ at org.kiwix.kiwixmobile.downloader.
     \item Testing with analytics workshop\\ \url{https://github.com/julianharty/testing-with-analytics-workshop}\\ Material to support my workshop presented at the test:fest 2020 conference in Poland on \nth{28} February 2020.
 \end{itemize}
 
-\section{Contributions to external projects}
+\section{Contributions to external projects}~\label{sec:contributions-to-external-projects}
 Contributions to external projects include:
 \begin{itemize}
     \item Analytics Testing [using] Puppeteer\\ \url{https://github.com/dumkydewilde/analytics-testing-puppeteer}\\ Simply created a small README for the project. The project automates testing of Google Web Analytics.
@@ -69,7 +69,7 @@ Contributions to external projects include:
     \item Release Engineering for Mobile Apps\\ \url{https://github.com/shonan-releng-mobile/shonan-releng-mobile}\\ Contributed material on an ongoing basis for international collaborative research on this topic. 
 \end{itemize}
 
-\section{Software we developed for Google Play Console}~\label{software-we-developed-for-google-play-console}
+\section{Software we developed for Google Play Console}~\label{sec:software-we-developed-for-google-play-console}
 Developers are only able to read Android Vitals reports in real-time in the user interface Google provides in Google Play Console. This limits their ability to perform trend analysis beyond the period Google allots. Also they are restricted to taking screenshots, etc. to save pertinent information. There are several limits, a hard limit of 60 (sixty) days and seemingly limits based on volumes of crash and ANR data. 
 
 Our contributions enable them to preserve various relevant reports and also individual crash and ANR trace data by using our Vitals Scraper software. They can then also use our software to group incompletely grouped crash clusters which enables them to improve the prioritisation of their work to investigate and improve quality aspects of their apps.
@@ -102,5 +102,5 @@ Google used to provide detailed crash and ANR reports until May 2018~\cite{googl
 
 \textbf{Note} Consider my materials in a draft paper on Scraper APIs.
 
-\section{Summary of software contributions}
+\section{Summary of software contributions}~\label{sec:summary-of-software-contributions}
 Software development is an essential aspect of my research, albeit one I practice on an occasional basis. I aim to be a well-behaved and effective citizen and participant working with and across various software teams. This seems to be working out OK given the many and various collaborations and contributions related to my PhD research.

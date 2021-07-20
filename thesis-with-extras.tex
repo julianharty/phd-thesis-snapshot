@@ -1,0 +1,121 @@
+\RequirePackage[l2tabu]{nag}	
+\documentclass[a4paper,12pt,leqno,openbib,oldfontcommands,phd]{memoir}
+\input{latex-configuration}
+
+% The following \marginparwidth is to keep the todonotes package happy. It can be revised once the todo's are done and the package removed e.g. to help make the thesis more attractive in PDF format.
+\setlength{\marginparwidth}{2cm}
+\begin{document}
+\dominitoc %\tableofcontents
+\dominilof %\listoffigures
+% Read https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1):_Basic_Structure
+\frontmatter
+\pagenumbering{roman}
+%
+\input{frontmatter/title}
+%\clearemptydoublepage
+%
+\input{frontmatter/abstract}
+%\clearemptydoublepage
+%
+\input{frontmatter/my-contributions}
+
+\input{frontmatter/dedication}
+%\clearemptydoublepage
+%
+\input{frontmatter/declaration}
+%\clearemptydoublepage
+%
+\input{frontmatter/glossary}
+
+\renewcommand{\contentsname}{Table of Contents}
+\maxtocdepth{subsection}
+%\mtcaddchapter
+\tableofcontents*
+\addtocontents{toc}{\par\nobreak \mbox{}\hfill{\bf Page}\par\nobreak}
+\clearemptydoublepage
+%
+\listoftables
+%\mtcaddchapter
+\addtocontents{lot}{\par\nobreak\textbf{{\scshape Table} \hfill Page}\par\nobreak}
+\clearemptydoublepage
+%
+\listoffigures
+%\mtcaddchapter
+\addtocontents{lof}{\par\nobreak\textbf{{\scshape Figure} \hfill Page}\par\nobreak}
+
+
+% https://tex.stackexchange.com/a/99656/5125
+\renewcommand{\listoflistings}{%
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Sourcecode Listings}%
+    \listof{listing}{Sourcecode Listings}%
+}
+\listoflistings
+
+%\clearemptydoublepage
+%
+%
+% The bulk of the document is delegated to these chapter files in
+% subdirectories.
+\mainmatter
+\pagenumbering{arabic}
+%
+\setcounter{chapter}{-1}
+\chapter{Meta materials - not part of the final thesis}
+\input{meta-chapters/meta-chapter-introduction}
+\input{meta-chapters/inventories}
+\input{meta-chapters/the-red-thread}
+\input{meta-chapters/project-plan-for-this-thesis}
+\input{meta-chapters/actions.tex}
+
+\input{mainchapters/introduction}
+
+%\input{DeviceSelection.tex}
+%\input{OnTestingForMobileApps.tex}
+
+\input{mainchapters/related-work}
+\input{mainchapters/a-grounding-in-the-domain}
+\input{case-studies/case-studies}
+\input{mainchapters/code-needed}
+\input{mainchapters/findings-results}
+
+
+%%%%% Order and grouping of the following TBD
+\input{mainchapters/evaluation}
+\input{mainchapters/applying-analytics-to-development}
+\input{mainchapters/discussion.tex}
+
+\input{mainchapters/synthesis-recommendations}
+
+\input{mainchapters/conclusions}
+\input{mainchapters/future-work}
+
+%\input{fieldstones.tex}
+%\input{catrobat-case-study.tex}
+% Grey literature - non peer-reviewed e.g. commercial. 
+\backmatter
+\bibliographystyle{ACM-Reference-Format}
+\refstepcounter{chapter}
+\label{the-bibliography-follows}
+\bibliography{./references/bibliography_for_core_thesis,./case-studies/catrobat-case-study,./references/bibliography_on_phd_experience,./references/logging_paper.bib}
+%%%% TODO Consider having separate sections e.g. for books and/or a separate bibliography for AppendixB.
+
+% \clearemptydoublepage
+%\appendix
+\chapter{Thesis Countdown :)}
+\label{the-appendicies-follow}
+\input{meta-chapters/thesis_countdown}
+
+\input{appendicies/miscellaneous-topics}
+\input{appendicies/practical-aspects-for-design-and-incorporation-of-mobile-analytics}
+\input{appendicies/software-contributions}
+\input{appendicies/crash-recording-and-reporting}
+\input{meta-chapters/data-sources}
+\input{case-studies/analytics-tools}
+\input{appendicies/on-mobile-analytics}
+
+% Add index
+%\printindex
+%   
+\end{document}

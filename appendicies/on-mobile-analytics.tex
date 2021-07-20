@@ -1,5 +1,5 @@
 \chapter{On Mobile Analytics}
-\label{appendix-on-mobile-analytics}
+\label{app:on-mobile-analytics}
 
 Mobile Analytics is a specialisation of a general category of software usage analytics and some aspects are in-common. Nonetheless it is distinct and has unique characteristics based on the operating system, the ways libraries are bundled with apps, etc. TBC.
 
@@ -105,7 +105,7 @@ In a video recording on YouTube~\citep{twitterdev2015_a_deep_dive_into_the_answe
 
 
 
-\subsection{Visual (GUI-level) analytics}~\label{section-visual-gui-analytics}
+\subsection{Visual (GUI-level) analytics}~\label{sec:visual-gui-analytics}
 
 \subsubsection{A potted-history of related work}
 When Android was publicly launched in 2008, a team of Google engineers, including myself, developed various utilities and applications to help make Android more useful and usable for people with visual impairments. The project became known as the \emph{eyes-free} project and the source code was released as the, now archived, \href{https://code.google.com/archive/p/eyes-free/}{\texttt{eyes-free}} opensource project. 
@@ -208,7 +208,7 @@ All the best, Julian"
 \end{comment}
 
 
-\subsection{Platform-level analytics}~\label{platform-level-analytics}
+\subsection{Platform-level analytics}~\label{sec:platform-level-analytics}
 Mobile software platforms include an operating system that runs on end-user devices such as smartphones and tablet devices. Operating systems are responsible for running software, including apps. They may also be responsible for stopping apps, for instance to recover from adverse conditions such as frozen apps (that are no longer responsive for the user), crashes (where the app does not handle the crash adequately), or to free up resources for other purposes. Mobile operating systems often incorporate one or more centralised log buffers~\footnote{Buffers are also often called files in the context of logging, buffers have a finite storage and older events are eventually overwritten.}, when application software writes log messages % SHOULD-DO check the following: or to STDOUT (the standard output stream used by traditional programs and still available to apps)
 using the platform logging APIs (\emph{e.g.}~\texttt{android.util.log}) and other logging APIs which use this indirectly these log messages are recorded in a centralised log. For Android there are currently five documented log buffers (radio, events, main, system, crash)~\footnote{~\url{https://developer.android.com/studio/command-line/logcat\#alternativeBuffers}}. Developers do not choose which buffer is used, the Android operating system determines which log to use, for instance the crash buffer, perhaps unsurprisingly is used to record crashes.
 
@@ -241,7 +241,7 @@ A seemingly logical design for Google to collect device-level analytics is throu
 \end{table}
 % See https://stackoverflow.com/questions/2888817/footnotes-for-tables-in-latex for tips on formatting the table with internal notes.
 
-Table~\ref{tab:wer-and-android-vitals-error} maps the information Android Vitals reports onto the errors Windows Error Reporting (WER) reported in 2009, as described in~\citep{kinshuman2009_debugging_in_the_very_large}. Google does not publish the actual information that is captured by their Android platform level services, these are based on analysis of Google Play Console and Android Vitals from a developer's (end-user) perspective. Android Vitals does not publish any API for app developers to use (they might have APIs for other stakeholders) therefore they do not offer app developers similar features to those provided in WER at the time the respective papers were published by Microsoft~\citep{kinshuman2009_debugging_in_the_very_large, kinshuman2011_debugging_in_the_very_large}~\footnote{Given the most recent of those papers was written a decade ago, there are very likely to have been multiple changes to the API WER provides.}. A publication written by Google's Android team that describes how Google Play Services and Android Vitals actually works and the design concerns would be illuminating. Similarly, publishing research on how platform analytics are tested, verified and validated would help to increase the confidence they are working acceptably, reliably and safely.
+Table~\ref{tab:wer-and-android-vitals-errors} maps the information Android Vitals reports onto the errors Windows Error Reporting (WER) reported in 2009, as described in~\citep{kinshuman2009_debugging_in_the_very_large}. Google does not publish the actual information that is captured by their Android platform level services, these are based on analysis of Google Play Console and Android Vitals from a developer's (end-user) perspective. Android Vitals does not publish any API for app developers to use (they might have APIs for other stakeholders) therefore they do not offer app developers similar features to those provided in WER at the time the respective papers were published by Microsoft~\citep{kinshuman2009_debugging_in_the_very_large, kinshuman2011_debugging_in_the_very_large}~\footnote{Given the most recent of those papers was written a decade ago, there are very likely to have been multiple changes to the API WER provides.}. A publication written by Google's Android team that describes how Google Play Services and Android Vitals actually works and the design concerns would be illuminating. Similarly, publishing research on how platform analytics are tested, verified and validated would help to increase the confidence they are working acceptably, reliably and safely.
 
 \subsubsection{iOS device analytics}
 Apple ask clear direct questions of users and provide clear explanations (at least for those who understand the concepts). Their mobile devices ask users two questions when they first sign into a new release of iOS (on both new and updated devices):
@@ -348,4 +348,4 @@ Note: the third set of observers are the people and organisations who provide th
 
 
 \section{TBD topics}
-Gartner have published numerous commercial articles related to mobile analytics and have lots of useful material, however it's not clear to what extent it can be cited or referenced. COULD-DO ask them for permission (and for material they'd be willing to share). \nth{15} July 2021, I've asked an OU librarian a) if we have access to Gartner Reports via the OU library service and b) for insights on being able to reference their work. 
+Gartner have published numerous commercial articles related to mobile analytics and have lots of useful material, however it's not clear to what extent it can be cited or referenced. COULD-DO ask them for permission (and for material they'd be willing to share). \nth{15} July 2021, I've asked an OU librarian a) if we have access to Gartner Reports via the OU library service and b) for insights on being able to reference their work. The library replied, they are not able to fund the purchase of the reports. They suggest I ask my department however they advise the department may not be in a position to fund the purchase either. Oh well...
