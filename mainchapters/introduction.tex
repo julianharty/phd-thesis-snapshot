@@ -7,7 +7,9 @@
 % Explain the significance of your research by describing how you conducted your research.
 Billions of people use mobile apps on two main mobile platforms Google Android and Apple iOS and their related operating systems.  Android is integrated into additional mobile platforms including Kindle OS and various Original Equipment Manufacturers (OEM), particularly Huawei with HarmonyOS. There are millions of these mobile apps developed by millions of developers across the globe. Failures in these apps can adversely affect the experiences of end-users, businesses who provide apps, and/or goods and services through mobile apps. 
 
-This thesis focuses on the most used operating system - Android - in it's most popular and mature platform - Google Android - to discover whether mobile analytics can help the developers improve the stability of their apps. A default mobile analytics service, called Android Vitals~\footnote{Android Vitals is integrated into Google Play Console which provides additional functionality including app store metrics, ratings and reviews, release management, and so on.}, is integrated into the Google Android platform and available free of charge for all developers of apps in the Google Play App store; so it was selected as the default analytics tool for this research as it is prevalent, widespread, and also one of the quality signals Google uses to decide whether to promote apps in their app store. This default mobile analytics service is complemented with research in additional analytics tools to provide perspective and contrast in their various characteristics and capabilities.
+Bugs are ubiquitous in software (even one of the most respected software engineers, Donald E. Knuth, recognises, publicly acknowledges, \emph{and pays for}, bugs found in his creations~\citep{knuth_trutex, wikipedia__knuth_reward_checks_2020}. \emph{``You are entitled to a reward of at least 0x$1.00 ($2.56) if you are the first person to report a bona-fide error not on those lists."}~\citep{knuth_the_bank_of_san_serriffe}. And self-aware developers expect there will be bugs in their software.
+
+This thesis focuses on the most used operating system - Android - in it's most popular and mature platform - Google Android - to discover whether mobile analytics can help the developers improve the stability of their apps by fixing bugs that adversely affect their stability. A default mobile analytics service, called Android Vitals~\footnote{Android Vitals is integrated into Google Play Console which provides additional functionality including app store metrics, ratings and reviews, release management, and so on.}, is integrated into the Google Android platform and available free of charge for all developers of apps in the Google Play App store; so it was selected as the core analytics tool for this research as it is prevalent, widespread, and also one of the quality signals Google uses to decide whether to promote apps in their app store. This default mobile analytics service is complemented with research in additional analytics tools to provide perspective and contrast in their various characteristics and capabilities.
 %
 Stability is a prerequisite for an app to be viable in the marketplace and several key app stores clearly state unreliable apps~\emph{e.g.} apps that crash, will be marked down and possibly ejected from the app store~\citep{appleappstore2021_app_completeness, google_play_policy_center_broken_functionality, huaweidevelopers_appgallery_review_guidelines}. For example, Apple states~\emph{``On average, over 40\% of app rejections are for Guideline 2.1 – Performance: App Completeness."}~\citep{appleappstore2021_review_avoiding_common_app_rejections} with crashes and debugs listed as the first rejection reason. Crashes are undesirable and commonplace therefore one of the key software qualities in use where analytics may be able to help measure and improve reliability for end users. 
 % See also a developer's question about releasing iOS apps with known crashes https://developer.apple.com/forums/thread/68770
@@ -100,6 +102,80 @@ As the analytics tools also influence the results the research includes discussi
 \end{comment}
 
 
+\section{My research methodology, and my choices}
+As my main research question considers the application of analytics, the research needs to include a combination of usage \& analytics data where the analytics data is then applied with the intent of improving the product quality. The developers may not be successful in achieving improvements, although we hope they will be. They may also be able to improve their practices, so again their current and revised processes are also of interest.
+
+Although I had prior experience in industry of the efficacy and potency of applying usage analytics to improve software development and testing of mobile apps, that experience is generally covered by confidentially agreements, and also the analytics tools have changed and developed markedly since those experiences. Therefore, action research seemed appropriate, particularly as one of the long-term opensource projects had extremely high failure rates according to the de-facto Android analytics tool. I decided it was appropriate and necessary to see if I could directly help that project to improve their mobile apps - \emph{``physician heal thyself"}\footnote{\href{https://en.wikipedia.org/wiki/Physician,\_heal\_thyself}{wikipedia.org/wiki/Physician,\_heal\_thyself}.}.
+
+The next level of validity was that even if this work achieved the desired results, could other development teams achieve similar results by applying a similar approach? To help gain evidence the research engaged a separate opensource development project and development team. 
+
+Working with non-profit opensource projects, where the teams are generally willing to make their practices and results public helps with being able to obtain information and publish the results. However, as many research projects discover, what might work for opensource projects - while important and interesting to the research community - might not matter much to the industry of professional and commercial development teams. 
+
+Opensource apps are a tiny proportion of mobile apps available to users, so another level of learning and validation could be achieved through the insights of these professional and commercial development teams. Surveys tend to have poor response rates and lack the depth or richness I was seeking therefore I chose to engage at a deeper level as a fellow developer interviewing developers of several apps. Of course we would need the permission of their organisations, and some shared examples of their tools, their practices and their results of applying analytics well, and even times when they hadn't.
+
+This research is not immune from also being improved, and similarly the process is likely to have plenty of scope for improvement as we learn more from the various projects, teams, apps, and analytics tools. Similarly, there is scope to find flaws, limitations, and weaknesses in the analytics tools, therefore there was scope in the research to share findings with the teams responsible for these, and related, software tools and to use the experiences and insights from any such sharing as part of this research.
+
+Where practical, triangulation of data and analytics reports was used to help increase the confidence in the analytics and in the efficacy of using mobile analytics. As~\citep{marr2015bigdatabook} recommends:~\emph{``Measure metrics and data backed up or triangulated with other data sources."} and~\emph{``Where possible use a combination of data sets and triangulate the data. In other words, see if each data set delivers the same result so you can confirm and validate the answers."}. Triangulation of research methods is extensively covered in research. For example, \citep{fielding2012_triangulation_and_mixed_methods_designs} provides a rich discussion of triangulation and mixed methods design for various research areas. To the best of my knowledge  %SHOULD-DO decide how much to focus on triangulation, whether to discuss data triangulation as a technique for comparing analytics results (which doesn't seem to quite apply - at least in what I've read).
+
+
+
+\begin{comment}
+    - Could I try phrasing my RQs as OKRs to see if doing so helps me to improve the clarity and relevance of the RQs.
+    - Also, how about creating annotated editions of my RQs where the annotations include context, commentary, connections to other RQs, notes on twitter-style answers to each, etc.
+    - We want to know more about 'this' topic. Then provide Operational questions - to be addressed by the research, which will help us learn more about the topic.
+    - What's a RQ and what's an analytical lens (to be used to help with the RQ)?
+\end{comment}
+
+\section{Research Questions}
+\label{section-research-questions}
+
+My research hypothesis is that using mobile analytics can help improve both the work development teams do and the quality of the product they create. Here work includes the development, bug investigation, and testing of the software being created. For the quality of the product I'm focusing on a subset of qualities, which are technology-centric.
+
+The domain of mobile apps was selected for the research as mobile apps are ubiquitous, extremely popular, and have interesting and challenging contexts of use. And within the range of mobile apps the research ended up focusing on Android apps for various reasons including: the analytics tools available, the relative glut of suitable apps available for research, my prior experience and expertise, and their market share.
+
+The core question the research aims to consider is: 
+\emph{How can applying analytics improve software development and software testing for mobile apps?}~\label{overall-research-question}
+Here the assumption is that analytics can help, as stated by Buse and Zimmermann ~(\citeyear{buse_analytics_2010}); and \emph{``with explicit and implicit feedback now available (almost) continuously, questions arise. How can practitioners use this information and integrate it into their development processes [to decide when to release updates]?"}~\citep{maalej2016_towards_data_driven_requirements_engineering}.
+
+This leads to several related questions that underpin this main question \emph{i.e.}, These are grouped in three categories: sources, value, and impact.
+
+%\akb{There are a lot of sub-questions below. You will need to focus on the ones you have data to evaluate, or have more abstract formulations that cover groups of sub-questions.}
+
+\yijun{If possible, you may need to dig out a few MobileSoft research papers to give evidence that these research questions have not been addressed in literature, e.g., \emph{Future Trends in Software Engineering Research for Mobile Apps}~\citep{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}, whether the future work of some paper suggests one does not know the sources, value, or impact of mobile analytics to assess and improve app quality? Is there nothing in the general SE literature studying the "analytics" to "general software quality" problem? If there are such general work, how does "mobile analytics" and "app quality" differentiate the RQs to existing ones...}
+
+
+
+\subsection{Sources}~\label{section-sources}
+At a superficial level there seem to be mobile analytics offerings that operate within the app and those that are external to the app, particularly those that gather data at the platform level. Several widespread analytics offerings are evaluated as part of this research. Several more were considered to provide an understanding of the overall context.
+\begin{itemize}
+    \item \emph{What sources of analytics are available? and how do the sources that were investigated compare in terms of the data they collect and how they are used?}
+    \item \emph{Hypothesis}: The various sources have distinct characteristics and purposes. Developers may wish to choose particular analytics to best suit their context and objectives.
+\end{itemize}
+
+\subsection{Value}~\label{section-value}
+Does using analytics provide quantitative and/or qualitative value that can be measured? Could it provide value in terms of assessing the quality of our work that was invested into developing, testing and preparing software before it was launched?
+\begin{itemize}
+    \item \emph{How much does the fidelity matter of the analytics offerings?} Can the results be used productively even if they are flawed? The research discovered numerous errors in various analytics offerings. These results may be of interest to the research community given the endemic nature of mobile analytics in real-world apps in the major app stores.
+
+    \item \emph{How can analytics help with bug investigation?} a single bug instance may be hard to assess in terms of the likely scope and impact on a user-base; how, where and when can analytics help with bug investigation? We might also consider practical limits e.g. that are enforced by the real-world analytics we used. 
+\end{itemize}
+
+\subsection{Impact}~\label{section-impact}
+Here the focus is on whether the value has sufficient impact for anyone else to be interested in using and applying analytics. Given the nature of the research the main measures are practical, \emph{i.e.} in the real-world.
+\begin{itemize}
+    \item \emph{Do development teams use analytics in their practice?} If development teams find practices useful they will generally try to use them intrinsically. Do they? And if so, how?
+
+\end{itemize}
+
+
+
+\subsection{On Findings}
+\yijun{It will be good to move 1.5 Research Questions here and articulate them as hypothesis or early hypothesis? It is too early to reveal the findings here Maybe you can prepare the reviewers by presenting the findings as confirmation of some "hypothesis", and first discuss about these hypothesis before introducing the facts? }
+
+The research  the hypothesis 
+\textbf{Revisit once the sub-RQs have been revised \nth{20} Jul 2021.}
+
+
 
 \section{Ontology and Epistemology}~\label{section-ontology-and-episetemology}
 Before going into details of the research methodology, I will introduce the basis for my theoretical perspective in terms of the ontology and epistemology.~\footnote{
@@ -110,6 +186,7 @@ Before going into details of the research methodology, I will introduce the basi
 
 Both these definitions are taken from~\cite{marsh2002skin}. While the article is aimed at social science research, it introduces both topics and their relationships clearly and practically~\footnote{Note: newer versions of the introductory material is published in a book: \href{https://www.macmillanihe.com/page/detail/Theory-and-Methods-in-Political-Science/?K=9781137603517}{\emph{``Theory and Methods in Political Science (\nth{4} Edition)".}}}.
 }
+
 
 \subsection{Ontology}
 Analytics exist and are used across and throughout software development practices. Software is not perfect, it's formed through numerous human endeavours using flawed tools and techniques. No practical software is bug-free, nonetheless those involved can improve software through their choices and practices.
@@ -187,81 +264,6 @@ Analytics, such as user-journeys, can help to answer questions about the usage o
 Survivorship bias (\cite{wikipedia_survivorship_bias}) is relevant to understanding the information developers receive, some data does not `survive' the journey from source to developer. And much of the information that is does reach the developers does not survive or, perhaps better put, thrive in terms of being used productively. They have plenty of other demands for their time and attention and much of what could be useful isn't used in practice, therefore the data needs to be sufficiently useful and relevant and improvements tractable for any proposed approach to be used long term in practice.
 
 
-\section{My research methodology, and my choices}
-As my main research question considers the application of analytics, the research needs to include a combination of usage \& analytics data where the analytics data is then applied with the intent of improving the product quality. The developers may not be successful in achieving improvements, although we hope they will be. They may also be able to improve their practices, so again their current and revised processes are also of interest.
-
-Although I had prior experience in industry of the efficacy and potency of applying usage analytics to improve software development and testing of mobile apps, that experience is generally covered by confidentially agreements, and also the analytics tools have changed and developed markedly since those experiences. Therefore, action research seemed appropriate, particularly as one of the long-term opensource projects had extremely high failure rates according to the de-facto Android analytics tool. I decided it was appropriate and necessary to see if I could directly help that project to improve their mobile apps - \emph{``physician heal thyself"}\footnote{\href{https://en.wikipedia.org/wiki/Physician,\_heal\_thyself}{wikipedia.org/wiki/Physician,\_heal\_thyself}.}.
-
-The next level of validity was that even if this work achieved the desired results, could other development teams achieve similar results by applying a similar approach? To help gain evidence the research engaged a separate opensource development project and development team. 
-
-Working with non-profit opensource projects, where the teams are generally willing to make their practices and results public helps with being able to obtain information and publish the results. However, as many research projects discover, what might work for opensource projects - while important and interesting to the research community - might not matter much to the industry of professional and commercial development teams. 
-
-Opensource apps are a tiny proportion of mobile apps available to users, so another level of learning and validation could be achieved through the insights of these professional and commercial development teams. Surveys tend to have poor response rates and lack the depth or richness I was seeking therefore I chose to engage at a deeper level as a fellow developer interviewing developers of several apps. Of course we would need the permission of their organisations, and some shared examples of their tools, their practices and their results of applying analytics well, and even times when they hadn't.
-
-This research is not immune from also being improved, and similarly the process is likely to have plenty of scope for improvement as we learn more from the various projects, teams, apps, and analytics tools. Similarly, there is scope to find flaws, limitations, and weaknesses in the analytics tools, therefore there was scope in the research to share findings with the teams responsible for these, and related, software tools and to use the experiences and insights from any such sharing as part of this research.
-
-Where practical, triangulation of data and analytics reports was used to help increase the confidence in the analytics and in the efficacy of using mobile analytics. As~\citep{marr2015bigdatabook} recommends:~\emph{``Measure metrics and data backed up or triangulated with other data sources."} and~\emph{``Where possible use a combination of data sets and triangulate the data. In other words, see if each data set delivers the same result so you can confirm and validate the answers."}. Triangulation of research methods is extensively covered in research. For example, \citep{fielding2012_triangulation_and_mixed_methods_designs} provides a rich discussion of triangulation and mixed methods design for various research areas. To the best of my knowledge  %SHOULD-DO decide how much to focus on triangulation, whether to discuss data triangulation as a technique for comparing analytics results (which doesn't seem to quite apply - at least in what I've read).
-
-
-
-\begin{comment}
-    - Could I try phrasing my RQs as OKRs to see if doing so helps me to improve the clarity and relevance of the RQs.
-    - Also, how about creating annotated editions of my RQs where the annotations include context, commentary, connections to other RQs, notes on twitter-style answers to each, etc.
-    - We want to know more about 'this' topic. Then provide Operational questions - to be addressed by the research, which will help us learn more about the topic.
-    - What's a RQ and what's an analytical lens (to be used to help with the RQ)?
-\end{comment}
-
-\section{Research Questions}
-\label{section-research-questions}
-
-My research hypothesis is that using mobile analytics can help improve both the work development teams do and the quality of the product they create. Here work includes the development, bug investigation, and testing of the software being created. For the quality of the product I'm focusing on a subset of qualities, which are technology-centric.
-
-The domain of mobile apps was selected for the research as mobile apps are ubiquitous, extremely popular, and have interesting and challenging contexts of use. And within the range of mobile apps the research ended up focusing on Android apps for various reasons including: the analytics tools available, the relative glut of suitable apps available for research, my prior experience and expertise, and their market share.
-
-The core question the research aims to consider is: 
-\emph{How can applying analytics improve software development and software testing for mobile apps?}~\label{overall-research-question}
-Here the assumption is that analytics can help, as stated by Buse and Zimmermann ~(\citeyear{buse_analytics_2010}); and \emph{``with explicit and implicit feedback now available (almost) continuously, questions arise. How can practitioners use this information and integrate it into their development processes [to decide when to release updates]?"}~\citep{maalej2016_towards_data_driven_requirements_engineering}.
-
-This leads to several related questions that underpin this main question \emph{i.e.}, These are grouped in three categories: sources, value, and impact.
-
-\akb{There are a lot of sub-questions below. You will need to focus on the ones you have data to evaluate, or have more abstract formulations that cover groups of sub-questions.}
-
-\yijun{If possible, you may need to dig out a few MobileSoft research papers to give evidence that these research questions have not been addressed in literature, e.g., \emph{Future Trends in Software Engineering Research for Mobile Apps}~\citep{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}, whether the future work of some paper suggests one does not know the sources, value, or impact of mobile analytics to assess and improve app quality? Is there nothing in the general SE literature studying the "analytics" to "general software quality" problem? If there are such general work, how does "mobile analytics" and "app quality" differentiate the RQs to existing ones...}
-
-
-
-\subsection{Sources}~\label{section-sources}
-\begin{itemize}
-    \item \emph{What sources of analytics are available?} at a superficial level there seem to be those that operate within the app and those that are external to the app, particularly those that gather data at the platform level. Several widespread analytics offerings were evaluated and several more were considered as part of this research and to provide an understanding of the overall context.
-    \item \emph{How do the sources that were investigated compare in terms of the data they collect and how they are used?}
-\end{itemize}
-
-\subsection{Value}~\label{section-value}
-Does using analytics provide quantitative and/or qualitative value that can be measured? Could it provide value in terms of assessing the quality of our work that was invested into developing, testing and preparing software before it was launched?
-\begin{itemize}
-    \item \emph{How truthy are various analytics offerings?} We discovered numerous errors in various analytics offerings. These results may be of interest to the research community given the endemic nature of mobile analytics in real-world apps in the major app stores.
-    \item \emph{How much does the fidelity matter of the analytics offerings?} Can the results be used productively even if they are flawed?
-    \item \emph{How does using the various analytics compare with other sources or reflections of software quality?} Research already studies how various sources, such as ratings and reviews, can be used to identify flaws in software. Where and how do analytics fit into the larger context of these tools. \emph{Note: I've not actively compared the sources from a practical perspective, however the Catrobat case-study may be relevant}.
-    \item \emph{How can the analytics be used to inform and assess the work that went into creating and testing a particular release?} data from usage analytics can reinforce aspects of what was discovered pre-release (c.f. how Google Android's pre-launch reports cross-identify crashes) it can also identify quality flaws we missed in the development work.
-    \item \emph{How can analytics help with bug investigation?} a single bug instance may be hard to assess in terms of the likely scope and impact on a user-base; how, where and when can analytics help with bug investigation? We might also consider practical limits e.g. that are enforced by the real-world analytics we used. 
-\end{itemize}
-
-\subsection{Impact}~\label{section-impact}
-Here the focus is on whether the value has sufficient impact for anyone else to be interested in using and applying analytics. Given the nature of the research the main measures are practical, \emph{i.e.} in the real-world.
-\begin{itemize}
-    \item \emph{Do development teams use analytics in their practice?} If development teams find practices useful they will generally try to use them intrinsically. Do they? And if so, how?
-    \item It's one thing to be able to improve a measurement such as the crash rate, it's also worth considering whether that has any material impact on other relevant measurements. \emph{Can we discern changes, even improvements, in user satisfaction, retention, etc. through using analytics?} One of the presumptions (identified in research) is that improving quality improves the user's satisfaction with mobile apps. If so, presumably we should be able to measure the effects, even crudely.
-    \item \emph{Has anyone else found the work of interest? are there additional evidence of the impact of the work?} Here the main considerations are feedback from other researchers and from Industry e.g. Google.
-\end{itemize}
-
-
-
-\subsection{On Findings}
-\yijun{It will be good to move 1.5 Research Questions here and articulate them as hypothesis or early hypothesis? It is too early to reveal the findings here Maybe you can prepare the reviewers by presenting the findings as confirmation of some "hypothesis", and first discuss about these hypothesis before introducing the facts? }
-
-The research  the hypothesis 
-\textbf{Revisit once the sub-RQs have been revised \nth{20} Jul 2021.}
-
 
 \section{Outline of this thesis}
 This research is surrounded by that of many others, chapter 2 sets this research into the wider research context. 
@@ -279,10 +281,8 @@ After the bibliography there are various appendices for those interested.
 \par\noindent\rule{\textwidth}{0.4pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The following need relocating}
-Bugs are ubiquitous in software (even one of the most respected software engineers, Donald E. Knuth, recognises, publicly acknowledges, \emph{and pays for}~\cite{knuth_trutex, wikipedia__knuth_reward_checks_2020} bugs found in his creations. And self-aware developers expect there will be bugs in their software. \emph{``You are entitled to a reward of at least 0x$1.00 ($2.56) if you are the first person to report a bona-fide error not on those lists."} Donald E. Knuth~\cite{knuth_the_bank_of_san_serriffe}
 
-Even top development teams are likely to learn of bugs they were not able to find, and cannot reproduce. For instance, Google's Android Auto Team have asked for help from end users to identify patterns that may help the team find and address a long-running and frustrating bug in Android Auto~\footnote{\url{https://support.google.com/androidauto/thread/2865341?msgid=44437416}}. As reported by \texttt{autoevolution} in May 2020:  
-\emph{"As it turns out, the Android Auto team wasn’t able to reproduce the whole thing, so it’s now asking users to send additional reports with more information to help fix the problem."}~\footnote{~\url{https://www.autoevolution.com/news/google-wants-users-to-help-fix-widespread-android-auto-bug-143760.html}}.
+
 
 \section{Motivation}
 \akb{\nth{16} Jul 2021: Include external (non-personal) motivation for the research, or this could be part of the summary section of this chapter.}

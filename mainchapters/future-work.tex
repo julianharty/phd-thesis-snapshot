@@ -67,6 +67,8 @@ Consistency in pertinent events in Android logs (we believe they're consistently
 \section{Comparing static-analysis warnings with failures reported in usage analytics}
 As the research of~\citep{khalid2016_examining_the_relationship_between_findbugs_warnings_and_app_ratings} found, there were correlations between static analysis warnings for poorly rated apps for three categories of warnings: 1) bad practice, 2) internationalization, and 3) performance. The first and third of these categories are also provided by various analytics tools including Android Vitals. Therefore it may be of interest to research whether there are correlations between static-analysis warnings for these categories and the crash and ANR clusters reported in the appropriate tools. 
 
+\emph{How does using the various analytics compare with other sources or reflections of software quality?} Research already studies how various sources, such as ratings and reviews, can be used to identify flaws in software. Where and how do analytics fit into the larger context of these tools. \emph{Note: I've not actively compared the sources from a practical perspective, however the Catrobat case-study may be relevant}.
+
 The results of these comparisons may help in several areas of further research:
 \begin{enumerate}
     \item Warnings are reported by static-analysis tools but not reported in the analytics tools,
@@ -144,6 +146,8 @@ This is a placeholder and a reminder to incorporate some early ideas on this top
 
 \section{Using mobile analytics to improve testing of mobile apps}
 % MUST-DO expand this section.
+\emph{How can the analytics be used to inform and assess the work that went into creating and testing a particular release?} data from usage analytics can reinforce aspects of what was discovered pre-release (c.f. how Google Android's pre-launch reports cross-identify crashes) it can also identify quality flaws we missed in the development work.
+
 \begin{itemize}
     \item Using Mobile Analytics to improve the testing of mobile apps. This was work I had hoped to perform as part of this research, various practical constraints meant this was not practical during the PhD.
 \end{itemize}
@@ -217,6 +221,8 @@ Research questions to consider:
     \item Are there viable and acceptable practices to provide library developers with quality and usage analytics? (SafeDK started an initiative in this area which died in the intervening years, perhaps when they were acquired).
 \end{itemize}
 
+\section{How do improvements in reliability affect user-centric metrics?}
+It's one thing to be able to improve a measurement such as the crash rate, it's also worth considering whether that has any material impact on other relevant measurements. \emph{Can we discern changes, even improvements, in user satisfaction, retention, etc. through using analytics?} One of the presumptions (identified in research) is that improving quality improves the user's satisfaction with mobile apps. If so, presumably we should be able to measure the effects, even crudely.
 
 \section{Summary of Future Work}
 The thesis is a snapshot of work done to date. The PhD journey and a combination of the relationships and experiences that have been established on the journey have led to various interesting and related areas of ongoing and future work which I am actively engaged in. Please get in contact if you would like to collaborate with any of these and/or with other topics that relate to my research.
