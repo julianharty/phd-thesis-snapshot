@@ -27,7 +27,17 @@
 %
 \listoffigures
 \addtocontents{lof}{\par\nobreak\textbf{{\scshape Figure} \hfill Page}\par\nobreak}
-%\clearemptydoublepage
+\clearemptydoublepage
+
+% https://tex.stackexchange.com/a/99656/5125
+\renewcommand{\listoflistings}{%
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Sourcecode Listings}%
+    \listof{listing}{Sourcecode Listings}%
+}
+\listoflistings
+
 %
 %
 % The bulk of the document is delegated to these chapter files in
@@ -35,50 +45,13 @@
 \mainmatter
 %
 %\input{frontmatter/abstract.tex}
+\setcounter{chapter}{-1}
+\chapter{Meta materials - not part of the final thesis}
 \include{meta-chapters/the-red-thread}
-
 \input{mainchapters/introduction}
 
 \clearpage
 
-%\input{DeviceSelection.tex}
-%\input{OnTestingForMobileApps.tex}
-
-%\input{mainchapters/related-work}
-%\chapter{Case Studies}
-%\input{case-studies/kiwix-team-case-study}
-
-%\input{mainchapters/applying-analytics-to-development}
-
-%\input{case-studies/overview-of-case-studies}
-%\input{mainchapters/evaluation}
-\begin{comment}
-
-
-\chapter{Case Studies to focus on}
-\input{case-studies/case-studies}
-\input{case-studies/logging-case-studies}
-\input{case-studies/major-corporations}
-\chapter{How much longer?}
-\input{appendicies/thesis_countdown}
-\chapter{Glossary}
-\input{frontmatter/glossary}
-\end{comment}
-
-%\input{ResearchQuestions.tex}
-%\input{ResearchMethods.tex}
-%\input{FindingsAndResults.tex}
-%\input{SourcesOfData.tex}
-%\input{TestingAnalytics.tex}
-%\input{disonnance.tex}
-%\input{OngoingWork.tex}
-%\input{mainchapters/discussion.tex}
-%\input{mainchapters/conclusions}
-%\input{mainchapters/future-work}
-
-%\input{fieldstones.tex}
-%\input{catrobat-case-study.tex}
-% Grey literature - non peer-reviewed e.g. commercial. 
 \backmatter
 \bibliographystyle{ACM-Reference-Format}
 \refstepcounter{chapter}
