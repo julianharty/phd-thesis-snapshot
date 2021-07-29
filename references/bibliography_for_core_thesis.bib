@@ -765,6 +765,22 @@ month = {sep}
     numpages = {7}
 }
 
+@ARTICLE{musa1990_software_reliability_engineering_technology_for_the_1990s,  
+  author={Musa, J.D. and Everett, W.W.},  
+  journal={IEEE Software},  
+  title={Software-reliability engineering: technology for the 1990s}, 
+  year={1990}, 
+  volume={7}, 
+  number={6}, 
+  pages={36-43}, 
+  abstract={
+    It argued that software engineering is about to reach a new stage, the reliability stage, that stresses customers' operational needs and that software-reliability engineering will make this stage possible. Software-reliability engineering is defined as the applied science of predicting, measuring, and managing the reliability of software-based systems to maximize customer satisfaction. The basic concepts of software reliability-engineering and the reasons why it is important are examined. The application of software-reliability engineering at each stage of the life cycle is described.}, 
+  keywords={},
+  doi={10.1109/52.60588},
+  ISSN={1937-4194},
+  month={Nov},
+}
+
 @ARTICLE{musa1993_operational_profiles,  
     author = {J. D. {Musa}},  
     journal = {IEEE Software},   
@@ -2339,6 +2355,23 @@ series = {MOBILESoft ’20}
   ISSN={2161-0258},  
   month={Aug},
 }
+
+@INPROCEEDINGS{huang2019_up_to_crash_3rdparty_libraries_on_android,
+  author={Huang, Jie and Borges, Nataniel and Bugiel, Sven and Backes, Michael}, 
+  booktitle={2019 IEEE European Symposium on Security and Privacy (EuroS P)}, 
+  title={Up-To-Crash: Evaluating Third-Party Library Updatability on Android}, 
+  year={2019}, 
+  volume={}, 
+  number={}, 
+  pages={15-30}, 
+  abstract={
+    Buggy and flawed third-party libraries increase their host app's attack surface and put the users' privacy at risk. To avert this risk, libraries have to be kept updated to their newest versions by the app developers that integrate them into their projects. Recent researches revealed that the prevalence of outdated third-party libraries in Android apps is indeed a rampant problem, but also suggested that there is a great opportunity for drop-in replacements of outdated libraries, which would not even require cooperation by the app developers to update the libraries. However, all those conclusions are based on static app analysis, which can only provide an abstract view. In this work, we extend the updatability analysis to the runtime of apps. We implement a solution to update third-party libraries with drop-in replacements by their newer versions. To verify the feasibility of this developer-independent update mechanism, we dynamically test 3,000 real world apps for 3 popular libraries (78 library versions) for runtime failures stemming from incompatible library updates. To investigate the updatability of libraries in-depth, exploration enhanced dynamic testing is adopted to monitor the runtime behaviors of 15 apps before and after library updating. From our test, we find that the prior reported updatability rate is under real conditions overestimated by a factor of 1.57-2.06. Through root cause analysis, we find that the underlying problems prohibiting easy updates are intricate, such as deprecated functions, changed data structures, or entangled dependencies between different libraries and even the host app. We think our results not only put a more realistic light on the library updatability problem in Android, but also provide valuable insights for future solutions that provide automatic library updates or that try to support the app developers in better maintaining their external dependencies.},
+  keywords={}, 
+  doi={10.1109/EuroSP.2019.00012},
+  ISSN={}, 
+  month={June},
+}
+
 
 @inproceedings{jha2019_characterizing_android_specific_crash_bugs,
 author = {Jha, Ajay Kumar and Lee, Sunghee and Lee, Woo Jin},
@@ -3922,6 +3955,14 @@ author = {HUAWEI Developers},
   notes = {Last visited~\nth{31} May 2021},
 }
 
+@misc{norwied2012_download_android_install_files,
+  title = {Download Android install files *.apk from play.google.com},
+  url = {https://norwied.wordpress.com/2012/08/10/download-android-install-files-apk-from-play-google-com/},
+  author = {Norbert Wiedermann},
+  year = {2012},
+  notes = {Last visited~\nth{27} Jul 2021},
+}
+
 @misc{nytimes20191221_total_surveillance_is_not_what_america_signed_up_for,
   title = {Total Surveillance Is Not What America Signed Up For},
   url = {https://www.nytimes.com/interactive/2019/12/21/opinion/location-data-privacy-rights.html},
@@ -4365,7 +4406,7 @@ author = {HUAWEI Developers},
   author = {{Google Inc.}},
   organization = {{Google Inc.}},
   title = {[Broken Functionality] - Spam and Minimum Functionality - Developer Policy Center},
-  url = {https://play.google.com/about/spam-min-functionality/min-functionality/#!?zippy_activeEl=broken#broken},
+  url = {https://play.google.com/about/spam-min-functionality/min-functionality/},
   year = {2019}
 }
 
@@ -4616,9 +4657,11 @@ author = {HUAWEI Developers},
 @online{knuth_trutex,
   title = {An Example of Donald Knuth's Reward Check},
   url = {http://www.truetex.com/knuthchk.htm},
-  author = {Richard J. Kinch {Phd}},
+  author_with_PhD = {Richard J. Kinch {Phd}},
+  author = {Richard J. Kinch},
   year = {1999},
   organization = {{TrueTeX}},
+  key = {Kinch},
 }
 
 @online{littledata2020_google_analytics_doesnt_match_shopify,
