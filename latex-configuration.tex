@@ -173,7 +173,11 @@
 \usepackage{latexsym}					%Extra symbols
 \usepackage[authoryear,
 		     sort&compress]{natbib}		%Calls bibliography commands % square,numbers,
-\usepackage{url}	
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}               %Allows long URLs to be split on the / and - characters. See https://norwied.wordpress.com/2012/07/10/how-to-break-long-urls-in-bibtex/ 
+% \Urlmuskip=0mu plus 1mu               % This produces large white space gaps between sections of a URL so not ideal, comment out.
+% If I need to improve the formatting of DOI's then revisit https://tex.stackexchange.com/questions/68506/bibtex-url-and-doi-line-breaks-on-different-characters 
+
 \urlstyle{sf}
 \usepackage[british]{babel}	            %For languages characters and hyphenation
 \babelprovide[import]{bengali}
