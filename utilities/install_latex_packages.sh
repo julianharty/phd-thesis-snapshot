@@ -83,5 +83,8 @@ sudo tlmgr install fvextra
 # Command to build the first part of this list is
 # awk 'BEGIN { RS = "\usepackage" }       
      { print  substr($1, 1, length($1)-1) }' latex-configuration.tex | awk 'BEGIN {RS = "{" } !/^\[[a-z]*\]/{print "sudo tlmgr install " $1}' > utilities/install_latex_packages.sh
+
+# The following seems to be the final version of the above command, at least according to my zsh history.
+awk 'BEGIN { RS = "\usepackage" }     { print  substr($1, 1, length($1)-1) }' latex-configuration.tex | awk 'BEGIN {RS = "{" } !/^\[[a-z]*\]/{print "sudo tlmgr install " $1}' > utilities/install_latex_packages.sh
 # However it doesn't find all the packages and some of the commands it created didn't suit tlmgr
 # The next challenge is to enable pdflatex to process the bibliography files which it currently seems to ignore.
