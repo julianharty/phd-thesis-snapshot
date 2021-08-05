@@ -23,3 +23,19 @@ sudo tlmgr install minifp
 
 pdflatex -synctex=1 -interaction=nonstopmode  -shell-escape  -file-line-error print_a_chapter.tex
 ```
+
+## Editing notes
+The thesis is written in UK English and uses Oxford commas. There are many comments in the latex source which do not appear in the generated thesis.
+
+### Structure of the project
+* appendicies: non-core materials. Some are already excluded from the generated thesis, others form part of it.
+* case-studies: currently a mixed bag of case studies that were performed during the research. These will be pared down as the thesis reaches maturity and subject to permissions and approvals some may similarly be included or excluded from the thesis.
+* draftmaterials: Older materials, notes, brain-farts, etc. Excluded from the thesis.
+* examples: these came from a previous thesis that used this template. They're there for inspiration in the microcosm of latex.
+* frontmatter: contains the boilerplate and preamble for this thesis.
+* images: the many images are gathered here. Not all are included in the thesis. There are also additional images hosted separately e.g. in PowerPoint documents that may be included as and when they're perceived to add to the thesis. The images folder contains various sub-folders, I hope they're identifiable. 
+* mainchapters: here's the core of the thesis (when combined with the case studies).
+* meta-chapters: mainly commentary about and related to the thesis and the underlying research.
+* references: mainly the bibliography files.
+* utilities: written in basic bash files to help quantify the source files in the thesis.
+* various files are in the root folder including: print_a_chapter.tex - used to help focus on a subset of the thesis, thesis.tex - generates the thesis with the contents intended for eventual submission, and thesis-with-extras.tex which additionally includes some of the meta-chapters.
