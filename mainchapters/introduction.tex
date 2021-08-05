@@ -89,17 +89,27 @@ Research into the use and efficacy of software usage analytics appears to be und
 
 The domain of mobile apps was selected for this research as mobile apps are ubiquitous, extremely popular, and have interesting and challenging contexts of use. Within this domain the research ended up focusing on Android apps for various reasons including: the analytics tools available, the relative glut of suitable apps available for research, my prior experience and expertise, and their market share. Furthermore, in recent years, platform-wide analytics have been made available to all the developers of actively-used Android apps in Google Play. Despite the ubiquity of these platform-level analytics, there appeared to be no research into their efficacy, completeness, or accuracy.
 
-Developers have various sources of feedback about their apps, as Figure~\ref{fig:sources-of-feedback-for-developers} illustrates. The pink triangle represents the extent of Google Play (the app store) in terms of providing feedback. Other feedback is also available independently of the app store, for instance by using software incorporated directly into the app and from the development process.
-
 \begin{figure}[htbp!]
     \centering
     \includegraphics[width=15cm]{images/silvias-developer-centric-figure-mobilesoft2020.png}
     \caption[Sources of feedback for developers]{Sources of feedback for developers \\}
     \label{fig:sources-of-feedback-for-developers}
+    \captionsetup{format=hang}
+    \caption{The Research focuses on automated checks and tests performed by the app store, automated analytics and reports both in-app and at the platform level. \\ \\Other sources of feedback available to developers includes feedback from people and feedback from their development tools and CI automation.}
 \end{figure}
 
-\textbf{MUST-DO - fix this paragraph} Each source of feedback may stem from humans (for example, in reviews) or from software (for example, from code quality tools such as Lint).This research introduces three sources of software-generated feedback.
+Developers have various sources of feedback about their apps, as Figure~\ref{fig:sources-of-feedback-for-developers} illustrates. The pink triangle represents the extent of Google Play (the app store) in terms of providing feedback. Other feedback is also available independently of the app store, for instance: from the development process, and by using software incorporated directly into the app that provides bi-directional communications between the development team and end users~\citep{avellis_harty_yu_towards_mobile_twin_peaks}.
 
+\pagebreak
+
+Each source of feedback may stem from humans (for example, in reviews) or from software (for example, from code quality tools such as Lint).This research introduces three sources of software-generated feedback:
+\begin{enumerate}
+    \item Prelaunch testing: automated checks and testing provided by the app store (Google Play),
+    \item platform-provided analytics: automated analytics and reports gathered by the Google Android platform from users devices configured to provide the underlying data,
+    \item in-app error reporting (including crash reporting): software added by the app development team to detect and report crashes, and optionally errors and similar/related data.
+\end{enumerate}
+
+% NB: Alpha and Beta channels formed part of one of the major industry case studies. Clearance has not yet been granted to write or publish the findings.
 
 \section{Research Questions}
 \label{section-research-questions}
