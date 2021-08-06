@@ -104,6 +104,7 @@ Developers have various sources of feedback about their apps, as Figure~\ref{fig
 
 Each source of feedback may stem from humans (for example, in reviews) or from software (for example, from code quality tools such as Lint).This research introduces three sources of software-generated feedback:
 \begin{enumerate}
+    \itemsep0em 
     \item Prelaunch testing: automated checks and testing provided by the app store (Google Play),
     \item platform-provided analytics: automated analytics and reports gathered by the Google Android platform from users devices configured to provide the underlying data,
     \item in-app error reporting (including crash reporting): software added by the app development team to detect and report crashes, and optionally errors and similar/related data.
@@ -111,43 +112,49 @@ Each source of feedback may stem from humans (for example, in reviews) or from s
 
 % NB: Alpha and Beta channels formed part of one of the major industry case studies. Clearance has not yet been granted to write or publish the findings.
 
+Note: while the first two of these sources use Google Play as their source, other app stores and similar ecosystems may provide equivalent sources of feedback.
+
 \section{Research Questions}
 \label{section-research-questions}
 
-My research hypothesis is that using mobile analytics can help improve both the work development teams do and the quality of the products they create. Here work includes the development, bug investigation, and testing of the software being created. For the quality of the product, this research is focusing on a subset of qualities which are technology-centric.
+My research hypothesis is that using mobile analytics can help improve both the work development teams do and the quality of the products they create. Here work includes the development, testing, and bug investigation of the software being created. For the quality of the product, this research is focusing on a subset of qualities which are technology-centric.
 
 The core question the research aims to consider is:
-\emph{How can applying analytics improve software development and software testing for mobile apps?}~\label{overall-research-question}
-Here the assumption is that analytics can help, as stated by Buse and Zimmermann ~(\citeyear{buse_analytics_2010}); and \emph{``with explicit and implicit feedback now available (almost) continuously, questions arise. How can practitioners use this information and integrate it into their development processes [to decide when to release updates]?"}~\citep{maalej2016_towards_data_driven_requirements_engineering}.
+\begin{quote}
+  \emph{How can applying analytics improve software development and software testing for mobile apps?}~\label{overall-research-question}  
+\end{quote}
+% Thanks to https://tex.stackexchange.com/questions/35933/indenting-a-whole-paragraph
 
-This leads to several related questions that underpin this main question. These are grouped in three categories: sources, value, and impact.
+% https://www.skmurphy.com/blog/2014/01/27/difference-between-a-hypothesis-and-an-assumption/
+Here the hypothesis is that analytics can help, as stated by Buse and Zimmermann ~(\citeyear{buse_analytics_2010}); and \emph{``with explicit and implicit feedback now available (almost) continuously, questions arise. How can practitioners use this information and integrate it into their development processes [to decide when to release updates]?"}~\citep{maalej2016_towards_data_driven_requirements_engineering}.
+
+This leads to several related questions that underpin this main question: these are grouped in three categories: \href{sec:sources}{\textbf{\nameref{sec:sources}}}, \href{sec:value}{\textbf{\nameref{sec:value}}}, and \href{sec:impact}{\textbf{\nameref{sec:impact}}}.
 
 %\akb{There are a lot of sub-questions below. You will need to focus on the ones you have data to evaluate, or have more abstract formulations that cover groups of sub-questions.}
 
-\yijun{If possible, you may need to dig out a few MobileSoft research papers to give evidence that these research questions have not been addressed in literature, e.g., \emph{Future Trends in Software Engineering Research for Mobile Apps}~\citep{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}, whether the future work of some paper suggests one does not know the sources, value, or impact of mobile analytics to assess and improve app quality? Is there nothing in the general SE literature studying the "analytics" to "general software quality" problem? If there are such general work, how does "mobile analytics" and "app quality" differentiate the RQs to existing ones...}
+%MUST-DO \yijun{If possible, you may need to dig out a few MobileSoft research papers to give evidence that these research questions have not been addressed in literature, e.g., \emph{Future Trends in Software Engineering Research for Mobile Apps}~\citep{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}, whether the future work of some paper suggests one does not know the sources, value, or impact of mobile analytics to assess and improve app quality? Is there nothing in the general SE literature studying the "analytics" to "general software quality" problem? If there are such general work, how does "mobile analytics" and "app quality" differentiate the RQs to existing ones...}
 
 
 
-\subsection{Sources}~\label{section-sources}
+\subsection{Sources}~\label{section-sources}~\label{sec:sources}
 At a superficial level, there seem to be mobile analytics offerings that operate within the app and those that are external to the app, particularly those that gather data at the platform level. Several widespread analytics offerings are evaluated as part of this research. Several more were considered to provide an understanding of the overall context.
 \begin{itemize}
     \item \emph{What sources of analytics are available? And how do the sources that were investigated compare in terms of the data they collect and how they are used?}
-    \item \emph{Hypothesis}: The various sources have distinct characteristics and purposes. Developers may wish to choose particular analytics to best suit their context and objectives.
+    % \item \emph{Hypothesis}: The various sources have distinct characteristics and purposes. Developers may wish to choose particular analytics to best suit their context and objectives.
 \end{itemize}
 
-\subsection{Value}~\label{section-value}
+\subsection{Value}~\label{section-value}~\label{sec:value}
 Does using analytics provide quantitative and/or qualitative value that can be measured? Could it provide value in terms of assessing the quality of our work that was invested into developing, testing and preparing software before it was launched?
 \begin{itemize}
-    \item \emph{How much does the fidelity of the analytics offerings matter?} Can the results be used productively even if they are flawed? The research discovered numerous errors in various analytics offerings. These results may be of interest to the research community given the endemic nature of mobile analytics in real-world apps in the major app stores.
+    \item \emph{How much does the fidelity of the analytics offerings matter?} Can the results be used productively even if they are flawed? %The research discovered numerous errors in various analytics offerings. These results may be of interest to the research community given the endemic nature of mobile analytics in real-world apps in the major app stores.
 
-    \item \emph{How can analytics help with bug investigation?} A single bug instance may be hard to assess in terms of the likely scope and impact on a user-base; how, where and when can analytics help with bug investigation? We might also consider practical limits,~\emph{e.g.,} constraints that are enforced by the real-world analytics we used.
+    \item \emph{How can analytics help with bug investigation?} Isolated instances of bugs may be hard to assess in terms of the likely scope and impact on a user-base; \emph{how, where and when can analytics help with bug investigation?} We might also consider practical limits,~\emph{e.g.,} constraints that are enforced by the real-world analytics being used.
 \end{itemize}
 
-\subsection{Impact}~\label{section-impact}
+\subsection{Impact}~\label{section-impact}~\label{sec:impact}
 Here the focus is on whether the value has sufficient impact for anyone else to be interested in using and applying analytics. Given the nature of the research the main measures are practical, \emph{i.e.}, in the real-world.
 \begin{itemize}
-    \item \emph{Do development teams use analytics in their practice?} If development teams find practices useful they will generally try to use them intrinsically. Do they? And if so, how?
-
+    \item \emph{Do development teams use analytics in their practice?}  And if so, how? % Hypothesis: If development teams find practices useful they will generally try to use them intrinsically. Do they?
 \end{itemize}
 
 
@@ -179,7 +186,7 @@ Log messages are written locally on the same device (\textit{i.e.} computer) tha
 %  https://gist.github.com/PatrykGala/55603fe4259d812fdc0ffbc9e63eaabc (saved in my references)
 
 
-Various data can be potentially collected implicitly and explicitly. What can be collected depends on the observation mechanisms. Observation may be within an app or external to it, for instance by the operating system as both iOS  and Google Android do~\footnote{There are other custom versions of Android, for instance used in Amazon Kindle Fire devices. Their details are outside the scope of my research.}(details in the Appendix titled~\href{chapter-on-mobile-analytics}{\emph{\nameref{app:on-mobile-analytics}}}). Within an app the observation may focus at a single layer, for instance the visual user interface, or several. The choices of observation mechanisms within an app are made by developers or their stakeholders. The choices external to an app can be made by various people including the platform provider, users, or indirectly using other software including third-party apps, spyware, accessibility software, and so on.
+Various data can be potentially collected implicitly and explicitly. What can be collected depends on the observation mechanisms. Observation may be within an app or external to it, for instance by the operating system as both iOS  and Google Android do~\footnote{There are other custom versions of Android, for instance used in Amazon Kindle Fire devices. Their details are outside the overall scope of this research.}(details in the Appendix titled~\href{chapter-on-mobile-analytics}{\emph{\nameref{app:on-mobile-analytics}}}). Within an app the observation may focus at a single layer, for instance the visual user interface, or several. The choices of observation mechanisms within an app are made by developers or their stakeholders. The choices external to an app can be made by various people including the platform provider, users, or indirectly using other software including third-party apps, spyware, accessibility software, and so on.
 
 Analytics, such as user-journeys, can help to answer questions about the usage of the software. They help establish \emph{what-is}. As we understand more about what-is we can then consider \emph{what-would-be-better} and do gap analysis between what-is and what-would-be-better.
 
@@ -225,36 +232,49 @@ Discuss which sources are likely to provide input to the key elements needed to 
 
 
 \section{Research Strategy}
-The research aims to provide practical and applicable insights to mobile apps developers. As such, the strategy was to work predominantly with development teams for mobile apps to ensure -- as far as practical -- that the research is externally validated through their experiences, practices and feedback. As developers need to make choices appropriate to their context, the research includes a variety of apps including commercial and not-for-profit, small, medium and large development teams and user bases, and has an international flavour with developers situated on various continents including Asia, Europe, and the USA.
-
-
+The research aims to provide practical and applicable insights to developers of mobile apps. As such, the strategy was to work predominantly with development teams for mobile apps to ensure -- as far as practical -- that the research is externally validated through their experiences, practices, and feedback. As developers need to make choices appropriate to their context, the research includes a variety of apps including commercial and not-for-profit, small, medium and large development teams, and user bases. The research also has an international flavour with developers situated on various continents including Asia, Europe, and the USA.
 
 
 \begin{comment}
-    \begin{itemize}
-        \item Get the audience to identify with someone or something, - Give that someone or something some kind of need, - And start changing the circumstances.
-        \item Have that someone or something deal with the new circumstances - And find the thing that was needed.
-        \item Have that someone or something pay the price of the find - And start heading back toward the original circumstances.
-        \item show how those original circumstances have changed as a result.
-    \end{itemize}
-    \emph{Dan Harmon's story telling circle}
+
+
+%\section{My research methodology, and my choices}
+Needs full rework.
+
+Merge into the strategy
+Headings:
+\begin{itemize}
+    \item case study approach
+    \item data collection
+    \item (move 'action research' from the introduction as it's not the strategy, instead mention it in the relevant case study: Kiwix).
+\end{itemize}
+
+
+draft wording for a high-level scene setting: Within these case studies there were particular needs that led to choices in the specific case studies:
+
+
+MUST-DO Map RQ's to the case studies and explain how they're mapped, and the methods I'll be introducing later on. High level choices of the key choices I made in order to answer the RQs. Map in Chapter 3.
+
 \end{comment}
 
 
 \subsection{Case Studies}
-Case studies have been established by various researchers as an effective method to understand software qualities, for instance in~\citep{khalid2014_prioritizing_the_devices_to_test_your_app_on_casestudy_android_games, khalid2015_what_do_mobile_app_users_complain_about, khalid2016_examining_the_relationship_between_findbugs_warnings_and_app_ratings, martinez_fernandez2019_continuously_assessing_and_improving_software_quality_with_software_analytics_tools}. And case studies are well suited to exploratory research, for which they may offer insights not available with other approaches~\citep{rowley2002_using_case_studies_in_research}, especially when events are contemporary and where the investigator has little or no control Chapter 1 in~\citep{yin2018_case_study_research_and_applications_6th_edition}. They are also recommended where the research includes multiple data sources~\citep{rowley2002_using_case_studies_in_research}. This research therefore uses case studies, as the research investigates real-world use of mobile analytics where many factors are outside the control of the researcher.
+Case studies have been established by various researchers as an effective method to understand software qualities, for instance in various research by Khalid~\emph{et al.}, in (\citeyear{khalid2014_prioritizing_the_devices_to_test_your_app_on_casestudy_android_games, khalid2015_what_do_mobile_app_users_complain_about, khalid2016_examining_the_relationship_between_findbugs_warnings_and_app_ratings}), and the work of \citet{martinez_fernandez2019_continuously_assessing_and_improving_software_quality_with_software_analytics_tools}. And case studies are well suited to exploratory research, for which they may offer insights not available with other approaches~\citep{rowley2002_using_case_studies_in_research}, especially when events are contemporary and where the investigator has little or no control in~\citep[Chapter 1]{yin2018_case_study_research_and_applications_6th_edition}. They are also recommended where the research includes multiple data sources~\citep{rowley2002_using_case_studies_in_research}. This research therefore uses case studies, as the research investigates real-world use of mobile analytics where many factors are outside the control of the researcher.
 
 %In the research, developers were able to improve the measured reliability for each of the case studies despite flaws and limitations in the mobile analytics. Some improvements were gained with small amounts of effort; others were achieved through more strategic changes, including replacing Java code with Kotlin replacements and retiring buggy modules and external libraries.
 
-%Add a high level diagram or table of the case studies and what they provide.
+%MUST-DO Add a high level diagram or table of the case studies and what they provide.
+
+The choice of case studies is intended to provide variety and the opportunity for comparison and to provide a multi-layered approach.
+
 
 \subsection{Analytics}
-
-As my main research question considers the application of analytics, the research needs to include a combination of usage and analytics data, where the analytics data is then applied with the intent of improving the product quality. The developers may not be successful in achieving improvements, although we hope they will be. They may also be able to improve their practices, so again their current and revised processes are also of interest.
+As the main research question considers the application of analytics, the research needs to include a combination of usage and analytics data, where the analytics data is then applied with the intent of improving quality of the product. The developers may not be successful in achieving improvements, although we hope they will be. They may also be able to improve their practices, so again their current and revised processes are also of interest.
 
 [Almost] anything can be measured sufficiently to be useful. In his book~\emph{How to Measure Anything, \nth{3} edition}~\citet{hubbard2014measure} argues that anything can be measured and proposes an approach to do so. His framework, called \emph{Applied Information Economics: A Universal Approach to Measurement}, is summarised in five steps:
 
 \begin{enumerate}
+    \itemsep0em
     \item Define the decision.
     \item Determine what you know now.
     \item Compute the value of additional information. (If none, go to step 5.)
@@ -265,36 +285,24 @@ As my main research question considers the application of analytics, the researc
 This approach helps to frame this research into applying analytics to development practices, especially in terms of the practical aspects and nature of real-world apps, development teams, and user-bases.
 
 
-
-
 \subsection{Perspectives of the developers of the apps and the tools}
 As the analytics tools also influence the results, the research includes discussions and collaborations with several organisations who create these tools.
 
 This research is not immune from also being improved, and similarly the process is likely to have plenty of scope for improvement as we learn more from the various projects, teams, apps, and analytics tools. Similarly, there is scope to find flaws, limitations, and weaknesses in the analytics tools; therefore there was scope in the research to share findings with the teams responsible for these, and related, software tools and to use the experiences and insights from any such sharing as part of this research.
 
 
-
 \subsection{Triangulation}
-Where practical, triangulation~\footnote{c.f. collegation} of data and analytics reports was used to help increase the confidence in the analytics and in the efficacy of using mobile analytics. As~\citep{marr2015bigdatabook} recommends:~\emph{``Measure metrics and data backed up or triangulated with other data sources."} and~\emph{``Where possible use a combination of data sets and triangulate the data. In other words, see if each data set delivers the same result so you can confirm and validate the answers."}. Triangulation of research methods is extensively covered in research. For example, \citep{fielding2012_triangulation_and_mixed_methods_designs} provides a rich discussion of triangulation and mixed methods design for various research areas. To the best of my knowledge  %SHOULD-DO decide how much to focus on triangulation, whether to discuss data triangulation as a technique for comparing analytics results (which doesn't seem to quite apply - at least in what I've read).
+Where available and practical, triangulation%~\footnote{c.f. collegation}
+of data and analytics reports will be used to help increase the confidence in the analytics and in the efficacy of using mobile analytics. As~\citep{marr2015bigdatabook} recommends:~\emph{``Measure metrics and data backed up or triangulated with other data sources."} and~\emph{``Where possible use a combination of data sets and triangulate the data. In other words, see if each data set delivers the same result so you can confirm and validate the answers."}. Triangulation of research methods is extensively covered in research. For example, \citep{fielding2012_triangulation_and_mixed_methods_designs} provides a rich discussion of triangulation and mixed methods design for various research areas. % To the best of my knowledge...  %SHOULD-DO decide how much to focus on triangulation, whether to discuss data triangulation as a technique for comparing analytics results (which doesn't seem to quite apply - at least in what I've read).
 
-The next level of validity was that even if this work achieved the desired results, could other development teams achieve similar results by applying a similar approach? To help gain evidence, the research engaged a separate opensource development project and development team.
+The next level of validity is the role of the researcher: even if this work achieves desirable results for projects where the researcher is directly involved, could other development teams achieve similar results by applying a similar approach? To help gain evidence, the research engages a separate opensource development project and development team with the researcher as a guide and mentor rather than a hands-on contributor.
 
-Cross validation through multiple case studies. Comparing opensource and commercial projects for their approaches and results. Multiple ecosystems. Data types and informant types. Choice of case studies intended to provide variety and the opportunity for comparison. Multi-layered approach.
+Cross validation through multiple case studies: the research compares opensource and commercial projects for their approaches and results. It also compares various in-app analytics offerings to discern if they have distinctive characteristics that may help the development teams.
+%Multiple ecosystems. Data types and informant types. 
 
-%\section{My research methodology, and my choices}
-Needs full rework.
-
-Merge into the strategy
-Headings:
-- case study approach
-- data collection
-- (remove 'action research' from the introduction as it's not the strategy, instead mention it in the relevant case study: Kiwix).
-
-draft wording for a high-level scene setting: Within these case studies there were particular needs that led to choices in the specific case studies:
-
-
-May RQ's to the case studies and explain how they're mapped, and the methods I'll be introducing later on. High level choices of the key choices I made in order to answer the RQs. Map in Chapter 3.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\par\noindent\rule{\textwidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %Move to the case study that used the action research:
@@ -317,23 +325,6 @@ May RQ's to the case studies and explain how they're mapped, and the methods I'l
 
 
 
-
-\begin{comment}
-
-
-\section{Ontology and Epistemology}~\label{section-ontology-and-episetemology}
-This section introduces the theoretical perspective in terms of the ontology and epistemology in terms of using mobile analytics for improving app quality.~\footnote{
-\begin{itemize}
-    \item Ontology \( \rightarrow \) a theory of `being' (existence).
-    \item Epistemology \( \rightarrow \) what we can know about the microcosm/the world and how we can know it (a theory of knowledge).
-\end{itemize}
-
-Both these definitions are taken from~\cite{marsh2002skin}. While the article is aimed at social science research, it introduces both topics and their relationships clearly and practically~\footnote{Note: newer versions of the introductory material is published in a book: \href{https://www.macmillanihe.com/page/detail/Theory-and-Methods-in-Political-Science/?K=9781137603517}{\emph{``Theory and Methods in Political Science (\nth{4} Edition)".}}}.
-}
-
-\end{comment}
-
-%Could also be used as a lens for applying analytics.
 
 
 
