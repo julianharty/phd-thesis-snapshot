@@ -28,6 +28,81 @@ The chapter continues with five practical aspects including app development and 
 \minilof
 \end{comment}
 
+
+\section{Potential sources of evidence}
+\emph{Note: this was moved from the Introduction and may have a better home. \textbf{MUST-DO} integrate this section in this chapter.}
+%\emph{What can we learn from people? what can we learn from analytics? ...?}
+
+%\textbf{How can we know about mobile analytics and the effects of using them?}
+
+%\nth{16} Jul 2021:~\akb{This subsection is too verbose. Summarise with a diagram showing sources of knowledge and links to difference types} - \textbf{MUST-DO} and will do once I make sense of where's the best place to put this material. For now I've moved the overall \href{section-ontology-and-episetemology}{\nameref{section-ontology-and-episetemology}} section to after the RQs and before the methodology section.
+
+%Here we consider the questions: (1a) What we can know about mobile analytics and (1b) how we can know it? Then more specifically, these related questions are key given this research focuses on using mobile analytics to help answer the next question. (2) How we know about the identification and measurement of some flaws in behaviour of software that are considered measures of quality of the software in use?
+
+Broadly we can learn from people, use \textbf{software tools}~\footnote{\textbf{MUST-DO} This needs a paragraph}, and use data to answer these questions. In some cases the data comes from a single source, in others cases from several.
+
+
+
+\textbf{Mobile analytics} comprises software, systems, and sometimes services. Broadly we can read about them, study their source code, analyse, test, and use them directly, and ask others for their perspectives and insights. Rather than go into lots of detail here, several of the appendices of this thesis cover aspects of mobile analytics, in particular, in~\href{app:on-mobile-analytics}{\emph{\nameref{app:on-mobile-analytics}}}.
+
+In terms of learning from \textbf{people}, we can do so by asking the designers, constructors, operators, and users of a system. However, we're also limited by who we can ask, what they are willing/able to communicate, and whether that communication is sufficiently open and transparent to be useful and reliable. We can also learn from information produced by people, and in particular for mobile apps we can use ratings and reviews. Given human behaviour it may also be worth considering aspects such as the provenance of the information sources, fake data, \emph{etc.} especially where there are rewards for slewing the results of the measurements being used in an ecosystem.
+
+We can know through \textbf{static analysis} tools, automated tests, end-to-end testing, \emph{etc.} and all of these are used by at least some of the developers of mobile apps some of the time. They often take place \textit{before} the software is released to end users.
+
+We can also know through data collected when the software is used. As~\cite{RFC3164} notes in RFC3164, ~\emph{``Since the beginning... operating systems, processes and applications were written to send messages of their own status, or messages to indicate that certain events had occurred. These event messages generally had local significance to the machine operators."}. Mobile apps also write messages locally and developers use them for similar purposes (nuances and differences are discussed in the related work chapter). These local messages can be read by humans locally and/or read by software that delivers them elsewhere. Developers can also add software to their apps to log information for processing elsewhere which is where much of mobile analytics and crash reporting fits in the scheme of things.
+
+Log messages are written locally on the same device (\textit{i.e.} computer) that runs the software. When developers are developing the software they tend to be local to the device and therefore able to read the logs. When the devices are remote, as they are for end users of mobile apps, developers cannot easily access the logs or read them. If they wish to do so they need mechanisms to obtain the logs. They can choose to incorporate mechanisms into the app including custom logging mechanisms that transmit the logs so they can be processed remotely. They can rely on log forwarding software~\footnote{For instance a fairly involved example for Flutter Android apps, using MQTT, is described in~\citep{adil2020_sending_logs_from_flutter_apps}}, and/or mechanisms provided on the device if they exist.
+% A couple of Android implementations for LogStash include:
+%  https://github.com/Labgoo/android-logstash-logger
+%  https://gist.github.com/PatrykGala/55603fe4259d812fdc0ffbc9e63eaabc (saved in my references)
+
+
+Various data can be potentially collected implicitly and explicitly. What can be collected depends on the observation mechanisms. Observation may be within an app or external to it, for instance by the operating system as both iOS  and Google Android do~\footnote{There are other custom versions of Android, for instance used in Amazon Kindle Fire devices. Their details are outside the overall scope of this research.}(details in the Appendix titled~\href{chapter-on-mobile-analytics}{\emph{\nameref{app:on-mobile-analytics}}}). Within an app the observation may focus at a single layer, for instance the visual user interface, or several. The choices of observation mechanisms within an app are made by developers or their stakeholders. The choices external to an app can be made by various people including the platform provider, users, or indirectly using other software including third-party apps, spyware, accessibility software, and so on.
+
+Analytics, such as user-journeys, can help to answer questions about the usage of the software. They help establish \emph{what-is}. As we understand more about what-is we can then consider \emph{what-would-be-better} and do gap analysis between what-is and what-would-be-better.
+
+%See https://tex.stackexchange.com/questions/348298/svg-package-includesvg-with-underscores-in-svg
+\makeatletter
+\DeclareRobustCommand*{\escapeus}[1]{%
+    \begingroup\@activeus\scantokens{#1\endinput}\endgroup}
+\begingroup\lccode`\~=`\_\relax
+    \lowercase{\endgroup\def\@activeus{\catcode`\_=\active \let~\_}}
+\makeatother
+
+%See https://tex.stackexchange.com/questions/390804/how-to-scale-text-in-svg
+% PS: I could try https://tex.stackexchange.com/questions/113282/text-size-in-inkscape if I run into problems with the current approach.
+\begin{figure}
+\centering
+    \copyrightbox[r]{
+        \escapeus{\includesvg[pretex=\tiny,scale = 0.7]{images/github/loggerstructure.svg}}}
+    {\textcopyright \href{{https://twitter.com/daroczig}}{daroczig}\\source: \href{https://github.com/daroczig/logger/blob/master/vignettes/logger\_structure.svg}{logger\_structure.svg}}
+    \caption{TEMP - to be replaced: Logger Structure from an R Logger project - TBC whether to provide something similar}
+    \label{fig:temp_logger_structure}
+\end{figure}
+
+\begin{comment}
+%This is a simpler structure without the copyright box. Commented out for now, kept in case I want to switch quickly.
+\begin{figure}[htbp!]
+    \centering
+    \escapeus{\includesvg[scale=1.0]{images/github/loggerstructure.svg}}
+    \caption{Yin Yang to represent DevOps}
+    \label{fig:yinyang_for_devopsxxx}
+\end{figure}
+\end{comment}
+
+
+\textbf{Reporting/generating and Observing}: What happens within the app stays within the app unless someone looks inside the app or the app reports what's occurring. Observation without action limits the utility of whatever is learned.  \textbf{SHOULD-DO}, it'd be great to have a figure similar to \url{https://github.com/daroczig/logger/blob/master/vignettes/logger_structure.svg} for platform-level analytics. Temporarily it's included here in Figure~\ref{fig:temp_logger_structure}.
+
+
+Survivorship bias (\cite{wikipedia_survivorship_bias}) is relevant to understanding the information developers receive, some data does not `survive' the journey from source to developer. And much of the information that is does reach the developers does not survive or, perhaps better put, thrive in terms of being used productively. They have plenty of other demands for their time and attention and much of what could be useful isn't used in practice, therefore the data needs to be sufficiently useful and relevant and improvements tractable for any proposed approach to be used long term in practice.
+
+
+Discuss which sources are likely to provide input to the key elements needed to underpin the RQs.
+
+\textbf{MUST-DO} Segue to the research strategy and how we devise a feasible approach that uses as many of these sources as practical.
+
+
+
 \section{Development practices for mobile apps}
 Few if any developers write perfect software, and this applies also to developers of mobile apps. 
 
