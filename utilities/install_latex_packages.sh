@@ -80,11 +80,33 @@ sudo tlmgr install framed
 sudo tlmgr install xstring
 sudo tlmgr install catchfile
 sudo tlmgr install fvextra
-# Command to build the first part of this list is
-# awk 'BEGIN { RS = "\usepackage" }       
-     { print  substr($1, 1, length($1)-1) }' latex-configuration.tex | awk 'BEGIN {RS = "{" } !/^\[[a-z]*\]/{print "sudo tlmgr install " $1}' > utilities/install_latex_packages.sh
+sudo tlmgr install catchfile
+sudo tlmgr install xstring
+sudo tlmgr install framed
+sudo tlmgr install multirow
+sudo tlmgr install algpseudocode
+sudo tlmgr install algpseudocodex
+sudo tlmgr install algorithmicx
+sudo tlmgr install threeparttablex
+sudo tlmgr install environ
+sudo tlmgr install transparent
+sudo tlmgr install fourier
+sudo tlmgr install marvosym
+sudo tlmgr install upgreek
+sudo tlmgr install was
+sudo tlmgr install pbox
+sudo tlmgr install collectbox
+sudo tlmgr install zref-abspage
+sudo tlmgr install zref
+sudo tlmgr install tabu
+sudo tlmgr install minifp
+brew install texlive-fonts-recommended
+sudo tlmgr install collection-fontsrecommended
+sudo tlmgr install tikz-cd
+sudo tlmgr install tikzmark
 
-# The following seems to be the final version of the above command, at least according to my zsh history.
-awk 'BEGIN { RS = "\usepackage" }     { print  substr($1, 1, length($1)-1) }' latex-configuration.tex | awk 'BEGIN {RS = "{" } !/^\[[a-z]*\]/{print "sudo tlmgr install " $1}' > utilities/install_latex_packages.sh
+# Command to build the first part of this list is
+# awk 'BEGIN { RS = "\usepackage" }
+     { print  substr($1, 1, length($1)-1) }' latex-configuration.tex | awk 'BEGIN {RS = "{" } !/^\[[a-z]*\]/{print "sudo tlmgr install " $1}' > utilities/install_latex_packages.sh
 # However it doesn't find all the packages and some of the commands it created didn't suit tlmgr
 # The next challenge is to enable pdflatex to process the bibliography files which it currently seems to ignore.
