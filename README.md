@@ -39,3 +39,13 @@ The thesis is written in UK English and uses Oxford commas. There are many comme
 * references: mainly the bibliography files.
 * utilities: written in basic bash files to help quantify the source files in the thesis.
 * various files are in the root folder including: print_a_chapter.tex - used to help focus on a subset of the thesis, thesis.tex - generates the thesis with the contents intended for eventual submission, and thesis-with-extras.tex which additionally includes some of the meta-chapters.
+ 
+
+### Bibliographic notes
+The bibliography stretches over several physical files:
+* The core bibliography
+* A bibliography for commentary on my research
+* An excluded bibliography, which I recently created to track papers I've chosen not to include (for now). This is intended to streamline my tracking of what I've looked at so I don't inadvertently keep reading the same material months apart without recognising I've already decided it wasn't suitable when I read it previously
+* An imported bibliography from the logging paper co-written and published at MOBILESoft 2021
+
+A significant portion of the references have not yet been cited in my thesis yet. I've just decided to add a prefix of `yet_to_cite` to those I know I've not yet cited. The aim is to easily identify these papers so they can be referenced, or moved to the excluded bibliography file.
