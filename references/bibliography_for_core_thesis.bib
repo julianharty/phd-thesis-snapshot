@@ -90,6 +90,29 @@ abstract = "This study extends the “Uses and Gratifications” approach (U&G) 
   doi={10.1109/TSE.2019.2891715}},
 }
 
+@ARTICLE{anderson2015_docker_software_engineering_podcast,
+  author={Anderson, Charles},
+  journal={IEEE Software}, 
+  title={Docker [Software engineering]},
+  year={2015},
+  volume={32},
+  number={3}, 
+  pages={102-c3}, 
+  abstract={
+    In episode 217 of Software Engineering Radio, host Charles Anderson talks with James Turnbull, a software developer and security specialist who's vice president of services at Docker. Lightweight Docker containers are rapidly becoming a tool for deploying microservice-based architectures.},  
+  keywords={},  
+  doi={10.1109/MS.2015.62},  
+  ISSN={1937-4194},  
+  month={May},
+  full_podcast = {https://www.se-radio.net/2015/01/episode-217-james-turnbull-on-docker/},
+  quote = {
+    The DevOps movement, for example, emerged from one of the classic stumbling blocks in a lot of organizations. Developers build code and applications and ship them to the operations people, only to discover that the code and applications don't run in production. This is the classic “it works on my machine; it's operations' problem now.”
+  },
+  thoughts = {This provides a suitable connection between DevOps and mobile app world, where developers don't seem to actively consider whether their code will work in other environments, other conditions, etc. Many organisations struggle to get their server-side software reliable across various test environments and then into production. Mobile appstore ecosystems exacerbate the challenges as the environments are more varied, owned by third parties and shared with code from many other third-parties (other apps on the device).
+  
+  The test channels provided by Google Play Console provide a bridge between the app development that happens within an organisation and one that starts to include external, real-world elements including the automated checks and robot tests, and alpha/beta testers with their individual microcosms (devices and device accounts).}
+}
+
 @article{automated_testing_android_apps_SLR_2019, 
 author={P. {Kong} and L. {Li} and J. {Gao} and K. {Liu} and T. F. {Bissyandé} and J. {Klein}}, 
 journal={IEEE Transactions on Reliability}, 
@@ -452,6 +475,26 @@ abstract = "The emergence of mobile application software (App) has explosively g
     numpages = {6}
 }
 
+@Article{Kechagia2015_charting_API_minefield_using_telemetry_data,
+    author={Kechagia, Maria
+    and Mitropoulos, Dimitris
+    and Spinellis, Diomidis},
+    title={Charting the API minefield using software telemetry data},
+    journal={Empirical Software Engineering},
+    year={2015},
+    month={Dec},
+    day={01},
+    volume={20},
+    number={6},
+    pages={1785-1830},
+    abstract={Programs draw significant parts of their functionality through the use of Application Programming Interfaces (APIs). Apart from the way developers incorporate APIs in their software, the stability of these programs depends on the design and implementation of the APIs. In this work, we report how we used software telemetry data to analyze the causes of API failures in Android applications. Specifically, we got 4.9 gb worth of crash data that thousands of applications sent to a centralized crash report management service. We processed that data to extract approximately a million stack traces, stitching together parts of chained exceptions, and established heuristic rules to draw the border between applications and the API calls. We examined a set of more than a half million stack traces associated with risky API calls to map the space of the most common application failure reasons. Our findings show that the top ones can be attributed to memory exhaustion, race conditions or deadlocks, and missing or corrupt resources. Given the classes of the crash causes we identified, we recommend API design and implementation choices, such as specific exceptions, default resources, and non-blocking algorithms, that can eliminate common failures. In addition, we argue that development tools like memory analyzers, thread debuggers, and static analyzers can prevent crashes through early code testing and analysis. Finally, some execution platform and framework designs for process and memory management can also eliminate some application crashes.},
+    issn={1573-7616},
+    doi={10.1007/s10664-014-9343-7},
+    url={https://doi.org/10.1007/s10664-014-9343-7}
+}
+
+
+
 @article{khalid2016_examining_the_relationship_between_findbugs_warnings_and_app_ratings,  
   author={H. {Khalid} and M. {Nagappan} and A. E. {Hassan}},  
   journal={IEEE Software},
@@ -521,6 +564,29 @@ abstract = "The emergence of mobile application software (App) has explosively g
   publisher={IEEE},
   abstract={If you are a software developer, manager, or maintainer, quality is often on your mind. But what do you really mean by software quality? Is your definition adequate? Is the software you produce better or worse than you would like it to be? We put software quality on trial, examining both the definition and evaluation of our software products and processes.},
 }
+
+@article{yet_to_cite_Kong2021_anchor_locating_android_framework_specific_crashing_faults,
+author={Kong, Pingfan
+and Li, Li
+and Gao, Jun
+and Riom, Timoth{\'e}e
+and Zhao, Yanjie
+and Bissyand{\'e}, Tegawend{\'e} F.
+and Klein, Jacques},
+title={ANCHOR: locating android framework-specific crashing faults},
+journal={Automated Software Engineering},
+year={2021},
+month={Jul},
+day={12},
+volume={28},
+number={2},
+pages={10},
+abstract={Android framework-specific app crashes are hard to debug. Indeed, the callback-based event-driven mechanism of Android challenges crash localization techniques that are developed for traditional Java programs. The key challenge stems from the fact that the buggy code location may not even be listed within the stack trace. For example, our empirical study on 500 framework-specific crashes from an open benchmark has revealed that 37 percent of the crash types are related to bugs that are outside the stack traces. Moreover, Android programs are a mixture of code and extra-code artifacts such as the Manifest file. The fact that any artifact can lead to failures in the app execution creates the need to position the localization target beyond the code realm. In this paper, we propose Anchor , a two-phase suspicious bug location suggestion tool. Anchor specializes in finding crash-inducing bugs outside the stack trace. Anchor is lightweight and source code independent since it only requires the crash message and the apk file to locate the fault. Experimental results, collected via cross-validation and in-the-wild dataset evaluation, show that Anchor is effective in locating Android framework-specific crashing faults. Finally, we put our empirical study results openly accessible at https://github.com/anchor-locator/anchor.},
+issn={1573-7535},
+doi={10.1007/s10515-021-00290-1},
+url={https://doi.org/10.1007/s10515-021-00290-1}
+}
+
 
 @article{lee2014_determinants_of_mobile_app_success_evidence_from_the_app_store_market,
     author = { Gunwoong Lee  and T. S. Raghu },
@@ -1528,7 +1594,7 @@ isbn="978-3-319-49094-6"
     series = {ESEM '18}
 }
 
-@INPROCEEDINGS{abreu2007_on_the_accuracy_of_spectrum_based_fault_localization,
+@inproceedings{abreu2007_on_the_accuracy_of_spectrum_based_fault_localization,
   author={R. {Abreu} and P. {Zoeteweij} and A. J. C. {van Gemund}},
   booktitle={Testing: Academic and Industrial Conference Practice and Research Techniques - MUTATION (TAICPART-MUTATION 2007)},
   title={On the Accuracy of Spectrum-based Fault Localization},
@@ -1587,7 +1653,7 @@ isbn="978-3-319-49094-6"
 }
 
 
-@INPROCEEDINGS{an2015_challenges_and_issues_of_mining_crash_reports,
+@inproceedings{an2015_challenges_and_issues_of_mining_crash_reports,
   author={L. {An} and F. {Khomh}},  
   booktitle={2015 IEEE 1st International Workshop on Software Analytics (SWAN)},   
   title={Challenges and Issues of Mining Crash Reports},   
@@ -1697,7 +1763,7 @@ series = {MOBILESoft ’17}
   publisher={ACM},
 }
 
-@INPROCEEDINGS{budgen1993_case_tools_masters_or_servants,
+@inproceedings{budgen1993_case_tools_masters_or_servants,
   author={D. {Budgen} and M. {Marashi} and A. {Reeves}},
   booktitle={1993 Software Engineering Environments},
   title={CASE tools: Masters or servants?},
@@ -1728,7 +1794,7 @@ series = {MOBILESoft ’17}
 	file = {foser-2010-buse.pdf:/Users/julianharty/Zotero/storage/6RW75BVR/foser-2010-buse.pdf:application/pdf}
 }
 
-@INPROCEEDINGS{buse2012_information_needs_for_software_development_analytics,  
+@inproceedings{buse2012_information_needs_for_software_development_analytics,  
   author={Buse, Raymond P. L. and Zimmermann, Thomas},  
   booktitle={2012 34th International Conference on Software Engineering (ICSE)},   
   title={Information needs for software development analytics},   
@@ -1765,7 +1831,7 @@ booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Soft
   series = {ISSTA 2019}
 }
 
-@INPROCEEDINGS{canfora2013_automating_UX_experience_testing_on_smartphones,
+@inproceedings{canfora2013_automating_UX_experience_testing_on_smartphones,
   author={G. {Canfora} and F. {Mercaldo} and C. A. {Visaggio} and M. {DAngelo} and A. {Furno} and C. {Manganelli}},
   booktitle={2013 IEEE Sixth International Conference on Software Testing, Verification and Validation},
   title={A Case Study of Automating User Experience-Oriented Performance Testing on Smartphones},
@@ -1847,7 +1913,7 @@ booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Soft
   address = {Chicago, Illinois, USA}
 }
 
-@INPROCEEDINGS{deng2017_is_mutation_analysis_effective_at_testing_android_apps,
+@inproceedings{deng2017_is_mutation_analysis_effective_at_testing_android_apps,
   author={L. {Deng} and J. {Offutt} and D. {Samudio}},
   booktitle={2017 IEEE International Conference on Software Quality, Reliability and Security (QRS)},
   title={Is Mutation Analysis Effective at Testing Android Apps?},
@@ -1877,7 +1943,7 @@ booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Soft
   address = {Florence, Italy},
 }
 
-@INPROCEEDINGS{erdogdu2015_privacy_utility_tradeoff_under_continual_observation,
+@inproceedings{erdogdu2015_privacy_utility_tradeoff_under_continual_observation,
   author={M. A. {Erdogdu} and N. {Fawaz}},
   booktitle={2015 IEEE International Symposium on Information Theory (ISIT)},
   title={Privacy-utility trade-off under continual observation},
@@ -1908,7 +1974,7 @@ booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Soft
   doi = {10.5220/0009091801950202},
 }
 
-@INPROCEEDINGS{evans2020_test_tools_an_illusion_of_usability,  
+@inproceedings{evans2020_test_tools_an_illusion_of_usability,  
   author={I. {Evans} and C. {Porter} and M. {Micallef} and J. {Harty}},
   booktitle={2020 IEEE International Conference on Software Testing, Verification and Validation Workshops (ICSTW)},
   title={Test Tools: an illusion of usability?},
@@ -2051,7 +2117,7 @@ booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Soft
 }
 
 
-@INPROCEEDINGS{harty2020_fast_abstract_data_dynamics_for_testing_systems,
+@inproceedings{harty2020_fast_abstract_data_dynamics_for_testing_systems,
   author={Harty, Julian},
   booktitle={2020 IEEE International Conference on Software Testing, Verification and Validation Workshops (ICSTW)}, 
   title={Fast Abstract: Data Dynamics for Testing Systems}, 
@@ -2070,7 +2136,7 @@ booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Soft
   }
 
 
-@INPROCEEDINGS{febrero2017_software_reliability_as_user_perception,
+@inproceedings{febrero2017_software_reliability_as_user_perception,
   author={F. {Febrero} and M. A. {Moraga} and C. {Calero}},
   booktitle={2017 IEEE International Conference on Software Quality, Reliability and Security (QRS)},
   title={Software Reliability as User Perception: Application of the Fuzzy Analytic Hierarchy Process to Software Reliability Analysis},
@@ -2161,7 +2227,7 @@ booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Soft
   },
 }
 
-@INPROCEEDINGS{greenheld2018_automating_developers_responses_to_app_reviews,
+@inproceedings{greenheld2018_automating_developers_responses_to_app_reviews,
   author={G. {Greenheld} and B. T. R. {Savarimuthu} and S. A. {Licorish}},
   booktitle={2018 25th Australasian Software Engineering Conference (ASWEC)}, 
   title={Automating Developers' Responses to App Reviews}, 
@@ -2206,7 +2272,7 @@ booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Soft
   month={April},
 }
 
-@INPROCEEDINGS{gousios2012_ghtorrent_githubs_data_from_a_firehose,
+@inproceedings{gousios2012_ghtorrent_githubs_data_from_a_firehose,
   author={Gousios, Georgios and Spinellis, Diomidis},
   booktitle={2012 9th IEEE Working Conference on Mining Software Repositories (MSR)}, 
   title={GHTorrent: Github's data from a firehose}, 
@@ -2303,7 +2369,7 @@ address = {Montreal, Quebec, Canada},
 series = {MOBILESoft ’19}
 }
 
-@INPROCEEDINGS{harty2020_how_can_software_testing_be_improved_by_analytics_to_deliver_better_apps,
+@inproceedings{harty2020_how_can_software_testing_be_improved_by_analytics_to_deliver_better_apps,
   author = {Harty, Julian},
   booktitle={2020 IEEE 13th International Conference on Software Testing, Validation and Verification (ICST)},
   title={How Can Software Testing be Improved by Analytics to Deliver Better Apps?},
@@ -2356,7 +2422,7 @@ series = {MOBILESoft ’20}
   address={Sofia, Bulgaria}
 }
 
-@INPROCEEDINGS{hsu2018_how_agile_impacts_a_software_corporation,  
+@inproceedings{hsu2018_how_agile_impacts_a_software_corporation,  
   author={H. {Hsu} and Y. {Lin}},  
   booktitle={2018 IEEE 42nd Annual Computer Software and Applications Conference (COMPSAC)},   
   title={How Agile Impacts a Software Corporation: An Empirical Study},   
@@ -2371,7 +2437,7 @@ series = {MOBILESoft ’20}
   month={July},
 }
 
-@INPROCEEDINGS{hu_tealeaf_cxmobile,  
+@inproceedings{hu_tealeaf_cxmobile,  
   author={ {Yanke Hu}},  
   booktitle={2016 24th International Conference on Geoinformatics},   
   title={Tealeaf CxMobile - replaying real time customer experience},   
@@ -2390,7 +2456,7 @@ series = {MOBILESoft ’20}
   month={Aug},
 }
 
-@INPROCEEDINGS{huang2019_up_to_crash_3rdparty_libraries_on_android,
+@inproceedings{huang2019_up_to_crash_3rdparty_libraries_on_android,
   author={Huang, Jie and Borges, Nataniel and Bugiel, Sven and Backes, Michael}, 
   booktitle={2019 IEEE European Symposium on Security and Privacy (EuroS P)}, 
   title={Up-To-Crash: Evaluating Third-Party Library Updatability on Android}, 
@@ -2530,7 +2596,7 @@ series = {MOBILESoft '19}
     This paper reports a study analyzing how the fault- and change-proneness of APIs used by 7,097 (free) Android apps relates to applications' lack of success, estimated from user ratings. Results of this study provide important insights into a crucial issue: making heavy use of fault- and change-prone APIs can negatively impact the success of these apps.},
 }
 
-@INPROCEEDINGS{linares2015_mining_android_app_execution_traces_etc,  
+@inproceedings{linares2015_mining_android_app_execution_traces_etc,  
   author={M. {Linares-Vásquez} and M. {White} and C. {Bernal-Cárdenas} and K. {Moran} and D. {Poshyvanyk}},
   booktitle={2015 IEEE/ACM 12th Working Conference on Mining Software Repositories},
   title={Mining Android App Usages for Generating Actionable GUI-Based Execution Scenarios},
@@ -2548,7 +2614,7 @@ series = {MOBILESoft '19}
   address = {Florence, Italy},
 }
 
-@INPROCEEDINGS{linares2017_how_do_developers_test_android_apps,
+@inproceedings{linares2017_how_do_developers_test_android_apps,
   author={Linares-Vásquez, Mario and Bernal-Cardenas, Cárlos and Moran, Kevin and Poshyvanyk, Denys},
   booktitle={2017 IEEE International Conference on Software Maintenance and Evolution (ICSME)}, 
   title={How do Developers Test Android Applications?}, 
@@ -2577,7 +2643,7 @@ series = {MOBILESoft '19}
   doi = {https://doi.org/10.1145/2757384.2757392},
 }
 
-@INPROCEEDINGS{lu2016_PRADA,
+@inproceedings{lu2016_PRADA,
   author={X. {Lu} and X. {Liu} and H. {Li} and T. {Xie} and Q. {Mei} and D. {Hao} and G. {Huang} and F. {Feng}},
   booktitle={2016 IEEE/ACM 38th International Conference on Software Engineering (ICSE)},
   title={PRADA: Prioritizing Android Devices for Apps by Mining Large-Scale Usage Data},
@@ -2606,7 +2672,7 @@ series = {MOBILESoft '19}
   address={Bangkok},
 }
 
-@INPROCEEDINGS{makhdoumi2014_from_information_bottleneck_to_the_privacy_funnel,
+@inproceedings{makhdoumi2014_from_information_bottleneck_to_the_privacy_funnel,
   author={A. {Makhdoumi} and S. {Salamatian} and N. {Fawaz} and M. {Médard}},
   booktitle={2014 IEEE Information Theory Workshop (ITW 2014)},
   title={From the Information Bottleneck to the Privacy Funnel},
@@ -2621,6 +2687,24 @@ series = {MOBILESoft '19}
   ISSN={1662-9019},
   month={Nov},
 }
+
+@inproceedings{malavolta2020_android_runner,
+    author = {Malavolta, Ivano and Grua, Eoin Martino and Lam, Cheng-Yu and de Vries, Randy and Tan, Franky and Zielinski, Eric and Peters, Michael and Kaandorp, Luuk},
+    title = {A Framework for the Automatic Execution of Measurement-Based Experiments on Android Devices},
+    year = {2020},
+    isbn = {9781450381284},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3417113.3422184},
+    doi = {10.1145/3417113.3422184},
+    abstract = {Conducting measurement-based experiments is fundamental for assessing the quality of Android apps in terms of, e.g., energy consumption, CPU, and memory usage. However, orchestrating such experiments is not trivial as it requires large boilerplate code, careful setup of measurement tools, and the adoption of various empirical best practices scattered across the literature. All together, those factors are slowing down the scientific advancement and harming experiments' replicability in the mobile software engineering area.In this paper we present Android Runner (AR), a framework for automatically executing measurement-based experiments on native and web apps running on Android devices. In AR, an experiment is defined once in a descriptive fashion, and then its execution is fully automatic, customizable, and replicable. AR is implemented in Python and it can be extended with third-party profilers.AR has been used in more than 25 scientific studies primarily targeting performance and energy efficiency.},
+    booktitle = {Proceedings of the 35th IEEE/ACM International Conference on Automated Software Engineering Workshops},
+    pages = {61–66},
+    numpages = {6},
+    location = {Virtual Event, Australia},
+    series = {ASE '20}
+}
+
 
 @inproceedings{menzies2019take,
   title={Take Control:(On the Unreasonable Effectiveness of Software Analytics)},
@@ -2686,7 +2770,7 @@ series = {MOBILESoft '19}
   address={Genova, Italy},
 }
 
-@INPROCEEDINGS{moran2016_automatically_drr_android_app_crashes,  
+@inproceedings{moran2016_automatically_drr_android_app_crashes,  
   author={K. {Moran} and M. {Linares-Vásquez} and C. {Bernal-Cárdenas} and C. {Vendome} and D. {Poshyvanyk}},
   booktitle={2016 IEEE International Conference on Software Testing, Verification and Validation (ICST)},
   title={Automatically Discovering, Reporting and Reproducing Android Application Crashes},   
@@ -2703,7 +2787,7 @@ series = {MOBILESoft '19}
   month={April},
 }
 
-@INPROCEEDINGS{moran2017_crashscope_a_practical_tool_for_automated_testing_of_android_apps,  
+@inproceedings{moran2017_crashscope_a_practical_tool_for_automated_testing_of_android_apps,  
   author={Moran, Kevin and Linares-Vasquez, Mario and Bernal-Cardenas, Carlos and Vendome, Christopher and Poshyvanyk, Denys},  
   booktitle={2017 IEEE/ACM 39th International Conference on Software Engineering Companion (ICSE-C)},   
   title={CrashScope: A Practical Tool for Automated Testing of Android Applications},   
@@ -2721,7 +2805,7 @@ series = {MOBILESoft '19}
   address = {Buenos Aires, Argentina},
 }
 
-@INPROCEEDINGS{mueller2019_pocketcode,  
+@inproceedings{mueller2019_pocketcode,  
   author={Müller, Matthias and Schindler, Christian and Slany, Wolfgang},  
   booktitle={2019 IEEE/ACM 6th International Conference on Mobile Software Engineering and Systems (MOBILESoft)},   
   title={Pocket Code - A Mobile Visual Programming Framework for App Development},   
@@ -2739,7 +2823,7 @@ series = {MOBILESoft '19}
   address = {Montreal, QC, Canada},
 }
 
-@INPROCEEDINGS{nagappan2016_future_trends_in_sw_eng_for_mobile_apps,  
+@inproceedings{nagappan2016_future_trends_in_sw_eng_for_mobile_apps,  
   author={M. {Nagappan} and E. {Shihab}},
   booktitle={2016 IEEE 23rd International Conference on Software Analysis, Evolution, and Reengineering (SANER)},   
   title={Future Trends in Software Engineering Research for Mobile Apps},   
@@ -2780,7 +2864,7 @@ series = {MOBILESoft '19}
   address = {Toronto, ON, Canada}
 }
 
-@INPROCEEDINGS{nitze2015_a_survey_on_mobile_users_sq_perceptions_and_expectations,  
+@inproceedings{nitze2015_a_survey_on_mobile_users_sq_perceptions_and_expectations,  
   author={Nitze, André and Schmietendorf, Andreas},  
   booktitle={2015 IEEE Eighth International Conference on Software Testing, Verification and Validation Workshops (ICSTW)}, 
   title={A survey on mobile users' software quality perceptions and expectations}, 
@@ -3291,7 +3375,7 @@ series = {MOBILESoft '19}
     series = {CODASPY ’19}
 }
 
-@INPROCEEDINGS{_duplicated_in_logging_paper_zhou2020_mobilogleak,
+@inproceedings{_duplicated_in_logging_paper_zhou2020_mobilogleak,
   author={R. {Zhou} and M. {Hamdaqa} and H. {Cai} and A. {Hamou-Lhadj}},
   booktitle={2020 IEEE 27th International Conference on Software Analysis, Evolution and Reengineering (SANER)},
   title={MobiLogLeak: A Preliminary Study on Data Leakage Caused by Poor Logging Practices},   
@@ -3801,6 +3885,13 @@ author = {HUAWEI Developers},
   }
 }
 
+@misc{yet_to_cite_anchor_android_crash_dataset_on_github,
+  title = {GitHub - Anchor-Locator/anchor: Locator for Android app Crashes},
+  url = {https://github.com/Anchor-Locator/anchor},
+  year = {2020},
+  author = {Various developers},
+  contact = {anchor-locator@gmail.com},
+}
 
 @misc{huawei_crashservice_github_examples,
   title = {huaweicodelabs/CrashService},
@@ -5740,6 +5831,40 @@ https://github.com/Displayr/flipTime/graphs/contributors
   relevance_to_phd={Plan Monitor Improve Decision Making Framework. BTW: supervised by Guenther Ruhe.},
   journal = {" "},
 }
+
+@phdthesis{kong2021_taming_android_app_crashes,
+  title={Taming Android App Crashes},
+  author={Kong, Pingfan},
+  year={2021},
+  school={University of Luxembourg,​ Luxembourg City, Luxembourg},
+  type = {{Ph.D.} dissertation},
+  url = {http://hdl.handle.net/10993/46741},
+  download = {https://orbilu.uni.lu/bitstream/10993/46741/1/Dissertation_Pingfan_KONG_Uni_Luxembourg.pdf},
+  abstract = {
+  App crashes constitute an important deterrence for app adoption in the android ecosystem. Yet, Android app developers are challenged by the limitation of test automation tools to ensure that released apps are free from crashes. In recent years, researchers have proposed various automation approaches in the literature. Unfortunately, the practical value of these approaches have not yet been confirmed by practitioner adoption. Furthermore, existing approaches target a variety of test needs which are relevant to different sets of problems, without being specific to app crashes.
+  
+  Resolving app crashes implies a chain of actions starting with their reproduction, followed by the associated fault localization, before any repair can be attempted. Each action however, is challenged by the specificity of Android. In particular, some specific mechanisms (e.g., callback methods, multiple entry points, etc.) of Android apps require Android-tailored crash-inducing bug locators. Therefore, to tame Android app crashes, practitioners are in need of automation tools that are adapted to the challenges that they pose. In this respect, a number of building blocks must be designed to deliver a comprehensive toolbox.
+  
+  First, the community lacks well-defined, large-scale datasets of real-world app crashes that are reproducible to enable the inference of valuable insights, and facilitate experimental validations of literature approaches. Second, although bug localization from crash information is relatively mature in the realm of Java, state-of-the-art techniques are generally ineffective for Android apps due to the specificity of the Android system. Third, given the recurrence of crashes and the substantial burden that they incur for practitioners to resolve them, there is a need for methods and techniques to accelerate fixing, for example, towards implementing Automated Program Repair (APR).
+  
+  Finally, the above chain of actions is for curative purposes. Indeed, this "reproduction, localization, and repair" chain aims at correcting bugs in released apps. Preventive approaches, i.e., approaches that help developers to reduce the likelihood of releasing crashing apps, are still absent. In the Android ecosystem, developers are challenged by the lack of detailed documentation about the complex Android framework API they use to develop their apps. For example, developers need support for precisely identifying which exceptions may be triggered by APIs. Such support can further alleviate the challenge related to the fact that the condition under which APIs are triggered are often not documented.
+  
+  In this context, the present dissertation aims to tame Android crashes by contributing to the following four building blocks:
+  
+  Systematic Literature Review on automated app testing approaches:
+  We aim at providing a clear overview of the state-of-the-art works around the topic of Android app testing, in an attempt to highlight the main trends, pinpoint the main methodologies applied and enumerate the challenges faced by the Android testing approaches as well as the directions where the community effort is still needed. To this end, we conduct a Systematic Literature Review (SLR) during which we eventually identified 103 relevant research papers published in leading conferences and journals until 2016. Our thorough examination of the relevant literature has led to several findings and highlighted the challenges that Android testing researchers should strive to address in the future. After that, we further propose a few concrete research directions where testing approaches are needed to solve recurrent issues in app updates, continuous increases of app sizes, as well as the Android ecosystem fragmentation.
+  
+  Locating Android app crash-inducing bugs:
+  We perform an empirical study on 500 framework-specific crashes from an open benchmark. This study reveals that 37 percent of the crash types are related to bugs that are outside the crash stack traces. Moreover, Android programs are a mixture of code and extra-code artifacts such as the Manifest file. The fact that any artifact can lead to failures in the app execution creates the need to position the localization target beyond the code realm. We propose ANCHOR, a two-phase suspicious bug location suggestion tool. ANCHOR specializes in finding crash-inducing bugs outside the stack trace. ANCHOR is lightweight and source code independent since it only requires the crash message and the apk file to locate the fault. Experimental results, collected via cross-validation and in-the-wild dataset evaluation, show that ANCHOR is effective in locating Android framework-specific crashing faults.
+  
+  Mining Android app crash fix templates:
+  We propose a scalable approach, CraftDroid, to mine crash fixes by leveraging a set of 28 thousand carefully reconstructed app lineages from app markets, without the need for the app source code or issue reports. We develop a replicative testing approach that locates fixes among app versions which output different runtime logs with the exact same test inputs. Overall, we have mined 104 relevant crash fixes, further abstracted 17 fine-grained fix templates that are demonstrated to be effective for patching crashed apks. Finally, we release ReCBench, a benchmark consisting of 200 crashed apks and the crash replication scripts, which the community can explore for evaluating generated crash-inducing bug patches.
+  
+  Documenting framework APIs' unchecked exceptions:
+  We propose Afuera, an automated tool that profiles Android framework APIs and provides information on when they can potentially trigger unchecked exceptions. Afuera relies on a static-analysis approach and a dedicated algorithm to examine the entire Android framework. With Afuera, we confirmed that 26739 unique unchecked exception instances may be triggered by invoking 5467 (24\%) Android framework APIs. Afuera further analyzes the Android framework to inform about which parameter(s) of an API method can potentially be the cause of the triggering of an unchecked exception. To that end, Afuera relies on fully automated instrumentation and taint analysis techniques. Afuera is run to analyze 50 randomly sampled APIs to demonstrate its effectiveness.Evaluation results suggest that Afuera has perfect true positive rate. However, Afuera is affected by false negatives due to the limitation of state-of-the-art taint analysis techniques.
+  }
+}
+
 
 @phdthesis{oliver2018_first_steps_in_retrofitting_a_versatile_sw_testing_architecture,
   title={First Steps in Retrofitting a Versatile Software Testing Infrastructure to Android},
