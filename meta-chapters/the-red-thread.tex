@@ -3,19 +3,22 @@
 \textbf{\textit{NB}: Always connect software engineering, mobile analytics, and reliability.}
 
 \subsection{Migrate to Conclusion and Abstract?}
-If every component in the system were reliable and complete we might not need or benefit from mobile analytics. Indeed they would be a distraction and wasteful. However, in the real-world every component be it software, service, system, person, or device has flaws and limitations. We are not omnipresent or omniscient - could mobile analytics provide remote insights into a small yet vital subset of software quality into helping development teams understand how their apps are performing in terms of their (un-) reliability? and can that information be used to help the developers address at least some of the underlying causes of the failures?
+If the mobile app and every supporting component in the system were reliable and complete we might not need or benefit from mobile analytics. Indeed they would be a distraction and wasteful. However, in the real-world every component be it software, service, system, person, or device has flaws and limitations. We are not omnipresent or omniscient - could mobile analytics provide remote insights into a small yet vital subset of software quality into helping development teams understand how their apps are performing in terms of their (un-) reliability? and can that information be used to help the developers address at least some of the underlying causes of the failures?
 
-Information needs to flow from users' devices and reach the developers somehow in order for developers to understand the performance of their apps. Given the ongoing examples of misdeeds and corruptions in the application of data collected from user's activities and user's content - the dynamics of the information gathered, processed, and transferred in support of mobile analytics is also pertinent. 
+Information needs to flow from users' devices and reach the developers somehow in order for developers to understand the performance of their apps. Given the ongoing examples of misdeeds and corruptions in the application of data collected from user's activities and user's content - understanding and analysing the [data] dynamics~\footnote{\emph{c.f.} the study of data moving within, through, between, and across computers including who has access to see some or all of the data, the contents of the data and the information that can be gleaned from it, \emph{etc.}. The concept is introduced from a testing of systems perspective in~\citep{harty2020_fast_abstract_data_dynamics_for_testing_systems} of the information gathered, processed, and transferred in support of mobile analytics is also pertinent. \emph{c.f.} also: some concepts from physics and signals~\citep{BROOMHEAD1986_217_extracting_qualitative_dynamics_from_experimental_data}. I'm not using data dynamics in terms of modifications to data (see~\citep{wang2011_enabling_public_accountability_and_data_dynamics_etc} and/or~\citep{hao2011_privacy_preserving_etc_with_data_dynamics}), although those sorts of modifications may also occur in some circumstances e.g. to revise analytics data that's been collected and forwarded.}.
 
 Developer can plan for the future operations of the app in several ways, such as embedding code within an app to record events, context, and other data. They generally use an API to do so. They can also plan various processes, ~\emph{e.g.} their release, bug investigation, and triage processes. Others may choose not to plan ahead; As many have observed, including the business guru Peter Drucker,~\emph{Not making a decision is a decision}, as summed up in Truth 31 in the book by~\cite{gunther2013truth_about_better_decision_making}.
 
-Implicit feedback mechanisms provided by various forms of usage analytics (mobile analytics) can improve developers' awareness of how the software is being used and how it is behaving. Some of these sources of feedback are instigated by developers using logging and/or mobile analytics APIs, others are instigated by library and/or platform providers. The feedback mechanisms are used to identify probable issues in mobile apps where the development team then choose to address at least a subset of those issues with the aim of improving the quality-in-use~\citep{} of future releases of that app. Of the various forms of mobile analytics this research concentrates on \textbf{platform-level analytics} together with \textbf{crash and error analytics}. It applies these forms of analytics with a focus on \textbf{stability} for Android apps available in Google Play Store.
+Implicit feedback mechanisms provided by various forms of usage analytics (mobile analytics) can improve developers' awareness of how the software is being used and how it is behaving. Some of these sources of feedback are instigated by developers using logging and/or mobile analytics APIs, others are instigated by library and/or platform providers. The feedback mechanisms are used to identify probable issues in mobile apps where the development team then choose to address at least a subset of those issues with the aim of improving the quality-in-use~\citep{bevan1999_89_quality_in_use_meeting_user_needs_for_quality} of future releases of that app. 
 
-\akb{While it is right to focus on specific analytics, don't forget to explain the rationale for the ones you have chosen.} Agreed and will do when the content is migrated.
+Of the various forms of mobile analytics this research concentrates on \textbf{platform-level analytics} together with \textbf{crash and error analytics}. It applies these forms of analytics with a focus on \textbf{stability} for Android apps available in Google Play Store.
+
+%\akb{While it is right to focus on specific analytics, don't forget to explain the rationale for the ones you have chosen.} Agreed and will do when the content is migrated.
+The rationale for selecting these analytics include the vast scale and reach of the platform-level analytics in the largest app store globally where potentially billions of users rely on the quality of these apps and millions of developers have to trust and rely decisions that the Google Play store ecosystem applies for the apps they release in the app store. Furthermore the majority of Android apps include at least one analytics library that collects and reports crash and error analytics; both users and developers \emph{de-facto} trust these libraries are well behaved and can be depended on. (For a similar discussion from the field of doctors there are discussions by \citealt{Schuenemann2011_guidelines2_0_do_no_net_harm} and \citealt{Sokolf6426_2013_first_do_no_harm_revisited} on \emph{do no net harm}~\footnote{Eloquently adapted to \emph{``A competent and caring physician is one who never causes unintentional or unnecessary harm.", Stephen Ross Workman, MD}~\url{https://www.bmj.com/content/347/bmj.f6426/rr/671112}. Perhaps a the concept could be extended to: an app developer not only never causes unintentional or unnecessary harm, they also strive to address whatever harms do affect the users of their apps while also satisfying for other demands.} which may implicitly also apply to what users expect from the mobile apps they install and use.)
 
 The research is mainly empirical owing to the nature of usage analytics and the analytics tools which thrive on volume and realism. Mixed methods were used to expand the research, for instance by using static analysis into how developers use and maintain remote logging in the codebases of their Android apps. The case studies include examples where the researcher was:
 \begin{enumerate}
-    \item embedded: an active participant integrated into the project team,
+    \item embedded developer: an active participant integrated into the project team,
     \item coach: of an existing team of developers who applied the concepts,
     \item interviewer: of various development teams to learn of their practices and results,
     \item analyst/observer: performing static analysis of opensource code repositories.
@@ -42,7 +45,7 @@ For any given release of a mobile app there are three phases:
 
 Figure~\ref{fig:red-thread-for-this-thesis} illustrates these three phases together with some of the dynamics \emph{e.g.} of rollout and disuse of a release, and of feedback from whatever sources that the development teams can choose to pay attention to and apply.
 
-Developers can choose when they will pay attention to the analytics; they can also choose the extent they wish to integrate analytics into their apps. Significant data is available for minimal effort, nonetheless the development teams who choose to invest in analytics are able to reap better and more relevant results. There are risks and responsibilities of the effects of collecting data and performing analysis on that data, practices outstrip legislation. It remains possible for sensitive findings to be discovered through the use of mobile analytics, nonetheless the ethical challenges are not unique to mobile analytics.
+Developers can choose when they will pay attention to the analytics; they can also choose the extent they wish to integrate analytics into their apps. Significant data is available for minimal effort, nonetheless the development teams who choose to invest in analytics are able to reap better and more relevant results. There are risks and responsibilities of the effects of collecting data and performing analysis on that data, practices outstrip legislation. It remains possible for sensitive findings to be discovered through the use of mobile analytics, nonetheless the ethical challenges are not unique to mobile analytics~\footnote{Arosha mentioned \href{https://www.orbit-rri.org/}{ORBIT-RRI} and their ~\href{https://www.journals.elsevier.com/journal-of-responsible-technology}{Journal of Responsible Technology}. There are various areas that overlap and potentially align in their concepts, I've not found much relevant concrete material yet, this footnote is a reminder (it is not intended to be part of my thesis.}.
 
 This research found that developers are able to materially improve the stability/reliability~\footnote{Stability is a term used by Google when they describe their Android Vitals service which is incorporated into Google Play Console. It includes measures of crashes and ANRs. An overview of Android Vitals is available online from various Google and Android sources including~\citep{android_vitals_overview_2019, android_vitals_best_practices}.}
 %
@@ -59,13 +62,43 @@ Diligent developers and development teams can materially improve the stability/r
     \label{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps}
 \end{figure}
 
-Figure~\ref{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps} illustrates a conceptual prerequisite tree \footnote{(applying Theory of Constraints, see~\citep{goldratt2017_necessary_but_not_sufficient, lepore1999_deming_and_goldratt, scheinkopf1999_thinking_for_a_change})}. 
+
+Figure~\ref{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps}~\footnote{Source of figure, Google Drive file:  \href{https://docs.google.com/document/d/16PaSFRVzg1b2Nykly8qzaTAHtJqtEwgrK754wuek53M/edit}{2021 Applying Theory of Constraints to using Mobile Analytics to improve Mobile Apps}} illustrates a conceptual prerequisite tree \footnote{(applying Theory of Constraints, see~\citep{goldratt2017_necessary_but_not_sufficient, lepore1999_deming_and_goldratt, scheinkopf1999_thinking_for_a_change})}. 
 %
 The underpinnings in terms of being able to improve mobile apps are threefold: 
 \begin{enumerate}
     \item Users need to use the app. The app's behaviours will include errors and failures.
     \item The app needs connectivity together with at least one form of mobile analytics.
     \item Developers need to understand the outputs of mobile analytics and address pertinent issues in future releases of the app.
+\end{enumerate}
+
+An expanded list of the prerequisites illustrated in Figuree~\ref{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps} is as follows (roughly in descending order. Analytics data from previous releases is used to help improve \emph{future} releases.
+\begin{enumerate}
+    \item Users use the app
+    \item Improved releases are in-use on end-user devices
+    \item Improved releases are installed on end-user devices
+    \item Improved releases are created and released
+    \item Analytics logging refined to capture relevant information
+    \item Issues are triaged and viable ones actioned
+    \item Devs have adequate, timely access to mobile analytics outputs
+    \item Devs apply the results of mobile analytics outputs
+    \item Devs understand ways to apply mobile analytics
+    \item Relevant issues are identified and analysed
+    \item The analytics service is accurate and reliable
+    \item The analytics events are clear and relevant
+    \item Volumes of data do not overwhelm system or devs
+    \item The app is running and the device has an internet connection
+    \item Mobile analytics are available for the app
+\end{enumerate}
+
+In addition to the previous set of prerequisites, the following are also highly desirable:
+\begin{enumerate} [i]
+    \item Ecosystem is adequately and acceptably secure
+    \item System is performant
+    \item System is unbiased
+    \item Internally and externally verifiable system and service
+    \item Users have practical controls on the data processed
+    \item Available data sufficiently representative to apply to the population
 \end{enumerate}
 
 Some issues can be ameliorated externally to the app, for instance though changes to servers that support API requests from apps, however many need changes to the app in order to be effective. 
