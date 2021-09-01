@@ -23,7 +23,7 @@
 \usepackage{outlines}  %for multilevel lists
 \usepackage{pgfgantt}
 \usepackage{rotating}
-\usepackage{threeparttable}
+\usepackage[para]{threeparttable}
 
 
 \setlength{\marginparwidth}{2cm}
@@ -316,9 +316,47 @@
 
 \usepackage{memhfixc} % https://tex.stackexchange.com/questions/323924/page-breaking-problem-with-memoir-and-hyperref
 
+%%%%%%%%%%%%%%% An attempt to reproduce the \newthought{} command from the tufte-book document.
+%%%% Sources:
+%%%%   https://github.com/Tufte-LaTeX/tufte-latex/blob/efb8c8e836890bad71fb5834acdd316ebde6db12/tufte-common.def#L779
+%%%%   https://github.com/Tufte-LaTeX/tufte-latex/blob/efb8c8e836890bad71fb5834acdd316ebde6db12/tufte-common.def#L1527-L1535
+%%%%   Improvement to vertical formatting https://tex.stackexchange.com/a/291748/88466 (via https://tex.stackexchange.com/questions/291746/tufte-latex-newthought-after-section)
+%%%%   https://tex.stackexchange.com/questions/288472/bold-first-letter-combined-with-smallcaps 
+\newskip\tufteskipamount
+\tufteskipamount=1.0\baselineskip plus 0.5ex minus 0.2ex
+
+\newcommand{\tuftebreak}{\par\ifdim\lastskip<\tufteskipamount
+  \removelastskip\penalty-100\tufteskip\fi}
+
+\newcommand{\tufteskip}{\vspace\tufteskipamount}
+
+\makeatletter
+\def\tuftebreak{%
+  \if@nobreak\else
+    \par
+    \ifdim\lastskip<\tufteskipamount
+      \removelastskip \penalty -100
+      \tufteskip
+    \fi
+  \fi
+}
+\makeatother
+
+%%%%%%% From https://tex.stackexchange.com/a/288476/88466
+\newlength\ltempa
+\newlength\ltempb
+\newcommand\newthought[1]{%
+   %\addvspace{1.0\baselineskip plus 0.5ex minus 0.2ex}%
+   \noindent\expandafter\formatnewthought#1\relax}
+\def\formatnewthought#1#2\relax{%
+  \tuftebreak
+  \settowidth\ltempa{\textsc{#1#2}}%
+  \settowidth\ltempb{\textsc{#1\mbox{}#2}}%
+  \addtolength\ltempa{-\ltempb}%
+  \textbf{#1}\kern\ltempa\textsc{#2}%
+}
+
 %%%%% A vain attempt to support various non-European based languages
-
-
 \begin{comment}
 \usepackage{CJKutf8} % For CJK support see https://www.overleaf.com/learn/latex/Chinese
 \usepackage{arabtex} % https://tex.stackexchange.com/a/557159/88466

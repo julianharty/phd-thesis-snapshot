@@ -84,7 +84,7 @@ The following hierarchical list includes topics I plan to include in this chapte
 \begin{itemize}
     \item An overview on~\href{software.quality}{\emph{software quality}} including various viewpoints of quality e.g. Gerry Weinberg):
     \begin{itemize} 
-        \item ISO standards
+        \item Nomenclature including multiple competing definitions of various NFRs. Mention ISO standards, \citep[Chapter 5]{chung2000_non_functional_requirements_in_software_engineering} on not prescribing relationships or the terms as their approach is intended to help the developers rather than dictate.
         \item Software defects, faults and failures~\hyperlink{defects.faults.failures}{\emph{link}}
         \item Bug investigation and localisation
         \item QoE: Quality of Experience
@@ -169,7 +169,7 @@ cover all the facets even after many years of working and researching in this do
 %Expand on software quality generally before leaping into specifics.
 In the 1980's and 1990's software quality became an important and established topic, with several seminal publications including:~\citep{garvin1984_what_does_product_quality_really_mean},~\citep{weinberg1992quality}, and~\citep{kitchenham1996_software_quality_elusive_target}. If we start with Weinberg who stated \emph{"Quality is value to some person"}~\cite{weinberg1992quality}. To paraphrase him, \emph{Quality is in the eye of the beholder}. For mobile apps the majority of the beholders are the end users, however the app store could also be considered a beholder, and certainly they have the power to be prosecution, judge and jury when determining which apps are allowed to be live in the app store, and which ones to promote, and which end up lower in the search results.
 
-Considering the other two papers mentioned earlier, Garvin introduced five approaches to defining quality: 1) transcendent, product-based, user-based, manufacturing-based, and value-based. His work was extended by Kitchenham and Shari Lawrence Pfleeger. One of their key wry observations was that standards, such as ISO 9001 and ISO 9126, and maturity models, such as the Capability Maturity Model, focus on a consistent process rather than a quality product, and that~\emph{``there is little evidence that conformance to process standards guarantees good products."}~\citep{kitchenham1996_software_quality_elusive_target}. To the best of my knowledge, neither ISO standards nor maturity models figure highly for the vast majority of mobile app development teams, therefore I have considered and then chosen not to use the formal software quality models or standards in my research. 
+Considering the other two papers mentioned earlier, Garvin introduced five approaches to defining quality: 1) transcendent, 2) product-based, 3) user-based, 4) manufacturing-based, and 5) value-based. His work was extended by Kitchenham and Shari Lawrence Pfleeger. One of their key wry observations was that standards, such as ISO 9001 and ISO 9126, and maturity models, such as the Capability Maturity Model, focus on a consistent process rather than a quality product, and that~\emph{``there is little evidence that conformance to process standards guarantees good products."}~\citep{kitchenham1996_software_quality_elusive_target}. To the best of my knowledge, neither ISO standards nor maturity models figure highly for the vast majority of mobile app development teams, therefore I have considered and then chosen not to use the formal software quality models or standards in my research. 
 
 In their discussion of the value-based view there are several foundations that were highly relevant at the time, where users were involved in product specifications and~\emph{``equating quality to what the customer is will to pay [for]"}. For mobile apps, the users are seldom involved in the specification and they do not pay with money for the vast majority of the apps they use, instead they may pay with their data... So a possible refinement of value-based views for mobile apps is to consider quality to what customers are willing to~\emph{use}? i.e. if they continue to use the app then the quality could be deemed to be adequate.
 
@@ -186,6 +186,15 @@ I will cover the both the product and manufacturing views of quality later in th
 In "Software Quality: The elusive target"~\cite{kitchenham1996_software_quality_elusive_target}. their work also presents two further points: The context is important when we aim to assess ``adequate" quality in a software product. And \emph{"A good definition [of software quality] must let us measure quality in a meaningful way. Measurements let us know if our techniques really improve the software, as well as how process quality affects product quality."}
 
 %SHOULD-DO cover Quality of Experience (QoE) here. How users perceive QoE, how users communicate their QoE in an app store ecosystem, etc.
+
+\newthought{Confusion of terms - `as clear as mud'}
+There is no unified agreement on what software quality is, nor is there agreement on particular software qualities, for example ISO 9126 considers stability to be a part of software maintainability, then made it a part of modifiability in the set of standards that subsumed and replaced ISO 9126, in particular in ISO 25010~\citep{iso25010-2011-en}. In contrast two industry giants, HP and Google, use the term \href{glossary-stability}{stability} to measure reliability for specific failures, and even they don't agree. Google Android defines stability for crashes and for ANRs (application freezes), while HP focused on crashes. 
+
+Google Android's Best Practices defines the two forms of stability~\citep{android_vitals_best_practices_key_metrics}:
+\begin{itemize}
+    \item ``\textbf{Stability | ANR rate}: The percentage of users who experienced at least one application not responding (ANR) event during a daily session. ANRs are typically caused by deadlocks or slowness in UI thread and background processes (broadcast receivers)."
+    \item ``\textbf{Stability | Crash rate}: The percentage of users who experienced at least one crash event during a daily session. Crashes are often caused by unhandled exceptions, resource exhaustion, failed assertions, or other unexpected states."
+\end{itemize}
 
 % Placed here with other material on reliability. MUST-DO Decide whether it's still needed and either integrate or remove.
 Reliability is a key facet of software quality and a measure of how reliable (error-free) software is in use. Poor reliability risks jeopardising mobile apps as few users want to use an unreliable app. 
@@ -399,7 +408,7 @@ Buse and Zimmerman wrote a short paper in 2010 which helped establish the field 
         \item ~\emph{``we ultimately want to} empower software development teams to independently gain and share insight \emph{from their data without relying on a separate entity"}
         \item \emph{``Analytics can help: monitor a project; know what's really working; improve efficiency; manage risk; anticipate changes; evaluate past decisions."}
         
-        \item Oddly, Figure 2 in their paper seems to have a mistake in the direction of More Difficult from Information to Insight, see~\ref{buse2012-edited-figure-2}.
+        \item Oddly, Figure 2 in their paper seems to have a mistake in the direction of More Difficult from Information to Insight, see~\ref{fig:buse2012-edited-figure-2}.
         
         \item \emph{``In other words, both developers and managers find it more important to understand the past than try to predict the future; echoing George Santayana, “those who cannot remember the past are condemned to repeat it.”"}.
         
