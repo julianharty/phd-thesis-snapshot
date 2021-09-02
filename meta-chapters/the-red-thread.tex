@@ -13,9 +13,9 @@ A key maxim for me is to: \emph{Always connect software engineering, mobile anal
 \clearpage
 \section[Opening argument]{Opening Argument \\ \small{(Migrate to Conclusion and Abstract?)}}
 If the mobile app and every supporting component in the system were reliable and complete we might not need or benefit from mobile analytics. Indeed they would be a distraction and wasteful. However, in the real-world every component be it software, service, system, person, or device has flaws and limitations. We are not omnipresent or omniscient. 
-This raises three important questions that build from each other: 1) Could mobile analytics provide remote insights into a small yet vital subset of software quality? 2) Would this help development teams understand how their apps are performing in terms of their (un-) reliability? and 3) can that understanding help the developers address at least some of the underlying causes of the failures?
+This raises three important questions that build from each other: 1) Could mobile analytics provide insights into a small yet vital subset of software quality? 2) Would this help development teams understand how their apps are performing in terms of their (un-) reliability? and 3) can that understanding help the developers address at least some of the underlying causes of the failures?
 
-Pertinent information needs to flow from users' devices and reach the developers somehow in order for developers to understand the performance of their apps. 
+Pertinent information needs to flow from users' devices and reach the developers somehow in order for developers to understand the usage, performance, and behaviour of their apps. 
 
 Developer can plan for the future operations~\footnote{\emph{i.e.} the operations within the context of DevOps.} of the app in several ways, such as embedding code within an app to record events, context, and other data. They generally use an API to do so. Some of these sources of feedback are instigated by developers using logging and/or mobile analytics APIs, others are instigated by library and/or platform providers.
 %
@@ -30,25 +30,28 @@ Of the various forms of mobile analytics this research concentrates on \textbf{p
 %\akb{While it is right to focus on specific analytics, don't forget to explain the rationale for the ones you have chosen.} Agreed and will do when the content is migrated.
 
 \newthought{Rationale}
-The rationale for selecting these analytics include the vast scale and reach of the platform-level analytics in the largest app store globally where potentially billions of users rely on the quality of these apps and millions of developers have to trust and rely decisions that the Google Play store ecosystem applies for the apps they release in the app store. Furthermore the majority of Android apps include at least one analytics library that collects and reports crash and error analytics; both users and developers \emph{de-facto} trust these libraries are well behaved and can be depended on. Similarly users trust developers not to do net harm, a topic we cover shortly.
+The rationale for selecting these analytics include the vast scale and reach of the platform-level analytics in the largest app store globally where potentially billions of users rely on the quality of these apps and millions of developers have to trust and rely decisions that the Google Play store ecosystem applies for the apps they release in the app store. Furthermore the majority of Android apps include at least one analytics library that collects and reports crash and error analytics; both users and developers \emph{de-facto} trust these libraries are well behaved and can be depended on. Similarly users implicitly trust developers not to do net harm, a topic we cover shortly.
+% https://www.statista.com/statistics/736576/trust-mobile-apps-smartphone-users/ from 2017 survey data. 
 
 % For more reading on the nuances of the actions of doctors see:
 % https://www.bmj.com/content/366/bmj.l4734/rapid-responses which includes a detailed clarification of "In illnesses one should keep two things in mind, to be useful rather than cause no harm".
 
 \clearpage
 \section[Research methodology]{Research methodology \\ \small{This may well become a new chapter.}}
-The research is mainly empirical owing to the nature of usage analytics and the analytics tools which thrive on volume and realism therefore case studies provide the core of the research. Mixed methods were used to expand the research, for instance: by using static analysis into how developers use and maintain remote logging in the codebases of their Android apps, and qualitatively, by interviewing app developers on their use of mobile analytics. 
+The research is mainly empirical owing to the nature of usage analytics and the analytics tools which thrive on volume and realism therefore case studies provide the core of the research. The analytics data for apps is private by default and access is only provided to authorised users of each analytics tool, these users are typically a small trusted subset of the development team for that app. If the development team are part of an organisation they may also need the approval of their organisation before they are permitted to share the analytics outside their immediate team. These restrictions meant an opportunistic approach needed to be taken to obtaining case studies; and the team and/or organisation determined the mode of engagement for the researcher.
+
+Mixed methods were used to expand the research, for instance: by using static analysis into how developers use and maintain remote logging in the codebases of their Android apps, and qualitatively, by interviewing app developers on their use of mobile analytics. 
 
 \newthought{Case Studies}
-The case studies illustrate manifold facets of applying (and ignoring) mobile analytics across various contexts of engagement, across various types of app, and from several perspectives including the organizations who create the mobile analytics.
+The case studies illustrate manifold facets of applying (and ignoring) mobile analytics across various contexts of engagement, across various types of app, and from several perspectives including the organizations who create the mobile analytics tools and related services.
 
-The case studies include examples where the researcher was:
+The case studies include examples where the researcher's mode of engagement was as:
 \begin{enumerate}
     \itemsep0em
-    \item embedded developer: an active participant integrated into the project team,
-    \item coach: of an existing team of developers who applied the concepts,
-    \item interviewer: of various development teams to learn of their practices and results,
-    \item analyst/observer: performing static analysis of opensource code repositories.
+    \item an embedded developer: an active participant integrated into the project team,
+    \item a coach: of an existing team of developers who applied the concepts,
+    \item an interviewer: of various development teams to learn of their practices and results,
+    \item an analyst/observer: performing static analysis of opensource code repositories.
 \end{enumerate}
 
 \clearpage
@@ -98,10 +101,15 @@ This research found that developers are able to materially improve the stability
 of their mobile apps when they use the results of mobile analytics to assess the stability/reliability, identify groups of failures, triage the failures, and address the ones they decide to action. Where project teams stop paying attention to this process the failure rate increases of their new releases - the apps tend to entropy and failure.
 
 Diligent developers and development teams can materially improve the stability/reliability of their apps through applying good coding, design and architecture patterns. Even these practices do not guarantee the releases will always be trouble-free. By paying ongoing attention to analytics during development, testing, and the rollout of releases flaws can be identified before the release reaches the majority of the userbase and teams can ameliorate the effects of many of the flaws.
-
 \clearpage 
 
-\section[Conceptual prerequisites]{Conceptual prerequisites\\ \small{(Possibly integrate into: Applying analytics to development practices?)}}
+
+\section[A framework for applying mobile analytics effectively]{A framework for applying mobile analytics effectively\\ \small{(Possibly integrate into: Applying analytics to development practices?)}}
+
+The lived experiences of participating in the various case studies, together with the results and insights gleaned from them, led to the development of a potential framework for the successful and effective application of using mobile analytics to improve the reliability of the app. These are illustrated in Figure~\ref{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps}~\footnote{Source of figure, Google Drive file:  \href{https://docs.google.com/document/d/16PaSFRVzg1b2Nykly8qzaTAHtJqtEwgrK754wuek53M/edit}{2021 Applying Theory of Constraints to using Mobile Analytics to improve Mobile Apps} - which needs to be further revised.}. It is based on a diagram known as a conceptual prerequisite tree which is part of Eli Goldratt's Theory of Constraints\footnote{(applying Theory of Constraints, see~\citep{goldratt2017_necessary_but_not_sufficient, lepore1999_deming_and_goldratt, scheinkopf1999_thinking_for_a_change})}. 
+
+Each item 
+
 \begin{figure}
     \centering
     \includegraphics[width=12.5cm]{images/my/Conceptual_prereq_tree_Applying_Theory_of_Constraints_to_using_Mobile_Analytics_to_improve_Mobile_Apps.jpeg}
@@ -110,7 +118,7 @@ Diligent developers and development teams can materially improve the stability/r
 \end{figure}
 
 
-Figure~\ref{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps}~\footnote{Source of figure, Google Drive file:  \href{https://docs.google.com/document/d/16PaSFRVzg1b2Nykly8qzaTAHtJqtEwgrK754wuek53M/edit}{2021 Applying Theory of Constraints to using Mobile Analytics to improve Mobile Apps}} illustrates a conceptual prerequisite tree \footnote{(applying Theory of Constraints, see~\citep{goldratt2017_necessary_but_not_sufficient, lepore1999_deming_and_goldratt, scheinkopf1999_thinking_for_a_change})}. 
+
 %
 The underpinnings in terms of being able to improve mobile apps are threefold: 
 \begin{enumerate}
@@ -119,7 +127,9 @@ The underpinnings in terms of being able to improve mobile apps are threefold:
     \item Developers need to understand the outputs of mobile analytics and address pertinent issues in future releases of the app.
 \end{enumerate}
 
-An expanded list of the prerequisites illustrated in Figuree~\ref{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps} is as follows (roughly in descending order. Analytics data from previous releases is used to help improve \emph{future} releases.
+An expanded list of the prerequisites illustrated in Figure~\ref{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps} is as follows (roughly in descending order. Analytics data from previous releases is used to help improve \emph{future} releases.
+
+\Prerequisite{Essential prerequisites to improve the reliability of apps using mobile analytics}
 {\small
 \begin{enumerate}
     \itemsep0em
@@ -138,11 +148,14 @@ An expanded list of the prerequisites illustrated in Figuree~\ref{fig:using-toc-
     \item Volumes of data do not overwhelm system or devs
     \item The app is running and the device has an internet connection
     \item Mobile analytics are available for the app
+    \captionof{prerequisites}{Prerequisites to improve the reliability of apps using mobile analytics}
+    \label{prerequisites-essential}
 \end{enumerate}
 }
 
 
-In addition to the previous set of prerequisites, the following are also highly desirable:
+\Prerequisite{Additional, desirable prerequisites}
+In addition to the essential set of prerequisites, in ~\ref{prerequisites-essential}, the following are also highly desirable:
 {\small
 \begin{enumerate} [i]
     \itemsep0em
@@ -152,15 +165,31 @@ In addition to the previous set of prerequisites, the following are also highly 
     \item Internally and externally verifiable system and service
     \item Users have practical controls on the data processed
     \item Available data sufficiently representative to apply to the population
+    \item Current and historical data and reports seamlessly available to development team
+    \captionof{prerequisites}{Additional, desirable prerequisites when using mobile analytics}
+    \label{prerequisites-desirable}
 \end{enumerate}
 }
 
-\newthought{Addressing discovered issues}
-Some issues can be ameliorated externally to the app, for instance though changes to servers that support API requests from apps, however many need changes to the app in order to be effective. 
+\subsection{When can identified issues be addressed?}
+To address issues they need to be identified and a practical improvement determined. The practical improvement may be an outright fix, or a workaround, or an amelioration, etc. The questions for the development team include where and when the improvements can be applied to improve the reliability for the end users of their app.
 
-If time-machines were available in software development developers might be able to go back in time and repair the current application on the user's mobile device. Conversely, a time-machine could enable users to return to the time and context when an event such as a failure occurred in order to help the developers understand contributory factors that led up to the failure and the aftermath. In 1999, time-machine computing was introduced as a way to help manage time in computing environments, for instance using a desktop environment - `TimeScape' - that supported time travelling on the computer, and time-casting to restore the context that surrounded the use of a given application~\citep{rekimoto1999_time_machine_computing}. In mobile analytics, breadcrumbs (event records)~\citep[p.683]{MacLean2015_pro_android_5_book} can be generated to help \emph{post-hoc} analysis of events that preceded a failure, and particularly crashes. 
-%
-For apps released as compiled binary files (the vast majority in iOS and Android app stores), improvements are generally made to a subsequent release than the one(s) where the failures have been occurring. And these subsequent releases need to be installed by the user population and used similarly in order to determine whether the improvements were worthwhile. Some users keep older releases and others stop using the app. 
+Some issues can be ameliorated externally to the app, for instance though changes to servers that support API requests from apps, however many need changes to the app in order to be effective.
+
+For apps released as compiled binary files (the vast majority in iOS and Android app stores), improvements are generally made to a subsequent release than the one(s) where the failures have been occurring\footnotemark. And these subsequent releases need to be installed by the user population and used similarly in order to determine whether the improvements were worthwhile. Some users keep older releases and others stop using the app so 100\% rollouts of subsequent releases are not practical. (For apps that only ever had one release then 100\% rollout is \emph{de-facto}.)
+
+\footnotetext{
+  There are various ways that a binary \emph{can} be patched or updated \textit{in-situ}. Indeed various security attacks are performed using this approach, as, for instance,~\citep{poeplau2014_execute_this_unsafe_android} discussed. Around April 2013 Google changed their policy for Google Play to forbid Android apps from modifying, replacing or updating it's own APK binary code outside Google Play's update mechanism (the policy is still available on the Internet Archive Wayback Machine~\href{https://web.archive.org/web/20130426113437/https://play.google.com/about/developer-content-policy.html}{Google Play Developer Program Policies}). In 2019, Google provided developers with an API that developers can embed into their Android app in order to prompt users to update the app using Google Play~\citep{android_in_app_updates}. 
+}
+
+\newthought{Would time-machines help?}
+If time-machines were available in software development developers might be able to go back in time and repair the current application on the user's mobile device before it was installed on the device. 
+
+Conversely, a time-machine could enable users to return to the time and context when an event such as a failure occurred in order to help the developers understand contributory factors that led up to the failure and the aftermath. 
+
+In 1999, time-machine computing was introduced as a way to help to organise and manage electronic information in computing environments, for instance using a desktop environment - `TimeScape' - that supported time travelling on the computer, and time-casting to restore the context that surrounded the use of a given application~\citep{rekimoto1999_time_machine_computing}. However, that work was limited to a desktop computer environment and has not been maintained. 
+
+In mobile analytics, breadcrumbs (event records)~\citep[p.683]{MacLean2015_pro_android_5_book} can be generated to help \emph{post-hoc} analysis of events that preceded a failure, and particularly crashes. 
 
 
 % [4] Joorabchi, Mona Erfani, Ali Mesbah, and Philippe Kruchten. "Real challenges in mobile app development." Empirical Software Engineering and Measurement, 2013 ACM/IEEE International Symposium on 10 Oct. 2013: 15-24.

@@ -314,4 +314,17 @@
   see_also = {Their 2013 paper https://doi.org/10.1007/978-3-319-14289-0_4},
 }
 
+@article{AHMAD2020110386,
+    title = {StaDART: Addressing the problem of dynamic code updates in the security analysis of android applications},
+    journal = {Journal of Systems and Software},
+    volume = {159},
+    pages = {110386},
+    year = {2020},
+    issn = {0164-1212},
+    doi = {https://doi.org/10.1016/j.jss.2019.07.088},
+    url = {https://www.sciencedirect.com/science/article/pii/S0164121219301530},
+    author = {Maqsood Ahmad and Valerio Costamagna and Bruno Crispo and Francesco Bergadano and Yury Zhauniarovich},
+    keywords = {Android, Dynamic code updates, Reflection, Dynamic class loading, Security analysis},
+    abstract = {Dynamic code update techniques (Android Studio – support for dynamic delivery), such as dynamic class loading and reflection, enable Android apps to extend their functionality at runtime. At the same time, these techniques are misused by malware developers to transform a seemingly benign app into a malware, once installed on a real device. Among the corpus of evasive techniques used in modern real-world malware, evasive usage of dynamic code updates plays a key role. First, we demonstrate the ineffectiveness of existing tools to analyze apps in the presence of dynamic code updates using our test apps, i.e., Reflection-Bench and InboxArchiver. Second, we present StaDART, combining static and dynamic analysis of Android apps to reveal the concealed behavior of malware. StaDART performs dynamic code interposition using a vtable tampering technique for API hooking to avoid modifications to the Android framework. Furthermore, we integrate it with a triggering solution, DroidBot, to make it more scalable and fully automated. We present our evaluation results with a dataset of 2000 real world apps; containing 1000 legitimate apps and 1000 malware samples. The evaluation results with this dataset and Reflection-Bench show that StaDART reveals suspicious behavior that is otherwise hidden to static analysis tools.}
+    exclusion_rationale = {I'm less interested in the security vulnerability aspects which is the main focus of this paper.}
 }

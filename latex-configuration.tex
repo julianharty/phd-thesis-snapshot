@@ -17,12 +17,15 @@
 \usepackage{listings}
 \usepackage{multicol, multirow}
 
+\usepackage{caption}
+\DeclareCaptionType{prerequisites}[Prerequisites][List of Prerequisites]
+\usepackage{tocloft}
+
 \usepackage[noend]{algpseudocode}
 % \newsubfloat{figure}
 % \newsubfloat{table}
 \usepackage{outlines}  %for multilevel lists
 \usepackage{pgfgantt}
-\usepackage{rotating}
 \usepackage[para]{threeparttable}
 
 
@@ -62,7 +65,7 @@
 % https://tex.stackexchange.com/questions/99809/box-or-sidebar-for-additional-text for the following code
 \usepackage{wrapfig}
 \usepackage[many]{tcolorbox}
-\usepackage{rotating}  % So I can rotate tables on the page.
+\usepackage[counterclockwise, figuresright]{rotating}  % So I can rotate tables on the page and rotate them 180 degrees.
 \usepackage{lipsum}
 
 \newenvironment{WrapText}[1][r]
@@ -160,7 +163,7 @@
 \usepackage{lipsum}					%Needed to create dummy text
 
 \usepackage{graphicx}					%Calls figure environment
-\usepackage{longtable,rotating}			%Long tab environments including rotation. 
+%\usepackage[figuresleft]{longtable,rotating}			%Long tab environments including rotation. 
 \usepackage[utf8]{inputenc}			%Needed to encode non-english characters 
 									%directly for mac
 \usepackage{colortbl}					%Makes coloured tables
@@ -364,3 +367,51 @@
 
 \usepackage{utf8}
 \end{comment}
+
+%%%%%% Finally able to add a custom content type (prerequisites) to the toc in a memoir project. 
+%
+% Start simple,
+% https://texblog.org/2008/07/13/define-your-own-list-of/ and 
+% https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/ and
+% https://tex.stackexchange.com/questions/61086/how-to-create-my-own-list-of-things  Then crash and burn in the thesis project...
+% The memoir package caused a basic solution to fail. Here's a good reproduction of the sort of errors I encountered https://tex.stackexchange.com/questions/388489/custom-list-throw-latex-error-command-mycustomfiction-already-defined 
+% \usepackage{morewrites} needed because of the complexity of the contents of the thesis. Fix found in  https://tex.stackexchange.com/questions/385263/toc-not-generated-with-imakeidx-and-reledpar
+% https://tex.stackexchange.com/a/289964/88466 A really helpful answer I wish I'd seen hours ago on debugging the writes.
+% https://tex.stackexchange.com/questions/89743/poorly-formatted-newlistof-with-memoir similar to the issues I've encountered.
+% A diligent user of memoir and tex.stackexchange describes the many places they also had to research to find a workaround. It includes a good set of checklists for me and others to use https://tex.stackexchange.com/a/388531/88466 
+%
+% I got in deeper than necessary partly as I found promising clues in discussions that included custom lists AND something else e.g.
+% Here's where I went in well over my head and spent several hours https://tex.stackexchange.com/questions/270598/creating-list-of-examples-using-tocloft-in-memoir-class 
+% custom lists and theorums https://tex.stackexchange.com/questions/151442/multiple-lists-of-theorems-with-different-titles-any-tex-in-my-case-xelatex
+%
+% There are some nice techniques to include or create new Lists of... , particularly in 
+% https://tex.stackexchange.com/questions/58397/how-to-add-custom-floats-to-listoffigures
+% https://tex.stackexchange.com/questions/247038/change-lstlistoflistings-numbering for simple custom formatting of a list
+% https://tex.stackexchange.com/questions/159986/redefining-toc-lof-and-lot 
+%
+
+% Prerequisite command
+\newcommand{\listcommentname}{List of Prerequisites}
+\newlistof{listofprerequisites}{lop}{\listcommentname}
+\newcounter{Prerequisite}[chapter]
+\renewcommand{\thePrerequisite}{\arabic{Prerequisite}}
+\newcommand{\Prerequisite}[1] {
+    \refstepcounter{Prerequisite}    
+    \par\noindent\textbf{Prerequisite \thePrerequisite.  #1.}
+    \addcontentsline{lop}{Prerequisite}{\protect\numberline{\thePrerequisite}#1}\par} 
+
+%%%% Madness https://tex.stackexchange.com/a/89744/88466
+\makeatletter
+\let\l@Prerequisite\l@figure
+\makeatother
+\renewcommand{\thePrerequisite}{\thechapter.\arabic{Prerequisite}}
+
+%%%%%% Improving the appearance of the thesis
+%
+% Simple improvements: use epigraphs and make them attractive: https://tex.stackexchange.com/questions/251148/how-to-change-the-color-of-the-memoir-epigraph-rule
+% https://tex.stackexchange.com/a/251157/88466 works well, I've tested it as a MWE in https://www.overleaf.com/2898222459grzvqpbnnjxc
+%
+% The following uses colours very well and I'd love to do something similar when I've time to improve the appearance of my thesis SHOULD-DO https://tex.stackexchange.com/questions/606098/list-of-definitions-list-of-theorems-list-of-examples-and-list-of-activities I'm holding off partly as I expect kaobook and memoir will have many, often subtle and time-consuming, differences in how the latex needs to be written.
+% https://tex.stackexchange.com/search?q=%5Bmemoir%5D+color might provide some useful clues to using colour
+% https://tex.stackexchange.com/questions/294661/how-do-i-create-a-new-float-environment-with-bigger-and-colored-contents provides examples of setting colours for particular floats in the article document class. It might be some help but looks a bit crude and basic.
+% https://tex.stackexchange.com/questions/56004/customizing-section-formatting-using-memoir-class-color-and-numbering for minor improvements, more useful for learning a bitabout how memoir and latex hang together though.
