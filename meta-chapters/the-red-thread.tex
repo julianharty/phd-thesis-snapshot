@@ -106,13 +106,18 @@ Diligent developers and development teams can materially improve the stability/r
 
 \section[A framework for applying mobile analytics effectively]{A framework for applying mobile analytics effectively\\ \small{(Possibly integrate into: Applying analytics to development practices?)}}
 
+\marian{The conceptual prerequisite tree is unclear. She observed it has 2 threads of enquiry; Do the boxes have the same magnitude etc.?}
+
+\textit{I clarified the prerequisites are prerequisites to effective application of mobile analytics. The figure is of a framework either corroborates or revises the approach. It could become an actionable list. Each item identifies a potential points of failure. Or it could be used as a retrospective of the factors I observed. It could be used to reflect on practice. It breaks the topics down.}
+
+
 The lived experiences of participating in the various case studies, together with the results and insights gleaned from them, led to the development of a potential framework for the successful and effective application of using mobile analytics to improve the reliability of the app. These are illustrated in Figure~\ref{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps}~\footnote{Source of figure, Google Drive file:  \href{https://docs.google.com/document/d/16PaSFRVzg1b2Nykly8qzaTAHtJqtEwgrK754wuek53M/edit}{2021 Applying Theory of Constraints to using Mobile Analytics to improve Mobile Apps} - which needs to be further revised.}. It is based on a diagram known as a conceptual prerequisite tree which is part of Eli Goldratt's Theory of Constraints\footnote{(applying Theory of Constraints, see~\citep{goldratt2017_necessary_but_not_sufficient, lepore1999_deming_and_goldratt, scheinkopf1999_thinking_for_a_change})}. 
 
-Each item 
+Each item is essential in order to \emph{actually} apply mobile analytics in order to improve the quality of mobile apps, \emph{i.e.} they need to be adequately satisfied. Satisfied != perfection. There are other complimentary ways to improve the quality of mobile apps, for instance through designing and implementing automated tests that exercise subsets of the code. Failures reported by mobile analytics are concrete \emph{i.e.} the developers now know the code fails in some circumstances which may motivate the developers to write targeted automated tests. Several of the case studies included developers writing such tests. 
 
 \begin{figure}
     \centering
-    \includegraphics[width=12.5cm]{images/my/Conceptual_prereq_tree_Applying_Theory_of_Constraints_to_using_Mobile_Analytics_to_improve_Mobile_Apps.jpeg}
+    \includegraphics[width=11cm]{images/my/Conceptual_prereq_tree_Applying_Theory_of_Constraints_to_using_Mobile_Analytics_to_improve_Mobile_Apps.jpeg}
     \caption{Conceptual Prerequisites Tree: Using mobile analytics to improve mobile apps}
     \label{fig:using-toc-cpt-using-mobile-analytics-to-improve-mobile-apps}
 \end{figure}
@@ -187,17 +192,26 @@ If time-machines were available in software development developers might be able
 
 Conversely, a time-machine could enable users to return to the time and context when an event such as a failure occurred in order to help the developers understand contributory factors that led up to the failure and the aftermath. 
 
+\newthought{Prior art in time-machines}
+\textit{FYI This will be moved to the Related Work chapter}
 In 1999, time-machine computing was introduced as a way to help to organise and manage electronic information in computing environments, for instance using a desktop environment - `TimeScape' - that supported time travelling on the computer, and time-casting to restore the context that surrounded the use of a given application~\citep{rekimoto1999_time_machine_computing}. However, that work was limited to a desktop computer environment and has not been maintained. 
 
-In mobile analytics, breadcrumbs (event records)~\citep[p.683]{MacLean2015_pro_android_5_book} can be generated to help \emph{post-hoc} analysis of events that preceded a failure, and particularly crashes. 
+\newthought{Breadcrumbs preserve history}
+Some mobile analytics libraries include support for breadcrumbs (event records)~\citep[p.683]{MacLean2015_pro_android_5_book}; these breadcrumbs can augment the crash data by providing a recorded history of the events that occurred in the app before the crash happened. The recorded history can help the developers perform \emph{post-hoc} analysis of events that preceded the crash failure. 
 
+\newthought{Record and replay/playback}
+Recreate the `journey' (however relevant context may be missing or different and therefore affect the results and conclusions). Various reasons why recreating the journey is desirable e.g. to reproduce failures to help understand their characteristics and causes, to learn indirectly by observing and visualising the journey. \emph{c.f.} heatmapping. Record and replay offers the possibility of moving beyond using breadcrumbs as it is intended to record sufficient information to reproduce the use of an app. However there are various limitations in the tooling, the techniques, and at least as importantly the unacceptability of recording end user sessions on their devices using production releases of apps downloaded from the app store. 
 
-% [4] Joorabchi, Mona Erfani, Ali Mesbah, and Philippe Kruchten. "Real challenges in mobile app development." Empirical Software Engineering and Measurement, 2013 ACM/IEEE International Symposium on 10 Oct. 2013: 15-24.
+\newthought{Prior art in record and replay/playback}
+\textit{FYI This will be moved to the Related Work chapter}
+TBC
+
+% [4] Joorabchi, Mona Erfani, Ali Mesbah, and Philippe Kruchten. "Real challenges in mobile app development." Empirical Software Engineering and Measurement, 2013 ACM/IEEE International Symposium on 10 Oct. 2013: 15-24.~\citep{joorabchi2013_real_challenges_in_mobile_app_development}
 
 \clearpage
-\section[Game Theory]{Game Theory\\ \small{(Possibly migrate to the Discussion chapter?)}}
+\section[Socio-technical aspects]{Socio-technical aspects\\ \small{(Probably cover this topic in the Discussion and the Conclusion.)}}
 
-\emph{Note: the current thesis doesn't have much on this topic. TBD whether to include it, it's certainly pertinent in my view.}
+\emph{Note: the current thesis doesn't have much on this topic. TBD whether to include it, it's certainly pertinent in my view. Tip: don't use the term Game Theory as I'm not going to establish, test, or evaluate the case studies using an actual theory.}
 
 Many developers fail to address all the issues identified through use of mobile analytics and a key influence is their perceived ability to successfully address issues identified by the analytics. Furthermore, these issues are collectively only one of many demands for their time and attention. Human, organisational, and business factors all influence the extent mobile analytics is a) used and b) the results addressed. This research touches on both the mechanics of applying mobile analytics together with the `game' which are the higher-level human nature aspects which affect the application and the value of applying the mechanics. Figure~\ref{fig:the-mechanics-the-game} provides a simple illustration of the game and the mechanics.
 
@@ -233,6 +247,10 @@ Who gets to choose may also be influenced by the larger organisation developers 
 \newthought{Minimise harm maximise value address material known issues}~\label{newthought-do-no-net-harm}
 In the field of doctors there are discussions by \citealt{Schuenemann2011_guidelines2_0_do_no_net_harm} and \citealt{Sokolf6426_2013_first_do_no_harm_revisited} on \emph{do no net harm}. This has been eloquently adapted to \emph{``A competent and caring physician is one who never causes unintentional or unnecessary harm.", Stephen Ross Workman, MD}~\url{https://www.bmj.com/content/347/bmj.f6426/rr/671112}. Implicitly it could also apply to what users expect from the mobile apps they install and use. So, perhaps a the concept could be extended to the following maxim?: \emph{an app developer not only never causes unintentional or unnecessary harm, they also strive to address whatever harms do affect the users of their apps while also satisfying for other demands}~\footnote{In medicine there have been similar discussions on freedom and responsibility, and in particular on aftercare of what they publish~\citep{rennie1998_freedom_and_responsibility_in_medical_publication}.}.
 
+MUST-DO expand on~\citep{shklovski2014_leakiness_and_creepiness_in_app_space_perceptions_of_privacy_and_mobile_app_use, zhou2017_user_perceived_control_trust_etc_smartphone}.
+
+\textbf{MUST-DO} Explore these themes in the Discussion chapter. Consider separating: 1) those supported by primary evidence in the case studies (a subset of the experiences from the field, some evidence is protected by confidentiality agreements, etc.), 2) those more speculative in nature/based on literature and hence topics for further research.
+
 \clearpage
 \section[Practical aspects of using analytics]{Practical aspects of using analytics \\ \small{(Possibly migrate to the Conclusion? else the Discussion?)}}
 Analytics providers have a major influence on the efficacy of the application of mobile analytics. There are limitations and flaws in the various tools this research has encountered regardless of their source (\emph{e.g.} in-house proprietary, opensource, free and paid-for commercial proprietary offerings). Nonetheless, flawed offerings are still able to be used to deliver improvements in the mobile apps. Specialised startups such as Iteratively aim to increase the coherence of embedded analytics (those embedded into the apps) while also increasing compliance. HP's AppPulse Mobile provided no-code analytics for mobile apps where their tools automatically instrumented the binary to add the analytics; several providers offered GUI interaction recording and `heatmaps' generated using aggregated recordings of touch screen interactions.
@@ -251,4 +269,10 @@ Those who applied the results of mobile analytics were able to increase the stab
 
 \clearpage
 \section{Where's my current focus?}
-Right now, I'm migrating away from this chapter and working on establishing the first three sections in my Related Work chapter (Chapter 2).
+It's in several areas:
+\begin{itemize}
+    \item Some additional development of the possible framework in Section 0.6 and Figure 0.3
+    \item On the related work chapter, adding various references and starting to develop these into coherent discussions of these works, the gaps in research, etc.
+    \item To revise the red-thread for the case studies and create three distinct tables as per my discussion with Marian and then flesh out and organise the case studies.
+\end{itemize}
+
