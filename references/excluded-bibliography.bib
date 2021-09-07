@@ -328,3 +328,41 @@
     abstract = {Dynamic code update techniques (Android Studio – support for dynamic delivery), such as dynamic class loading and reflection, enable Android apps to extend their functionality at runtime. At the same time, these techniques are misused by malware developers to transform a seemingly benign app into a malware, once installed on a real device. Among the corpus of evasive techniques used in modern real-world malware, evasive usage of dynamic code updates plays a key role. First, we demonstrate the ineffectiveness of existing tools to analyze apps in the presence of dynamic code updates using our test apps, i.e., Reflection-Bench and InboxArchiver. Second, we present StaDART, combining static and dynamic analysis of Android apps to reveal the concealed behavior of malware. StaDART performs dynamic code interposition using a vtable tampering technique for API hooking to avoid modifications to the Android framework. Furthermore, we integrate it with a triggering solution, DroidBot, to make it more scalable and fully automated. We present our evaluation results with a dataset of 2000 real world apps; containing 1000 legitimate apps and 1000 malware samples. The evaluation results with this dataset and Reflection-Bench show that StaDART reveals suspicious behavior that is otherwise hidden to static analysis tools.}
     exclusion_rationale = {I'm less interested in the security vulnerability aspects which is the main focus of this paper.}
 }
+
+@ARTICLE{8418369,  
+  author={Gjoreski, Hristijan and Ciliberto, Mathias and Wang, Lin and Ordonez Morales, Francisco Javier and Mekki, Sami and Valentin, Stefan and Roggen, Daniel},
+  journal={IEEE Access}, 
+  title={The University of Sussex-Huawei Locomotion and Transportation Dataset for Multimodal Analytics With Mobile Devices},  
+  year={2018},
+  volume={6}, 
+  number={}, 
+  pages={42592-42604}, 
+  abstract={
+    Scientific advances build on reproducible researches which need publicly available benchmark data sets. The computer vision and speech recognition communities have led the way in establishing benchmark data sets. There are much less data sets available in mobile computing, especially for rich locomotion and transportation analytics. This paper presents a highly versatile and precisely annotated large-scale data set of smartphone sensor data for multimodal locomotion and transportation analytics of mobile users. The data set comprises seven months of measurements, collected from all sensors of four smartphones carried at typical body locations, including the images of a body-worn camera, while three participants used eight different modes of transportation in the south-east of the U.K., including in London. In total, 28 context labels were annotated, including transportation mode, participant's posture, inside/outside location, road conditions, traffic conditions, presence in tunnels, social interactions, and having meals. The total amount of collected data exceed 950 GB of sensor data, which corresponds to 2812 h of labeled data and 17 562 km of traveled distance. We present how we set up the data collection, including the equipment used and the experimental protocol. We discuss the data set, including the data curation process, the analysis of the annotations, and of the sensor data. We discuss the challenges encountered and present the lessons learned and some of the best practices we developed to ensure high quality data collection and annotation. We discuss the potential applications which can be developed using this large-scale data set. In particular, we present how a machine-learning system can use this data set to automatically recognize modes of transportations. Many other research questions related to transportation analytics, activity recognition, radio signal propagation and mobility modeling can be addressed through this data set. The full data set is being made available to the community, and a thorough preview is already published.}, 
+  keywords={}, 
+  doi={10.1109/ACCESS.2018.2858933}, 
+  ISSN={2169-3536}, 
+  month={},
+  exclusion_rationale = {
+    The data is from sensors and collected by 4 Huawei phones over a many months. It doesn't really overlap with my research.
+  }
+}
+
+@inproceedings{10.5555/2886444.2886520,
+    author = {Ng, Joanna},
+    title = {Experience-Based Analytics},
+    year = {2015},
+    publisher = {IBM Corp.},
+    address = {USA},
+    abstract = {
+      Data has been called the new oil. Despite of its high value, only one percent of the world's data has been extracted for its insights. Data analytics is currently available only to the technical elite of data and IT experts, completely out of reach for general users. End users today only have indirect access to insights, completely dependent on this technical elite. However, no exponential growth in the population of IT and data experts is fast enough to meet the demand of volume and speed of data analytics to go beyond today's one percent of data analyzed. We are far from the ultimate data utopia in which data analytics is provided as a utility, available to and accessible by general users in real time. This paper introduces experience-based analytics: analytics for end users in accessible forms that serve their data analytics requirements as individuals in real time, in a manner that is contextually relevant, transparent with cognitive insights and anticipation. The notion is for the data and IT experts to re-think from delivering analytics results to users as a final form of consumption, to a new paradigm in which general users are enable to perform their own analytics.},
+    booktitle = {Proceedings of the 25th Annual International Conference on Computer Science and Software Engineering},
+    pages = {347–348},
+    numpages = {2},
+    keywords = {predictive analytics, prescriptive analytics, cognitive computing, data analytics, big data, data processing},
+    location = {Markham, Canada},
+    series = {CASCON '15},
+    exclusion_rationale = {
+      It might be interesting to present end users with reliability analytics however it is appropriate to first need to understand whether mobile analytics can help improve the quality of the work of the development team. This is also a very brief 2-page pape without much evidence or rigour.
+    }
+}

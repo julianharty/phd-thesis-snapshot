@@ -49,6 +49,7 @@
 
 \newcommand{\marian}[1]{\textcolor{blue}{[MP: #1 ?]}}
 \newcommand{\julian}[1]{\textcolor{olive}{[JH: #1 ]}}
+\newcommand{\isabel}[1]{\textcolor{brown}{[IE: #1]}}
 
 
 %%%%%% 
@@ -358,6 +359,10 @@
   \addtolength\ltempa{-\ltempb}%
   \textbf{#1}\kern\ltempa\textsc{#2}%
 }
+
+\newcommand\buzzwords[1]{\textcolor{purple}{Buzzwords: \newthought{#1}}\\ \vspace{1pt}{\color{purple}\hrulefill}}
+
+\newcommand{\secref}[1]{\autoref{#1}. \nameref{#1}} % \secref{section:my} %from https://stackoverflow.com/a/30844515/340175
 
 %%%%% A vain attempt to support various non-European based languages
 \begin{comment}
