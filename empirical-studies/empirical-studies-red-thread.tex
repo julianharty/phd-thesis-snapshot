@@ -1,0 +1,248 @@
+\section{Red Thread for the Empirical Studies}
+\label{section-empirical-studies-red-thread}
+
+\subsection*{Notes I need to apply}
+Each case study needs to be formatted consistently so that the reader can find and compare any of them with any of the others, and establish patterns and connections as they're reading them, if indeed there are intentional patterns, orderings, and so on (beyond chronological).
+
+``Empirical research methods in software engineering"~\citep{Wohlin2003_empirical_research_methods_in_software_engineering} introduces four research methods for empirical research in software engineering: 1) controlled experiments, case studies, surveys, post-mortem analyses. Each of these has been used during the research to some extent.
+
+A controlled experiment formed the backbone of the initial Kiwix Android app case study, then this case study applied the results of the experiment to determine whether similar improvements were achievable across the set of the project's custom Android apps. % They were...
+
+There are a variety of in-depth case studies for specific apps within projects. These were augmented by obtaining the experiences of developers of additional Android apps who were surveyed (interviewed) on a common theme of their use and experiences with using mobile analytics services. 
+
+After the case studies were completed, a form of post-mortem analysis identifies adverse effects of entropy returning when development teams stop paying active attention to addressing issues reported through mobile analytics.
+
+
+The research combines various forms of empirical studies. These include:
+\begin{itemize}
+    \item Primary Research: Various \textbf{app case studies} each centered around a development team who are responsible for one or more related Android apps
+    \item Secondary Research: Investigating the logging practices of developers of opensource Android apps that incorporate Google's Firebase Analytics service
+    \item Primary Research: small experiments that were not appropriate in the main app case studies.
+    \item Primary Research: interviews with app developers on their use of mobile analytics - indirect (secondary?) experiences of the services and tools.
+    \item Primary Research: collaborations with two mobile analytics engineering teams: Google and Iteratively. 
+    \item Secondary Research: Literature Review.
+\end{itemize}
+
+\subsection{Coherence throughout the case studies, in particular}
+
+
+\subsection{Dimensions of the app case studies}
+The following list is a proposed set of properties each case study would include:
+{\small
+\begin{itemize}
+    \itemsep0em
+    \item Role of the researcher?
+    \item What are the focal points in this case study?
+    \item Development practices of the project?
+    \item Analytics sources: External, external + crash reporting, external + commercial internal, external, internal, and proprietary?
+    \item Engagement level of the team?
+    \item Privacy concerns?
+    \item What opportunities did the case study present?
+    \item What were the objectives (when I started the case study) compare and contrast with what actually happened? 
+    \item What were the \textbf{F}indings and \textbf{I}nsights gleaned from each?
+    \item What were the limitations of the tools that restricted the abilities to effect improvements? What were the limitations of the engineering practices that limited the improvements?
+\end{itemize}
+}
+
+\begin{landscape} % Rotates the table into a landscape page in the generate PDF.
+\definecolor{Gray}{gray}{0.9}
+\begin{table}
+    \setlength\extrarowheight{3pt} % provide a bit more vertical whitespace
+    \captionsetup{size=footnotesize}
+    \centering
+    \tiny
+    \tabcolsep=0.06cm
+    %\rowcolors{1}{green}{pink}
+    \begin{tabular}{lrrlllllllll}
+        Label &Apps &Volumes &Role     &Focii       &Dev Practices &Analytics       &Objectives                   &Privacy &Opportunities &F.\&I.\footnote{Findings and Insights} \\
+        \hline
+        \rowcolor{Gray}
+        Catrobat &2  &70.9K  &Coach     &Crashlytics &Sophisticated &Crashlytics    &M.A. vs. Clean Code          &Strong       &Open          &Immediate improvements \\
+                 &   &190K   &Observer  &Control     &\textit{ditto} &              &Control for above            &ditto        &Open          &N/A \\ 
+        
+        \rowcolor{Gray}
+        C1       &1  &1M+   &Consultant &at Scale   &Laminar        &Many           &Stability, Ways of Working   &Known        &Large-scale   &Rich \\
+        GTAF     &11 &1.1M  &Observer   &Priorities &Team+          &Various        &Accurate local language apps &Strong       &Distinct view &Their priorities \\
+        
+        \rowcolor{Gray}
+        Kiwix    &1  &150K  &Embedded   &P-o-C      &Team+          &Android Vitals &Suppress crash rate          &V.Strong     &Open, \nth{1} case study &It works!\\
+                 &1  &58.9K &Observer   &Control    &\textit{ditto} &\textit{ditto} &Control for above            &\textit{ditto} &\textit{ditto} &\textit{ditto} \\
+        \rowcolor{Gray}
+                 &16 &222K  &Observer   &Scaling    &\textit{ditto} &\textit{ditto} &Measure scaling              &\textit{ditto} &\textit{ditto} &\textit{ditto} \\
+        LocalHalo &1 &1.1K  &Observer   &Startup    &Cross-platform &Sentry.io      &New business view            &Unknown   &React-Native app &\\
+        \rowcolor{Gray}
+        Moodspace &1 &19.2K &Observer   &Startup    &TBC            &Crashlytics    &New business view            &Unknown   &            &Feedback on M.A.\\
+        Moonpig  &1  &138K  &Observer   &Firebase   &Clean Code     &Firebase       &Leading edge practices       &Known     &Firebase insights &Insightful \\ 
+    
+        \rowcolor{Gray}
+        Big C's  &10\textsuperscript{1} &10\textsuperscript{7} &Observer &Multi-teams &N/A &N/A      &Large corporate         &Unknown   &Big picture &   \\
+        Analytics tools &10\textsuperscript{6} &10\textsuperscript{9} &Various &Trustworthiness &Various &Various &Improve the tools &Commercial &Bleeding edge &Flaws in tools \&services \\
+    \end{tabular}
+    \caption{Overview of App Case Studies}
+    \label{tab:overview_of_app_case_studies}
+\end{table}
+\end{landscape}
+%%%% Notes on compressing tables
+% https://tex.stackexchange.com/questions/10766/how-to-make-really-wide-tables-narrower
+% https://stackoverflow.com/questions/2563498/making-latex-tables-smaller
+% https://en.wikibooks.org/wiki/LaTeX/Tables#Resize_tables 
+% Smaller text finally worked after applying the tips from https://tex.stackexchange.com/a/56011/88466
+% Row colors https://texblog.org/2011/04/19/highlight-table-rowscolumns-with-color/
+% Rotate table https://tex.stackexchange.com/questions/370393/how-to-rotate-the-large-table-and-caption/370394
+% Add a footnote https://tex.stackexchange.com/a/66641/88466
+% Improvements in the formatting of the generated table https://tex.stackexchange.com/a/327977/88466
+
+
+
+
+\newthought{Joe's suggestions}
+\textit{Note: these will be merged into the rest of the thesis, here as a reminder until that's done.}
+
+Joe is an industrial colleague. He proposed each case study could be formatted as a mini-paper with an abstract per case study.
+{\small
+\begin{itemize}
+    \itemsep0em
+    \item Which of the research questions does it answer?
+    \item What’s the context? Mobile app? Web? Reporting tools? Library?
+    \item What’s the company? Org structure? Communication tools?
+    \item What tools were used? MS App Center, Android Vitals, etc. Crashlytics, Testing Frameworks, Collaboration tools,
+    \item Team structure?
+    \item How many users?
+    \item Do the devs have access to the tools? how integrated into the development practices?
+    \item Future work for each case study.
+\end{itemize}
+}
+There are some overlaps and similar topics between the suggested dimensions of each case study and Joe's proposed list. TODO These two lists need to be harmonised, non-essential topics may be pruned from the combined list.
+
+
+\subsubsection{Revised set of Marian's comments from our call on \nth{1} Sept 2021}
+
+\newthought{The map is vital.}
+
+There new tables aim to provide a partial map for the examiners so they don't get lost or side-tracked. They also help to clarify the thinking and make the case studies more consistent and coherent.
+
+\begin{enumerate}
+    \item \ref{tab:empirical-studies-research-perspective} \nameref{tab:empirical-studies-research-perspective}
+    \item \ref{tab:empirical-studies-their-characteristics} \nameref{tab:empirical-studies-their-characteristics}
+    \item \ref{tab:empirical-studies-findings-and-results} \nameref{tab:empirical-studies-findings-and-results}
+\end{enumerate}
+
+Notes: The previous table \ref{tab:overview_of_app_case_studies} \nameref{tab:overview_of_app_case_studies} may eventually be retired and removed from this red-thread. Another table, on the analytics tools, is also worth me creating.
+
+Ideally a drawn map would complement these tables.
+
+\newthought{Demonstrate competence as a researcher}
+
+You need to be more precise in how you report the methodology, e.g., the case studies actually use mixed methods (not just the expansion). A methodology combines reasoning with the method. You need to convey rigour within the constraints of access to case studies.
+
+At some point, you need a 'map' of the case studies:  these need to include the: case, methods, purpose...  This should give the reader an overview of what each contributes and where they overlap.
+
+\newthought{Explain the challenges of anyone being permitted by teams to access their sensitive data, the opportunistic access and rigour applied in the case studies.}
+
+Maximise my ability to make systematic use of what was pragmatically available: Opportunistic access, then I worked systematically and rigorously. Demonstrating the demands of rigour is vital. Explicit reporting of what I had and the efforts I made to handle the data systematically and be vigilant for bias. This helps avoid the case studies being considered as anecdotal. Amplify with the dialogues I had as part of the teams.
+
+Start with what data did I collect and how I collected it. The case studies with similar sources of data can be compared which multiply the contribution.
+
+Aim to explain what are the issues that arose in each case study?
+A clear rationale needs to be provided. 
+
+It's wise for the thesis to demonstrate there's a really clear audit trail and justification for the conclusions.
+
+\begin{itemize}
+    \item Characterise the empirical studies.
+    \item Make explicit what data was collected and for what purpose. 
+    \item Separate insights into a separate table. 
+\end{itemize}
+
+Quality of reporting of the empirical work is key
+
+\newthought{Be Orthogonal and separate concerns}
+
+Separate the reporting from the discussion.
+
+\newthought{Next call with Marian} starts at 10:15 on Friday 10th Sept.
+
+\begin{table}
+    \centering
+    \tabcolsep=0.06cm
+    \tiny
+    \begin{tabular}{lllll}\toprule
+    Case Study                 & Role of Researcher &  Primary Method   & Opportunities & Purpose \\
+    \midrule
+    Kiwix                      & Embedded           & Action research   & & The experiment \\ 
+    \textit{-"-} WikiMed (EN)  & Observer           & & Control for the above app & The control  \\
+    \textit{-"-}               & Observer           & & Evaluate scalability & \textit{pico} generalisation \\
+    Catrobat                   & Coach              & Action research   & & Compare Mobile Analytics with Clean Code \\
+     \textit{-"-}              & Observer           & & Establish baseline & The control  \\
+    C1                         & Consultant         & Hybrid/Mixed & Large scale complex commercial & Mission-critical view \\
+    GTAF                       & Interviewer        & & Add'l perspective & Provide an Asian context \\
+    LocalHalo                  & Interviewer        & & Add'l technologies & Hybrid Programming and tools \\
+    Moodspace                  & Interviewer        & & Small startup &Bootstrap view \\
+    Moonpig                    & Interviewer        & & Leading edge view & Mature, innovative, vanguard dev. practices \\
+    Analytics tool providers   & Various            & & `Behind the curtain' & Learn about the providers' perspectives \\
+    \bottomrule
+    \end{tabular}
+    \caption{Empirical Studies: the research perspective}
+    \label{tab:empirical-studies-research-perspective}
+\end{table}
+
+
+\begin{table}
+    \centering
+    \tabcolsep=0.06cm
+    \footnotesize
+    \begin{tabular}{lcrcll}\toprule
+    Case Study               & Apps                 & Reach & Context & Mobile Analytics Tools\textsuperscript{*}  &Dev. practices  \\
+    \midrule
+    Kiwix                    &                    1 &  150K & Wikipedia, FOSS            & GPC with AV &          Team+ \\ 
+     \textit{-"-}            &                    1 & 58.9K & \textit{-"-}   & GPC with AV & \textit{ditto} \\
+     \textit{-"-}            &                   16 &  222K & \textit{-"-}   & GPC with AV & \textit{ditto} \\
+    Catrobat                 &                    1 & 70.9K & Coding, FOSS            & Crashlytics &  Sophisticated \\
+     \textit{-"-}            &                    1 &  190K & \textit{-"-}   & GPC with AV & \textit{ditto} \\
+    C1                       &                    1 &  1M+  & Mission-critical &    Multiple &        Laminar \\
+    GTAF                     &                   11 &  1.1M & Another app category             &     Various &          Team+ \\
+    LocalHalo                &                    1 &  1.1K & Risky early startup &   Sentry.io & Cross-platform \\
+    Moodspace                &                    1 & 19.2K & Medical    & Crashlytics &        Startup \\
+    Moonpig                  &                    1 & 138K  & E-commerce &    Firebase &     Clean Code \\
+    Analytics tool providers &10\textsuperscript{6} &10\textsuperscript{9} & No &  Several &        Various \\
+    \bottomrule
+    \end{tabular}
+    \caption[Case Studies: their characteristics]{Case Studies: their characteristics \\ {\tiny * All the apps used GPC with AV; one of the tool providers \emph{is} GPC with AV}}
+    \label{tab:empirical-studies-their-characteristics}
+\end{table}
+
+
+\begin{table}
+    \centering
+    \tabcolsep=0.06cm
+    \footnotesize
+    \begin{tabular}{lllll}\toprule
+    Case Study  & Results & Findings    & Insights & \\
+    \midrule
+    Kiwix                    &     & & It works! & Visibility drove action \\ 
+     \textit{-"-}            &     & & \textit{ditto} & \\
+     \textit{-"-}            &     & & \textit{It scaled} & Lead dev. took ownership \\
+    Catrobat                 &        & & Immediate improvements & Ongoing ownership is vital \\
+     \textit{-"-}            &     & & & \\
+    C1                       &   & & OKRs achieved & Rich, multi-faceted \\
+    GTAF                     &  & & & Their priorities  \\
+    LocalHalo                &  & & Sentry.io \\
+    Moodspace                &  & & Feedback on M.A. \\
+    Moonpig                  &  & & Insightful \\
+    Analytics tool providers &  & & Flaws in tools \& services\\
+    \bottomrule
+    \end{tabular}
+    \caption{Case Studies: findings and results}
+    \label{tab:empirical-studies-findings-and-results}
+\end{table}
+
+
+\subsection{Classifications of Mobile Analytics tools}
+The case studies also facilitated the study of various mobile analytics tools. A map of these tools and the case studies they were used in may help the reader (and the author). Here are suggested topics to consider for each of these tools.
+\begin{itemize}
+    \itemsep0em
+    \item To consider: which projects was the tool used in/relevant to?
+    \item What was the tool used for?
+    \item What insights did we glean from using the tool?
+    \item If anythings made the tool distinctive, what were those things and why are they distinctive in the context of developers using mobile analytics?
+\end{itemize}
