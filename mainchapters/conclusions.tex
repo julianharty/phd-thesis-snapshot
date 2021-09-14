@@ -1,7 +1,23 @@
 \chapter{Conclusions}
 \label{chapter-conclusions}
 
-\akb{\nth{16} Jul 2021: Include external (non-personal) motivation for the research, or this could be part of the summary section of this chapter.}
+%MUST-DO \akb{\nth{16} Jul 2021: Include external (non-personal) motivation for the research, or this could be part of the summary section of this chapter.}
+
+
+If the mobile app and every supporting component in the system were reliable and complete we might not need or benefit from mobile analytics. Indeed they would be a distraction and wasteful. However, in the real-world every component be it software, service, system, person, or device has flaws and limitations. We are not omnipresent or omniscient. 
+This raises three important questions that build from each other: 1) Could mobile analytics provide insights into a small yet vital subset of software quality? 2) Would this help development teams understand how their apps are performing in terms of their (un-) reliability? and 3) can that understanding help the developers address at least some of the underlying causes of the failures?
+
+
+Pertinent information needs to flow from users' devices and reach the developers somehow in order for developers to understand the usage, performance, and behaviour of their apps. 
+
+Developer can plan for the future operations~\footnote{\emph{i.e.} the operations within the context of DevOps.} of the app in several ways, such as embedding code within an app to record events, context, and other data. They generally use an API to do so. Some of these sources of feedback are instigated by developers using logging and/or mobile analytics APIs, others are instigated by library and/or platform providers.
+%
+They can also plan various processes, ~\emph{e.g.} their release, bug investigation, and triage processes. Others may choose not to plan ahead; As many have observed, including the business guru Peter Drucker,~\emph{Not making a decision is a decision}, as summed up in Truth 31 in the book by~\cite{gunther2013truth_about_better_decision_making}.
+
+Implicit feedback mechanisms provided by various forms of usage analytics (mobile analytics) can improve developers' awareness of how the software is being used and how it is behaving.  
+The feedback mechanisms are used to identify probable issues in mobile apps where the development team then choose to address at least a subset of those issues with the aim of improving the quality-in-use~\citep{bevan1999_89_quality_in_use_meeting_user_needs_for_quality} of future releases of that app. 
+
+\hrulefill
 
 This research was inspired by learning about the power and capabilities of applying usage data collected by mobile apps in extremely popular real-world mobile apps in the early days of mobile apps (before Android, iOS and other modern mobile platforms were released). At the time I worked for Google and was responsible for testing all Google's mobile apps, including: Search, GMail, Maps, and many others.
 

@@ -44,6 +44,8 @@ The following list is a proposed set of properties each case study would include
 \end{itemize}
 }
 
+\newcommand{\head}[2]{\multicolumn{1}{>{\centering\arraybackslash}p{#1}}{\textbf{#2}}}  % From https://latex.org/forum/viewtopic.php?t=20931
+
 \begin{landscape} % Rotates the table into a landscape page in the generate PDF.
 \definecolor{Gray}{gray}{0.9}
 \begin{table}
@@ -54,28 +56,36 @@ The following list is a proposed set of properties each case study would include
     \tabcolsep=0.06cm
     %\rowcolors{1}{green}{pink}
     \begin{tabular}{lrrlllllllll}
-        Label &Apps &Volumes &Role     &Focii       &Dev Practices &Analytics       &Objectives                   &Privacy &Opportunities &F.\&I.\footnote{Findings and Insights} \\
-        \hline
+        %Case  &     &Active   &Researcher's &Research    &Development   &Mobile          &Case Study                   &        &              &Findings and \\
+        %Study &Apps &Installs &Role         &Focii       &Practices     &Analytics       &Objectives                   &Privacy &Opportunities &Insights     \\
+        \head{1.9cm}{Case Study} &\head{0.9cm}{Apps} &\head{1.1cm}{Active Installs} &\head{1.6cm}{Role of Researcher} &\head{2.0cm}{Research Focii} &\head{2.0cm}{Development Practices} &\head{1.5cm}{Mobile Analytics} &\head{3.5cm}{Case Study Objectives} &\head{1.4cm}{Privacy} &\head{2.5cm}{Opportunities} &\head{3.2cm}{Findings and Insights} \\
+        \toprule
         \rowcolor{Gray}
-        Catrobat &2  &70.9K  &Coach     &Crashlytics &Sophisticated &Crashlytics    &M.A. vs. Clean Code          &Strong       &Open          &Immediate improvements \\
-                 &   &190K   &Observer  &Control     &\textit{ditto} &              &Control for above            &ditto        &Open          &N/A \\ 
+        Catrobat &2  &70.9K  &Coach         &Experiment &Sophisticated  &Crashlytics    &M.A. vs. Clean Code          &Strong        &Opensource          &Immediate improvements \\
+                 &   &190K   &Observer      &Control     &\textit{ditto} &              &Control for above           &\textit{ditto} &\textit{ditto}      &N/A \\ 
         
+        \midrule
         \rowcolor{Gray}
-        C1       &1  &1M+   &Consultant &at Scale   &Laminar        &Many           &Stability, Ways of Working   &Known        &Large-scale   &Rich \\
-        GTAF     &11 &1.1M  &Observer   &Priorities &Team+          &Various        &Accurate local language apps &Strong       &Distinct view &Their priorities \\
-        
+        C1       &1  &1M+   &Consultant     &at Scale   &Laminar        &Multiple       &Stability, Ways of Working   &Known        &Large-scale   &Rich \\
+        \midrule
+        GTAF     &11 &1.1M  &Observer       &Priorities &Team+          &Miscellaneous  &Accurate local language apps &Strong       &Distinct view &Their priorities \\
+        \midrule
         \rowcolor{Gray}
-        Kiwix    &1  &150K  &Embedded   &P-o-C      &Team+          &Android Vitals &Suppress crash rate          &V.Strong     &Open, \nth{1} case study &It works!\\
-                 &1  &58.9K &Observer   &Control    &\textit{ditto} &\textit{ditto} &Control for above            &\textit{ditto} &\textit{ditto} &\textit{ditto} \\
+        Kiwix    &1  &150K  &Embedded       &P-o-C      &Team+          &Android Vitals &Suppress crash rate          &V.Strong     &Open, \nth{1} case study &It works!\\
+        \textit{-"-} WikiMed (EN) &1  &58.9K &Observer       &Control    &\textit{ditto} &\textit{ditto} &Control for above            &\textit{ditto} &\textit{ditto} &\textit{ditto} \\
         \rowcolor{Gray}
-                 &16 &222K  &Observer   &Scaling    &\textit{ditto} &\textit{ditto} &Measure scaling              &\textit{ditto} &\textit{ditto} &\textit{ditto} \\
-        LocalHalo &1 &1.1K  &Observer   &Startup    &Cross-platform &Sentry.io      &New business view            &Unknown   &React-Native app &\\
+        \textit{-"-} Custom apps &16 &222K  &Observer       &Scaling    &\textit{ditto} &\textit{ditto} &Measure scaling              &\textit{ditto} &\textit{ditto} &\textit{ditto} \\
+        \midrule         
+        LocalHalo &1 &1.1K  &Observer       &Startup    &Cross-platform &Sentry.io      &New business view            &Unknown   &React-Native app &\\
+        \midrule
         \rowcolor{Gray}
-        Moodspace &1 &19.2K &Observer   &Startup    &TBC            &Crashlytics    &New business view            &Unknown   &            &Feedback on M.A.\\
-        Moonpig  &1  &138K  &Observer   &Firebase   &Clean Code     &Firebase       &Leading edge practices       &Known     &Firebase insights &Insightful \\ 
-    
+        Moodspace &1 &19.2K &Observer       &Startup    &1 core dev.      &Crashlytics    &New business view            &Unknown   &            &Feedback on M.A.\\
+        \midrule
+        Moonpig  &1  &138K  &Observer       &Firebase   &Clean Code     &Firebase       &Leading edge practices       &Known     &Firebase insights &Insightful \\ 
+        \midrule
         \rowcolor{Gray}
         Big C's  &10\textsuperscript{1} &10\textsuperscript{7} &Observer &Multi-teams &N/A &N/A      &Large corporate         &Unknown   &Big picture &   \\
+        \midrule
         Analytics tools &10\textsuperscript{6} &10\textsuperscript{9} &Various &Trustworthiness &Various &Various &Improve the tools &Commercial &Bleeding edge &Flaws in tools \&services \\
     \end{tabular}
     \caption{Overview of App Case Studies}
@@ -167,13 +177,15 @@ Separate the reporting from the discussion.
     \tabcolsep=0.06cm
     \tiny
     \begin{tabular}{lllll}\toprule
-    Case Study                 & Role of Researcher &  Primary Method   & Opportunities & Purpose \\
+    Case Study                 & Role of Researcher &  Primary Method   & Opportunities             & Purpose \\
     \midrule
-    Kiwix                      & Embedded           & Action research   & & The experiment \\ 
-    \textit{-"-} WikiMed (EN)  & Observer           & & Control for the above app & The control  \\
-    \textit{-"-}               & Observer           & & Evaluate scalability & \textit{pico} generalisation \\
-    Catrobat                   & Coach              & Action research   & & Compare Mobile Analytics with Clean Code \\
-     \textit{-"-}              & Observer           & & Establish baseline & The control  \\
+    Kiwix                      & Embedded           & Quasi-experiment   &The proof-of-concept      & The experiment \\ 
+     \textit{-"-} WikiMed (EN) & Observer           &                    &Control for the above app & The control  \\
+    \textit{-"-} Custom apps   & Observer           &                    & Evaluate scalability     & \textit{pico} generalisation \\
+    \midrule
+    Catrobat                   & Coach              & Quasi-experiment   &                          & Compare Mobile Analytics with Clean Code \\
+     \textit{-"-}              & Observer           &                    & Establish baseline       & The control  \\
+     \midrule
     C1                         & Consultant         & Hybrid/Mixed & Large scale complex commercial & Mission-critical view \\
     GTAF                       & Interviewer        & & Add'l perspective & Provide an Asian context \\
     LocalHalo                  & Interviewer        & & Add'l technologies & Hybrid Programming and tools \\
@@ -200,7 +212,7 @@ Separate the reporting from the discussion.
     Catrobat                 &                    1 & 70.9K & Coding, FOSS            & Crashlytics &  Sophisticated \\
      \textit{-"-}            &                    1 &  190K & \textit{-"-}   & GPC with AV & \textit{ditto} \\
     C1                       &                    1 &  1M+  & Mission-critical &    Multiple &        Laminar \\
-    GTAF                     &                   11 &  1.1M & Another app category             &     Various &          Team+ \\
+    GTAF                     &                   11 &  1.1M & Another app category             &Miscellaneous &          Team+ \\
     LocalHalo                &                    1 &  1.1K & Risky early startup &   Sentry.io & Cross-platform \\
     Moodspace                &                    1 & 19.2K & Medical    & Crashlytics &        Startup \\
     Moonpig                  &                    1 & 138K  & E-commerce &    Firebase &     Clean Code \\
@@ -211,30 +223,33 @@ Separate the reporting from the discussion.
     \label{tab:empirical-studies-their-characteristics}
 \end{table}
 
-
+\begin{landscape} % Rotates the table into a landscape page in the generate PDF
 \begin{table}
     \centering
     \tabcolsep=0.06cm
-    \footnotesize
+    \tiny
     \begin{tabular}{lllll}\toprule
-    Case Study  & Results & Findings    & Insights & \\
+    Case Study                  &Contributions    &Results               &Findings             &Insights  \\
     \midrule
-    Kiwix                    &     & & It works! & Visibility drove action \\ 
-     \textit{-"-}            &     & & \textit{ditto} & \\
-     \textit{-"-}            &     & & \textit{It scaled} & Lead dev. took ownership \\
-    Catrobat                 &        & & Immediate improvements & Ongoing ownership is vital \\
-     \textit{-"-}            &     & & & \\
-    C1                       &   & & OKRs achieved & Rich, multi-faceted \\
-    GTAF                     &  & & & Their priorities  \\
-    LocalHalo                &  & & Sentry.io \\
-    Moodspace                &  & & Feedback on M.A. \\
-    Moonpig                  &  & & Insightful \\
-    Analytics tool providers &  & & Flaws in tools \& services\\
+    Kiwix                       &Concrete results &3x improvement        &Targeted bug fixes v.effective &Visibility drove action \\ 
+     \textit{-"-}               &Baseline         &stable                &                     & \\
+     \textit{-"-}               &Concrete results &reduced crash-rates   &The approach scaled  &Lead dev. took ownership \\
+     \midrule
+    Catrobat                    &Corroboration, crashlytics &2x improvement     &Immediate improvements &Ongoing ownership is vital \\
+     \textit{-"-}               &Baseline         &stable                &                     & \\
+     \midrule
+    C1                          &Concrete results &Multi-faceted improvements &OKRs achieved & Rich, multi-faceted \\
+    GTAF                        &Corroboration    &                      &Historical perspective &Their priorities  \\
+    LocalHalo                   &Add'l M.A. tool  &                      &Sentry.io &Limitations of GPC with AV for hybrid apps \\
+    Moodspace                   &Corroboration    &                      &Effectiveness of good app design &Feedback on M.A. \\
+    Moonpig                     &Corroboration    &                      &Effectiveness of engaged, motovated teams &Insightful \\
+    Analytics tool providers    &Their priorities &Improvements made to their tools & Flaws in tools \& services &This research is v.valuable \\
     \bottomrule
     \end{tabular}
     \caption{Case Studies: findings and results}
     \label{tab:empirical-studies-findings-and-results}
 \end{table}
+\end{landscape}
 
 
 \subsection{Classifications of Mobile Analytics tools}
@@ -246,3 +261,10 @@ The case studies also facilitated the study of various mobile analytics tools. A
     \item What insights did we glean from using the tool?
     \item If anythings made the tool distinctive, what were those things and why are they distinctive in the context of developers using mobile analytics?
 \end{itemize}
+
+\subsection{Contributions of the empirical studies to the research question}
+For ease of reference, the main research question is:
+\begin{quote}
+    \emph{How can applying analytics improve software development and software testing for mobile apps in practice?}    
+\end{quote}
+Three facets 

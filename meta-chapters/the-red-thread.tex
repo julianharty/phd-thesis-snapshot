@@ -13,34 +13,24 @@ A key maxim for me is to: \emph{Always connect software engineering, mobile anal
 
 
 \clearpage
-\section[Opening argument]{Opening Argument \\ \small{(Migrate to Conclusion and Abstract?)}}
-If the mobile app and every supporting component in the system were reliable and complete we might not need or benefit from mobile analytics. Indeed they would be a distraction and wasteful. However, in the real-world every component be it software, service, system, person, or device has flaws and limitations. We are not omnipresent or omniscient. 
-This raises three important questions that build from each other: 1) Could mobile analytics provide insights into a small yet vital subset of software quality? 2) Would this help development teams understand how their apps are performing in terms of their (un-) reliability? and 3) can that understanding help the developers address at least some of the underlying causes of the failures?
+\section{Red Thread for the introduction chapter}~\label{red-thread-introduction}
+Main chapter: \secref{chapter-introduction}.
 
-Pertinent information needs to flow from users' devices and reach the developers somehow in order for developers to understand the usage, performance, and behaviour of their apps. 
+Mobile apps are ubiquitous and used by billions. These apps, %10 words
+the software tools, and their ecosystem are all imperfect therefore failures will occur and some will adversely affect the user experience and have knock-on effects. %25 words
 
-Developer can plan for the future operations~\footnote{\emph{i.e.} the operations within the context of DevOps.} of the app in several ways, such as embedding code within an app to record events, context, and other data. They generally use an API to do so. Some of these sources of feedback are instigated by developers using logging and/or mobile analytics APIs, others are instigated by library and/or platform providers.
-%
-They can also plan various processes, ~\emph{e.g.} their release, bug investigation, and triage processes. Others may choose not to plan ahead; As many have observed, including the business guru Peter Drucker,~\emph{Not making a decision is a decision}, as summed up in Truth 31 in the book by~\cite{gunther2013truth_about_better_decision_making}.
+This research uses mobile analytics to help developers of real world apps understand reliability failures, address the causes, and deploy new releases with improved reliability. %25 words
+Source, value, and impact are also considered of doing so, as are real-world constraints. %15 words
 
-Implicit feedback mechanisms provided by various forms of usage analytics (mobile analytics) can improve developers' awareness of how the software is being used and how it is behaving.  
-The feedback mechanisms are used to identify probable issues in mobile apps where the development team then choose to address at least a subset of those issues with the aim of improving the quality-in-use~\citep{bevan1999_89_quality_in_use_meeting_user_needs_for_quality} of future releases of that app. 
 
-\newthought{Scope}
-Of the various forms of mobile analytics this research concentrates on \textbf{platform-level analytics} together with \textbf{crash and error analytics}. It applies these forms of analytics with a focus on improving \textbf{stability} of Android apps available in the Google Play Store.
+\section{Red Thread for the Literature Review}
+Main chapter: \secref{chapter-related-work}.
 
-%\akb{While it is right to focus on specific analytics, don't forget to explain the rationale for the ones you have chosen.} Agreed and will do when the content is migrated.
 
-\newthought{Rationale}
-The rationale for selecting these analytics include the vast scale and reach of the platform-level analytics in the largest app store globally where potentially billions of users rely on the quality of these apps and millions of developers have to trust and rely decisions that the Google Play store ecosystem applies for the apps they release in the app store. Furthermore the majority of Android apps include at least one analytics library that collects and reports crash and error analytics; both users and developers \emph{de-facto} trust these libraries are well behaved and can be depended on. Similarly users implicitly trust developers not to do net harm, a topic we cover shortly.
-% https://www.statista.com/statistics/736576/trust-mobile-apps-smartphone-users/ from 2017 survey data. 
-
-% For more reading on the nuances of the actions of doctors see:
-% https://www.bmj.com/content/366/bmj.l4734/rapid-responses which includes a detailed clarification of "In illnesses one should keep two things in mind, to be useful rather than cause no harm".
-
-\clearpage
 \section[Research methodology]{Research methodology}
-The previous content has been migrated to a new chapter; \secref{chapter-methodology}. Some summary pointers will be added here once that chapter has matured.
+Main chapter: \secref{chapter-methodology}. 
+
+Empirical studies are highly appropriate and therefore used. They include complimentary primary and secondary research methods. Common threads facilitate comparisons and generalising aspects of the research. %26 words
 
 \clearpage
 \input{empirical-studies/empirical-studies-red-thread}
