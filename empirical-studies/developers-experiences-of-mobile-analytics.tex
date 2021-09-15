@@ -88,6 +88,8 @@ There's been a change of branding of the app development organisation to \href{h
 \subsection{Local Halo}
 MUST-DO complete this sub-section on Local Halo.
 
+Access to their analytics granted in January 2020. Discovered it's possible to grant access for a period in Google Play Console. 
+
 \begin{table}[htbp!]
     \centering
     \small
@@ -114,7 +116,10 @@ A release in March 2020 had a high crash rate for the production release of thei
 
 \texttt{java.lang.RuntimeExceptionhost.exp.exponent.experience.a\$b.run}. 
 
-This was traced to a problem in the expo library they used in the app~\url{https://github.com/expo/expo/issues/5839}. In that issue several developers for different Android apps provide data from Google Play Console confirming they also receive similar crash clusters. The cause has not yet been definitively traced or addressed, however for the LocalHalo app the crashes stopped being reported once a new release of the Android app, release 1.3.0, was released around \nth{6} April 2020.
+This was traced to a problem in the expo library they used in the app~\url{https://github.com/expo/expo/issues/5839}~\footnote{Expo is a very popular opensource platform for making universal native apps that run on Android, iOS, and the web \url{https://github.com/expo/expo}.}. In that issue several developers for different Android apps provide data from Google Play Console confirming they also receive similar crash clusters. The cause has not yet been definitively traced or addressed, however for the LocalHalo app the crashes stopped being reported once a new release of the Android app, release 1.3.0, was released around \nth{6} April 2020.
+
+In this GitHub issue, 5839, one of the contributors reported their app's crash rate had gone from below 1\% to 10\%~\footnote{\url{https://github.com/expo/expo/issues/5839#issuecomment-571271045}} and that users were writing terrible reviews. Another contributor observed that the stack trace in Android Vitals is not very useful, what's needed is the error message that appears in the device's log immediately before the stack trace~\footnote{\url{https://github.com/expo/expo/issues/5839#issuecomment-583838280}}; \phantomsection
+\textbf{insight} the stack trace is not always sufficient to understand the failure\label{insight-expo-stack-trace-not-sufficient-to-identify-the-failure}.
 
 \begin{figure}[htbp!]
     \centering
@@ -165,6 +170,7 @@ SHOULD-DO Consider summarising the crash totals per week.
 
 \textbf{MUST-DO} write up what we learn from the localhalo case study. external libraries can adversely affect the reliability of apps. Even small development teams can and do use multiple mobile analytics libraries. What can developers learn from the various reports provided by Sentry? How does cross-platform development in react-native affect the app reliability? are there crashes that only occur on Android or iOS? What's the correlation between crashes reported in Android Vitals and Sentry?
 
+Note: The founders of local halo indicated~\footnote{Via their respective LinkedIn profiles: \url{https://www.linkedin.com/in/jamesroutledge/} and \url{https://www.linkedin.com/in/andriymarin/}} they are no longer actively involved in this project, and there are confirming indications in sentry.io as the app has not been updated in over a year, in contrast to the many updates they made previously. So even though the app remains online and available, and the analytics continue to report, there is no one actively maintaining the app or dealing with the errors being reported in the analytics.
 
 \subsection{Summary of Field Reports}
 Active and ongoing use. 

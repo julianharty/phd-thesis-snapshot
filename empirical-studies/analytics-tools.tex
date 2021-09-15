@@ -10,6 +10,7 @@ This chapter complements the `On Mobile Analytics` chapter. That chapter covers 
     \item count.ly
     \item Crashlytics (when owned by Google and branded as Fabric, and briefly after it was migrated to Firebase)
     \item Flight Recorder (now defunct)
+    \item sentry.io
     \item Iteratively
     \item Microsoft App Center
     \item Google Firebase Analytics
@@ -339,6 +340,25 @@ near real-time activity reporting.
 email notifications of errors.
 
 \href{https://docs.microsoft.com/en-us/appcenter/analytics/export}{\textbf{Export}}: App Center can continuously export raw Analytics data into Azure.
+
+\section{sentry.io}
+Evaluated as part of the LocalHalo case study for their react-native app, and their website.
+
+Their Android app\footnote{\url{https://play.google.com/store/apps/details?id=io.sentry.mobile.app}} has a small subset of the capabilities of their web interface - the app provides what they call Release Health.
+
+\begin{figure}
+    \centering
+    \includegraphics{images/sentry.io/Screenshot_20210914-192435.png}
+    \caption{sentry.io Android app uses their Analytics SDK}
+    \label{fig:sentry-io-analytics-sdk-opt-in}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{images/sentry.io/Screenshot_20210914-192538.png}
+    \caption{sentry.io homescreen showing Release Health for the localhalo Android app}
+    \label{fig:sentry-io-homescreen-release-health-for-localhalo-android}
+\end{figure}
 
 
 \section{Summary of Analytics Tools used in this research}
