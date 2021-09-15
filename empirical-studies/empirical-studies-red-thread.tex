@@ -56,9 +56,7 @@ The following list is a proposed set of properties each case study would include
     \tabcolsep=0.06cm
     %\rowcolors{1}{green}{pink}
     \begin{tabular}{lrrlllllllll}
-        %Case  &     &Active   &Researcher's &Research    &Development   &Mobile          &Case Study                   &        &              &Findings and \\
-        %Study &Apps &Installs &Role         &Focii       &Practices     &Analytics       &Objectives                   &Privacy &Opportunities &Insights     \\
-        \head{1.9cm}{Case Study} &\head{0.9cm}{Apps} &\head{1.1cm}{Active Installs} &\head{1.6cm}{Role of Researcher} &\head{2.0cm}{Research Focii} &\head{2.0cm}{Development Practices} &\head{1.5cm}{Mobile Analytics} &\head{3.5cm}{Case Study Objectives} &\head{1.4cm}{Privacy} &\head{2.5cm}{Opportunities} &\head{3.2cm}{Findings and Insights} \\
+        \head{1.9cm}{Case Study} &\head{0.9cm}{Apps} &\head{1.1cm}{Active Installs} &\head{1.6cm}{Role of Researcher} &\head{2.0cm}{Main Research Focus} &\head{2.0cm}{Development Practices} &\head{1.5cm}{Mobile Analytics} &\head{3.5cm}{Case Study Objectives} &\head{1.4cm}{Privacy} &\head{2.5cm}{Opportunities} &\head{3.2cm}{Findings} \\
         \toprule
         \rowcolor{Gray}
         Catrobat &2  &70.9K  &Coach         &Experiment &Sophisticated  &Crashlytics    &M.A. vs. Clean Code          &Strong        &Opensource          &Immediate improvements \\
@@ -84,7 +82,7 @@ The following list is a proposed set of properties each case study would include
         Moonpig  &1  &138K  &Observer       &Firebase   &Clean Code     &Firebase       &Leading edge practices       &Known     &Firebase insights &Insightful \\ 
         \midrule
         \rowcolor{Gray}
-        Big C's  &10\textsuperscript{1} &10\textsuperscript{7} &Observer &Multi-teams &N/A &N/A      &Large corporate         &Unknown   &Big picture &   \\
+        Big C's  &10\textsuperscript{1} &10\textsuperscript{7} &Observer &Multi-teams &N/A &N/A      &Large corporates         &Unknown   &Big picture &   \\
         \midrule
         Analytics tools &10\textsuperscript{6} &10\textsuperscript{9} &Various &Trustworthiness &Various &Various &Improve the tools &Commercial &Bleeding edge &Flaws in tools \&services \\
     \end{tabular}
@@ -102,8 +100,16 @@ The following list is a proposed set of properties each case study would include
 % Add a footnote https://tex.stackexchange.com/a/66641/88466
 % Improvements in the formatting of the generated table https://tex.stackexchange.com/a/327977/88466
 
-
-
+\begin{comment}
+MUST-DO
+The monster table needs a column for what each study contributes to my thesis.
+Any other pertinent information to add ?
+What viewpoints did each case study provide?
+Merge Research Focii and case study objectives vs. the objectives of the case study team.
+The long view is useful to highlight of various case studies. Repeated and long-term engagement and access to analytics and/or code.
+Mini-table for each case study, include the active study period, follow over ...
+The role of the case study.
+\end{comment}
 
 \newthought{Joe's suggestions}
 \textit{Note: these will be merged into the rest of the thesis, here as a reminder until that's done.}
@@ -141,11 +147,12 @@ Notes: The previous table \ref{tab:overview_of_app_case_studies} \nameref{tab:ov
 
 Ideally a drawn map would complement these tables.
 
-\newthought{Demonstrate competence as a researcher}
 
+\newthought{Demonstrate competence as a researcher}
 You need to be more precise in how you report the methodology, e.g., the case studies actually use mixed methods (not just the expansion). A methodology combines reasoning with the method. You need to convey rigour within the constraints of access to case studies.
 
 At some point, you need a 'map' of the case studies:  these need to include the: case, methods, purpose...  This should give the reader an overview of what each contributes and where they overlap.
+
 
 \newthought{Explain the challenges of anyone being permitted by teams to access their sensitive data, the opportunistic access and rigour applied in the case studies.}
 
@@ -168,16 +175,16 @@ Quality of reporting of the empirical work is key
 
 \newthought{Be Orthogonal and separate concerns}
 
-Separate the reporting from the discussion.
+MUST-DO Separate the reporting from the discussion.
 
-\newthought{Next call with Marian} starts at 10:15 on Friday 10th Sept.
 
+\begin{landscape} % Rotates the table into a landscape page in the generate PDF
 \begin{table}
     \centering
     \tabcolsep=0.06cm
     \tiny
     \begin{tabular}{lllll}\toprule
-    Case Study                 & Role of Researcher &  Primary Method   & Opportunities             & Purpose \\
+    Case Study                 & Role of Researcher &  Primary Research Method   & Research Opportunities             & Research Purpose \\
     \midrule
     Kiwix                      & Embedded           & Quasi-experiment   &The proof-of-concept      & The experiment \\ 
      \textit{-"-} WikiMed (EN) & Observer           &                    &Control for the above app & The control  \\
@@ -186,8 +193,8 @@ Separate the reporting from the discussion.
     Catrobat                   & Coach              & Quasi-experiment   &                          & Compare Mobile Analytics with Clean Code \\
      \textit{-"-}              & Observer           &                    & Establish baseline       & The control  \\
      \midrule
-    C1                         & Consultant         & Semi-structured interview & Hybrid/Mixed & Large scale complex commercial & Mission-critical view \\
-    GTAF                       & Interviewer        & Semi-structured interview & Add'l perspective & Provide an Asian context \\
+    C1                         & Consultant         & Hybrid/Mixed & Large scale complex commercial & Mission-critical view \\
+    GTAF                       & Interviewer        & Semi-structured interview & Add'l perspective & Exploring the long tail \\
     LocalHalo                  & Interviewer        & Semi-structured interview & Add'l technologies & Hybrid Programming and tools \\
     Moodspace                  & Interviewer        & Semi-structured interview & Small startup &Bootstrap view \\
     Moonpig                    & Interviewer        & Semi-structured interview & Leading edge view & Mature, innovative, vanguard dev. practices \\
@@ -197,6 +204,7 @@ Separate the reporting from the discussion.
     \caption{Empirical Studies: the research perspective}
     \label{tab:empirical-studies-research-perspective}
 \end{table}
+\end{landscape}
 
 
 \begin{table}
@@ -204,7 +212,7 @@ Separate the reporting from the discussion.
     \tabcolsep=0.06cm
     \footnotesize
     \begin{tabular}{lcrcll}\toprule
-    Case Study               & Apps                 & Reach & Context & Mobile Analytics Tools\textsuperscript{*}  &Dev. practices  \\
+    Case Study               & Apps                 & Reach & Project context & Mobile Analytics Tools\textsuperscript{*}  &Dev. practices  \\
     \midrule
     Kiwix                    &                    1 &  150K & Wikipedia, FOSS            & GPC with AV &          Team+ \\ 
      \textit{-"-}            &                    1 & 58.9K & \textit{-"-}   & GPC with AV & \textit{ditto} \\
@@ -219,9 +227,13 @@ Separate the reporting from the discussion.
     Analytics tool providers &10\textsuperscript{6} &10\textsuperscript{9} & No &  Several &        Various \\
     \bottomrule
     \end{tabular}
-    \caption[Case Studies: their characteristics]{Case Studies: their characteristics \\ {\tiny * All the apps used GPC with AV; one of the tool providers \emph{is} GPC with AV}}
+    \caption[Case Studies: their characteristics]{Case Studies: their characteristics \\ {\tiny * All the apps used GPC with AV; one of the tool providers \emph{is} GPC with AV \\ FOSS = Free and Open Source Software}}
     \label{tab:empirical-studies-their-characteristics}
 \end{table}
+
+To consider: project context, the drivers for the project, and what's noteworthy about the case study to help the reader?
+
+Each of the in-dept case studies had their own objectives from participating in the research, and a common need from their perspective was to try and reduce the reported crash rate for at least one of their Android apps.
 
 \begin{landscape} % Rotates the table into a landscape page in the generate PDF
 \begin{table}
@@ -229,11 +241,11 @@ Separate the reporting from the discussion.
     \tabcolsep=0.06cm
     \tiny
     \begin{tabular}{lllll}\toprule
-    Case Study                  &Contributions    &Results               &Findings             &Insights  \\
+    Case Study                  &Evidence    &Results               &Main Findings             &Insights  \\
     \midrule
-    Kiwix                       &Concrete results &3x improvement        &Targeted bug fixes v.effective &Visibility drove action \\ 
+    Kiwix                       &Code and Analytics results &3x improvement        &Targeted bug fixes v.effective &Visibility drove action \\ 
      \textit{-"-}               &Baseline         &stable                &                     & \\
-     \textit{-"-}               &Concrete results &reduced crash-rates   &The approach scaled  &Lead dev. took ownership \\
+     \textit{-"-}               &Code and Concrete results &reduced crash-rates   &The approach scaled  &Lead dev. took ownership \\
      \midrule
     Catrobat                    &Corroboration, crashlytics &2x improvement     &Immediate improvements &Ongoing ownership is vital \\
      \textit{-"-}               &Baseline         &stable                &                     & \\
@@ -251,7 +263,13 @@ Separate the reporting from the discussion.
 \end{table}
 \end{landscape}
 
-
+\begin{comment}
+MUST-DO
+Disambiguate Contributions into Evidence, Insights, and the Distinct Opportunity/Perspectives it provided. Impact on the teams.
+Consider an Insights table, mapping back on to the case studies. 
+Insights in practices of the development teams. 
+Try creating an evidence table. 
+\end{comment}
 
 \subsection{Classifications of Mobile Analytics tools}
 The case studies also facilitated the study of various mobile analytics tools. A map of these tools and the case studies they were used in may help the reader (and the author). Here are suggested topics to consider for each of these tools.
@@ -275,9 +293,9 @@ Sub-questions focus on sources, value and impact.
     \tabcolsep=0.06cm
     \tiny
     \begin{tabular}{lllll}\toprule
-    Case Study                  &Results                &Sources                &Value             &Impact  \\
+    Case Study                  &Results                &Sources                &Value             &Impact within the case study  \\
     \midrule
-    Kiwix                       &3x improvement         &GPC with AV            &Crash rates improved & Led to Catrobat case study \\ 
+    Kiwix                       &3x improvement         &GPC with AV            &Crash rates improved &  \\ 
      \textit{-"-}               &stable                 &GPC with AV            &Crash rates improved &  \\
      \textit{-"-}               &Reduced crash-rates    &GPC with AV            &Crash rates improved & Dev. lead took ownership. \\
      \midrule

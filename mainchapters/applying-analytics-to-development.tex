@@ -141,9 +141,13 @@ Crash-reporting libraries need to be incorporated into an application before the
 
 When the library is initialised, it may perform various actions such as recording details of the operating system release, the model of device, \emph{etc.}. They may also perform house-keeping activities, for instance Crashlytics transmits crash reports from previous sessions.
 
-Some crash-reporting libraries offer developers an API to add \emph{breadcrumbs} at run-time. If/when a crash occurs and is reported, the immediately preceding breadcrumb data may help developers piece together possible causes for a particular crash.
+\phantomsection
+\label{breadcrumb-feature}
+Some crash-reporting libraries offer developers an API to add \emph{breadcrumbs} to the app that would be collected by the app at run-time. If/when a crash occurs and is reported, the immediately preceding breadcrumb data may help developers piece together possible causes for a particular crash. More information on breadcrumbs are available in one of the appendices \href{breadcrumbs-preserve-history}{Breadcrumbs preserve history}.
 
-Some crash-reporting libraries offer developers a mechanism to report non-fatal crashes: caught exceptions. These would be handled by the application yet be considered noteworthy and worthy of analysis by the development team. A good example of a library that includes support for non-fatal crash reporting is the popular Crashlytics offering.  
+\phantomsection
+\label{error-reporting-feature}
+Some crash-reporting libraries offer developers a mechanism to report non-fatal crashes: caught exceptions. These would be handled by the application yet be considered noteworthy and worthy of analysis by the development team. A good example of a library that includes support for non-fatal crash reporting is the popular Crashlytics offering, however many others provide a similar feature.  
 
 \subsection{Testing crash-reporting}
 \begin{itemize}
