@@ -1,4 +1,4 @@
-\chapter{Conclusions}
+\chapter[Conclusions]{Conclusions \\ {\small This chapter needs defragmenting and revising}}
 \label{chapter-conclusions}
 
 %MUST-DO \akb{\nth{16} Jul 2021: Include external (non-personal) motivation for the research, or this could be part of the summary section of this chapter.}
@@ -28,6 +28,11 @@ These experiences led me to starting my PhD in order to research the potential o
 Despite all these changes, and my limited inroads into a subset of the entire landscape, the research seems to indicate the potential of applying usage analytics to improve both the product (the software) and the process (how the software is developed and tested). The research also identified flaws within analytics tools and also between analytics tools. Both the potential and the flaws appear worth sharing with researchers and with practitioners to help them chose and use analytics wisely.
 
 
+This research found that developers are able to materially improve the stability/reliability~\footnote{For Android Google used the term `stability' when they describe their Android Vitals service which is incorporated into Google Play Console. It effectively measures reliability for two specific types of failure: crashes and ANRs. An overview of Android Vitals is available online from various Google and Android sources including~\citep{android_vitals_overview_2019, android_vitals_best_practices}. HP also used the term `~\href{glossary-stability}{stability}' to measure crashes in mobile apps.}
+%
+of their mobile apps when they use the results of mobile analytics to assess the stability/reliability, identify groups of failures, triage the failures, and address the ones they decide to action. Where project teams stop paying attention to this process the failure rate increases of their new releases - the apps tend to entropy and failure.
+
+Diligent developers and development teams can materially improve the stability/reliability of their apps through applying good coding, design and architecture patterns. Even these practices do not guarantee the releases will always be trouble-free. By paying ongoing attention to analytics during development, testing, and the rollout of releases flaws can be identified before the release reaches the majority of the userbase and teams can ameliorate the effects of many of the flaws.
 
 Add opening paragraph - see Isabel's comments. 
 
@@ -65,6 +70,19 @@ I instigated and led the development of several opensource software utilities to
 I made data available~\cite{harty_wama_dataset_examples} for further research based on data originally only made available to app developers. Larger volumes of data are available upon request.
 
 The research has been presented at various conferences and workshops, including at NII Shonan~\footnote{NII Shonan hosts highly collaborative workshops on various topics with participants from multiple continents~\citep{acm_shonan_workshops_2020}.} in 2019 at meeting 152 on "Release Engineering for Mobile Applications"~\footnote{~\url{https://shonan.nii.ac.jp/seminars/152/}}.
+
+
+\section{Practical aspects of using analytics}
+Analytics providers have a major influence on the efficacy of the application of mobile analytics. There are limitations and flaws in the various tools this research has encountered regardless of their source (\emph{e.g.} in-house proprietary, opensource, free and paid-for commercial proprietary offerings). Nonetheless, flawed offerings are still able to be used to deliver improvements in the mobile apps. Specialised startups such as Iteratively aim to increase the coherence of embedded analytics (those embedded into the apps) while also increasing compliance. HP's AppPulse Mobile provided no-code analytics for mobile apps where their tools automatically instrumented the binary to add the analytics; several providers offered GUI interaction recording and `heatmaps' generated using aggregated recordings of touch screen interactions.
+
+Those who applied the results of mobile analytics were able to increase the stability/reliability of their mobile apps. The amounts of improvements varied based on various factors such as:
+\begin{itemize}
+    \itemsep0em
+    \item The starting point for the app.
+    \item The amount of ongoing engagement of the development team.
+    \item The choices of mobile analytics services and the use of proactive event recording using the related analytics libraries.
+    \item The sources and causes of some of the issues being reported - some where far harder to diagnose than others, and several originated outside the actually codebase of the mobile app where it might be impractical to truly fix the source of the issue.
+\end{itemize}
 
 This thesis ends with an acceptance and understanding that developers benefit from help to solve bugs that happen in the field.
 

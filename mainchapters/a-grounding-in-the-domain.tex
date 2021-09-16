@@ -311,6 +311,35 @@ We have already identified four membership groups involved in app store ecosyste
 
 Membership matters in particular because of who has access to which data and for how long they have access. Note: Control and `ownership' of the data are also relevant topics, however they are not necessary to comprehend the rest of this topic. % SHOULD-DO consider whether to add material on this topic in the thesis. 
 
+\subsection{Phases of a release}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{images/rough-sketches/Red-Thread-Rough-Sketch.jpeg}
+    \caption{The lifecycle of a release and where mobile analytics provides feedback}
+    \label{fig:red-thread-for-this-thesis}
+\end{figure}
+
+For any given release of a mobile app there are at least three material phases in order for the release to be used:
+\begin{enumerate}
+    \item Building the product: which may incorporate practices and tools intended to ship a `quality product'. Some teams also incorporate logging and reporting to help measure the behaviours of the app in use, post release.
+    \item The Release: For some projects this may be as simple as uploading a new binary and making it fully available. For others they may incorporate decisions and mechanisms to make each release with the aim of de-risking any undesirable/adverse effects of the new release.
+    \item Deployment: Deployment occurs when end users install and start using the release of the app. Both the app store and the end users affect when this occurs. App developers can try to hasten when users install the latest release through various mechanisms, for instance through implementing and mandating users upgrade their current release.
+\end{enumerate}
+
+Figure~\ref{fig:red-thread-for-this-thesis} illustrates these three phases together with some of the dynamics \emph{e.g.} of rollout and disuse of a release, and of feedback from whatever sources that the development teams can choose to pay attention to and apply. These phases are part of a longer lifespan of the release that includes an often long-term postdelivery period~\citep[pp 156-157]{evans2004_achieving_software_quality_through_teamwork} where users use the release until it is decommissioned or replaced with a subsequent release.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=16cm]{images/my/mobile-app-life-span-stages.png}
+    \caption{Mapping life span stages for a mobile app release in an app store}
+    \label{fig:mobile-app-life-span-stages}
+\end{figure}
+
+Figure~\ref{fig:mobile-app-life-span-stages}~\footnote{Source of figure, Google Drive file: \href{https://docs.google.com/document/d/1d4B5l1tlpclHdKwY8W00qchiCV2YK5JjJP8TbkRHcjQ/edit}{Mobile app life span stages}.} compares a revised version of the `Life span stages' Figure in~\citep[p.155]{evans2004_achieving_software_quality_through_teamwork} mapped approximately to the three stages first illustrated in Figure~\ref{fig:red-thread-for-this-thesis}. Mobile app releases in an app store extend the Delivery which may also overlap either or both the development and the postdelivery life span stages. The overlap with the development stage is because the development is not complete until the app store accepts/approves the release (this may include pre-launch checks, automated testing, and so on depending on the app store). The overlap with deployment happens as releases are often released incrementally initially to a small percentage of the userbase - at least some of the users in that percentage will install the new release, until the percentage has been achieved. Meanwhile at least some of those users will use the app which will then mean the release is operational and may need operational support.
+
+
 \section{Conceptual model of layers within apps and observation points}
 Observation can be internal,~\emph{i.e.} built into apps, and external. External includes instrumentation, debugging tools, the operating system at runtime, accessibility interfaces, event listeners, log watchers, and so on (as this is not intended to be an exhaustive list). The observation may also be indirect, for instance using network monitoring software, and/or from remote APIs, REST endpoints, and web servers (with their attendant logging).
 

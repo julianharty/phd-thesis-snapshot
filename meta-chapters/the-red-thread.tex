@@ -32,6 +32,7 @@ Main chapter: \secref{chapter-methodology}.
 
 Empirical studies are highly appropriate and therefore used. They include complimentary primary and secondary research methods. Common threads facilitate comparisons and generalising aspects of the research. %26 words
 
+
 \clearpage
 \input{empirical-studies/empirical-studies-red-thread}
 %\href{section-empirical-studies-red-thread}{\nameref{section-empirical-studies-red-thread}} includes a table of the role the researcher played in each case study together with other pertinent details.
@@ -40,48 +41,7 @@ Empirical studies are highly appropriate and therefore used. They include compli
 The research includes several aspects seldom studied owing to the challenges of obtaining the case studies, for instance from behind the curtain in commercial projects with over a million users, and from sources again seldom visible to researchers \emph{i.e.} of mobile analytics for real-world mobile apps.
 
 
-
-\clearpage
-\section[Phases of a release]{Phases of a release\\ \small{(Possibly integrate into Introduction, or into Preparing the Ground (Ch3))}}
-
-%%% Thanks to
-% https://tex.stackexchange.com/questions/69550/how-can-i-add-a-subtitle-to-a-section-title
-% If I want to get fancy then https://tex.stackexchange.com/questions/417429/how-to-make-subheadings 
-
-\begin{figure}
-    \centering
-    \includegraphics[width=15cm]{images/rough-sketches/Red-Thread-Rough-Sketch.jpeg}
-    \caption{The lifecycle of a release and where mobile analytics provides feedback}
-    \label{fig:red-thread-for-this-thesis}
-\end{figure}
-
-For any given release of a mobile app there are at least three material phases in order for the release to be used:
-\begin{enumerate}
-    \item Building the product: which may incorporate practices and tools intended to ship a `quality product'. Some teams also incorporate logging and reporting to help measure the behaviours of the app in use, post release.
-    \item The Release: For some projects this may be as simple as uploading a new binary and making it fully available. For others they may incorporate decisions and mechanisms to make each release with the aim of de-risking any undesirable/adverse effects of the new release.
-    \item Deployment: Deployment occurs when end users install and start using the release of the app. Both the app store and the end users affect when this occurs. App developers can try to hasten when users install the latest release through various mechanisms, for instance through implementing and mandating users upgrade their current release.
-\end{enumerate}
-
-Figure~\ref{fig:red-thread-for-this-thesis} illustrates these three phases together with some of the dynamics \emph{e.g.} of rollout and disuse of a release, and of feedback from whatever sources that the development teams can choose to pay attention to and apply. These phases are part of a longer lifespan of the release that includes an often long-term postdelivery period~\citep[pp 156-157]{evans2004_achieving_software_quality_through_teamwork} where users use the release until it is decommissioned or replaced with a subsequent release.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=16cm]{images/my/mobile-app-life-span-stages.png}
-    \caption{Mapping life span stages for a mobile app release in an app store}
-    \label{fig:mobile-app-life-span-stages}
-\end{figure}
-
-Figure~\ref{fig:mobile-app-life-span-stages}~\footnote{Source of figure, Google Drive file: \href{https://docs.google.com/document/d/1d4B5l1tlpclHdKwY8W00qchiCV2YK5JjJP8TbkRHcjQ/edit}{Mobile app life span stages}.} compares a revised version of the `Life span stages' Figure in~\citep[p.155]{evans2004_achieving_software_quality_through_teamwork} mapped approximately to the three stages first illustrated in Figure~\ref{fig:red-thread-for-this-thesis}. Mobile app releases in an app store extend the Delivery which may also overlap either or both the development and the postdelivery life span stages. The overlap with the development stage is because the development is not complete until the app store accepts/approves the release (this may include pre-launch checks, automated testing, and so on depending on the app store). The overlap with deployment happens as releases are often released incrementally initially to a small percentage of the userbase - at least some of the users in that percentage will install the new release, until the percentage has been achieved. Meanwhile at least some of those users will use the app which will then mean the release is operational and may need operational support.
-
-
-This research found that developers are able to materially improve the stability/reliability~\footnote{For Android Google used the term `stability' when they describe their Android Vitals service which is incorporated into Google Play Console. It effectively measures reliability for two specific types of failure: crashes and ANRs. An overview of Android Vitals is available online from various Google and Android sources including~\citep{android_vitals_overview_2019, android_vitals_best_practices}. HP also used the term `~\href{glossary-stability}{stability}' to measure crashes in mobile apps.}
-%
-of their mobile apps when they use the results of mobile analytics to assess the stability/reliability, identify groups of failures, triage the failures, and address the ones they decide to action. Where project teams stop paying attention to this process the failure rate increases of their new releases - the apps tend to entropy and failure.
-
-Diligent developers and development teams can materially improve the stability/reliability of their apps through applying good coding, design and architecture patterns. Even these practices do not guarantee the releases will always be trouble-free. By paying ongoing attention to analytics during development, testing, and the rollout of releases flaws can be identified before the release reaches the majority of the userbase and teams can ameliorate the effects of many of the flaws.
 \clearpage 
-
-
 \subsection{When can identified issues be addressed?}
 To address issues they need to be identified and a practical improvement determined. The practical improvement may be an outright fix, or a workaround, or an amelioration, etc. The questions for the development team include where and when the improvements can be applied to improve the reliability for the end users of their app.
 
@@ -95,27 +55,8 @@ For apps released as compiled binary files (the vast majority in iOS and Android
 
 
 
-
-\newthought{Record and replay/playback}
-Recreate the `journey' (however relevant context may be missing or different and therefore affect the results and conclusions). Various reasons why recreating the journey is desirable e.g. to reproduce failures to help understand their characteristics and causes, to learn indirectly by observing and visualising the journey. \emph{c.f.} heatmapping. Record and replay offers the possibility of moving beyond using breadcrumbs as it is intended to record sufficient information to reproduce the use of an app. However there are various limitations in the tooling, the techniques, and at least as importantly the unacceptability of recording end user sessions on their devices using production releases of apps downloaded from the app store. 
-
-\newthought{Prior art in record and replay/playback}
-\textit{FYI This will be moved to the Related Work chapter}
-TBC
-
-
-\clearpage
-\section[Practical aspects of using analytics]{Practical aspects of using analytics \\ \small{(Possibly migrate to the Conclusion? else the Discussion?)}}
-Analytics providers have a major influence on the efficacy of the application of mobile analytics. There are limitations and flaws in the various tools this research has encountered regardless of their source (\emph{e.g.} in-house proprietary, opensource, free and paid-for commercial proprietary offerings). Nonetheless, flawed offerings are still able to be used to deliver improvements in the mobile apps. Specialised startups such as Iteratively aim to increase the coherence of embedded analytics (those embedded into the apps) while also increasing compliance. HP's AppPulse Mobile provided no-code analytics for mobile apps where their tools automatically instrumented the binary to add the analytics; several providers offered GUI interaction recording and `heatmaps' generated using aggregated recordings of touch screen interactions.
-
-Those who applied the results of mobile analytics were able to increase the stability/reliability of their mobile apps. The amounts of improvements varied based on various factors such as:
-\begin{itemize}
-    \itemsep0em
-    \item The starting point for the app.
-    \item The amount of ongoing engagement of the development team.
-    \item The choices of mobile analytics services and the use of proactive event recording using the related analytics libraries.
-    \item The sources and causes of some of the issues being reported - some where far harder to diagnose than others, and several originated outside the actually codebase of the mobile app where it might be impractical to truly fix the source of the issue.
-\end{itemize}
+\newthought{Norms per app category}
+Video conferencing apps may have a higher mean crash rate than apps in other categories. 
 
 \noindent
 \rule{\textwidth}{0.4pt}
@@ -131,3 +72,6 @@ It's in several areas:
     \item (Done) To revise the red-thread for the case studies and create three distinct tables as per my discussion with Marian and then flesh out and organise the case studies.
 \end{itemize}
 
+%%% I learned how to add sub-titles to sections thanks to
+% https://tex.stackexchange.com/questions/69550/how-can-i-add-a-subtitle-to-a-section-title
+% If I want to get fancy then https://tex.stackexchange.com/questions/417429/how-to-make-subheadings 

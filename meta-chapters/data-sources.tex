@@ -1,7 +1,74 @@
-\chapter{Data Sources}
+\chapter{Data sources}
 \label{app:data-sources}
 
-This is intended as a temporary chapter to help me write the thesis. There are various sources of relevant data in terms of my research. They have been used to varying degrees ranging from ongoing to infrequent, occasional use. One aim of creating this chapter is to establish these sources as candidates for inclusion in my research and writing, particularly for those I've not used much.
+There are various sources of relevant data in terms of my research and research into mobile analytics necessarily includes the data and reports that are made available through mobile analytics. These data and reports are primarily aimed at the development teams responsible for the respective mobile apps. Other data sources include source code and bug tracking systems. 
+
+Various development teams made at least some of their mobile analytics reports, data, source code, and/or bug tracking systems available for research purposes. Some provided occasional snapshots, others access for a period, and some provided access on a long term basis.
+
+\section{Characterising the data as presented}
+The providers of the analytics services choose and constrain what data is available, to whom, and for how long. App, developer, and organisation specific mobile analytics are private and only available to authorised users of the respective services and accounts.
+
+The analytics services present their data in at least one form, the most common being via web pages that include visual reports. The others include: file downloads, API access, proprietary mobile apps, and vendor specific exports to one or more cloud-hosted services. Some also provide integration with issue/bug management tools.
+
+Examples of web pages include the two shown in Figure~\ref{fig:examples-of-sentry-io-mobile-analytics-reports} from \href{https://sentry.io/}{sentry.io} which show the ranked set of recent issues detected by \href{https://sentry.io/}{sentry.io} for the LocalHalo app, and the two shown in Figure~\ref{fig:examples-of-gpc-with-av-mobile-analytics-reports} from Google Play Console for the main Kiwix Android app. 
+
+\begin{figure}
+    \centering
+    \subfloat[Issues Report]{{\includegraphics[width=6cm]{images/sentry.io/sentry.io-issues-page-resized.png} }}
+    \qquad
+    \subfloat[Individual Error Details]{{\includegraphics[width=6cm]{images/sentry.io/sentry.io-error-page-resized.png} }}
+    \caption{Examples of sentry.io mobile analytics}
+    \label{fig:examples-of-sentry-io-mobile-analytics-reports}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \subfloat[Dashboard for Kiwix]{{\includegraphics[width=6cm]{images/android-vitals-screenshots/kwix/resized-example-for-kiwix-dashboard-2021-sep-16.png} }}
+    \qquad
+    \subfloat[ANR's for Kiwix in Android Vitals]{{\includegraphics[width=6cm]{images/android-vitals-screenshots/kwix/resized-example-of-android-viatals-anr-chart-2021-sep-16.png} }}
+    \caption{Examples of Google Play Console mobile analytics}
+    \label{fig:examples-of-gpc-with-av-mobile-analytics-reports}
+\end{figure}
+% Thanks to https://resizeimage.net/ for enabling easy resizing of the screenshots and 
+%  https://www.codegrepper.com/code-examples/whatever/how+to+set+two+images+side+by+side+in+latex for the above latex.
+
+When the data is presented visually (as web pages or in mobile apps) many of the reports are interactive, and some can be customised to varying degrees. The contents are often dynamic and recent, and therefore ephemeral. While reports these are useful for developers they do not necessarily facilitate further processing, storage, or analysis of the underlying data. Web scraping is one approach to extracting data from web pages; \href{section-vitals-scraper}{\nameref{section-vitals-scraper}} was developed as part of this research to preserve reports and data from Google Play Console with Android Vitals. The challenges, design, and implementation are discussed in that section of this thesis. In terms of this topic, data sources, Vitals Scraper enabled copies of visual reports in Google Play Console to be preserved as PDF files, summary data to be exported as a CSV file. It also exported and crash and ANR clusters were exported from Android Vitals in the JSON format.
+
+Interactive downloads reduce the need to parse web pages that contain the same underlying data and therefore a mechanism to improve the working life of the data, however in practice often they contain a small subset of the data. They are also a static snapshot, \textit{i.e.} they are not updated by the provider once they have been downloaded. A germane example of one of the extracts available from a visual report in Android Vitals is illustrated in Listing~\ref{listing:crash-stack-trace-in-kiwix}. This facility was added to Android Vitals in 2021 and a good example of how providers change the capabilities and features of their mobile analytics from time to time.
+
+Google Play Console also provides various downloadable daily summary reports. The details change from time to time, the current details should be available online at \url{https://support.google.com/googleplay/android-developer/answer/6135870}.
+
+{\footnotesize
+\begin{quote}
+    `Control access to Google Cloud Storage
+    Reports available on Google Cloud Storage use the same access restrictions that control data access on your Play Console. This means account users with access to areas of a Play Console account have access to the corresponding reports in Google Cloud Storage.
+    
+    Account owners can update permissions for individual users at any time.
+    
+        To access bulk reports, your "View app information" permission must be set to "Global."
+        To download financial reports, your "View financial data" permission must be set to "Global." '
+\end{quote}}~\citep{google_play_download_and_export_monthly_reports}~\footnote{in 2020, this help page  \url{https://support.google.com/googleplay/android-developer/answer/6135870} stated the developer's user account needed to be given 'Global' permission rather than per-app. In 2021 the same article no longer explains what permissions are needed, however another help page \url{https://support.google.com/googleplay/android-developer/answer/9844686} partly answers the permissions that needs to be granted.}
+
+Here are the instructions for how to change the setting to Global \url{https://support.google.com/googleplay/android-developer/answer/2528691}
+
+Where and when the data is available using APIs and/or available for ongoing cloud-based processing there is the greatest flexibility and opportunity for development teams (and others with access) to perform ad-hoc and ongoing analysis. When providers do offer these services, they sometimes need to be paid for on an ongoing basis. 
+
+\begin{lstlisting}[language=json, caption=Exported contents for a crash reported in Android Vitals in Sept 2021, label=listing:crash-stack-trace-in-kiwix]
+  java.lang.IllegalStateException: 
+  at androidx.fragment.app.Fragment.requireContext (Fragment.java:805)
+  at androidx.fragment.app.Fragment.getResources (Fragment.java:869)
+  at androidx.fragment.app.Fragment.getString (Fragment.java:891)
+  at org.kiwix.kiwixmobile.core.main.CoreReaderFragment.webViewFailedLoading (CoreReaderFragment.java:1478)
+  at org.kiwix.kiwixmobile.core.main.CoreWebViewClient.onReceivedError (CoreWebViewClient.java:112)
+  at android.webkit.WebViewClient.onReceivedError (WebViewClient.java:298)
+  at fz.handleMessage (chromium-Monochrome.aab-stable-457706223:125)
+  at android.os.Handler.dispatchMessage (Handler.java:109)
+  at android.os.Looper.loop (Looper.java:166)
+  at android.app.ActivityThread.main (ActivityThread.java:7555)
+  at java.lang.reflect.Method.invoke (Native Method)
+  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run (RuntimeInit.java:469)
+  at com.android.internal.os.ZygoteInit.main (ZygoteInit.java:963)
+\end{lstlisting}
 
 \section{Google Play}
 Google Play provides a public end-user orientated visual view of apps in Google Play. It also provides a developer-oriented view of \emph{their} apps\footnote{More correctly, apps they are permitted to view and manage. Google provides account owners the ability to invite people to view, and potentially manage, one or more Android apps. Not everyone who has access is a developer, nonetheless the reports, tools, etc. are aimed primarily for developers.}; this is known as Google Play Console.
@@ -17,16 +84,13 @@ Various reports used to be available to download, Google chose to remove them~\c
 \subsection{Coping with UTF-16 content}
 Google provides the files encoded in UTF-16 format. The default import tool in the R programming language fails to import data in this (or many other encodings). Through research and experiments the following code snippet is able to load downloaded crash reports into a Data Frame in R.
 
-\texttt{setwd("\textbf{$_{\widetilde{~}}$}")} %All this to display a tilde adequately.
-
-\texttt{filenames = list.files("./Dropbox/Google Play Console Reports/reports/kiwix/", pattern = ".csv")}
-
-\texttt{directory = "./Dropbox/Google Play Console Reports/reports/kiwix/"}
-
-\texttt{filenames <- paste(directory, filenames, sep="/")}
-
-\texttt{CrashAndAnrStats <- lapply(filenames, read.csv, fileEncoding="UTF-16")}
-
+\begin{lstlisting}[language=R, caption=Processing UTF-16 contents using R, label=listing=processing-utf-16-contents-in-r]
+  setwd("\textbf{$_{\widetilde{~}}$}")  %All this to display a tilde adequately.
+  filenames = list.files("./Dropbox/Google Play Console Reports/reports/kiwix/", pattern = ".csv")
+  directory = "./Dropbox/Google Play Console Reports/reports/kiwix/"
+  filenames <- paste(directory, filenames, sep="/")
+  CrashAndAnrStats <- lapply(filenames, read.csv, fileEncoding="UTF-16")
+\end{lstlisting}
 
 Data I downloaded (not necessarily used) include reviews stored in Google Drive.
 
@@ -90,7 +154,7 @@ We observed several changes in the contents of the monthly files with three diff
 
 The changes in the columns means that more work is needed to combine the data consistently for reporting and analysis. 
 
-\begin{lstlisting}
+\begin{lstlisting}[language=R, caption=Code snippet in R showing the error reported when columns in the data to import do not match, label=listing:r-import-error-code-snippet]
 installs_data <- do.call(rbind, installs)
 Error in rbind(deparse.level, ...) : 
   numbers of columns of arguments do not match
@@ -112,7 +176,7 @@ The filenames represent monthly reports, as such, their name includes the 4 digi
 \begin{comment}
 
 
-\begin{lstlisting}
+\begin{lstlisting}[language=R, caption=Querying installs using R, label=listing=using-head-for-installs-in-r]
 head(install_filenames)
 [1] "installs_org.catrobat.catroid_201308_overview.csv"
 [2] "installs_org.catrobat.catroid_201309_overview.csv"
@@ -141,7 +205,7 @@ Google Play Console only provides the Crashes and ANRs in a combined summary rep
 For the summary reports provided by Google Play Console, in \texttt{R} the data was first loaded file by file, each into a distinct \texttt{data.frame}. These are then combined into a single larger data set as follows:  
 \texttt{do.call(rbind, crash\_and\_anr\_stats)}\footnote{Using the initial naive approach is enough to obtain the behaviour I sought \url{https://www.r-bloggers.com/concatenating-a-list-of-data-frames/}}
 
-\begin{lstlisting}
+\begin{lstlisting}[language=R, caption=Querying daily crash and ANR statistics files using R, label=listing=using-head-for-crashes-and-anrs-in-r]
 head(crash_and_anr_stats[[1]])
         Date         Package.Name Daily.Crashes Daily.ANRs
 1 2014-01-02 org.catrobat.catroid             1          0

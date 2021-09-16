@@ -17,6 +17,9 @@
 \usepackage{listings}
 \usepackage{multicol, multirow}
 
+\usepackage{morewrites}
+\extrafloats{100}
+
 \usepackage{caption}
 \DeclareCaptionType{prerequisites}[Prerequisites][List of Prerequisites]
 \DeclareCaptionType{methodology-map}[Methodologies][Methodology Map]
@@ -250,6 +253,7 @@
 % New command definitions for my thesis
 %
 \newcommand{\keywords}[1]{\par\noindent{\small{\textbf Keywords:} #1}} %Defines keywords small section
+\newcommand{\mycolumnheading}[2]{\multicolumn{1}{>{\centering\arraybackslash}p{#1}}{\textbf{#2}}}  % From https://latex.org/forum/viewtopic.php?t=20931
 \newcommand{\parcial}[2]{\frac{\partial#1}{\partial#2}}                             %Defines a partial operator
 \newcommand{\vectorr}[1]{\mathbf{#1}}                                                        %Defines a bold vector
 \newcommand{\vecol}[2]{\left(                                                                         %Defines a column vector
@@ -432,3 +436,41 @@
 % https://tex.stackexchange.com/search?q=%5Bmemoir%5D+color might provide some useful clues to using colour
 % https://tex.stackexchange.com/questions/294661/how-do-i-create-a-new-float-environment-with-bigger-and-colored-contents provides examples of setting colours for particular floats in the article document class. It might be some help but looks a bit crude and basic.
 % https://tex.stackexchange.com/questions/56004/customizing-section-formatting-using-memoir-class-color-and-numbering for minor improvements, more useful for learning a bitabout how memoir and latex hang together though.
+
+%%%%%%%%%%% Formatting JSON extracts
+%\usepackage{bera}
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    basicstyle=\footnotesize,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+%%% Joint sources for the above https://www.latex4technics.com/?note=3QTU and https://tex.stackexchange.com/a/83100/88466

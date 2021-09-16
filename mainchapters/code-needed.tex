@@ -41,6 +41,11 @@ Users of Google Play Console need to login and to have the necessary permission 
 
 \subsection{Outline challenges, don't need to go into detail}.
 This is not core to my topic. 
+\begin{itemize}
+    \item Some of the types of challenges we faced are described in \citep{upadhyay2017_articulating_the_construction_of_a_web_scraper_for_massive_data_extraction}. Additional challenges included the risk of access being removed and the account being banned (TODO x-ref to developer's stories and self-imposed restrictions).
+    \item A detailed tutorial on web scraping, including the legal aspects, was published in 2020 \emph{``Tutorial: Legality and Ethics of Web Scraping"}~\citep{krotov2020_tutorial_legality_and_ethics_of_web_scraping}. This publication helps provide context for some of the design and implementation choices that were made while we developed and used Vitals Scraper (note the publication post-dates the creation and use of Vitals Scraper). An observation on this publication, the authors state web scraping is a \emph{``relatively new, emerging practice"}~\citep[p.556]{krotov2020_tutorial_legality_and_ethics_of_web_scraping}, in the author's experience web scraping has been used at scale for over twenty years and the publication cites examples from 2000, twenty-one years ago. 
+    \item Adapting the code as the web site's underlying code changes is a key challenge both in terms of the operations and maintenance of software that interacts with the web site. \emph{``Classification-Based Adaptive Web Scraper"}~\citep{ujwal2017_classification_based_adaptive_web_scraper} presents an approach designed to be highly adaptive to changes in a particular web site's structure. Their approach could be considered for future versions of Vitals Scraper, however the client-side code for Google Play Console and Android Vitals was highly complex and in an entirely different domain and usage context (for instance having access controls and requiring a valid developer account with access to the content) and we chose to hand-craft the locators for the various information that was to be extracted which was relatively effective and efficient in terms of the effort needed to create and maintain Vitals Scraper.
+\end{itemize}
 
 \textbf{Typescript}:
 

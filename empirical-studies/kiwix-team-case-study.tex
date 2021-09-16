@@ -465,9 +465,9 @@ Several releases later, each with various changes and improvements aimed at fixi
 \textbf{A Quick discussion on perspectives and views}. 
 One of the key challenges when trying to interpret Android Vitals analytics is to determine comparisons and to establish reference points. For instance, are the recent crashes related to the embedded WebView component related to changes in the app, in the Android platform, to a particular device manufacturer? 
 
-For instance, the most frequent crash in the 60 days to \nth{11} Jun 2021 has only occurred on Huawei devices for the most recent release of the Kiwix app (3.4.4). The crash is:
+For instance, the most frequent crash in the 60 days to \nth{11} Jun 2021 has only occurred on Huawei devices for the most recent release of the Kiwix app (3.4.4). The nub of the crash is in Listing~\ref{listing:kiwix-app-crash-3-4-4}
 
-\begin{lstlisting}
+\begin{lstlisting}[language=java, caption=Extract of stack trace for the most frequent crash in release 3.4.4 of Kiwix, label=listing:kiwix-app-crash-3-4-4]
 java.lang.IllegalStateException
 org.kiwix.kiwixmobile.core.main.CoreReaderFragment.webViewFailedLoading
 \end{lstlisting}

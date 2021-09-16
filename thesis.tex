@@ -51,9 +51,10 @@
     \addcontentsline{toc}{chapter}{Sourcecode Listings}%
     \listof{listing}{Sourcecode Listings}%
 }
-\listoflistings
+\listoflistings\clearpage
 
-%\clearemptydoublepage
+\listofprerequisites\clearpage
+
 %
 %
 % The bulk of the document is delegated to these chapter files in
@@ -63,9 +64,10 @@
 %
 \setcounter{chapter}{-1}
 \chapter{Meta materials - not part of the final thesis}
+
 \input{meta-chapters/meta-chapter-introduction}
 \input{meta-chapters/inventories}
-\input{meta-chapters/the-red-thread}
+%\input{meta-chapters/the-red-thread}
 \input{meta-chapters/project-plan-for-this-thesis}
 \input{meta-chapters/actions.tex}
 
@@ -76,7 +78,7 @@
 
 \input{mainchapters/related-work}
 \input{mainchapters/a-grounding-in-the-domain}
-\input{case-studies/case-studies}
+\input{empirical-studies/case-studies}
 \input{mainchapters/code-needed}
 \input{mainchapters/findings-results}
 
@@ -98,7 +100,7 @@
 \bibliographystyle{ACM-Reference-Format}
 \refstepcounter{chapter}
 \label{the-bibliography-follows}
-{\small \bibliography{./references/bibliography_for_core_thesis,./case-studies/catrobat-case-study,./references/bibliography_on_phd_experience,./references/logging_paper.bib}}
+{\small \bibliography{./references/bibliography_for_core_thesis,./empirical-studies/catrobat-case-study,./references/bibliography_on_phd_experience,./references/logging_paper.bib}}
 % Reducing the font size for the bibliography comes from https://tex.stackexchange.com/a/203770/88466 
 %%%% TODO Consider having separate sections e.g. for books and/or a separate bibliography for AppendixB.
 
@@ -110,7 +112,7 @@
 \input{appendicies/software-contributions}
 \input{appendicies/crash-recording-and-reporting}
 \input{meta-chapters/data-sources}
-\input{case-studies/analytics-tools}
+\input{empirical-studies/analytics-tools}
 \input{appendicies/on-mobile-analytics}
 
 % Add index

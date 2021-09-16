@@ -13,12 +13,16 @@ This research is not intended to live in a vacuum! One of the aims throughout my
     \item Log Searcher \url{https://github.com/ISNIT0/log-searcher} A tool for searching Android codebases and analysing usage of \texttt{``Log.*"}. Includes a discussion in the README on the rich potential of designing and using logging.
     \item Log-complexity-analysis\\ \url{https://github.com/ISNIT0/log-complexity-comparison}\\ An experimental early-stage project to try and identify complex code that lacks logging.
     \item Logcat-filter and analysis tool\\ \url{https://github.com/ISNIT0/logcat-filter}\\ A utility that runs on a developer's computer to filter and analyse log messages for specified Android apps. Generates a JSON format output on request to facilitate additional processing.
+    \item RACHEL Status app \url{https://github.com/ISNIT0/RachelStatusApp} A very simple CORDOVA app used to create an internal test release in Google Play Console. 
     
     % \item Goldfinch Android \emph{[private]} \url{https://github.com/commercetest/goldfinch-android}
     
     \item Zipternet\\ \url{https://github.com/ISNIT0/zipternet}\\ A small Android application generator, written in Kotlin, to provide a basic app with sufficient functionality to be potentially realistic and useful. It is similar in concept to the custom apps created and maintained by the Kiwix Android project team.
 \end{itemize}
 
+\begin{comment}
+RACHEL Status app uses Cordova. Needed updating. Also needs to use JAVA8 compiler, see \url{https://kodejava.org/how-do-i-set-the-default-java-jdk-version-on-mac-os-x/} to set this for the CLI.
+\end{comment}
 
 \subsection{Android Stability Analysis}~\label{subsec:android-stability-analysis}
 In August 2019 we started another opensource project \href{https://github.com/commercetest/android-stability-analysis}{android-stability-analysis}~\citep{android-stability-analysis} to enable scattered crash clusters reported in Android Vitals to be regrouped. Currently, the analysis tool simply matches reported crash clusters with a series of lines that should be common to related crashes, see Listing \ref{listing:codelines}  for an example.
