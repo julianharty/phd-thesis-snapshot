@@ -43,6 +43,10 @@
 \usepackage[normalem]{ulem}
 \useunder{\uline}{\ul}{}
 
+\usepackage{fancyhdr}
+\usepackage[en-GB]{datetime2}
+
+
 % comment these for final
 \newcommand{\yijun}[1]{\textcolor{red}{[YY: #1 ?]}}
 % \def\yy#1#2{\textcolor{red}{#1}\footnote{YY:{#2}\textcolor{black}}}
@@ -144,6 +148,7 @@
 	\renewcommand\printchapternum{\null\hfill\feline@chm[2.5cm]\par} 
 	\renewcommand\afterchapternum{\par\vskip\midchapskip} 
 	\renewcommand\printchaptertitle[1]{\color{gray}\chaptitlefont\raggedleft ##1\par}
+
 } 
 \makeatother 
 \chapterstyle{daleifmodif}
@@ -153,7 +158,7 @@
 % The pages should be numbered consecutively at the bottom centre of the
 % page.
 \makepagestyle{myvf} 
-\makeoddfoot{myvf}{}{\thepage}{} 
+\makeoddfoot{myvf}{}{\thepage}{\tiny{generated on: \DTMnow}}
 \makeevenfoot{myvf}{}{\thepage}{} 
 \makeheadrule{myvf}{\textwidth}{\normalrulethickness} 
 \makeevenhead{myvf}{\small\textsc{\leftmark}}{}{} 
