@@ -15,6 +15,7 @@ After the case studies were completed, a form of post-mortem analysis identifies
 
 The research combines various forms of empirical studies. These include:
 \begin{itemize}
+    \itemsep0em
     \item Primary Research: Various \textbf{app case studies} each centered around a development team who are responsible for one or more related Android apps
     \item Secondary Research: Investigating the logging practices of developers of opensource Android apps that incorporate Google's Firebase Analytics service
     \item Primary Research: small experiments that were not appropriate in the main app case studies.
@@ -23,7 +24,19 @@ The research combines various forms of empirical studies. These include:
     \item Secondary Research: Literature Review.
 \end{itemize}
 
-\subsection{Coherence throughout the case studies, in particular}
+\subsection{Structure of the app case studies}\label{structure-of-the-app-case-studies}
+A consistent structure helps: tell the story, provide the evidence and coherence for each of the app case studies, and demonstrate the rigour needed establish the credibility of the research. It also facilitates comparisons across the results and findings.
+
+The current structure consists of six headings:
+\begin{enumerate}
+    \itemsep0em
+    \item Introduction: to highlight key features of case, similarities and differences w.r.t. other cases;
+    \item Context:  the terms of the engagement, product/project overview, Developer characteristics, tools, methods, key challenges for product/-project;
+    \item Analytics intervention: describe what was done during the case study in terms of using analytics. Include the data trail and the methods used for the research aspects of the case study;
+    \item Findings: reporting on the data that was collected;
+    \item Results/Outcomes: in terms of any improvements and changes to the stability/reliability and to the engineering practices;
+    \item Discussion: including reflection on the contributions of this case study to the research questions. Also, explore what these outcomes mean for the use of analytics in mobile software more generally.
+\end{enumerate}
 
 
 \subsection{Dimensions of the app case studies}
@@ -270,6 +283,8 @@ Try creating an evidence table.
 \end{comment}
 
 \subsection{Classifications of Mobile Analytics tools}
+\textit{Note: the following list is now duplicated in \href{classifications-of-mobile-analytics-tools-used-in-this-research}{\nameref{classifications-of-mobile-analytics-tools-used-in-this-research}}. As that matures, I'll remove the following and replace it with something more succinct.}
+
 The case studies also facilitated the study of various mobile analytics tools. A map of these tools and the case studies they were used in may help the reader (and the author). Here are suggested topics to consider for each of these tools.
 \begin{itemize}
     \itemsep0em
@@ -277,7 +292,20 @@ The case studies also facilitated the study of various mobile analytics tools. A
     \item What was the tool used for?
     \item What insights did we glean from using the tool?
     \item If anythings made the tool distinctive, what were those things and why are they distinctive in the context of developers using mobile analytics?
+    \item Type of the analytics and where in the application stack it collects the analytics.
+    \item APIs and optional capabilities:
+    \begin{itemize}
+        \item Application APIs: that can used in the app to customise what is sent
+        \item Reporting APIs: that can be used to obtain the data and reports, etc. 
+    \end{itemize}
+    \item Customisation of reporting, if any.
+    \item Data output options (see the appendix on Data Sources for the current known set of output options).
+    \item Platform(s) supported.
+    \item Some notes on data retention facilities and limitations.
 \end{itemize}
+\textbf{Vitally} how the tool(s) were used in each case study.
+
+
 
 \subsection{Contributions of the empirical studies to the research question}
 For ease of reference, the main research question is:

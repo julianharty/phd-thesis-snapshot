@@ -5,7 +5,15 @@
 %%%%%% Be brief if this confirms work in previous case studies.
 
 \subsection*{Rationale}
-\marian{Need to connect this case study with the thesis: what was the goal and show the key contributions. Rationale for this case study. which gave me the chance to look at .... Rationale for the intervention.}
+%\marian{Need to connect this case study with the thesis: what was the goal and show the key contributions. Rationale for this case study. which gave me the chance to look at .... Rationale for the intervention.}
+
+This case study provided an opportunity to perform a similar exercise to that in the Kiwix case study with an unusually well researched and mature mobile app. The app and its ecosystem were significantly more complex than Kiwix, which is a far simpler app in terms of codebase, development practices, and functionality. 
+
+Like Kiwix, the core Android app had chronic and ongoing high crash rates that far exceeded the bad behaviour threshold of 1.09\%. The immediate goal was to find out whether a hackathon would enable the development team to find and address at least some of the most common run time failures in their flagship mobile app, Pocket Code. 
+
+The key contributions to the PhD research were the hackathon and the improvements that were made in the stability of the Pocket Code Android app in the two months that followed the hackathon. The case study also contributed insight into the retiring Fabric Crashlytics mobile analytics service and the replacement, Firebase Crashlytics, and how their reports and capabilities compared with those provided by Google Play Console with Android Vitals.
+
+The rationale for the intervention was to try and tackle a perennial challenge with the Pocket Code's quality in terms of its poor reliability/stability.
 
 This case study built on the experiences of the Kiwix case study in several relevant ways:
 \begin{itemize}
@@ -65,8 +73,8 @@ The rationale for the intervention (what I did) was to explore whether improveme
 % Revisit the following if I include minted more often https://tex.stackexchange.com/questions/103141/set-global-options-for-inputminted
 
 
-\subsection{Abstract}
-We ran a 1-day hackathon with six of the core development team for the Pocket Code Android app where we identified the top ten crashes and top ten ANRs for the app using reports provided in Android Vitals. These were recorded in the project's JIRA system; the crash reports were correlated with Fabric Crashlytics also used in the Pocket Code app. The team worked on a subset of these 20 issues during the hackathon and in the following weeks. The crash rate was halved within 2 releases of the app and six weeks of the hackathon. 
+\subsection*{Abstract}
+During a 1-day hackathon with six of the core development team for the Pocket Code Android app we applied an intervention by changing the working practices of these developers. They were asked to address the top ten crashes and top ten ANRs for the app using reports provided in Android Vitals.  The team worked on a subset of these 20 issues during the hackathon and in the following weeks. The crash rate was halved within 2 releases of the app and six weeks of the hackathon. 
 
 \marian{Needs a sense of the change was that was introduced by my intervention. Focal points of analysis: were the developers ignoring stuff? did their behaviour change? \textbf{I need to add the researcher point of view}. Make explicit the utility of the analytics, there are early signs in~\href{catrobat-case-study-findings-and-results}{\nameref{catrobat-case-study-findings-and-results}}.}
 
@@ -97,8 +105,16 @@ The case study included two main events, 1) a hackathon in November 2019 and 2) 
 The hackathon was mooted % in August 2019
 following the success of the hackathon for the Kiwix project as a fresh intervention for the Catrobat project team to see if it would foster and encourage the development team to address at least some of the top issues that adversely affected the stability of the Pocket Code Android app. The focus was to improve code quality based on failures and issues reported in Android Vitals (cross-referenced with those reported in Fabric Crashlytics). The workshop was intended to foster collaboration between software testers and the development team while also using mobile analytics that incorporated mobile analytics into the workshop.
 
+\subsection{Context}
+% Temporal aspects, duration and nature of the engagement, 
+% Consider providing a per- case-study timeline. Use dots to indicate the ongoing engagement. Use bars to indicate when I was actively involved.
 
-\subsection{Potted History of the Project}
+\subsubsection{Product overview}
+
+\subsubsection{Project overview}
+\keywords{History, University led, combined user focus with learning, and research focus, 2 core apps, several custom apps, ...}
+
+\newthought{Potted History of the Project}
 TODO Discuss with Marian, Arosha and Yijun on whether this material is useful for providing context.
 \begin{enumerate}
     \item Rationale:
@@ -108,21 +124,35 @@ TODO Discuss with Marian, Arosha and Yijun on whether this material is useful fo
     \item Software Development, testing, maintenance,...
 \end{enumerate}
 
-\subsubsection{Catrobat Software Engineering Practices}
+\subsubsection{Developer characteristics}
+\newthought{Catrobat Software Engineering Practices}
 Approach to development, testing, deployment, production monitoring, ...
 
 The project uses Jenkins to run continuous builds for PocketCode and other related projects \url{https://jenkins.catrob.at/job/Catroid/}. Most of the builds are for the Develop code branch \url{https://jenkins.catrob.at/job/Catroid/job/develop/}. The deployment practices have also been streamlined by combining Jenkins and Fastlane where various tasks people find tedious and are error-prone were automated to reduce deployment errors~\citep{luhana2018streamlining}.
 
 The project applies various forms of test automation including unit, integration, and UI tests~\citep{luhana2018streamlining}. In addition they incorporate Behavior Driven Testing (BDD), described in detail in~\citep{ali2019using_catrobat}; and the project also uses Cucumber to automatically test the support for BiDi (\underline{Bi}-\underline{Di}rectional) text in the user interface~\citep{ayyal2016automated_bidi_testing, awwad2017_automated_bidi_testing, ali2019behavior_catrobat}. To provide some perspective, they would be one of the top few ranked projects in terms of using automated tests compared with the survey of developers of opensource Android apps~\citep{linares2017_how_do_developers_test_android_apps}, and given the project's investment in custom visual testing tiles in addition to all the other forms of automated testing could be argued to be preeminent across all the opensource Android projects. 
 
+\newthought{The Project's Working Practices}
+% Try to include examples of the human aspects and the game
+Specific roles, who can do what.
+Issues need to be reported in JIRA in order for any code to be considered
 
-\subsubsection{Opening gambit}
-At the start of the case study the crash rate of the Pocket Code app remained stubbornly high despite the extensive use of code quality tools and practices, automated testing, continuous builds and so on. They also had access to two sources of crash analytics. What were they missing?
 
-One possible hypothesis is the team were overly focusing their efforts in pre-release activities. \citep{kitchenham1996_software_quality_elusive_target}, observed that the approach of taking a product view of quality~\emph{``is frequently adopted by software-metrics advocates, who assume that measuring and controlling internal product properties (internal quality indicators) will result in improved external product behavior (quality in use)."}~\footnote{US English spelling was used in the original article so used here in the quotation.} Would working backwards from the failures help the team address the quality in use more effectively?
 
-\subsection{Method}
+\subsubsection{Tools}
+
+\newthought{Introduce the Analytics Tools}
+\begin{enumerate}
+    \item Types of crashes: Soft crashes (mapping terminology between Fabric Crashlytics and Android Vitals).
+\end{enumerate}
+
+\subsection{Analytics intervention}
+% (Describe what you did with analytics in the contextof the case)
+
+
+\subsubsection{Methods}
 % It should include a statement of the main focus of the case study, as well as 'what you did'.
+% Observations of the developers, looking at the code, what I did with the evidence the data collection
 The main focus of this case-study was twofold: 1) to evaluate whether a hackathon driven by existing analytics would help the team materially improve the quality in use of their more complex Android app, and 2) to investigate Fabric Crashlytics as an additional source of analytics about the (un-) reliability of the app.
 
 The approach, jointly selected by the project lead %Professor Wolfgang Slany
@@ -131,24 +161,51 @@ was to co-organise a hackathon in Graz, Austria at the project's parent universi
 
 We further agreed to two optional introductory sessions on the day before, the~\nth{15} November 2019. In the morning I would present a combination of topics related to mobile app quality, experiences of working in industry, and using analytics to improve software quality. In the afternoon a group of us would visit one of the industry leaders in system-wise monitoring, management and analytics who had a regional office nearby.
 
+\subsubsection{Key challenges for the project/product}
+
+\subsection{Findings}
+% reporting on the data I collected
+\subsection{Findings and Results of the Case Study}
+\label{catrobat-case-study-findings-and-results}
+
+Android Vitals `Bad Behavior' alerts colour coded and intended to help developers quickly notice and respond to high error rates, as illustrated in Figure~\ref{fig:android-vitals-pocketcode-alerts-23-jan-2020}. %Evidence AppHealthOverviewPlace_8841632091579025670_org.catrobat.catroid_1579796386172.png
+
+\begin{figure}
+    \centering
+    \includegraphics[width=12cm]{images/google-play-console/android-vitals-pocketcode-alerts-23-jan-2020.png}
+    \caption{Android Vitals overview, bad behaviours (Pocket Code example)}
+    \label{fig:android-vitals-pocketcode-alerts-23-jan-2020}
+\end{figure}
+
+No plots for either Pocket Code or Pocket Paint for the ANRs and for the crashes on \nth{10} February 2020, as illustrated in Figure~\ref{fig:android-vitals-pocketcode-broken-graph-10-feb-2020}. 
+%Evidence AppHealthDetailsPlace_8841632091579025670_org.catrobat.paintroid_1581848687528.png and AppHealthDetailsPlace_8841632091579025670_org.catrobat.catroid_1581848687528.png and AppDashboardPlace_8841632091579025670_org.catrobat.paintroid_1581848687528  
+
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{images/google-play-console/android-vitals-pocketcode-broken-graph-10-feb-2020.png}
+    \caption{Android Vitals graph data missing for~\nth{10} Feb 2020 (Pocket Code example)}
+    \label{fig:android-vitals-pocketcode-broken-graph-10-feb-2020}
+\end{figure}
+Illogical results for installed userbase. %Evidence various graphs.
 
 
-\subsection{The Project's Working Practices}
-Specific roles, who can do what.
-Issues need to be reported in JIRA in order for any code to be considered
 
-\subsection{Introduce the Analytics Tools}
-\begin{enumerate}
-    \item Types of crashes: Soft crashes (mapping terminology between Fabric Crashlytics and Android Vitals).
-\end{enumerate}
+\subsubsection{Peer Groups}
+The Pocket Code Android app had a significantly higher crash-rate compared to its peer group, as Figure \ref{fig:pocketcode_peer_crash_rate_18_nov_2019} shows in section \href{android-vitals-peer-groups}{\emph{\nameref{android-vitals-peer-groups}}} shows. While this may be undesirable, the Pocket Code app had incredible richness and complexity compared to the perceived peer apps; for instance it includes support for generating native Android apps, an app store, generation of rich, graphical games, as examples of some of the rich capabilities on offer.
 
-\subsection{Summary of the Hackathon}
+
+
+\subsection{Results/Outcomes}
+% (Describe the outcomes resulting from the intervention e.g. Impact on the reliability of the app, changes in the behaviour of the dev. team)
+
+
+\subsubsection{Summary of the Hackathon}
 The visit (including the presentation at the Graz University of Technology on Friday morning and to Dynatrace\footnote{\url{https://www.dynatrace.com}} on Friday afternoon) helped reinforce the value of creating and using the Vitals-Scraper software to preserve history. 
 
 There was a peak of eight participants from the Catrobat team during the hackathon. This included two people %(including Wolfgang and Matthias)
 in non-coding capacities. Approximate time spent. Twenty-two (22) issues were raised during the day (tagged: hackathon-2019)\footnote{\url{https://jira.catrob.at/browse/CATROID-426?jql=labels\%20\%3D\%20hackathon-2019}}. Most of these were created in the morning, one for each of the top crashes and ANRs as recorded and ranked in Android Vitals. 
 
-\subsection{Immediate outcomes post Hackathon}
+\subsubsection{Immediate outcomes post Hackathon}
 We can group the issues using as follows (already fixed, addressed during the hackathon, pending, rejected).
 
 \subsubsection{Already fixed} JIRA issue 405\footnote{\url{https://jira.catrob.at/browse/CATROID-405}} was the \#1 issue with over 2000 crashes reported in the 30 days preceding the hackathon (and over 3200 in the lifetime of the app). However, it had already been addressed in JIRA issue 379\footnote{"media download progress dialog crashers" \url{https://jira.catrob.at/browse/CATROID-379}} and incorporated in to the most recent release \footnote{Release:
@@ -345,7 +402,7 @@ The ANR rate is also showing encouraging signs, for the last 7 days (actually it
     \label{tab:ANR_rate_24_to_29_Nov_2019}
 \end{table}
 
-\subsection{Progress in cumulative releases}
+\subsubsection{Progress in cumulative releases}
 
 % MUST_DO add screenshots and summaries of the progress made with subsequent releases of Pocket Code for Android.
 
@@ -378,30 +435,11 @@ Some notes on Table~\ref{tab:androidvitals_crashrate_post_hackathon}:
 \end{enumerate}
 
 
-\subsection{Findings and Results of the Case Study}
-\label{catrobat-case-study-findings-and-results}
 
-Android Vitals `Bad Behavior' alerts colour coded and intended to help developers quickly notice and respond to high error rates, as illustrated in Figure~\ref{fig:android-vitals-pocketcode-alerts-23-jan-2020}. %Evidence AppHealthOverviewPlace_8841632091579025670_org.catrobat.catroid_1579796386172.png
-
-\begin{figure}
-    \centering
-    \includegraphics[width=12cm]{images/google-play-console/android-vitals-pocketcode-alerts-23-jan-2020.png}
-    \caption{Android Vitals overview, bad behaviours (Pocket Code example)}
-    \label{fig:android-vitals-pocketcode-alerts-23-jan-2020}
-\end{figure}
-
-No plots for either Pocket Code or Pocket Paint for the ANRs and for the crashes on \nth{10} February 2020, as illustrated in Figure~\ref{fig:android-vitals-pocketcode-broken-graph-10-feb-2020}. 
-%Evidence AppHealthDetailsPlace_8841632091579025670_org.catrobat.paintroid_1581848687528.png and AppHealthDetailsPlace_8841632091579025670_org.catrobat.catroid_1581848687528.png and AppDashboardPlace_8841632091579025670_org.catrobat.paintroid_1581848687528  
-
-\begin{figure}
-    \centering
-    \includegraphics[width=10cm]{images/google-play-console/android-vitals-pocketcode-broken-graph-10-feb-2020.png}
-    \caption{Android Vitals graph data missing for~\nth{10} Feb 2020 (Pocket Code example)}
-    \label{fig:android-vitals-pocketcode-broken-graph-10-feb-2020}
-\end{figure}
-Illogical results for installed userbase. %Evidence various graphs.
 
 \subsection{Discussion}
+% (Explore what these outcomes mean for the use of analytics in mobile software more generally)
+% Also address the RQ's here for this case study.
 Effects of being measured is a well-known in work, business, etc. One of the effects here was that `soft-crashes' were reaching Android Vitals and therefore significantly and adversely affecting the crash rate (see \cite{CATDROID-426-JIRA}).
 
 \subsubsection{Validity considerations}
@@ -412,10 +450,14 @@ Effects of being measured is a well-known in work, business, etc. One of the eff
 
 Furthermore, the project team chose to invest their energies into supporting a testing workshop in Poland and to introducing application-level in-app analytics to both their Android and iOS PocketCode apps (later reversed as explained in the discussion). Their actions indicate the project team recognise the benefits of applying and incorporating analytics into their software development and quality improvement practices.
 
-When the ~\citep{kitchenham1996_software_quality_elusive_target} article was published, in 1996, the authors stated \emph{``more research was needed to determine which aspects of internal quality affect the product's use."}. This case study provided a different focus - on identifying and addressing frequent causes of failures. The change in focus was effective and efficient in terms of the effort and elapsed time expended. It provides another piece in the jigsaw that may help researchers to work backwards from failures in the field to the root causes of these failures and the efficacy and suitability of the various tools and practices engineering teams apply during software creation and internal testing.
 
-\subsubsection{Peer Groups}
-The Pocket Code Android app had a significantly higher crash-rate compared to its peer group, as Figure \ref{fig:pocketcode_peer_crash_rate_18_nov_2019} shows in section \href{android-vitals-peer-groups}{\emph{\nameref{android-vitals-peer-groups}}} shows. While this may be undesirable, the Pocket Code app had incredible richness and complexity compared to the perceived peer apps; for instance it includes support for generating native Android apps, an app store, generation of rich, graphical games, as examples of some of the rich capabilities on offer.
+One possible hypothesis is the team were overly focusing their efforts in pre-release activities. \citep{kitchenham1996_software_quality_elusive_target}, observed that the approach of taking a product view of quality~\emph{``is frequently adopted by software-metrics advocates, who assume that measuring and controlling internal product properties (internal quality indicators) will result in improved external product behavior (quality in use)."}~\footnote{US English spelling was used in the original article so used here in the quotation.} Would working backwards from the failures help the team address the quality in use more effectively?
+
+
+
+
+
+
 
 
 \subsubsection{Slower growth of user-base}
@@ -466,3 +508,9 @@ The case study started with a single core event - the hackathon in Graz and the 
 
 \subsection{Summary of the Catrobat Case Study}
 TBC
+
+\dotfill
+\subsection{Old materials follow and are available to pillage before being removed.}
+
+\subsubsection{Opening gambit}
+At the start of the case study the crash rate of the Pocket Code app remained stubbornly high despite the extensive use of code quality tools and practices, automated testing, continuous builds and so on. They also had access to two sources of crash analytics. What were they missing?
