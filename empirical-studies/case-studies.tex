@@ -17,15 +17,43 @@ Virtually all the case studies cover the Android platform and ecosystem, which i
 As mentioned above, two of the case studies incorporated hackathons. We found they facilitated participation by volunteers by providing a collaborative, fun, gathering where the focus was collective learning and discovery. Of the three main motivations identified in ~\citep{olesen2020_10_years_of_hackathons}, our hackathons helped structure the learning and enabled participation. They also encouraged real-time, in-person, collaboration by a group of people familiar with the software but unfamiliar with the tools and techniques of applying analytics to address failures reported by the analytics. The participants learned together, as peers, and learned quickly and effectively through the open discussions during the hackathons.
 
 
-
-
-%%%% Marker for Julian - continue below here %%%%
+\clearpage
 \section{Overview of Case Studies}
 \label{section-overview-of-case-studies}
 
-The case studies provide %three %MUST_DO revise the introduction once the number and characteristics of the case studies is settled.
-distinct perspectives of applying Mobile Analytics to Android apps. Android apps were selected to enable the use of Google Play Console reports and analytics, including Android Vitals; nonetheless one of organisations studied chose to also include analytics in their iOS app, so this will also be covered briefly.
+The case studies provide three distinct perspectives of applying Mobile Analytics to Android apps
+~\footnote{Android apps were selected to enable the use of Google Play Console reports and analytics, including Android Vitals; nonetheless one of organisations studied chose to also include analytics in their iOS app, so this will also be covered briefly.}.
 
+\begin{enumerate}
+    \item The first perspective is to learn what app developers do in terms of using mobile analytics for their apps. The material collected includes a mix of direct interactions, conversations, together with investigating various artefacts. These artefacts stem from two sources: 1) mobile analytics reports, and 2) the development team (\emph{e.g.} source control, bug reporting tools). Some developers provided direct access, others provided offline snapshots.
+    \item The second perspective is direct engagement with the project teams to facilitate more in-depth research. Two of the projects are opensourced, the rest are proprietary, commercial mission-critical apps. Each of these projects had their own needs in terms of their use of mobile analytics.  
+    \item The third perspective focus on the source code of various Android apps to investigate how the app developers incorporate analytics into their respective apps in terms of the types of information they recorded using the dominant in-app mobile analytics library: Firebase. The code provides a dispassionate perspective.
+\end{enumerate}
+
+Several small experiments complemented the case studies, for instance to evaluate what is reported using both platform and in-app analytics. 
+The research led to collaborations with two providers of mobile analytics, Google and Iteratively; and provided insight into a wider range of mobile analytics tools.
+
+\newthought{The rest of this chapter}
+
+This chapter first introduces the range of known data sources used in at least one of the case studies, in \secref{app:data-sources}. 
+
+Section \secref{section-field-reports-case-studies} presents the app developers' perspectives. 
+
+The direct engagement case studies start with the two opensource case studies \secref{section-kiwix-case-study} and \secref{section-catrobat-case-study}. These are followed with extracts from one or more commercial projects in \secref{section-corporate-engineering-case-studies}. 
+
+The source code perspective is in \secref{section-research-in-logging-practices}.
+
+Where practical the experiments incorporate small opensource projects created for the respective experiments and are described in \secref{section-mini-experiments} and \secref{section-some-examples}. 
+
+The collaborations with providers are covered in \secref{section-google-play-console-case-study} and \secref{section-iteratively-case-study}~\footnote{TODO consider whether to include the work with Appachhi.}. A summary of the various mobile analytics tools is covered in \secref{appendix-analytics-tools}
+
+The final part of this chapter provides a summary of the various case studies \secref{section-summary-of-case-studies}. 
+
+%%%% Marker for Julian - continue below here %%%%
+\hrulefill
+\clearpage
+\section{Previous material follows}
+\textit{The following content needs to be reevaluated and the stuff that's still relevant will be integrated earlier in this chapter.}
 \begin{figure}[htbp!]
     \centering
     \includegraphics[width=10cm]{images/visual-connections-in-research.png}
@@ -106,16 +134,14 @@ MUST-DO complete this section and have it cross checked with my supervisors.
 Participants were briefed and gave their permission either individually or on behalf of their organisations to use the material they freely provided. Several have reviewed my research and provided constructive feedback which has been applied. It has not always been practical to reach them, for instance some are no longer reachable. None of the analytics information provided contains PII. 
 \clearpage
 
+\input{empirical-studies/developers-experiences-of-mobile-analytics}
+\input{empirical-studies/gtaf-case-study}
+\clearpage
+
 \input{empirical-studies/kiwix-team-case-study}
 \clearpage
 
 \input{empirical-studies/catrobat-case-study}
-\clearpage
-
-\input{empirical-studies/gtaf-case-study}
-\clearpage
-
-\input{empirical-studies/developers-experiences-of-mobile-analytics}
 \clearpage
 
 \input{empirical-studies/major-corporations}
@@ -124,10 +150,12 @@ Participants were briefed and gave their permission either individually or on be
 \input{empirical-studies/logging-case-studies}
 \clearpage
 
-\input{empirical-studies/iteratively-case-study}
+\input{empirical-studies/mini-experiments}
+\input{empirical-studies/some-examples}
 \clearpage
 
-\input{empirical-studies/some-examples}
+\input{empirical-studies/google-play-console-case-study}
+\input{empirical-studies/iteratively-case-study}
 \clearpage
 
 \input{empirical-studies/summary-of-case-studies}
