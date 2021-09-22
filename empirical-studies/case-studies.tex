@@ -25,16 +25,65 @@ The case studies provide three distinct perspectives of applying Mobile Analytic
 
 \begin{enumerate}
     \item The first perspective is to learn what app developers do in terms of using mobile analytics for their apps. The material collected includes a mix of direct interactions, conversations, together with investigating various artefacts. These artefacts stem from two sources: 1) mobile analytics reports, and 2) the development team (\emph{e.g.} source control, bug reporting tools). Some developers provided direct access, others provided offline snapshots.
-    \item The second perspective is direct engagement with the project teams to facilitate more in-depth research. Two of the projects are opensourced, the rest are proprietary, commercial mission-critical apps. Each of these projects had their own needs in terms of their use of mobile analytics.  
-    \item The third perspective focus on the source code of various Android apps to investigate how the app developers incorporate analytics into their respective apps in terms of the types of information they recorded using the dominant in-app mobile analytics library: Firebase. The code provides a dispassionate perspective.
+    \item The second perspective is direct engagement with the project teams to facilitate more in-depth research. Two of the projects are opensourced, the rest are proprietary, commercial mission-critical apps. Each of these projects had their own needs in terms of their use of mobile analytics.  % Can we interfere / affect their behaviours
+    \item The third perspective focus on the source code of various Android apps to investigate how the app developers incorporate analytics into their respective apps in terms of the types of information they recorded using the dominant in-app mobile analytics library: Firebase. The code provides a dispassionate perspective. % What do they do in terms of their code. 
 \end{enumerate}
 
 Several small experiments complemented the case studies, for instance to evaluate what is reported using both platform and in-app analytics. 
-The research led to collaborations with two providers of mobile analytics, Google and Iteratively; and provided insight into a wider range of mobile analytics tools.
+The research led to collaborations with two providers of mobile analytics, Google and Iteratively (since acquired and integrated into Amplitude); and provided insight into a wider range of mobile analytics tools.
 
-\newthought{The rest of this chapter}
+\subsection{Four perspectives, in a 2x2 matrix}
+A possible way of presenting the perspectives is illustrated in Figure~\ref{fig:four-perspectives} and listed below:
+{\footnotesize
+\begin{enumerate}
+    \itemsep0em
+    \item [1] What do app developers say they do? (understand the status quo).
+    \item [2] What's possible, how much can we influence?
+    \item [3] What does their code tell us? (understand current behaviours in terms of the code that's implemented)~\footnote{NB: it might be useful to reanalyse the projects we studies to identify which ones actively include crash reporting.}.
+    \item [4] How can we influence the analytics tool developers?
+\end{enumerate}
+\begin{figure}
+    \centering
+    \includegraphics[width=12cm]{images/my/four-perspectives-2x2-matrix.png}
+    \caption{Four Perspectives}
+    \label{fig:four-perspectives}
+\end{figure}
+}
 
-This chapter first introduces the range of known data sources used in at least one of the case studies, in \secref{app:data-sources}. 
+These four perspectives distinguish between understanding of the status quo and improving it. However there is a mismatch in the contents of the cells on the right hand side, the upper focuses on the source code of the apps, the lower cell focuses on the mobile analytics tools. This led to the following six perspectives~\footnote{Through discussion with Arosha on \nth{21} Sep 2021.}
+\subsection{Six perspectives, in a 3x2 matrix}
+The six perspectives are illustrated in Figure~\ref{fig:six-perspectives}~\footnote{Source figure:~\href{https://docs.google.com/drawings/d/1SafKu3uqgl-s8-I8iWSSWmFY4NdlNpw8v6ZiJDGh50c/edit?usp=sharing}{Google Docs: Six Perspectives drawing}.} and listed below:
+{\footnotesize
+\begin{enumerate}
+    \itemsep0em
+    \item [1] What do app developers say they do? (understand the status quo).
+    \item [2] What's possible, how much can we influence in terms of their processes, their practices?
+    \item [3] What does their code tell us? (understand current behaviours in terms of the code that's implemented)~\footnote{NB: it might be useful to reanalyse the projects we studies to identify which ones actively include crash reporting.}.
+    \item [4] What's possible in terms of improving the product through the use of mobile analytics?
+    \item [5] What do we learn about various analytics tools?
+    \item [6] How did we influence the analytics tool developers? based on what was learned in the various case studies?
+\end{enumerate}
+}
+
+Now there's a clearer grouping for each of the three rows: on processes, on apps, and on the tools. Each study contributes to at least one of these six perspectives. In practice they all contribute to several and may contribute to most of them. \textbf{Challenge: how to structure the studies in the thesis} As each study contributes to a range of the perspectives, I find it hard to decide on a way to report on the various studies clearly so the reader can maintain focus and clarity in terms of the readability of the research.
+
+\textbf{Marian's suggested gameplan} 
+I need to provide for each study:
+Context and orientation; then drive from the [6] perspectives.
+A suggested order: Status Quo slice, then what happens if we interfere?
+
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{images/my/six-perspectives-2x3-matrix.png}
+    \caption{Six Perspectives}
+    \label{fig:six-perspectives}
+\end{figure}
+
+
+
+\subsection{The rest of this chapter}
+
+This chapter first introduces the range of known data sources used in at least one of the case studies, in \secref{section-case-studies-data-sources}. 
 
 Section \secref{section-field-reports-case-studies} presents the app developers' perspectives. 
 
@@ -132,6 +181,8 @@ MUST-DO complete this section and have it cross checked with my supervisors.
 
 Participants were briefed and gave their permission either individually or on behalf of their organisations to use the material they freely provided. Several have reviewed my research and provided constructive feedback which has been applied. It has not always been practical to reach them, for instance some are no longer reachable. None of the analytics information provided contains PII. 
 \clearpage
+
+\input{empirical-studies/data-sources}
 
 \input{empirical-studies/developers-experiences-of-mobile-analytics}
 \input{empirical-studies/gtaf-case-study}

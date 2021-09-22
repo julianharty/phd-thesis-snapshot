@@ -1,5 +1,29 @@
 \section{Field Reports from Commercial App Developers}~\label{section-field-reports-case-studies}
-The research includes field reports from developers of three distinct commercial Android apps. Each uses mobile analytics in their regular software development practices.
+The research includes field reports from developers of three distinct commercial Android apps:~\href{study-moonpig}{\nameref{study-moonpig}}, \href{study-moodspace}{\nameref{study-moodspace}}, and \href{study-localhalo}{\nameref{study-localhalo},}; one from a charitable foundation:~\href{study-greentech-apps}{\nameref{study-greentech-apps}}; and SmartNavi~\href{study-smartnavi}{\nameref{study-smartnavi}}. Each uses mobile analytics in their regular software development practices and at least one interview per project actively develops the software used in the app.
+
+The interviewees agreed to provide their perspectives and experiences of using mobile analytics as part of their software development practices and gave permission for whatever they provided to be freely used and shared. They also obtained their organisation's permission and approval if they were not able to act on behalf of their organisation. With the exception of SmartNavi, their source code was not made available - SmartNavi is an opensource project and the codebase is public on GitHub.com.
+
+Each person was interviewed at least once, either face-to-face or online \textbf{TODO} check interview details for MoodSpace. They also provided at least one set of their analytics reports, one - LocalHalo - provided read access to the two mobile analytics tools they used as part of their development practices. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{images/my/developer-interviews-six-perspectives-2x3-matrix.png}
+    \caption{Six Perspectives for the Developer Interviews}
+    \label{fig:six-perspectives-developer-interviews}
+\end{figure}
+
+Figure~\ref{fig:six-perspectives-developer-interviews} indicates which of the six perspectives these interviews contribute to. The main perspective is, unsurprisingly, the developers' perspectives on their uses of mobile analytics, however they also contribute through the source code of the SmartNavi project, and in understanding the status quo of various analytics tools through their experiences and through the access LocalHalo in particular provided to the analytics tools they used.
+
+
+\dotfill
+\subsection{Key considerations and actions}
+Table of what I have for each case, which cases are covered in each analysis.
+TODO Report my analysis methods for these sources.
+
+Do I do collective findings? or as distinct stories.
+
+Cases vs data types, complete the cells with answers, not just ticks.
+
 
 \subsection{Characteristics of the commercial apps}
 
@@ -9,7 +33,7 @@ The research includes field reports from developers of three distinct commercial
     \item Development priorities for their use of analytics
 \end{itemize}
 
-\subsection{Moonpig}
+\subsection{Moonpig}~\label{study-moonpig}
 
 \begin{figure}
     \centering
@@ -31,7 +55,7 @@ For apps that used RoboSpice the crash rate increased on the newer releases of A
     \label{fig:av-moonpig-crash-rate-groupings}
 \end{figure}
 
-\subsection{Moodspace}
+\subsection{Moodspace}~\label{study-moodspace}
 Moodspace is an Android app aimed at improving mental health through various exercises incorporated into the app. It was released in 2019, with over 150K downloads by early 2020~\citep{objectbox2020_moodspace_interview}. Ian Alexander, the interviewee, was the software developer, co-founder, and runner of the company~\citep{objectbox2020_moodspace_interview} so he combines technical and operational responsibilities. He is an experienced app developer and also trained as a chemical engineer.  % https://www.linkedin.com/in/ian-alexander-01353340/
 
 (\nth{13} June 2019)
@@ -85,92 +109,40 @@ There's been a change of branding of the app development organisation to \href{h
 \end{itemize}
 
 
-\subsection{Local Halo}
-MUST-DO complete this sub-section on Local Halo.
-
-Access to their analytics granted in January 2020. Discovered it's possible to grant access for a period in Google Play Console. 
-
-\begin{table}[htbp!]
-    \centering
-    \small
-    \begin{tabular}{ll}
-       Question &Answer  \\
-       Website &\url{https://www.localhalo.com/} \\
-       Founded &2018\\
-       Business Domain &Digital neighbourhood groups in UK.\\
-       Business type &Startup \\
-       Technologies  &React Native \\
-       Analytics Available &Sentry, Mixpanel, Google Play Console \\
-       Development Practices &Cross-platform development
-    \end{tabular}
-    \caption{Case Study Overview: Localhalo}
-    \label{tab:local_halo_anaytics_overview}
-\end{table}
-
-\subsubsection{Experiences of using mobile analytics}
-Localhalo incorporate two analytics libraries into their cross-platform mobile application: sentry for crash reporting and mixpanel for business-oriented usage analytics. For their Android app they also have access to Google Play Console.
-
-They experience numerous crashes reported by Sentry, which occur within the React Native runtime environment. Sentry provides email alerts to the development team together with summary reports, (Figure~\ref{fig:localhalo-sentry-weekly-report-21-sep-2020} is example for the period~\nth{14} to~\nth{21} September 2020), and online access to their analytics.
-
-A release in March 2020 had a high crash rate for the production release of their Android app. The top crash cluster was for:
-
-\texttt{java.lang.RuntimeExceptionhost.exp.exponent.experience.a\$b.run}. 
-
-This was traced to a problem in the expo library they used in the app~\url{https://github.com/expo/expo/issues/5839}~\footnote{Expo is a very popular opensource platform for making universal native apps that run on Android, iOS, and the web \url{https://github.com/expo/expo}.}. In that issue several developers for different Android apps provide data from Google Play Console confirming they also receive similar crash clusters. The cause has not yet been definitively traced or addressed, however for the LocalHalo app the crashes stopped being reported once a new release of the Android app, release 1.3.0, was released around \nth{6} April 2020.
-
-In this GitHub issue, 5839, one of the contributors reported their app's crash rate had gone from below 1\% to 10\%~\footnote{\url{https://github.com/expo/expo/issues/5839\#issuecomment-571271045}} and that users were writing terrible reviews. Another contributor observed that the stack trace in Android Vitals is not very useful, what's needed is the error message that appears in the device's log immediately before the stack trace~\footnote{\url{https://github.com/expo/expo/issues/5839\#issuecomment-583838280}}; \phantomsection
-\textbf{insight} the stack trace is not always sufficient to understand the failure\label{insight-expo-stack-trace-not-sufficient-to-identify-the-failure}.
-
-\begin{figure}[htbp!]
-    \centering
-    \includegraphics[width=9cm]{images/localhalo/sentry-weekly-report-21-Sep-2020.png}
-    \caption{LocalHalo: Sentry weekly report 14 - 21 September 2020}
-    \label{fig:localhalo-sentry-weekly-report-21-sep-2020}
-\end{figure}
-
-\textbf{Sentry}
-
-MUST-DO Check in Sentry for the various types of error. How actively are the development team reading, reviewing and addressing crashes being reported? 
-
-\begin{figure}[htbp!]
-\centering
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=.8\linewidth]{images/localhalo/sentry-weekly-report-16-mar-2020.png}
-  \captionof*{figure}{\nth{16} -~\nth{22} March 2020}
-  \label{fig:localhalo-sentry-weekly-report-16-mar-2020}
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=.8\linewidth]{images/localhalo/sentry-weekly-report-23-mar-2020.png}
-  \captionof*{figure}{\nth{23} -~\nth{29} March 2020}
-  \label{fig:localhalo-sentry-weekly-report-23-mar-2020}
-\end{minipage}
-    \caption{Missing data reported in Sentry}
-    \label{fig:sentry-missing-data-march-2020}
-\end{figure}
-
-\begin{comment}
+\input{empirical-studies/localhalo-case-study}
 
 
-\begin{figure}[htbp!]
-    \centering
-    %\subfigure[]{\includegraphics[width=0.4\textwidth]{images/localhalo/sentry-weekly-report-16-mar-2020.png}\caption{\nth{16} -~\nth{22} March 2020}\label{localhalo-sentry-weekly-report-16-mar-2020}}
-    \subfigure[]{\includegraphics[width=0.4\textwidth]{images/localhalo/sentry-weekly-report-23-mar-2020.png}%\caption{\nth{23} -~\nth{29} March 2020}%\label{localhalo-sentry-weekly-report-23-mar-2020}
-    }
-    \caption{Missing data reported in Sentry}
-    \label{fig:sentry-missing-data-march-2020}
-\end{figure}
-\end{comment}
 
-%TODO fix the layout of the above figures: try: https://tex.stackexchange.com/questions/37581/latex-figures-side-by-side/37597#37597
-Data missing from reports from~\nth{17} March to~\nth{25} March 2020 which affected the statistics around the time of the crashes related to Expo. Figure~\ref{fig:sentry-missing-data-march-2020} illustrates the gap across the two weekly reports. 
+\subsection{SmartNavi}~\label{study-smartnavi}
+SmartNavi is an unusual opensource project that replaces GPS for navigation when the users are walking. It uses significantly less power than using a true GPS provider 
 
-SHOULD-DO Consider summarising the crash totals per week. 
+\begin{itemize}
+    \item SmartNavi project website \url{https://smartnavi.app/home}
+    \item Google promoted the project as an Android experiment \url{https://experiments.withgoogle.com/smartnavi}
+    \item The app was one of the opensource codebases investigated as part of my collaborative research on logging using Google Firebase Analytics.
+    \item First interview: Google Hangouts on \nth{28} Jul 2020
+\end{itemize}
 
-\textbf{MUST-DO} write up what we learn from the localhalo case study. external libraries can adversely affect the reliability of apps. Even small development teams can and do use multiple mobile analytics libraries. What can developers learn from the various reports provided by Sentry? How does cross-platform development in react-native affect the app reliability? are there crashes that only occur on Android or iOS? What's the correlation between crashes reported in Android Vitals and Sentry?
+\newthought{email summary from \nth{28} Jul 2020 for my co-authors of the logging paper}
 
-Note: The founders of local halo indicated~\footnote{Via their respective LinkedIn profiles: \url{https://www.linkedin.com/in/jamesroutledge/} and \url{https://www.linkedin.com/in/andriymarin/}} they are no longer actively involved in this project, and there are confirming indications in sentry.io as the app has not been updated in over a year, in contrast to the many updates they made previously. So even though the app remains online and available, and the analytics continue to report, there is no one actively maintaining the app or dealing with the errors being reported in the analytics.
+The project uses crash reporting (to catch, report, and analyse crashes) and mobile analytics (to try to ascertain where users do and don't use the app). In terms of our coding his use mainly focuses on events generated when users interact with his app.
+The app is mature (5+ years) and originally had analytics he developed himself using MySQL, etc. to record the events. He did this mainly to learn about the topic, he was a bachelors|masters student at the time.
+
+Over the years he's used Firebase and Google Analytics mainly for tracking the popularity and use of the app's features. One of the key challenges for this app in his estimation is helping users who don't understand GPS, etc. why the app may be relevant to them. It saves battery life because of the ways it tracks movement, and is mainly intended for people moving at walking pace (rather than in high-speed vehicles).
+
+He also uses Firebase tools to perform A/B experiments related to tutorials and their usability and effectiveness.
+He spent a lot of time a year or so ago where he actively focused on fixing crashes being reported in Fabric Crashlytics (since superseded by Firebase Crashlytics). The few crashes that remain are ones either too impractical to investigate (e.g. on a few unbranded low-end Android devices he has no access to) or in a third-party library that only occurs again on a few unusual devices.
+The app can run in the background and provide GPS services to other apps e.g. to Google Maps. This has some interesting challenges where Android on various devices and in various conditions may suspend some background activities automatically. If analytics could help track how the background activity is working (and when it's no longer running) that might be very helpful to him and enable him to improve the app's behaviours when run in the background.
+
+He's not proactively working on the app currently. He may spend more time on it soon if he perceives there are new users/use cases for the app. Separately to our research I may help find one or two projects that would be motivating for him e.g. related to mapping Tanzania.
+
+He does coach students at his old university in Germany who are studying marketing. They do various practical exercises to help them gain better marketing skills. 
+
+We've agreed that there's little more to be gained from asking more about his current quiescent use of analytics since he only checks the analytics infrequently in Firebase (he checked it while we were talking, previously it was around 8 weeks ago he thought). He is happy for others to collaborate on the project, to use it, etc.
+
+\nth{30} Jul 2020
+
+He's not actively working on the app, usage is currently in decline - he reckons few new users understand the benefits of the app (walking navigation using less battery than apps that use GPS exclusively). He's waiting/hoping for a fresh burst of interest in the app which will catalyse him into working on the app's codebase again. 
 
 \subsection{Summary of Field Reports}
 Active and ongoing use. 

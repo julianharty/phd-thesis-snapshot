@@ -23,6 +23,23 @@ Include my 3 layers figure. Perhaps the 3 views of quality figure. My data sourc
 \end{enumerate}
 
 
+\section{Some data structures and relationships}
+Figure~\ref{fig:elements-of-crash-logs} includes four coloured shapes, these represent four elements: red:stacktrace, orange:optional message, blue:preceding info, green:connection between the preceding info and the stacktrace. Each can contribute to identifying possible causes for a crash that caused the app to be stopped.
+
+Mobile analytics tools provide some or all of these elements. For instance, Android Vitals provides the stack trace but not the message or any preceding info., whereas Crashlytics and App Center include the message and may include preceding info at times. Some mobile analytics supports the concept of breadcrumbs, where the mobile analytics SDK provides a mechanism to record info that is prepended to the crash log. (The provision of breadcrumbs is often, but not necessarily, in the form of a developer-oriented API. Some SDKs automatically collect breadcrumbs~\footnote{\url{https://docs.sentry.io/platforms/android/}}, for instance Sentry records the network requests and their response codes~\footnote{\url{https://docs.sentry.io/platforms/android/enriching-events/breadcrumbs/\#automatic-breadcrumbs} and \url{https://docs.sentry.io/platforms/react-native/}}.)
+
+Meta data may also be collected and form part of the crash report, for instance: the uptime of the app, the screen orientation, the device model, and the operating system version.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{images/rough-sketches/five-elements-of-crash-logs.jpeg}
+    \caption{Elements of analytics for crash logs}
+    \label{fig:elements-of-crash-logs}
+\end{figure}
+
+
+
 \section{Designing the content/messages} 
 % I'm not sure whether content or messages, or a mix of both words, best encompasses the topic I wish to discuss here. Messages can have content, however sometimes a message is a message by its existence, even with no payload. (2 rings on the home phone when you arrive, told the family you'd arrived without needing to pay for the telephone call. Heartbeat messages in systems, etc.). Also the design may include non-content aspects, content transformations, etc. Anyway, let's get writing. 
 This section applies to messages that an app could emit regardless of the conduit (\emph{i.e.} it applies to logging and using mobile analytics). At the risk of some ambiguity, the term log will be used to reflect both logging and mobile analytics in this section to improve overall readability.
