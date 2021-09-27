@@ -1,6 +1,6 @@
-\subsection{Local Halo}~\label{study-localhalo}
+\section{Local Halo}~\label{study-localhalo}
 LocalHalo was a startup based in London who made a social network for neighbours~\footnote{\url{https://ain.ua/en/2019/10/18/localhalo-raises-500k/}} with developers in Ukraine, London, and Kazakhstan.~\citep{karpenko2019_localhalo_a_social_network_for_neighbors}. 
-Table~\ref{tab:local_halo_anaytics_overview} provides a succinct overview of this case study
+Table~\ref{tab:local_halo_anaytics_overview} provides an overview of this case study
 
 {\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table}[htbp!]
@@ -29,7 +29,7 @@ Table~\ref{tab:local_halo_anaytics_overview} provides a succinct overview of thi
        Active period &Jan 2020 to June 2020 \\
        \bottomrule
     \end{tabular}
-    \caption{Case Study key facts: Localhalo}
+    \caption{Case Study key facts: LocalHalo}
     \label{tab:local_halo_anaytics_overview}
 \end{table}
 }
@@ -44,23 +44,23 @@ The aims and objectives of this case study include:
 This case study contributed to several of the six perspectives; primarily to the developer's perspective on the their use of mobile analytics, and to understanding the status quo of mobile analytics tools.
 
 
-\subsubsection{LocalHalo: Background - How the case study came about}
+\subsection{LocalHalo: Background - How the case study came about}
 The case study was started through initial discussions with the CEO, James Routledge, in November 2019. He arranged for the CTO, Andriy Marin, to have a discussion to agree on how they could help and participate in this research. This discussion was an online call on \nth{17} Jan 2020 where we agreed on the scope, etc. Two pages of \emph{ad-hoc} handwritten notes were made during the call, and a summary was written up and emailed to them of what was agreed during the call. They responded and confirmed they data and findings couple be used as part of this research.
 
 The CTO provided access to two of the three mobile analytics services; these two were Google Play Console with Android Vitals and Sentry~\footnote{\url{https://sentry.io/welcome/}}, which was used to track technical issues with their app and website. We agreed the research would not have access to the third analytics service, mixpanel~\footnote{\url{https://mixpanel.com/}}, which they used for user behaviour and related analytics. This service included personally identifiable information of their users and would not be useful for this research. We also agreed no access would be provided to the source code as that was deemed sensitive. 
 
-\subsubsection{LocalHalo: development microcosm}
+\subsection{LocalHalo: development microcosm}
 The development team used the Expo development platform \url{https://expo.dev/} to create native apps that ran on Android and iOS apps. These apps were released on Google Play and Apple's App Store respectively. The CTO was actively involved in writing and maintaining the source code and was supported by developers in three locations, in the Ukraine, London, and Kazakhstan.~\citep{karpenko2019_localhalo_a_social_network_for_neighbors}. 
 
 Little additional information was available in terms of their development or release practices for their mobile apps. One observation is Expo claims to automate the release process to the app stores so the LocalHalo development team may have relied and used the Expo service.
 
-\subsubsection{LocalHalo: applying analytics to the development practice}
+\subsection{LocalHalo: applying analytics to the development practice}
 Localhalo incorporated two analytics libraries into their cross-platform mobile application: Sentry for crash reporting and Mixpanel for business-oriented usage analytics. For their Android app they also had access to Google Play Console.
 
 They seldom used Google Play Console with Android Vitals, it did not suit apps developed in React Native as the crashes did not actually crash the shell app which wraps the React Native app~\footnote{Note, other developers have asked about this behaviour, for instance on StackOverflow \href{https://stackoverflow.com/questions/66166824/native-crash-reporting-for-expo-deployed-to-android/}{Native crash reporting for Expo deployed to Android?}} 
-(which is what appears to be monitored by Android). The shell app restarts the react native app automatically.
+(which is what appears to be monitored by Android). The shell app restarts the React Native app automatically.
 
-The development chose to use separate analytics services for user behaviour analytics (Mixpanel) and issues such as crashes and anomalies (Sentry). Presumably the respective SDKs were incorporated into the React Native source code~\footnote{Some of the errors reported by Sentry indicate the integration used TypeScript (which is supported in React Native, see \url{https://reactnative.dev/docs/typescript}. Mixpanel also provides an opensource wrapper that supports react native \url{https://github.com/mixpanel/mixpanel-react-native}.}~\footnote{Note: they also incorporated Sentry into their website and provided access to Sentry for their website, however the website is out of scope for this research and will not be considered further here.}. Only two people have access to Sentry: the CTO and me, therefore any other members of the development team would have indirect access, for instance via screenshots and/or bug reports raised by the CTO. 
+The development chose to use separate analytics services for user behaviour analytics (Mixpanel) and issues such as crashes and anomalies (Sentry). Presumably the respective SDKs were incorporated into the React Native source code~\footnote{Some of the errors reported by Sentry indicate the integration used TypeScript (which is supported in React Native, see \url{https://reactnative.dev/docs/typescript}. Mixpanel also provides an opensource wrapper that supports React Native \url{https://github.com/mixpanel/mixpanel-react-native}.}~\footnote{Note: they also incorporated Sentry into their website and provided access to Sentry for their website, however the website is out of scope for this research and will not be considered further here.}. Only two people have access to Sentry: the CTO and me, therefore any other members of the development team would have indirect access, for instance via screenshots and/or bug reports raised by the CTO. 
 
 They saw value in using analytics to improve business results, for instance for App Store Optimisation to improve the ranking of their app in the app stores. The CTO made a key observation during the interview \emph{``If you have lots of crashes you have zero chance of being promoted [by the app store]."}
 
@@ -68,7 +68,7 @@ In terms of user experience analytics the CTO also observed \emph{``To improve u
 
 The overall impression was the team had decided to incorporate mobile analytics to help them provide a reliable and valuable service for their current and hoped-for users where the team would address errors on an \emph{ad-hoc} basis.
 
-\subsubsection{LocalHalo: Experiences of using mobile analytics}
+\subsection{LocalHalo: Experiences of using mobile analytics}
 They experience numerous crashes reported by Sentry, which occur within the React Native runtime environment. In March and April 2020 high failure rates were also reported in Google Play Console and Android Vitals. Figure \ref{fig:localhalo-android-vitals-no-data-16-march-2020} was recorded on \nth{16} March 2020 before these started and shows the App Health Overview page in Figure~\ref{fig:localhalo-apphealthoverview-no-data-16-mar-2020} with a link to a video introducing Android Vitals~\footnote{This appears as a mainly black rectangle in this thumbnail screenshot.}, and Figure~\ref{fig:localhalo-apphealthdetails-no-data-16-mar-2020}.
 
 \begin{figure}[htbp!]
@@ -138,7 +138,9 @@ In this GitHub issue, 5839, one of the contributors reported their app's crash r
 \end{figure}
 
 
-\subsubsection{LocalHalo: data collected and methods used for collection}
+\subsection{LocalHalo: data collected and methods used for collection}
+TODO add an opening summary of what follows, consider using bold face.
+
 \newthought{Emails from Sentry}
 The majority of data was provided by email from Sentry~\footnote{Note: access has been available to Sentry Mobile Analytics since late January 2020 and has continued through to September 2021. Access to Google Play Console was provided from \nth{20} January 2020 for roughly six months.}. Some of these emails were for alerts~\footnote{\url{https://docs.sentry.io/product/alerts/}} configured in Sentry. There were two alerts: 1) Send a notification for new issues that continue for at least 30 minutes, and 2) Send a notification for new issues for issues seen by more than 10 users in one day. Sentry also sent weekly summary reports by email for the project from \nth{25} May 2020.
 
@@ -183,7 +185,7 @@ Email provided an effective way to have asynchronous conversations about their a
 \end{wrapfigure}
 
 
-\subsubsection{LocalHalo: Research findings and results from the Case Study}
+\subsection{LocalHalo: Research findings and results from the Case Study}
 Android Vitals does report a combined count of crashes and ANRs in the dashboard even for small volumes; however it does not provide any details of these crashes or ANRs in Android Vitals, when the overall volumes are low (low tens of failures per month).
 
 Various flaws in Google Play Console and Android Vitals were corroborated by this case study. The details are aggregated and discussed in \secref{section-google-play-console-case-study}.
@@ -198,19 +200,22 @@ In hindsight, it appears the team did not spot the rapid increase in crash and A
 Data missing from reports from~\nth{17} March to~\nth{25} March 2020 which affected the statistics around the time of the crashes related to Expo. Figure~\ref{fig:sentry-missing-data-march-2020} illustrates the gap across the two weekly reports. 
 
 
-\subsubsection{LocalHalo: Outcomes for the company}
+\subsection{LocalHalo: Outcomes for the company}
 The nature of the case study (being remote from the development team, with access limited to two of the mobile analytics services, and correspondence being occasional) meant the outcomes for the company are hard to ascertain. It is clear the founders saw the value in choosing two particular mobile analytics services to help them manage the business and the service their provided to their users. 
 
 Their main focus was to try to grow the business. Ultimately that was not successful, a topic discussed briefly in the next section. The analytics tools continue to report on the app and the website and continue to provide some insights into the reliability of the app and usage of the app.
 
-\subsubsection{LocalHalo: Discussion}
+\subsection{LocalHalo: Discussion}
 Even small development teams can and do use multiple mobile analytics libraries.  The errors reported by the mobile analytics demonstrate external libraries can adversely affect the reliability of apps. 
 
 There are numerous open questions, for instance: What can developers learn from the various reports provided by Sentry? How does cross-platform development in react-native affect the app reliability? are there crashes that only occur on Android or iOS? What's the correlation between crashes reported in Android Vitals and Sentry?
 
 Note: The founders of local halo indicated~\footnote{Via their respective LinkedIn profiles: \url{https://www.linkedin.com/in/jamesroutledge/} and \url{https://www.linkedin.com/in/andriymarin/}} they are no longer actively involved in this project, and there are confirming indications in sentry.io as the app has not been updated in over a year, in contrast to the many updates they made previously. So even though the app remains online and available, and the analytics continue to report, there is no one actively maintaining the app or dealing with the errors being reported in the analytics.
 
-\subsubsection{LocalHalo: Contributions to the research and where they are located in the rest of this thesis}
+TODO expand The analytics data provides data for retrospective insights. 
+
+
+\subsection{LocalHalo: Contributions to the research and where they are located in the rest of this thesis}
 This case study contributes to the material on Sentry in \secref{analytics-tools-sentry} and to the material on Google Play Console with Android Vitals in \secref{section-google-play-console-case-study}.
 
 
@@ -225,8 +230,8 @@ Extra information available includes:
     \item Their local communities for \href{https://docs.google.com/spreadsheets/d/1iqOvNjRlHIpoRzd61BcBLVkSxGvbta6vrzH2Jgc50aY/htmlview#}{COVID-19 volunteer support communities}.
     \item A social network for neighbors \url{https://ain.ua/en/2019/10/18/localhalo-raises-500k/}
     \item Stack Overflow questions (unpopular and seldom answered) \url{https://stackoverflow.com/questions/tagged/react-native+expo+crash}, a more general search does better \url{https://stackoverflow.com/search?q=\%5Breact-native\%5D+\%5Bexpo\%5D+crash}
-    \item Some interesting projects to add device information to react native apps \url{https://github.com/robinpowered/react-native-vitals} and \url{https://github.com/robinpowered/react-native-device-battery}
-    \item A long article, with screenshots in Polish or a similar language on publishing react native expo apps to both app stores \url{https://pagepro.co/blog/publishing-expo-react-native-app-to-ios-and-android/}
+    \item Some interesting projects to add device information to React Native apps \url{https://github.com/robinpowered/react-native-vitals} and \url{https://github.com/robinpowered/react-native-device-battery}
+    \item A long article, with screenshots in Polish or a similar language on publishing React Native expo apps to both app stores \url{https://pagepro.co/blog/publishing-expo-react-native-app-to-ios-and-android/}
     \item \href{https://gist.github.com/himgupta229/83b4fd61f294020258976e3edb10b16a}{GitHub GIST: JSON for ANR in Sentry}.
     \item Expo recommends Sentry and documents the integration \url{https://docs.expo.dev/guides/using-sentry/}.
     \item Excellent in-depth discussion on what dev's dislike about React Native \href{https://github.com/react-native-community/discussions-and-proposals/issues/64}{GitHub React Native Issue 64}, for instance on debugging exceptions and on lack of resilience to crashes. Facebook provide a similarly detailed reply in \href{https://github.com/react-native-community/discussions-and-proposals/issues/104}{Issue 104 on GitHub}. They followed up this approach in June 2019 in \href{https://github.com/react-native-community/discussions-and-proposals/issues/134}{Issue 134}.
