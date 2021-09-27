@@ -59,6 +59,8 @@ Their software engineering team have been actively involved in encouraging the w
 \subsection{Moonpig: Experiences of using mobile analytics}
 The development team use Firebase Crashlytics and Google Analytics for diagnostics in addition to the information available in Android Vitals; and estimated they used Android Vitals approximately 30\% of their time to identify flaws and issues related to their Android app.
 
+They also incorporated in-app analytics by using Firebase Analytics which recorded analytics related to how the users use the mobile apps and whether errors or other problems occurred while the app was being used. 
+
 \definecolor{Gray}{gray}{0.85}
 
 \begin{table}
@@ -153,7 +155,9 @@ On \nth{16} July 2019, Denise Lavington provided a review of the Android app and
 The lead developer investigated this reported issue and could not find any crash in Firebase or Android Vitals that might affect purchases. A possible reason for why the crash did not appear in Android Vitals is that the underlying data is only provided by a user's device if they've opted-in to automatically providing their usage and diagnostics data~\citep{google_play_view_crashes_and_anr_errors} \textit{and} if the aggregate data exceeds an undocumented threshold (a topic discussed elsewhere in the thesis).
 
 \subsection{Moonpig: data collected and methods used for collection}
-The data was collected though a mix of in-person and online working sessions together with various email conversations. Screenshots and other materials were emailed by the lead developer to the researcher. The lead developer also ran Vitals Scraper to help evaluate whether it worked beyond the local use as part of various case studies. 
+The data was collected though a mix of in-person and online working sessions together with various email conversations. Screenshots and other materials were emailed by the lead developer to the researcher. 
+
+The lead developer also ran Vitals Scraper to help evaluate whether it worked beyond the local use as part of various case studies. They sent the JSON results containing the crash clusters collected by Vitals Scraper.  
 
 \subsection{Moonpig: Research findings and results from the Case Study}
 
@@ -180,6 +184,16 @@ For apps that used RoboSpice the crash rate increased on the newer releases of A
 \subsection{Moonpig: Outcomes for the company}
 For over two years since the case study started, in June 2019, the Android app has been highly rated by end users in Google Play. According to AppBrain it is in the top 1\% of apps by rating, and in the top 5\% in both ratings (46,000) and downloads (estimated at 3,000,000)~\citep{appbrain_moonpig}.
 
+The company was able to `go public' in February 2021 by listing on the London Stock Exchange.  
+
 \subsection{Moonpig: Discussion}
+The engineering team had integrated the use of mobile analytics into their development, engineering, and operational practices. They endeavoured to collect sufficient data to enable them to respond quickly to failures in use with their app and to analyse new issues within days so they could address the issues quickly, efficiently, and effectively. They were able to do so through incorporating Firebase Analytics in addition to Firebase Crashlytics. Firebase Analytics is discussed in more detail in \secref{chapter-discussion} and in \secref{appendix-analytics-tools}.
+
+The nature of Moonpig's business means they often have information pertaining to users of their app: users need to be logged in to use the shopping basket and make purchases, \emph{etc.} 
+Some of the bugs may pertain to user-specific data. Firebase is one of a wide range of mobile analytics offerings that can collect user-related data
+
+
+Their privacy policy at the time~\citep{moonpig_privacy_policy_2019_feb_21}, and subsequently in~\citep{moonpig_privacy_policy_2021_aug_12} alludes to the the type of data being recorded, the purposes of collecting it, and who it may be shared with. Mobile Analytics is not mentioned explicitly, nor are the providers of the analytics services.
 
 \subsection{Moonpig: Contributions to the research and where they are located in the rest of this thesis}
+This case study provides contributions to the Findings section \secref{findings-section}. It also a source used when describing Firebase Analytics in \secref{chapter-discussion} and in \secref{appendix-analytics-tools}. It also supports Vitals Scraper, covered in \secref{section-vitals-scraper}. \secref{prerequisites-desirable}

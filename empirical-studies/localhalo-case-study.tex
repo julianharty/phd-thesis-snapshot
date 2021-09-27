@@ -139,13 +139,39 @@ In this GitHub issue, 5839, one of the contributors reported their app's crash r
 
 
 \subsection{LocalHalo: data collected and methods used for collection}
-TODO add an opening summary of what follows, consider using bold face.
+This case study combines three immediate sources of data: separate meetings with the founders, email conversations, and online access to two mobile analytics tools. It also includes over 240 automated emails from Sentry's hosted mobile analytics service. Vital Scraper was also used to collect reports and crash details from Google Play Console with Android Vitals.
 
-\newthought{Emails from Sentry}
-The majority of data was provided by email from Sentry~\footnote{Note: access has been available to Sentry Mobile Analytics since late January 2020 and has continued through to September 2021. Access to Google Play Console was provided from \nth{20} January 2020 for roughly six months.}. Some of these emails were for alerts~\footnote{\url{https://docs.sentry.io/product/alerts/}} configured in Sentry. There were two alerts: 1) Send a notification for new issues that continue for at least 30 minutes, and 2) Send a notification for new issues for issues seen by more than 10 users in one day. Sentry also sent weekly summary reports by email for the project from \nth{25} May 2020.
+\newthought{Meetings with the founders}
 
-In the email reports there were approximately 100 alerts were reported in the five months of the case study. These include alerts for iOS devices, Android devices (4), % https://mail.google.com/mail/u/0/#advanced-search/subset=all&has=localhalo+react-mobile+android&within=6m&sizeoperator=s_sl&sizeunit=s_smb&date=2020%2F01%2F01&query=localhalo+react-mobile+android
-and also some triggered on a developer's laptop. Five of the alerts are for ANRs. Note: a significant proportion of errors started being reported towards the end of the active case study and subsequently for native Java Exceptions. These include: \texttt{RuntimeException} (9), \texttt{IllegalArgumentException} (1), \texttt{JSApplicationIllegalArgumentException} (1), \texttt{NoSuchFieldException} (1), \texttt{NullPointerException} (1), and \texttt{UnexpectedNativeTypeException} (1); \emph{i.e.} a total of 14 alerts reported for Java exceptions between \nth{1} May 2020 and \nth{30} Jun 2020. % https://mail.google.com/mail/u/0/#advanced-search/subset=all&has=localhalo+react-mobile+android&within=6m&sizeoperator=s_sl&sizeunit=s_smb&date=2020%2F01%2F01&query=localhalo+react-mobile+android
+The first meeting with the CEO was online as he was in New York, USA at the time, and the second was in person in Central London. Their main contribution in terms of the research was to enable this case study to happen. The CEO arranged a subsequent meeting with the CTO which was online and this meeting was where the context and scope of the research and this case study were agreed. 
+
+\newthought{Email conversations}
+
+Email provided an effective way to have asynchronous conversations about their app and what the mobile analytics reports reported. For example, the high failure rates reported in Android Vitals and the cause of these issues was discussed by email with the CTO. 
+
+\newthought{Interactive access to Sentry}
+
+Interactive access is seamless when the web browser is logged into Sentry (indeed visiting their public website is hard to do unless an incognito browser session is used). Sentry also provides API access, however this was not used in the case study, nor was it mentioned during the interview or the discussions. The topic is explored in the section on mobile analytics tools, in \href{analytics-tools-sentry}{\nameref{analytics-tools-sentry}}. 
+
+\newthought{Interactive access to Google Play Console with Android Vitals}
+
+The CTO provided read access to Google Play Console, initially for two months. This was extended for several months to facilitate ongoing research which had been adversely delayed by the effects of Covid-19 and a death in the family. Some initial analysis of Google Play Console and Android Vitals was performed interactively, however Vitals Scraper (developed as part of this research) was used to programmatically save visual reports and extract summary data, and crash and ANR clusters.
+
+\newthought{Vitals Scraper} 
+
+As mentioned in the previous paragraph, our Vitals Scraper was used to collect reports and summary data via Google Play Console including Android Vitals. Vitals Scraper was run with the \texttt{--mode=overview} option~\footnote{Details of the command line options are in the project's \href{https://github.com/commercetest/vitals-scraper}{README}.}, mainly as there were seldom any crash or ANR clusters available.
+
+The results of the runs consist of images and csv files; these are currently stored in Dropbox. For completeness, there is no personal data in any of these reports. Figure \ref{fig:gpc-dashboard-for-localhalo-android-resized} provides a thumbnail example of the initial and main 'Dashboard' report Google Play Console provided and Vitals Scraper generated~\footnote{Thank you to \url{https://resizeimage.net/} which was used to resize the images to generate the thumbnails.}. Figures \ref{fig:localhalo-android-vitals-no-data-16-march-2020} and \ref{fig:localhalo-android-vitals-high-failures-26-march-2020} are similar thumbnails of Android Vitals reports captured by Vitals Scraper for this project~\footnote{The original reports and therefore screens have deep footers which have been manually truncated so these thumbnails fit better in this thesis.}.
+
+
+\newthought{Automated emails from Sentry}
+
+The majority of data was provided in over 240 automated emails generated and sent from Sentry~\footnote{Note: access has been available to Sentry Mobile Analytics since late January 2020 and has continued through to September 2021. Access to Google Play Console was provided from \nth{20} January 2020 for roughly five months.}. Some of these emails were for alerts~\footnote{\url{https://docs.sentry.io/product/alerts/}} configured in Sentry. There were two alerts: 1) Send a notification for new issues that continue for at least 30 minutes, and 2) Send a notification for new issues for issues seen by more than 10 users in one day. Sentry also sent weekly summary reports by email for the project from \nth{25} May 2020.
+
+In the email reports there were approximately 100 alerts were reported in the five months of the case study. These include alerts for iOS devices, Android devices %(4) % https://mail.google.com/mail/u/0/#advanced-search/subset=all&has=localhalo+react-mobile+android&within=6m&sizeoperator=s_sl&sizeunit=s_smb&date=2020%2F01%2F01&query=localhalo+react-mobile+android
+, and also some triggered on a developer's laptop. Five of the alerts are for ANRs. 
+
+A significant proportion of errors started being reported towards the end of the active case study and subsequently for native Java Exceptions. These include: \texttt{RuntimeException} (9), \texttt{IllegalArgumentException} (1), \texttt{JSApplicationIllegalArgumentException} (1), \texttt{NoSuchFieldException} (1), \texttt{NullPointerException} (1), and \texttt{UnexpectedNativeTypeException} (1); \emph{i.e.} a total of 14 alerts reported for Java exceptions between \nth{1} May 2020 and \nth{30} Jun 2020. % https://mail.google.com/mail/u/0/#advanced-search/subset=all&has=localhalo+react-mobile+android&within=6m&sizeoperator=s_sl&sizeunit=s_smb&date=2020%2F01%2F01&query=localhalo+react-mobile+android
 These exceptions may map to those counted by Google Play Console's Dashboard, however given the paucity of information in Android Vitals this was not practical to verify.
 %For the full set use https://mail.google.com/mail/u/0/#search/localhalo+react-mobile+java
 
@@ -161,20 +187,6 @@ Other errors included runtime errors with libraries used by the developers withi
 \end{wrapfigure}
 
 The weekly reports indicate the majority of detected issues were existing issues, for instance 90.1\% in the week 14 - 21 September 2020, as illustrated in Figure~\ref{fig:localhalo-sentry-weekly-report-21-sep-2020}. This is illustrative, the lowest percentage was 75.6\% and the highest 100\% in the 16 months they have been provided by email. Note the weekly report's analytics combine the react-mobile and website error data, therefore they are not very useful in terms of analytics for solely the mobile app. However, they do include various counts that are specific to the mobile app and therefore useful for a sanity check of the volume of errors on a weekly basis.
-
-\newthought{Interactive access to Sentry}
-Interactive access is seamless when the web browser is logged into Sentry (indeed visiting their public website is hard to do unless an incognito browser session is used). Sentry also provides API access, however this was not used in the case study, nor was it mentioned during the interview or the discussions. The topic is explored in the section on mobile analytics tools, in \href{analytics-tools-sentry}{\nameref{analytics-tools-sentry}}. 
-
-\newthought{Interactive access to Google Play Console with Android Vitals}
-The CTO provided read access to Google Play Console, initially for two months. This was extended for several months to facilitate ongoing research which had been adversely delayed by the effects of Covid-19 and a death in the family. Some initial analysis of Google Play Console and Android Vitals was performed interactively, however Vitals Scraper (developed as part of this research) was used to programmatically save visual reports and extract summary data, and crash and ANR clusters.
-
-\newthought{Vitals Scraper}
-As mentioned in the previous paragraph, our Vitals Scraper was used to collect reports and summary data via Google Play Console including Android Vitals. Vitals Scraper was run with the \texttt{--mode=overview} option~\footnote{Details of the command line options are in the project's \href{https://github.com/commercetest/vitals-scraper}{README}.}, mainly as there were seldom any crash or ANR clusters available.
-
-The results of the runs consist of images and csv files; these are currently stored in Dropbox. For completeness, there is no personal data in any of these reports. Figure \ref{fig:gpc-dashboard-for-localhalo-android-resized} provides a thumbnail example of the initial and main 'Dashboard' report Google Play Console provided and Vitals Scraper generated~\footnote{Thank you to \url{https://resizeimage.net/} which was used to resize the images to generate the thumbnails.}. Figures \ref{fig:localhalo-android-vitals-no-data-16-march-2020} and \ref{fig:localhalo-android-vitals-high-failures-26-march-2020} are similar thumbnails of Android Vitals reports captured by Vitals Scraper for this project~\footnote{The original reports and therefore screens have deep footers which have been manually truncated so these thumbnails fit better in this thesis.}.
-
-\newthought{email conversations}
-Email provided an effective way to have asynchronous conversations about their app and what the mobile analytics reports reported. For example, the high failure rates reported in Android Vitals and the cause of these issues was discussed by email with the CTO. 
 
 \begin{wrapfigure}{R}{0.5\textwidth}
   \begin{center}
@@ -206,18 +218,21 @@ The nature of the case study (being remote from the development team, with acces
 Their main focus was to try to grow the business. Ultimately that was not successful, a topic discussed briefly in the next section. The analytics tools continue to report on the app and the website and continue to provide some insights into the reliability of the app and usage of the app.
 
 \subsection{LocalHalo: Discussion}
-Even small development teams can and do use multiple mobile analytics libraries.  The errors reported by the mobile analytics demonstrate external libraries can adversely affect the reliability of apps. 
+Even small development teams can and do use multiple mobile analytics services. It was not practical to establish how actively they monitored or responded to the various reports and alerts. The CTO did mention they were working flat out with a small development team at the time; and it is possible they only investigated the app failures related to Expo once they were contacted by the researcher.   
+
+The errors reported by the mobile analytics demonstrate external libraries can adversely affect the reliability of apps. And the combination of a void in the data in Sentry which aligned with the high failure rates being reported in Android Vitals illustrates 1) it is possible for in-app analytics to fail, and even to potentially cause the app to fail; 2) that platform analytics can complement in-app analytics.
 
 There are numerous open questions, for instance: What can developers learn from the various reports provided by Sentry? How does cross-platform development in react-native affect the app reliability? are there crashes that only occur on Android or iOS? What's the correlation between crashes reported in Android Vitals and Sentry?
 
 Note: The founders of local halo indicated~\footnote{Via their respective LinkedIn profiles: \url{https://www.linkedin.com/in/jamesroutledge/} and \url{https://www.linkedin.com/in/andriymarin/}} they are no longer actively involved in this project, and there are confirming indications in sentry.io as the app has not been updated in over a year, in contrast to the many updates they made previously. So even though the app remains online and available, and the analytics continue to report, there is no one actively maintaining the app or dealing with the errors being reported in the analytics.
 
-TODO expand The analytics data provides data for retrospective insights. 
+\newthought{The analytics data provides data for retrospective insights}
+
+Having ongoing long term access to Sentry and their provision of alerts and weekly summary emails provided an unexpected opportunity to use these to obtain some retrospective insights. Some examples include: the discovery that the servers used by the LocalHalo app have been returning 404 response codes for many weeks, and some of the internal development practices including how at least one developer tested the app.
 
 
 \subsection{LocalHalo: Contributions to the research and where they are located in the rest of this thesis}
-This case study contributes to the material on Sentry in \secref{analytics-tools-sentry} and to the material on Google Play Console with Android Vitals in \secref{section-google-play-console-case-study}.
-
+This case study contributes to the material on Sentry in \secref{analytics-tools-sentry} and to the material on Google Play Console with Android Vitals in \secref{section-google-play-console-case-study}. It also contributes to the Findings section \secref{findings-section}.
 
 
 \begin{comment}
