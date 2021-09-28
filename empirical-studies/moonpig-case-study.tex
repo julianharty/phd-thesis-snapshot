@@ -49,7 +49,7 @@ Sources:
 
 
 \subsection{Moonpig: Background - How the case study came about}
-The lead developer for the Android app learned about this research and offered to provide their insights into their use of mobile analytics for their Android app. Both the head of engineering and communication manager approved him doing so and gave permission for the material to be used in this research.
+One of the developers of the Android app learned about this research and offered to provide their insights into their use of mobile analytics for their Android app. Both the head of engineering and communication manager approved him doing so and gave permission for the material to be used.
 
 \subsection{Moonpig: development microcosm}
 The engineering organisation consisted of various teams, including a team for the Android app. At the time of the case study, the Android app combined several generations of their architecture and used various third-party libraries.
@@ -66,8 +66,8 @@ They also incorporated in-app analytics by using Firebase Analytics which record
 \begin{table}
   \begin{threeparttable}
   % \begin{tabular}{ccccccR{2cm}}
-  \caption{Moonpig: Comparisons of sessions impacted by crashes}
-  \label{tab:moonpig_apps_crash_rate}
+  \caption{July 2019 Case Studies: Comparisons of sessions impacted by crashes}
+  \label{tab:July2019_case_studies_apps_crash_rate}
   \begin{tabular}{>{\centering\arraybackslash}m{0.5cm}>{\centering\arraybackslash}m{0.5cm}>{\centering\arraybackslash}m{0.5cm}>{\centering\arraybackslash}m{0.5cm}>{\centering\arraybackslash}m{0.6cm}|>{\centering\arraybackslash\columncolor{Gray}}m{0.8cm}|>{\raggedright\arraybackslash}m{2.6cm}}
     \toprule
      \multicolumn{5}{c}{Android Version} &Overall& \\
@@ -76,10 +76,10 @@ They also incorporated in-app analytics by using Firebase Analytics which record
     0.42\% &1.43\% &3.48\% &3.48\% &6.49\% &4.05\% &Kiwix\tnote{1}\\
            &0.45\% &0.75\% &0.89\% &1.52\% &1.07\% &WikiMed (en)\tnote{2}\\
            &       &2.69\% &4.07\% &3.77\% &3.45\% &PhET Simulations\tnote{3}\\
-           % &       &       &0.22\% &0.15\% &0.19\% &Moodspace\tnote{4} \\
-           &0.06\% &0.14\% &0.09\% &0.93\% &0.61\% &Moonpig\tnote{4}\\
-           &       &1.38\% &1.51\% &2.16\% &1.66\% &Pocket Paint\tnote{5} \\
-           % &       &6.41\% &1.92\% &3.62\% &3.91\% &Pocket Code\tnote{7} \\
+           &       &       &0.22\% &0.15\% &0.19\% &Moodspace\tnote{4} \\
+           &0.06\% &0.14\% &0.09\% &0.93\% &0.61\% &Moonpig\tnote{5}\\
+           &       &1.38\% &1.51\% &2.16\% &1.66\% &Pocket Paint\tnote{6} \\
+           &       &6.41\% &1.92\% &3.62\% &3.91\% &Pocket Code\tnote{7} \\
   \bottomrule
 \end{tabular}
 \begin{tablenotes}
@@ -93,19 +93,21 @@ They also incorporated in-app analytics by using Firebase Analytics which record
 \item [1]\url{https://play.google.com/store/apps/details?id=org.kiwix.kiwixmobile}
 \item [2]\url{https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomwikimed}
 \item [3]Chemistry \& Physics simulations app \url{https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomphet} using material from \url{https://phet.colorado.edu/}  
-% \item [4]\url{https://play.google.com/store/apps/details?id=boundless.moodgym}
-\item [4]\url{https://play.google.com/store/apps/details?id=com.commonagency.moonpig.uk}
-\item [5]\url{https://play.google.com/store/apps/details?id=org.catrobat.paintroid}
-% \item[7]\url{https://play.google.com/store/apps/details?id=org.catrobat.catroid}
+\item [4]\url{https://play.google.com/store/apps/details?id=boundless.moodgym}
+\item [5]\url{https://play.google.com/store/apps/details?id=com.commonagency.moonpig.uk}
+\item [6]\url{https://play.google.com/store/apps/details?id=org.catrobat.paintroid}
+\item[7]\url{https://play.google.com/store/apps/details?id=org.catrobat.catroid}
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-Table \ref{tab:moonpig_apps_crash_rate} shows their app in comparison to those of several of the other case studies at the time. It was the most reliable of those apps. However the crash rate on Android 9 (0.93\%) is at least six times higher than for other versions of Android and is the main reason why the overall crash rate is 0.61\% rather than around 0.1\%.
+\julian{Table \ref{tab:July2019_case_studies_apps_crash_rate}includes data for the case studies in 2019. I'm not sure where to locate it in the thesis and/or whether to repeat it. Advice please?}
 
-For the Moonpig app, a major cause of the higher crash rate on Android 9 is their use of an older third-party library RoboSpice\footnote{\url{https://github.com/stephanenicolas/robospice}}. Behavioural changes in Android 8 and more recently in Android 9 meant this library was no longer viable and this open source library was archived in January 2018. One of the main reasons given by the lead maintainer was changes in Android 8.0~\citep{Robospice01}; and unsurprisingly the library was not developed with Android 9.0 in mind. 
+Table \ref{tab:July2019_case_studies_apps_crash_rate} shows their app in comparison to those of several of the other case studies at the time in early summer 2019. It would have been the most reliable of those apps, however the crash rate on Android 9 (0.93\%) is at least six times higher than for other versions of Android and is the main reason why the overall crash rate is 0.61\% rather than around 0.1\%. The demands on the Moodspace app are far simpler (and discussed in that case study \secref{study-moodspace}). %empirically high reliability is hard to achieve and maintain as the demands on a codebase increases.
 
-Documentation for Android 8.0 explained key behavioral changes in background processing\footnote{\url{https://developer.android.com/about/versions/oreo/android-8.0-changes\#back-all} and \url{https://developer.android.com/about/versions/oreo/background}} However, for the Moonpig Android app the crash rate remains low on Android 8.0 (0.14\%) and 8.1 (0.09\%) yet increased several fold to 0.93\% on Android 9 devices. According to Jakob Durstberger one of the Moonpig Android developers: \textit{"As far as we are aware it is related to an issue on Android 9 that triggers an \texttt{IllegalStateException} when launching a service after resuming"}. He provided a reference to the underlying issue on StackOverflow\footnote{\url{https://stackoverflow.com/questions/52013545/android-9-0-not-allowed-to-start-service-app-is-in-background-after-onresume}}. In turn the StackOverflow topic links to a google issue \url{https://issuetracker.google.com/issues/113122354}. In response \#20 Google states: `The issue has been addressed in future Android release.' and also provide a workaround. However, various developers continue to report this crash. 
+For the Moonpig app, a major cause of the higher crash rate on Android 9 is their use of an older third-party library RoboSpice\footnote{\url{https://github.com/stephanenicolas/robospice}}. Behavioural changes in Android 8 and more recently in Android 9 meant this library was no longer viable and this open source library was archived in January 2018. One of the main reasons given by the lead maintainer of RoboSpice was changes in Android 8.0~\citep{Robospice01}; and unsurprisingly the library was not developed with Android 9.0 in mind. 
+
+Documentation for Android 8.0 explained key behavioral changes in background processing\footnote{\url{https://developer.android.com/about/versions/oreo/android-8.0-changes\#back-all} and \url{https://developer.android.com/about/versions/oreo/background}} However, for the Moonpig Android app the crash rate remained low on Android 8.0 (0.14\%) and 8.1 (0.09\%) yet increased several fold to 0.93\% on Android 9 devices. According to Jakob Durstberger one of the Moonpig Android developers: \textit{"As far as we are aware it is related to an issue on Android 9 that triggers an \texttt{IllegalStateException} when launching a service after resuming"}. He provided a reference to the underlying issue on StackOverflow\footnote{\url{https://stackoverflow.com/questions/52013545/android-9-0-not-allowed-to-start-service-app-is-in-background-after-onresume}}. In turn the StackOverflow topic links to a google issue \url{https://issuetracker.google.com/issues/113122354}. In response \#20 Google states: `The issue has been addressed in future Android release.' and also provide a workaround. However, various developers continue to report this crash. 
 
 At the time the mitigation used by the Moonpig development team was to target Android 8.0, API level 26: \textit{"what you found in relation to Android 8 and RoboSpice is the reason why we are still targeting SDK 26."}. They wanted to avoid changes in behaviour when the target was set to 28 (Android 9) or higher.
 
@@ -113,8 +115,22 @@ At the time the mitigation used by the Moonpig development team was to target An
     \emph{``Android 9 (API level 28) introduces a number of changes to the Android system. The following behavior changes apply exclusively to apps that are targeting API level 28 or higher."}~\citep{android_behavior_changes_apps_targeting_api_level_28plus}.
 \end{quote}
 
-By mid-October 2019 they had released a new version of the app that removed any use of RoboSpice. 
+By mid-October 2019 Moonpig had released a new version of the app that removed any use of RoboSpice. 
 
+\begin{figure}
+    \centering
+    \begin{tabular}{c}
+
+
+    \subbottom[90 day view]{\includegraphics[width=12cm]{images/moonpig/firebase_crash_graph_90_days_feb_2020.png}\label{fig319:a}} \\
+    \subbottom[30 day view]{\includegraphics[width=12cm]{images/moonpig/firebase_crash_graph_30_days_17_feb_2020.png}\label{fig319:b}} \\
+    \subbottom[14 day view]{\includegraphics[width=12cm]{images/moonpig/firebase_crash_graph_14_days_feb_2020.png}\label{fig319:c}}
+    \end{tabular}
+    \caption{Moonpig: Firebase Analytics crash free session graphs}
+    \label{fig:moonpig-firebase-feb2020-crash-free-sessions}
+\end{figure}
+
+\clearpage
 
 ``The recent crash was introduced on the 10th Jan and the hotfix released on the 17th Jan [2020]." (the second crash)
 ``The previous one was introduced on the 25th Nov and the hotfix released on the 5th Dec [2019]." (the first crash)
@@ -152,12 +168,12 @@ How the second crash was addressed
 
 On \nth{16} July 2019, Denise Lavington provided a review of the Android app and awarded the app four stars. The review said: \emph{``Always crashing in the middle of purchases. However, it now works well. If it carries on without hiccups it will get 5 stars."} Figure \ref{fig:gp-review-denise-lavington-always-crashes} shows the review in context in Google Play~\footnote{The review is currently still available online (\href{https://play.google.com/store/apps/details?id=com.commonagency.moonpig.uk&reviewId=gp\%3AAOqpTOH68VB5eWqnu7UAqcC81_rbOfWl6dzL_g48jrg0T40MPWBkMxe01KjStXZF6F57nxZxQa-AqosRKDd1xQ}{here}) in Google Play, two years after it was written.}.
 
-The lead developer investigated this reported issue and could not find any crash in Firebase or Android Vitals that might affect purchases. A possible reason for why the crash did not appear in Android Vitals is that the underlying data is only provided by a user's device if they've opted-in to automatically providing their usage and diagnostics data~\citep{google_play_view_crashes_and_anr_errors} \textit{and} if the aggregate data exceeds an undocumented threshold (a topic discussed elsewhere in the thesis).
+The developer investigated this reported issue and could not find any crash in Firebase or Android Vitals that might affect purchases. A possible reason for why the crash did not appear in Android Vitals is that the underlying data is only provided by a user's device if they've opted-in to automatically providing their usage and diagnostics data~\citep{google_play_view_crashes_and_anr_errors} \textit{and} if the aggregate data exceeds an undocumented threshold (a topic discussed elsewhere in the thesis).
 
 \subsection{Moonpig: data collected and methods used for collection}
-The data was collected though a mix of in-person and online working sessions together with various email conversations. Screenshots and other materials were emailed by the lead developer to the researcher. 
+The data was collected though a mix of in-person and online working sessions together with various email conversations. Screenshots and other materials were emailed by the developer to the researcher. 
 
-The lead developer also ran Vitals Scraper to help evaluate whether it worked beyond the local use as part of various case studies. They sent the JSON results containing the crash clusters collected by Vitals Scraper.  
+The developer also ran Vitals Scraper to help evaluate whether it worked beyond the local use as part of various case studies. They sent the JSON results containing the crash clusters collected by Vitals Scraper.  
 
 \subsection{Moonpig: Research findings and results from the Case Study}
 

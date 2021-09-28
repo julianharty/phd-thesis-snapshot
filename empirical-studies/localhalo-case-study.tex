@@ -21,6 +21,7 @@ Table~\ref{tab:local_halo_anaytics_overview} provides an overview of this case s
        Development Practices &Not explicit, a small distributed team \\
        \midrule
        User base &7,000 registered users, 1k to 2k monthly active (Jan 2020) \\
+       Installations &1,000's for the Android app \\
        \midrule
        Research methods &Interview, email discussions, bug analysis, use of mobile analytics \\
        Analytics collected &Live access to: Sentry, Google Play Console with Android Vitals \\
@@ -69,43 +70,37 @@ In terms of user experience analytics the CTO also observed \emph{``To improve u
 The overall impression was the team had decided to incorporate mobile analytics to help them provide a reliable and valuable service for their current and hoped-for users where the team would address errors on an \emph{ad-hoc} basis.
 
 \subsection{LocalHalo: Experiences of using mobile analytics}
-They experience numerous crashes reported by Sentry, which occur within the React Native runtime environment. In March and April 2020 high failure rates were also reported in Google Play Console and Android Vitals. Figure \ref{fig:localhalo-android-vitals-no-data-16-march-2020} was recorded on \nth{16} March 2020 before these started and shows the App Health Overview page in Figure~\ref{fig:localhalo-apphealthoverview-no-data-16-mar-2020} with a link to a video introducing Android Vitals~\footnote{This appears as a mainly black rectangle in this thumbnail screenshot.}, and Figure~\ref{fig:localhalo-apphealthdetails-no-data-16-mar-2020}.
+They experience numerous crashes reported by Sentry, which occur within the React Native runtime environment. In March and April 2020 high failure rates were also reported in Google Play Console and Android Vitals. Figure \ref{fig:localhalo-android-vitals-no-data-16-march-2020} was recorded on \nth{16} March 2020 before these started and shows the App Health Overview page with a link to a video introducing Android Vitals~\footnote{This appears as a mainly black rectangle in this thumbnail screenshot.}, and the App Health Details page with no data.
 
 \begin{figure}[htbp!]
 \centering
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\textwidth]{images/localhalo/apphealthoverviewplace_5550596_no_data.png}
-  %\captionof*{figure}{App Health Overview page \nth{16} March 2020}
-  \caption{App Health Overview page}
-  \label{fig:localhalo-apphealthoverview-no-data-16-mar-2020}
+  \captionof*{figure}{App Health Overview page}
 \end{minipage}\hfill%
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\textwidth]{images/localhalo/apphealthdetailsplace_55505963_no_data.png}
-  %\captionof*{figure}{App Health Details page \nth{16} March 2020}
-  \caption{App Health Details page}
-  \label{fig:localhalo-apphealthdetails-no-data-16-mar-2020}
+  \captionof*{figure}{App Health Details page}
 \end{minipage}
     \caption{No Android Vitals reports on \nth{16} March 2020}
     \label{fig:localhalo-android-vitals-no-data-16-march-2020}
 \end{figure}
 
-Figure~\ref{fig:localhalo-android-vitals-high-failures-26-march-2020} was recorded ten days later in \nth{26} March 2020 and shows the alerts for both high crash and ANR rates in Figure~\ref{fig:localhalo-apphealthdetails-high-errors-26-mar-2020} and the graph for the rampant crash rate in Figure~\ref{fig:localhalo-apphealthdetails-high-errors-26-mar-2020}. These indicate the failures were related to the native runtime rather than within the React Native code. These were not reported by any Sentry Alerts and they do not appear in the weekly summary reports, except potentially by the absence of data shown in Figure~\ref{fig:sentry-missing-data-march-2020}; perhaps the error was so severe it prevented Sentry's SDK from reporting any data?
+Figure~\ref{fig:localhalo-android-vitals-high-failures-26-march-2020} was recorded ten days later in \nth{26} March 2020 and shows the alerts for both high crash and ANR rates in the App Health Overview page and the graph for the rampant crash rate in the corresponding App Health Details page. These indicate the failures were related to the native runtime rather than within the React Native code. These were not reported by any Sentry Alerts and they do not appear in the weekly summary reports, except potentially by the absence of data shown in Figure~\ref{fig:sentry-missing-data-march-2020}; perhaps the error was so severe it prevented Sentry's SDK from reporting any data?
 
 \begin{figure}[htbp!]
 \centering
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\textwidth]{images/localhalo/apphealthoverviewplace_5550596_high_errors.png}
-  \captionof{figure}{App Health Overview page}
-  \label{fig:localhalo-apphealthoverview-high-errors-26-mar-2020}
+  \captionof*{figure}{App Health Overview page}
 \end{minipage}\hfill%
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\textwidth]{images/localhalo/apphealthdetailsplace_55505963_high_errors.png}
-  \captionof{figure}{App Health Details page}
-  \label{fig:localhalo-apphealthdetails-high-errors-26-mar-2020}
+  \captionof*{figure}{App Health Details page}
 \end{minipage}
     \caption{Alerts and graphs in Android Vitals on \nth{26} March 2020}
     \label{fig:localhalo-android-vitals-high-failures-26-march-2020}
