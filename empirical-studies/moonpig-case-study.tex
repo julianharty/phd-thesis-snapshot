@@ -58,7 +58,7 @@ Their software engineering team have been actively involved in encouraging the w
 
 \subsection{Moonpig: Experiences of using mobile analytics}
 The development team use Firebase Crashlytics and Google Analytics for diagnostics in addition to the information available in Android Vitals; and estimated they used Android Vitals approximately 30\% of their time to identify flaws and issues related to their Android app.
-
+%
 They also incorporated in-app analytics by using Firebase Analytics which recorded analytics related to how the users use the mobile apps and whether errors or other problems occurred while the app was being used. 
 
 \definecolor{Gray}{gray}{0.85}
@@ -101,13 +101,14 @@ They also incorporated in-app analytics by using Firebase Analytics which record
 \end{threeparttable}
 \end{table}
 
-\julian{Table \ref{tab:July2019_case_studies_apps_crash_rate}includes data for the case studies in 2019. I'm not sure where to locate it in the thesis and/or whether to repeat it. Advice please?}
+\julian{Table \ref{tab:July2019_case_studies_apps_crash_rate} includes data for the case studies in 2019. I'm not sure where to locate it in the thesis and/or whether to repeat it. Advice please?}
 
-Table \ref{tab:July2019_case_studies_apps_crash_rate} shows their app in comparison to those of several of the other case studies at the time in early summer 2019. It would have been the most reliable of those apps, however the crash rate on Android 9 (0.93\%) is at least six times higher than for other versions of Android and is the main reason why the overall crash rate is 0.61\% rather than around 0.1\%. The demands on the Moodspace app are far simpler (and discussed in that case study \secref{study-moodspace}). %empirically high reliability is hard to achieve and maintain as the demands on a codebase increases.
+Table \ref{tab:July2019_case_studies_apps_crash_rate} shows their app in comparison to those of several of the other case studies at the time in early summer 2019. It would have been the most reliable of those apps, however the crash rate on Android 9 (0.93\%) is at least six times higher than for other versions of Android and is the main reason why the overall crash rate is 0.61\% rather than around 0.1\%~\footnote{The demands on the Moodspace app are far simpler (and discussed in that case study: \secref{study-moodspace}). %empirically high reliability is hard to achieve and maintain as the demands on a codebase increases.
+}.
 
 For the Moonpig app, a major cause of the higher crash rate on Android 9 is their use of an older third-party library RoboSpice\footnote{\url{https://github.com/stephanenicolas/robospice}}. Behavioural changes in Android 8 and more recently in Android 9 meant this library was no longer viable and this open source library was archived in January 2018. One of the main reasons given by the lead maintainer of RoboSpice was changes in Android 8.0~\citep{Robospice01}; and unsurprisingly the library was not developed with Android 9.0 in mind. 
 
-Documentation for Android 8.0 explained key behavioral changes in background processing\footnote{\url{https://developer.android.com/about/versions/oreo/android-8.0-changes\#back-all} and \url{https://developer.android.com/about/versions/oreo/background}} However, for the Moonpig Android app the crash rate remained low on Android 8.0 (0.14\%) and 8.1 (0.09\%) yet increased several fold to 0.93\% on Android 9 devices. According to Jakob Durstberger one of the Moonpig Android developers: \textit{"As far as we are aware it is related to an issue on Android 9 that triggers an \texttt{IllegalStateException} when launching a service after resuming"}. He provided a reference to the underlying issue on StackOverflow\footnote{\url{https://stackoverflow.com/questions/52013545/android-9-0-not-allowed-to-start-service-app-is-in-background-after-onresume}}. In turn the StackOverflow topic links to a google issue \url{https://issuetracker.google.com/issues/113122354}. In response \#20 Google states: `The issue has been addressed in future Android release.' and also provide a workaround. However, various developers continue to report this crash. 
+Documentation for Android 8.0 explained key behavioral changes in background processing\footnote{\url{https://developer.android.com/about/versions/oreo/android-8.0-changes\#back-all} and \url{https://developer.android.com/about/versions/oreo/background}} However, for the Moonpig Android app the crash rate remained low on Android 8.0 (0.14\%) and 8.1 (0.09\%) yet increased several fold to 0.93\% on Android 9 devices. According to Jakob Durstberger one of the Moonpig Android developers: \textit{"As far as we are aware it is related to an issue on Android 9 that triggers an \texttt{IllegalStateException} when launching a service after resuming"}. He provided a reference to the underlying issue on StackOverflow\footnote{\url{https://stackoverflow.com/questions/52013545/android-9-0-not-allowed-to-start-service-app-is-in-background-after-onresume}. In turn the StackOverflow topic links to a google issue \url{https://issuetracker.google.com/issues/113122354}. In response \#20 Google stated: `The issue has been addressed in future Android release.' and also provide a workaround. However, various developers continue to report this crash.}.
 
 At the time the mitigation used by the Moonpig development team was to target Android 8.0, API level 26: \textit{"what you found in relation to Android 8 and RoboSpice is the reason why we are still targeting SDK 26."}. They wanted to avoid changes in behaviour when the target was set to 28 (Android 9) or higher.
 
@@ -115,7 +116,7 @@ At the time the mitigation used by the Moonpig development team was to target An
     \emph{``Android 9 (API level 28) introduces a number of changes to the Android system. The following behavior changes apply exclusively to apps that are targeting API level 28 or higher."}~\citep{android_behavior_changes_apps_targeting_api_level_28plus}.
 \end{quote}
 
-By mid-October 2019 Moonpig had released a new version of the app that removed any use of RoboSpice. 
+By mid-October 2019 Moonpig had released a new version of the app that removed any use of RoboSpice and were able to target later releases of Android.
 
 \begin{figure}
     \centering
@@ -131,7 +132,8 @@ By mid-October 2019 Moonpig had released a new version of the app that removed a
     \label{fig:moonpig-firebase-feb2020-crash-free-sessions}
 \end{figure}
 
-\clearpage
+
+
 
 ``The recent crash was introduced on the 10th Jan and the hotfix released on the 17th Jan [2020]." (the second crash)
 ``The previous one was introduced on the 25th Nov and the hotfix released on the 5th Dec [2019]." (the first crash)
@@ -180,12 +182,19 @@ The developer also ran Vitals Scraper to help evaluate whether it worked beyond 
 
 \begin{figure}
     \centering
-    \includegraphics[width=13cm]{images/android-vitals-screenshots/moonpig/real-time-crashes-Screenshot-2019-06-10-at-15.42.34.png}
-    \caption{Android Vitals: Moonpig snapshot of top crashes \nth{10} June 2019}
+    \includegraphics[width=12cm]{images/android-vitals-screenshots/moonpig/real-time-crashes-Screenshot-2019-06-10-at-15.42.34.png}
+    \caption{Moonpig: Android Vitals snapshot of top crashes \nth{10} June 2019}
     \label{fig:av-moonpig-top-real-time-crashes-10-jun-2019}
 \end{figure}
 
-In Figure~\ref{fig:av-moonpig-top-real-time-crashes-10-jun-2019} Android Vitals shows the most frequent crash clusters for the production releases of the Moonpig Android app. The majority of crashes were an \texttt{IllegalStateException} in a third-party library SpiceManager, part of the RoboSpice opensource project https://github.com/stephanenicolas/robospice . 
+\begin{figure}
+    \centering
+    \includegraphics[width=12cm]{images/moonpig/Firebase-Crashlytics-30D-SpiceManagerCrashes.png}
+    \caption{Moonpig: Firebase Crashlytics Spice Manager crashes}
+    \label{fig:firebase-crashlytics-moonpig-spicemanager-crashes-30d}
+\end{figure}
+
+In Figure~\ref{fig:av-moonpig-top-real-time-crashes-10-jun-2019} Android Vitals shows the most frequent crash clusters for the production releases of the Moonpig Android app. The majority of crashes were an \texttt{IllegalStateException} in a third-party library SpiceManager, part of the RoboSpice opensource project \url{https://github.com/stephanenicolas/robospice}. 
 
 This crash is an excellent example of how changes and new developments in the ecosystem can render what was reliable working software into software that is no longer fit for purpose, \emph{i.e.} RoboSpice was developed in 2012 to help developers simplify coding of asynchronous networking requests \url{https://github.com/stephanenicolas/robospice} and the library worked really well at the time and for several years afterwards. It became popular as a result and was used widely by many teams, including at Moonpig. However, as the Google Android platform morphed some of the changes to Android were incompatible with RoboSpice. And with Android Oreo (Release 8.0) changes to the way background services worked broke the functionality of the library sufficiently that the project was archived by the creator and project owner \url{https://github.com/stephanenicolas/robospice/issues/467} 
 
@@ -207,10 +216,12 @@ The company was able to `go public' in February 2021 by listing on the London St
 The engineering team had integrated the use of mobile analytics into their development, engineering, and operational practices. They endeavoured to collect sufficient data to enable them to respond quickly to failures in use with their app and to analyse new issues within days so they could address the issues quickly, efficiently, and effectively. They were able to do so through incorporating Firebase Analytics in addition to Firebase Crashlytics. Firebase Analytics is discussed in more detail in \secref{chapter-discussion} and in \secref{appendix-analytics-tools}.
 
 The nature of Moonpig's business means they often have information pertaining to users of their app: users need to be logged in to use the shopping basket and make purchases, \emph{etc.} 
-Some of the bugs may pertain to user-specific data. Firebase is one of a wide range of mobile analytics offerings that can collect user-related data
+Some of the bugs may pertain to user-specific data. Firebase is one of a wide range of mobile analytics offerings that can collect user-related data TODO...
 
 
 Their privacy policy at the time~\citep{moonpig_privacy_policy_2019_feb_21}, and subsequently in~\citep{moonpig_privacy_policy_2021_aug_12} alludes to the the type of data being recorded, the purposes of collecting it, and who it may be shared with. Mobile Analytics is not mentioned explicitly, nor are the providers of the analytics services.
+
+
 
 \subsection{Moonpig: Contributions to the research and where they are located in the rest of this thesis}
 This case study provides contributions to the Findings section \secref{findings-section}. It also a source used when describing Firebase Analytics in \secref{chapter-discussion} and in \secref{appendix-analytics-tools}. It also supports Vitals Scraper, covered in \secref{section-vitals-scraper}. \secref{prerequisites-desirable}
