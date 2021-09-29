@@ -155,34 +155,34 @@ This case study combines three immediate sources of data with automatically prov
     \label{tab:my_label}
 \end{table}
 
-\newthought{Meetings with the founders}
+\subsubsection{Meetings with the founders}
 
 The first meeting with the CEO was online as he was in New York, USA at the time, and the second was in person in Central London. Their main contribution in terms of the research was to enable this case study to happen. The CEO arranged a subsequent meeting with the CTO which was online and this meeting was where the context and scope of the research and this case study were agreed. 
 
-\newthought{Email conversations}
+\subsubsection{Email conversations}
 Email was used to ....
 
 This is how I went about analysing the emails ...
 
 Email provided an effective way to have asynchronous conversations about their app and what the mobile analytics reports reported. For example, the high failure rates reported in Android Vitals and the cause of these issues was discussed by email with the CTO. 
 
-\newthought{Interactive access to Sentry}
+\subsubsection{Interactive access to Sentry}
 \julian{What did I actually use in the UI?}
 
 Interactive access is seamless when the web browser is logged into Sentry (indeed visiting their public website is hard to do unless an incognito browser session is used). Sentry also provides API access, however this was not used in the case study, nor was it mentioned during the interview or the discussions. The topic is explored in the section on mobile analytics tools, in \href{analytics-tools-sentry}{\nameref{analytics-tools-sentry}}. 
 
-\newthought{Interactive access to Google Play Console with Android Vitals}
+\subsubsection{Interactive access to Google Play Console with Android Vitals}
 
 The CTO provided read access to Google Play Console, initially for two months. This was extended for several months to facilitate ongoing research which had been adversely delayed by the effects of Covid-19 and a death in the family. Some initial analysis of Google Play Console and Android Vitals was performed interactively, however Vitals Scraper (developed as part of this research) was used to programmatically save visual reports and extract summary data, and crash and ANR clusters.
 
-\newthought{Vitals Scraper} 
+\subsubsection{Vitals Scraper} 
 
 As mentioned in the previous paragraph, our Vitals Scraper was used to collect reports and summary data via Google Play Console including Android Vitals. Vitals Scraper was run with the \texttt{--mode=overview} option~\footnote{Details of the command line options are in the project's \href{https://github.com/commercetest/vitals-scraper}{README}.}, mainly as there were seldom any crash or ANR clusters available.
 
 The results of the runs consist of images and csv files; these are currently stored in Dropbox. For completeness, there is no personal data in any of these reports. Figure \ref{fig:gpc-dashboard-for-localhalo-android-resized} provides a thumbnail example of the initial and main 'Dashboard' report Google Play Console provided and Vitals Scraper generated~\footnote{Thank you to \url{https://resizeimage.net/} which was used to resize the images to generate the thumbnails.}. Figures \ref{fig:localhalo-android-vitals-no-data-16-march-2020} and \ref{fig:localhalo-android-vitals-high-failures-26-march-2020} are similar thumbnails of Android Vitals reports captured by Vitals Scraper for this project~\footnote{The original reports and therefore screens have deep footers which have been manually truncated so these thumbnails fit better in this thesis.}.
 
 
-\newthought{Automated emails from Sentry}
+\subsubsection{Automated emails from Sentry}
 \julian{Selection criteria, what did I prioritise? What were the characteristics of interest? }
 Vectored Analysis - seeking answers to a question I have...
 Document how I made sense of the data. How did I verify what I found?
@@ -191,6 +191,22 @@ Looking for smells, then pursue them systematically. Looking for emergent patter
 \julian{Make explicit how I collected, analysed, and reported the data. Interviews used to inform the analysis of the data, ...}
 
 The emails arrived to a personal GMail account. These were filtered using GMail's interactive search capabilities, the details and examples will be provided later in this section. 
+
+The majority of data was provided in approximately 800 automated emails~\footnote{The exact count is difficult to ascertain in GMail as it auto-aggregates, paginates the matches, and the filtering mechanisms use Google's matching algorithms. Several queries were used to obtain this approximate count for instance to count emails from the sending email address: \href{https://mail.google.com/mail/u/0/\#search/from\%3Anoreply\%40md.getsentry.com++after\%3A2019\%2F12\%2F31+before\%3A2020\%2F7\%2F1+-weekly}{\texttt{from:noreply@md.getsentry.com  after:2019/12/31 before:2020/7/1 -weekly}} and for those that match \texttt{localhalo}: \href{https://mail.google.com/mail/u/0/\#search/localhalo++after\%3A2019\%2F12\%2F31+before\%3A2020\%2F7\%2F1+-weekly}{\texttt{localhalo  after:2019/12/31 before:2020/7/1 -weekly}}. When these search terms were combined and localhalo toggled as an inclusion (\texttt{localhalo}) / exclusion (\texttt{-localhalo}) flag some emails were returned by GMail in both cases. In terms of the research the extra work to pursue this behaviour was not warranted as it was very remote from the core research questions.} generated and sent from Sentry during the active period~\footnote{Note: access has been available to Sentry Mobile Analytics since late January 2020 and has continued through to September 2021. Additional emails have continued to arrive and are reviewed sporadically.  Access to Google Play Console was provided from \nth{20} January 2020 for approximately five months.}. 
+
+The automated emails included messages outside the scope of this research, for instance for the company's web site and some generated when software was executed on a developer's local computer (running Mac OS). Furthermore alerts for iOS devices were excluded from the detailed analysis (although they were analysed superficially to learn more about their characteristics). 
+
+
+Some of these emails were for alerts~\footnote{\url{https://docs.sentry.io/product/alerts/}} configured in Sentry. There were two alerts: 
+\begin{enumerate}
+    \itemsep0em
+    \item Send a notification for new issues that continue for at least 30 minutes, and
+    \item Send a notification for new issues for issues seen by more than 10 users in one day.
+\end{enumerate}  
+Sentry also sent weekly summary reports by email for the project from \nth{25} May 2020.
+
+
+\newthought{Filtering the automated emails}
 
 An example of the search for emails that match \texttt{localhalo react-mobile java} generates the following URL \mint[fontsize=\tiny]{bash}|https://mail.google.com/mail/u/0/#search/localhalo+react-mobile+java| which then returns the 31 emails that match this search. 
 
@@ -238,6 +254,7 @@ These exceptions may map to those counted by Google Play Console's Dashboard, ho
        (149 + 121) & \href{https://mail.google.com/mail/u/0/#search/localhalo+react-mobile++after\%3A2019\%2F12\%2F31+before\%3A2020\%2F7\%2F1+-weekly/p3}{\texttt{localhalo react-mobile  after:2019/12/31 before:2020/7/1 -weekly}} &All Alerts for mobile app \\
        6 & \href{https://mail.google.com/mail/u/0/#search/localhalo+react-mobile++after\%3A2019\%2F12\%2F31+before\%3A2020\%2F7\%2F1+weekly}{\texttt{localhalo react-mobile  after:2019/12/31 before:2020/7/1 weekly}} & Weekly emails received \\
         19 & \href{https://mail.google.com/mail/u/0/#search/localhalo+react-mobile+java+after\%3A2019\%2F12\%2F31+before\%3A2020\%2F7\%2F1}{\texttt{localhalo react-mobile java after:2019/12/31 before:2020/7/1}} \\
+        3 & \href{https://mail.google.com/mail/u/0/#search/localhalo+react-mobile+graphql+android+after\%3A2019\%2F12\%2F31+before\%3A2020\%2F7\%2F1}{\texttt{localhalo react-mobile graphql android after:2019/12/31 before:2020/7/1}} & \\
        \bottomrule
     \end{tabular}
     \caption{LocalHalo Examples of filters in GMail of Sentry Alert emails during the active period}
@@ -245,17 +262,6 @@ These exceptions may map to those counted by Google Play Console's Dashboard, ho
 \end{table}
 
 
-The majority of data was provided in approximately 800 automated emails~\footnote{The exact count is difficult to ascertain in GMail as it auto-aggregates, paginates the matches, and the filtering mechanisms use Google's matching algorithms. Several queries were used to obtain this approximate count for instance to count emails from the sending email address: \href{https://mail.google.com/mail/u/0/\#search/from\%3Anoreply\%40md.getsentry.com++after\%3A2019\%2F12\%2F31+before\%3A2020\%2F7\%2F1+-weekly}{\texttt{from:noreply@md.getsentry.com  after:2019/12/31 before:2020/7/1 -weekly}} and for those that match \texttt{localhalo}: \href{https://mail.google.com/mail/u/0/\#search/localhalo++after\%3A2019\%2F12\%2F31+before\%3A2020\%2F7\%2F1+-weekly}{\texttt{localhalo  after:2019/12/31 before:2020/7/1 -weekly}}. When these search terms were combined and localhalo toggled as an inclusion (\texttt{localhalo}) / exclusion (\texttt{-localhalo}) flag some emails were returned by GMail in both cases. In terms of the research the extra work to pursue this behaviour was not warranted as it was very remote from the core research questions.} generated and sent from Sentry during the active period~\footnote{Note: access has been available to Sentry Mobile Analytics since late January 2020 and has continued through to September 2021. Additional emails have continued to arrive and are reviewed sporadically.  Access to Google Play Console was provided from \nth{20} January 2020 for approximately five months.}. 
-
-The automated emails included messages outside the scope of this research, for instance for the company's web site and some generated when software was executed on a developer's local computer (running Mac OS). Furthermore alerts for iOS devices were excluded from the detailed analysis (although they were analysed superficially to learn more about their characteristics). 
-
-Some of these emails were for alerts~\footnote{\url{https://docs.sentry.io/product/alerts/}} configured in Sentry. There were two alerts: 
-\begin{enumerate}
-    \itemsep0em
-    \item Send a notification for new issues that continue for at least 30 minutes, and
-    \item Send a notification for new issues for issues seen by more than 10 users in one day.
-\end{enumerate}  
-Sentry also sent weekly summary reports by email for the project from \nth{25} May 2020.
 
 In the email reports there were approximately 100 alerts were reported in the five months of the case study. These include alerts for iOS devices, Android devices %(4) % https://mail.google.com/mail/u/0/#advanced-search/subset=all&has=localhalo+react-mobile+android&within=6m&sizeoperator=s_sl&sizeunit=s_smb&date=2020%2F01%2F01&query=localhalo+react-mobile+android
 , and also some triggered on a developer's laptop. Five of the alerts are for ANRs. 
