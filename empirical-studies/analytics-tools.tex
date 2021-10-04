@@ -272,6 +272,54 @@ MUST-DO complete this section.
 \subsection{Android Vitals}
 \subsubsection{Android Vitals UI}
 
+\subsubsection{Peer Categories}~\label{section-peer-categories}
+Peer categories may help developers to compare their app with various peer groups, those in the same category or sub-category as their app, and/or against a custom set of peers.
+
+Android Vitals currently provides two distinct categories of comparative peer-based data: 1) predefined peers 2) a custom list of peers selected by the developer. The predefined peers are organised by category and sub-category. The categories match those available to developers when they list their app, there are 32 of them. There are 69 sub-categories (excluding the sub-categories that are All ... e.g. \texttt{All Education}). The sub-categories appear to be a subset of the 162 tags~\footnote{available on request, not essential for the thesis.} developers can use for their app store listing; for example \texttt{study guide} is both a tag and a sub-category, while \texttt{Prank} is only available as a tag. 
+
+The full set of these 101 predefined peer categories with their respective sub-categories is shown in Table~\ref{tab:av-categories-with-crash-rates}~\footnote{Note: these were transcribed manually from the Android Vitals web UI and entered in a CSV file using Excel. The CSV file is read and processed when this thesis is compiled.}. This table shows the category and the median crash rate~\footnote{The ANR rates are also available for the same categories and sub-categories, they are not included currently, as they were not used in the research.} for that category.
+
+The lowest crash rate, as measured by the median score is 0.18\% which applies to both \texttt{Productivity->Calendar} and \texttt{Productivity->Notebook}. The highest crash rate is 2.07\% for \texttt{Communications->Video Call}. Note: Google provide \textit{Personalization->Launcher} however the score is shown as \texttt{-}. % Todo calculate the variance.
+ 
+
+There are some surprising and unexplained oddities in the data, for example \textit{Auto \& Vehicles->All Auto \& vehicles} has a median crash rate of 0.85\% and two additional sub-categories: \texttt{Auto \& Vehicles->Vehicle maintenance 0.73\%} and \texttt{Auto \& Vehicles->Vehicle shopping 0.27\%}. These are both significantly lower crash rates than the overall rate for this category - how can this be so? where are the data for the rest of the peer apps in this category presented? One possibility is perhaps they are collectively below a threshold to appear in either of the particular sub-categories?
+
+The values are updated by Google on an ongoing basis and observations indicates they are updated once a day.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Loading and displaying the CSV data took several hours to reach the following approach. I first tried using the csvsimple package however I came unstuck because the contents include characters latex interprets as formatting instructions. Also the data exceeds 1 page. I wasn't able to get multiple columns of the table working either, and trying to display the table landscape (to ensure there was enough linewidth to display several columns of the table didn't work either. 
+% Thanks to various articles, in particular:
+%   https://tex.stackexchange.com/a/269566/88466 from
+%     https://tex.stackexchange.com/questions/269545/csvreader-and-respect-all-special-characters-in-the-csv-file
+%   https://www.dickimaw-books.com/latex/admin/html/displaydb.shtml 
+%   https://www.dickimaw-books.com/latex/admin/html/loadcsv.shtml
+%  For csvsimple
+%    https://stackoverflow.com/questions/62883114/latex-table-from-csv-file roughly the first thing I tried
+%    https://tex.stackexchange.com/questions/358225/how-to-import-csv-table-with-header-containing-spaces was very useful, but the complexity of the file contents meant this failed to read in the content without errors.  I wish I'd seen https://tex.stackexchange.com/a/358226/88466 earlier as it introduced the alternative I ended up using.
+
+%%%%%% This could do with a lot of polish e.g. to use a longtable which would allow me to reduce the space used. See p.127 in Latex for Administative Work Version 1.3 The raw sample code follows:
+\begin{comment}
+\begin{longtable}{cl}
+\bfseries Country Code & \bfseries Country Name\\ \endhead \multicolumn{2}{r}{\emph{Continued on next page}} \endfoot \endlastfoot
+\DTLforeach*{countries}{\Code=code,\Name=name}{\Code & \Name\\}%
+\end{longtable}
+\end{comment}
+
+%%%% The current basic approach follows to list the Android Vitals categories.
+\DTLloadrawdb[keys={a,b}]{t1g}{android_vitals_categories_with_crash_medians.csv}
+{\footnotesize
+\DTLdisplaylongdb
+ [
+   caption={Android Vitals Categories with median crash rates},% main caption
+   contcaption={Android Vitals Categories (Continued)},% continuation caption
+   % shortcaption={},
+   label={tab:av-categories-with-crash-rates},% label
+   foot={\emph{Continued on next page}},% table foot
+   lastfoot={}% final table foot
+ ]
+ {t1g}
+}
+
 \subsubsection{Peer Groups in Android Vitals}\label{android-vitals-peer-groups}
 % Google calls them peer groups.
 Android Vitals offers developers the option to define a peer group of between 8 and 12 other apps in the Google Play Store. The peer group can be edited up to 3 times per month according to the documentation, and changes seem to take immediate effect in terms of the reporting~\footnote{\url{https://support.google.com/googleplay/android-developer/answer/9324048}}.
@@ -284,6 +332,7 @@ The daily crash rate for the peer group can vary which is interesting in terms o
     \caption{Pocket Code peer crash-rate as of \nth{18} Nov 2019.}
     \label{fig:pocketcode_peer_crash_rate_18_nov_2019}
 \end{figure}{}
+
 
 
 \subsection{Monthly Report Files}
