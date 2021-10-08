@@ -51,20 +51,49 @@ For the in-depth case studies where the researcher is more actively involved wit
 
 \citet[p.250]{falessi2010_applying_ESE_to_sw_architecture_etc} states \emph{``there is now a growing need to systematically gather empirical evidence about the advantages or otherwise of tools and methods rather than just rely on promotional anecdotes or rhetoric."}. That was published in 2010, similarly in current times over a decade later, there is a similar growing need to gather evidence about the use of mobile analytics.
 
-In terms of the methodology, during the active case study it is vital to collect and perform ongoing analysis of mobile analytics and whatever other materials are available. Many of these are ephemeral in nature. for instance graphs may change by the minute.  Third-party mobile analytics (including those provided by Google) have terms of use. These terms of use have various names, such as a policy, \textit{e.g.} for Google Play ~\citet{google_play_developer_policy_center}. These may place limitations on data collection and use of the relevant service. For the research covered in this thesis a conservative approach was used in terms of data collection to reduce the risk of consequential issues for the researcher, the project, and the stakeholders for the app. This topic and the implications are expanded on in the \secref{chapter-discussion} chapter.
+In terms of the methodology, during the active case study it is vital to collect and perform ongoing analysis of mobile analytics and whatever other materials are available. Many of these are ephemeral in nature. for instance graphs may change by the minute. There is seldom a manual for the mobile analytics outputs (\textit{e.g.} the reports), furthermore many of the reports are dependent on the underlying data and/or on changes in the underlying service, therefore the researcher often needs to iteratively learn the mobile analytics reporting in an exploratory manner. 
+
+Third-party mobile analytics (including those provided by Google) have terms of use. These terms of use have various names, such as a policy, \textit{e.g.} for Google Play ~\citet{google_play_developer_policy_center}. These may place limitations on data collection and use of the relevant service. For the research covered in this thesis a conservative approach was used in terms of data collection to reduce the risk of consequential issues for the researcher, the project, and the stakeholders for the app. This topic and the implications are expanded on in the \secref{chapter-discussion} chapter.
 
 The choice of tools, including the humble web browser used by the researcher, affects aspects of the ease of collection of on line reports. As an example, the screenshot capability of the Mozilla Firefox browser~\footnote{Described in \url{https://screenshots.firefox.com/}} is far richer than that provided by Google Chrome at the time of writing. Many of the reports in mobile analytics tools require extensive vertical scrolling, Firefox can capture the entire contents easily, Chrome does not. 
 
 Similarly some content is only generated on screen on demand, in response to user actions, for example through scrolling vertically and/or paging through reports. Therefore, to capture the content the researcher (or their human/automated proxy) needs to perform these actions to obtain these contents and pertinent materials saved/safeguarded to facilitate longer term analysis and provide/record evidence. Note: it is not always practical or useful to record ``everything"; how much is suitable is a topic for future research. Where practical aim to collect the underlying text in addition to visual content; the text can then be processed relatively easily and without needing to be re-keyed.
+
+Figures \ref{fig:outputs_from_inputs_code_config} and \ref{fig:analytics-feedback-cycle} are connected and illustrate firstly what may affect the outputs pertaining to mobile analytics in isolation, and then how that fits into a larger, holistic feedback cycle. TODO these figures will be redrawn and explained.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm]{images/rough-sketches/outputs_from_inputs_code_config.jpeg}
+    \caption{Outputs from Inputs, Code, and Config (draft)}
+    \label{fig:outputs_from_inputs_code_config}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm]{images/rough-sketches/analytics-feedback-cycle.jpeg}
+    \caption{Analytics Feedback cycle (draft)}
+    \label{fig:analytics-feedback-cycle}
+\end{figure}
+
+
+%%%%% Some ad-hoc notes during the call with Arosha
+% Some features are contextual...
+% Clarify that the analytics were checked many times, pertinent examples were saved. 
+% Consider redacting personal communications with the stakeholders if I want to provide emails as supporting evidence for quotes and/or claims I make in the thesis.. 
+% Aim to clearly separate the active analysis vs. the post-hoc stuff for reflective analysis especially across the case studies. Arosha expects most of the research to be based on the post-hoc aspects.
+
 
 \subsubsection{\emph{Post-hoc} analysis and verification}
 By this stage, the active case study has finished, in some cases additional updates may be available, for instance if there is ongoing access to mobile analytics as some projects have provided in this research and/or updates from the project team. Nonetheless, for the most part the evidence has been harvested and any active interventions have ceased. The time has come to perform \emph{post-hoc} analysis and verify the findings and analysis with the project team. 
 
 One objective is to make the \emph{post-hoc} analysis repeatable, where others can perform the analysis and obtain similar results; therefore this section explains various patterns of analysis and there are various worked examples provided in the individual case studies.
 
+
+
 \begin{itemize}
-    \item Collating similar failures:
-    \item Bug identification and localisation: Establishing potentially pertinent patterns in the reports.
+    \item Collating similar failures: 
+    \item Bug identification and localisation: Establishing potentially pertinent patterns in the reports, and characterising when a failure \emph{does and does not} occur are part of this work. Obtaining an identifying definitive boundaries may be impractical, the work is often iterative and exploratory in nature and lossy. 
     \item Ordering and ranking clusters of failures:
     \item Bug investigation:
     \item The triage process: 
@@ -98,6 +127,7 @@ In Figure~\ref{fig:six-perspectives} six perspectives are illustrated; these per
 
 \subsection{Repeatability}
 \textbf{Expand on:} What's hard to repeat (and why), aims to improve and demonstrate repeatability of the practices applied in this research.
+\textbf{Absolutely key is what another researcher would do.}
 
 \isabel{suggests repeatability is part of good research ethics.}
 \isabel{Research as a political statement c.f. her transfer report.}
