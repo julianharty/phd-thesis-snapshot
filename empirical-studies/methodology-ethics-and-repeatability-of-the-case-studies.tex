@@ -8,7 +8,14 @@
 \end{figure}
 
 \subsection{Methodology}
-The methodology needs to address the phases of each case study that involves projects and their respective organisation; namely: exploration and selection, engagement, the active case study (including data collection, contemporary analysis, and any contributions to the project), \emph{post-hoc} analysis and verification, wrap-up, and publication. These phases may overlap somewhat, they are in approximate time order from first to last. They are covered in order below.
+The methodology needs to address the phases of each case study that involves projects and their respective organisation; namely: exploration and selection, engagement, the active case study (including data collection, contemporary analysis, and any contributions to the project), \emph{post-hoc} analysis, wrap-up, and publication. These phases may overlap somewhat, they are in approximate time order from first to last. They are covered in order in the following sections, after the \emph{modus operandi}.
+
+\newthought{\textit{modus operandi}}
+During the active case studies, available systems are checked on multiple occasions. Pertinent examples were saved (rather than saving the contents of every check). Preserving the contents of every check may be counter-productive and risk overwhelming the researcher while providing little or no value in terms of the research results. 
+
+In contrast, verification with the project team of actions, agreements, and analysis \emph{etc.} is appropriate and useful.
+
+There is a tension between a) collecting potential evidence and b) the development/project practices. These may be exacerbated by the restrictions and constraints that frame each case study. Therefore, where practical a good starting point is to use existing sources of evidence (such as source code repositories, issue tracking databases, and so on), as discussed later there may be various reasons why ongoing and frequent harvesting of outputs from mobile analytics services may be challenging.eam
 
 \subsubsection{Exploration and selection}
 \begin{wrapfigure}{R}{0.5\textwidth}
@@ -32,7 +39,7 @@ Various forms of exploration are available. For apps in major app stores the app
     \item Contact details for the developer~\footnote{That said, like many relationships, a warm lead is more likely to elicit a response than a cold email to the published email address. For this research all bar one of the case studies was established through a warm lead, someone who knows me. The exception was the \href{https://github.com/Phantast/smartnavi}{Smartnavi} project where the connection was established through email.}.
 \end{enumerate}
 
-
+\clearpage
 \subsubsection{Engagement}
 The engagement phase includes discussions to determine whether the project team (and their organisation) and the researcher(s) would be willing to participate in a viable and productive case study. It is also a suitable time to agree on the depth, scope, range, and duration of the case study. Similarly concerns and constraints need to be determined and agreed that protect all the stakeholders involved while also allowing the research to be not deliberately biased by the project team/organisation. The stakeholders may extend beyond the primary participants, for instance the end users could potentially be stakeholders in what happens during the case study.
 
@@ -57,9 +64,7 @@ Third-party mobile analytics (including those provided by Google) have terms of 
 
 The choice of tools, including the humble web browser used by the researcher, affects aspects of the ease of collection of on line reports. As an example, the screenshot capability of the Mozilla Firefox browser~\footnote{Described in \url{https://screenshots.firefox.com/}} is far richer than that provided by Google Chrome at the time of writing. Many of the reports in mobile analytics tools require extensive vertical scrolling, Firefox can capture the entire contents easily, Chrome does not. 
 
-Similarly some content is only generated on screen on demand, in response to user actions, for example through scrolling vertically and/or paging through reports. Therefore, to capture the content the researcher (or their human/automated proxy) needs to perform these actions to obtain these contents and pertinent materials saved/safeguarded to facilitate longer term analysis and provide/record evidence. Note: it is not always practical or useful to record ``everything"; how much is suitable is a topic for future research. Where practical aim to collect the underlying text in addition to visual content; the text can then be processed relatively easily and without needing to be re-keyed.
-
-
+Similarly some content is only generated on screen on demand, in response to user actions, for example through scrolling vertically and/or paging through reports. Others are contextual and may only appear when the relevant conditions occur~\footnote{For example, the release management reports in Google Play Console appear for the first 7 days of a new release.}. Therefore, to capture the content the researcher (or their human/automated proxy) needs to perform these actions to obtain these contents and pertinent materials saved/safeguarded to facilitate longer term analysis and provide/record evidence. Note: it is not always practical or useful to record ``everything"; how much is suitable is a topic for future research. Where practical aim to collect the underlying text in addition to visual content; the text can then be processed relatively easily and without needing to be re-keyed.
 
 \newthought{Analytics Feedback Cycle}~\footnote{Note: this material has outgrown this location and will need moving to a more appropriate location in the thesis. I'm keeping it here until the rest of this section has been written as it's proved useful to those who read this content. (It was written to help explain the repeatability aspects of the case studies).}
 
@@ -106,14 +111,14 @@ As mentioned earlier, \secref{fig:analytics-feedback-cycle} subsumes \secref{fig
 
 The actions may also result in changes to the sources for the mobile apps and/or in systems that support the app. Changes in the mobile app may form part of a Release Candidate (RC in the diagram) and subsequently in a release. If the release is deployed and then used it will provide fresh app-specific data inputs, and these then feed the mobile analytics.
 
-\begin{figure}[htbp!]
+\begin{figure}
 \centering
-\begin{minipage}{.60\textwidth}
+\begin{minipage}{.70\textwidth}
   \centering
   \includegraphics[width=\textwidth]{images/rough-sketches/outputs_from_inputs_code_config-11-oct-2021.jpeg}
   \captionof*{figure}{Outputs from Inputs, Code, and Config (draft)}
 \end{minipage}\hfill%
-\begin{minipage}{.60\textwidth}
+\begin{minipage}{.70\textwidth}
   \centering
   \includegraphics[width=\textwidth]{images/rough-sketches/analytics-feedback-cycle-11-oct-2021.jpeg}
   \captionof*{figure}{Analytics Feedback cycle (draft)}
@@ -123,6 +128,7 @@ The actions may also result in changes to the sources for the mobile apps and/or
 \end{figure}
 
 
+FYI: Figure ~\ref{fig:mobile-analytics-contexts} incorporates \secref{fig:outputs_from_inputs_code_config} and \secref{fig:analytics-feedback-cycle} and keeps the two figures together in the document. I've yet to work out if it'll work well with the text, it's here as a reminder I want to improve the links between these two related drawings.
 
 
 %%%%% Some ad-hoc notes during the call with Arosha
@@ -131,15 +137,19 @@ The actions may also result in changes to the sources for the mobile apps and/or
 % Consider redacting personal communications with the stakeholders if I want to provide emails as supporting evidence for quotes and/or claims I make in the thesis.. 
 % Aim to clearly separate the active analysis vs. the post-hoc stuff for reflective analysis especially across the case studies. Arosha expects most of the research to be based on the post-hoc aspects.
 
+From a research perspective some analysis and verification is likely to occur during the active case study period, and some happens afterwards - based on \emph{post-hoc} analysis. \textbf{MUST-DO Expand on}: Continuous, ongoing, low latency, iterative analysis, verification, course correction, efficacious communications. 
 
-\subsubsection{\emph{Post-hoc} analysis and verification}
-By this stage, the active case study has finished, in some cases additional updates may be available, for instance if there is ongoing access to mobile analytics as some projects have provided in this research and/or updates from the project team. Nonetheless, for the most part the evidence has been harvested and any active interventions have ceased. The time has come to perform \emph{post-hoc} analysis and verify the findings and analysis with the project team. 
+\subsubsection{\emph{Post-hoc} analysis}
+By this stage, the active case study has finished, although in some cases additional updates may be available, for instance if there is ongoing access to mobile analytics as some projects have provided in this research and/or updates from the project team. Nonetheless, for the most part the evidence has been harvested and any active interventions have generally ceased. The time has come to perform \emph{post-hoc} analysis and verify the findings and analysis with the project team wherever practical to do so. 
+
+\textbf{Post-hoc analysis is more research oriented, analysis the active case study is often more project oriented.}
 
 One objective is to make the \emph{post-hoc} analysis repeatable, where others can perform the analysis and obtain similar results; therefore this section explains various patterns of analysis and there are various worked examples provided in the individual case studies.
 
-
+The \emph{post-hoc} analysis is of material that has been collected, the raw evidence for the research findings. It includes any records and results, identifying patterns in and across case studies, and so on. 
 
 \begin{itemize}
+    \itemsep0em
     \item Collating similar failures: 
     \item Bug identification and localisation: Establishing potentially pertinent patterns in the reports, and characterising when a failure \emph{does and does not} occur are part of this work. Obtaining an identifying definitive boundaries may be impractical, the work is often iterative and exploratory in nature and lossy. 
     \item Ordering and ranking clusters of failures:
