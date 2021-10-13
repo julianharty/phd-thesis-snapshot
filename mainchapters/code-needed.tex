@@ -68,7 +68,25 @@ Revamping the codebase to support the revamp of Google Play Console.
 \textbf{Validation}:
 - ACM reproduction qualification on one of the papers: MUST-DO add details here. 
 
-\section{Crash Dummy}
+\section{AndroidCrashDummy and IDot}
+These two apps are related and both were designed to test aspects of logging and mobile analytics. 
+
+\subsection{IDot}
+IDot is based on AndroidCrashDummy and was originally developed to add support for the Iteratively SDK and associated facilities and services provided by Iteratively. Iteratively has been acquired by Amplitude which provided an opportunity to extend the research into Amplitude's mobile analytics product offering and services.
+
+%  Third party commercial services were used to generate the logo~\footnote{\href{https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=clipart&foreground.clipart=analytics&foreground.space.trim=1&foreground.space.pad=0.25&foreColor=rgba(96\%2C\%20125\%2C\%20139\%2C\%200)&backColor=rgb(57\%2C\%20220\%2C\%20106)&crop=0&backgroundShape=circle&effects=elevate&name=ic_launcher}{romannurik.github.io romannurik.github.io launcher icon generator}.} % the actual URL (without the added escape characters) is https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=clipart&foreground.clipart=analytics&foreground.space.trim=1&foreground.space.pad=0.25&foreColor=rgba(96%2C%20125%2C%20139%2C%200)&backColor=rgb(57%2C%20220%2C%20106)&crop=0&backgroundShape=circle&effects=elevate&name=ic_launcher
+for the app and an additional image~\footnote{\href{https://hotpot.ai/download?id=f8bMnSY4NXWt_1024_500&email=julianharty@gmail.com}{hotpot.ai image generator}, a paid-for service.} required by Google Play in order to make the app available for testing via Google Play.
+
+\subsubsection{Iteratively CLI}
+
+  503  git clone https://github.com/commercetest/idot.git
+  504  cd idot/
+  505  grep -r ItlyDemoAndroid *
+  506  brew install iterativelyhq/itly/itly
+  507  itly verify --update
+  508  itly init
+  509  itly verify --update
+  510  itly info
 
 
 \section{Zipternet}

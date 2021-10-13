@@ -537,6 +537,72 @@ Their use will be discussed in more detail in the chapter titled~\href{chapter-a
 
 This research includes case studies and developer reports of examples of analytic tools that cover three of these four layers of analytics. The remaining layer, visual analytics, is described briefly with a few examples, visual analytics is seldom used in production mobile apps and therefore it was excluded these from the core research. They may be an interesting topic for future research particularly given some of the potential benefits of visual analytics. % COULD_DO add notes on privacy issues and other complicating factors in this sort of research. 
 
+\section{Conceptual model for Mobile Analytics}
+\newthought{Analytics Feedback Cycle}~\footnote{Note: this material has outgrown this location and will need moving to a more appropriate location in the thesis. I'm keeping it here until the rest of this section has been written as it's proved useful to those who read this content. (It was written to help explain the repeatability aspects of the case studies).}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm]{images/rough-sketches/outputs_from_inputs_code_config-11-oct-2021.jpeg}
+    \caption{Outputs from Inputs, Code, and Config (draft)}
+    \label{fig:outputs_from_inputs_code_config}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm]{images/rough-sketches/analytics-feedback-cycle-11-oct-2021.jpeg}
+    \caption{Analytics Feedback cycle (draft)}
+    \label{fig:analytics-feedback-cycle}
+\end{figure}
+
+Figures \ref{fig:outputs_from_inputs_code_config} and \ref{fig:analytics-feedback-cycle} are connected and illustrate firstly what may affect the outputs pertaining to mobile analytics in isolation, and then how the contents of the first figure fit into a larger, holistic feedback cycle. 
+
+
+In the first of the figures, \ref{fig:outputs_from_inputs_code_config}, working from right to left there is the interpretation of the outputs of a mobile analytics service~\footnote{The service is provided to developer. It includes the code and configuration that are instantiated to provide analytics processing and reporting aspects; it excludes software running on the mobile devices.}. The interpretation is influenced by the various outputs and how they are used by whoever performs the interpretation. The analytics outputs are influenced by four elements: 
+\begin{enumerate}
+    \itemsep0em
+    \item The service, which includes the instantiation of the server side code and configuration; 
+    \item The app-specific inputs (such as failure data e.g. stack traces); 
+    \item User-oriented preferences, settings, and so on (e.g. whether analytics reporting is enabled or blocked); and 
+    \item Analytics undercurrents (the underlying data and sources may be unavailable to the developers however it may be used by the analytics service, for instance to provide peer-group reports).
+\end{enumerate}
+
+The figure illustrates the system for one app, however the analytics service may have as many as millions of instances e.g. Google Play provides one instance of the Google Play Console dashboard for each Android app live in the Play Store. \emph{The instances are unlikely to be identical; they may differ in the analytics code and configuration for instance if Google is running A/B experiments for Google Play Console or performing phased rollouts of new features and/or releases.} Developers may also have customised their analytics service, so they may have distinct views, reports, and interpretations than their co-developers and other colleagues.
+
+In summary, the interpretation of what a mobile analytics service provides depends on the outputs which may, in turn, be affected by their navigation and use. 
+
+The outputs are driven through a combination of elements; these are mainly outside the direct control of the developer, however the developer may be able to influence them. Examples of how the developer may be able to influence these include:
+\begin{itemize}
+    \itemsep0em
+    \item Analytics code and configuration: the developer may be able to opt-in to early experience programs (EEP's), \emph{etc.} These may include new features, reports, and so on that are not available to developers who are not part of these EEP's.
+    \item User preferences: the app may include facilities and/or guides aimed at encouraging the user to opt-in (or out) of providing analytics data.
+    \item App-specific data inputs - here are some representative examples: the developer may be able to add additional calls to a suitable Mobile Analytics API, or to generate logging messages that are interpreted as failures by the mobile analytics client-side processing. Some Mobile Analytics APIs also provide programmatic access to discard analytics events at run time.  
+    \item Analytics undercurrents: the developer may be able to select the peer applications and/or peer category their app is compared with.
+\end{itemize}
+
+As mentioned earlier, \secref{fig:analytics-feedback-cycle} subsumes \secref{fig:outputs_from_inputs_code_config} in the upper, central and right areas. Interpretation of the mobile analytics outputs is the first stage in being able to act on them. Triage is the next, and for those deemed sufficiently pertinent are likely to lead to actions. These actions may play out in one or more theatres, for instance in an issues database, in work schedules, in source code, operational configurations, and/or in engineering practices. They may also lead to actions in customer service, and others (such as user-oriented material \emph{e.g.} in online FAQs).
+
+The actions may also result in changes to the sources for the mobile apps and/or in systems that support the app. Changes in the mobile app may form part of a Release Candidate (RC in the diagram) and subsequently in a release. If the release is deployed and then used it will provide fresh app-specific data inputs, and these then feed the mobile analytics.
+
+\begin{figure}
+\centering
+\begin{minipage}{.70\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/rough-sketches/outputs_from_inputs_code_config-11-oct-2021.jpeg}
+  \captionof*{figure}{Outputs from Inputs, Code, and Config (draft)}
+\end{minipage}\hfill%
+\begin{minipage}{.70\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/rough-sketches/analytics-feedback-cycle-11-oct-2021.jpeg}
+  \captionof*{figure}{Analytics Feedback cycle (draft)}
+\end{minipage}
+    \caption{Mobile Analytics Contexts}
+    \label{fig:mobile-analytics-contexts}
+\end{figure}
+
+
+FYI: Figure ~\ref{fig:mobile-analytics-contexts} incorporates \secref{fig:outputs_from_inputs_code_config} and \secref{fig:analytics-feedback-cycle} and keeps the two figures together in the document. I've yet to work out if it'll work well with the text, it's here as a reminder I want to improve the links between these two related drawings.
+
+
 \section{Conceptual model for DevOps}
 DevOps recognises the benefits of connecting development and operations of software. a Yin Yang symbol recognises there's some negative in the positive and vice-versa. Conceptually, teams can choose to invest in operations while they're developing to improve the operational aspects of their software, for instance by designing in good operability. Similarly when the software is in use by observing the software's behaviours operations can improve the development. Examples include: considering the how improvements could be developed or the software development lifecycle process improved based on how the software is being used.
 

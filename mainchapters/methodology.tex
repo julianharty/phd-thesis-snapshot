@@ -1,6 +1,6 @@
 \chapter{Methodology}~\label{chapter-methodology}
 \epigraph{Is there method in the madness?}{Anon (1964--on)}
-\buzzwords{Empirical Studies, Theoretical Framework, Conceptual Framework, make assumptions explicit, methodological analysis using prior publications to identify a vocabulary - SE in practice, qualitative analysis,  ...}
+\buzzwords{Empirical Studies, Theoretical Framework, Conceptual Framework, make assumptions explicit, methodological analysis using prior publications to identify a vocabulary - SE in practice, qualitative analysis,  the 1-2-3 of research design (question - evidence - method) ...}
 
 \section*{Preamble - what needs doing to craft this chapter}
 {\small
@@ -121,6 +121,118 @@ The case studies include examples where the researcher's mode of engagement was 
 \isabel{I think if you look at this in terms of the methodology, you can weave in some of the things Aurini, Heath, and Howells talk about. So in the first two points the research is "of me" whereas in points 3 and 4 it is not. From Clough and Nutbrown, in points 1 and 2 the way you can be political and persuasive is different to how you apply political/persuasive as a result of 3 and 4. When you are a coach the point of being in the project is to effect change. The research effects change as a result of how you promulgate the results}
 
 Research effecting change when I am an active part of it, i.e. in 1 and 2 above.
+
+\section{Case Study Methodology}
+The methodology needs to address the phases of each case study that involves projects and their respective organisation; namely: exploration and selection, engagement, the active case study (including data collection, contemporary analysis, and any contributions to the project), \emph{post-hoc} analysis, wrap-up, and publication. These phases may overlap somewhat, they are in approximate time order from first to last. They are covered in order in the following sections, after the \emph{modus operandi}.
+
+\newthought{\textit{modus operandi}}
+During the active case studies, available systems are checked on multiple occasions. Pertinent examples were saved (rather than saving the contents of every check). Preserving the contents of every check may be counter-productive and risk overwhelming the researcher while providing little or no value in terms of the research results. 
+
+In contrast, verification with the project team of actions, agreements, and analysis \emph{etc.} is appropriate and useful.
+
+There is a tension between a) collecting potential evidence and b) the development/project practices. These may be exacerbated by the restrictions and constraints that frame each case study. Therefore, where practical a good starting point is to use existing sources of evidence (such as source code repositories, issue tracking databases, and so on), as discussed later there may be various reasons why ongoing and frequent harvesting of outputs from mobile analytics services may be challenging.eam
+
+\subsubsection{Exploration and selection}
+\begin{wrapfigure}{R}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.42\textwidth]{images/google-play/annotated-resized40pct-2021-09-30-kiwix-app-on-google.png}
+  \end{center}
+  \caption{Kiwix: app presented in Google Play Store}
+  \label{fig:gp-kiwix-app}
+\end{wrapfigure}
+
+The projects and their respective organisation need to develop mobile apps and be willing to have mobile analytics for their apps. For the case studies in this research every project included at least one actively used Android app in Google Play\footnote{By having an active app in Google Play they will also have access to the Google Play Console with its dashboard, Android Vitals, release tools, and other related reports. Therefore they will \emph{de-facto} have at least one source of analytics, collected by the Google Android platform.}, however the methodology may work with minor variations for other app stores and mobile platforms.
+
+
+Various forms of exploration are available. For apps in major app stores the app store may provide pertinent information that can be used to preliminarily select target apps. Figure~\ref{fig:gp-kiwix-app} is how the Kiwix Android app appears to visitors to Google Play when using a web browser (Firefox in this example). Four areas of pertinent information have been highlighted:
+
+\begin{enumerate}[label=(\alph*)]
+    \itemsep0em
+    \item The category of the app and the count of ratings. The category helps group case studies by category, and also helps compare a particular app with the median crash and ANR rates for apps in that category. More details on these are available in \secref{section-peer-categories}.
+    \item More details of the distribution of the ratings.
+    \item When the app was last updated in the app store and the number of installs of all versions of this app.
+    \item Contact details for the developer~\footnote{That said, like many relationships, a warm lead is more likely to elicit a response than a cold email to the published email address. For this research all bar one of the case studies was established through a warm lead, someone who knows me. The exception was the \href{https://github.com/Phantast/smartnavi}{Smartnavi} project where the connection was established through email.}.
+\end{enumerate}
+
+\clearpage
+\subsection{Engagement}
+The engagement phase includes discussions to determine whether the project team (and their organisation) and the researcher(s) would be willing to participate in a viable and productive case study. It is also a suitable time to agree on the depth, scope, range, and duration of the case study. Similarly concerns and constraints need to be determined and agreed that protect all the stakeholders involved while also allowing the research to be not deliberately biased by the project team/organisation. The stakeholders may extend beyond the primary participants, for instance the end users could potentially be stakeholders in what happens during the case study.
+
+There may also need to be discussion, joint understanding, and agreement on: intellectual property rights, copyright, confidentiality, non disclosure agreements, and so on~\footnote{Note: some researchers may be introduced to these together with the ethical aspects under the term LSEPI, discussed in ~\citet{brooke2018__becoming_professional_a_university_perspective}}. Researchers may be subject to their contract with their institution, employer, and so on. The project team and organisation sometimes may be concerned about any intellectual claims by the researcher's organisation. For the research covered in this thesis copyright is retained by the researcher.
+
+As \citet[p.324]{barroca_2018_bridging_the_gap} notes, timeliness and relevance are vital to industry partners, while they also want to guard against the research being too intrusive or too demanding of their time or other resources. Therefore the research needs to offer something of sufficient relevance and timeliness to the project team and their organisation. 
+
+The ROI of empirical research was discussed and published a relatively long time ago from the perspective of scientific and industrial views~\citet[pp54-57]{prechelt_2007_optimizing_ROI_for_empirical_SE_studies}. Investment in case studies includes dealing with the researcher and their demands so if the researcher is able to use mobile analytics tools, analyse the reports, and investigate initial findings they may reduce the burden placed on the project team and their organisation.
+
+Fortunately research into using mobile analytics to improve the quality of their mobile apps has often provided relevant and timely contributions to the projects, particularly in the more in-depth case studies. Also the projects generally already have at least one form of mobile analytics so the incremental cost is low in terms of tooling.
+ 
+\subsection{The active case study}
+If the researcher has direct access to the mobile analytics and/or other materials (such as source code, issue tracking) they can perform at least some of the research directly. If the engagement also includes contributions to the project's materials similarly the researcher may be able to contribute directly if they have write access and/or the facility to fork the codebase and create pull requests. Otherwise the route to mobile analytics reports and any other material available is indirect, via someone who is part of the project and collaborating in the case study. All the case studies included elements of working with and through at least one member of the project team.
+
+For the in-depth case studies where the researcher is more actively involved with the project, the research is likely to have opportunities to work with a variety of team members, and they are also more likely to have direct access to mobile analytics and at least some of the resources. Notes made during and immediately after interviews help to record what was discussed, together with any agreements, actions, or outcomes pertinent to the research and/or the project. Subsequent checking and confirmation of the discussion, for instance in a summary email to the other people in the discussion, 
+
+\citet[p.250]{falessi2010_applying_ESE_to_sw_architecture_etc} states \emph{``there is now a growing need to systematically gather empirical evidence about the advantages or otherwise of tools and methods rather than just rely on promotional anecdotes or rhetoric."}. That was published in 2010, similarly in current times over a decade later, there is a similar growing need to gather evidence about the use of mobile analytics.
+
+In terms of the methodology, during the active case study it is vital to collect and perform ongoing analysis of mobile analytics and whatever other materials are available. Many of these are ephemeral in nature. for instance graphs may change by the minute. There is seldom a manual for the mobile analytics outputs (\textit{e.g.} the reports), furthermore many of the reports are dependent on the underlying data and/or on changes in the underlying service, therefore the researcher often needs to iteratively learn the mobile analytics reporting in an exploratory manner. 
+
+Third-party mobile analytics (including those provided by Google) have terms of use. These terms of use have various names, such as a policy, \textit{e.g.} for Google Play ~\citet{google_play_developer_policy_center}. These may place limitations on data collection and use of the relevant service. For the research covered in this thesis a conservative approach was used in terms of data collection to reduce the risk of consequential issues for the researcher, the project, and the stakeholders for the app. This topic and the implications are expanded on in the \secref{chapter-discussion} chapter.
+
+The choice of tools, including the humble web browser used by the researcher, affects aspects of the ease of collection of on line reports. As an example, the screenshot capability of the Mozilla Firefox browser~\footnote{Described in \url{https://screenshots.firefox.com/}} is far richer than that provided by Google Chrome at the time of writing. Many of the reports in mobile analytics tools require extensive vertical scrolling, Firefox can capture the entire contents easily, Chrome does not. 
+
+Similarly some content is only generated on screen on demand, in response to user actions, for example through scrolling vertically and/or paging through reports. Others are contextual and may only appear when the relevant conditions occur~\footnote{For example, the release management reports in Google Play Console appear for the first 7 days of a new release.}. Therefore, to capture the content the researcher (or their human/automated proxy) needs to perform these actions to obtain these contents and pertinent materials saved/safeguarded to facilitate longer term analysis and provide/record evidence. Note: it is not always practical or useful to record ``everything"; how much is suitable is a topic for future research. Where practical aim to collect the underlying text in addition to visual content; the text can then be processed relatively easily and without needing to be re-keyed.
+
+
+
+%%%%% Revised ad-hoc notes during a recent call with Arosha
+% Some features are contextual...
+% Aim to clearly separate the active analysis vs. the post-hoc stuff for reflective analysis especially across the case studies. Arosha expects most of the research to be based on the post-hoc aspects.
+
+From a research perspective some analysis and verification is likely to occur during the active case study period, and some happens afterwards - based on \emph{post-hoc} analysis. \textbf{MUST-DO Expand on}: Continuous, ongoing, low latency, iterative analysis, verification, course correction, efficacious communications. 
+
+\subsection{\emph{Post-hoc} analysis}
+By this stage, the active case study has finished, although in some cases additional updates may be available, for instance if there is ongoing access to mobile analytics as some projects have provided in this research and/or updates from the project team. Nonetheless, for the most part the evidence has been harvested and any active interventions have generally ceased. The time has come to perform \emph{post-hoc} analysis and verify the findings and analysis with the project team wherever practical to do so. 
+
+\textbf{Post-hoc analysis is more research oriented, analysis the active case study is often more project oriented.} 
+
+The nature of the active case studies where there is a need to deal effectively with ephemeral events, data, actions, \textit{etc.} on an opportunistic, often sporadic, basis biases towards tactical findings and outcomes. From a research perspective the active case study may appear messy, chaotic, and yet incomplete. 
+The \textit{post-hoc} stage provides the opportunity for complementary more reflective, objective, and strategic research. It can help reduce inadvertent bias in the more immediate tactical work by seeking contraindications, alternatives, and/or mistakes and flaws.
+
+\newthought{Establishing patterns of case studies}~\footnote{\julian{c.f. blood group types O positive, O negative, and their sometimes uni-directional ability to be substituted, etc.}}
+
+This stage may identify patterns within and across one or more case studies. Doing so may help to generalise the research, it may also indicate gaps in the research to date and therefore opportunities to prioritise research aimed at addressing the gaps.
+% X-ref to the six perspectives and the findings. What are the data sources that helped me understand the 3 status quo's and the 3 areas or improvement.
+In Figure~\ref{fig:six-perspectives} six perspectives are illustrated; these perspectives may help to categorise and group various findings in the \textit{post-hoc} analysis. 
+
+The conclusions, together with their supporting findings and their respective sources, are well worth verifying with the project team wherever practical to do so. Doing so may help protect the integrity of the work and results; it may also provide additional value for the project and the project team. 
+
+\begin{comment}
+
+
+The \emph{post-hoc} analysis is of material that has been collected, the raw evidence for the research findings. It includes any records and results, identifying patterns in and across case studies, and so on. 
+
+\begin{itemize}
+    \itemsep0em
+    \item Collating similar failures: 
+    \item Bug identification and localisation: Establishing potentially pertinent patterns in the reports, and characterising when a failure \emph{does and does not} occur are part of this work. Obtaining an identifying definitive boundaries may be impractical, the work is often iterative and exploratory in nature and lossy. 
+    \item Ordering and ranking clusters of failures:
+    \item Bug investigation:
+    \item The triage process: 
+    \item Comparing information sources:
+    \item ...
+\end{itemize}
+
+\end{comment}
+
+
+\subsection{Wrap-up}
+The research will need to be wrapped up once the bulk of the research has been completed. (A possible exception is when a case study is ongoing and has no end-date.). The wrap-up can include various actions such as safeguarding and archiving evidence, unsubscribing from services provided for a given case study, publishing what is appropriate to publish in terms of evidence, and so on.
+
+Consider redacting personal details from communications with the stakeholders; for instance, in order to provide emails as supporting evidence for quotes and/or claims made in the research. 
+
+This stage may also provide an opportune period for retrospectives of the case study \textit{and} for the research methods and outcomes, while the case study is still topical. The outputs of the retrospective in some cases may be valuable to fellow researchers, for instance \emph{caveats} for those who follow. 
+
+\subsection{Publication}
+Given the practical and empirical nature of the research publishing for industry \emph{and} for academia can help to increase the value of the research. These audiences may have almost orthogonal needs and expectations, for instance industry is particularly interested in highly actionable findings they can apply and obtain productive improvements almost immediately, whereas publication for academia seeks rigour and prefers peer-reviewed acceptance of the material being published.
 
 \section{Rationale}
 \newthought{Rationale for the choice of methods}
