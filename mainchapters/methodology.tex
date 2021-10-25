@@ -3,15 +3,103 @@
 \buzzwords{Empirical Studies, Theoretical Framework, Conceptual Framework, make assumptions explicit, methodological analysis using prior publications to identify a vocabulary - SE in practice, qualitative analysis,  the 1-2-3 of research design (question - evidence - method) ...}
 
 
-1) Map RQs onto the 6 perspectives
+\begin{wrapfigure}{R}{0.7\textwidth}
+  \vspace{-0.75\intextsep}
+  \begin{center}
+    \includegraphics[width=0.66\textwidth]{images/my/six-perspectives-2x3-matrix-25-oct-2021abc.jpeg}
+  \end{center}
+    \caption{Methodology six perspectives (repeated)}
+    \label{fig:six-perspectives-in-the-methodology}
+\end{wrapfigure}
 
-Data needed - justify the use of cases
-Therefore 
-Data I am seeking
-Map the data onto the analysis
+To answer the research questions there needs to be evidence from how developers use mobile analytics in practice, therefore the methodology needs to include techniques that focus on practical aspects of app development, the use of mobile analytics tools by these app development teams, the quality of these tools, and consider the value and impact from the perspective of these teams.
 
-2) mapping of perspectives into the data that drives them - justify the evidence that each perspective would need.
-3) Data collection methods that will deliver the evidence: I now have the foundation for the rich data I want to collect.
+The data needs to be rich and from real-world apps and projects which justify the use of cases. The research also had to engage with Industry and take a case-based approach situated in real projects. 
+
+\newthought{The research needs to be situated in the real-world}
+As the real-world apps live in an app-store ecosystem and as the main app stores collect app analytics the research needs to be situated in apps that are available in an app store. And as the analytics are derived from usage the apps need to be used, ideally by real-world users of those apps. A variety of projects and apps may help to uncover emergent features, capabilities, and behaviours; they may also help to establish a range of examples of any improvements and any concerns. 
+
+No two analytics tools are identical, they offer a variety of features, capabilities, and have distinct behaviours. Developers use a variety of these tools, therefore there is value in researching various mobile analytics tools. Furthermore there are tools that work at the platform level and others that work at the app level, again researching tools that work at both levels helps determine and distinguish their characteristics and compare their behaviours. 
+
+Interim actions:
+\begin{enumerate}
+    \itemsep0em
+    \item Map the methods to the six perspectives in Figure~\ref{fig:six-perspectives-in-the-methodology}. 
+    \item Mapping of perspectives into the data that drives them - justify the evidence that each perspective would need.
+    \item Data collection methods that will deliver the evidence: I now have the foundation for the rich data I want to collect.
+\end{enumerate}
+
+% Data needed - justify the use of cases
+% Therefore...
+% Data I am seeking
+% Map the data onto the analysis
+
+\begin{table}
+    \small
+    \setlength{\tabcolsep}{4pt} %% default is 6pt
+    \setlength{\arrayrulewidth}{0.1mm}
+    \centering
+    \begin{tabular}{l|ccc|ccc}
+      & \multicolumn{3}{c}{\bfseries \small Understand} & \multicolumn{3}{c}{\bfseries \small Improve} \\
+      \toprule
+         % &\textsubscript{u}Use &\textsubscript{u}Artefacts &\textsubscript{u}Tools &\textsubscript{i}Use &\textsubscript{i}Artefacts &\textsubscript{i}Tools \\
+         &U\textsuperscript{use} &U\textsuperscript{artefacts} &U\textsuperscript{tools} &I\textsuperscript{use} &I\textsuperscript{app} &I\textsuperscript{tools} \\
+         
+        \hline 
+        \textbf{Sense-making} & & & & & & \\
+        Beacon finding and    &Y &y &Y &y &y &y \\
+        Drill Down            &y &y &Y &Y &y &y \\
+        \tabucline[1pt on 3pt]  \\ % See https://tex.stackexchange.com/a/109301/88466 however here it is terminated prematurely and a bit heavy 
+        % Or try https://tex.stackexchange.com/a/229334/88466 or https://tex.stackexchange.com/a/613907/88466 if I've not collapsed these two previous rows soon.
+        % Or use a newer latex package, see https://tex.stackexchange.com/a/611494/88466 
+        Local App Experiments &y &Y &Y &  &Y &Y \\
+        
+        \hline
+        \textbf{Evaluation through action research} & & & & & & \\
+        Field Experiment      &y &  &  &Y &Y &  \\
+        Embedded              &y &Y &y &Y &Y &y \\
+        Hackathon             &y &y &  &Y &Y &  \\
+        
+        \hline
+        \textbf{Feedback mechanisms} & & & & & & \\
+        Ask The App Devs      &Y &y &y &y &y &  \\
+        Ask The Tool Devs     &  &  &Y &y &y &y \\
+        Grey Literature       &y &y &Y &y &y &  \\
+        Code Analysis         &y &Y &  &y &  &  \\
+        
+        \hline
+        \textbf{Across case comparisons}            &Y &y &Y &Y &y &y \\
+        \bottomrule
+    \end{tabular}
+    \caption{Mapping Research Methods to the 6 perspectives}
+    \label{tab:mapping-analysis-to-six-perspectives}
+\end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=12cm]{images/my/analysis-techniques-in-PhD-25-Oct-2021.jpeg}
+    \caption{Analysis techniques illustrated}
+    \label{fig:analysis-techniques-in-phd}
+\end{figure}
+
+Figure~\ref{fig:analysis-techniques-in-phd} provides a visual overview of the four categories of analysis techniques; They include sense-making, evaluation through action research, and comparisons across cases. Various feedback mechanisms help to support and validate the rest of the analysis techniques. 
+
+\begin{comment}
+Commented out after adding the grouping suggested with Marian on \nth{22} Oct 2021. Preserved until this chapter is in better shape.
+
+\julian{Conflations: 1) data collection methods and analysis 2) contributors and goals also conflated. Action: Group rows by what I was targeting: I need to provide the rationale for the methods I used.} Two suggested groupings to try:
+\begin{itemize}
+    \item 3 Groupings: Tool outputs, validation, action research. 
+    \item 4 Groupings: beacons-and-drill-downs, comparisons, contextualisation and clarification, evaluation through action research.
+\end{itemize}
+\end{comment}
+
+
+Usage can be generated by actual users, emulated by other people, simulated by automated scripts interacting with apps, generated by programs, and fabricated by providers of mobile analytics tools/services. Of these, usage generated by actual users is inherently part of the real-world microcosm developers of the apps inhabit and therefore the research methods need to understand the use of mobile analytics in this context. 
+
+There may be various ways to access the real world data, such as being a part of the development team, or being granted access by the development team. While the providers of the mobile analytics services may also have access various ethical, commercial, non-disclosure, safeguarding, and additional considerations make such access unlikely even though it could be tremendously rich and insightful. Some of the research can be performed using emulators and/or simulators and allows for greater control of the input conditions.
+
+\dotfill
 
 Need to understand what data is actually available that I can collect.
 From data to analyses I am undertaking.
@@ -44,6 +132,41 @@ Let me explain in more detail what I mean by...
 *** P1 Start with the table for cases -> types/ categories of data 
 *** P2 Table Data types mapped to the analysis I could perform on that data type. What method I used to analyse the data.
 Analysis to method may be easier to generate than analysis to purpose.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=14cm]{images/my/Illustrated-Research-Methodology-using-Mobile-Analytics-as-the-Epicentre-v0-2.jpeg}
+    \caption{Illustrated Research Methodology using Mobile-Analytics as the Epicentre}
+    Illustration of the 
+    \label{fig:Illustrated-Research-Methodology-using-Mobile-Analytics-as-the-Epicentre}
+\end{figure}
+
+\section{Analytics centric methodology}
+The methodology incorporates an iterative cycle of \textbf{beacon finding} to identify areas of interest within a case, \textbf{drill down} to investigate one or more beacons, then \textbf{comparison} across cases to identify patterns, relationships, counterfactuals~\footnote{\emph{``relating to or expressing what has not happened or is not the case." Oxford Languages.}}, as some characteristics emerge in contrasts across and between a body of studies. The first representation of the iterative cycle is illustrated in Figure~\ref{fig:Illustrated-Research-Methodology-using-Mobile-Analytics-as-the-Epicentre}. This shows an artificially clean and orderly progression between elements in the cycle and useful to communicate the concepts of the research methodology. 
+
+However this Figure (\ref{fig:Illustrated-Research-Methodology-using-Mobile-Analytics-as-the-Epicentre}) does not incorporate real-world and practical characteristics of app development practice, which is the crucible for this research. The research needed to be grounded in real-world projects and with real-world app development teams, accordingly the methodology incorporates a mutually-beneficial, symbiotic, bi-directional connection where the iterative research is evaluated with and through these real-world projects and teams. Figure~\ref{fig:illustrated-combined-methodology} includes the bi-directional connection and also illustrates a modified progression between the elements in the iterative cycle where the iteration alternates primarily between beacon-finding and drill-down, and less frequently through the comparison element. All these elements are vital and none less important than the others. Again the figure is representative, for individual cases the flow and progression may well vary.
+
+This Figure (\ref{fig:illustrated-combined-methodology}) also partly indicates how the research feeds the six perspectives to varying degrees; (the evaluation and action research also contribute to the six perspectives). TODO divide this figure. Create another figure to show the sources to the 6 perspectives. 
+
+TODO Motivation for the methodology. 
+
+Need something comparable for the messy tail of the figure. Then these can be mapped onto the 6 perspectives. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=14cm]{images/my/illustrated-combined-methodology-v0-1.jpg}
+    \caption{Illustrated combined methodology}
+    \label{fig:illustrated-combined-methodology}
+\end{figure}
+
+This corresponds in principle to the structure and premises of grounded theory where patterns are induced, data iterated to see if categories are appropriate, identifying patterns with comparisons with other data sets for checks and balances. 
+
+TODO discuss saturation briefly. 
+
+Not only could this be connected to context, it could be applied in practice to see the effects of the results.
+
+Need to map methods to perspective. 
+
 
 \section*{Preamble - what needs doing to craft this chapter}
 {\small
@@ -83,7 +206,7 @@ Arosha suggested a layered diagram with evidence at the base. or perhaps somethi
         \itemsep0em
         %\item[]
         \item Action Research
-        \item[$\bullet$] [Semi-] Controlled Experiment
+        \item[$\bullet$] [Semi-] Controlled Experiment (Field experiments)
         \item Hackathon
     \end{itemize}
     \item[Analytics Provider] :

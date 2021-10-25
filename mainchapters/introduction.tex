@@ -151,6 +151,9 @@ Note: while the first two of these sources use Google Play as their source, othe
 \label{section-research-questions}
 %%%%%%%%%% Isabel Evans suggests adding a table with my RQs at the start of this section. TBD. COULD-DO. Certainly it seems this section needs polish.
 
+%MUST-DO \yijun{If possible, you may need to dig out a few MobileSoft research papers to give evidence that these research questions have not been addressed in literature, e.g., \emph{Future Trends in Software Engineering Research for Mobile Apps}~\citep{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}, whether the future work of some paper suggests one does not know the sources, value, or impact of mobile analytics to assess and improve app quality? Is there nothing in the general SE literature studying the "analytics" to "general software quality" problem? If there are such general work, how does "mobile analytics" and "app quality" differentiate the RQs to existing ones...}
+
+
 My research hypothesis is that using mobile analytics can help improve both the work development teams do and the quality of the products they create. Here work includes the development, testing, and bug investigation of the software being created. For the quality of the product, this research is focusing on a subset of qualities which are technology-centric.
 
 The core question the research aims to consider is:
@@ -159,25 +162,52 @@ The core question the research aims to consider is:
 \end{quote}
 % Thanks to https://tex.stackexchange.com/questions/35933/indenting-a-whole-paragraph
 
+In order to answer this research question it is appropriate to consider improvements to the \emph{app i.e. the product} and to the \emph{processes/practices} development teams apply when they develop and maintain their mobile apps. Improvements cannot be be usefully considered in isolation, they need to be grounded in the current practices: the developers will have their perspectives on their use of mobile analytics, and their development artefacts may provide cross-verification of what they say they do compared with tangible evidence of how they use those mobile analytics tools. 
+
+Furthermore, there may be constraints and/or limitations in the current mobile analytics tools which may adversely affect the improvements development teams are able to make to their processes/practices and to their products, hence it is also germane to consider improvements to the current mobile analytics tools.
+
+These additional supporting questions can be restated as six distinct yet related perspectives.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{images/my/six-perspectives-2x3-matrix-25-oct-2021abc.jpeg}
+    \caption{Six Perspectives}
+    \label{fig:six-perspectives-in-the-research-questions-section}
+\end{figure}
+
+\subsection{Research questions lead to six perspectives}
+The six perspectives are illustrated in Figure~\ref{fig:six-perspectives-in-the-research-questions-section}~\footnote{Source figure:~\href{https://docs.google.com/drawings/d/1SafKu3uqgl-s8-I8iWSSWmFY4NdlNpw8v6ZiJDGh50c/edit?usp=sharing}{Google Docs: Six Perspectives drawing}.} and paraphrased below:
+{\footnotesize
+\begin{enumerate}
+    \itemsep0em
+    \item [1a] What do app developers say they do? (understand the status quo from their perspective).
+    \item [2a] What's possible in terms of improving their processes, their practices?
+    \item [1b] What does their source code (and other available development artefacts) tell us about their use of mobile analytics? (understand current behaviours in terms of the code that's implemented)~\footnote{NB: it might be useful to reanalyse the projects we studies to identify which ones actively include crash reporting.}.
+    \item [2b] What's possible in terms of improving the product (and particularly the mobile app) through the application/use of mobile analytics?
+    \item [3a] What do we learn about various current mobile analytics tools?
+    \item [3b] What improvements are possible for mobile analytics tools based on what was learned in the various case studies?
+\end{enumerate}
+}
+
+These provide clear grouping for each of the three columns: on processes (a), on apps and related development artefacts (b), and on the tools (c) which are considered in terms of first understanding and then improving the \emph{status-quo}, shown as two rows, \emph{i.e.} a 3x2 matrix. 
+
+
 % https://www.skmurphy.com/blog/2014/01/27/difference-between-a-hypothesis-and-an-assumption/
 Here the hypothesis is that analytics can help, as stated by Buse and Zimmermann ~(\citeyear{buse_analytics_2010}); and \emph{``with explicit and implicit feedback now available (almost) continuously, questions arise. How can practitioners use this information and integrate it into their development processes [to decide when to release updates]?"}~\citep{maalej2016_towards_data_driven_requirements_engineering}.
 
-This leads to several related questions that underpin this main question: these are grouped in three categories: \href{sec:sources}{\textbf{\nameref{sec:sources}}}, \href{sec:value}{\textbf{\nameref{sec:value}}}, and \href{sec:impact}{\textbf{\nameref{sec:impact}}}.
+\subsection{Additional research considerations}
+\julian{I've reoriented my previous sub-RQ's here rather than delete them at this stage. MUST-DO consider whether to keep them in the thesis.}
 
-%\akb{There are a lot of sub-questions below. You will need to focus on the ones you have data to evaluate, or have more abstract formulations that cover groups of sub-questions.}
+This leads to several related questions that provide additional context to this research: these are grouped in three categories: \href{sec:sources}{\textbf{\nameref{sec:sources}}}, \href{sec:value}{\textbf{\nameref{sec:value}}}, and \href{sec:impact}{\textbf{\nameref{sec:impact}}}.
 
-%MUST-DO \yijun{If possible, you may need to dig out a few MobileSoft research papers to give evidence that these research questions have not been addressed in literature, e.g., \emph{Future Trends in Software Engineering Research for Mobile Apps}~\citep{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}, whether the future work of some paper suggests one does not know the sources, value, or impact of mobile analytics to assess and improve app quality? Is there nothing in the general SE literature studying the "analytics" to "general software quality" problem? If there are such general work, how does "mobile analytics" and "app quality" differentiate the RQs to existing ones...}
-
-
-
-\subsection{Sources}~\label{section-sources}~\label{sec:sources}
+\subsubsection{Sources}~\label{section-sources}~\label{sec:sources}
 At a superficial level, there seem to be mobile analytics offerings that operate within the app and those that are external to the app, particularly those that gather data at the platform level. Several widespread analytics offerings are evaluated as part of this research. Several more were considered to provide an understanding of the overall context.
 \begin{itemize}
     \item \emph{What sources of analytics are available? And how do the sources that were investigated compare in terms of the data they collect and how they are used?}
     % \item \emph{Hypothesis}: The various sources have distinct characteristics and purposes. Developers may wish to choose particular analytics to best suit their context and objectives.
 \end{itemize}
 
-\subsection{Value}~\label{section-value}~\label{sec:value}
+\subsubsection{Value}~\label{section-value}~\label{sec:value}
 Does using analytics provide quantitative and/or qualitative value that can be measured? Could it provide value in terms of assessing the quality of our work that was invested into developing, testing and preparing software before it was launched?
 \begin{itemize}
     \item \emph{How much does the fidelity of the analytics offerings matter?} Can the results be used productively even if they are flawed? %The research discovered numerous errors in various analytics offerings. These results may be of interest to the research community given the endemic nature of mobile analytics in real-world apps in the major app stores.
@@ -185,7 +215,7 @@ Does using analytics provide quantitative and/or qualitative value that can be m
     \item \emph{How can analytics help with bug investigation?} Isolated instances of bugs may be hard to assess in terms of the likely scope and impact on a user-base; \emph{how, where and when can analytics help with bug investigation?} We might also consider practical limits,~\emph{e.g.,} constraints that are enforced by the real-world analytics being used.
 \end{itemize}
 
-\subsection{Impact}~\label{section-impact}~\label{sec:impact}
+\subsubsection{Impact}~\label{section-impact}~\label{sec:impact}
 Here the focus is on whether the value has sufficient impact for anyone else to be interested in using and applying analytics. Given the nature of the research the main measures are practical, \emph{i.e.}, in the real-world.
 \begin{itemize}
     \item \emph{Do development teams use analytics in their practice?}  And if so, how? % Hypothesis: If development teams find practices useful they will generally try to use them intrinsically. Do they?
