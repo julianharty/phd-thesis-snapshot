@@ -70,6 +70,7 @@ A variety of methods was chosen to address the research needs by engaging with d
          
         \hline 
         \textbf{Sense-making} & & & & & & \\
+        (comprehension and exploration) & & & & & & \\
         Beacon finding and    &Y &y &Y &y &y &y \\
         Drill Down            &y &y &Y &Y &y &y \\
         %\tabucline[1pt on 3pt]  \\ % See https://tex.stackexchange.com/a/109301/88466 however here it is terminated prematurely and a bit heavy 
@@ -93,7 +94,8 @@ A variety of methods was chosen to address the research needs by engaging with d
                 
         \hline
         \textbf{Evaluation through action research} & & & & & & \\
-        Embedded Intervention, including: &y &Y &y &Y &Y &y \\
+        (embedded intervention, including:) &y &Y &y &Y &Y &y \\
+        - Observation &Y &Y &Y &Y &Y &y \\
         - Field Experiment      &y &  &  &Y &Y &  \\
         - Hackathon             &y &y &  &Y &Y &  \\
         
@@ -103,7 +105,7 @@ A variety of methods was chosen to address the research needs by engaging with d
     \label{tab:mapping-analysis-to-six-perspectives}
 \end{table}
 
-%Moved to 4 groupings, decide on the ordering.
+%Moved to 4 groupings, review the ordering and naming.
 
 \begin{figure}
     \centering
@@ -123,7 +125,7 @@ Table ~\ref{tab:mapping-analysis-to-six-perspectives} identifies the different r
 
 One way to make sense is similar to the `invent the future' adage~\footnote{For example: \url{https://quoteinvestigator.com/2012/09/27/invent-the-future/}} was to create micro experiments through developing small mobile apps intended to exercise particular aspects of mobile analytics. These helped to answer questions and gaps observed as part of sensemaking.
 
-`\textbf{Sensebuilding}' methods built on discoveries found through the rest of the analysis methods. There were two vectors, one performed micro-experiments where the inputs to an app were directed in order to determine the outputs from mobile analytics. The second involved across case comparisons, for instance to establish characteristics and patterns that were not present in individual case studies.
+`\textbf{Sensebuilding}' methods built on discoveries found through the other analysis methods. There were two vectors, one performed micro-experiments where the inputs to an app were directed in order to determine the outputs from mobile analytics. The second involved across case comparisons, for instance to establish characteristics and patterns that were not present in individual case studies.
 
 The local app experiments in particular gave insight into the relationships between tools, quality of analytics, and potential impact of analytics use on apps (i.e., perspectives 1b, 1c, 2b, 2c). Across-case comparisons were concerned largely with understanding current practice and identifying potential improvements to practice (i.e., perspectives 1a and 2a), as well as the influence of the quality of tools on practice (3a).
 
@@ -159,16 +161,30 @@ The notion of \textbf{`beacons'} was borrowed from research on program comprehen
 The notion of beacons was generalised for this research to include indicators in the analytics of something of interest, or something that required attention.  And so 'beacon finding' was an inductive process by which significant indicators were identified in the code.  Mobile Analytics may include source code that calls APIs in the application's source code, however the bulk of the contents that need to be comprehended comes as outputs from the mobile analytics tools, therefore the beacons will differ accordingly. 
 In this research the beacons include: the shape of graphs in mobile analytics report, failure clusters, a method call in stack traces, and so on.
 
-\marian{[Now specify how you spotted beacons... I looked for things on this basis, how I kept track of things, what selection criteria were used and why?]}
-Beacons emerge in various ways. For instance in reports they include: anomalies within a report, mismatches between two sibling reports, or between a master report and the linked detailed report, in the shape of the curve of a graph, in the distribution and groupings of aggregate data, and so on. Similarly, alerts as determined by a mobile analytics service may be considered potential beacons being `promoted' by the mobile analytics reports. 
+\marian{Now specify how you spotted beacons... I looked for things on this basis, how I kept track of things, what selection criteria were used and why?}
 
-Selections included: top ranking results, atypical rates of change, adverse changes to reliability, novel failures particularly for the most recent release, etc. 
+Beacons emerge in various ways. For instance in reports they include: anomalies within a report, mismatches and inconsistencies between two sibling reports or between a master report and the linked detailed report, in the shape of the curve of a graph, in the distribution and groupings of aggregate data, and so on. Similarly, alerts as determined by a mobile analytics service may be considered potential beacons being `promoted' by the mobile analytics reports. 
+
+The most common method of recording potential beacons was using web browser screenshots and/or other mechanisms that preserved information electronically. Some were annotated as part of the beacon-finding and drill-down analysis. Additional notes were written both electronically and/or in physical notebooks. 
+
+Selection criteria included: top ranking results, atypical rates of change, adverse changes to reliability, novel failures particularly for the most recent release, etc. A consistent and overriding criterion was to seek beacons that indicated flaws and failures that could materially and adversely affect the user experience of the app for one or more users of the app.
+
+\julian{c.f. Cognition in the wild, as a parallel example of rich and emergent findings from the real world that would be very hard to specify or determine the factors that applied at the time the ship was being brought under control~\citep{hutchins1995_cognition_in_the_wild}.}
 
 %\textbf{Beacon finding} seeks potentially relevant indicators, typically within bounded domain such as software code. Beacons help to convey meaning and are used for comprehension, for instance by programmers who wish to understand source code~\citep[page i]{crosby2002_roles_beacons_play_in_comprehension_etc}. The concept of beacons in source code has been studied by various authors for several decades; for instance by Wiedenbeck, who helped establish beacons in software development: ~\emph{``In programming, beacons are lines of code which serve as typical indicators of a particular structure or operation"}~\citep[p.679]{WIEDENBECK1986_beacons_in_computer_program_comprehension}. The work was extended and updated to explicitly consider the effects of beacons in comprehension of source code, for instance in~\citealt{crosby2002_roles_beacons_play_in_comprehension_etc}.
  
 
 
 % I'm not sure where to discuss beacons in conversations: for instance in a developer's description of their use of mobile analytics to assess the quality of the app - they exist to me - TBD.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=12cm]{images/rough-sketches/practical-sense-making-process.jpeg}
+    \caption{Sense-making process when applying mobile analytics}
+    \label{fig:practical-sense-making-process-when-applying-mobile-analytics}
+\end{figure}
+
+
 
 \subsubsection{Drill-down} 
 Beacons stimulate interest, the interest needs to be satisfied one way or another by investigating the beacons and their underlying information sources. 
@@ -183,6 +199,9 @@ TODO Sensemaking was amplified through the feedback mechanisms.
 
 \subsection{Sense-building}
 
+\akb{need an introductory paragraph here that explains how sense-building is different from sense-making, and an overview of the activities included in this part of the analysis}
+
+Sense-building moves beyond sense-making. Sense-making aims to understand \textit{what is} while sense-building involves direct action and more active research, for instance: to devise and run experiments to learn more about the behaviours of mobile analytics, and to seeks patterns and generalisations across tools, case studies, and so on. Two methods were used primarily in sense-building: local app experiments and across case comparisons. 
 
 \subsubsection{Local-app experiments} 
 Local-app experiments used small mobile apps, not intended for production use, that were developed in order to investigate the relationships between the inputs (such as usage) and the analytics outputs (such as reports) through deliberate manipulation of the inputs and observation of the consequences.  
@@ -190,61 +209,19 @@ Local-app experiments used small mobile apps, not intended for production use, t
 
 Where practical the source code of these apps is made available under a permissive opensource license to facilitate further research by others and in order to facilitate inspection and feedback from others.
 
+\subsubsection{Across case comparisons}
+
+
+\subsection{Feedback mechanisms}
+
+
 \subsection{Evaluation through action research}
 
 \textbf{}
 
 
-\dotfill
-
-\begin{comment}
-Commented out after adding the grouping suggested with Marian on \nth{22} Oct 2021. Preserved until this chapter is in better shape.
-
-\julian{Conflations: 1) data collection methods and analysis 2) contributors and goals also conflated. Action: Group rows by what I was targeting: I need to provide the rationale for the methods I used.} Two suggested groupings to try:
-\begin{itemize}
-    \item 3 Groupings: Tool outputs, validation, action research. 
-    \item 4 Groupings: beacons-and-drill-downs, comparisons, contextualisation and clarification, evaluation through action research.
-\end{itemize}
-\end{comment}
 
 
-Usage can be generated by actual users, emulated by other people, simulated by automated scripts interacting with apps, generated by programs, and fabricated by providers of mobile analytics tools/services. Of these, usage generated by actual users is inherently part of the real-world microcosm developers of the apps inhabit and therefore the research methods need to understand the use of mobile analytics in this context. 
-
-There may be various ways to access the real world data, such as being a part of the development team, or being granted access by the development team. While the providers of the mobile analytics services may also have access various ethical, commercial, non-disclosure, safeguarding, and additional considerations make such access unlikely even though it could be tremendously rich and insightful. Some of the research can be performed using emulators and/or simulators and allows for greater control of the input conditions.
-
-\dotfill
-
-Need to understand what data is actually available that I can collect.
-From data to analyses I am undertaking.
-In order to get this data 
-
-Therefore I'm going to have to engage with Industry. A case approach, situated in real projects.
-How can we generate the evidence and what data can we collect to partially answer the demands for evidence. c.f. data sources section. Provide a foreshadowing of the data sources, signpost to where they will be discussed.
-
-Instantiation in the introduction to the case studies chapter after the model described in the methodology.
-Move 5.1 into the methods chapter as it provides orientation for the reader.
-
-I need to decide on my primary organising principle: e.g. the 6 perspectives
-Rewrite section 5.1 around figure 5.2 (6 perspectives) Label the 6 perspectives.
-
-In order to understand .... this is what we need, therefore we use the following methods to gather the evidence.
-
-DevEx of the use of the mobile analytics. 
-
-Create a table of the needs to fulfil each of the 6 perspectives: data needed to perspectives i.e. purpose of Analysis, framed in terms of these 6 perspectives. 
-Justify how each data source is used to fulfil the research questions. 
-
-From question to evidence to method.
-
-Once the above has been sketched out I can then discuss my roles and I was aware I take different roles and my analysis was cognisant of the different roles I played.
-
-I'd need to define what a case study is. - an opportunity to look in depth in the real world, a container for data collection with and in a number of organisations. I'll explain clearly what methods I was able to use in each case. 
-
-Let me explain in more detail what I mean by... 
-
-*** P1 Start with the table for cases -> types/ categories of data 
-*** P2 Table Data types mapped to the analysis I could perform on that data type. What method I used to analyse the data.
-Analysis to method may be easier to generate than analysis to purpose.
 
 \begin{figure}
     \centering
@@ -253,6 +230,8 @@ Analysis to method may be easier to generate than analysis to purpose.
     Illustration of the 
     \label{fig:Illustrated-Research-Methodology-using-Mobile-Analytics-as-the-Epicentre}
 \end{figure}
+
+\dotfill 
 
 \section{Analytics centric methodology}
 The methodology incorporates an iterative cycle of \textbf{beacon finding} to identify areas of interest within a case, \textbf{drill down} to investigate one or more beacons, then \textbf{comparison} across cases to identify patterns, relationships, counterfactuals~\footnote{\emph{``relating to or expressing what has not happened or is not the case." Oxford Languages.}}, as some characteristics emerge in contrasts across and between a body of studies. The first representation of the iterative cycle is illustrated in Figure~\ref{fig:Illustrated-Research-Methodology-using-Mobile-Analytics-as-the-Epicentre}. This shows an artificially clean and orderly progression between elements in the cycle and useful to communicate the concepts of the research methodology. 
@@ -281,125 +260,6 @@ Not only could this be connected to context, it could be applied in practice to 
 Need to map methods to perspective. 
 
 
-\section*{Preamble - what needs doing to craft this chapter}
-{\small
-Recap what I found in the Literature Review, to validate the RQs. Then start with the RQs to consider how they can be answered in the research. Highlight the value and relevance of evaluating this in practice. Add `in practice' to my RQ. Look at literature on the theory of generalisation from case studies - Ask Marian for advice on this.
-
-Determine what's needed to answer each sub-question and the methods needed to answer them. Formulate hypotheses from the RQ's - consider first falsifying the null hypothesis. Pointers: the research onion - Saunders, appeals to logic, appeal to authority - prior practice, what are the threats to validity, maintain the methods developers use which is outside the scope of this chapter,
-
-Create a diagram to map out the connections between the case studies and the evidence they provide. Show the dependencies between the RQs and the case studies and the evidence they provide.
-
-Arosha suggested a layered diagram with evidence at the base. or perhaps something akin to Akshika's diagram~\ref{fig:akshikas-methodologies-map}.
-}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=9cm]{images/ephemeral-images-remove-pre-publication/Akshikas-methodology-diagram-from-his-thesis.png}
-    \caption{For inspiration only: Akshika's methodologies map}
-    \label{fig:akshikas-methodologies-map}
-\end{figure}
-
-\hrulefill
-\clearpage
-
-
-\section{Text-based methodology maps (a w-i-p)}
-\emph{The following hierarchical lists are a work-in-progress while the details are established. They will be replaced and retired.}
-
-
-{\footnotesize
-\begin{description}
-    \itemsep0em
-    \item[Research Method] :
-        \begin{itemize}
-            \item Case Study
-        \end{itemize}
-    \item[Research Tools] :
-    \begin{itemize}
-        \itemsep0em
-        %\item[]
-        \item Action Research
-        \item[$\bullet$] [Semi-] Controlled Experiment (Field experiments)
-        \item Hackathon
-    \end{itemize}
-    \item[Analytics Provider] :
-        \begin{itemize}
-            \item Google Play Console with Android Vitals
-        \end{itemize}
-    \captionof{methodology-map}{Kiwix case study methodology map}
-    \label{methodology-map-kiwix-case-study}    
-\end{description}
-}
-% Thanks to https://fedoramagazine.org/latex-typesetting-part-1/ for helping me discover {description} and for enabling me to find workarounds when it didn't render as I'd expected e.g. where I needed to add [$\bullet$] to stop it interpreting [Semi-] as a style.
-
-{\footnotesize
-\begin{description}
-    \itemsep0em
-    \item[Research  Method] :
-        \begin{itemize}
-            \item Inductive analysis of source code
-        \end{itemize}
-    \item[Research Tool] TBC
-    \item[Data Analysis Method] TBC
-    \captionof{methodology-map}{Logging using Mobile Analytics}
-    \label{methodology-map-logging-using-mobile-analytics}
-\end{description}
-}
-
-The logging case study, in \secref{methodology-map-logging-using-mobile-analytics} uses inductive analysis to determine the patterns. 
-
-\section*{Plain thoughts on the methodology used}
-Methods need to support real-world projects, their development teams and their apps. Case studies enable this so they were used for the core of the research. Each case study needed the support and agreement of the project team who needed to provide access to the mobile analytics services they use. Those teams and their respective organisations had a bearing on the scope and limits of the research that would be acceptable to them, this meant that case studies were opportunistic in nature and depended on the alignment of purposes, timings, and so on.
-
-There was a fair amount of housekeeping needed to provide and maintain access (where permitted) to the tools. Some teams also allowed access to their bug tracking systems, their source code (and associated build, CI and testing), and - of necessity - their mobile analytics reports. Some wishes aspects of their microcosm to be kept private, in some cases, representative alternatives could be provided that illustrated and/or exemplified some of the learning while maintaining their anonymity.  
-
-Many of the case studies provided extended access to some or all of their systems which enabled some post case study analysis. Learnings from some case studies were able to be used in subsequent ones.
-
-Even though the case studies provided really useful and relevant findings it was clear they did not represent the population of mobile apps. Various Industry contacts who actively use at least one mobile mobile analytics service to monitor failures in their apps agreed to be interviewed and share their insights. Their involvement was approved by their respective projects and/or organisations addressing combined business and ethical perspectives. Again, owing to their specific contexts, concerns, and experiences the interviews were semi-structured to enable them the flexibility, control and freedom to share whatever results, experiences, and insights they were willing and able to provide.
-
-There were some experiments that were not sensible/practical in the case studies; so small scale experiments were designed and performed to research those when it was viable to do so. The ephemeral nature of data and reports in several of the mobile analytics services meant these data and reports were originally hard to record and preserve. The research therefore included the development of software that was able to preserve the data and reports from the core mobile analytics service: Google Play Console with Android Vitals.
-
-Several mobile analytics providers became interested in the research and the results and their perspectives was also of interest and germane to the research, therefore there were symbiotic sharing of results, analysis, product design, customer insights and so on. All these have been anonymised by at least one party and non contained personally identifiable information.  
-
-\newthought{Conceptual Framework}
-``Conceptual frameworks provide a theoretical overview of your intended research and order withing that process", ``a map or framework of how the research will be conducted and analysed"~\citep[page 44]{trafford2008_stepping_stones_to_achieving_your_doctorate}
-
-Germane concepts include:
-\begin{itemize}
-    \item Value Chains and modelling Influences, e.g. see \emph{``From Data to Decisions: A Value Chain for Big Data"}~\citep{miller2013_from_data_to_decisions_a_value_chain_for_big_data} which provides 7 stages in a value chain to obtain value from big data - such as mobile analytics data.
-\end{itemize}
-
-
-The research is mainly empirical owing to the nature of usage analytics and the analytics tools which thrive on volume and realism therefore case studies provide the core of the research. The analytics data for apps is private by default and access is only provided to authorised users of each analytics tool, these users are typically a small trusted subset of the development team for that app. If the development team are part of an organisation they may also need the approval of their organisation before they are permitted to share the analytics outside their immediate team. These restrictions meant an opportunistic approach needed to be taken to obtaining case studies; and the team and/or organisation determined the mode of engagement for the researcher.
-
-Mixed methods were used to expand the research, for instance: by using static analysis into how developers use and maintain remote logging in the codebases of their Android apps, and qualitatively, by interviewing app developers on their use of mobile analytics. 
-
-
-\isabel{The key concepts and the theoretical framework underpin the methodology: I would say you touch on or assume matters of ontology and the human condition (we are not flawless), management theory (Drucker), systems theory (people, processes and systems interacting), quality models (QiU/Bevan), standards like iso25001 and other models for how we categorise software qualities, psychology (when and how do we trust)}
-
-\newthought{Phrases from Isabel's Transfer Report of relevance} 
-A researcher-driven approach using concept maps and inﬂuence diagrams to map what I already know from industry experience and previous research. I noticed improving reliability is an ongoing challenge for many software and systems, I focus on Mobile apps and Mobile Analytics for \textit{n} reasons: lastly because I have have extensive experience of developing and improving the quality of mobile apps, `this research is what Aurini [33] characterises as an \textit{of me} research problem, that is, whilst I am the researcher, I could also be a participant.' It also includes a \textit{plus 1} research project, as it adds to the current research on practitioner practices and experiences... An empirical approach to data collection and analysis. 
-%
-Clough and Nutbrown’s approach to research methodology [1] includes an imperative that research is both political and persuasive, with the intent of inﬂuencing strategy and approaches in working practices (see Figure 2, page 7). In their case, they apply this to research into and aﬀecting social policy, however I feel the same purpose is important with regard to the politics, policies, strategies and approaches to testing used in organisations and their IT teams. As an industry practitioner coming into academia, I am in a position to learn from and potentially to inﬂuence both industry and academia, working on ICT, SWT and other disciplines, bridging research and industry practice.
-%
-Groups contributing to and receiving information about results...
-%
-My results report on the practitioners' reality.
-
-\newthought{Case Studies}
-The case studies illustrate manifold facets of applying (and ignoring) mobile analytics across various contexts of engagement, across various types of app, and from several perspectives including the organizations who create the mobile analytics tools and related services.
-
-The case studies include examples where the researcher's mode of engagement was as:
-\begin{enumerate}
-    \itemsep0em
-    \item an embedded developer: an active participant integrated into the project team,
-    \item a coach: of an existing team of developers who applied the concepts,
-    \item an interviewer: of various development teams to learn of their practices and results,
-    \item an analyst/observer: performing static analysis of opensource code repositories.
-\end{enumerate}
-\isabel{I think if you look at this in terms of the methodology, you can weave in some of the things Aurini, Heath, and Howells talk about. So in the first two points the research is "of me" whereas in points 3 and 4 it is not. From Clough and Nutbrown, in points 1 and 2 the way you can be political and persuasive is different to how you apply political/persuasive as a result of 3 and 4. When you are a coach the point of being in the project is to effect change. The research effects change as a result of how you promulgate the results}
-
-Research effecting change when I am an active part of it, i.e. in 1 and 2 above.
 
 \section{Case Study Methodology}
 The methodology needs to address the phases of each case study that involves projects and their respective organisation; namely: exploration and selection, engagement, the active case study (including data collection, contemporary analysis, and any contributions to the project), \emph{post-hoc} analysis, wrap-up, and publication. These phases may overlap somewhat, they are in approximate time order from first to last. They are covered in order in the following sections, after the \emph{modus operandi}.
@@ -540,9 +400,123 @@ Given the practical and empirical nature of the research publishing for industry
     \item \emph{``Grounded theory in software engineering research: a critical review and guidelines"} \url{https://doi.org/10.1145/2884781.2884833} if I decide to wade into grounded theory... (I aim not to).
 \end{itemize}
 
-\isabel{Next call, 2 hours on Thursday 9th Sept 09:30 - 11:30 - Whiteboarding session.}
+%\isabel{Next call, 2 hours on Thursday 9th Sept 09:30 - 11:30 - Whiteboarding session.}
 
 \section{Placeholders}
 \begin{itemize}
     \item \citep{soiferman2010_compare_and_contrast_inductive_and_deductive_research_approaches}
 \end{itemize}
+
+\section*{Preamble - what needs doing to craft this chapter}
+{\small
+Recap what I found in the Literature Review, to validate the RQs. Then start with the RQs to consider how they can be answered in the research. Highlight the value and relevance of evaluating this in practice. Add `in practice' to my RQ. Look at literature on the theory of generalisation from case studies - Ask Marian for advice on this.
+
+Determine what's needed to answer each sub-question and the methods needed to answer them. Formulate hypotheses from the RQ's - consider first falsifying the null hypothesis. Pointers: the research onion - Saunders, appeals to logic, appeal to authority - prior practice, what are the threats to validity, maintain the methods developers use which is outside the scope of this chapter,
+
+Create a diagram to map out the connections between the case studies and the evidence they provide. Show the dependencies between the RQs and the case studies and the evidence they provide.
+
+Arosha suggested a layered diagram with evidence at the base. or perhaps something akin to Akshika's diagram~\ref{fig:akshikas-methodologies-map}.
+}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=9cm]{images/ephemeral-images-remove-pre-publication/Akshikas-methodology-diagram-from-his-thesis.png}
+    \caption{For inspiration only: Akshika's methodologies map}
+    \label{fig:akshikas-methodologies-map}
+\end{figure}
+
+\hrulefill
+\clearpage
+
+
+The logging case study, in \secref{methodology-map-logging-using-mobile-analytics} uses inductive analysis to determine the patterns. 
+
+
+\dotfill
+
+\section*{Commentary to address when writing this chapter}
+Need to understand what data is actually available that I can collect.
+From data to analyses I am undertaking.
+In order to get this data 
+
+Therefore I'm going to have to engage with Industry. A case approach, situated in real projects.
+How can we generate the evidence and what data can we collect to partially answer the demands for evidence. c.f. data sources section. Provide a foreshadowing of the data sources, signpost to where they will be discussed.
+
+Instantiation in the introduction to the case studies chapter after the model described in the methodology.
+Move 5.1 into the methods chapter as it provides orientation for the reader.
+
+I need to decide on my primary organising principle: e.g. the 6 perspectives
+Rewrite section 5.1 around figure 5.2 (6 perspectives) Label the 6 perspectives.
+
+In order to understand .... this is what we need, therefore we use the following methods to gather the evidence.
+
+DevEx of the use of the mobile analytics. 
+
+Create a table of the needs to fulfil each of the 6 perspectives: data needed to perspectives i.e. purpose of Analysis, framed in terms of these 6 perspectives. 
+Justify how each data source is used to fulfil the research questions. 
+
+From question to evidence to method.
+
+Once the above has been sketched out I can then discuss my roles and I was aware I take different roles and my analysis was cognisant of the different roles I played.
+
+I'd need to define what a case study is. - an opportunity to look in depth in the real world, a container for data collection with and in a number of organisations. I'll explain clearly what methods I was able to use in each case. 
+
+Let me explain in more detail what I mean by... 
+
+*** P1 Start with the table for cases -> types/ categories of data 
+*** P2 Table Data types mapped to the analysis I could perform on that data type. What method I used to analyse the data.
+Analysis to method may be easier to generate than analysis to purpose.
+
+
+\section*{Plain thoughts on the methodology used}
+Methods need to support real-world projects, their development teams and their apps. Case studies enable this so they were used for the core of the research. Each case study needed the support and agreement of the project team who needed to provide access to the mobile analytics services they use. Those teams and their respective organisations had a bearing on the scope and limits of the research that would be acceptable to them, this meant that case studies were opportunistic in nature and depended on the alignment of purposes, timings, and so on.
+
+There was a fair amount of housekeeping needed to provide and maintain access (where permitted) to the tools. Some teams also allowed access to their bug tracking systems, their source code (and associated build, CI and testing), and - of necessity - their mobile analytics reports. Some wishes aspects of their microcosm to be kept private, in some cases, representative alternatives could be provided that illustrated and/or exemplified some of the learning while maintaining their anonymity.  
+
+Many of the case studies provided extended access to some or all of their systems which enabled some post case study analysis. Learnings from some case studies were able to be used in subsequent ones.
+
+Even though the case studies provided really useful and relevant findings it was clear they did not represent the population of mobile apps. Various Industry contacts who actively use at least one mobile mobile analytics service to monitor failures in their apps agreed to be interviewed and share their insights. Their involvement was approved by their respective projects and/or organisations addressing combined business and ethical perspectives. Again, owing to their specific contexts, concerns, and experiences the interviews were semi-structured to enable them the flexibility, control and freedom to share whatever results, experiences, and insights they were willing and able to provide.
+
+There were some experiments that were not sensible/practical in the case studies; so small scale experiments were designed and performed to research those when it was viable to do so. The ephemeral nature of data and reports in several of the mobile analytics services meant these data and reports were originally hard to record and preserve. The research therefore included the development of software that was able to preserve the data and reports from the core mobile analytics service: Google Play Console with Android Vitals.
+
+Several mobile analytics providers became interested in the research and the results and their perspectives was also of interest and germane to the research, therefore there were symbiotic sharing of results, analysis, product design, customer insights and so on. All these have been anonymised by at least one party and non contained personally identifiable information.  
+
+\newthought{Conceptual Framework}
+``Conceptual frameworks provide a theoretical overview of your intended research and order withing that process", ``a map or framework of how the research will be conducted and analysed"~\citep[page 44]{trafford2008_stepping_stones_to_achieving_your_doctorate}
+
+Germane concepts include:
+\begin{itemize}
+    \item Value Chains and modelling Influences, e.g. see \emph{``From Data to Decisions: A Value Chain for Big Data"}~\citep{miller2013_from_data_to_decisions_a_value_chain_for_big_data} which provides 7 stages in a value chain to obtain value from big data - such as mobile analytics data.
+\end{itemize}
+
+
+The research is mainly empirical owing to the nature of usage analytics and the analytics tools which thrive on volume and realism therefore case studies provide the core of the research. The analytics data for apps is private by default and access is only provided to authorised users of each analytics tool, these users are typically a small trusted subset of the development team for that app. If the development team are part of an organisation they may also need the approval of their organisation before they are permitted to share the analytics outside their immediate team. These restrictions meant an opportunistic approach needed to be taken to obtaining case studies; and the team and/or organisation determined the mode of engagement for the researcher.
+
+Mixed methods were used to expand the research, for instance: by using static analysis into how developers use and maintain remote logging in the codebases of their Android apps, and qualitatively, by interviewing app developers on their use of mobile analytics. 
+
+
+\isabel{The key concepts and the theoretical framework underpin the methodology: I would say you touch on or assume matters of ontology and the human condition (we are not flawless), management theory (Drucker), systems theory (people, processes and systems interacting), quality models (QiU/Bevan), standards like iso25001 and other models for how we categorise software qualities, psychology (when and how do we trust)}
+
+\newthought{Phrases from Isabel's Transfer Report of relevance} 
+A researcher-driven approach using concept maps and inﬂuence diagrams to map what I already know from industry experience and previous research. I noticed improving reliability is an ongoing challenge for many software and systems, I focus on Mobile apps and Mobile Analytics for \textit{n} reasons: lastly because I have have extensive experience of developing and improving the quality of mobile apps, `this research is what Aurini [33] characterises as an \textit{of me} research problem, that is, whilst I am the researcher, I could also be a participant.' It also includes a \textit{plus 1} research project, as it adds to the current research on practitioner practices and experiences... An empirical approach to data collection and analysis. 
+%
+Clough and Nutbrown’s approach to research methodology [1] includes an imperative that research is both political and persuasive, with the intent of inﬂuencing strategy and approaches in working practices (see Figure 2, page 7). In their case, they apply this to research into and aﬀecting social policy, however I feel the same purpose is important with regard to the politics, policies, strategies and approaches to testing used in organisations and their IT teams. As an industry practitioner coming into academia, I am in a position to learn from and potentially to inﬂuence both industry and academia, working on ICT, SWT and other disciplines, bridging research and industry practice.
+%
+Groups contributing to and receiving information about results...
+%
+My results report on the practitioners' reality.
+
+\newthought{Case Studies}
+The case studies illustrate manifold facets of applying (and ignoring) mobile analytics across various contexts of engagement, across various types of app, and from several perspectives including the organizations who create the mobile analytics tools and related services.
+
+The case studies include examples where the researcher's mode of engagement was as:
+\begin{enumerate}
+    \itemsep0em
+    \item an embedded developer: an active participant integrated into the project team,
+    \item a coach: of an existing team of developers who applied the concepts,
+    \item an interviewer: of various development teams to learn of their practices and results,
+    \item an analyst/observer: performing static analysis of opensource code repositories.
+\end{enumerate}
+\isabel{I think if you look at this in terms of the methodology, you can weave in some of the things Aurini, Heath, and Howells talk about. So in the first two points the research is "of me" whereas in points 3 and 4 it is not. From Clough and Nutbrown, in points 1 and 2 the way you can be political and persuasive is different to how you apply political/persuasive as a result of 3 and 4. When you are a coach the point of being in the project is to effect change. The research effects change as a result of how you promulgate the results}
+
+Research effecting change when I am an active part of it, i.e. in 1 and 2 above.
