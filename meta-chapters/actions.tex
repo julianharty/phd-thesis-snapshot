@@ -53,6 +53,22 @@ Here are various general tasks that I could do that might improve the thesis, ot
     
     \item There are an insane number of examples of beautiful latex, many with sources, in \href{https://tex.stackexchange.com/questions/1319/showcase-of-beautiful-typography-done-in-tex-friends}{Showcase of beautiful typography done in TeX \& friends} for inspiration. One example is a very attractive thesis where the author has provided a README and the sources he used for his thesis \url{https://www.levbishop.org/thesis/source/}. The nomenclature and bibliography are both far more attractive than mine currently. 
     
+    \item Implement backrefs so that a) the thesis compiles without errors, b) the backrefs in the bibliography are well-phrased (rather than just having the page numbers). As ever, the memoir document class seems to complicate matters! Currently the code is commented out in \texttt{latex-configuration.tex} Refs:
+    \begin{itemize}
+        \item \url{https://tex.stackexchange.com/questions/410270/memoir-citation-in-margin} Interesting and somewhat beyond what I currently want to do - it uses sidenotes for citations.
+        \item \url{https://tex.stackexchange.com/questions/98528/further-customize-color-of-hyperref-links} using a basic document class.
+        \item \url{https://tex.stackexchange.com/questions/15971/bibliography-with-page-numbers} sums up several other examples online for 
+        \item \url{https://tex.stackexchange.com/questions/522491/using-tufte-book-document-class-with-bibliography-backref}
+        \item backref-memoir.tex works in a skeletal memoir example \href{https://www.overleaf.com/project/612fb5e6f6cc44c10b56afa1}{My list of examples overleaf project}
+        \item \url{https://latex.org/forum/viewtopic.php?t=4791} if I get stuck, the answer isn't very clear or helpful though...
+    \end{itemize}
+    
+    \item Create a proper glossary, e.g. see \url{https://husseinbakri.org/essential-latex-bibtex-and-biblatex-tips-for-research-students/} which has lots of sensible general info on using latex etc. including the glossary package.
+    
+    \item Consider whether to use alphas for subsubsections as per the fine thesis on pair programming. How to do so is simple - see the latex for this item as the code is commented out % \renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}} % See https://latex.org/forum/viewtopic.php?t=5349
+    
+    \item Look at improving the formatting of epigraphs, particularly for the discussion chapter. It also has a footnotemark that doesn't appear as part of the epigraph.
+    
     \item TBD :)
     
 \end{enumerate}
