@@ -2,72 +2,82 @@
 \epigraph{Is there method in the madness?}{Anon (1964--on)}
 \buzzwords{Empirical Studies, Theoretical Framework, Conceptual Framework, make assumptions explicit, methodological analysis using prior publications to identify a vocabulary - SE in practice, qualitative analysis,  the 1-2-3 of research design (question - evidence - method) ...}
 
-
 \begin{wrapfigure}{R}{0.7\textwidth}
   \vspace{-0.75\intextsep}
   \begin{center}
-    \includegraphics[width=0.64\textwidth]{images/my/six-perspectives-2x3-matrix-03-nov-2021.jpeg}
+    \includegraphics[width=0.66\textwidth]{images/my/six-perspectives-2x3-matrix-12-nov-2021.jpeg}
   \end{center}
     \caption{Methodology six perspectives (repeated)}
     \label{fig:six-perspectives-in-the-methodology}
 \end{wrapfigure}
 
-
-The research needs to provide evidence to answer the main research question: \emph{How can applying analytics improve software development and software testing for mobile apps in practice?} (from Section \ref{overall-research-question}, page \pageref{overall-research-question}). The literature review has situated this question in existing research \footnote{\textbf{TODO - actually do this!}}
-
-In the Introduction (page~\pageref{rq-leads-to-six-perspectives}) six perspectives were introduced to support the main research question; these are repeated here in Figure~\ref{fig:six-perspectives-in-the-methodology} for ease of reference. These six perspectives consider three parallel topics: the processes, the products, and the mobile analytics tools in terms of the current practices - their use - and in the scope to improve them.
-
-Answering the research questions requires rich, contextualised evidence of how developers use mobile analytics in practice.  Hence, the research needs to be situated in real-world industry practice and experience, drawing on real-world apps and projects for which analytics have relevance, \textit{i.e.}, that are part of an app-store ecosystem that collects analytics, and that are used by real-world users. 
+%In the Introduction (page~\pageref{rq-leads-to-six-perspectives}) six perspectives were introduced to support the main research question; these are repeated here in Figure~\ref{fig:six-perspectives-in-the-methodology} for ease of reference. These six perspectives consider three parallel topics: the processes, the products, and the mobile analytics tools in terms of the current practices - their use - and the scope to improve them.
 %
-A comprehensive statistically representative sample of mobile apps was beyond the scope of a PhD, instead `purposeful sampling'~\citep[p.114]{zieris2020_phd_qualitative_analysis_of_knowledge_transfer_in_pair_programming}\footnote{\emph{``Unlike for quantitative methods, statistical generalization from a sample to the population is not a goal. Instead, qualitative studies look for information-rich cases that allow to deepen the researcher’s understanding. Early in the process, each case is treated as unique and studied in great detail; cross-case analyses follow later and are based on the well-understood individual cases."}} using a variety of projects and apps. The variety is intended to help to uncover emergent features, capabilities, and behaviours; they may also help to establish a range of examples of any improvements and any concerns. 
+%This research applies the 1-2-3 of research design (Question - Evidence - Method) which follow in the next three sections: 
 
-The methodology needs to include techniques that focus on practical aspects of app development, the use of mobile analytics tools by these app development teams, the quality of these tools, and the value and impact from the perspective of these teams.  These multiple perspectives are captured in Figure 4.1, which highlights the needs both to understand the status-quo and to identify potential improvements, with respect to developer practices and thinking, apps and all the associated development artefacts (\textit{e.g.}, source code, issue tracking, tests, and operational configurations) that provide evidence of use, and the analytics tools themselves.
+\section{Evidence requirements}
+The research needs to provide evidence to answer the main research question: \emph{How can applying analytics improve software development and software testing for mobile apps in practice?} (from Section \ref{overall-research-question}, page \pageref{overall-research-question}). The literature review has situated this question in existing research~\footnote{\textbf{MUST-DO - actually do this!}}.  
+
+Answering this research question requires rich, contextualised evidence of how developers use mobile analytics in practice.  Hence, the research needs to be situated in real-world industry practice and experience, drawing on real-world apps and projects for which analytics have relevance, \textit{i.e.}, that are part of an app-store ecosystem that collects analytics, and that are used by real-world users. The evidence needs to come from the developers, from their app microcosms, and from real-world mobile analytics.
+
+The methodology needs to include techniques that can address the six perspectives introduced in the Introduction (page 9) and repeated here in Figure~\ref{fig:six-perspectives-in-the-methodology} for ease of reference.  Hence, the methodology must 
+focus on practical aspects of app development, the use of mobile analytics tools by these app development teams, the quality of these tools, and the value and impact from the perspective of these teams.  Figure~\ref{fig:six-perspectives-in-the-methodology} highlights the needs to both understand the status-quo and to identify potential improvements, with respect to developer practices and thinking, apps and all the associated development artefacts (\textit{e.g.}, source code, issue tracking, tests, and operational configurations) that provide evidence of use, and the analytics tools themselves.
 
 % \newthought{The research needs to be situated in the real-world}
 %As the real-world apps live in an app-store ecosystem, and as the main app stores collect app analytics, the research needs to be situated in apps that are available in an app store. And as the analytics are derived from usage the apps need to be used, ideally by real-world users of those apps. 
 
+A comprehensive statistically representative sample of mobile apps was beyond the scope of a PhD, instead `purposeful sampling'.~\citep[pp180-182]{flick2018_an_introduction_to_qualitative_research_sixth_ed}, and more recently in ~\citep[p.114]{zieris2020_phd_qualitative_analysis_of_knowledge_transfer_in_pair_programming}\footnote{\emph{``Unlike for quantitative methods, statistical generalization from a sample to the population is not a goal. Instead, qualitative studies look for information-rich cases that allow to deepen the researcher’s understanding. Early in the process, each case is treated as unique and studied in great detail; cross-case analyses follow later and are based on the well-understood individual cases."}}. 
+%
+Flick presents six strategies of purposive sampling, in p.181. Of necessity the strategy used in this research is one described by Flick as convenience, however a more appropriate term for the strategy is opportunistic, since few of the case studies were convenient. As Flick notes wryly, on p.182, `the problem of access may be one of the crucial barriers' which particularly applies when seeking access to sensitive data and information about software failures for commercial mobile apps.
+
+Nonetheless in the research I strove to use a variety of projects and apps. The variety is intended to help to uncover emergent features, capabilities, and behaviours; it may also help to establish a range of examples of improvements and concerns. 
+
 Further, no two analytics tools are identical; they offer a variety of features and capabilities, and have distinct behaviours.  Furthermore there are tools that work at the platform level and others that work at the app level; researching tools that work at both levels helps determine and distinguish their characteristics and compare their behaviours. Therefore there is value in researching more than one mobile analytics tool.
 
-Data sources included:
+\section{Data sources}
+The nature of research in a sometimes messy real-world environment means access is opportunistic and often occasional. The evidence will be incomplete, yet rich, complex, and multi-faceted. For this research the data sources include:
+
 \begin{itemize}
     \itemsep0em
-    \item development artefacts: app binaries, app source code, bug tracking systems, 
-    \item `grey material': online materials on mobile analytics tools, articles including on medium.com and various blogs,
-    \item pre-study interviews with developers: (used for setting up the study, understanding the development context),
-    \item mid-study communications with developers: (usually email correspondence for clarification, to obtain updates, or comment on observations),
-    \item various discussion forums: used by mobile app developers and other online contextual information, online issue tracking and related code for opensource projects, 
-    \item field notes: some handwritten, others recorded as text on computers,
-    \item analytics tools: various outputs including screen captures, screen-scraping and parsing, results from calling APIs, and automated emails generated by analytics tools.
+    \item Development artefacts: app binaries, app source code, tests, work schedules, documentation, bug tracking systems, \textit{etc.}, these were collected during the various case studies and complemented by public sources for additional mobile apps.
+    \item `Grey material': online materials on mobile analytics tools, articles including on medium.com and various blogs. Some were stimulated as part of the case studies, others were found during additional background research.
+    \item Pre-study interviews with developers: used for setting up the study, understanding the development context, these were collected as part of the case studies.
+    \item mid-study communications with developers: usually email correspondence for clarification, to obtain updates, or comment on observations, these were collected as part of the case studies.
+    \item various discussion forums: used by mobile app developers and other online contextual information, online issue tracking and related code for opensource projects. Some were stimulated as part of the case studies, others were found during additional background research.
+    \item field notes: some handwritten, others recorded as text on computers, these were collected as part of the case studies and during background research.
+    \item analytics tools: particularly analytics artefacts which include various outputs including screen captures, screen-scraping and parsing, results from calling APIs, and automated emails generated by analytics tools. Product documentation, online help materials, examples, and so on were also used as data sources. These were collected on an ongoing basis during case studies and during additional background research.
 \end{itemize}
 
+The evidence is mainly based in real-world cases. For all of these cases, collection of naturally-occurring data (e.g., development artefacts, grey material) was augmented by elicitation of additional data (e.g., interviews and communications with developers) to provide clarification, breadth and insight.  Different research methods made use of these data sources, as appropriate.
 
-Various methods were chosen to address the research needs by engaging with data collected from actual practice, as summarised in Table ~\ref{tab:mapping-analysis-to-six-perspectives}, and illustrated in Figure~\ref{fig:analysis-techniques-in-phd}. These are discussed in the sections that follow.  Broadly, this research uses what Ormerod and Ball described as `cognitive ethnography'~\citep{ball2000_putting_ethnography_to_work_cognitive_ethnography}... and Petre elaborated as `targeted observation'~\citep[p.234]{petre2009_insights_from_expert_software_design_practice} ... [TODO add text to explain what that means in this context:  situated in actual practice, multiple data sources, allowing comparison/triangulation/colligation, multiple methods to gather and analyse data -- all with a focus on the research questions]. Further, the research applies the traits of qualitative research elegantly summarised in \citealp[pp 113-114]{zieris2020_phd_qualitative_analysis_of_knowledge_transfer_in_pair_programming} that also aligns with and reflects many of the 10 features in \citealt[p.150]{ball2000_putting_ethnography_to_work_cognitive_ethnography}.
+\section{Methodology}
+Broadly, this research starts from what Ball and Ormerod described as `cognitive ethnography'~\citep{ball2000_putting_ethnography_to_work_cognitive_ethnography}, that is, observation-based enquiry conducted \textit{in situ} to investigate ``...the interplay between people-laden contexts and expert cognition'' (p. 149). Ball and Ormerod characterise cognitive ethnography in terms of observational specificity, verifiability and purposiveness: 
 
-%(\textit{c.f.} targeted observation / vectored research~\footnote{MUST-DO ask Marian for her reference on using vectors in questioning. Source: `Petre 2008 Targeted observation of expert software designers. NSF workshop on studying design creativity (Aix-en-Provence, France, February)'})
+\textit{``Our own conception of cognitive ethnography is characterized by three key features. First, it relies on small-scale data collection based around representative time slices of situated activity. As such, it demonstrates observational specificity, as opposed to the intensity of a prototypical ethnography. Second, it is purposive, in that its mode of questioning focuses on issues that are informed by some intention to intervene with, or somehow affect, existing work practices ... Third, it places a strong emphasis on verifiability, in terms of validating observations across observers, data sets and methodologies.''} (p. 152)
 
-To a certain extent,  experiments where natural as they arose \textit{in situ} where and when situations arose that were reported by mobile analytics that the development team chose to respond to. \textit{``A key feature of natural experiments is that they offer insight into causal processes, which is one reason why they have an established role in developmental science."}~\citep[p.877]{salkind_encyclopedia_2021_natural_experiment}
-
-
-
-
-
-%The data needs to be rich and from real-world apps and projects which justify the use of cases. The research also had to engage with Industry and take a case-based approach situated in real projects. 
+Consistent with this orientation, this research sought to derive a situated understanding of analytics (in terms of the six perspectives in Figure~\ref{fig:six-perspectives-in-the-methodology}). The insights that emerged from the more ethnographically-inspired analysis of naturally-occurring data were then investigated further and tested using other approaches, namely across-case comparison, hypothesis testing (systematic manipulation in local experiments) and action research (evaluation through interventions in specific cases) -- consistent with Ball and Ormerod's emphasis on verifiability.  
 
 
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{images/my/analysis-techniques-in-PhD-08-Nov-2021.jpeg}
+    \caption{Categories of research methods}
+    \label{fig:categories-of-research-methods}
+\end{figure}
 
 
-\julian{Interim actions:
-\begin{enumerate}
-    \itemsep0em
-    \item (done) Map the methods to the six perspectives in Figure~\ref{fig:six-perspectives-in-the-methodology}. 
-    \item Mapping of perspectives into the data that drives them - justify the evidence that each perspective would need.
-    \item Data collection methods that will deliver the evidence: I now have the foundation for the rich data I want to collect.
-\end{enumerate}}
+ Figure~\ref{fig:categories-of-research-methods} provides a visual overview of the four categories of research methods used to serve this `cognitive ethnography' approach; they include 1) sense-making, 2) sense-building, and 3) evaluation through action research. These were complemented by the fourth category 4) feedback mechanisms to help support and verify the analyses. 
+%Categories of research methods (sense-making, sense-building, feedback mechanisms, and evaluation through action research). Each has a distinct purpose which will be discussed in the rest of this section. 
 
-% Data needed - justify the use of cases
-% Therefore...
-% Data I am seeking
-% Map the data onto the analysis
+Note: Figure~\ref{fig:categories-of-research-methods} is an over-simplification with clear boundaries between the categories in order to convey the alignment of methods to purposes. In practice, individual research methods provided multi-faceted contributions; for instance local app experiments contributed to both sense-building and sense-making.
+
+\medskip
+
+%\subsection{Overview of the research methods}
+%Various methods were chosen to address the research needs by engaging with data collected from actual practice, as summarised in Table ~\ref{tab:mapping-analysis-to-six-perspectives}, which groups the methods under their main category, illustrated in Figure~\ref{fig:categories-of-research-methods}, and maps them to the six perspectives. 
+
+Table ~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various research methods, groups them in terms of their roles in the research (as illustrated in Figure~\ref{fig:categories-of-research-methods}), and maps them to the six perspectives.  
+
 
 \begin{table}
     \small
@@ -79,7 +89,6 @@ To a certain extent,  experiments where natural as they arose \textit{in situ} w
       \toprule
          % &\textsubscript{u}Use &\textsubscript{u}Artefacts &\textsubscript{u}Tools &\textsubscript{i}Use &\textsubscript{i}Artefacts &\textsubscript{i}Tools \\
          \multicolumn{1}{r|}{Six perspectives} &U\textsuperscript{use} &U\textsuperscript{artefacts} &U\textsuperscript{tools} &I\textsuperscript{use} &I\textsuperscript{app} &I\textsuperscript{tools} \\ % Thanks to https://tex.stackexchange.com/a/33488/88466
-         &1a &1b &1c &2a &2b &2c \\ 
          
         \hline 
         \textbf{Sense-making} & & & & & & \\
@@ -100,7 +109,7 @@ To a certain extent,  experiments where natural as they arose \textit{in situ} w
         \hline
         \textbf{Feedback mechanisms} & & & & & & \\
         (triangulation and validation) & & & & & & \\
-        Ask The App Devs      &Y &y &y &y &y &  \\
+        Ask The App Devs      &Y &y &y &y &y &y \\
         Ask The Tool Devs     &  &  &Y &y &y &y \\
         Grey Literature Analysis       &y &y &Y &y &y &  \\
         Code Analysis         &y &Y &  &y &  &  \\
@@ -114,70 +123,52 @@ To a certain extent,  experiments where natural as they arose \textit{in situ} w
         
         \bottomrule
     \end{tabular}
-    \caption{Mapping Research Methods rows to the 6 perspectives columns}
+    \caption{Mapping research methods rows to the 6 perspectives columns}
     \label{tab:mapping-analysis-to-six-perspectives}
 \end{table}
 
-%Moved to 4 groupings, review the ordering and naming.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=10cm]{images/my/analysis-techniques-in-PhD-08-Nov-2021.jpeg}
-    \caption{Analysis techniques illustrated}
-    \label{fig:analysis-techniques-in-phd}
-\end{figure}
-
-\section{Overview of the research methods}
-\julian{This is as much to help ensure I understand the methods and communicate them adequately to you. I expect this section to be heavily revised before submission.}
+`\textbf{Sensemaking}' methods were concerned with understanding current practice (as reflected in artefacts, tools, and developers' practices and perspectives -- i.e., perspectives \uartefacts, \utools, and \uuse) and identifying potential improvements in tools and in how analytics are used in app development and maintenance (i.e., perspectives \itools and \iartefacts). The research methods include beacon-finding (see page~\pageref{section-beacon-finding-method}) and drill-down (see page~\nameref{drill-down-research-method}).
 
 
-Table ~\ref{tab:mapping-analysis-to-six-perspectives} identifies the different research methods, groups them in terms of their roles in the research (as illustrated in Figure~\ref{fig:analysis-techniques-in-phd}), and maps them to the six perspectives.  
+`\textbf{Sensebuilding}' methods built on insights found through sense-making. The research methods include local app experiments (see page~\pageref{local-app-experiments-research-method}) and across case comparisons (see page~\pageref{across-case-comparisons-research-method}).
 
-TODO explain the table!
+Micro-experiments (i.e., local app experiments) are used to investigate detail and give insight into the relationships between tools, quality of analytics, and potential impact of analytics use on apps (i.e., perspectives \uartefacts, \utools, \iartefacts, \itools).
 
-Note: Figure~\ref{fig:analysis-techniques-in-phd} is an over-simplification with clear boundaries. In practice, individual analysis methods provided multi-faceted contributions for instance local app experiments both contributed to sensebuilding while also contributing to sensemaking.
+Across-case comparisons identify macro-discoveries -- that is, they identify characteristics and patterns that were not evident in individual case studies, potential improvements to practice (i.e., perspectives \uuse and \iuse), as well as the influence of the quality of tools in practice (\itools). They can also corroborate and/or challenge findings found in individual cases.
 
-`\textbf{Sensemaking}' methods were concerned with understanding current practice (as reflected in artefacts, tools, and developers' practices and perspectives -- i.e., perspectives 1b, 1c, and 1a) and identifying potential improvements in tools and in how analytics are used in app development and maintenance (i.e., perspectives 2c and 2b). 
 
-One way to make sense is similar to the `invent the future' adage~\footnote{For example: \url{https://quoteinvestigator.com/2012/09/27/invent-the-future/}} was to create micro experiments through developing small mobile apps intended to exercise particular aspects of mobile analytics. These helped to answer questions and gaps observed as part of sensemaking.
+`\textbf{Feedback mechanisms}' were used to support and verify the other analyses, by comparing observations to other evidence, or by asking developers for clarifications or reflections. Feedback mechanisms are used throughout the research and mainly used for perspectives that sought to understand (\uuse, \uartefacts, and \utools), nonetheless they were also frequently used when considering improvements (\iuse, \iartefacts, and \itools). 
 
-`\textbf{Sensebuilding}' methods built on discoveries found through the other analysis methods. There were two vectors, one performed micro-experiments where the inputs to an app were directed in order to determine the outputs from mobile analytics. The second involved across case comparisons, for instance to establish characteristics and patterns that were not present in individual case studies.
+`\textbf{Evaluation through action research}' methods were largely concerned with evaluation of the effect of improvements in the use of analytics, in terms of adoption into use and app performance (i.e., perspectives \iuse and \iartefacts). It includes three research methods: 1) observation, 2) field experiment, and 3) hackathon. These are explained in page \pageref{section-evaluation-through-action-research-method} onwards. 
 
-The local app experiments in particular gave insight into the relationships between tools, quality of analytics, and potential impact of analytics use on apps (i.e., perspectives 1b, 1c, 2b, 2c). Across-case comparisons were concerned largely with understanding current practice and identifying potential improvements to practice (i.e., perspectives 1a and 2a), as well as the influence of the quality of tools on practice (3a).
+\medskip
+\dotfill
+\medskip
 
-`\textbf{Feedback mechanisms}' were used to support and validate the other analyses, by comparing observations to other evidence, or by asking developers for clarifications or reflections.
+Clearly, the categorisation is a simplification, and the categories are not discrete.  Some methods include several data sources, and some data sources are analysed using several methods. The research is iterative, moving through sensemaking, sensebuilding and feedback mechanisms repeatedly as new cases are studied or new insights emerge.  The methods and the data sources often also inform several of the six perspectives.  The research methods are introduced in more detail in the sections that follow.
 
-`\textbf{Evaluation through action research}' methods were largely concerned with evaluation of the effect of improvements in the use of analytics, in terms of adoption into use and app performance (i.e., perspectives 2a and 2b).
-
-Each of these research methods includes data collection \textit{and} analysis unless otherwise stated. Some include several data sources and some data sources are analysed using several methods. The methods and the data sources often also inform several of the six perspectives.
-
-Figure~\ref{fig:analysis-techniques-in-phd} provides a visual overview of the three categories of analysis techniques; they include sense-making, evaluation through action research, and comparisons across cases. Various feedback mechanisms helped to support and validate the analyses. 
+%Each of these research methods includes data collection \textit{and} analysis unless otherwise stated.
 
 
 \subsection{Sensemaking}
 % c.f. https://en.wikipedia.org/wiki/Sensemaking_(information_science)
 %1) Identifying patterns (inductive analysis) c.f. grounded theory. 2) 
 
-`Sensemaking' included two broad phases:  
+`Sensemaking' includes 1) beacon finding and 2) drill down. These were used for \textit{inductive analysis} of artefacts, broadly consistent with grounded theory [amplify this...].  These methods were amplified through the feedback mechanisms, covered shortly. 
+%In addition a third method, local app experiments, was used to create conditions for additional sensemaking.
 
-1.  \textbf{Beacon-finding} and \textbf{drill-down} were used for \textit{inductive analysis} of artefacts, broadly consistent with grounded theory [amplify this...].
+%Sensemaking has been applied to various aspects of computing and software development, for example: in program comprehension, in understanding end-users' understanding of spreadsheets~\citep{grigoreanu2012_end_user_debugging_strategies_a_sensemaking_perspective}. COULD-DO discuss the work of~\citep{naumer2008_sense_making}. Our use of sensemaking is inspired by sensemaking in research into these areas. 
 
-2.  \textbf{Local app experiments} were used to \textit{test the understanding} of the relationships between the usage and the analytics through manipulations of apps and observation of the effects -- hence, the local app experiments were used to test some of the patterns identified in the inductive analysis.
+%The following methods primarily helped with sense-making: analysing and ``making sense" of mobile analytics tools, development artefacts, and the developers' perspectives on their use of mobile analytics. 
 
-These are discussed further in the sections that follow.
-
-%Sensemaking has been applied to various aspects of computing and software development, for example: in program comprehension, in understanding end-users' understanding of spreadsheets~\citep{grigoreanu2012_end_user_debugging_strategies_a_sensemaking_perspective}. TODO discuss the work of~\citep{naumer2008_sense_making}. Our use of sensemaking is inspired by sensemaking in research into these areas. 
-
-%The following methods primarily helped with sense-making: analysing and ``making sense" of mobile analytics tools, development artefacts, and the developers' perspectives on their use of mobile analytics. %TODO discuss with Marian, whether to include: Sensemaking is also performed by people who have to interpret mobile analytics. 
-
-\subsubsection{Beacon-finding} %concept, adaption to suit this research, examples.
+\subsubsection{Beacon-finding}~\label{section-beacon-finding-method} %concept, adaption to suit this research, examples.
 
 The notion of \textbf{`beacons'} was borrowed from research on program comprehension; for instance by Wiedenbeck, who helped establish beacons in software development: ~\emph{``In programming, beacons are lines of code which serve as typical indicators of a particular structure or operation"}~\citep[p.679]{WIEDENBECK1986_beacons_in_computer_program_comprehension}. The work was extended and updated to explicitly consider the effects of beacons in comprehension of source code, for instance in~\citealt{crosby2002_roles_beacons_play_in_comprehension_etc}.
 
-The notion of beacons was generalised for this research to include indicators in the analytics of something of interest, or something that required attention.  And so 'beacon finding' was an inductive process by which significant indicators were identified in the code.  Mobile Analytics may include source code that calls APIs in the application's source code, however the bulk of the contents that need to be comprehended comes as outputs from the mobile analytics tools, therefore the beacons will differ accordingly. 
-In this research the beacons include: the shape of graphs in mobile analytics report, failure clusters, a method call in stack traces, and so on.
+The notion of beacons was generalised for this research to include indicators in the analytics of something of interest, or something that required attention.  And so 'beacon finding' was an inductive process by which significant indicators in the analytics data were used to identify areas of the code base that required further investigation.  Mobile analytics may include source code that calls APIs in the application's source code, however the bulk of the contents that need to be comprehended comes as outputs from the mobile analytics tools, therefore the beacons will differ accordingly. In this research the beacons include: the shape of graphs in mobile analytics report, failure clusters, a method call in stack traces, and so on.
 
-\marian{Now specify how you spotted beacons... I looked for things on this basis, how I kept track of things, what selection criteria were used and why?}
+%\marian{Now specify how you spotted beacons... I looked for things on this basis, how I kept track of things, what selection criteria were used and why?}
 
 Beacons emerge in various ways. For instance in reports they include: anomalies within a report, mismatches and inconsistencies between two sibling reports or between a master report and the linked detailed report, in the shape of the curve of a graph, in the distribution and groupings of aggregate data, and so on. Similarly, alerts as determined by a mobile analytics service may be considered potential beacons being `promoted' by the mobile analytics reports. 
 
@@ -193,6 +184,19 @@ Selection criteria included: top ranking results, atypical rates of change, adve
 
 % I'm not sure where to discuss beacons in conversations: for instance in a developer's description of their use of mobile analytics to assess the quality of the app - they exist to me - TBD.
 
+
+\subsubsection{Drill-down}~\label{drill-down-research-method}
+Beacons stimulate interest, the interest needs to be satisfied one way or another by investigating the beacons and their underlying information sources. 
+Are the identified beacons genuinely significant, what do they signify or relate to in the app and its usage, etc.  Drill-down start with the original data sources, but may draw in others to clarify relationships, responses by the developers, etc.
+
+ 
+
+Here are 2 examples: 1) investigating a large spike in the overall crash rate to determine the constituent causes (\textbf{TODO} add link to an actual example in a case study); 2) understanding a Java WebView Exception (\textbf{Again TODO} provide a link to the example in my thesis). 
+
+
+\subsubsection{Sensemaking and decision-taking by developers}
+Before we move on to the category of sense-building one of the insights from the research is the use of similar sense-making by developers when they use mobile analytics as inputs to their development work and as feedback for [their] previous development work.
+
 \begin{figure}
     \centering
     \includegraphics[width=15cm]{images/rough-sketches/practical-sense-making-process-10-nov-2021.jpeg}
@@ -203,45 +207,85 @@ Selection criteria included: top ranking results, atypical rates of change, adve
 
 Figure~\ref{fig:practical-sense-making-process-when-dev-teams-apply-mobile-analytics} illustrates the sense-making and triage process used by development teams which shares various similarities with sense-making from a research perspective. These similarities mean the researcher and the practitioner may also share similar practices in terms of their analysis of phenomena found in mobile analytics tools. The triage and drill-down may be repeated several times where there is sufficient potential value in performing further investigation. 
 
-FEMA is combined with situational-risk-assessment as a part of the decision-making process performed by developers during triage - for instance to consider whether this reported issue is worth addressing in the current development cycle, (\textit{e.g.} in the current Sprint for teams who use Sprints for work planning. Developers have to consider multiple criteria including personal, project, and product implications of making code and/or operational changes TODO \citep{lo2018_novel_multi_criteria_decision_making_based_FMEA_model_for_risk_assessment}.
+The impact of reported failures is combined with situational-risk-assessment as a part of the decision-making process performed by developers during triage; for instance to consider whether this reported issue is worth addressing in the current development cycle, (\textit{e.g.} in the current Sprint for teams who use Sprints for work planning. Developers have to consider multiple criteria including personal, project, and product implications of making code and/or operational changes.
 
-
-\subsubsection{Drill-down} 
-Beacons stimulate interest, the interest needs to be satisfied one way or another by investigating the beacons and their underlying information sources. 
-Are the identified beacons genuinely significant, what do they signify or relate to in the app and its usage, etc.  Drill-down start with the original data sources, but may draw in others to clarify relationships, responses by the developers, etc.
-
- 
-
-Here are 2 examples: 1) investigating a large spike in the overall crash rate to determine the constituent causes (\textbf{TODO} add link to an actual example in a case study); 2) understanding a Java WebView Exception (\textbf{Again TODO} provide a link to the example in my thesis). 
-
-
-TODO Sensemaking was amplified through the feedback mechanisms. 
+As an untested hypothesis, as part of their decision making when triaging an issue: developers may apply an informal form of failure mode and effect analysis (FMEA) based on multiple-criteria decision making (MCDM) using similar criteria to the work described in \citealt{lo2018_novel_multi_criteria_decision_making_based_FMEA_model_for_risk_assessment}, \textit{i.e.}, severity, occurrence, detection (of a cause they can fix), and expected cost. An area of future research could be in the habits of decision making during triage and in ways to improve the decision making and the outcomes of those decisions.
 
 \subsection{Sense-building}
+%\akb{need an introductory paragraph here that explains how sense-building is different from sense-making, and an overview of the activities included in this part of the analysis}
 
-\akb{need an introductory paragraph here that explains how sense-building is different from sense-making, and an overview of the activities included in this part of the analysis}
+Sense-building moves beyond sense-making. Sense-making aims to understand \textit{what is} while sense-building involves direct action and more active research, for instance: to devise and run experiments to learn more about the behaviours of mobile analytics, and to seek patterns and generalisations across tools, case studies, and so on. Two methods were used primarily in sense-building: local app experiments and across-case comparisons. 
 
-Sense-building moves beyond sense-making. Sense-making aims to understand \textit{what is} while sense-building involves direct action and more active research, for instance: to devise and run experiments to learn more about the behaviours of mobile analytics, and to seeks patterns and generalisations across tools, case studies, and so on. Two methods were used primarily in sense-building: local app experiments and across case comparisons. 
+\subsubsection{Local-app experiments}~\label{local-app-experiments-research-method} 
+\textit{Micro-experiments} (i.e., local app experiments) were created by developing small mobile apps intended to exercise particular aspects of mobile analytics (similar to the `invent the future' adage~\footnote{For example: \url{https://quoteinvestigator.com/2012/09/27/invent-the-future/}}). The inputs to an app were directed in order to determine the outputs from mobile analytics. These helped to answer questions and gaps observed as part of sensemaking.  The local app experiments gave insight into the relationships between tools, quality of analytics, and potential impact of analytics use on apps (i.e., perspectives \uartefacts, \utools, \iartefacts, \itools). 
 
-\subsubsection{Local-app experiments} 
+%\textbf{Local app experiments} were used to \textit{test the understanding} of the relationships between the usage and the analytics through manipulations of apps and observation of the effects -- hence, the local app experiments were used to test some of the patterns identified in the inductive analysis.
+
 Local-app experiments used small mobile apps, not intended for production use, that were developed in order to investigate the relationships between the inputs (such as usage) and the analytics outputs (such as reports) through deliberate manipulation of the inputs and observation of the consequences.  
- The local-app experiments allow for tighter control on the usage, \textit{i.e.} the inputs, in comparison with the unfettered use of real-world mobile apps. They can help surface behaviours and provide for tighter evaluation in the early, pre-launch/pre-production phases. %I can't say feedback as that'd conflate the other use of feedback here in the methodology.
+ The local-app experiments allow for tighter control on the usage, \textit{i.e.} the inputs, in comparison to the unfettered use of real-world mobile apps. They can help surface behaviours and provide for tighter evaluation in the early, pre-launch/pre-production phases. %I can't say feedback as that'd conflate the other use of feedback here in the methodology.
+The local app experiments were used to test some of the patterns identified in the inductive `sensemaking' analysis.
 
-Where practical the source code of these apps is made available under a permissive opensource license to facilitate further research by others and in order to facilitate inspection and feedback from others.
+Where practical the source code of these apps is made available under a permissive opensource license to facilitate further research by others and in order to facilitate inspection by and feedback from others.
+
 
 \akb{Also explain how the results of these experiments connected to other parts of the method? e.g., did they change / add to the sense-making activities?}
 
-\subsubsection{Across case comparisons}
+\subsubsection{Across-case comparisons}~\label{across-case-comparisons-research-method}
+\textit{Across-case comparisons} were concerned largely with understanding current practice and identifying potential improvements to practice (i.e., perspectives \uuse and \iuse), as well as the influence of the quality of tools in practice (\itools).
 
+Similar to using various software testing techniques to find bugs, making comparisons across the case studies can help to identify more of the behaviours of mobile analytics, their use, and their efficacy. Across-case comparisons can increase the probability of seeing fresh characteristics and establish similarities across cases. The comparisons across case studies help establish norms (which can also be used to identify beacons, and anomalies), patterns (and anti-patterns), variety, and ranges. While comparisons across cases (\textit{i.e.} across projects and their mobile apps) may help developers they particularly help with/from the research perspective.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{images/rough-sketches/across-case-comparisons.jpg}
+    \caption{Across case comparisons behaviour detection curve \\Hack of Figure 2 in \citep[p.2]{briand2007_a_critical_analysis_of_empirical_research_in_software_testing}}
+    \label{fig:across-case-comparisons-behaviour-detection-curve}
+\end{figure}
+
+The data and the system state for individual apps can help to increase the `coverage criteria' for a mobile analytics tool (which may be considered a system or simply a `box' as in black-box, grey-box, or white-box system). We know from related domains that more cases can increase the detection rate. For example, a paper by Briand~\citet{briand2007_a_critical_analysis_of_empirical_research_in_software_testing} discusses concepts including the cost-effectiveness curve. A similar approach of recognising the relationship between the number of cases and the detection of pertinent behaviours is illustrated by Figure~\ref{fig:across-case-comparisons-behaviour-detection-curve}. A key observation is that detection is not static nor a one-off value; behaviours come and go, particularly in mobile analytics tools where reports are often ephemeral. The value of across-case comparisons increases when the sampling increases to record more of the ephemeral behaviours and outputs.
+
+The nature of this PhD research based on a relatively small number of apps and associated case studies means it is premature to attempt to systematically plot the number of cases against the behaviours that were observed. Instead the focus is on monitoring 
+new insights vs. resonance, and how often a new case highlights something that I'd missed in previous ones~\footnote{\textit{c.f.} Testing and Noticing~\citep{bolton2009_testing_and_noticing} which discusses noticing from a software testing perspective.}? Does anything generalise beyond a single case? % c.f. OFAT and MFAT in bug investigation. 
+% An interesting read from mechanical engineering on OFAT and MFAT https://doi.org/10.1016/j.engfailanal.2019.04.002 
 
 \subsection{Feedback mechanisms}
 
 
-\subsection{Evaluation through action research}
+\phantomsection
+\label{method-vectored-questions}
+%A method termed `\textbf{vectored analysis}' was used with both app developers and and analytics tool developers, \textit{i.e.} during two of the feedback methods: 1) ask the app devs, and 2) ask the tool devs. 
+Vectored observations/questioning/analysis was used with the aim of increasing the understanding of their work pertaining to mobile analytics. Vectored questions are purposeful and focused, they are similar to Petre's `targeted observation'~\citep[p.234]{petre2009_insights_from_expert_software_design_practice} and situated in the actual practice of the developers - their real world microcosm. They draw on multiple data sources which allows for comparison/triangulation/colligation and allows for multiple methods to gather and analyse data -- all with a focus on the research questions.
 
-\textbf{}
+Feedback mechanisms, corroborate and challenge... - calibrate with the developers. c.f. experts are also the users and asked if they recognise and agree with particular findings. 
 
 
+\subsubsection{Ask the app devs}~\label{section-ask-the-app-devs-research-method}
+The developers of the apps are uniquely able to voice their perceptions and thinking on their use, experience, and perceptions of using mobile analytics. They are therefore well placed to provide feedback on their use of mobile analytics and also answer questions about their use of mobile analytics in their development artefacts and their perceptions of the mobile analytics tools.
+
+They are also busy with their challenges related to developing and improving the mobile apps they are responsible for. As Petre notes~\citealt{petre2009_insights_from_expert_software_design_practice} the experts are willing to try/explore many tools however they focus on what can help them, and they may discount many aspects of the mobile analytics tools including some of the characteristics and behaviours of interest from a research perspective. Nonetheless from a research perspective it may be useful to learn more about why they have discounted or rejected various aspects of the tools. 
+
+\subsubsection{Ask The Tool Devs}~\label{section-ask-the-tool-devs-research-method} 
+%  &  &  &Y &y &y &y \\
+
+
+\subsubsection{Grey Literature Analysis}~\label{section-grey-literature-analysis-research-method}   
+%   &y &y &Y &y &y &  \\
+
+\subsubsection{Code Analysis}~\label{section-code-analysis-research-method}   
+%      &y &Y &  &y &  &  \\
+
+\subsection{Evaluation through action research}~\label{section-evaluation-through-action-research-method}
+The article by ~\citet*{avison1999_action_research} on Action Research explains the utility and importance of Action Research in order to establish the relevance of academic research by trying out theories with practitioners in real situations and in real organisations. They recommend action research \emph{``because this [articular qualitative research method is unique in the way it associates research and practice, so research informs practice and practice informs research synergistically."}~\citep[p.94]{avison1999_action_research}. Action research is particularly relevant for the evaluation where it \emph{``encourages researchers to experiment through intervention and reflect on their intervention and the implication of their theories."}~\citep[p.95]{avison1999_action_research}. 
+
+\subsubsection{Observation}~\label{section-observation-research-method}
+
+\julian{The following example needs moving to a later chapter once I've sketched out the research equivalent of Figure~\ref{fig:practical-sense-making-process-when-dev-teams-apply-mobile-analytics}.}
+Many of the developers were often satisficed with what the mobile analytics tools reported - where they accepted local optima (determined through a combination of observation and asking the app devs), \textit{e.g.} they accepted the `top' crash cluster as the worst one. Therefore, if there are flaws in what is being reported the effects of those flaws may permeate into the results of what the developers \textit{do} and \textit{don't} do. 
+
+\subsubsection{Field experiment}~\label{section-field-experiment-method}
+
+
+\subsubsection{Hackathon}~\label{section-hackathon-research-method}
 
 
 
@@ -283,7 +327,11 @@ Need to map methods to perspective.
 
 
 
-\section{Case Study Methodology}
+\section{Case study procedure}~\label{section-case-study-procedure}
+% I'm not yet decided on whether to call this a: 1) methodology, model, procedure, or a technique - aspects of each of these apply to the following. See \url{https://wikidiff.com/technique/procedure} to compare two of these words, it also facilitates similar comparisons of the rest.
+
+The case studies have several phases, this section explains each of the main phases.
+
 The methodology needs to address the phases of each case study that involves projects and their respective organisation; namely: exploration and selection, engagement, the active case study (including data collection, contemporary analysis, and any contributions to the project), \emph{post-hoc} analysis, wrap-up, and publication. These phases may overlap somewhat, they are in approximate time order from first to last. They are covered in order in the following sections, after the \emph{modus operandi}.
 
 \newthought{\textit{modus operandi}}
@@ -395,11 +443,6 @@ This stage may also provide an opportune period for retrospectives of the case s
 \subsection{Publication}
 Given the practical and empirical nature of the research publishing for industry \emph{and} for academia can help to increase the value of the research. These audiences may have almost orthogonal needs and expectations, for instance industry is particularly interested in highly actionable findings they can apply and obtain productive improvements almost immediately, whereas publication for academia seeks rigour and prefers peer-reviewed acceptance of the material being published.
 
-\section{Rationale}
-\newthought{Rationale for the choice of methods}
-
-\newthought{How the methods fit in a framework of theories and complement each other}
-\isabel{I would say that the methodology is a description not only of the methods, but also of the rationale for the choice of methods and also how they fit together in a framework of theories, and how they complement and add to each other to provide triangulation and to mitigate threats to validity. So quite a lot to do here.}
 
 \hrulefill
 \section{Sources}
