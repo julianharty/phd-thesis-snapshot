@@ -69,14 +69,14 @@ Consistent with this orientation, this research sought to derive a situated unde
  Figure~\ref{fig:categories-of-research-methods} provides a visual overview of the four categories of research methods used to serve this `cognitive ethnography' approach; they include 1) sense-making, 2) sense-building, and 3) evaluation through action research. These were complemented by the fourth category 4) feedback mechanisms to help support and verify the analyses. 
 %Categories of research methods (sense-making, sense-building, feedback mechanisms, and evaluation through action research). Each has a distinct purpose which will be discussed in the rest of this section. 
 
-Note: Figure~\ref{fig:categories-of-research-methods} is an over-simplification with clear boundaries between the categories in order to convey the alignment of methods to purposes. In practice, individual research methods provided multi-faceted contributions; for instance local app experiments contributed to both sense-building and sense-making.
+Note: Figure~\ref{fig:categories-of-research-methods} is an over-simplification with clear boundaries between the categories in order to convey the alignment of methods to purposes and the categories are not discrete.  Some methods include several data sources, and some data sources are analysed using several methods. In practice, individual research methods provided multi-faceted contributions; for instance local app experiments contributed to both sense-building and sense-making. 
 
 \medskip
 
 %\subsection{Overview of the research methods}
 %Various methods were chosen to address the research needs by engaging with data collected from actual practice, as summarised in Table ~\ref{tab:mapping-analysis-to-six-perspectives}, which groups the methods under their main category, illustrated in Figure~\ref{fig:categories-of-research-methods}, and maps them to the six perspectives. 
 
-Table ~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various research methods, groups them in terms of their roles in the research (as illustrated in Figure~\ref{fig:categories-of-research-methods}), and maps them to the six perspectives.  
+Table ~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various research methods, groups them in terms of their roles in the research (as illustrated in Figure~\ref{fig:categories-of-research-methods}), and maps them to the six perspectives.  Each of these research methods includes data collection \textit{and} analysis unless otherwise stated.
 
 
 \begin{table}
@@ -88,7 +88,7 @@ Table ~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various res
       & \multicolumn{3}{c|}{\bfseries \small Understand} & \multicolumn{3}{c}{\bfseries \small Improve} \\
       \toprule
          % &\textsubscript{u}Use &\textsubscript{u}Artefacts &\textsubscript{u}Tools &\textsubscript{i}Use &\textsubscript{i}Artefacts &\textsubscript{i}Tools \\
-         \multicolumn{1}{r|}{Six perspectives} &U\textsuperscript{use} &U\textsuperscript{artefacts} &U\textsuperscript{tools} &I\textsuperscript{use} &I\textsuperscript{app} &I\textsuperscript{tools} \\ % Thanks to https://tex.stackexchange.com/a/33488/88466
+         \multicolumn{1}{r|}{Six perspectives} &\uuse &\uartefacts &\utools &\iuse &\iartefacts &\itools \\ % Thanks to https://tex.stackexchange.com/a/33488/88466
          
         \hline 
         \textbf{Sense-making} & & & & & & \\
@@ -112,7 +112,7 @@ Table ~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various res
         Ask The App Devs      &Y &y &y &y &y &y \\
         Ask The Tool Devs     &  &  &Y &y &y &y \\
         Grey Literature Analysis       &y &y &Y &y &y &  \\
-        Code Analysis         &y &Y &  &y &  &  \\
+        Code Analysis         &y &Y &  &y &y &  \\
                 
         \hline
         \textbf{Evaluation through action research} & & & & & & \\
@@ -142,15 +142,7 @@ Across-case comparisons identify macro-discoveries -- that is, they identify cha
 
 `\textbf{Evaluation through action research}' methods were largely concerned with evaluation of the effect of improvements in the use of analytics, in terms of adoption into use and app performance (i.e., perspectives \iuse and \iartefacts). It includes three research methods: 1) observation, 2) field experiment, and 3) hackathon. These are explained in page \pageref{section-evaluation-through-action-research-method} onwards. 
 
-\medskip
-\dotfill
-\medskip
-
-Clearly, the categorisation is a simplification, and the categories are not discrete.  Some methods include several data sources, and some data sources are analysed using several methods. The research is iterative, moving through sensemaking, sensebuilding and feedback mechanisms repeatedly as new cases are studied or new insights emerge.  The methods and the data sources often also inform several of the six perspectives.  The research methods are introduced in more detail in the sections that follow.
-
-%Each of these research methods includes data collection \textit{and} analysis unless otherwise stated.
-
-Mention these techniques are used in an iterative manner and lead into the next section. 
+The research is iterative, moving through sensemaking, sensebuilding and feedback mechanisms repeatedly as new cases are studied or new insights emerge.  The methods and the data sources often also inform several of the six perspectives.  The research methods are introduced in more detail in the sections that follow.
 
 \subsection{Sensemaking}
 % c.f. https://en.wikipedia.org/wiki/Sensemaking_(information_science)
@@ -275,12 +267,35 @@ The research method entails communicating with knowledgeable, available and inte
 %   &y &y &Y &y &y &  \\
 A great deal of grey literature, and grey data~\citep[pp 219-221]{banks2010_blog_posts_and_tweets_the_next_frontier_for_grey_literature}, is available online pertaining to mobile analytics and to errors and problems related to source code and libraries used in real-world mobile apps. The main sources of relevant grey data include Stack Exchange websites frequented by mobile app developers (particularly \href{https://stackoverflow.com/}{stackoverflow.com}) and GitHub.
 
-stackoverflow.com provides facilities that encourage meta-data to be provided by users of the site \textit{e.g.} tags, votes, accepted answer flag, \textit{etc.} and their search provides facilities to perform searches that use meta-data as well as free text~\citep{stackoverflow2021_search_help}.
+\href{https://stackoverflow.com/}{stackoverflow.com} provides facilities that encourage meta-data to be provided by users of the site \textit{e.g.} tags, votes, accepted answer flag, \textit{etc.} and their search provides facilities to perform searches that use meta-data as well as free text~\citep{stackoverflow2021_search_help}.
 
-The nature of GitHub projects provides some inherent structure which can be utilised when performing searches
+The nature of GitHub projects provides some inherent structure which can be utilised when performing searches, for example to search issues and pull requests~\footnote{\href{https://docs.github.com/en/search-github/searching-on-github/searching-issues-and-pull-requests}{Searching issues and pull requests}}.
+
+% If I ever have the time and purpose, continue trying to use https://sourcegraph.com/search in case it's able to perform the searches we did in our joint research. Ditto try again with github's v4 search API.
 
 \subsubsection{Code Analysis}~\label{section-code-analysis-research-method}   
-%      &y &Y &  &y &  &  \\
+%       &y &Y &  &y &y & \\
+Source code provides a snapshot of raw ingredients which is processed by the build in order to generate an app. The source code often includes at least one build `recipe'~\footnote{For most Android apps the main build recipe is in the file \texttt{./app/build.gradle}.} so the build can also be evaluated and hopefully reproduced~\footnote{Aside from sensitive ingredients such as signing keys used to digitally sign each binary when it is created.}. The source code's repository provides augments the source code by recording the historical evolution of the source code.
+
+Code analysis in the context of mobile analytics involves searching for indications of the use of one or more in-app mobile analytics libraries. The steps performed to identify indicators %c.f. beacons as used in this chapter
+of the use of a mobile analytics library include:
+
+\begin{enumerate}
+    \itemsep 0em
+    \item Details in one or more \texttt{gradle} scripts where the analytics is added as a `dependency', the version of the dependency provides useful meta-data on whether the analytics are actively maintained by the developers. % COULD-DO\textit{e.g.} add code snippet
+    \item Initialisation of the analytics library in the source code, often this occurs in the Android app's \texttt{Application} class.
+    \item \texttt{Import} statements in individual source code files that reference the analytics Java package(s).
+    \item Searching for one or more \textit{wrapper} class files. If these exist then extend the search for these custom classes in step 3 and 5.
+    \item Search for calls to the original and any wrapper mobile analytics API classes.
+\end{enumerate}
+
+After the five steps have been completed the matching lines of source code are then available for analysis. 
+%
+The analysis can be performed for any snapshot of a codebase \textit{i.e.,} for any commit made to the version control repository. Commands such as \texttt{git blame} provide information of the particular commit where lines of code were last updated and complement analysis of the snapshots.
+
+The application of five steps can be scripted. As an example, in joint research~\citep{harty2021_logging_practices_arxiv} a mix of manual and scripted steps were applied to enable the analysis of the use of Firebase mobile analytics in all the commits made to 57 opensource Android apps.
+
+A useful confirmatory test to help establish the integrity of an app's codebase is to build the app using the build scripts. There may be additional documentation of the build process available \textit{e.g.} in a README file incorporated into the code base.
 
 \subsection{Evaluation through action research}~\label{section-evaluation-through-action-research-method}
 The article by ~\citet*{avison1999_action_research} on Action Research explains the utility and importance of Action Research in order to establish the relevance of academic research by trying out theories with practitioners in real situations and in real organisations. They recommend action research \emph{``because this [articular qualitative research method is unique in the way it associates research and practice, so research informs practice and practice informs research synergistically."}~\citep[p.94]{avison1999_action_research}. Action research is particularly relevant for the evaluation where it \emph{``encourages researchers to experiment through intervention and reflect on their intervention and the implication of their theories."}~\citep[p.95]{avison1999_action_research}. 
