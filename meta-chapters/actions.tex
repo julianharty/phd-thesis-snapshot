@@ -7,7 +7,7 @@ This is my global combination of stuff I know I want to do and next steps.
     \item Work on the Discussion and also the Introduction.
     \item Devise my test plan for the test apps (zipternet, android-crash-dummy, etc.). \emph{In progress 24-May-2020, see} \url{https://joedocs.com/julianharty/evaluating-gpc-reports} \emph{for my research on evaluating Google Play Console reports.}
     \item Work on my Related Works chapter.
-    \item (Done) Fix as many warnings as practical. \emph{24-May-2020 0 warnings apart from the word count (see comment in latex in this file} \texttt{actions.tex}. 
+    \item (Done) Fix as many warnings as practical. \emph{24-May-2020 0 warnings apart from the word count (see comment in latex in this file} \texttt{actions.tex}.
     \item Clean up and make my references coherent and complete.
     \item \akb{style point - the voice of the text jumps around from talking about 'the research' to 'my research', addressing the reader directly to the third person, etc.  Need to stick to a consistent style.}
     \begin{itemize}
@@ -15,14 +15,14 @@ This is my global combination of stuff I know I want to do and next steps.
         \item Next: Introduction, Research Questions.
     \end{itemize}
     \item Review all the text that appears in the ToC LoF, LoT, etc. to make the document structure clear and professional. See~\url{https://tex.stackexchange.com/questions/296759/footnote-in-caption} for an example of creating short labels for captions.
-    \item Revisit my rejected papers (and the accepted ones) for snippets and evidence worth incorporating in this thesis. For example, 
+    \item Revisit my rejected papers (and the accepted ones) for snippets and evidence worth incorporating in this thesis. For example,
     \begin{itemize}
         \item \href{https://www.overleaf.com/4666349717jtgjwrkchfkh}{Testing Veracity and Fidelity of Software Analytics}
     \end{itemize}
-    
+
 \end{itemize}
 
-% COULD_DO To fix the word count errors, try debugging along the lines of:  https://tex.stackexchange.com/questions/286019/how-can-i-convince-texcount-that-my-use-of-newcolumntype-is-perfectly-valid-syn 
+% COULD_DO To fix the word count errors, try debugging along the lines of:  https://tex.stackexchange.com/questions/286019/how-can-i-convince-texcount-that-my-use-of-newcolumntype-is-perfectly-valid-syn
 
 \section{Using MoSCoW for TODOs}
 I discovered that TODO's in the material are not sufficiently precise to enable me to work out the differences between what I \textbf{M}ust do, what I \textbf{S}hould do, what I \textbf{C}ould do, and what I \textbf{W}on't do as part of this thesis. The various items are identified in Table \ref{tab:moscow_for_todos}:
@@ -36,7 +36,7 @@ I discovered that TODO's in the material are not sufficiently precise to enable 
        \texttt{SHOULD-DO} &Should Do \\
        \texttt{COULD-DO}  &Could Do \\
        \texttt{WONT-DO}   &Won't do as part of this thesis, possibly will do subsequently. \\
-         & 
+         &
     \end{tabular}
     \caption{MoSCoW Identifiers during my writing}
     \label{tab:moscow_for_todos}
@@ -46,51 +46,77 @@ I discovered that TODO's in the material are not sufficiently precise to enable 
 Here are various general tasks that I could do that might improve the thesis, others are embedded in the latex source as this is a recent addition.
 \begin{enumerate}
     \item Somewhat late to the party, I've finally discovered latex foundations that seem clear to me \url{https://artofproblemsolving.com/wiki/index.php/LaTeX:Layout}
-    
+
     \item Make figures live so people can click them in the PDF and be taken to primary text that references them (this doesn't always hold if there's several references to the same figure. See \url{https://tex.stackexchange.com/questions/54927/how-to-insert-an-image-that-also-acts-as-a-link} and \url{https://tex.stackexchange.com/questions/84921/href-not-working-with-image-but-ok-with-text} if I run into issues.
-    
+
     \item Size the images more consistently, currently I use a variety of heuristics to size and locate them on the page. That's not elegant and wouldn't cope well if the page margins and.or sizes change.
-    
-    \item There are an insane number of examples of beautiful latex, many with sources, in \href{https://tex.stackexchange.com/questions/1319/showcase-of-beautiful-typography-done-in-tex-friends}{Showcase of beautiful typography done in TeX \& friends} for inspiration. One example is a very attractive thesis where the author has provided a README and the sources he used for his thesis \url{https://www.levbishop.org/thesis/source/}. The nomenclature and bibliography are both far more attractive than mine currently. 
-    
+
+    \item There are an insane number of examples of beautiful latex, many with sources, in \href{https://tex.stackexchange.com/questions/1319/showcase-of-beautiful-typography-done-in-tex-friends}{Showcase of beautiful typography done in TeX \& friends} for inspiration. One example is a very attractive thesis where the author has provided a README and the sources he used for his thesis \url{https://www.levbishop.org/thesis/source/}. The nomenclature and bibliography are both far more attractive than mine currently.
+
     \item Implement backrefs so that a) the thesis compiles without errors, b) the backrefs in the bibliography are well-phrased (rather than just having the page numbers). As ever, the memoir document class seems to complicate matters! Currently the code is commented out in \texttt{latex-configuration.tex} Refs:
     \begin{itemize}
         \item \url{https://tex.stackexchange.com/questions/410270/memoir-citation-in-margin} Interesting and somewhat beyond what I currently want to do - it uses sidenotes for citations.
         \item \url{https://tex.stackexchange.com/questions/98528/further-customize-color-of-hyperref-links} using a basic document class.
-        \item \url{https://tex.stackexchange.com/questions/15971/bibliography-with-page-numbers} sums up several other examples online for 
+        \item \url{https://tex.stackexchange.com/questions/15971/bibliography-with-page-numbers} sums up several other examples online for
         \item \url{https://tex.stackexchange.com/questions/522491/using-tufte-book-document-class-with-bibliography-backref}
         \item backref-memoir.tex works in a skeletal memoir example \href{https://www.overleaf.com/project/612fb5e6f6cc44c10b56afa1}{My list of examples overleaf project}
         \item \url{https://latex.org/forum/viewtopic.php?t=4791} if I get stuck, the answer isn't very clear or helpful though...
     \end{itemize}
-    
+
     \item Create a proper glossary, e.g. see \url{https://husseinbakri.org/essential-latex-bibtex-and-biblatex-tips-for-research-students/} which has lots of sensible general info on using latex etc. including the glossary package.
-    
+
     \item Consider whether to use alphas for subsubsections as per the fine thesis on pair programming. How to do so is simple - see the latex for this item as the code is commented out % \renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}} % See https://latex.org/forum/viewtopic.php?t=5349
-    
+
     \item Look at improving the formatting of epigraphs, particularly for the discussion chapter. It also has a footnotemark that doesn't appear as part of the epigraph.
-    
+
     \item Revise the Introduction and the Case Studies introductory material to use the \uuse and \iuse labels rather than the 1a 2a style labels.
-    
+
     \item Understand more about `effect size' vs statistical significance, see the discussion in ~\citep[p.135]{Ko2015_a_practical_guide_to_controlled_experiments_of_sw_eng_tools_with_human_participants}.
-    
+
     \item Review and revise the metrics and related words in the abstract. Also remember to ask Clara.
-    
+
     \item Consider whether to minimise the content related to the joint research on source code analysis for remote logging in order to simplify the story in the thesis. Of course, refer to it in the thesis so readers are aware of the work and its connection to the thesis.
-    
+
     \item I'd like to increase the emphasis on the software testing implications. This helps connect the research performed with Isabel, etc. and similarly connects the work on Data Dynamics.
-    
+
     \item Now that I do finally have access to CrashScope - try running it on old (and current) builds of the Kiwix apps, etc. to see if it can reproduce any of the known crashes.
-    
+
     \item Revise and update the software contributions chapter. It's also referenced in the opening pages of the thesis so important it presents well.
-    
+
     \item Of course, actually complete the dedication section!
-    
+
     \item Clean up the Author's declaration.
-    
+
     \item Add page numbers (as per the example used for Vectored Questioning) to the glossary to show where each term is used. This is also a useful aide to help me ensure each terms has been covered adequately.
-    
+
+    \item Fix the 'unknown' citations e.g. for OBB in the glossary.
+
+    \item Revise the definition of risk.
+
+    \item Add either the table from the Case Studies or the one I created in Microsoft Word 
+
+    \item Remove 'Figure 5.2: Visual Connections in my research'
+
+    \item Migrate 'TODO: Structure used to describe the case studies' into the case study procedure section of the methodology. Review Figure 5.3 Yijun's WIP diagram.
+
+    \item Integrate '5.3 Methodology, ethics, and repeatability of case studies' into the methodology. Ask where the research ethics content is best placed.
+
+    \item Revise/ move the sections on data sources such as Characteristing the data as presented and Google Play Console. It could to with rethinking how to present the approaches used to obtaining, preprocessing, processing, analysing, and storing the various data sources. The introductory section is 4.2 called Data Sources.
+
+    \item Integrate `Clearly the catgorisation ...' with `Note: Figure ...' in the Methodology section (4.3)
+
+    \item Do have a go at sketching the research version of the sense-making process figure (4.3)
+
+    \item Complete the Code Analysis subsection.
+
+    \item Add an introduction to the Case Study Procedure (4.5)
+
+    \item Flesh out the threats to validity section.
+
+    \item Add a summary that also bridges to the next chapter on Case Studies.
+
     \item TBD :)
-    
+
 \end{enumerate}
 
 \clearpage
