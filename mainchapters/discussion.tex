@@ -41,6 +41,16 @@ Source: \url{https://developer.android.com/guide/topics/ui/settings}
 
 Preferences, permissions, and usage analytics share similarities in terms of considerations such as informed consent, whether the settings are temporary or permanent, and so on.
 
+\section{The half-life of the hackathons}
+Both the Kiwix and Catrobat case studies included a hackathon early on. For Kiwix the improvements in the crash rate were almost immediate as a new release of the app with several fixes was released within a week of the session at the hackathon. The project team also increased their focus on addressing crashes and other stability issues which drove ongoing significant improvements over a series of releases of the core app; and when the custom apps were also updated their stability also improved markedly. %TODO link to the findings 
+
+For the Catrobat case study, the improvements took a bit longer to take effect based partly on the more involved pre-release work. The second release after the hackathon had further improvements and between them they improved the stability significantly. %TODO link to the findings 
+However, the improvements then petered out. We had arranged for a second more involved hackathon in the form of a 1-day pre-conference workshop at TestFest 2020, a conference with about 500 participants. %TODO link to more details about the planned workshop.
+The workshop did occur however the early effects of Covid-19 becoming a global pandemic meant that some of the workshop participants did not come and remained at home and many of the rest were also organisers of the conference and ended up spending their time hurriedly reorganising many aspects of the conference instead of participating in the workshop. The subsequent increase in restrictions related to COVID-19 are a likely cause of why there was little further progress in terms of addressing stability issues for the Catrobat project.
+
+\section{Decision making by development teams}~\label{discussion-decision-making-by-dev-teams-section}
+As an untested hypothesis, as part of their decision making when triaging an issue: developers may apply an informal form of failure mode and effect analysis (FMEA) based on multiple-criteria decision making (MCDM) using similar criteria to the work described in \citealt{lo2018_novel_multi_criteria_decision_making_based_FMEA_model_for_risk_assessment}, \textit{i.e.}, severity, occurrence, detection (of a cause they can fix), and expected cost. An area of future research could be in the habits of decision making during triage and in ways to improve the decision making and the outcomes of those decisions.
+
 \section{The WebView component}~\label{section-webview-component}
 
 (something that's used in a vast number of Android apps in my experience, including eBay, GMail~\footnote{\url{https://www.google.com/appsstatus\#hl=en&v=issue&sid=1&iid=aa75515d184a2423be444d676b7ebf45}}), and many others. The BBC development team wrote a detailed and rich blog post~\url{https://www.bbc.co.uk/blogs/internet/entries/3533ce9c-393a-43d8-8f44-0c46214c86aa} on their use of WebViews to host their JavaScript based games for several years. The article includes Wardley Mapping diagrams that position their use of analytics amongst other technologies.

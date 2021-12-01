@@ -26,7 +26,7 @@ focus on practical aspects of app development, the use of mobile analytics tools
 % \newthought{The research needs to be situated in the real-world}
 %As the real-world apps live in an app-store ecosystem, and as the main app stores collect app analytics, the research needs to be situated in apps that are available in an app store. And as the analytics are derived from usage the apps need to be used, ideally by real-world users of those apps. 
 
-A comprehensive statistically representative sample of mobile apps was beyond the scope of a PhD, instead `purposeful sampling'.~\citep[pp180-182]{flick2018_an_introduction_to_qualitative_research_sixth_ed}, and more recently in ~\citep[p.114]{zieris2020_phd_qualitative_analysis_of_knowledge_transfer_in_pair_programming}\footnote{\emph{``Unlike for quantitative methods, statistical generalization from a sample to the population is not a goal. Instead, qualitative studies look for information-rich cases that allow to deepen the researcher’s understanding. Early in the process, each case is treated as unique and studied in great detail; cross-case analyses follow later and are based on the well-understood individual cases."}}. 
+The goal of this research is to explore and understand the use and impact of analytics on mobile app development, rather than produce general findings that are applicable in all context. Therefore, in order to gain an understanding of the six perspectives outlined in Figure~\ref{fig:six-perspectives-in-the-methodology}, it is necessary to investigate different examples of mobile app development practice. In this context, a comprehensive statistically representative sample of mobile apps was beyond the scope of a PhD, as determining the characteristics of representative apps and gaining access to their development contexts would be impractical. Instead, this research adopts the approach of `purposeful sampling'  as described by ~\citep[pp180-182]{flick2018_an_introduction_to_qualitative_research_sixth_ed} was considered to be a more suitable approach. A similar approach has been successfully applied by other researchers undertaking in-depth, qualitativeexplorations of software development practice, e.g., recent work on qualitative analysis of pair programming undertaken by ~\citep[p.114]{zieris2020_phd_qualitative_analysis_of_knowledge_transfer_in_pair_programming}\footnote{\emph{``Unlike for quantitative methods, statistical generalization from a sample to the population is not a goal. Instead, qualitative studies look for information-rich cases that allow to deepen the researcher’s understanding. Early in the process, each case is treated as unique and studied in great detail; cross-case analyses follow later and are based on the well-understood individual cases."}}. 
 %
 Flick presents six strategies of purposive sampling, in p.181. Of necessity the strategy used in this research is one described by Flick as convenience, however a more appropriate term for the strategy is opportunistic, since few of the case studies were convenient. As Flick notes wryly, on p.182, `the problem of access may be one of the crucial barriers' which particularly applies when seeking access to sensitive data and information about software failures for commercial mobile apps.
 
@@ -69,6 +69,10 @@ Consistent with this orientation, this research sought to derive a situated unde
 %Categories of research methods (sense-making, sense-building, feedback mechanisms, and evaluation through action research). Each has a distinct purpose which will be discussed in the rest of this section. 
 
 Note: Figure~\ref{fig:categories-of-research-methods} is an over-simplification with clear boundaries between the categories in order to convey the alignment of methods to purposes and the categories are not discrete.  Some methods include several data sources, and some data sources are analysed using several methods. In practice, individual research methods provided multi-faceted contributions; for instance local app experiments contributed to both sense-building and sense-making. 
+
+The methodology incorporates an iterative pattern of \textbf{beacon finding} to identify areas of interest within a case, \textbf{drill down} to investigate one or more beacons, and \textbf{comparisons} both within and across cases to identify patterns, relationships, counterfactuals~\footnote{\emph{``relating to or expressing what has not happened or is not the case." Oxford Languages.}}, as some characteristics emerge in contrasts across and between a body of studies. 
+%
+Comparisons were performed iteratively on an ongoing basis. These comparisons included comparisons across releases, using different windows of time, comparisons with peers, and so on. % MUST-DO Revisit the diagram now in the outtakes material. Then relocate this paragraph.
 
 \medskip
 
@@ -122,7 +126,7 @@ Table ~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various res
         
         \bottomrule
     \end{tabular}
-    \caption{Mapping research methods rows to the 6 perspectives columns}
+    \caption{Mapping research methods rows to the 6 perspectives columns \\ Y = Strong mapping \\ y = Weak mapping}
     \label{tab:mapping-analysis-to-six-perspectives}
 \end{table}
 
@@ -130,18 +134,18 @@ Table ~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various res
 `\textbf{Sensemaking}' methods were concerned with understanding current practice (as reflected in artefacts, tools, and developers' practices and perspectives -- i.e., perspectives \uartefacts, \utools, and \uuse) and identifying potential improvements in tools and in how analytics are used in app development and maintenance (i.e., perspectives \itools and \iartefacts). The research methods include beacon-finding (see page~\pageref{section-beacon-finding-method}) and drill-down (see page~\nameref{drill-down-research-method}).
 
 
-`\textbf{Sensebuilding}' methods built on insights found through sense-making. The research methods include local app experiments (see page~\pageref{local-app-experiments-research-method}) and across case comparisons (see page~\pageref{across-case-comparisons-research-method}).
+`\textbf{Sensebuilding}' methods built on insights found through sense-making. The research methods included micro-experiments, carried out on local apps (see page~\pageref{local-app-experiments-research-method}) and across case comparisons (see page~\pageref{across-case-comparisons-research-method}).
 
-Micro-experiments (i.e., local app experiments) are used to investigate detail and give insight into the relationships between tools, quality of analytics, and potential impact of analytics use on apps (i.e., perspectives \uartefacts, \utools, \iartefacts, \itools).
+Micro-experiments were used to investigate detail and give insight into the relationships between tools, quality of analytics, and potential impact of analytics use on apps (i.e., perspectives \uartefacts, \utools, \iartefacts, \itools).
 
 Across-case comparisons identify macro-discoveries -- that is, they identify characteristics and patterns that were not evident in individual case studies, potential improvements to practice (i.e., perspectives \uuse and \iuse), as well as the influence of the quality of tools in practice (\itools). They can also corroborate and/or challenge findings found in individual cases.
 
 
-`\textbf{Feedback mechanisms}' were used to support and verify the other analyses, by comparing observations to other evidence, or by asking developers for clarifications or reflections. Feedback mechanisms are used throughout the research and mainly used for perspectives that sought to understand (\uuse, \uartefacts, and \utools), nonetheless they were also frequently used when considering improvements (\iuse, \iartefacts, and \itools). 
+`\textbf{Feedback mechanisms}' were used to support and verify the other analyses, by comparing observations to other evidence, or by asking developers for clarifications or reflections. Feedback mechanisms are used throughout the research and mainly contributed to the understanding of perspectives associated with (\uuse, \uartefacts, and \utools), nonetheless they were also frequently used when considering improvements (\iuse, \iartefacts, and \itools). 
 
 `\textbf{Evaluation through action research}' methods were largely concerned with evaluation of the effect of improvements in the use of analytics, in terms of adoption into use and app performance (i.e., perspectives \iuse and \iartefacts). It includes three research methods: 1) observation, 2) field experiment, and 3) hackathon. These are explained in page \pageref{section-evaluation-through-action-research-method} onwards. 
 
-The research is iterative, moving through sensemaking, sensebuilding and feedback mechanisms repeatedly as new cases are studied or new insights emerge.  The methods and the data sources often also inform several of the six perspectives.  The research methods are introduced in more detail in the sections that follow.
+The research was iterative, moving through sensemaking, sensebuilding and feedback mechanisms repeatedly as new cases are studied or new insights emerge.  The methods and the data sources often also inform several of the six perspectives.  The research methods are introduced in more detail in the sections that follow.
 
 \subsection{Sensemaking}
 % c.f. https://en.wikipedia.org/wiki/Sensemaking_(information_science)
@@ -199,9 +203,9 @@ Before we move on to the category of sense-building one of the insights from the
 
 Figure~\ref{fig:practical-sense-making-process-when-dev-teams-apply-mobile-analytics} illustrates the sense-making and triage process used by development teams which shares various similarities with sense-making from a research perspective. These similarities mean the researcher and the practitioner may also share similar practices in terms of their analysis of phenomena found in mobile analytics tools. The triage and drill-down may be repeated several times where there is sufficient potential value in performing further investigation. 
 
-The impact of reported failures is combined with situational-risk-assessment as a part of the decision-making process performed by developers during triage; for instance to consider whether this reported issue is worth addressing in the current development cycle, (\textit{e.g.} in the current Sprint for teams who use Sprints for work planning. Developers have to consider multiple criteria including personal, project, and product implications of making code and/or operational changes.
+The impact of reported failures is combined with situational-risk-assessment as a part of the decision-making process performed by developers during triage; for instance to consider whether this reported issue is worth addressing in the current development cycle, (\textit{e.g.} in the current Sprint for teams who use Sprints for work planning. Developers have to consider multiple criteria including personal, project, and product implications of making code and/or operational changes. An untested hypothesis for their approach is introduced in the discussion chapter on page \pageref{discussion-decision-making-by-dev-teams-section}.
 
-As an untested hypothesis, as part of their decision making when triaging an issue: developers may apply an informal form of failure mode and effect analysis (FMEA) based on multiple-criteria decision making (MCDM) using similar criteria to the work described in \citealt{lo2018_novel_multi_criteria_decision_making_based_FMEA_model_for_risk_assessment}, \textit{i.e.}, severity, occurrence, detection (of a cause they can fix), and expected cost. An area of future research could be in the habits of decision making during triage and in ways to improve the decision making and the outcomes of those decisions.
+
 
 \subsection{Sense-building}
 %\akb{need an introductory paragraph here that explains how sense-building is different from sense-making, and an overview of the activities included in this part of the analysis}
@@ -329,20 +333,23 @@ The case studies include examples where the researcher's mode of engagement was 
 Many of the developers were often satisficed with what the mobile analytics tools reported - where they accepted local optima (determined through a combination of observation and asking the app devs), \textit{e.g.} they accepted the `top' crash cluster as the worst one. Therefore, if there are flaws in what is being reported the effects of those flaws may permeate into the results of what the developers \textit{do} and \textit{don't} do. 
 
 \subsubsection{Field experiment}~\label{section-field-experiment-method}
-In this research, field experiments use real-world apps and their core code repositories. They were not as rigorous as controlled experiments owing to the nature of the development teams and their priorities. Nonetheless they included a control app and an experiment app where experiments are performed on the experiment app and mobile analytics results compared for both these apps. They are also ecologically valid, ~\citep[p.126]{Ko2015_a_practical_guide_to_controlled_experiments_of_sw_eng_tools_with_human_participants}, as they are situated in real world challenges in real world apps.
+In this research, field experiments use real-world apps and their core code repositories. They were not as rigorous as controlled experiments owing to the nature of the development teams and their priorities. Nonetheless they included a control app and an experiment app where experiments are performed on the experiment app and mobile analytics results compared for both these apps. They are also ecologically valid, ~\citep[p.126]{Ko2015_a_practical_guide_to_controlled_experiments_of_sw_eng_tools_with_human_participants}, as they are situated in real world challenges found in their core mobile apps.
 
-The approach described in~\citep{Ko2015_a_practical_guide_to_controlled_experiments_of_sw_eng_tools_with_human_participants}: were not suitable. My research didn't have the opportunity to compare two tools quantitatively, nor was it practical to perform quantitative research experiments as none of the projects were interested in the complexity and demands of the type of controlled experiments illustrated in their research. This form of research may be useful and also viable for large, funded research groups and/or for organisations such as the larger mobile analytics tool providers, particularly Google. That said, Google in particular has access to such a vast range of data about the use of their mobile analytics tools they may not need or want to perform controlled experiments of the form discussed in this research.
-
-% Stuff to read?
+The approach described in~\citep{Ko2015_a_practical_guide_to_controlled_experiments_of_sw_eng_tools_with_human_participants}: were not suitable for several reasons~\footnote{This form of research may be useful and also viable for large, funded research groups and/or for organisations such as the larger mobile analytics tool providers, particularly Google. That said, Google in particular has access to such a vast range of data about the use of their mobile analytics tools they may not need or want to perform controlled experiments of the form discussed in this research.}. 
 %
-%
+My research didn't have the opportunity to compare two tools quantitatively, nor was it practical to perform quantitative research experiments as none of the projects were interested in the complexity and demands of the type of controlled experiments illustrated in their research. Therefore, the field experiments were designed to suit the specific opportunities provided by the respective projects as follows:
+\begin{itemize}
+    \item Hackathons were used to initiate the field experiments for the opensource projects. These were attractive to the development teams, partly as they were for a distinct period where the team were able to meet and enjoy the experience of collaborating.
+    \item Both the opensource projects had multiple apps, including one that had the worst reliability of their apps (as measured by mobile analytics). The project leads saw value in helping arrange and support the hackathons. They also had apps which were suitable to act as the control for their hackathon. 
+\end{itemize}
 
 
 \subsubsection{Hackathon}~\label{section-hackathon-research-method}
 The hackathon research method in this research applies the concepts of software development hackathons with the addition of mobile analytics tools as a source of information related to issues in the behaviour of one of more mobile apps supported by participants in the hackathon.
 
-The hackathons were communal+contributive+catalytic, see: \emph{`` communal (towards  community  nurturing), contributive  (issue-oriented),  or  catalytic  (towards  the search  for  innovation)."}~\citep[p.3]{medina2020_what_do_we_know_about_hackathons_etc_a_SLR}~\footnote{Note: The source of these terms appears to be in `A Typology of Hackathon Events' a paper published via \url{https://hackathon-workshop.github.io/}, however the actual PDF is on Google Drive and access is restricted. I have requested a copy via Google Drive and from one of the authors.}.
+The hackathons were communal+contributive+catalytic, see: \emph{`` communal (towards  community  nurturing), contributive  (issue-oriented),  or  catalytic  (towards  the search  for  innovation)."}~\citep[p.3]{medina2020_what_do_we_know_about_hackathons_etc_a_SLR} Note: The source of these terms appears to be in `A Typology of Hackathon Events'~\citep[pp1-3]{drouhard2016_typology_of_hackathon_events} %a paper published via \url{https://hackathon-workshop.github.io/}, 
 % The 2nd workshop is no longer online, instead see https://web.archive.org/web/20181203070803/http://hackathon-workshop-2018.com/ 
+They were \emph{communal} as the participants were part of common development communities (as developers for the opensource apps they contributed to); \emph{contributive} as there were common concerns about the issues the hackathons were intended to address with a strong desire for impact, ~\citep[see p.2]{drouhard2016_typology_of_hackathon_events}; and \emph{catalytic} as one of the aims was to demonstrate a new approach to the use of a dataset (mobile analytics reports) and technology (mobile analytics tools)~\citep[see p.3]{drouhard2016_typology_of_hackathon_events}.
 
 No rewards were offered to participants beyond being at the respective hackathon and participating. These are termed `Single-Application' hackathons in~\citealt[p.5]{briscoe2014_digital_innovation_the_hackathon_phenomenon}. The participants were current members of the respective development team.
 
@@ -350,27 +357,14 @@ In the context of this research the hackathons included the researcher and a hig
 
 % https://hackathon-planning-kit.org/ 
 
-
-\begin{figure}
-    \centering
-    \includegraphics[width=14cm]{images/my/Illustrated-Research-Methodology-using-Mobile-Analytics-as-the-Epicentre-v0-2.jpeg}
-    \caption{Illustrated Research Methodology using Mobile-Analytics as the Epicentre [TODO Revise]}
-    Illustration of the 
-    \label{fig:Illustrated-Research-Methodology-using-Mobile-Analytics-as-the-Epicentre}
-\end{figure}
-
 \dotfill 
 
-\section{Analytics centric methodology}~\label{analytics-centric-methodology-section}
-\julian{TODO this section needs revising and the figure updating. TBD whether this section is still useful now so much more material has been added to this chapter.}
+\section{Summary of this analytics centric methodology}~\label{analytics-centric-methodology-section}
 
-The methodology incorporates an iterative cycle of \textbf{beacon finding} to identify areas of interest within a case, \textbf{drill down} to investigate one or more beacons, then \textbf{comparison} across cases to identify patterns, relationships, counterfactuals~\footnote{\emph{``relating to or expressing what has not happened or is not the case." Oxford Languages.}}, as some characteristics emerge in contrasts across and between a body of studies. The first representation of the iterative cycle is illustrated in Figure~\ref{fig:Illustrated-Research-Methodology-using-Mobile-Analytics-as-the-Epicentre}. This shows an artificially clean and orderly progression between elements in the cycle and useful to communicate the concepts of the research methodology. 
+The research needed to be grounded in real-world projects and with real-world app development teams, accordingly the methodology incorporates a mutually-beneficial, symbiotic, bi-directional connection where the iterative research is evaluated with and through these real-world projects and teams. Figure~\ref{fig:illustrated-combined-methodology} includes the bi-directional connection and also illustrates a modified progression between the elements in the iterative cycle where the iteration alternates primarily between beacon-finding and drill-down, and less frequently through the comparison element. All these elements are vital and none less important than the others. Again the figure is representative, for individual cases the flow and progression may well vary.
 
-However this Figure (\ref{fig:Illustrated-Research-Methodology-using-Mobile-Analytics-as-the-Epicentre}) does not incorporate real-world and practical characteristics of app development practice, which is the crucible for this research. The research needed to be grounded in real-world projects and with real-world app development teams, accordingly the methodology incorporates a mutually-beneficial, symbiotic, bi-directional connection where the iterative research is evaluated with and through these real-world projects and teams. Figure~\ref{fig:illustrated-combined-methodology} includes the bi-directional connection and also illustrates a modified progression between the elements in the iterative cycle where the iteration alternates primarily between beacon-finding and drill-down, and less frequently through the comparison element. All these elements are vital and none less important than the others. Again the figure is representative, for individual cases the flow and progression may well vary.
-
-This Figure (\ref{fig:illustrated-combined-methodology}) also partly indicates how the research feeds the six perspectives to varying degrees; (the evaluation and action research also contribute to the six perspectives). TODO divide this figure. Create another figure to show the sources to the 6 perspectives. 
-
-TODO Motivation for the methodology. 
+This Figure (\ref{fig:illustrated-combined-methodology}) also partly indicates how the research feeds the six perspectives to varying degrees; (the evaluation and action research also contribute to the six perspectives). 
+\textbf{TODO divide this figure. Create another figure to show the sources to the 6 perspectives.}
 
 Need something comparable for the messy tail of the figure. Then these can be mapped onto the 6 perspectives. 
 
@@ -387,34 +381,32 @@ TODO discuss saturation briefly.
 
 Not only could this be connected to context, it could be applied in practice to see the effects of the results.
 
-Need to map methods to perspective. 
-
 
 
 \section{Introducing the empirical studies}~\label{section-introducing-the-case-studies}
 The case studies range in the richness of their contributions to the research, Table~\ref{tab:empirical-studies-research-perspective} provides the research context for each of them. 
 
-\begin{landscape} % Rotates the table into a landscape page in the generate PDF
+%\begin{landscape} % Rotates the table into a landscape page in the generate PDF
 \begin{table}
     \centering
     \tabcolsep=0.06cm
     \tiny
-    \begin{tabular}{lllll}\toprule
-    Case Study                 & Role of Researcher &  Primary Research Method   & Research Opportunities             & Research Purpose \\
+    \begin{tabular}{lllp{3.5cm}p{3.5cm}}\toprule
+    Case Study                 & Role of Researcher &  Main Research Method   & Research Opportunities             & Research Purpose \\
     \midrule
     Kiwix (Kiwix app)          & Embedded           & Field-experiment   & The proof-of-concept      & The treatment \\ 
     Kiwix (WikiMed (EN))       & Observer           &                    & Control for the above app & The control  \\
     Kiwix (Custom apps)        & Observer           &                    & Evaluate scalability      & \textit{pico} generalisation \\
     \midrule
-    Catrobat (PocketCode)      & Coach              & Field-experiment   & Fabric Crashlytics        & Compare Mobile Analytics with Clean Code \\
+    Catrobat (PocketCode)      & Coach              & Hackathon   & Fabric Crashlytics        & Compare Mobile Analytics with Clean Code \\
     Catrobat (PocketPaint)     & Observer           &                    & Establish baseline        & The control  \\
      \midrule
     C1                         & Consultant         & Hybrid/Mixed & Large scale, complex, commercial & Mission-critical view \\
     \midrule
-    GTAF                       & Interviewer        & Semi-structured interview & Add'l perspective & Exploring the long tail \\
-    LocalHalo                  & Interviewer        & Semi-structured interview & Add'l technologies & Hybrid Programming and tools \\
-    Moodspace                  & Interviewer        & Semi-structured interview & Small startup &Bootstrap view \\
-    Moonpig                    & Interviewer        & Semi-structured interview & Leading edge view & Mature, innovative, vanguard dev. practices \\
+    GTAF                       & Interviewer        & Ask the app devs & Additional perspective & Exploring the long tail \\
+    LocalHalo                  & Interviewer        & Ask the app devs & Additional technologies & Hybrid Programming and tools \\
+    Moodspace                  & Interviewer        & Ask the app devs & Small startup &Bootstrap view \\
+    Moonpig                    & Interviewer        & Ask the app devs & Leading edge view & Mature, innovative, vanguard dev. practices \\
     \midrule
     Analytics tool providers   & Various            & & `Behind the curtain' & Learn about the providers' perspectives \\
     \bottomrule
@@ -422,9 +414,11 @@ The case studies range in the richness of their contributions to the research, T
     \caption{Empirical Studies: the research perspective}
     \label{tab:empirical-studies-research-perspective}
 \end{table}
-\end{landscape}
+%\end{landscape}
 
-The research includes seven app-centric case studies, they are grouped into interviews and interventions. The app-centric cases were complemented by empirical studies with several providers of mobile analytics tools. Several of these initiated either directly or indirectly from the app-centric cases. 
+The research includes seven app-centric case studies, they are grouped into interviews and interventions. The app-centric cases were complemented by empirical studies with several providers of mobile analytics tools. Several of these initiated either directly or indirectly from the app-centric cases. It also includes several empirical studies focused working with mobile analytics tool providers. 
+
+The app case studies map to an app case study procedure, covered in the next section. The tool studies emerged as effects of the app case studies where there was mutual interest in exploratory field studies. 
 
 As Table~\ref{tab:empirical-studies-research-perspective} indicates, four project teams were interviewed to provide the developers' perspectives on their use of various mobile analytics tools. Two of these (LocalHalo and GTAF) provided real-time access to at least one of these tools. GTAF also provided access to their bug tracking system which records issues they find using mobile analytics.
 
@@ -433,10 +427,10 @@ Three project teams were subject to interventions. Of these, both Kiwix and Catr
 The tool-centric empirical studies include: Google (initiated through findings on the Kiwix and Catrobat case studies), Iteratively (who sought out the researcher, learned about the research, and were happy to share their tools and some of their commercial research), and several mobile analytics providers who provide at least some of their material as opensource. 
 
 
-\section{Case study procedure}~\label{section-case-study-procedure}
+\section{App case study procedure}~\label{section-case-study-procedure}
 % I'm not yet decided on whether to call this a: 1) methodology, model, procedure, or a technique - aspects of each of these apply to the following. See \url{https://wikidiff.com/technique/procedure} to compare two of these words, it also facilitates similar comparisons of the rest.
 
-The case studies have several phases, this section explains each of the main phases.
+The app case studies have several phases, this section explains each of the main phases.
 
 The procedure needs to address the phases of each case study that involves projects and their respective organisation; namely: exploration and selection, engagement, the active case study (including data collection, contemporary analysis, and any contributions to the project), \emph{post-hoc} analysis, wrap-up, and publication. These phases may overlap somewhat, they are in approximate time order from first to last. They are covered in order in the following subsections, after the \emph{modus operandi}.
 
