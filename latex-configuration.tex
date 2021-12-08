@@ -2,7 +2,8 @@
 \WarningFilter{latex}{Command \InputIfFileExists}
 \WarningFilter{nag}{Command \sf}
 
-\usepackage[table]{xcolor}
+\usepackage{xargs}
+\usepackage[dvipsnames,table]{xcolor}
 \usepackage{array}
 %\usepackage{arydshln}  % For dashed lines in tables see https://tex.stackexchange.com/a/169103/88466
 
@@ -49,7 +50,13 @@
 \usepackage{datatool}
 
 \setlength{\marginparwidth}{2cm}
-\usepackage{todonotes}
+
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}  % From https://tex.stackexchange.com/a/178806/88466
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\pending}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
 \usepackage[super]{nth}
 \usepackage{soul}
 \usepackage{longtable,booktabs,threeparttablex}
