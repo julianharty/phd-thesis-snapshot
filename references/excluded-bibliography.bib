@@ -385,3 +385,81 @@
     Although the title includes software analytics, they're not directly discussing software usage analytics such as mobile analytics. Furthermore, any tuning of the mobile analytics tools and services covered in my research is outside the scope of this research.
   }
 }
+
+@ARTICLE{585502,  
+    author={Rosenblum, D.S. and Weyuker, E.J.}, 
+    journal={IEEE Transactions on Software Engineering}, 
+    title={Using coverage information to predict the cost-effectiveness of regression testing strategies},  
+    year={1997},  
+    volume={23},
+    number={3}, 
+    pages={146-156},  
+    abstract={
+      Selective regression testing strategies attempt to choose an appropriate subset of test cases from among a previously run test suite for a software system, based on information about the changes made to the system to create new versions. Although there has been a significant amount of research in recent years on the design of such strategies, there has been very little investigation of their cost-effectiveness. The paper presents some computationally efficient predictors of the cost-effectiveness of the two main classes of selective regression testing approaches. These predictors are computed from data about the coverage relationship between the system under test and its test suite. The paper then describes case studies in which these predictors were used to predict the cost-effectiveness of applying two different regression testing strategies to two software systems. In one case study, the TESTTUBE method selected an average of 88.1 percent of the available test cases in each version, while the predictor predicted that 87.3 percent of the test cases would be selected on average.
+    },  
+    keywords={},  
+    doi={10.1109/32.585502}, 
+    ISSN={1939-3520},  
+    month={March},
+    exclusion_rationale = {
+      This paper may well be useful when I focus on software testing and coverage criteria. My first impressions are positive. It's not what I'm focusing on at the moment.
+    }
+    
+    
+@article{wong_be_2017,
+	title = {Be more familiar with our enemies and pave the way forward: A review of the roles bugs played in software failures},
+	volume = {133},
+	issn = {0164-1212},
+	url = {https://www.sciencedirect.com/science/article/pii/S0164121217301334},
+	doi = {https://doi.org/10.1016/j.jss.2017.06.069},
+	abstract = {There has been an increasing frequency of failures due to defective software that cost millions of dollars. Recent high profile incidents have drawn increased attention to the risks of failed software systems to the public. Yet aside from the Therac-25 case, very few incidents of software failure causing humans harm have been proven and widely reported. With increased government oversight and the expanded use of social networking for real time reporting of problems, we are only beginning to understand the potential for major injury or death related to software failures. However, debugging defective software can be costly and time consuming. Moreover, undetected bugs could induce great harm to the public when software systems are applied in safety-critical areas, such as consumer products, public infrastructure, transportation systems, etc. Therefore, it is vital that we remove these bugs as early as possible. To gain more understanding of the nature of these bugs, we review the reported software failures that have impacted the health, safety, and welfare of the public. A focus on lessons learned and implications for future software systems is also provided which acts as guidelines for engineers to improve the quality of their products and avoid similar failures from happening.},
+	pages = {68--94},
+	journaltitle = {Journal of Systems and Software},
+	author = {Wong, W. Eric and Li, Xuelin and Laplante, Philip A.},
+	date = {2017},
+	keywords = {Accidents, Bugged software systems, Lessons learned, Mishaps, Software failures},
+	exclusion_rationale = { 
+	  An interesting paper on the contributions of software failures to various major real-world accidents. This paper appears to have been incorrectly cited by "A Study on Testers’ Learning Curve in Crowdsourced Software Testing". I cannot find any connection between the sentence in that paper and the contents of this paper.
+	}
+}
+
+@ARTICLE{9435346,  
+    author={Yao, Yongming and Huang, Song and Zong, Cheng and Liu, Erhu and Chen, Ning},
+    journal={IEEE Access},  
+    title={A Study on Testers’ Learning Curve in Crowdsourced Software Testing}, 
+    year={2021}, 
+    volume={9}, 
+    number={}, 
+    pages={77127-77137},  
+    abstract={
+      Recommending effective testers in crowdsourced software testing is a challenge. In this paper, we study the improvement of crowdsourced software testers' skills over time. We propose the project difficulty coefficient to eliminate the influence of the item on the tester's score. The hyperbolic learning curve model and exponential learning curve model are used to fit the learning ability of the testers. The experimental results show that when the test data is large, the exponential learning curve can better simulate the improvement of testers' skills.
+    },  
+    keywords={},  
+    doi={10.1109/ACCESS.2021.3081592},
+    ISSN={2169-3536},  
+    month={},
+    exclusion_rationale = {
+      This paper has some interesting ideas on testers' effectiveness and the criteria they use to detect causes for their [in]effectiveness. However the paper seems to cite poorly (see above) and they effectively used students on a single crowdsourcing platform in China to support their claims. I'd need to spend far more time reading the paper to decide on its merit and relevance to my work.
+    }
+}
+
+
+@article{gao_successes_2019,
+	title = {Successes, challenges, and rethinking – an industrial investigation on crowdsourced mobile application testing},
+	volume = {24},
+	issn = {1573-7616},
+	url = {https://doi.org/10.1007/s10664-018-9618-5},
+	doi = {10.1007/s10664-018-9618-5},
+	abstract = {The term crowdsourcing – a compound contraction of crowd and outsourcing – is a new paradigm for utilizing the power of crowds of people to facilitate large-scale tasks that are costly or time consuming with traditional methods. This paradigm offers mobile application companies the possibility to outsource their testing activities to crowdsourced testers (crowdtesters) who have various testing facilities and environments, as well as different levels of skills and expertise. With this so-called Crowdsourced Mobile Application Testing ({CMAT}), some of the well-recognized issues in testing mobile applications, such as multitude of mobile devices, fragmentation of device models, variety of {OS} versions, and omnifariousness of testing scenarios, could be mitigated. However, how effective is {CMAT} in practice? What are the challenges and issues presented by the process of applying {CMAT}? How can these issues and challenges be overcome and {CMAT} be improved? Although {CMAT} has attracted attention from both academia and industry, these questions have not been addressed or researched in depth based on a large-scale and real-life industrial study. Since June 2015, we have worked with Mooctest, Inc., a {CMAT} intermediary, on testing five real-life Android applications using their {CMAT} platform – Kikbug. Throughout the process, we have collected 1013 bug reports from 258 crowdtesters and found 247 bugs in total. This paper will present our industrial study thoroughly and give an insightful analysis to investigate the successes and challenges of applying {CMAT}.},
+	pages = {537--561},
+	number = {2},
+	journaltitle = {Empirical Software Engineering},
+	shortjournal = {Empirical Software Engineering},
+	author = {Gao, Ruizhi and Wang, Yabin and Feng, Yang and Chen, Zhenyu and Eric Wong, W.},
+	date = {2019-04-01},
+	exclusion_rationale = {
+	  This is an interesting paper and probably worth reading in future when I'm focusing on crowdsourced testing. It touches on finding crashes in mobile apps so has some overlap with my research, however I didn't find sufficient concrete information to cite it in my thesis. I also appreciated the discussion on the value of 'duplicate bugs'.
+	}
+}
+
+}

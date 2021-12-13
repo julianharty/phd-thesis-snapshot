@@ -285,6 +285,25 @@ Using software libraries can also add to the complexities; and some have sophist
 
 % MUST-DO subject to approval or a suitable alternative example: add the OkHttpv3 example from the large case study in the relevant section, then discuss the example here.
 
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c}
+        \toprule
+        \textit{stage} & During init & During shutdown & In background service & In `flight' & In a `runtime' \\
+        \midrule
+         Mobile Analytics tool & & & & & \\
+         \midrule
+         Google Play Console with Android Vitals & C & C & C & C & \\
+         Fabric Crashlytics &  & Unknown & Unknown & EC & \\
+         Sentry & N & & & Y & Y \\
+         \bottomrule
+    \end{tabular}
+    \caption{w-i-p: Mapping error and crash reporting to mobile analytics tools \\ E = Error, C = Crash, B = Breadcrumb, K = Custom content, N = No}
+    \label{tab:discussion-mapping-error-and-crash-reporting-to-ma-tools}
+\end{table}
+
+TODO discuss: the reporting mechanisms and limitations in addition to Table~\ref{tab:discussion-mapping-error-and-crash-reporting-to-ma-tools}'s examples of what they can capture. Also discuss the primary focus of this research has been on Crashes, then on Errors, then on ANRs~\pending{Note: this material probably belongs in the Tools chapter once I've established it.}.
+
 \textbf{Measuring reliability}: 
 Failure rates include: unhandled exceptions, ANRs, and errors. Errors include: handled exceptions that are recovered from, caught exceptions, logic errors, calculation and content errors, and many others. 
 
