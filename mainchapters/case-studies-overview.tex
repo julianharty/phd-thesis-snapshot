@@ -9,10 +9,141 @@ In the previous chapter app-centric and tool-centric case studies were introduce
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The structure used to introduce each case study}
+A consistent structure is used to present each case study. This includes a table based on the template in Table~\ref{tab:blank_case_study_anaytics_overview}, and it followed by a series of topics:
+\begin{itemize}
+    \itemsep0em
+    \item Background - How the case study came about
+    \item Development microcosm
+    \item Experiences of using mobile analytics
+    \item Data collected and methods used for collection
+    \item Research findings and results from the Case Study
+    \item Outcomes for the company
+    \item Discussion
+    \item Contributions to the research and where they are located in the rest of this thesis
+\end{itemize}
 
+
+{\renewcommand{\arraystretch}{0.8}% Tighter
+\begin{table}[htbp!]
+    \centering
+    \small
+    \setlength{\tabcolsep}{1pt}
+    \begin{tabular}{ll}
+       % Question &Answer  \\
+       \toprule
+       Website &\url{https://www.example.com/} \\
+       Founded &\emph{date}\\
+       Business Domain &\emph{domain}\\
+       Business type &\emph{type}\\
+       Technologies  &\emph{tech}\\
+       &\emph{continue if needed} \\
+       Source code  &Closed and not available for research \\
+       Analytics used by team &\emph{other mobile analytics}, Google Play Console \\
+       Development Practices &\emph{dev. practices}\\
+       \midrule
+       User base & 00,000's for the Android app \\
+       Installations & 000,000+ for the Android app \\
+       \midrule
+       Research methods &In person interviews, email discussions, etc. \\
+       Analytics collected &Google Play Console with Android Vitals \\
+       Research software & None applicable? \\
+       Additional data collected &Interview notes and emails \\
+       Active period & \\
+       \bottomrule
+    \end{tabular}
+    \caption{Case Study key facts:\emph{template}}
+    \label{tab:blank_case_study_anaytics_overview}
+\end{table}
+}
+
+
+\clearpage
 \section{App-centric: GTAF}
+% A couple of sentences to introduce them
+Greentech Apps Foundation (GTAF) is a UK based charity who provide Islamic apps free of charge and without in-app advertising. The project started in 2016 with the aim of enabling people to learn the Quran in the local language - Bangla - in Bangladesh. The project was started by a self-taught Android developer and his cousin Yemin, at the time an undergraduate student in computer science, who is now employed by the project in a hybrid role of software developer and project manager. 
 
+{\renewcommand{\arraystretch}{0.8}% Tighter
+\begin{table}[htbp!]
+    \centering
+    \small
+    \setlength{\tabcolsep}{1pt}
+    \begin{tabular}{lp{9cm}}
+       % Question &Answer  \\
+       \toprule
+       Website &\url{https://gtaf.org/} \\
+       Founded & 2016 \\
+       Business Domain & Not-for-profit.  \\
+       Business type & Educational foundation. \\
+       Technologies  & Android apps\footnotemark \\
+       & React Native \\
+       Source code  & Closed and not available for research \\
+       Analytics used by team & Firebase, OneSignal, Google Crashlytics, Google Play Console \\
+       Development Practices & Small hybrid development team \\
+       \midrule
+       User base & 1,000,000'+ for their 10 Android apps \\
+       Installations & 1,000,000's for their 10 Android app s\\
+       \midrule
+       Research methods &Online interview and email discussions, etc. \\
+       Analytics collected &Google Play Console with Android Vitals \\
+       Research software & None applicable? \\
+       Additional data collected &Direct access to Google Play Console with Android Vitals, and to the public, issue database. Interview notes and emails. \\
+       Active period & June 2020 to September 2020 \\
+       \bottomrule
+    \end{tabular}
+    \caption{Case Study key facts: GTAF}
+    \label{tab:blank_case_study_anaytics_overview}
+\end{table}
+}
+
+\footnotetext{The project have subsequently released several of their apps on other platforms, see \url{https://gtaf.org/apps}.}
+
+\subsection{GTAF Background - How the case study came about}
+A fellow PhD researcher contributes voluntarily as a developer as part of the extended project team and introduced me to the core project team who agreed my research was of interest to them and something they were willing to support.
+
+\subsection{GTAF development microcosm}
+The project hosts their development artefacts on gitlab.com, they maintain their issues in a publicly available online location \url{https://gitlab.com/greentech/}, the source code is private. There are various developers, some are volunteers, several are paid for (through donations to the charity). From the interview I got the impression developers of some of the less active apps are fairly autonomous, which includes their choice and any use of mobile analytics. 
+
+Three of the apps (four as one app is released as two distinct binaries) were in ongoing active development (\href{https://play.google.com/store/apps/details?id=com.greentech.quran}{Al Quran},~\href{https://play.google.com/store/apps/details?id=com.greentech.hadith}{Hadith Collection}, and~\href{https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslim}{Dua \& Zikr}, which is also released separately in Bangla~\href{https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslimbn}{{Dua and Zikr (Hisnul Muslim)}}~\emph{in Bengali}); and they planned to revamp two more of the apps (\href{https://play.google.com/store/apps/details?id=com.greentech.islamicquiz}{(Islamic Quiz)} and~\href{https://play.google.com/store/apps/details?id=com.greentech.salatbn}{Meaningful prayers (salat)}~\textit{in Bengali}, which was called salat in our interview).
+
+The team occasionally used Firebase TestLab~\footnote{\url{https://firebase.google.com/docs/test-lab}} to test some of the apps and autonomous `Robo testing'~\footnote{\url{https://firebase.google.com/docs/test-lab/android/robo-ux-test}} performed automatically by the test lab has triggered various crashes in the apps being tested. One such example was where an app was missing a `resource'. The team fixed the build by adding the missing resource but did not explicitly retest the app afterwards in Firebase.  
+
+\subsection{GTAF Experiences of using mobile analytics}
+The development team check Android Vitals approximately once a week, and Firebase more frequently as the team decided the crash reports in Firebase are more actionable. Perhaps unsurprisingly they check more often after new releases of their apps looking for any new bugs arising in the new release as it rolls out across the user population.
+
+They noticed differences noticed in the reports of Firebase compared to Android Vitals, however their focus is on the crashes reported in Firebase as they contain more contextual detail. ANRs seldom checked, considered to be less impactful on users and lower frequencies. % TODO ask for access to their Firebase stats?
+
+At the time of the case study, the team's development priorities for the rest of 2020 and until April 2021 the team were focusing on bug-fixes which included fixing the causes of crashes being reported by mobile analytics for their apps. In March 2021, they published a blog post which confirms this focus and includes a chart of their average daily crashes for 2020 which shows their progress in addressing peaks in the crash rate~\citep{gtafblog2021_gtaf_accomplishment_2020}. The chart does not provide any additional information \emph{e.g.} of which app(s) the chart was plotted for or the source of the data. (From the appearance of the chart the source is probably Firebase Analytics.)
+
+The same blog post~\citep{gtafblog2021_gtaf_accomplishment_2020} explains one of their goals for 2021 was to `integrate analytics features in our application' to improve the user experience for the people who use the GTAF apps.
+
+\subsection{GTAF data collected and methods used for collection}
+The data was collected from four primary sources: 1) an online interview, recorded in handwritten notes, 2) ongoing read access to Google Play Console with Android Vitals, both automated and interactive snapshots were captured, 3) email correspondence, maintained in a GMail account, and 4) the project's public issues database, which was searched interactively. 
+
+\subsection{GTAF Research findings and results from the Case Study}
+Several of the project team's apps had experienced high crash rates which had adversely affected the user experience. Accordingly, the development team used outputs from mobile analytics to identify the most frequent crashes they wanted to fix.
+
+The team used a heuristic when deciding which crashes to fix. They chose to work on those perceived as relatively easy to fix and which affected many users. They provided examples of easier to fix exceptions: NullPointerException~\footnote{Helpfully discussed in \href{https://en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}{en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}.} and IndexOutOfBoundsException~\footnote{Discussed in \url{https://stackoverflow.com/a/40006381/340175}} versus some they found harder to fix: IllegalStateException~\footnote{An example of an Android specific crash is discussed in~\url{https://stackoverflow.com/questions/55158930/illegalstateexception-caused-by-intent}} and native crashes~\footnote{Useful Android documentation on diagnosing native crashes \url{https://source.android.com/devices/tech/debug/native-crash}}.
+
+The team create issues in their online issue database for crashes and include links to the source information in the respective mobile analytics tool. These links are a) only available to people who already have access to the mobile analytics account, and b) are ephemeral.
+
+\subsection{GTAF Outcomes for the company}
+The organisation found mobile analytics helpful and addressed the crashes they believed were tractable and productive to fix in terms of improving the user experience.
+
+\subsection{GTAF Discussion}
+The project team have learned the importance of paying attention to crashes being reported by mobile analytics tools. They also realised the importance of addressing high crash rates. The crash rates, as measured by Android Vitals, vary massively by release of the app (Al Quran (Tafsir \& by Word).\pending{A great deal more analysis is possible given the number of active apps and the ongoing access to Google Play Console.} 
+
+The project uses pre-launch reports (an intrinsic part of Google Play Console), and the pre-launch report includes automated testing of pre-release apps. The crashes reported in pre-launch reports do not necessarily affect end users. Conversely the pre-launch report automated testing does not find all the failures that affect end users. (Dua \& Zikr app).
+
+This was one of several case studies that was adversely affected by the main contact being unwell and unavailable for a month or so during the active period. Thankfully, having ongoing access to Google Play Console has enabled a longer-term analysis of the behaviours of their Android apps.
+
+\subsection{GTAF Contributions to the research and where they are located in the rest of this thesis}
+TBC\pending{To be added when I write the subsequent chapters.}
+
+\julian{There is scope to do ongoing analysis of the Google Play Console and Android Vitals reports for the project's 10+ Android apps. They help indicate some foibles in the Dashboard page for several apps - at least, where the combined ANR and crash rate report does not agree with the separate Crash and ANR reports from Android Vitals.}
+
+\clearpage
 
 
 \section{Summary of the overview of the case studies}
 TBC.
+
