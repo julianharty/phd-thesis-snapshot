@@ -6,6 +6,16 @@ What motivates the development teams to pay attention and address failures repor
 
 For the GTAF project, several of their Android apps had experienced high crash rates which had adversely affected the user experience. The project team have learned the importance of paying attention to crashes being reported by mobile analytics tools. They also realised the importance of addressing high crash rates. Accordingly, the development team used outputs from mobile analytics to identify the most frequent crashes they wanted to fix.
 
+For the Catrobat case study, the project leadership saw sufficient benefits from using mobile analytics after the hackathon that they decided to also implement it in the iOS app. They subsequently reverse this decision because of the intrusive data collection collected implicitly by Firebase Crashlytics. This topic is discussed in the main Discussion chapter.\pending{Add a forward reference once that material is in the discussion chapter.}
+
+\section{Choosing Mobile Analytics}
+
+\subsection{Developer-controlled characteristics}
+
+TODO discuss the initial config, and `getting started', then the optional additional use of the mobile analytics SDK's APIs. Provide examples from the log analysis research where 50 of 57 projects only used the minimal default initialisation rather than calling the rest of the Firebase Analytics API. Mention the Pocket Code experience when migrating from Fabric to Firebase and the additional, unexpected analytics that appeared. Forward reference to the discussion on intrusiveness. 
+
+
+For the Pocket Code project, an accidental misconfiguration during the release process led to the loss of Fabric Crashlytics data for that release. Google Play Console with Android Vitals continued to provide ongoing outputs indicating the benefits of having platform-level mobile analytics.
 
 \section{Sensemaking and decision-taking by developers}~\label{sensemaking-and-decision-taking-by-developers-section}
 Beacon-finding and drill-down parallel similar practices used by app developers when they use mobile analytics as inputs to their development work and as feedback for [their] previous development work.
@@ -30,6 +40,10 @@ Many of the developers were often satisficed with what the mobile analytics tool
 
 The GTAF team used a heuristic when deciding which crashes to fix. They chose to work on those perceived as relatively easy to fix and which affected many users. They provided examples of easier to fix exceptions: NullPointerException~\footnote{Helpfully discussed in \href{https://en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}{en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}.} and IndexOutOfBoundsException~\footnote{Discussed in \url{https://stackoverflow.com/a/40006381/340175}} versus some they found harder to fix: IllegalStateException~\footnote{An example of an Android specific crash is discussed in~\url{https://stackoverflow.com/questions/55158930/illegalstateexception-caused-by-intent}} and native crashes~\footnote{Useful Android documentation on diagnosing native crashes \url{https://source.android.com/devices/tech/debug/native-crash}}.
 
+
+\newthought{Longer-term adoption and use of mobile analytics}
+
+For the Pocket Code app, there has been an intermittent focus on addressing the causes of failures being reported by the mobile analytics tools. One of the main reasons given by the project leadership was the loss of the product owner who successfully completed his PhD and moved to a role in Industry. 
 
 \section{What's ``good enough"? and for whom?}
 

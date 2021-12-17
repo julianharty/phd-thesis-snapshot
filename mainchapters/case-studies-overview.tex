@@ -236,34 +236,8 @@ The project team provided access to Google Play Console for all their Android ap
 \subsection{Catrobat: Intervention}
 The key intervention was organise a weekend hackathon with an open invitation for any of the extended development team to participate. During day 1 of the hackathon, after informal introductions and a discussion about the aims of the hackathon, the next task was to create tickets in JIRA for the top 10 crash clusters and the top 10 ANR clusters as reported by Android Vitals. These were reported in JIRA during the first hour of the hackathon. The participants, in ones or twos, selected one of these tickets and worked on it. They then selected another ticket and worked on that one. They continued for approximately 5 hours until late afternoon that day. The event closed with a communal meal at a local pizzaria. The participants chose not to continue with day 2 of the hackathon (which was on the Sunday), instead they preferred to work on the issues during the normal working week (Monday to Friday). Several of them did so and continued to work on various tickets raised in the hackathon. The project team made two related releases of the Pocket Code Android app, with cumulative fixes in these releases.
 
-\subsection{Catrobat: Research findings and results from the Case Study}
-% Why Catrobat, what did I gain, similarities and contrasts, why include in the PhD.
-% Existing best practices, assiduously applied didn't reduce the crash rate, my approach did! :)
-% Needs to be applied on a long term basis
-Firstly, the hackathon and the post-hackathon bug fixes were highly effective in terms of cumulatively reducing the crash rate over the next two releases. The improvements in the stability of the app were particularly encouraging as the project had already implemented many of `good' development practices.
-
-As the app incorporated in-app mobile analytics that recorded both crashes and errors (generally these errors are exceptions that \textit{are} caught and handled by the app) the case study provided the opportunity to study Fabric Crashlytics and to enable its outputs to be compared and contrasted with those from Google Play Console with Android Vitals.
-
-An accidental misconfiguration during the release process led to the loss of Fabric Crashlytics data for that release. Google Play Console with Android Vitals continued to provide ongoing outputs indicating the benefits of having platform-level mobile analytics.
-
-The project leadership saw sufficient benefits from using mobile analytics that they decided to also implement it in the iOS app. They subsequently reverse this decision because of the intrusive data collection collected implicitly by Firebase Crashlytics. This topic is discussed in the main Discussion chapter.\pending{Add a forward reference once that material is in the discussion chapter.}
-
-There has been an intermittent focus on addressing the causes of failures being reported by the mobile analytics tools. One of the main reasons given by the project leadership was the loss of the product owner who successfully completed his PhD and moved to a role in Industry. 
-
 \subsection{Catrobat: Outcomes for the project}
 A group of six members of the Catrobat development team were able to usefully address various causes of the most prevalent failures of the Pocket Code app in production. 
-
-
-\subsection{Catrobat: Discussion}
-
-Several of the discussion topics are more general in nature, for instance on privacy and on informed consent by users, so these discussion topics are in the main discussion chapter.  
-
-The emergence of COVID-19 materially affected both this case study and some planned research, it also adversely affected the development team's working practices.
-
-\subsection{Catrobat: Contributions to the research and where they are located in the rest of this thesis}
-The key contributions to the PhD research were the hackathon and the improvements that were made in the stability of the Pocket Code Android app in the two months that followed the hackathon. It replicated the improvements seen in the Kiwix case study. 
-
-The case study also contributed insight into the retiring Fabric Crashlytics mobile analytics service and the replacement, Firebase Crashlytics,\pending{This will be in the discussion chapter.} and how their reports and capabilities compared with those provided by Google Play Console with Android Vitals\pending{This will probably be mainly in the Tools chapter.}.
 
 
 \subsection*{Catrobat: wish list}
@@ -277,12 +251,6 @@ The case study also contributed insight into the retiring Fabric Crashlytics mob
     \item \textbf{Where should I write up the hackathon?} here? or in the next few chapters?
 \end{itemize}
 }  % end \small
-
-\dotfill
-
-
-\section{Old Catrobat material follows temporarily for ease of editing.}
-\input{empirical-studies/catrobat-case-study}
 
 \clearpage
 
