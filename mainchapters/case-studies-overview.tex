@@ -17,9 +17,7 @@ A consistent structure is used to present each case study. This includes a table
     \item Experiences of using mobile analytics
     \item Data collected and methods used for collection
     \item Intervention (only applicable to case studies with an intervention)
-    \item Research findings and results from the Case Study
     \item Outcomes for the company
-    \item Discussion
     \item Contributions to the research and where they are located in the rest of this thesis
 \end{itemize}
 
@@ -61,8 +59,8 @@ A consistent structure is used to present each case study. This includes a table
 {\small
 \begin{itemize}
     \itemsep0em
-    \item Should I include a summary of applying the app-centric case study procedure in each case study with the specifics for that case study?
-    \item I think it's worth adding an `\textbf{intervention}' subsection to each of the three case studies with interventions.
+    \item Should I include a summary of applying the app-centric case study procedure in each case study with the specifics for that case study? - Yes I need to (as discussed with Arosha, Marian and Yijun)
+    \item I think it's worth adding an `\textbf{intervention}' subsection to each of the three case studies with interventions. - Agreed and done.
 \end{itemize}
 }  % end \small
 
@@ -135,26 +133,12 @@ The same blog post~\citep{gtafblog2021_gtaf_accomplishment_2020} explains one of
 \subsection{GTAF: data collected and methods used for collection}
 The data was collected from four primary sources: 1) an online interview, recorded in handwritten notes, 2) ongoing read access to Google Play Console with Android Vitals, both automated and interactive snapshots were captured, 3) email correspondence, maintained in a GMail account, and 4) the project's public issues database, which was searched interactively. 
 
-\subsection{GTAF: Research findings and results from the Case Study}
-Several of the project team's apps had experienced high crash rates which had adversely affected the user experience. Accordingly, the development team used outputs from mobile analytics to identify the most frequent crashes they wanted to fix.
+As the project did not provide access to Firebase or the other in-app analytics it was not feasible to compare their outputs, and similarly they did not provide access to the source code of their apps so that could not be studied.
 
-The team used a heuristic when deciding which crashes to fix. They chose to work on those perceived as relatively easy to fix and which affected many users. They provided examples of easier to fix exceptions: NullPointerException~\footnote{Helpfully discussed in \href{https://en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}{en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}.} and IndexOutOfBoundsException~\footnote{Discussed in \url{https://stackoverflow.com/a/40006381/340175}} versus some they found harder to fix: IllegalStateException~\footnote{An example of an Android specific crash is discussed in~\url{https://stackoverflow.com/questions/55158930/illegalstateexception-caused-by-intent}} and native crashes~\footnote{Useful Android documentation on diagnosing native crashes \url{https://source.android.com/devices/tech/debug/native-crash}}.
-
-The team create issues in their online issue database for crashes and include links to the source information in the respective mobile analytics tool. These links are a) only available to people who already have access to the mobile analytics account, and b) are ephemeral.
 
 \subsection{GTAF: Outcomes for the company}
 The organisation found mobile analytics helpful and addressed the crashes they believed were tractable and productive to fix in terms of improving the user experience.
 
-\subsection{GTAF: Discussion}
-The project team have learned the importance of paying attention to crashes being reported by mobile analytics tools. They also realised the importance of addressing high crash rates. The crash rates, as measured by Android Vitals, vary massively by release of the app (Al Quran (Tafsir \& by Word).\pending{A great deal more analysis is possible given the number of active apps and the ongoing access to Google Play Console.} 
-
-Android Vitals does not report any failures in the taskinator app, which is created using React Native according to the development team. This is pertinent as similar behaviours in Android Vitals were observed for another app-centric case study, LocalHalo.  
-
-As the project did not provide access to Firebase or the other in-app analytics it was not feasible to compare their outputs, and similarly they did not provide access to the source code of their apps so that could not be studied.
-
-The project uses pre-launch reports (an intrinsic part of Google Play Console), and the pre-launch report includes automated testing of pre-release apps. The crashes reported in pre-launch reports do not necessarily affect end users. Conversely the pre-launch report automated testing does not find all the failures that affect end users. (Dua \& Zikr app).
-
-This was one of several case studies that was adversely affected by the main contact being unwell and unavailable for a month or so during the active period. Thankfully, having ongoing access to Google Play Console has enabled a longer-term analysis of the behaviours of their Android apps.
 
 \subsection{GTAF: Contributions to the research and where they are located in the rest of this thesis}
 TBC\pending{To be added when I write the subsequent chapters.}
