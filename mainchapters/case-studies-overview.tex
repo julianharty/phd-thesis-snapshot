@@ -16,6 +16,7 @@ A consistent structure is used to present each case study. This includes a table
     \item Development microcosm
     \item Experiences of using mobile analytics
     \item Data collected and methods used for collection
+    \item Intervention (only applicable to case studies with an intervention)
     \item Research findings and results from the Case Study
     \item Outcomes for the company
     \item Discussion
@@ -56,9 +57,23 @@ A consistent structure is used to present each case study. This includes a table
 \end{table}
 }
 
+\section{Open questions for this chapter}
+{\small
+\begin{itemize}
+    \itemsep0em
+    \item Should I include a summary of applying the app-centric case study procedure in each case study with the specifics for that case study?
+    \item I think it's worth adding an `\textbf{intervention}' subsection to each of the three case studies with interventions.
+\end{itemize}
+}  % end \small
 
 \clearpage
-\section{App-centric: GTAF}
+
+
+
+
+%===================================================================
+
+\section{App-centric: GTAF}~\label{case-study-overview-gtaf}
 % A couple of sentences to introduce them
 Greentech Apps Foundation (GTAF) is a UK based charity who provide Islamic apps free of charge and without in-app advertising. The project started in 2016 with the aim of enabling people to learn the Quran in the local language - Bangla - in Bangladesh. The project was started by a self-taught Android developer and his cousin Yemin, at the time an undergraduate student in computer science, who is now employed by the project in a hybrid role of software developer and project manager. 
 
@@ -71,6 +86,7 @@ Greentech Apps Foundation (GTAF) is a UK based charity who provide Islamic apps 
        % Question &Answer  \\
        \toprule
        Website &\url{https://gtaf.org/} \\
+       Google Play Home & \url{https://play.google.com/store/apps/dev?id=7665838187257770408} \\
        Founded & 2016 \\
        Business Domain & Not-for-profit.  \\
        Business type & Educational foundation. \\
@@ -97,17 +113,17 @@ Greentech Apps Foundation (GTAF) is a UK based charity who provide Islamic apps 
 
 \footnotetext{The project have subsequently released several of their apps on other platforms, see \url{https://gtaf.org/apps}.}
 
-\subsection{GTAF Background - How the case study came about}
+\subsection{GTAF: Background - How the case study came about}
 A fellow PhD researcher contributes voluntarily as a developer as part of the extended project team and introduced me to the core project team who agreed my research was of interest to them and something they were willing to support.
 
-\subsection{GTAF development microcosm}
+\subsection{GTAF: development microcosm}
 The project hosts their development artefacts on gitlab.com, they maintain their issues in a publicly available online location \url{https://gitlab.com/greentech/}, the source code is private. There are various developers, some are volunteers, several are paid for (through donations to the charity). From the interview I got the impression developers of some of the less active apps are fairly autonomous, which includes their choice and any use of mobile analytics. 
 
 Three of the apps (four as one app is released as two distinct binaries) were in ongoing active development (\href{https://play.google.com/store/apps/details?id=com.greentech.quran}{Al Quran},~\href{https://play.google.com/store/apps/details?id=com.greentech.hadith}{Hadith Collection}, and~\href{https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslim}{Dua \& Zikr}, which is also released separately in Bangla~\href{https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslimbn}{{Dua and Zikr (Hisnul Muslim)}}~\emph{in Bengali}); and they planned to revamp two more of the apps (\href{https://play.google.com/store/apps/details?id=com.greentech.islamicquiz}{(Islamic Quiz)} and~\href{https://play.google.com/store/apps/details?id=com.greentech.salatbn}{Meaningful prayers (salat)}~\textit{in Bengali}, which was called salat in our interview).
 
 The team occasionally used Firebase TestLab~\footnote{\url{https://firebase.google.com/docs/test-lab}} to test some of the apps and autonomous `Robo testing'~\footnote{\url{https://firebase.google.com/docs/test-lab/android/robo-ux-test}} performed automatically by the test lab has triggered various crashes in the apps being tested. One such example was where an app was missing a `resource'. The team fixed the build by adding the missing resource but did not explicitly retest the app afterwards in Firebase.  
 
-\subsection{GTAF Experiences of using mobile analytics}
+\subsection{GTAF: Experiences of using mobile analytics}
 The development team check Android Vitals approximately once a week, and Firebase more frequently as the team decided the crash reports in Firebase are more actionable. Perhaps unsurprisingly they check more often after new releases of their apps looking for any new bugs arising in the new release as it rolls out across the user population.
 
 They noticed differences noticed in the reports of Firebase compared to Android Vitals, however their focus is on the crashes reported in Firebase as they contain more contextual detail. ANRs seldom checked, considered to be less impactful on users and lower frequencies. % TODO ask for access to their Firebase stats?
@@ -116,33 +132,179 @@ At the time of the case study, the team's development priorities for the rest of
 
 The same blog post~\citep{gtafblog2021_gtaf_accomplishment_2020} explains one of their goals for 2021 was to `integrate analytics features in our application' to improve the user experience for the people who use the GTAF apps.
 
-\subsection{GTAF data collected and methods used for collection}
+\subsection{GTAF: data collected and methods used for collection}
 The data was collected from four primary sources: 1) an online interview, recorded in handwritten notes, 2) ongoing read access to Google Play Console with Android Vitals, both automated and interactive snapshots were captured, 3) email correspondence, maintained in a GMail account, and 4) the project's public issues database, which was searched interactively. 
 
-\subsection{GTAF Research findings and results from the Case Study}
+\subsection{GTAF: Research findings and results from the Case Study}
 Several of the project team's apps had experienced high crash rates which had adversely affected the user experience. Accordingly, the development team used outputs from mobile analytics to identify the most frequent crashes they wanted to fix.
 
 The team used a heuristic when deciding which crashes to fix. They chose to work on those perceived as relatively easy to fix and which affected many users. They provided examples of easier to fix exceptions: NullPointerException~\footnote{Helpfully discussed in \href{https://en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}{en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}.} and IndexOutOfBoundsException~\footnote{Discussed in \url{https://stackoverflow.com/a/40006381/340175}} versus some they found harder to fix: IllegalStateException~\footnote{An example of an Android specific crash is discussed in~\url{https://stackoverflow.com/questions/55158930/illegalstateexception-caused-by-intent}} and native crashes~\footnote{Useful Android documentation on diagnosing native crashes \url{https://source.android.com/devices/tech/debug/native-crash}}.
 
 The team create issues in their online issue database for crashes and include links to the source information in the respective mobile analytics tool. These links are a) only available to people who already have access to the mobile analytics account, and b) are ephemeral.
 
-\subsection{GTAF Outcomes for the company}
+\subsection{GTAF: Outcomes for the company}
 The organisation found mobile analytics helpful and addressed the crashes they believed were tractable and productive to fix in terms of improving the user experience.
 
-\subsection{GTAF Discussion}
+\subsection{GTAF: Discussion}
 The project team have learned the importance of paying attention to crashes being reported by mobile analytics tools. They also realised the importance of addressing high crash rates. The crash rates, as measured by Android Vitals, vary massively by release of the app (Al Quran (Tafsir \& by Word).\pending{A great deal more analysis is possible given the number of active apps and the ongoing access to Google Play Console.} 
+
+Android Vitals does not report any failures in the taskinator app, which is created using React Native according to the development team. This is pertinent as similar behaviours in Android Vitals were observed for another app-centric case study, LocalHalo.  
+
+As the project did not provide access to Firebase or the other in-app analytics it was not feasible to compare their outputs, and similarly they did not provide access to the source code of their apps so that could not be studied.
 
 The project uses pre-launch reports (an intrinsic part of Google Play Console), and the pre-launch report includes automated testing of pre-release apps. The crashes reported in pre-launch reports do not necessarily affect end users. Conversely the pre-launch report automated testing does not find all the failures that affect end users. (Dua \& Zikr app).
 
 This was one of several case studies that was adversely affected by the main contact being unwell and unavailable for a month or so during the active period. Thankfully, having ongoing access to Google Play Console has enabled a longer-term analysis of the behaviours of their Android apps.
 
-\subsection{GTAF Contributions to the research and where they are located in the rest of this thesis}
+\subsection{GTAF: Contributions to the research and where they are located in the rest of this thesis}
 TBC\pending{To be added when I write the subsequent chapters.}
 
 \julian{There is scope to do ongoing analysis of the Google Play Console and Android Vitals reports for the project's 10+ Android apps. They help indicate some foibles in the Dashboard page for several apps - at least, where the combined ANR and crash rate report does not agree with the separate Crash and ANR reports from Android Vitals.}
 
+\subsection*{GTAF: wish list}
+Here's my wish list so we can discuss it and decide what's appropriate to do of these and what to park.
+{\small
+\begin{itemize}
+    \itemsep0em
+    \item Request access to their Firebase Analytics console and any other developer centric mobile analytics tools.
+    \item Ask them about their development practices 12+ months on from the active engagement.
+    \item Ask clarifying and follow-up questions based on their 2020 blog post e.g. the source of the graph data and their assessment of their progress in 2021, and on their plan to increase the use of mobile analytics in the apps.
+    \item Explore if they'd be willing to change the relationship to being more of an action research case study where I help them (free-of-charge) to identify and address major stability issues in their Android apps.
+\end{itemize}
+
+\begin{itemize}
+    \itemsep0em
+    \item I could usefully do at least a day's worth of analysis on their Google Play Console and Android Vitals reports for their apps based on what I've observed. Whether that'd be sensible to do pre-submission is an open question.
+    \item Similarly there's probably quite a bit of information that can be mined from their issue database on gitlab.
+\end{itemize}
+}  % end \small
+
 \clearpage
 
+
+
+
+%===================================================================
+
+\section{Catrobat}~\label{case-study-overview-catrobat}
+% A couple of sentences to introduce them
+
+{\renewcommand{\arraystretch}{0.8}% Tighter
+\begin{table}[htbp!]
+    \centering
+    \small
+    \setlength{\tabcolsep}{1pt}
+    \begin{tabular}{ll}
+       % Question &Answer  \\
+       \toprule
+       Website &\url{https://catrobat.org/} \\
+       Google Play Home & \url{https://play.google.com/store/apps/developer?id=Catrobat} \\
+       Founded & 2010 \\
+       Business Domain & Education \& Visual programming. \\
+       Business type & Not for profit association. \\
+       Technologies  & Android \\
+       & Jenkins CI~\url{https://jenkins.catrob.at/job/Catroid/}  \\
+       & JIRA~\url{https://jira.catrob.at/} \\
+       Source code  & Opensource \url{https://github.com/Catrobat} \\
+       Analytics used by team & Fabric Crashlytics, Google Play Console \\
+       Development Practices & Sophisticated~\footnotemark \\
+       \midrule
+       User base & 100,000's for the Android app \\
+       Installations & 1,000,000+ for the Android app \\
+       \midrule
+       Research methods &Hackathon, online interviews, email discussions, etc. \\
+       Analytics collected &Fabric Crashlytics, Google Play Console with Android Vitals \\
+       Research software & None applicable. \\
+       Additional data collected &Interview notes and emails \\
+       Active period & November 2019 to March 2020 \\
+       \bottomrule
+    \end{tabular}
+    \caption{Case Study key facts: Catrobat}
+    \label{tab:blank_case_study_anaytics_overview}
+\end{table}
+}
+
+\footnotetext{Sophisticated in this context is explained in \secref{catrobat-development-microcosm}}
+
+\subsection{Catrobat: Background - How the case study came about}
+A PhD student who was part of the Catrobat project discovered my research at the MobileSOFT 2019 conference. Their flagship Pocket Code app had a persistently high, chronic crash rate and my early research for the Kiwix project seemed worth evaluating in case it could help them reduce the high crash rate. The case study included two main events, 1) a hackathon in November 2019 and 2) participation in a pre-conference workshop in Poland in February 2020. We agreed on a hackathon for a couple of reasons: Kiwix found them beneficial and productive, and the Catrobat team wanted to have a short, unusual and interesting way to try out the concept of using mobile analytics outputs to improve reliability that would also appeal to their developers. 
+
+Their project leads selected Pocket Code as the app we would use for the field experiment as it had the higher crash rate and was also a significantly more complex app than their other core app Pocket Paint which was relatively self-contained and simple in terms of both functionality and codebase.
+
+
+
+\subsection{Catrobat: development microcosm}~\label{catrobat-development-microcosm}
+The development microcosm was \textbf{sophisticated} and one of the most mature in terms of opensource mobile app ecosystems~\footnote{I have worked in opensource for 15 years, including at Google, eBay, and other organisations so I say this based on my professional experience.}. For example: the project has automated tests. In an admittedly small sample only 9 of 19 opensource Android app projects had any automated tests, analysed by~\citet{silva2016_an_analysis_of_automated_tests_for_mobile_android_apps} (40.6\% of 1000 projects have automated tests~\citep[p. ]{cruz2019_guess_what_test_your_app}); the project has automated tests and CI/CD, only 14.7\% of 1000 opensource Android apps do so~\citep[p. ]{cruz2019_guess_what_test_your_app}~\footnote{Interestingly they did not evaluate either Pocket Code or Pocket Paint. They also discounted `self-hosted' CI including Jenkins which Catrobat uses extensively.}.  \textbf{TODO} check the code coverage for Catrobat.\emph{``only 19 are actually promoting full test coverage with coverage tracking services"}~\citep[p. ]{cruz2019_guess_what_test_your_app}. Of the 1000 projects\emph{``147 apps with both CI/CD and tests"}~\citep[p. ]{cruz2019_guess_what_test_your_app}. The project uses code quality tools and aims for zero warnings from these tools. They also developed their own custom test automation framework and integrated Fabric Crashlytics into their flagship Pocket Code Android app.
+
+% Possibly also cite: 10.1109/ICSME.2017.47 10.1109/ICST.2015.7102609 10.1109/QRS-C.2019.00064 For now I'll keep writing!
+
+The Android app in this case study is an extremely and unusually well researched and properly developed app and codebase. The project started in 2010, has had over 1,300 contributors, 4 million downloads, and 350 thousand active users, and is used in 180+ nations in 60+ languages~\citep{catrobat_project}. There are at least 216 contributors for the Android Pocket Code app~\citep{github_catroid}.
+
+Many perceived good practices were and are assiduously applied on an ongoing basis, for instance:~\href{https://github.com/Catrobat/Catroid}{Test-Driven Development, Clean Code}~\citep{catrobat_first_steps_into}, a documented consistent~\href{https://github.com/Catrobat/Catroid/wiki/Workflow}{workflow} and \href{https://github.com/Catrobat/Catroid/wiki/Creating-a-pull-request}{Pull Requests}, and \href{https://jenkins.catrob.at/job/Catroid/}{Continuous Integration}. The codebase is far more complex than the Kiwix Android apps and the app is significantly richer in terms of the features and functionality~\citep{mueller2019_pocketcode}.
+
+\subsection{Catrobat: Experiences of using mobile analytics}
+The project had already incorporated Fabric Crashlytics into the Pocket Code Android app. %TODO confirm when and revise accordingly.
+For their apps in Google Play they also had Google Play Console with Android Vitals. They did not appear to use either source of mobile analytics materially in their software development practices, however they were aware of the ongoing high crash rate for the Pocket Code app. %TODO check through their JIRA history for signs of them using either mobile analytics tool as a source of issues that they wanted to address.
+
+\subsection{Catrobat: data collected and methods used for collection}
+The project team provided access to Google Play Console for all their Android apps and also to their Fabric Crashlytics account. They also provided access to their JIRA and Jenkins systems (read access to both system is public). Their codebases are all public and available as opensource. The majority of the data for this case study is public, in JIRA tickets and in the codebase for Pocket Code. Outputs from the two mobile analytics tools were captured interactively and using vitals scraper for Google Play Console with Android Vitals. There are some email communications and similarly various handwritten field notes in notebooks.
+
+\subsection{Catrobat: Intervention}
+The key intervention was organise a weekend hackathon with an open invitation for any of the extended development team to participate. During day 1 of the hackathon, after informal introductions and a discussion about the aims of the hackathon, the next task was to create tickets in JIRA for the top 10 crash clusters and the top 10 ANR clusters as reported by Android Vitals. These were reported in JIRA during the first hour of the hackathon. The participants, in ones or twos, selected one of these tickets and worked on it. They then selected another ticket and worked on that one. They continued for approximately 5 hours until late afternoon that day. The event closed with a communal meal at a local pizzaria. The participants chose not to continue with day 2 of the hackathon (which was on the Sunday), instead they preferred to work on the issues during the normal working week (Monday to Friday). Several of them did so and continued to work on various tickets raised in the hackathon. The project team made two related releases of the Pocket Code Android app, with cumulative fixes in these releases.
+
+\subsection{Catrobat: Research findings and results from the Case Study}
+% Why Catrobat, what did I gain, similarities and contrasts, why include in the PhD.
+% Existing best practices, assiduously applied didn't reduce the crash rate, my approach did! :)
+% Needs to be applied on a long term basis
+Firstly, the hackathon and the post-hackathon bug fixes were highly effective in terms of cumulatively reducing the crash rate over the next two releases. The improvements in the stability of the app were particularly encouraging as the project had already implemented many of `good' development practices.
+
+As the app incorporated in-app mobile analytics that recorded both crashes and errors (generally these errors are exceptions that \textit{are} caught and handled by the app) the case study provided the opportunity to study Fabric Crashlytics and to enable its outputs to be compared and contrasted with those from Google Play Console with Android Vitals.
+
+An accidental misconfiguration during the release process led to the loss of Fabric Crashlytics data for that release. Google Play Console with Android Vitals continued to provide ongoing outputs indicating the benefits of having platform-level mobile analytics.
+
+The project leadership saw sufficient benefits from using mobile analytics that they decided to also implement it in the iOS app. They subsequently reverse this decision because of the intrusive data collection collected implicitly by Firebase Crashlytics. This topic is discussed in the main Discussion chapter.\pending{Add a forward reference once that material is in the discussion chapter.}
+
+There has been an intermittent focus on addressing the causes of failures being reported by the mobile analytics tools. One of the main reasons given by the project leadership was the loss of the product owner who successfully completed his PhD and moved to a role in Industry. 
+
+\subsection{Catrobat: Outcomes for the project}
+A group of six members of the Catrobat development team were able to usefully address various causes of the most prevalent failures of the Pocket Code app in production. 
+
+
+\subsection{Catrobat: Discussion}
+
+Several of the discussion topics are more general in nature, for instance on privacy and on informed consent by users, so these discussion topics are in the main discussion chapter.  
+
+The emergence of COVID-19 materially affected both this case study and some planned research, it also adversely affected the development team's working practices.
+
+\subsection{Catrobat: Contributions to the research and where they are located in the rest of this thesis}
+The key contributions to the PhD research were the hackathon and the improvements that were made in the stability of the Pocket Code Android app in the two months that followed the hackathon. It replicated the improvements seen in the Kiwix case study. 
+
+The case study also contributed insight into the retiring Fabric Crashlytics mobile analytics service and the replacement, Firebase Crashlytics,\pending{This will be in the discussion chapter.} and how their reports and capabilities compared with those provided by Google Play Console with Android Vitals\pending{This will probably be mainly in the Tools chapter.}.
+
+
+\subsection*{Catrobat: wish list}
+{\small
+\begin{itemize}
+    \itemsep0em
+    \item Ask why Pocket Paint is on F-Droid~\url{https://f-droid.org/en/packages/org.catrobat.paintroid/} but not Pocket Code.
+    \item It'd be helpful to re-establish communications with the project team in order to follow up on the results of the hackathon and on their current practices. I can also analyse their issues database to see whether they're actively using mobile analytics.
+    \item Check whether they use code coverage measures and if so, what the numbers are.
+    \item Extension work: it'd be interesting to apply \url{https://luiscruz.github.io/android_test_inspector/} to the project's apps.
+    \item \textbf{Where should I write up the hackathon?} here? or in the next few chapters?
+\end{itemize}
+}  % end \small
+
+\dotfill
+
+
+\section{Old Catrobat material follows temporarily for ease of editing.}
+\input{empirical-studies/catrobat-case-study}
+
+\clearpage
+
+
+
+%===================================================================
 
 \section{Summary of the overview of the case studies}
 TBC.

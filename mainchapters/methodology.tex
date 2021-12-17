@@ -211,7 +211,7 @@ Table ~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various res
     \caption[Mapping research methods rows to the 6 perspectives columns]{Mapping research methods rows to the 6 perspectives columns \\ Y = Strong mapping \\ y = Weak mapping \\FOSS = Free and Open Source Software}
     \label{tab:mapping-analysis-to-six-perspectives}
 \end{table}
-
+\unsure{The "Yy" markers are inconsistent with "Sm" markers used in Table 1.1}
 
 `\textbf{Sense-making}' methods were concerned with understanding current practice (as reflected in artefacts, tools, and developers' practices and perspectives -- i.e., perspectives \uartefacts, \utools, and \uuse) and identifying potential improvements in tools and in how analytics are used in app development and maintenance (i.e., perspectives \itools and \iartefacts). The research methods include beacon-finding (see page~\pageref{section-beacon-finding-method}) and drill-down (see page~\pageref{drill-down-research-method}).
 
@@ -354,7 +354,7 @@ Comparisons across cases (\textit{i.e.} across projects and their mobile apps) h
 
 The data and the system state for individual apps can help to increase the `coverage criteria' for a mobile analytics tool (which may be considered a system or simply a `box' as in black-box, grey-box, or white-box system)~\pending{In the planned Tools chapter I can discuss this property of the various Mobile Analytics tools.}. 
 
-We know from a related domain, software testing, that more test cases can increase the detection rate of behaviours. For example, a paper by Briand~\citet{briand2007_a_critical_analysis_of_empirical_research_in_software_testing} discusses concepts including the concept of a cost-effectiveness curve and of what the author terms `random variations' and the effect these random variations have on fault detection effectiveness in page 5 of their paper. The set of inputs (\textit{e.g.} crash reports) into mobile analytics tool may result in various beacons - and related data - appearing in the outputs. By increasing the sets of inputs, particularly from dissimilar apps, there is the potential to increase the appearance of more beacons. And the larger volume of beacons across the projects allows for weightier analysis.
+We know from a related domain, software testing, that more test cases can increase the detection rate of behaviours. For example, a paper by~\citet{briand2007_a_critical_analysis_of_empirical_research_in_software_testing} discusses concepts including the concept of a cost-effectiveness curve and of what the author terms `random variations' and the effect these random variations have on fault detection effectiveness in page 5 of their paper. The set of inputs (\textit{e.g.} crash reports) into mobile analytics tool may result in various beacons - and related data - appearing in the outputs. By increasing the sets of inputs, particularly from dissimilar apps, there is the potential to increase the appearance of more beacons. And the larger volume of beacons across the projects allows for weightier analysis.
 
 A key observation is that detection is not static nor a one-off value; behaviours come and go, particularly in mobile analytics tools where reports are often ephemeral. The value of across-case comparisons increases when the sampling increases to record more of the ephemeral behaviours and outputs.
 
@@ -413,11 +413,13 @@ There are similarities in searching programmer-generated grey literature and the
 
 \subsubsection{Code Analysis}~\label{section-code-analysis-research-method}   
 %       &y &Y &  &y &y & \\
+\unsure{YY: Can you justify to look at grey literature because the academic literature have not covered the research question?} 
+
 Source code provides a snapshot of raw ingredients which is used by the development team's build process in order to generate an app. The source code often includes at least one build `recipe'~\footnote{For most Android apps the main build recipe is in the file \texttt{./app/build.gradle}.} so the build can also be evaluated and hopefully reproduced~\footnote{Aside from sensitive ingredients such as signing keys used to digitally sign each binary when it is created.}. The source code's repository augments the source code by recording the historical evolution of the source code.
 
 Code analysis in the context of mobile analytics involves searching for indications of the use of one or more in-app mobile analytics libraries in the project's source code~\footnote{The Exodus Project \url{https://reports.exodus-privacy.eu.org/en/} is one of several tools that can identify the mobile analytics library in an application's binary file.}. The steps performed to identify indicators %c.f. beacons as used in this chapter
 of the use of a mobile analytics library include:
-
+\unsure{YY: Have you stated that it is for Android specifically?} 
 \begin{enumerate}
     \itemsep 0em
     \item Details in one or more \texttt{gradle} scripts where the analytics is added as a `dependency', the version of the dependency provides useful meta-data on whether the analytics are actively maintained by the developers. % COULD-DO\textit{e.g.} add code snippet e.g. see https://firebase.google.com/docs/analytics/get-started?platform=android#add-sdk
