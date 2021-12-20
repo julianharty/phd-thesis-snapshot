@@ -80,7 +80,7 @@ Greentech Apps Foundation (GTAF) is a UK based charity who provide Islamic apps 
     \centering
     \small
     \setlength{\tabcolsep}{1pt}
-    \begin{tabular}{lp{9cm}}
+    \begin{tabular}{lp{11cm}}
        % Question &Answer  \\
        \toprule
        Website &\url{https://gtaf.org/} \\
@@ -165,9 +165,6 @@ Here's my wish list so we can discuss it and decide what's appropriate to do of 
 
 \clearpage
 
-
-
-
 %===================================================================
 
 \section{Catrobat}~\label{case-study-overview-catrobat}
@@ -178,7 +175,7 @@ Here's my wish list so we can discuss it and decide what's appropriate to do of 
     \centering
     \small
     \setlength{\tabcolsep}{1pt}
-    \begin{tabular}{ll}
+    \begin{tabular}{lp{11cm}}
        % Question &Answer  \\
        \toprule
        Website &\url{https://catrobat.org/} \\
@@ -240,7 +237,7 @@ The key intervention was organise a weekend hackathon with an open invitation fo
 A group of six members of the Catrobat development team were able to usefully address various causes of the most prevalent failures of the Pocket Code app in production. 
 
 
-\subsection*{Catrobat: wish list}
+\subsection*{Catrobat: Wish list}
 {\small
 \begin{itemize}
     \itemsep0em
@@ -254,7 +251,68 @@ A group of six members of the Catrobat development team were able to usefully ad
 
 \clearpage
 
+%===================================================================
 
+\section{App-centric: Local Halo}~\label{study-localhalo}
+LocalHalo was a startup based in London who made a social network for neighbours~\footnote{\url{https://ain.ua/en/2019/10/18/localhalo-raises-500k/}} with developers in Ukraine, London, and Kazakhstan.~\citep{karpenko2019_localhalo_a_social_network_for_neighbors}. 
+Table~\ref{tab:local_halo_anaytics_overview} provides an overview of this case study.
+
+{\renewcommand{\arraystretch}{0.8}% Tighter
+\begin{table}[htbp!]
+    \centering
+    \small
+    \setlength{\tabcolsep}{1pt}
+    \begin{tabular}{lp{11cm}}
+       % Question &Answer  \\
+       \toprule
+       Website &\url{https://www.localhalo.com/} \\
+       Google Play Home & \url{https://play.google.com/store/apps/developer?id=NAY+PROTECT+LTD} \\
+       Founded &2018 \\
+       Business Domain &Digital neighbourhood groups in UK.\\
+       Business type &Startup, two co-founders: CEO and CTO \\
+       Technologies  &React Native for cross-platform Android and iOS development \\
+       &Expo development framework \\
+       Source code  &Closed and not available for research \\
+       Analytics used by team &Sentry, Mixpanel, Google Play Console \\
+       Development Practices &Not explicit, a small distributed team \\
+       \midrule
+       User base &7,000 registered users, 1k to 2k monthly active (Jan 2020) \\
+       Installations &1,000's for the Android app \\
+       \midrule
+       Research methods &Interview, email discussions, bug analysis, use of mobile analytics \\
+       Analytics collected &Live access to: Sentry, Google Play Console with Android Vitals \\
+       Research software &Vitals-Scraper used to preserve results \\
+       Additional data collected &Interview notes, emails with the CTO, and automated emails from their mobile analytics services. \\
+       Active period &Jan 2020 to June 2020 \\
+       \bottomrule
+    \end{tabular}
+    \caption{Case Study key facts: Local Halo}
+    \label{tab:local_halo_anaytics_overview}
+\end{table}
+}
+
+\subsection{Local Halo: Background - How the case study came about}
+I was introduced to the CEO of Local Halo by one of their team who knew of my work in October 2019. An online call was followed by an in person meeting with the CEO in November 2019 where he offered to be a case study for my research. After an online call in January 2020 with the CTO they provided access to Google Play Console with Android Vitals for their Local Halo Android app~\footnote{The underlying app is cross-platform which generates both Android and iOS binaries.}, and to their Sentry mobile analytics service used in their mobile app and their associated website.
+
+\subsection{Local Halo: Development microcosm}
+Few details were provided, however data in the Sentry mobile analytics reports indicate there was at least one developer in addition to the CTO. Based on public data~\citep[e.g.]{karpenko2019_localhalo_a_social_network_for_neighbors} the development team and therefore this developer may have been in another country to the CEO and CTO who were both based in London, England.
+
+The mobile app was written in React Native, the associated website is likely to have been written using React js~\footnote{\url{https://reactjs.org/}}. 
+
+\subsection{Local Halo: Experiences of using mobile analytics}
+The team used at least three distinct mobile analytics services: Mixpanel for behavioural analytics, Sentry for error analytics, and Google Play Console with Android Vitals (these were the ones discussed with the CTO). Interestingly, the Exodus Privacy project detects additional trackers and does not detect Sentry, as their report for Local Halo confirms: \url{https://reports.exodus-privacy.eu.org/en/reports/225323/}.
+
+\subsection{Local Halo: Data collected and methods used for collection}
+
+\subsection{Local Halo: Intervention}
+
+\subsection{Local Halo: Outcomes for the company}
+
+\subsection{Local Halo: Contributions to the research and where they are located in the rest of this thesis}
+
+\subsection*{Local Halo: Wish list}
+
+\clearpage
 
 %===================================================================
 
