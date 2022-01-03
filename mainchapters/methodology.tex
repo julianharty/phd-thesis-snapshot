@@ -106,7 +106,7 @@ The various data sources described in the previous section each contribute to th
         Analytics tools \& artefacts                &m &m &S &m &S &S \\
         \bottomrule
     \end{tabular}
-    \caption[Mapping data source rows to the 6 perspectives columns]{Mapping research methods rows to the 6 perspectives columns \\ S = \textbf{S}trong contribution \\ m = \textbf{m}oderate contribution }
+    \caption[Mapping data source (rows) to the 6 perspectives (columns)]{Mapping data source (rows) to the 6 perspectives (columns) \\ S = \textbf{S}trong contribution \\ m = \textbf{m}oderate contribution}
     \label{tab:mapping-datasources-to-six-perspectives}
 \end{table}
 
@@ -177,8 +177,8 @@ Table ~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various res
         \hline 
         \textbf{Sense-making} & & & & & & \\
         (comprehension and exploration) & & & & & & \\
-        Beacon finding and    &Y &y &Y &y &y &y \\
-        Drill Down            &y &y &Y &Y &y &y \\
+        Beacon finding and    &S &m &S &m &m &m \\
+        Drill Down            &m &m &S &S &m &m \\
         %\tabucline[1pt on 3pt]  \\ % See https://tex.stackexchange.com/a/109301/88466 however here it is terminated prematurely and a bit heavy 
         % Or try https://tex.stackexchange.com/a/229334/88466 or https://tex.stackexchange.com/a/613907/88466 if I've not collapsed these two previous rows soon.
         % Or use a newer latex package, see https://tex.stackexchange.com/a/611494/88466 
@@ -187,28 +187,28 @@ Table ~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various res
         \textbf{Sense-building} & & & & & & \\      
         %(Integration and differentiation)    & & & & & & \\        
         (micro-experiments and macro-discoveries) & & & & & & \\
-        Local App Experiments   &y &Y &Y &  &Y &Y \\
-        FOSS Contributions      &  &  &Y &  &  &Y \\
-        Across Case Comparisons &Y &y &Y &Y &y &y \\        
+        Local App Experiments   &m &S &S &  &S &S \\
+        FOSS Contributions      &  &  &S &  &  &S \\
+        Across Case Comparisons &S &m &S &S &m &m \\        
         
         \hline
         \textbf{Feedback mechanisms} & & & & & & \\
         (triangulation and validation) & & & & & & \\
-        Ask The App Devs      &Y &y &y &y &y &y \\
-        Ask The Tool Devs     &  &  &Y &y &y &y \\
-        Grey Literature \& Grey Data Analysis       &y &y &Y &y &y &  \\
-        Code, \& app-binary, Analysis         &y &Y &  &y &y &  \\
+        Ask The App Devs      &S &m &m &m &m &m \\
+        Ask The Tool Devs     &  &  &S &m &m &m \\
+        Grey Literature \& Grey Data Analysis       &m &m &S &m &m &  \\
+        Code, \& app-binary, Analysis         &m &S &  &m &m &  \\
                 
         \hline
         \textbf{Evaluation through action research} & & & & & & \\
         (embedded intervention)  & & & & & &  \\
-        Observation and Analysis &Y &Y &Y &Y &Y &y \\
-        Field Experiment         &y &  &  &Y &Y &  \\
-        Hackathon                &y &y &  &Y &Y &  \\
+        Observation and Analysis &S &S &S &S &S &m \\
+        Field Experiment         &m &  &  &S &S &  \\
+        Hackathon                &m &m &  &S &S &  \\
         
         \bottomrule
     \end{tabular}
-    \caption[Mapping research methods rows to the 6 perspectives columns]{Mapping research methods rows to the 6 perspectives columns \\ Y = Strong mapping \\ y = Weak mapping \\FOSS = Free and Open Source Software}
+    \caption[Mapping research methods (rows) to the 6 perspectives (columns)]{Mapping research methods (rows) to the 6 perspectives (columns) \\ S = \textbf{S}trong contribution \\ m = \textbf{m}oderate contribution \\FOSS = Free and Open Source Software}
     \label{tab:mapping-analysis-to-six-perspectives}
 \end{table}
 \unsure{The "Yy" markers are inconsistent with "Sm" markers used in Table 1.1}
@@ -390,13 +390,13 @@ The developers of the apps are uniquely able to voice their perceptions and thin
 They are also busy with their challenges related to developing and improving the mobile apps they are responsible for. As Petre notes in~\citep{petre2009_insights_from_expert_software_design_practice} experts are willing to try/explore many tools however they focus on what can help them, and they may discount many aspects of the mobile analytics tools including some of the characteristics and behaviours of interest from a research perspective. Nonetheless from a research perspective it may be useful to learn more about why they have discounted or rejected various aspects of the tools. 
 
 \subsubsection{Ask the tool devs}~\label{section-ask-the-tool-devs-research-method} 
-%  &  &  &Y &y &y &y \\
+%  &  &  &S &m &m &m \\
 The tool developers understand their mobile analytics tools in depth and many have a unique vantage point to observe how their mobile analytics behaves across a large population of apps. Furthermore they are well placed to design, implement, and release fixes and improvements to their mobile analytics products and services. They understand the rationale of their mobile analytics tools and their user-base. And yet, they do not know everything about how their tools are used or perceived and many are keen to receive feedback and insights accordingly.
 
 The research method entails communicating with knowledgeable, available and interested people who develop (in the broad sense) the relevant mobile analytics tool. The communication may be direct or indirect (for instance via their customer service, via online feedback links, or in the form of contributions to their opensource project). Being able to provide succinct, clear, timely, and relevant communications may increase the chances of engaging in a mutually productive dialogue.
 
 \subsubsection{Grey literature and grey data analysis}~\label{section-grey-literature-and-data-analysis-research-method}\improvement{So two shades of grey? :)}   
-%   &y &y &Y &y &y &  \\
+%   &m &m &S &m &m &  \\
 A great deal of grey literature, and grey data~\citep[pp 219-221]{banks2010_blog_posts_and_tweets_the_next_frontier_for_grey_literature}, is available online, covering mobile analytics and to errors, problems related to source code and libraries used in real-world mobile apps. The main sources of relevant grey data include Stack Exchange websites frequented by mobile app developers (particularly \href{https://stackoverflow.com/}{stackoverflow.com}) and GitHub. 
 
 Both Stack Exchange and GitHub provide comprehensive and useful search capabilities which help find relevant content, for instances examples where other development teams have found, understood, and addressed particular crashes in their Android app that also apply to the app in the case study.
@@ -412,7 +412,7 @@ The nature of GitHub projects provides some inherent structure which can be util
 There are similarities in searching programmer-generated grey literature and the low-ceremony evidence described in \citet{scaffidi2007_toawards_a_calculus_of_confidence, scaffidi2007developing} where the sources of evidence include votes received by questions and answers on StackExchange sites and on public issue tracking sites including GitHub and Google. % ADD example of Google  
 
 \subsubsection{Code and app-binary analysis}~\label{section-code-analysis-research-method}   
-%       &y &Y &  &y &y & \\
+%       &m &S &  &m &m & \\
 \unsure{YY: Can you justify to look at grey literature because the academic literature have not covered the research question?} 
 
 Source code provides a snapshot of raw ingredients which is used by the development team's build process in order to generate an app. Analysis of the binary provides a snapshot of the final result of the build process of the released app.

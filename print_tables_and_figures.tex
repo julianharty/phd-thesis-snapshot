@@ -1,0 +1,72 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is a w-i-p that does not yet extract the figures and tables from my thesis
+% this file name is extractor.tex
+% compile it with pdflatex -shell-escape extractor
+% Source https://tex.stackexchange.com/a/140869/88466
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+
+%\usepackage{filecontents}
+\begin{filecontents*}{template.tex}
+\documentclass{article}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{mwe}
+\usepackage[active,tightpage,\placeholder]{preview}
+%\PreviewEnvironment{\placeholder}
+\PreviewBorder=12pt\relax
+
+
+\begin{document}
+
+
+\lipsum[1]
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{|lll|}
+\hline
+    11 & 12 & 13\\
+    21 & 22 & 23\\
+    31 & 32 & 33\\
+    41 & 42 & 43\\
+    51 & 52 & 53\\
+\hline
+\end{tabular}
+\caption{A table}
+\end{table}
+
+
+\begin{figure}[htp]
+\includegraphics{example-image-a}
+\caption{A}\label{a}
+\end{figure}
+
+\lipsum[6-10]
+
+\begin{figure}[htp]
+\includegraphics{example-image-b}
+\caption{A}\label{a}
+\end{figure}
+
+\begin{figure}[htp]
+\includegraphics{example-image-c}
+\caption{A}\label{a}
+\end{figure}
+
+\lipsum[16-20]
+
+
+\end{document}
+\end{filecontents*}
+
+\usepackage{pgffor,pdfpages}
+
+\begin{document}
+
+\foreach \x in{graphics,floats}{%
+    \immediate\write18{pdflatex -jobname=template-\x\space "\def\noexpand\placeholder{\x} \noexpand\input{print_a_chapter}"}%
+    \includepdf[pages=-]{template-\x}%
+}
+
+\end{document}
