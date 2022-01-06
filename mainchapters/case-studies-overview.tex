@@ -736,13 +736,6 @@ The project leaders have consistently chosen \emph{not} to incorporate any analy
 \subsection{Kiwix: Data collected and methods used for collection}
 The development artefacts including the codebase \url{https://github.com/kiwix/kiwix-android} and the issues \url{https://github.com/kiwix/kiwix-android/issues} are both public and freely available. They include the history of the source code and of issues raised pertaining to the case study. The analytics artefacts were collected interactively and by using vitals-scraper. Various contemporaneous notes were made during the case study.  Details of the data sources for this case study are in Table~\ref{tab:kiwix-data-sources}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Julian to continue from here!!!!
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \begin{table}
     \centering
     \footnotesize
@@ -759,7 +752,6 @@ The development artefacts including the codebase \url{https://github.com/kiwix/k
     \caption{Kiwix: data sources}
     \label{tab:kiwix-data-sources}
 \end{table}
-
 
 
 \subsection{Kiwix: Intervention}
@@ -1017,7 +1009,7 @@ Crashlytics grew from a group of developers who wanted to scratch an itch~\citep
        User base & 1,000,000's for their analytics\footnotemark \\ %
        Installations & 100,000,000+ for the Android analytics \\ %Assuming 50% of 1B+ in 2015 https://web.archive.org/web/20160429221552/https://fabric.io/blog/milestone-achieved-one-billion-devices/
        \midrule
-       Research methods &Grey Data, Grey Literature, Analytics tools \& artefacts, Field notes. \\
+       Research methods &Grey Data, Grey Literature, analytics tools \& artefacts, field notes. \\
        Analytics collected &Fabric Crashlytics and Firebase Crashlytics reports. \\
        Research software & None applicable. \\
        Additional data collected &N/A. \\
@@ -1069,7 +1061,7 @@ Firebase was launched in 2012 \url{https://en.wikipedia.org/wiki/Firebase}, Fire
        User base & 1,000,000's for their analytics \\
        Installations & 2,000,000,000+ for the Android analytics\footnotemark \\
        \midrule
-       Research methods &In person interviews, email discussions, etc. \\
+       Research methods &Ask the app devs, source code analysis, observation and analysis, sensemaking. \\
        Analytics collected &Google Play Console with Android Vitals \\
        Research software & None applicable. \\
        Additional data collected &Interview notes and emails. \\
@@ -1126,10 +1118,10 @@ In 2010, Google announced an service that appears to be the first version of wha
        User base & 1,000,000's developers have access to the analytics \\
        Installations & 2,500,000,000+ for the Android analytics~\citep{androiddevelopersblog2019_unlock_your_creativity_2_5_billion} \\ 
        \midrule
-       Research methods &In person interviews, email discussions, etc. \\
+       Research methods &Sensemaking, sensebuilding, feedback mechanisms, and evaluation through action research. \\
        Analytics collected &Google Play Console with Android Vitals \\
-       Research software & None applicable. \\
-       Additional data collected &Interview notes and emails. \\
+       Research software & Vitals Scraper. \\
+       Additional data collected &Interview notes and emails with both app developers and the development team of the tool. \\
        Active period & 2017 to 2022 \\
        \bottomrule
     \end{tabular}
@@ -1140,30 +1132,163 @@ In 2010, Google announced an service that appears to be the first version of wha
 
 \footnotetext{The history and rationale for this date is covered in the introduction to this section.}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Julian to continue from here!!!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsection{Google Play Console with Android Vitals: Background - How the case study came about}
-
-
+The research into Google Play Console with Android Vitals predates the app-centric case studies. It is one of the \emph{de-facto} mobile analytics tools available to Android developers who release their apps in the Google Play ecosystem. Each of the app-centric case studies provided material related to this service that Google provides free of additional charge~\footnote{There is a one-off registration fee for creating a developer account for Google Play \url{https://support.google.com/googleplay/android-developer/answer/6112435}. Many developers can be added to that account in order to use it and developers can be added to more than one Google Play developer account.}.
 
 \subsection{Google Play Console with Android Vitals: Experiences of using mobile analytics}
+Working with Google Play Console and with Android Vitals permeates this research, the experiences include using it directly, working with copies of the outputs from the app-case studies and other Grey Data and Grey Literature sources, analysing source code for candidate elements of the tool, and discussions with the development team for this and other mobile analytics tools.
 
 \subsection{Google Play Console with Android Vitals: Data collected and methods used for collection}
+The data included screenshots, extracts, and rekeying of contents from the interactive use of the mobile analytics service, interactive downloads of various monthly reports provided by the service, automated collection of screenshots and textual content through the use of Vitals Scraper, and material provided by interviewees who emailed screenshots and provided extracts. Source code was located through various searches online and through Grey Data, particularly through StackOverflow. 
+
 
 \subsection{Google Play Console with Android Vitals: Contributions to the research and where they are located in the rest of this thesis}
+TBC - likely to be in all the next three chapters and also elsewhere.
 
 \subsection*{Google Play Console with Android Vitals: Wish list}
+{\small
+\begin{itemize}
+    \item Reconnect with the current development team for Android Vitals and apprise them of my recent research findings.
+\end{itemize}
+}
 
 \clearpage
 
 %===================================================================
 
 \section{Tool-centric: Iteratively with Amplitude}~\label{case-study-overview-iteratively-with-amplitude}
+Two founders jointly created Iteratively and raised seed funding for the startup. Their focus was to develop tools and approaches to help product managers, developers, and analysts to have a single coherent and trustworthy data analytics pipeline from design to use. The startup was acquired by Amplitude who successfully listed on Nasdaq several months later, in 2021. 
+% https://www.iposcoop.com/ipo/amplitude-inc/
+% https://techcrunch.com/2021/09/29/what-amplitudes-direct-listing-says-about-ipo-pops-and-how-startups-can-avoid-them
+
+{\renewcommand{\arraystretch}{0.8}% Tighter
+\begin{table}[htbp!]
+    \centering
+    \small
+    \setlength{\tabcolsep}{1pt}
+    \begin{tabular}{lp{9cm}}
+       % Question &Answer  \\
+       \toprule
+       Website &\url{https://iterative.ly/} and \url{https://amplitude.com/} \\
+       Founded & 2019 \\ % https://www.crunchbase.com/organization/iteratively
+       Business Domain & Software and services to help development teams capture clean, useful data to generate business insights. \\ % paraphrased from https://iterative.ly/about
+       Business type & Startup, since acquired, now part of Amplitude, that went Public in 2021. \\
+       Technologies  & SDK generation tools \\
+       & Build and Integration tools, data validation tools for software analytics libraries. \\
+       Source code  &Closed and not available for research. \\
+       \midrule
+       User base & 10\textsuperscript{1} companies used their analytics pre acquisition, unknown post integration. \\
+       Installations & Not available.  \\
+       \midrule
+       Research methods &In person interviews, Grey Literature, email discussions, analysis of their Android SDK binary, and field experiment which led to observation and analysis. \\
+       Analytics collected & Screenshots of the Iteratively service in use and of Amplitude. \\
+       Research software & None applicable. \\
+       Additional data collected &Discussions with one of their development team. \\
+       Active period & May 2020 to 2022 \\
+       \bottomrule
+    \end{tabular}
+    \caption{Tool Centric Case Study key facts: Iteratively with Amplitude}
+    \label{tab:iteratively_with_amplitude_anaytics_overview}
+\end{table}
+}
+
+\subsection{Iteratively with Amplitude: Background - How the case study came about}
+Patrick Thompson, Iteratively's CEO, contacted the researcher in May 2020. After an opening call with both founders, they were keen to share their experiences and make their tools and research available. The CEO confirmed both verbally and by email I was free to reuse their materials including for research purposes. They also accepted contributions to their materials and research, these were freely given and without charge or obligation. I introduced them to someone I worked with who they subsequently hired and they gave both of us permission to freely discuss details of their products, software, and research, again this is without charge or obligation, nonetheless there is an implicit moral obligation to protect sensitive material so shared and which is being upheld during this research.
+
+\subsection{Iteratively with Amplitude: Experiences of using mobile analytics}
+Iteratively provided an online data design tool to define a schema for mobile analytics and another tool to configure the SDK to send the data to various third-party mobile analytics services via that service's respective SDK. They also provided software that developers can add to their build scripts in order to validate the app has the schema adequately implemented. The schema is versioned and changes to the schema automatically receive a higher version number.
+
+Iteratively's tools were used to add mobile analytics reporting to a small Android app, called IDot developed as part of this research. The app is due to be opensourced and will be available at \url{https://github.com/commercetest/idot}. Iteratively was configured to use Amplitude as the destination mobile analytics service. We also developed a custom `crash' message using the schema tool and implemented the necessary code to trigger this in the Android app.
+
+During the action research period Iteratively's tools were integrated into the Amplitude products and services where they also made other changes to these products and services. The research is, therefore, a snapshot of the services that were available at the time.
+
+\subsection{Iteratively with Amplitude: Data collected and methods used for collection}
+Field notes were recorded contemporaneously during the various calls and discussions with the founder and with the developer, in addition there are various email (and WhatsApp) discussions. Field notes were also made, together with screenshots, when using the tools and their online reports. The source code for the Android app is also a form of data, and is on GitHub. It is available: currently on request. It will be opensourced at \url{https://github.com/commercetest/idot}. Google Play Console's Pre-launch reports have also been collected as screenshots using a web browser.
+
+\subsection{Iteratively with Amplitude: Contributions to the research and where they are located in the rest of this thesis}
+TBC.
+
+\subsection*{Iteratively with Amplitude: Wish list}
+{\small
+\begin{itemize}
+    \item Consider asking Patrick, the ex-CEO, for summary data re their customer and the deployment base. 
+    \item Clean up the project to remove authentication details then prepare and opensource it.
+\end{itemize}
+}
 
 \clearpage
 
 %===================================================================
 
 \section{Tool-centric: Microsoft App Center}~\label{case-study-overview-microsoft-app-center}
+App Center combines various tools and utilities and includes in-app mobile analytics and crash reporting. The crash reporting aspect probably started as part of the HockeyApp SDK, Microsoft acquired HockeyApp in late 2016~\footnote{\href{https://web.archive.org/web/20150702124106/http://blogs.msdn.com/b/somasegar/archive/2014/12/11/microsoft-acquires-hockeyapp-leading-mobile-crash-analytics-and-beta-distribution-service-for-ios-android-and-windows-phone.aspx}{http://blogs.msdn.com/b/somasegar/archive/2014/12/11/microsoft-acquires-hockeyapp-leading-mobile-crash-analytics-and-beta-distribution-service-for-ios-android-and-windows-phone.aspx} (via the Web Archive project)}. The earliest mention of Crash reporting in HockeyApp's opensource Android SDK is in 2014~\footnote{\href{https://github.com/bitstadium/HockeySDK-Android/commit/3ccd53c44da791806720604b02d358de66ecbf6a}{github.com/bitstadium/HockeySDK-Android/commit/3ccd53c44da791806720604b02d358de66ecbf6a}.}
 
+There is an interesting related opensource project \url{https://github.com/bitstadium/CrashProbe} that also had a related website called crashprobe.com~\footnote{See \url{https://web.archive.org/web/20161124205240/http://www.crashprobe.com/} for an example from 2016} which compared the performance of various crash reporting SDKs. As it was opensourced developers of several of these SDKs used it and submitted both source code and results. An example of the report from April 2017 is cached by the web archive \url{https://web.archive.org/web/20170412015831/http://www.crashprobe.com/ios/} which compares the results of 6 ios crash reporting tools. 
+
+{\renewcommand{\arraystretch}{0.8}% Tighter
+\begin{table}[htbp!]
+    \centering
+    \small
+    \setlength{\tabcolsep}{1pt}
+    \begin{tabular}{lp{9cm}}
+       % Question &Answer  \\
+       \toprule
+       Website &\url{https://appcenter.ms/} \\
+       Launched as Microsoft App Center & 2017 \\ % https://www.dotnetcurry.com/xamarin/1435/visual-studio-app-center
+       Business Domain & IDE and related online services that includes free and paid for services. \\
+       Source code for the online service  &Closed and not available for research \\
+       Source code for the Android SDK & \url{https://github.com/microsoft/appcenter-sdk-android} \\
+       Source code for a sample Android app & \url{https://github.com/microsoft/appcenter-sampleapp-android} \\
+       And other repositories listed at & \url{https://github.com/Microsoft/appcenter/wiki/Repositories} \\
+       \midrule
+       User base & 10\textsuperscript{4} developers estimated to use their analytics\footnotemark \\
+       Installations & 1,000,000,000+ for the Android analytics \\
+       \midrule
+       Research methods &In person interviews, email discussions, etc. \\
+       Analytics collected &Google Play Console with Android Vitals \\
+       Research software & None applicable. \\
+       Additional data collected &Interview notes and emails. \\
+       Active period & March 2019 to Q2 2021 \\
+       \bottomrule
+    \end{tabular}
+    \caption{Tool Centric Case Study key facts: Microsoft App Center}
+    \label{tab:blank_case_study_anaytics_overview}
+\end{table}
+}
+
+\footnotetext{As many of the customers are likely to be corporations with large development teams, the ratio is likely to be several developers have access to AppCenter per app. According to AppBrain the App Center SDK has been installed in over 10 thousand apps and those apps have been downloaded over 3 billion times by \nth{25} November 2020 and was in over 13 thousand apps and 30 billion downloads by \nth{16} July 2021. It is in \nth{8} place in the Analytics library category for Android apps. It's also in 6.24\% of top apps, partly as it's included in top Microsoft apps (Microsoft OneDrive, Excel and Word 1 billion+ per app, LinkedIn 500 million, Mirosoft Office 100 million, and Skype Beta 5 million). It's installed in 1.76\% of new apps and 0.24\% of new app installs (App data sourced from~\url{https://www.appbrain.com/stats/libraries/details/appcenter/visual-studio-app-center})}.
+
+\subsection{Microsoft App Center: Background - How the case study came about}
+Microsoft App Center was integrated into several field experiment Android apps in 2019. It was also one of the main mobile analytics tools used in the commercial app-centric case study which extended the initial findings from the field experiments into mission-critical and real-world use of the service at scale based on an active end-userbase of millions of people.
+
+\subsection{Microsoft App Center: Experiences of using mobile analytics}
+Microsoft App Center was used directly for crash and error reporting. It was used interactively and through the reporting API Microsoft provides. For the commercial case study major issues were manually transferred to the project's bug tracking service and the bugs were actively managed and the underlying issues were generally addressed. Screenshots and pertinent statistics from App Center were entered into the bug tracking service as only a subset of the overall project team had direct access to any of the mobile analytics services. The project used the error reporting (non-fatal errors) extensively to analyse various operational aspects of the service the app provided in conjunction with the internal server-side APIs and services.
+
+Microsoft App Center was the preferred mobile analytics service by the development team, partly as it included a UI they could use to link bug tracking to pertinent crashes and errors.
+
+\subsection{Microsoft App Center: Data collected and methods used for collection}
+Screenshots and data obtained through the reporting APIs were collected as part of the assignment. In tandem field notes, email, and other collaboration tools were used on an ongoing basis during the action research period. Issues reported by others were also observed and analysed, for example in terms of how the issues were tracked, the changes to the app source code, and the subsequent testing of the potential fixes.
+
+Grey Literature describes using Hockey App for crash reporting in iOS~\citep{birani2016_hockey_app_for_crash_reporting}, the concepts of how to integrate and test crash reporting for Androids was similar.
+
+\subsection{Microsoft App Center: Contributions to the research and where they are located in the rest of this thesis}
+TBC.
+
+\subsection*{Microsoft App Center: Wish list}
+{\small
+\begin{itemize}
+    \item Ideally permission to directly use material from the relevant case study.
+    \item Alternately, examples from a similarly large-scale project and app.
+\end{itemize}
+}
 \clearpage
 
 %===================================================================
@@ -1233,9 +1358,7 @@ TBC when the next 3 chapters are written.
 
 \section{Miscellaneous sources of minor contributions}
 
-These include a project, EduVPN, PostHog who provide mobile analytics software and services, Firebase Analytics.
-
-TODO a section for Crashlytics.
+These include a project, EduVPN, and 6 more mobile analytics software, tools, and services: AppPulse Mobile, AppSee, Azetone, Countly, MixPanel, and PostHog.
 
 \clearpage
 
