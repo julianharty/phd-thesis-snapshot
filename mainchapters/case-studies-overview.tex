@@ -45,7 +45,7 @@ Greentech Apps Foundation (GTAF) is a UK based charity that provides Islamic app
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{11cm}}
        % Question &Answer  \\
        \toprule
@@ -182,7 +182,7 @@ Table~\ref{tab:local_halo_anaytics_overview} provides an overview of this case s
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{11cm}}
        % Question &Answer  \\
        \toprule
@@ -316,7 +316,7 @@ It was released in 2019, with over 150K downloads by early 2020~\citep{objectbox
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
        % Question &Answer  \\
        \toprule
@@ -444,7 +444,7 @@ Moonpig is an e-commerce business in Europe that sells greeting cards and relate
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
        % Question &Answer  \\
        \toprule
@@ -558,7 +558,7 @@ SmartNavi is an unusual opensource project that replaces GPS for navigation when
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
        % Question &Answer  \\
        \toprule
@@ -670,7 +670,7 @@ The project has multiple opensource projects including software tools that downl
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
        % Question &Answer  \\
        \toprule
@@ -784,7 +784,7 @@ The Catrobat project was created and is actively developed by a team in the Graz
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{11cm}}
        % Question &Answer  \\
        \toprule
@@ -910,7 +910,7 @@ TBC\pending{Add forward links when the relevant material has been included.}.
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
        % Question &Answer  \\
        \toprule
@@ -978,14 +978,87 @@ Confidential.
 \subsection{C1: Contributions to the research}
 \textbf{TBD} as I'm not \pending{Add forward links when the relevant material has been included.}.
 
+\begin{enumerate}
+    \item Excessive ANRs
+    \item Excessive Crash Rate
+    \item Gaps in understanding and gaps in testing of changes and generally of networking code increase crash rate several fold
+    \item Problems could have ameliorated using Release Management reports
+    \item Concerted focus to address native memory leaks that caused some of the crashes
+    \item Code written to reproduce the networking errors that led to the crashes, followed by fixes to the underlying code covered adequately by automated tests, bring excessive crash rate under control.
+    \item Majority of ANRs came from another project team's SDK, when the new SDK was integrated and a new release launched, the ANRs were materially improved. 
+    \item Other crashes also addressed leading to further improvements.
+    \item Automated build pipelines and implementation of code-quality analysis also help identify potential sources of failures (but signal to noise ratio was low).
+\end{enumerate}
+
+Discuss the success factors, what led to the material improvements, and also the sorts of things that led to unexpected increases in failures. Also discuss the utility of the release management reports and of taking action accordingly. Possibly also discuss the value in separating pre-release and post-release sources of data, versioning of the releases, etc.
+
 \subsection*{C1: Wish list}
 {\small
 
 \begin{itemize}
-    \item NB: it is not practical to publish the results of analysing the app binary with exodus-privacy as doing so may leak additional clues about the app and therefore the project.
+    \item NB: it is not practical to publish the results of analysing the app binary with exodus-privacy as doing so may leak additional clues about the app and therefore the project. Check the contract.
     \item Seek a pertinent example of using automated tests for OkHttp.
 \end{itemize}
 }
+
+\clearpage
+
+%===================================================================
+
+\section{Augmenting the app-centric case studies: field experiments}~\label{section-field-experiments-to-augment-app-centric-case-studies}
+The app-centric case studies provided various vectors into a rich and complex area, however as they were all for real world apps in production there were many aspects that did not occur during any of these case studies. During the research there were various field experiments incorporated into the research. These are broadly in three areas:
+
+\begin{enumerate}
+    \item Creating small experiments in the form of Android apps that exercised at least one mobile analytics service.
+    \item Contributing to opensource mobile analytics projects.
+    \item Research into logging performed by Android app developers and the development of software utilities to further that research.
+\end{enumerate}
+
+
+\subsection{Dynamic tests to increase coverage of mobile analytics services}
+Various tests were performed to augment the app-centric case studies. The tests were packaged as several, small, experimental Android apps; they are not currently intended to go into general release.
+
+\begin{itemize}
+    \item zipternet: \url{https://github.com/ISNIT0/zipternet}
+    \item idot: \url{https://github.com/commercetest/idot} (access currently available upon request)
+    \item AndroidCrashDummy: \url{https://github.com/ISNIT0/AndroidCrashDummy}
+\end{itemize}
+
+\subsection{Contributions to opensource mobile analytics projects}
+Projects that are opensourced are not necessarily easy to contribute to, there may be various hurdles and sufficient delays to dissuade the majority of developers from actually contributing to those projects. These field experiments were opportunistic in that they emerged as part of the reset of the research, nonetheless they are realistic as they included real-world improvements to those mobile analytics projects and the respective development teams reviewed and approved the contributions.
+
+\begin{itemize}
+    \item PostHog: Two commits to improve the documentation \url{https://github.com/PostHog/posthog.com/commits?author=julianharty}.
+    \item Sentry: Improved the onboarding documentation \url{https://github.com/getsentry/sentry-docs/commits?author=julianharty}.
+\end{itemize}
+
+
+\subsection{Android log-centric experiments}
+Mobile analytics provides mechanisms developers can use to perform implicit and explicit logging where the logs are generated at runtime when the app is being used. This section provides an overview of the log-centric experiments and their related opensource projects; and the next section includes analysis of 107 opensource Android apps that use Firebase Analytics for logging. (\secref{section-sourcecode-analysis-to-augment-app-centric-case-studies}). 
+
+The experiments extracted Android logging statements and then analysed them. This work was complemented with creating Assert statements that automated tests could use to check whether expected log messages had been emitted into the Android log.
+
+The related opensource projects are:
+\begin{itemize}
+    \item Automated tests for Android log messages: \url{https://github.com/ISNIT0/AndroidLogAssert}
+    \item Log Searcher \url{https://github.com/ISNIT0/log-searcher}
+    \item Logcat filter and analysis tool: \url{https://github.com/ISNIT0/logcat-filter}
+    \item Log complexity comparison: \url{https://github.com/ISNIT0/log-complexity-comparison}
+\end{itemize}
+
+\clearpage
+
+%===================================================================
+\section{Augmenting the app-centric case studies: sourcecode analysis}~\label{section-sourcecode-analysis-to-augment-app-centric-case-studies}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Julian to continue from here!!!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{TODO integrate the relevant content from \texttt{empirical-studies/logging-case-studies}}
+
 
 \clearpage
 
@@ -997,7 +1070,7 @@ Crashlytics grew from a group of developers who wanted to scratch an itch~\citep
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
        % Question &Answer  \\
        \toprule
@@ -1014,6 +1087,7 @@ Crashlytics grew from a group of developers who wanted to scratch an itch~\citep
        Research software & None applicable. \\
        Additional data collected &N/A. \\
        Active period & Q3 2019 to Q2 2020. \\
+       Relevant app-centric case studies & Catrobat, Smartnavi. \\
        \bottomrule
     \end{tabular}
     \caption{Tool Centric Case Study key facts: Crashlytics}
@@ -1025,7 +1099,7 @@ Crashlytics grew from a group of developers who wanted to scratch an itch~\citep
 % See also https://web.archive.org/web/20160429221552/https://fabric.io/blog/milestone-achieved-one-billion-devices/
 
 \subsection{Crashlytics: Background - How the case study came about}
-The primary source of this case study is via the Catrobat case study where the development team were using Fabric Crashlytics in their flagship Pocket Code Android app. Crashlytics also surfaced in several of the developer interviews, and in source code for various opensource projects. Furthermore the researcher has been aware of Crashlytics since at least 2015 professionally.
+The primary source of this case study is via the Catrobat case study where the development team were using Fabric Crashlytics in their flagship Pocket Code Android app. Crashlytics also surfaced in several of the developer interviews, and in source code for various opensource projects. Furthermore the researcher has been aware of Crashlytics through his professional work since at least 2015.
 
 \subsection{Crashlytics: Experiences of using mobile analytics}
 The action research came from observing, analysing, and using Crashlytics during the Catrobat case study. We used the legacy Fabric user interface for approximately six months and then transitioned to the Firebase Analytics user interface for the reporting. The app continued to use the Fabric version of the Crashlytics SDK for the duration of the case study. In preparation for the workshop in Poland, scheduled on \nth{28} February 2020, the project also chose to incorporate Firebase Analytics to both the Android and iOS Pocket Code apps. On discovering that Firebase included demographic data the project leadership decided \emph{not} to migrate to the Firebase Crashlytics SDK and not to further the use of Firebase Analytics in order to protect the end users' privacy. Many of the end users are minors who are school children and the project team was concerned that any use of in-app mobile analytics would need to be very carefully considered and weighed in terms of the impact.
@@ -1049,7 +1123,7 @@ Firebase was launched in 2012 \url{https://en.wikipedia.org/wiki/Firebase}, Fire
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
        % Question &Answer  \\
        \toprule
@@ -1066,6 +1140,7 @@ Firebase was launched in 2012 \url{https://en.wikipedia.org/wiki/Firebase}, Fire
        Research software & None applicable. \\
        Additional data collected &Interview notes and emails. \\
        Active period & 2019 to 2020 \\
+       Relevant app-centric case studies & Moodspace, Moonpig, Smartnavi.\\
        \bottomrule
     \end{tabular}
     \caption{Tool Centric Case Study key facts: Firebase Analytics}
@@ -1104,7 +1179,7 @@ In 2010, Google announced an service that appears to be the first version of wha
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
        % Question &Answer  \\
        \toprule
@@ -1123,6 +1198,7 @@ In 2010, Google announced an service that appears to be the first version of wha
        Research software & Vitals Scraper. \\
        Additional data collected &Interview notes and emails with both app developers and the development team of the tool. \\
        Active period & 2017 to 2022 \\
+       Relevant app-centric case studies & All of them. \\
        \bottomrule
     \end{tabular}
     \caption{Tool Centric Case Study key facts: Google Play Console with Android Vitals}
@@ -1131,13 +1207,6 @@ In 2010, Google announced an service that appears to be the first version of wha
 }
 
 \footnotetext{The history and rationale for this date is covered in the introduction to this section.}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Julian to continue from here!!!!
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \subsection{Google Play Console with Android Vitals: Background - How the case study came about}
@@ -1173,7 +1242,7 @@ Two founders jointly created Iteratively and raised seed funding for the startup
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
        % Question &Answer  \\
        \toprule
@@ -1193,6 +1262,7 @@ Two founders jointly created Iteratively and raised seed funding for the startup
        Research software & None applicable. \\
        Additional data collected &Discussions with one of their development team. \\
        Active period & May 2020 to 2022 \\
+       Relevant app-centric case studies & None, it is part of the testing mobile analytics research. \\
        \bottomrule
     \end{tabular}
     \caption{Tool Centric Case Study key facts: Iteratively with Amplitude}
@@ -1220,6 +1290,7 @@ TBC.
 {\small
 \begin{itemize}
     \item Consider asking Patrick, the ex-CEO, for summary data re their customer and the deployment base. 
+    \item Ditto, ask for any customers who may be willing to share their experiences of using the iteratively tooling. (requested on \nth{7} Jan 2022)
     \item Clean up the project to remove authentication details then prepare and opensource it.
 \end{itemize}
 }
@@ -1231,13 +1302,13 @@ TBC.
 \section{Tool-centric: Microsoft App Center}~\label{case-study-overview-microsoft-app-center}
 App Center combines various tools and utilities and includes in-app mobile analytics and crash reporting. The crash reporting aspect probably started as part of the HockeyApp SDK, Microsoft acquired HockeyApp in late 2016~\footnote{\href{https://web.archive.org/web/20150702124106/http://blogs.msdn.com/b/somasegar/archive/2014/12/11/microsoft-acquires-hockeyapp-leading-mobile-crash-analytics-and-beta-distribution-service-for-ios-android-and-windows-phone.aspx}{http://blogs.msdn.com/b/somasegar/archive/2014/12/11/microsoft-acquires-hockeyapp-leading-mobile-crash-analytics-and-beta-distribution-service-for-ios-android-and-windows-phone.aspx} (via the Web Archive project)}. The earliest mention of Crash reporting in HockeyApp's opensource Android SDK is in 2014~\footnote{\href{https://github.com/bitstadium/HockeySDK-Android/commit/3ccd53c44da791806720604b02d358de66ecbf6a}{github.com/bitstadium/HockeySDK-Android/commit/3ccd53c44da791806720604b02d358de66ecbf6a}.}
 
-There is an interesting related opensource project \url{https://github.com/bitstadium/CrashProbe} that also had a related website called crashprobe.com~\footnote{See \url{https://web.archive.org/web/20161124205240/http://www.crashprobe.com/} for an example from 2016} which compared the performance of various crash reporting SDKs. As it was opensourced developers of several of these SDKs used it and submitted both source code and results. An example of the report from April 2017 is cached by the web archive \url{https://web.archive.org/web/20170412015831/http://www.crashprobe.com/ios/} which compares the results of 6 ios crash reporting tools. 
+There is an interesting related opensource project \url{https://github.com/bitstadium/CrashProbe} that also had a related website called crashprobe.com~\footnote{See \url{https://web.archive.org/web/20161124205240/http://www.crashprobe.com/} for an example from 2016} which compared the performance of various crash reporting SDKs. As it was opensourced developers of several of these SDKs used it and submitted both source code and results. An example of the report from April 2017 is cached by the web archive \url{https://web.archive.org/web/20170412015831/http://www.crashprobe.com/ios/} which compares the results of 6 iOS crash reporting tools. 
 
 {\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
        % Question &Answer  \\
        \toprule
@@ -1252,11 +1323,12 @@ There is an interesting related opensource project \url{https://github.com/bitst
        User base & 10\textsuperscript{4} developers estimated to use their analytics\footnotemark \\
        Installations & 1,000,000,000+ for the Android analytics \\
        \midrule
-       Research methods &In person interviews, email discussions, etc. \\
-       Analytics collected &Google Play Console with Android Vitals \\
+       Research methods & \\
+       Analytics collected & \\
        Research software & None applicable. \\
-       Additional data collected &Interview notes and emails. \\
+       Additional data collected & \\
        Active period & March 2019 to Q2 2021 \\
+       Relevant app-centric case studies & C1; and it is part of the testing mobile analytics research (see \secref{section-testing-mobile-analytics-tools-on-a-continuum}). \\
        \bottomrule
     \end{tabular}
     \caption{Tool Centric Case Study key facts: Microsoft App Center}
@@ -1300,7 +1372,7 @@ Sentry is a a good example of a mature investment-funded purpose-built company w
 \begin{table}[htbp!]
     \centering
     \small
-    \setlength{\tabcolsep}{1pt}
+    \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
        % Question &Answer  \\
        \toprule
@@ -1320,6 +1392,7 @@ Sentry is a a good example of a mature investment-funded purpose-built company w
        Research software & None applicable. \\
        Additional data collected &Interview notes and emails. \\
        Active period & Jan 2020 to Nov 2021 \\
+       Relevant app-centric case studies & Local Halo; and it is part of the testing mobile analytics research (see \secref{section-testing-mobile-analytics-tools-on-a-continuum}). \\
        \bottomrule
     \end{tabular}
     \caption{Tool Centric Case Study key facts: Sentry}
@@ -1352,6 +1425,7 @@ TBC when the next 3 chapters are written.
 \end{itemize}
 }
 
+
 \clearpage
 
 %===================================================================
@@ -1367,4 +1441,5 @@ These include a project, EduVPN, and 6 more mobile analytics software, tools, an
 \section{Summary of the case studies overview}~\label{case-study-overview-summary}
 TBC.\pending{To complete once the rest of the contents have been added to this chapter.}
 
+Introduce the next three chapters and their connections to the six perspectives and to each other (they may cross-reference e.g. in their respective discussion section).
 % Excluded from this chapter are: the NlNet Android app for EduVPN and the discussion with Sunil on a bank in Australia.
