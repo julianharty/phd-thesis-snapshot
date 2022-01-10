@@ -2,7 +2,20 @@
 
 In the previous chapter app-centric and tool-centric case studies were introduced, together with the procedure used for the app-centric case studies. This chapter builds on their work and introduces each case study using a consistent structure to make them easy to comprehend and to facilitate their comparisons. Three subsequent, contiguous chapters will each address the temporal dimensions (understanding and improvement) of an object of analysis (use, artefacts, and tools). These will in turn be followed by the discussion chapter.
 
-A consistent structure is used to present each case study covering the following topics:
+The case studies are in three groups, with a couple of interim sections that present complementary research that helps to fill various gaps. These three groups are: 
+\begin{enumerate}
+    \itemsep0em
+    \item[1] App-centric case studies that \textbf{do not} have interventions (Sections \ref{case-study-overview-gtaf}, to \ref{case-study-overview-smartnavi}).
+    \item[2] The app-centric case studies that \textbf{do} have interventions (Sections \ref{case-study-overview-kiwix} to \ref{case-study-overview-C1}).
+    \item[ ] Interim work on various field experiments (Section \ref{section-field-experiments-to-augment-app-centric-case-studies}) and source code analysis (Section \ref{section-sourcecode-analysis-to-augment-app-centric-case-studies}).
+    \item[3] The tool-centric case studies are in Sections \ref{case-study-overview-crashlytics} to \ref{case-study-overview-sentry}.
+    \item[ ] Section \ref{section-case-study-misc-contributions} briefly introduces six more mobile analytics tools and another Android app as these provide miscellaneous minor contributions in the next three chapters.
+\end{enumerate}
+
+The app-centric case studies are presented in the same order as Table~\ref{tab:app-centric-studies-research-perspective} for the app-centric cases and then Table~\ref{tab:tool-centric-studies-research-perspective} for the tool-centric cases. 
+
+A consistent structure is used to present each app-centric case study, similarly a subset of this structure is used for each of the tool-centric case studies. 
+The app-centric structure covers the following topics:
 \begin{itemize}
     \itemsep0em
     \item Background: how the case study came about.
@@ -13,22 +26,8 @@ A consistent structure is used to present each case study covering the following
     \item Intervention: a summary of the intervention performed. \textit{This only applies for case studies with an intervention.}
     \item Outcomes for the organisation/company: the outcomes achieved by the company, or organisation for non-profits, through their use of mobile analytics.
     \item Contributions to the research and where they are located in the rest of this thesis: links to where this case study contributes to the thesis.
-    \item \textit{A temporary ``wish list" to enhance the case-study where practical. These will be followed up where it's ``essential" for the thesis. The entire wish list will be removed from the generated thesis pre-submission.}
+    \item \textbf{\textit{A temporary ``wish list" to enhance the case-study where practical. These will be followed up where it's ``essential" for the thesis. The entire wish list will be removed from the generated thesis pre-submission.}}\improvement{In Bold and Italics so it's clear to all that the wishlist is exactly that, not a commission for me to do all the items I've got on the lists in the various case studies.}
 \end{itemize}
-
-
-
-\section*{Open questions for this chapter}
-{\small
-\begin{itemize}
-    \itemsep0em
-    \item Should I include a summary of applying the app-centric case study procedure in each case study with the specifics for that case study? - Yes I need to (as discussed with Arosha, Marian and Yijun)
-    % \item I think it's worth adding an `\textbf{intervention}' subsection to each of the three case studies with interventions. - Agreed and done.
-    \item TODO connect the tables with their cases.
-\end{itemize}
-}  % end \small
-
-The case studies are presented in the same order as Table~\ref{tab:app-centric-studies-research-perspective} for the app-centric cases and then Table ~\ref{tab:tool-centric-studies-research-perspective} for the tool-centric cases. The app-centric case studies are split into two groups, the first do not have interventions (Sections \ref{case-study-overview-gtaf}, \ref{case-study-overview-localhalo}, \ref{case-study-overview-moodspace}, \ref{case-study-overview-moonpig}, and \ref{case-study-overview-smartnavi}) the second group do (Sections \ref{case-study-overview-kiwix}, \ref{case-study-overview-catrobat}, \ref{case-study-overview-C1}).
 
 \clearpage
 
@@ -1009,37 +1008,42 @@ Discuss the success factors, what led to the material improvements, and also the
 The app-centric case studies provided various vectors into a rich and complex area, however as they were all for real world apps in production there were many aspects that did not occur during any of these case studies. During the research there were various field experiments incorporated into the research. These are broadly in three areas:
 
 \begin{enumerate}
-    \item Creating small experiments in the form of Android apps that exercised at least one mobile analytics service.
-    \item Contributing to opensource mobile analytics projects.
-    \item Research into logging performed by Android app developers and the development of software utilities to further that research.
+    \itemsep0em
+    \item Creating small experiments in the form of Android apps that exercised at least one mobile analytics service (Section \ref{section-small-experimental-android-apps}).
+    \item Contributing to opensource mobile analytics projects (Section \ref{section-contributions-to-opensource-mobile-analytics-projects}).
+    \item Research into logging performed by Android app developers and the development of software utilities to further that research (Section \ref{section-android-log-centric-experiments}). 
 \end{enumerate}
 
+These are followed by research into analysis of the source code of 107 Android apps to learn how developers use Firebase Analytics, more details in Section \ref{section-sourcecode-analysis-to-augment-app-centric-case-studies}.
 
-\subsection{Dynamic tests to increase coverage of mobile analytics services}
+\subsection{Dynamic tests to increase coverage of mobile analytics services}~\label{section-small-experimental-android-apps}
 Various tests were performed to augment the app-centric case studies. The tests were packaged as several, small, experimental Android apps; they are not currently intended to go into general release.
 
 \begin{itemize}
+    \itemsep0em
     \item zipternet: \url{https://github.com/ISNIT0/zipternet}
     \item idot: \url{https://github.com/commercetest/idot} (access currently available upon request)
     \item AndroidCrashDummy: \url{https://github.com/ISNIT0/AndroidCrashDummy}
 \end{itemize}
 
-\subsection{Contributions to opensource mobile analytics projects}
+\subsection{Contributions to opensource mobile analytics projects}~\label{section-contributions-to-opensource-mobile-analytics-projects}
 Projects that are opensourced are not necessarily easy to contribute to, there may be various hurdles and sufficient delays to dissuade the majority of developers from actually contributing to those projects. These field experiments were opportunistic in that they emerged as part of the reset of the research, nonetheless they are realistic as they included real-world improvements to those mobile analytics projects and the respective development teams reviewed and approved the contributions.
 
 \begin{itemize}
+    \itemsep0em
     \item PostHog: Two commits to improve the documentation \url{https://github.com/PostHog/posthog.com/commits?author=julianharty}.
     \item Sentry: Improved the onboarding documentation \url{https://github.com/getsentry/sentry-docs/commits?author=julianharty}.
 \end{itemize}
 
 
-\subsection{Android log-centric experiments}
+\subsection{Android log-centric experiments}~\label{section-android-log-centric-experiments}
 Mobile analytics provides mechanisms developers can use to perform implicit and explicit logging where the logs are generated at runtime when the app is being used. This section provides an overview of the log-centric experiments and their related opensource projects; and the next section includes analysis of 107 opensource Android apps that use Firebase Analytics for logging. (\secref{section-sourcecode-analysis-to-augment-app-centric-case-studies}). 
 
 The experiments extracted Android logging statements and then analysed them. This work was complemented with creating Assert statements that automated tests could use to check whether expected log messages had been emitted into the Android log.
 
 The related opensource projects are:
 \begin{itemize}
+    \itemsep0em
     \item Automated tests for Android log messages: \url{https://github.com/ISNIT0/AndroidLogAssert}
     \item Log Searcher \url{https://github.com/ISNIT0/log-searcher}
     \item Logcat filter and analysis tool: \url{https://github.com/ISNIT0/logcat-filter}
@@ -1057,9 +1061,17 @@ The related opensource projects are:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{TODO integrate the relevant content from \texttt{empirical-studies/logging-case-studies}}
 
+Sections \ref{case-study-overview-gtaf} to \ref{case-study-overview-moonpig} presents four app-centric case studies where the developers were asked of their experiences of using mobile analytics. This work complemented that research by investigating the source code of 107 opensource projects for active Android apps where the source code was freely available on GitHub. 
 
+What these 107 projects had in common was they used recent releases of Firebase Analytics. 50 of these simply initialised the SDK and did not include any custom calls to the SDK, the remaining 57 did make custom calls. The analysis of the code was jointly performed with an international group of researchers and published in \citet{harty2021_logging_practices_with_mobile_analytics}. One of these 57 projects, Smartnavi (see Section \ref{case-study-overview-smartnavi}), also became an app-centric case study in that the developer was interviewed about their use of mobile analytics. 
+
+\subsection{Source code analysis: wish list}
+{\small
+\begin{itemize}
+    \item Of the 107 projects, find out which also used any form of crash analytics. This information would help provide insights into how many combined in-app analytics with crash reporting and therefore analysis of reliability/stability issues (the core of this thesis in terms of analytics).
+\end{itemize}
+}
 \clearpage
 
 %===================================================================
@@ -1430,16 +1442,26 @@ TBC when the next 3 chapters are written.
 
 %===================================================================
 
-\section{Miscellaneous sources of minor contributions}
+\section{Miscellaneous sources of minor contributions}~\label{section-case-study-misc-contributions}
 
-These include a project, EduVPN, and 6 more mobile analytics software, tools, and services: AppPulse Mobile, AppSee, Azetone, Countly, MixPanel, and PostHog.
+These include a project, EduVPN, and six more mobile analytics software tools and associated services: AppPulse Mobile, AppSee, Azetone, Countly, MixPanel, PostHog, and SegmentIO. For the first three of these I worked indirectly with the development team, evaluated the product and service and provided bug reports and other feedback. These engagements were part of my consulting work with and for what became HP Enterprise (and subsequently was acquired by MicroFocus). Some material has been published in \citet{harty_aymer_playbook_2016}.
+
+\begin{itemize}
+    \item AppPulse Mobile: an innovative mobile analytics service that automatically instrumented Android apps during the build process of that app. The service provided crash and performance reporting. It was developed by HP, it is now owned by MicroFocus. 
+    \item AppSee: the first of two `heatmapping' tools that included mobile analytics of the data collected by their in-app library. The company and their products were acquired and are no longer available.
+    \item Azetone: the second of the two `heatmapping' tools. Their online presence indicates they continue to provide a similar product and service.
+    \item Countly: one of the early opensource mobile analytics offerings, they offered a relatively simple complete end-to-end package with the client-side SDK and server.
+    \item MixPanel: an early closed-source mobile analytics offering.
+    \item SegmentIO: another long-term opensource mobile analytics offering, acquired in 2020 by Twilio. Their source code and issues database include various useful exemplary examples. 
+\end{itemize}
 
 \clearpage
 
 %===================================================================
 
 \section{Summary of the case studies overview}~\label{case-study-overview-summary}
-TBC.\pending{To complete once the rest of the contents have been added to this chapter.}
+This chapter covered a lot of ground. In summary the research includes learning how mobile analytics tools are used from the developers' perspective, some action research, software experiments, and analysis of Android apps that use the most popular mobile analytics service: Firebase Analytics. It then introduces tool centric case studies and finally miscellaneous additional sources of research material.
 
-Introduce the next three chapters and their connections to the six perspectives and to each other (they may cross-reference e.g. in their respective discussion section).
-% Excluded from this chapter are: the NlNet Android app for EduVPN and the discussion with Sunil on a bank in Australia.
+The next three chapters are a set and structured around the six perspectives. They provide findings aligned with three distinct focal points: first the processes used by app developers; second the products of their work, particularly in terms of improving the product artefacts. The third chapter in the set focuses on the mobile analytics tools and related services. Each chapter considers the status-quo and improvements to the status-quo. Sometimes they build on work presented in another of this set of chapters, for example they may cross-reference e.g. in their respective discussion section.
+
+% Excluded from this chapter : the discussion with Sunil on a bank in Australia.
