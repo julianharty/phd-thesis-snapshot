@@ -19,5 +19,16 @@ Why some projects stopped using pre-launch reports: c.f. the Google bug. TODO ad
 Pocket Code incorporated in-app mobile analytics that recorded both crashes and errors (generally these errors are exceptions that \textit{are} caught and handled by the app) the case study provided the opportunity to study Fabric Crashlytics and to enable its outputs to be compared and contrasted with those from Google Play Console with Android Vitals. \textbf{TODO} discuss the differences.
 
 
+\section{Improvements to Google Play Console with Android Vitals}
+
+Direct quotes from the CTO of Moodspace (June 2019): \emph{``As for several things I think are missing:''}
+\begin{itemize}
+    \item \textit{``A gradle plugin to integrate play store uploading into CI processes. I currently use a 3rd party plugin to do this, but it would feel a little more secure if it came from Google.''}
+    \item \textit{``Top line core vitals figures even if you don't have enough users!''}
+    \item \textit{``Someway for testers to download old apks from either internal app sharing, or the internal release track.''}
+\end{itemize}
+
+And \emph{``Crashlytics only covers the crash report of Android vitals, so unfortunately there's no way to get things like battery usage of ANR reports unless Google makes those reports available :(. In terms of crashes, I'd always prefer Crashlytics to Android vitals, simply because there are added features like non-fatal reporting and logs which can make surfacing the cause of errors much easier (but do take need added effort to integrate compared to android vitals).''}
+
 \section{Summary of tools and their artefacts}
 TBC

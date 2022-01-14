@@ -120,11 +120,10 @@ The data was collected from four primary sources: 1) an online, \textit{pre-stud
     \begin{tabular}{p{2.4cm}p{2.4cm}r>{\raggedright}p{2.4cm}>{\raggedright}p{3cm}>{\raggedright\arraybackslash}p{2.5cm}}
         Data Source & Records & Volumes & Analysis method &Contribution & Remarks \\
         \toprule
-         Interview with core developer & contemporaneous notes\footnotemark & 1 & Ask the app devs & Set scope \& direction & Online call \\
-         Google Play Console with Android Vitals &Interactive screenshots \& Vitals-scraper outputs &10\textsuperscript{1} & Beacon finding, drill down, across case comparisons, observation \& analysis. & Indications of the development team's attention to the crash rate, insights into the performance of their apps, corroboration of findings across various case studies. &  \\         
-         email conversations & GMail & 10\textsuperscript{1} & Ask the app devs & Feedback, and sense-making.  &  \\
-         Public GitLab & Issues  & 10\textsuperscript{2} & Observation and Analysis, analysis of development artefacts. & Corroboration of what the development team say they do in terms of using mobile analytics. &  \\
-
+         Pre-study interview, with core developer & contemporaneous notes\footnotemark & 1 & Ask the app devs & Set scope \& direction & Online call \\
+         Analytics tools \& artefacts &Interactive screenshots \& Vitals-scraper outputs &10\textsuperscript{1} & Beacon finding, drill down, across case comparisons, observation \& analysis. & Indications of the development team's attention to the crash rate, insights into the performance of their apps, corroboration of findings across various case studies. & Google Play Console with Android Vitals. \\         
+         Mid-study communications with developers & GMail & 10\textsuperscript{1} & Ask the app devs & Feedback, and sense-making.  & Email conversations. \\
+         Development artefacts  & Issues & 10\textsuperscript{2} & Observation and Analysis, analysis of development artefacts. & Corroboration of what the development team say they do in terms of using mobile analytics. & Public GitLab repo. \\
          \bottomrule
     \end{tabular}
     \caption{GTAF: data sources}
@@ -258,11 +257,11 @@ This case study combines three immediate sources of data with automatically prov
     \begin{tabular}{p{2.4cm}p{2.4cm}r>{\raggedright}p{2.4cm}>{\raggedright}p{3cm}>{\raggedright\arraybackslash}p{2.5cm}} % Fixed thx to https://tex.stackexchange.com/a/467120/88466
         Data Source & Records & Volumes & Analysis method & Contribution & Remarks \\
         \toprule
-         1-to-1 meetings with founders & contemporaneous notes\footnotemark & 3 & Ask the app devs. & Set scope and direction & 1 was in-person, 2 were online \\
-         email conversations & GMail & 10\textsuperscript{1} & Ask the app devs. & Insight into the Expo bug & Initiated by the researcher. \\
-         Google Play Console with Android Vitals &Interactive screenshots \& Vitals-scraper outputs &10\textsuperscript{1} & Beacon finding, drill down, across case comparisons, observation \& analysis. & Insight into the reporting effects of the Expo bug and the reporting provided for React-Native apps &  \\
-         Sentry & Interactive screenshots & 10\textsuperscript{1} & Beacon finding, drill down, across \textit{tool} comparisons\footnotemark, observation \& analysis. & Insights into Sentry's reporting & Access continued until Sentry removed multi-account access from their free tier. \\
-         Sentry automated emails &GMail & 10\textsuperscript{2} & Beacon finding, drill down, observation and analysis. & Insights into Sentry's reporting, dev practices, \& cross-platform reporting & \textit{ditto.} NB: they continue to send weekly reports by email. \\
+         Pre-study interviews & contemporaneous notes\footnotemark & 3 & Ask the app devs. & Set scope and direction & 1-to-1 meetings with founders: 1 was in-person, 2 were online. \\
+         Mid-study communications with developers & GMail & 10\textsuperscript{1} & Ask the app devs. & Insight into the Expo bug & Initiated by the researcher. \\
+         Analytics tools \& artefacts &Interactive screenshots \& Vitals-scraper outputs &10\textsuperscript{1} & Beacon finding, drill down, across case comparisons, observation \& analysis. & Insight into the reporting effects of the Expo bug and the reporting provided for React-Native apps & Google Play Console with Android Vitals. \\
+         Analytics tools \& artefacts & Interactive screenshots of the Sentry GUI & 10\textsuperscript{1} & Beacon finding, drill down, across \textit{tool} comparisons\footnotemark, observation \& analysis. & Insights into Sentry's reporting & Access continued until Sentry removed multi-account access from their free tier. \\
+         Analytics tools \& artefacts & Sentry automated emails in GMail & 10\textsuperscript{2} & Beacon finding, drill down, observation and analysis. & Insights into Sentry's reporting, dev practices, \& cross-platform reporting & \textit{ditto.} NB: they continue to send weekly reports by email. \\
          \bottomrule
     \end{tabular}
     \caption{LocalHalo: data sources}
@@ -307,7 +306,7 @@ Moodspace is an Android app aimed at improving mental health through various exe
 % -- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8529472/ (and the DOI https://mhealth.jmir.org/2021/10/e26712 )
 % -- The following paper explains the needle-in-a-haystack challenge of establishing the evidence for this and similar apps https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7588098/
 % It also features online e.g. in https://www.healthfoundry.org/covid-19-response 
-It was released in 2019, with over 150K downloads by early 2020~\citep{objectbox2020_moodspace_interview}. Ian Alexander, the interviewee, was the software developer, co-founder, and runner of the company~\citep{objectbox2020_moodspace_interview} so he combined technical and operational responsibilities. He is an experienced app developer and also trained as a chemical engineer.
+It was released in 2019, with over 150K downloads by early 2020~\citep{objectbox2020_moodspace_interview}. Ian Alexander, the interviewee, was `the software developer, co-founder, and runner of the company'~\citep{objectbox2020_moodspace_interview} so he combined technical and operational responsibilities. He is an experienced app developer and also trained as a chemical engineer.
 
 {\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table}[htbp!]
@@ -354,14 +353,14 @@ A practitioner recommended me and my research to the co-founder and CTO of Moods
     \item Exploration and selection: Moodspace was one of several Android apps developed by the CTO and in a new application domain of health. 
     \item Engagement: The CTO was happy to answer questions and send a subset of pertinent information, his business responsibilities meant he was cautious about providing direct access to the analytics or development artefacts. 
     \item The action research stage: limited to analysis of ObjectBox in addition to learning how the project used mobile analytics.
-    \item \textit{Post-hoc} analysis: similarly constrained by the limited access to artefacts, some follow up on research into this app and similar apps in terms of their efficacy.
+    \item \textit{Post-hoc} analysis: similarly constrained by the limited access to artefacts, there was some follow up on research into this app and similar apps in terms of their efficacy in terms of mental health.
     \item Wrap-up: followed up with the CTO in late 2019 who was actively focusing on fund-raising. There was nothing else to wrap-up.
 \end{enumerate}
 }
 
 
 \subsection{Moodspace: Development microcosm}
-Ian chose to use an in-memory ORM database, objectbox. In his words: 
+The CTO was the sole developer. He actively developed the app to be performant, and chose to use an in-memory ORM database, objectbox to ensure the app was responsive for end users. In his words: 
 
 \begin{quote}
 \emph{``The app doesn't use any API, so all the data's stored in very fast ORM databases like object-box (and uses memory caching). This enables the app to be mostly synchronous, which hugely cuts down on complexity of code. i.e. no need to handle loading, errors, or concurrency. This is a big benefit! And cuts down on errors significantly, with no real impact on performance for users. To illustrate that it has little impact on users, I use firebase performance to run a trace on some methods that call the ORM/cache - it's peak duration is 40ms while the majority of calls take 3-6 ms."} (email correspondence, lightly edited to fix typos and improve readability)\improvement{Relocate this comment to the methodology chapter if I provide other edited extracts from emails.}.    
@@ -371,7 +370,7 @@ Ian chose to use an in-memory ORM database, objectbox. In his words:
 At the time of the interview the team had developed a complete replacement for the Android app which was due to be launched in a couple of months (around August 2019).
 
 \subsection{Moodspace: Experiences of using mobile analytics}
-The app included both Firebase Analytics and Firebase Crashlytics. The discussion covered Firebase Crashlytics and Google Play Console with Android Vitals, Firebase Analytics was not mentioned by Ian. Details of their use are covered in the \nameref{chapter-analytics-in-use} chapter.
+The app included both Firebase Analytics and Firebase Crashlytics. The discussion covered Firebase Crashlytics and Google Play Console with Android Vitals, Firebase Analytics was not mentioned by the CTO. Details of their use are covered in the \nameref{chapter-analytics-in-use} chapter. They used Crashlytics in preference to Android Vitals, however as part of the interview the CTO noticed Android Vitals had reported an ANR which he believed he should and could fix. He suggested several desirable improvements for Google Play Console with Android Vitals, these will be discussed in the \nameref{chapter-tools-and-their-artefacts} Chapter.
 
 The current privacy policy for the Moodspace app confirms they actively use mobile analytics in the app: 
 
@@ -385,26 +384,29 @@ The current privacy policy for the Moodspace app confirms they actively use mobi
 }
 
 \subsection{Moodspace: Data collected and methods used for collection}
-The main source of data are emails from Ian, the CTO, the emails included extracts of screenshots from their Google Play Console with Android Vitals. These were supplemented with some additional research online using grey literature and grey data; Table~\ref{tab:moodspace-data-sources} provides additional details of the data sources used.
+The main source of data are emails from the CTO which included extracts of screenshots from their Google Play Console with Android Vitals. These were supplemented with some additional research online using grey literature and grey data; Table~\ref{tab:moodspace-data-sources} provides additional details of the data sources used.
 
 \begin{table}
     \centering
     \footnotesize
     \tabcolsep=0.12cm
-    \begin{tabular}{p{2.3cm}p{2.1cm}r>{\raggedright}p{2.4cm}>{\raggedright}p{2.8cm}>{\raggedright\arraybackslash}p{3.2cm}}
+    \begin{tabular}{p{2.3cm}>{\raggedright}p{2.1cm}r>{\raggedright}p{2.4cm}>{\raggedright}p{2.8cm}>{\raggedright\arraybackslash}p{3.2cm}}
         Data Source & Records & Volumes & Analysis method & Contribution & Remarks \\
         \toprule
-         email conversations & GMail & 10\textsuperscript{1} & Ask the app devs. & Effectively the interview, albeit using emails.  & We ended up simply using emails rather than arranging a synchronous call.  \\
-         Google Play Console with Android Vitals &Interactive screenshots & 6 & Ask the app devs. & Evidence, and allows for comparisons. &  \\
-         Twitter &Tweets & 3 & Grey Data & Triangulation & The app was made fully free in response to the Covid-19 pandemic. \\
-         via Google Search &Peer reviewed publications & 3 & Secondary research. &Additional context &The app has been studied in various peer-reviewed papers. \\ 
-         Exodus Privacy Project & Online reports & 4 & Grey Data & Details of mobile analytics integrated into the app & Their 4 snapshots indicate a variety of mobile analytics have been incorporated~\footnotemark. \\
+         Pre-study interview \&Mid-study communications with developers & GMail & 10\textsuperscript{1} & Ask the app devs. & Effectively the interview, albeit using emails.  & We ended up simply using emails rather than arranging a synchronous call and then continued the discussion using email.  \\
+         Analytics tools \& artefacts &Interactive screenshots & 6 & Ask the app devs. & Evidence, and allows for comparisons. & Google Play Console with Android Vitals \\
+         Grey Data &Tweets & 3 & Grey Data & Triangulation & The app was made fully free in response to the Covid-19 pandemic. \\
+         \textit{Academic} Literature  &Peer reviewed publications & 3 & Secondary research. & Additional context & The app has been studied in various peer-reviewed papers.\footnotemark \\
+         Grey Literature &Online articles & 10\textsuperscript{1} & Secondary research & Additional context & There are various discussions about the efficacy and suitability of this and similar apps. \\
+         Development artefacts\footnotemark & Exodus Privacy project online reports & 4 & Grey Data & Details of mobile analytics integrated into the app & Their 4 snapshots indicate a variety of mobile analytics have been incorporated~\footnotemark. \\
          \bottomrule
     \end{tabular}
     \caption{Moodspace: data sources}
     \label{tab:moodspace-data-sources}
 \end{table}
 
+\footnotetext{Interestingly standard Google Search finds peer reviewed papers that \textit{contain} the name of the app, whereas Google Scholar \url{https://scholar.google.com/} struggles to find them.}
+\footnotetext{TBA how to classify Exodus Privacy and similar services that analyse app binaries. For the moment, development artefacts seems to be the best match of the existing data sources.}
 \footnotetext{\url{https://reports.exodus-privacy.eu.org/en/reports/search/boundless.moodgym/}}
 
 
@@ -483,16 +485,19 @@ One of the developers of the Android app learned about this research and offered
     \item Exploration and selection: A highly popular Android app for a profitable e-commerce business that was developed by a team passionate about delivering an excellent quality app and service made the case study compelling. They also used Firebase Analytics actively and extensively. 
     \item Engagement: Clearance was obtained from senior management for the research and they gave permission to use the outputs and findings. Their developer had permission to discuss and share their use of mobile analytics. 
     \item The action research stage: various in-person discussions about their use of mobile analytics and how they handled sporadic peaks in failures.
-    \item \textit{Post-hoc} analysis: this case study set the high-watermark for other case studies in terms of the reliability of complex Android apps and how the development team actively addressed the sporadic issues. 
+    \item \textit{Post-hoc} analysis: this case study set the high-watermark among the app-centric case studies in terms of the reliability of complex Android apps and how the development team actively addressed the sporadic issues. 
     \item Wrap-up: Permission was sought for some additional updates but declined for business reasons at the time and post IPO.
 \end{enumerate}
 }
 
 
 \subsection{Moonpig: Development microcosm}
+The software development department demonstrated high performance engineering in how they approached both public contributions, for instance through hosting Coding DoJos, and in terms of their use of mobile analytics to quickly triage and address pertinent issues.
+
 The engineering organisation consisted of various teams, including a team for the Android app. At the time of the case study, the Android app combined several generations of their architecture and used various third-party libraries. One of these third-party libraries, Robospice, led to a higher crash rate for their Android app on newer releases of Android. The details are discussed in the \nameref{chapter-analytics-in-use} chapter.\pending{Add forward link once I've incorporated the material into that chapter.}
 
-Their software engineering team have been actively involved in encouraging the wider software engineering community to learn and practice good software development practices, for example by hosting Coding DoJos~\footnote{Historical examples available online on twitter \url{https://mobile.twitter.com/moonpigtech} and in a \href{https://www.codurance.com/publications/newsletters/2020-02-13-newsletter}{Codurance newsletter} from February 2020, for example.}. They practiced similar software development practices when developing their production software.
+Their software engineering team have been actively involved in encouraging the wider software engineering community to learn and practice good software development practices, for example by hosting Coding DoJos~\footnote{Historical examples available online on twitter \url{https://mobile.twitter.com/moonpigtech} and in a \href{https://www.codurance.com/publications/newsletters/2020-02-13-newsletter}{Codurance newsletter} from February 2020, for example.}. They practiced similar software development practices when developing their production software, for instance in applying Acceptance Test Driven Development (ATDD)~\citep{man2021_moonpig_atdd_part1}.
+% If I need more references to grey literature then incorporate https://medium.com/moonpigtech/working-remotely-as-a-high-performance-engineering-team-at-moonpig-957b267de1d4 and https://medium.com/moonpigtech/introducing-the-moonpig-engineering-blog-c3fde37f06bd for their microsservice(s) architecture.
 
 \subsection{Moonpig: Experiences of using mobile analytics}
 The development team use Firebase Crashlytics and Google Analytics for diagnostics in addition to the information available in Android Vitals; and estimated they used Android Vitals approximately 30\% of their time to identify flaws and issues related to their Android app.
@@ -504,19 +509,19 @@ Their Android app had one of the highest stability scores, details are in the \n
 \subsection{Moonpig: Data collected and methods used for collection}
 The data was collected though a mix of in-person and online working sessions together with various email conversations. Screenshots and other materials were emailed by the developer to the researcher. 
 %
-The developer also ran Vitals Scraper to help evaluate whether it worked beyond the local use as part of various case studies. They sent the JSON results containing the crash clusters collected by Vitals Scraper. Additional details are in Table~\ref{tab:moonpig-data-sources}.
+The developer also ran Vitals Scraper\pending{Add cross-reference once I've relocated the content on Vitals Scraper.} to help evaluate whether it worked beyond the local use as part of various case studies. They sent the JSON results containing the crash clusters collected by Vitals Scraper. Additional details are in Table~\ref{tab:moonpig-data-sources}.
 
 \begin{table}
     \centering
     \footnotesize
     \tabcolsep=0.12cm
-    \begin{tabular}{p{2.2cm}p{2.3cm}r>{\raggedright}p{2.1cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{4cm}}
+    \begin{tabular}{p{2.6cm}p{2.9cm}r>{\raggedright}p{2.1cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{3cm}}
         Data Source & Records & Volumes & Analysis method & Contribution & Remarks \\
         \toprule
-         Interviews \& walkthroughs & contemporaneous notes & 10\textsuperscript{1} & Ask the app devs & Multiple insights & A mix of in-person and video calls.  \\
-         Email conversations & GMail & 10\textsuperscript{2} & Ask the app devs & Cross-checking understanding, additional insights & Helped support published research. \\
-         Google Play Console with Android Vitals &Interactive screenshots \& Vitals-scraper outputs &10\textsuperscript{1} & Sensemaking, ask the app devs. & External verification of vials-scraper & They ran vitals-scraper to evaluate whether it worked for other people. \\
-         Firebase Analytics & Interactive screenshots & 3 & Ask the app devs & Comparison of crash reporting in two mobile analytics tools. & Screenshots from Firebase Analytics and Android Vitals provided an opportunity to compare their outputs. \\
+         Pre-study interviews, mid-study communications with developers, \& walkthroughs & Contemporaneous notes & 10\textsuperscript{1} & Ask the app devs & Multiple insights & A mix of in-person meetings and video calls.  \\
+         Mid-study communications with developers & GMail & 10\textsuperscript{2} & Ask the app devs & Cross-checking understanding, additional insights & Email conversations that helped support published research. \\
+         Analytics tools \& artefacts &Interactive screenshots from Google Play Console with Android Vitals \& Vitals-scraper outputs &10\textsuperscript{1} & Sensemaking, ask the app devs. & External verification of vials-scraper & They ran vitals-scraper to evaluate whether it worked for other people. \\
+         Analytics tools \& artefacts & Interactive screenshots from Firebase Analytics & 3 & Ask the app devs & Comparison of crash reporting in two mobile analytics tools. & Screenshots from Firebase Analytics and Android Vitals provided an opportunity to compare their outputs. \\
          \bottomrule
     \end{tabular}
     \caption{Moonpig: data sources}
@@ -601,10 +606,10 @@ The app was one of the opensource codebases investigated as part of my collabora
 
 
 \subsection{Smartnavi: Development microcosm}
-The project's creator developed the app as part of his bachelors and masters degrees in Germany. He continued to develop and maintain it afterwards. The project does not have any automated tests, he tests the app interactively. % The project is unusual as, according to Christian, it provides a test bed for students at at least one German University researching Marketing, sadly I can't find any public references to this.
+The project's creator developed the app as part of his bachelors and masters degrees in Germany. He continued to develop and maintain it afterwards. The project does not have any automated tests, instead he tests the app interactively. % The project is unusual as, according to Christian, it provides a test bed for students at at least one German University researching Marketing, sadly I can't find any public references to this.
 
 \subsection{Smartnavi: Experiences of using mobile analytics}
-Mobile Analytics are used for several purposes including A/B experiments using Firebase Analytics and Crashlytics for crash reporting. Several years ago (probably 2016) he spent a lot of time where he actively focused on fixing crashes being reported in Fabric Crashlytics (since superseded by Firebase Crashlytics). The few crashes that remain are ones either too impractical to investigate (e.g. on a few unbranded low-end Android devices he has no access to) or in a third-party library that only occurs again on a few unusual devices.
+Mobile Analytics are used for several purposes including A/B experiments using Firebase Analytics and Crashlytics for crash reporting. Several years ago (probably 2016) the developer spent a lot of time where he actively focused on fixing crashes being reported in Fabric Crashlytics (since superseded by Firebase Crashlytics). The few crashes that remain are ones either too impractical to investigate (e.g. on a few unbranded low-end Android devices he has no access to) or in a third-party library that only occurs again on a few unusual devices.
 
 \subsection{Smartnavi: Data collected and methods used for collection}
 Source code on GitHub analysed before and during the case study. Contemporaneous notes and email discussion. These are summarised in Table~\ref{tab:smartnavi-data-sources}.
@@ -616,19 +621,19 @@ Exodus Privacy confirms two analytics libraries are included: Firebase Analytics
     \centering
     \footnotesize
     \tabcolsep=0.12cm
-    \begin{tabular}{p{4cm}p{2.4cm}r>{\raggedright}p{2.1cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{1.2cm}}
+    \begin{tabular}{>{\raggedright}p{3cm}p{2.4cm}r>{\raggedright}p{2.1cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{2.2cm}}
         Data Source & Records & Volumes & Analysis method & Contribution & Remarks \\
         \toprule
-        {\tiny \href{https://github.com/Phantast/smartnavi}{github.com/Phantast/smartnavi}} & Sourcecode & \href{https://github.com/Phantast/smartnavi/commits/master}{92 commits} & Code analysis & Understanding their use of Firebase and Crashlytics & \\
-         Interview & contemporaneous notes & 1 & Ask the app devs & Insights into the project \& their use of mobile analytics & Online  \\
-         email conversations & GMail & 10\textsuperscript{1} & Ask the app devs & Discussion on the migration to Firebase Crashlytics &  \\
+        Development artefacts & Sourcecode\footnotemark & \href{https://github.com/Phantast/smartnavi/commits/master}{92 commits} & Code analysis & Understanding their use of Firebase and Crashlytics & \\
+         Pre-study interviews & contemporaneous notes & 1 & Ask the app devs & Insights into the project \& their use of mobile analytics & Online interview. \\
+         Mid-study communications with developers & GMail & 10\textsuperscript{1} & Ask the app devs & Discussion on the migration to Firebase Crashlytics & Email conversations. \\
          \bottomrule
     \end{tabular}
     \caption{Smartnavi: data sources}
     \label{tab:smartnavi-data-sources}
 \end{table}
 
-
+\footnotetext{\url{https://github.com/Phantast/smartnavi}}
 
 \subsection{Smartnavi: Intervention}
 None: the Smartnavi case study did not include a formal intervention.
@@ -719,7 +724,7 @@ The codebase and development artefacts are all opensource, much of the communica
 
 The project uses free-to-use services, for instance GitHub (and previously SourceForge) for the codebases. The Continuous Build service was Travis-CI at the time of the case study (since replaced by GitHub Actions) and the project had a free to use account on the BitBar device testing farm~\footnote{\url{https://bitbar.com/}}. The code base included a mix of unit tests and automated app tests. In short, the project used relatively well honed and complete tools and practices to manage their codebase, software contributions, perform code quality checks and run the automated tests on both virtual and actual Android devices.
 
-At the start of the case study there were two parallel releases in progress, the production 2.x release and a planned 3.0 release.
+At the start of the period covered by the case study there were two parallel releases in progress, the production 2.x release and a planned 3.0 release.
 
 One of the many benefits of the project’s openness is the visibility into the developers who have developed and maintained the source code \url{https://github.com/kiwix/kiwix-android/graphs/contributors}. Many of the contributors joined as volunteers through Google Summer of Code~\citep{google_summer_of_code} or Google Code-in \url{https://codein.withgoogle.com/archive/}~\footnote{Google Code-in was shutdown and the history archived by Google in 2020.}, and several of these became core contributors for a year or more, and some of these now work for leading technology businesses. There have been occasional contributions from Google software developers who volunteer their time.
 
@@ -733,18 +738,22 @@ The development artefacts including the codebase \url{https://github.com/kiwix/k
     \centering
     \footnotesize
     \tabcolsep=0.12cm
-    \begin{tabular}{p{4cm}p{2.4cm}r>{\raggedright}p{2.1cm}>{\raggedright}p{2.2cm}>{\raggedright\arraybackslash}p{2.5cm}}
+    \begin{tabular}{>{\raggedright}p{2.8cm}>{\raggedright}p{3.6cm}r>{\raggedright}p{2.1cm}>{\raggedright}p{2.2cm}>{\raggedright\arraybackslash}p{2.5cm}}
         Data Source & Records & Volumes & Analysis method & Contribution & Remarks \\
         \toprule
-         {\tiny \href{https://github.com/kiwix/kiwix-android/tree/develop}{github.com/kiwix/kiwix-android/tree/develop}} & Sourcecode & 10\textsuperscript{3} & Code analysis & History of commits with crash fixes &  \\
-         {\tiny https://github.com/kiwix/kiwix-android/issues} & Issues & 10\textsuperscript{3} & Artefact analysis & \\
-         Email conversations & GMail & 10\textsuperscript{1} & & Holistic discussion of the hackathon. &  \\
-         Google Play Console with Android Vitals &Interactive screenshots \& Vitals-scraper outputs &10\textsuperscript{2} & Sensemaking, ask the tool devs & Measured the ongoing improvements. & Outputs were discussed with Google Engineering. \\
+         Development artefacts & Sourcecode\footnotemark & 10\textsuperscript{3} & Code analysis & History of commits with crash fixes &  \\
+         Development artefacts & Issues\footnotemark & 10\textsuperscript{3} & Artefact analysis & \\
+         Pre-study interviews & GMail & 10\textsuperscript{1} & & Holistic discussion of the hackathon. & Email conversations \\
+         Field notes & contemporaneous notes & 10\textsuperscript{1} & Observation and Analysis & Reflections on the progress of this the first of the action research case studies. & \\
+         Analytics tools \& artefacts &Interactive screenshots from Google Play Console with Android Vitals \& Vitals-scraper outputs &10\textsuperscript{2} & Sensemaking, ask the tool devs & Measured ongoing improvements. & Outputs were discussed with Google Engineering. \\
          \bottomrule
     \end{tabular}
     \caption{Kiwix: data sources}
     \label{tab:kiwix-data-sources}
 \end{table}
+
+\footnotetext{\url{https://github.com/kiwix/kiwix-android/tree/develop}}
+\footnotetext{\url{https://github.com/kiwix/kiwix-android/issues}}
 
 
 \subsection{Kiwix: Intervention}
@@ -771,7 +780,9 @@ TBC where they are located in the rest of this thesis.
 %===================================================================
 
 \section{Catrobat}~\label{case-study-overview-catrobat}
-The Catrobat project was created and is actively developed by a team in the Graz University of Technology, Austria~\footnote{\url{https://www.tugraz.at/en/home/}}. It consists of the flagship Pocket Code app, several custom branded derivatives, and the increasingly popular Pocket Paint app which emerged from the Pocket Code app where it remains as a subset of the overall Pocket Code's functionality. 
+The Catrobat project was created and is actively developed by a team in the Graz University of Technology, Austria~\footnote{\url{https://www.tugraz.at/en/home/}}. It consists of the flagship Pocket Code app, several custom branded derivatives, and the increasingly popular Pocket Paint app which emerged from the Pocket Code app where it remains as a subset of the overall Pocket Code's functionality. The project started in 2010, has had over 1,300 contributors, 4 million downloads, and 350 thousand active users, and is used in 180+ nations in 60+ languages~\citep{catrobat_project}.
+
+The Android app in this case study is an extremely and unusually well researched and properly developed app and codebase.  There are at least 216 contributors for the Android Pocket Code app~\citep{github_catroid}.
 
 {\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table}[htbp!]
