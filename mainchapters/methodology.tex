@@ -188,7 +188,7 @@ Table~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various rese
         %(Integration and differentiation)    & & & & & & \\        
         (micro-experiments and macro-discoveries) & & & & & & \\
         Local App Experiments   &m &S &S &  &S &S \\
-        FOSS Contributions      &  &  &S &  &  &S \\
+        FOSS Analytics Experiments      &  &  &S &  &  &S \\
         Across Case Comparisons &S &m &S &S &m &m \\        
         
         \hline
@@ -220,7 +220,7 @@ Sense-making incorporates an iterative pattern of \textbf{beacon finding} to ide
 Comparisons were performed iteratively on an ongoing basis (for active apps the values are not constant). These comparisons included comparisons across releases, using different windows of time, on different dates, comparisons with peers, and so on.
 
 
-`\textbf{Sense-building}' methods build on insights found through sense-making. The research methods included micro-experiments, carried out on local apps (see page~\pageref{local-app-experiments-research-method}), FOSS contributions\unsure{Arosha's suggested alternative concepts of white and black box testing of the tools. I'm mulling these over. TBD.} (see page~\pageref{foss-contributions-research-methods}), and across case comparisons (see page~\pageref{across-case-comparisons-research-method}).
+`\textbf{Sense-building}' methods build on insights found through sense-making. The research methods included micro-experiments, carried out on local apps (see page~\pageref{local-app-experiments-research-method}), FOSS analytics experiments\unsure{Arosha's suggested alternative concepts of white and black box testing of the tools. I'm mulling these over. TBD.} (see page~\pageref{foss-contributions-research-methods}), and across case comparisons (see page~\pageref{across-case-comparisons-research-method}).
 
 Local app experiments (see page~\pageref{local-app-experiments-research-method}) were used to investigate detail and give insight into the relationships between tools, quality of analytics, and potential impact of analytics use on apps (i.e., perspectives \uartefacts, \utools, \iartefacts, \itools).
 
@@ -314,15 +314,15 @@ Here are 2 examples:  % Temporarily these are a list, they'll probably be embedd
 
 Note: it transpires that developers use a similar form of sense-making; this is discussed in \secref{sensemaking-and-decision-taking-by-developers-section}, starting on page \pageref{sensemaking-and-decision-taking-by-developers-section}.
 
-\clearpage
-\input{mainchapters/testing-mobile-analytics-on-a-continuum}
-\clearpage
+%\clearpage
+%\input{mainchapters/testing-mobile-analytics-on-a-continuum}
+%\clearpage
 
 \subsection{Sense-building}
-Sense-building moves beyond sense-making. Sense-making aims to understand \textit{what is}, while sense-building extends sense-making with direct action and more active research, for instance: to devise and run experiments to learn more about the behaviours of mobile analytics, and to seek patterns and generalisations across tools, and case studies. Two methods were used primarily in sense-building -- local app experiments and across-case comparisons -- together with a third method, \href{glossary-FOSS}{FOSS} contributions. 
+Sense-building moves beyond sense-making. Sense-making aims to understand \textit{what is}, while sense-building extends sense-making with direct action and more active research, for instance: to devise and run experiments to learn more about the behaviours of mobile analytics, and to seek patterns and generalisations across tools, and case studies. The main methods used for sense-building were local-app experiments, experimentation with \href{glossary-FOSS}{FOSS} analytics tools and across-case comparisons. 
 
 \subsubsection{Local-app experiments}~\label{local-app-experiments-research-method} 
-\textbf{Local app experiments} were used to \textit{test the understanding} of the relationships between the usage and the analytics through manipulations of apps and observation of the effects -- hence, the local app experiments were used to test some of the patterns identified in the inductive analysis. They consist of \textit{micro-experiments} involved creating and developing small mobile apps intended to exercise particular aspects of mobile analytics\footnote{Similar to the `invent the future' adage, for example: \url{https://quoteinvestigator.com/2012/09/27/invent-the-future/}}). The inputs to an app were directed in order to determine the outputs from mobile analytics. These helped to answer questions and gaps observed as part of sensemaking.  The local app experiments gave insight into the relationships between tools, quality of analytics, and potential impact of analytics use on apps (i.e., perspectives \uartefacts, \utools, \iartefacts, \itools). 
+\textbf{Local app experiments} were used to \textit{test the understanding} of the relationships between the usage and the analytics through manipulations of apps and observation of the effects -- hence, the local app experiments were used to test some of the patterns identified in the inductive analysis. They consist of \textit{micro-experiments} involved creating and developing small mobile apps intended to exercise particular aspects of mobile analytics\footnote{Similar to the `invent the future' adage, for example: \url{https://quoteinvestigator.com/2012/09/27/invent-the-future/}}). The inputs to an app were directed in order to determine the outputs from mobile analytics. This was essentially a form of black-box test, where the analytics tool being studied was the system under test (SUT). These micro-experiments helped to answer questions and gaps observed as part of sensemaking.  In particular, they provided insights into the relationships between tools, quality of analytics, and potential impact of analytics use on apps (i.e., perspectives \uartefacts, \utools, \iartefacts, \itools). 
 
 The apps that were developed as local-app experiments are small mobile apps and not intended for production use. They were developed in order to investigate the relationships between the inputs (such as usage) and the analytics outputs (such as reports) through deliberate manipulation of the inputs and observation of the consequences.  
 
@@ -334,9 +334,14 @@ Where practical the source code of these apps is made available under a permissi
 %\akb{Also explain how the results of these experiments connected to other parts of the method? e.g., did they change / add to the sense-making activities?}
 The results of the local app experiments helped augment the across-case experiments, particularly in terms of providing additional results to compare with those from the app case studies. They also informed discussions with the app and tool developers. 
 
-\subsubsection{FOSS contributions}~\label{foss-contributions-research-methods}
-\href{glossary-FOSS}{FOSS} contributions provided experimental evidence where contributions were offered to public repositories of opensource mobile analytics components to explore the repository's willingness to accept contributions and its process for doing so. The contributions were each intended to improve one or more elements of the respective codebase and thereby improve the respective product offering. They were small in size and made on an \emph{ad-hoc} rather than a systematic~\footnote{While systematic contributions may be a valid approach to research this topic, it was not core to this research.} basis.
+\subsubsection{FOSS analytics experiments}~\label{foss-contributions-research-methods}
+\href{glossary-FOSS}The research carried out experiments on {FOSS} analytics tools to gather evidence on how these tools worked. Additionally, these experiments explored the processes used by the relevant FOSS projects to accept and adopt contributions that aimed to improve one or more elements of the respective codebase and thereby improve the respective analytics product offering.
 
+As the research had access to the source code of the tools studied, the investigation of how these analytics tools worked can be considered to be a form of white box testing, where simple apps were used as test drivers to exercise the functionality of the analytics components. The exploration of the project processes for adopting changes were more like grey box tests as there was only partial visibility of the dynamics of the relevant project teams. 
+
+The FOSS analytics experiments were relatively small in scope and made on an \emph{ad-hoc} rather than a systematic~\footnote{While systematic contributions may be a valid approach to research this topic, it was not core to this research.} basis.
+
+\akb{Add table listing analytics tools studied and whether they were subject to black box, white box or grey box testing}
 
 \subsubsection{Across-case comparisons}~\label{across-case-comparisons-research-method}
 \textit{Across-case comparisons} were concerned largely with understanding current practice and identifying potential improvements to practice (i.e., perspectives \uuse and \iuse), as well as the influence of the quality of tools in practice (\itools). This method draws on the approach discussed in \citet[pp. 567-569]{seaman1999_qualitative_methods_in_esse}, \textit{e.g.} to compare pairs of case studies to determine variations and similarities, with the additional considerations of seeking areas of potential improvements based on findings from the various case studies.
