@@ -1,0 +1,22 @@
+\section{Analysis of my evidence and findings}
+
+\subsection{Spreadsheet formulae}
+
+\begin{table}
+    \centering
+    \small
+    \begin{tabular}{c|c}
+        \texttt{="Processes ("&COUNTA(D5:D1000)&")"}  & Adds counts to column headers \\
+        \texttt{=(COUNTUNIQUE(arrayformula(TRIM(split(ProcessThemes,",")))))-1} & Counts the unique tags used in a named range (a column - the header preamble) \\ 
+        \texttt{=COUNTIF(E5:E156, "*improve_engineering_practices*")} & A crude version of the formulae to check my matches seem sane. \\
+        \texttt{=(arrayformula(TRIM(split(ProcessThemes,","))))} & Copies the contents of a named range, splits multiple terms separated by commas, and trims the results. This creates a 2D set of results, processed by the following: \\
+        \texttt{=sort(filter(ARRAYFORMULA(UNIQUE(FLATTEN(A2:E113))),ARRAYFORMULA(UNIQUE(FLATTEN(A2:E113))<>"")))} & Collapses the 2D matrix into a single unique set of items, i.e. removes duplicate entries wherever they are found in the 2D area. \\
+        \texttt{=COUNTIF($A$2:$D$113, G3)} & Counts items that match the cell G3 (which is taken from a unique list generated earler). \\
+        
+    \end{tabular}
+    \caption{Google Spreadsheet formulae}
+    \label{tab:formulae-used-to-analyse-my-findings}
+\end{table}
+
+\subsection{External sources of information}
+\url{https://stackoverflow.com/questions/18343969/count-number-of-occurrences-based-on-2-conditions-or-regexp}
