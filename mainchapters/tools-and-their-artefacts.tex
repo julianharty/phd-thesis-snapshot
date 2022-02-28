@@ -14,6 +14,24 @@ The GTAF project uses pre-launch reports (an intrinsic part of Google Play Conso
 
 Why some projects stopped using pre-launch reports: c.f. the Google bug. TODO add link to the issue on Google and add supporting text.
 
+\section{Flaws in the mobile analytics tools and/or services}
+
+Since 2011, Google has published a list of various changes and corrections to Google Play Console~\citep{google_play_troubleshoot_app_statistics_problems}. During this research numerous additional were discovered that were not published by Google even though their engineering team acknowledged many of these flaws (they chose not to respond to the rest of the flaws). 
+
+\section{Integration and the useful half-life of mobile analytics outputs}
+Web-scraping of content from web-sites continues to be a frequent activity performed by many people and services. Web-scraping is used in many fields including bioinfomatics, where the authors discussed why web-scraping was still necessary in a world full of API's~\citet{glez2014_web_scraping_in_an_API_world}. A more recent paper by~\citet{diouf2019_web_scraping_state_of_the_art_and_areas_of_application} briefly presents various inefficiencies in web scraping. Curiously this paper singles out journalism as an under-served area despite it being written about 7 years earlier in Chapter 4 of~\citet{gray2012_the_data_journalism_handbook} (and also covered in a more recent version of the book,~\citet[on pages 133, 238]{bounegru2021_the_data_journalism_handbook}. Suffice to say, web-scraping is a topic that has been written about, albeit not in the context of scraping content from mobile analytics web interfaces. 
+
+API access to mobile analytics has been requested previously~\citep{stackoverflow2013_getting_statistics_from_google_play_developer_console_with_an_api} and various people have developed code that interfaces with Google Play Console in an attempt to provide automated, scripted access to the content.
+
+Our work in developing Vitals Scraper as an opensource project~\citep{vitals_scraper_github_package} and releasing it as an NPM package~\citep{vitals_scraper_npm_package} demonstrates the necessity, viability, and some of the maintenance challenges of writing automated software for web-scraping of outputs from Google Play Console with Android Vitals~\footnote{Note: there was another similar sounding opensource project \url{https://github.com/tmurakam/googleplay_dev_scraper} that provided mechanisms to automate the downloading of the \texttt{csv} monthly reports rather than the live reports. It was last updated in 2013 so no longer current.}. There was also the Andlytics opensource app that provided developers with access to data from their Google Play Console account~\footnote{\url{https://github.com/AndlyticsProject/andlytics}}, however this project also ceased active development for various reasons, probably because Google chose to restrict access to the underlying data in 2019~\footnote{\url{https://github.com/AndlyticsProject/andlytics/issues/766}}. % See also the historic posts by the project on Facebook for screenshots and updates https://www.facebook.com/Andlytics/
+
+
+None of the mobile analytics tools encountered during the research provided complete access to the outputs using APIs. Furthermore, the ability to record and preserve copies of visual reports (as well as the underlying data) facilitates both practical use of the data in the field (for instance to record the information in an issues tracking database) and for further analysis and research. 
+
+Enterprise-grade mobile analytics services provide mechanisms to export data to homogeneous data storage platforms~\citep{androiddevelopers2015_integrate_play_data_into_your_workflow_with_data_exports}; for instance Google Analytics tools export content to Google Cloud Storage~\footnote{\url{https://support.google.com/googleplay/android-developer/answer/6135870?hl=en-GB}}, and to automate the process~\footnote{\url{https://cloud.google.com/bigquery-transfer/docs/play-transfer}}. Microsoft App Center \textbf{TODO TBC}. Google Analytics provides various reporting APIs including those for Exceptions~\footnote{\url{https://ga-dev-tools.web.app/dimensions-metrics-explorer/exceptions}} which are collected by Firebase Analytics for both Android and iOS apps~\footnote{\url{https://developers.google.com/analytics/devguides/collection/firebase/android}}. % See also their github site that underpins the docs https://github.com/googleanalytics/ga-dev-tools
+
+As a broader observation, various companies provide app analytics services where they obtain the underlying data % See the discussion for https://stackoverflow.com/a/49893656/340175
+and aim to provide easy to use, attractive, and actionable reports; examples include \url{https://appfigures.com/} and \url{https://www.data.ai/en/} (previously known as AppAnnie). Appfigures also publishes status reports for the performance of Google Play and Apple's App Store Connect service, these track the publishing performance of these two app stores; at the end of February 2022 they observed Google has been several days late publishing their free daily reports. % Screenshots have been recorded for posterity and are available in my research's appfigures.com folder. 
 
 \section{Differences between mobile analytics tools}
 Pocket Code incorporated in-app mobile analytics that recorded both crashes and errors (generally these errors are exceptions that \textit{are} caught and handled by the app) the case study provided the opportunity to study Fabric Crashlytics and to enable its outputs to be compared and contrasted with those from Google Play Console with Android Vitals. \textbf{TODO} discuss the differences.
@@ -29,6 +47,12 @@ Direct quotes from the CTO of Moodspace (June 2019): \emph{``As for several thin
 \end{itemize}
 
 And \emph{``Crashlytics only covers the crash report of Android vitals, so unfortunately there's no way to get things like battery usage of ANR reports unless Google makes those reports available :(. In terms of crashes, I'd always prefer Crashlytics to Android vitals, simply because there are added features like non-fatal reporting and logs which can make surfacing the cause of errors much easier (but do take need added effort to integrate compared to android vitals).''}
+
+\section{Improving the integration and the useful half-life of mobile analytics outputs}
+To discuss, APIs rather than Web Scraping, Persistent and timestamped links to reports (c.f. how github and wikipedia provide versioned links).
+
+In late 2020 Google made various changes to Google Play Console, they provided the ability for developers to directly download individual stacktraces for crashes~\citep{stackoverflow2018_how_can_i_get_app_crash_log_from_google_play_console} which is a useful, small improvement (see \url{https://stackoverflow.com/a/49893656/340175}).
+
 
 \section{Summary of tools and their artefacts}
 TBC

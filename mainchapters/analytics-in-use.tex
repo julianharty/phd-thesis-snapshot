@@ -9,19 +9,28 @@ This chapter presents the research findings based on two of the six perspectives
     \label{fig:dev-practices-with-mobile-analytics}
 \end{figure}
 
-\julian{TODO introduce the rest of this chapter. Here's my current running order: \href{aiu-motivating-factors-section}{Motivation}, \href{aiu-choosing-mobile-analytics-section}{selection}, \href{aiu-application-of-mobile-analytics-section}{application}, 
+\julian{TODO introduce the rest of this chapter. Here's my current running order: \href{aiu-motivating-factors-section}{motivation}, \href{aiu-choosing-mobile-analytics-section}{selection}, \href{aiu-application-of-mobile-analytics-section}{application}, 
 \href{aiu-bug-reproduction}{bug reproduction}, 
 \href{aiu-triage-section}{triage}, 
 blockers,  
 \href{aiu-snafu-and-real-world-conditions-section}{snafu and real-world conditions}, 
 \href{aiu-integration-section}{integration}, 
 \href{aiu-engineering-tradeoffs-section}{engineering tradeoffs},
+\href{aiu-interventions-section}{Interventions to increase use of mobile analytics}, 
 the~\href{aiu-discussion-section}{discussion}}
 
 \section{Motivating factors}~\label{aiu-motivating-factors-section}
 What motivates the development teams to pay attention and address failures reported by mobile analytics? The motivation may be viewed as a bi-directional continuum: at one end there is the wish to avoid and restrict failures that affect end users of the apps, at the other end there are desires to improve apps, engineering practices, including improving the use of mobile analytics. Fixing failures may be more tactical, while desiring improvements may be more strategic and involve a longer-term perspective.
 
-In terms of the app-centric case studies only one of the interview-based studies - \href{glossary-gtaf}{GTAF} - explicitly explained they had periods of fixing high crash rates. Several of their Android apps had experienced high crash rates which had adversely affected the user experience. The project team have learned the importance of paying attention to crashes being reported by mobile analytics tools. They also realised the importance of addressing high crash rates. Accordingly, the development team used outputs from mobile analytics to identify the most frequent crashes they wanted to fix. In contrast, the majority of the rest of the interview-based studies were predominantly working to maintain good quality, to varying degrees based on their active and ongoing use of mobile analytics. The one odd-ball project was LocalHalo where the CTO appeared to only use mobile analytics infrequently despite having actively integrated several in-app analytics tools into their app and server codebases.
+In terms of the app-centric case studies only one of the interview-based studies - \href{glossary-gtaf}{GTAF} - explicitly explained they had periods of fixing high crash rates. Several of their Android apps had experienced high crash rates which had adversely affected the user experience. The project team have learned the importance of paying attention to crashes being reported by mobile analytics tools. They also realised the importance of addressing high crash rates. Accordingly, the development team used outputs from mobile analytics to identify the most frequent crashes they wanted to fix. In contrast, the majority of the rest of the interview-based studies were predominantly working to maintain good quality, to varying degrees based on their active and ongoing use of mobile analytics.
+
+One of the motivating factors of applying mobile analytics was to fix crashes. The CTO of LocalHalo said during the initial interview: 
+
+\begin{quote}
+    ``If you have lots of crashes you have zero chance of being promoted [by the app store].''
+\end{quote}
+
+And yet, it was an odd-ball project was LocalHalo where the CTO appeared to only use mobile analytics infrequently despite having actively integrated several in-app analytics tools into their app and server codebases.
 
 All of the action research-based app centric case studies were prompted by excessively high crash rates \emph{i.e.} they acknowledged they wanted/needed help both to tame the high crash rates and to improve the rates further on an ongoing basis.
 
@@ -34,6 +43,21 @@ The commercial app-centric case studies all incorporated general purpose usage a
 The use of additional general purpose analytics is not confined to the commercial apps, Greentech apps team demonstrated how they had actively used mobile analytics to reduce the crash rate of their key apps and announced their intention to increase their use of mobile analytics in order to improve the user experience of their apps~\citep{gtafblog2021_gtaf_accomplishment_2020}. 
 
 An interesting example from grey literature is the use of an error budget where the developers have 20\% of their time available to work on technical improvements. If the app's crash free rate is above 99.9\% the team can choose their work freely, however when the crash rate exceeds 0.1\% then the developers must spend their 20\% fixing the problem (described as the situation in the literature)~\citep{koutun2021_how_to_deal_with_tech_debt_at_the_scale_of_super_app}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{images/rough-sketches/aiu-strategic-tactical-example.png}
+    \caption{Strategic-Tactical (Temporary Example)}
+    \label{fig:aiu-strategic-tactical-example}
+\end{figure}
+
+
+
+\newthought{Improving app design}
+Another motivating factor of using mobile analytics is to improve the design of the app in terms of the user experience (UX). A more reliable and stable app is likely to improve the experience of users, this was a topic mentioned by several projects including Moonpig, Moodspace, and Smartnavi. It's not always easy to get the balance right in terms of informing users that the app contains mobile analytics - informing users may paradoxically reduce the user experience as illustrated by the Pocket Code app. At the time of the case study the Android app had pages of mandatory text presented to new users of the app.\pending{Consider adding the contents of the policy to an appendix (it used to be part of the Catrobat case study).}
+
+\newthought{Improve engineering practices}
+
 
 \section{Choosing Mobile Analytics}~\label{aiu-choosing-mobile-analytics-section}
 
@@ -57,7 +81,7 @@ Thirdly, there are choices to be made in terms of what to record and when to do 
 
 Caught exceptions, signals, etc. are not the only form of error that might be of interest to developers. Projects including Smartnavi and Moonpig used general purpose mobile analytics for reporting additional errors, for instance that affected the user experience. Similarly the general purpose mobile analytics and the crash reporting SDKs both collect contextual and runtime information and developers sometimes use this information. Some additional joint research studied 107 actively maintained opensource Android apps hosted on GitHub, a topic we cover shortly\pending{TODO}.
 
-But before we move on there was an interesting phenomenon observed during the Catrobat hackathon where some of the crashes that appeared in Android Vitals were believed to come from `soft errors' in the Pocket Code app. The issue, CATROID-426, was logged during the hackathon~\citep{catroid_426_soft_crashes_should_not_be_reported_to_the_play_console} and the developers wrote two sets of code changes (also known as `commits'). These were merged into the app's codebase on \nth{21} Nov 2019 and released in the pocket code several weeks later.
+But before we move on there was an interesting phenomenon observed during the Catrobat hackathon where some of the crashes that appeared in Android Vitals were believed to come from `soft errors' in the Pocket Code app. The issue, CATROID-426, was logged during the hackathon~\citep{catroid_426_soft_crashes_should_not_be_reported_to_the_play_console} and the developers wrote two sets of code changes (also known as `commits'). These were merged into the app's codebase on \nth{21} Nov 2019 and released in the Pocket Code app several weeks later.
 
 The intent was laudable, however, at least some of the soft crashes continued to occur over a month later, as documented in \url{https://jira.catrob.at/browse/CATROID-422}. This issue was raised in the hackathon and closed as a duplicate by one of the developers involved in trying to stop the soft errors from appearing in Android Vitals \citep{catroid_426_soft_crashes_should_not_be_reported_to_the_play_console}.
 
@@ -71,13 +95,16 @@ TODO Mention the Pocket Code experience when migrating from Fabric to Firebase a
 \section{Application of mobile analytics}~\label{aiu-application-of-mobile-analytics-section}
 
 \julian{Include horses-for-courses,...} 
-As mentioned previously, several projects including LocalHalo chose to use a particular mobile analytics service for   business analytics. Pricing may also be a factor in the choice of SDK and service, however this topic was not actively discussed as part of the case studies.
+As mentioned previously, several projects including LocalHalo chose to use a particular mobile analytics service for business analytics. Pricing may also be a factor in the choice of SDK and service, however this topic was not actively discussed as part of the case studies.
+
+Paradoxically, sometimes developers choose \emph{not} to apply the results of mobile analytics. Developers may perceive the effort required for something is too much and therefore take alternative action (including inaction). Examples from the case studies include developers choosing to ignore Android Vitals. Sometimes they do this as they've chosen to use another mobile analytics service that provides some of the information Android Vitals provides, particularly on crashes. Others choose to ignore `hard to fix' issues, a topic discussed later in this chapter.
+
 
 \section{Bug reproduction}~\label{aiu-bug-reproduction}
 Being able to reproduce bugs, ideally at-will, enables developers to work more effectively at addressing the bug and having confidence that their intended fixes actually do fix the bug. 
 Bug reproduction can increase the developer's confidence the bug is real and can be managed, it is under control. Then they can make changes to the the software to determine whether their changes address (fix) the bug. 
 
-The developers are not always able to reproduce bugs, for example the developers of the Pocket Code app had to apply their `fix' blindly with the immediate aim of fixing, \emph{i.e.} preventing, the crash \url{https://github.com/Catrobat/Catroid/pull/3362}.  In the commercial app, two experienced engineers spent several days in devising a consistent and clear way to reproduce a crash in the response handling and logging for proprietary code that interacted with the very popular OkHttp opensource library. This effort was deemed necessary and appropriate given the strategic importance of the app to the business and the effects of the crash on a significant subset of users' sessions.
+The developers are not always able to reproduce bugs, for example the developers of the Pocket Code app had to apply their `fix' blindly with the immediate aim of fixing, \emph{i.e.} preventing, the crash \url{https://github.com/Catrobat/Catroid/pull/3362}.  In the commercial app, two experienced engineers spent several days in devising a consistent and clear way to reproduce a crash in the response handling and logging for proprietary code that interacted with the very popular OkHttp opensource library (more details are in the section on the fix process in Section~\ref{aiu-the-fix-process-section}). This effort was deemed necessary and appropriate given the strategic importance of the app to the business and the effects of the crash on a significant subset of users' sessions.
 
 The research also had mixed results reproducing bugs that were found and reported by mobile analytics.
 %
@@ -112,6 +139,24 @@ The triage process sometimes led to issues being raised in the respective issues
 The GTAF team used a heuristic when deciding which crashes to fix. They chose to work on those perceived as relatively easy to fix and which affected many users. They provided examples of easier to fix exceptions: NullPointerException~\footnote{Helpfully discussed in \href{https://en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}{en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}.} and IndexOutOfBoundsException~\footnote{Discussed in \url{https://stackoverflow.com/a/40006381/340175}} versus some they found harder to fix: IllegalStateException~\footnote{An example of an Android specific crash is discussed in~\url{https://stackoverflow.com/questions/55158930/illegalstateexception-caused-by-intent}} and native crashes~\footnote{Useful Android documentation on diagnosing native crashes \url{https://source.android.com/devices/tech/debug/native-crash}}.
 
 
+\section{The fix process}~\label{aiu-the-fix-process-section}
+Fix processes are similar to fixing issues found from other sources, for instance: from testers, from app store reviews, and so on. There are some particular nuances when mobile analytics is the source; for example, the mobile analytics report will generally include one or more instances of a stack trace together with precise meta information. Mobile analytics also includes analytics such as any patterns of the failure. As an aside, several development environments can directly process and help analyse a stack trace for an app, for example in Intellij (which also underpins Android Studio used by many Android developers) \url{https://www.jetbrains.com/help/idea/analyzing-external-stacktraces.html}. 
+
+The combination of failure details, meta information, and patterns can help the team prioritise, manage, and diagnose the bug more effectively compared to bugs from other sources. Also, mobile analytics can provide measurements of any improvements (and any degradations) of the updated app.
+
+The teams varied in their how they fixed issues. Some fixed the source code directly without externalising the reproduction or testing aspects, others attempted to externalise one or more of bug identification, bug reproduction, and testing practices. Those who were working tactically seldom invested time to reproduce the failure or write automated tests, instead they relied on external sources to provide feedback \emph{e.g.} from testers and/or from mobile analytics reports for the new release.  
+
+For the commercial app two of the developers invested the time to distill the cause of the crash to a minimum, reproducible example~\citep{stackoverflow2022_minimal_reproducible_example} written in pure Java (so the Android runtime was not needed, it complicates the runtime conditions and the tests run much more slowly as Android tests). A set of automated tests were created to reproduce the crash at will. The flawed code was then improved so it no longer crashed and performed all the intended actions (previously it crashed instead). The automated tests demonstrated the fix was complete and correct. All the source code was then integrated into the app's codebase (the tests continue to run directly in a Java Virtual Machine rather than needing an Android runtime so they could run quickly, doing so is a mature development practice by Android developers and not unique to this app or development team).
+
+
+The fix process therefore generally includes: a) an assessment of any recognised patterns in the failure to help with bug management, and b) post-release monitoring of mobile analytics to see if the fix actually improved the measured reliability of the app in the new release that includes that fix~\footnote{While it is possible for mobile apps to include in-app dynamic updates of code these are a) uncommon and b) discouraged by the app stores. Google Android has an API called in-app updates however it is more of a mechanism provided to enable app developers to write code that can query the app store for newer releases and for whether the user should be asked, encouraged, or required to perform an update %.
+%- \emph{i.e.} not patches performed by the platform which are called in-app updates but aren't actually in-app updates to the code they are in-app processes that affect how the app behaves when an update is provided via the platform
+\url{https://developer.android.com/guide/playcore/in-app-updates}. In-app patches of the app binary are therefore outside the scope of this research.}. 
+
+\newthought{Fixing crashes may be necessary but not sufficient}
+One of the issues~\footnote{\url{https://jira.catrob.at/browse/CATROID-379}} and associated bug fixes~\footnote{\url{https://github.com/Catrobat/Catroid/pull/3362}} pertaining to the Pocket Code app and the hackathon~\footnote{Via \url{https://jira.catrob.at/browse/CATROID-405}} has a discussion written by one of the project leads in the Pull Request~\footnote{\url{https://github.com/Catrobat/Catroid/pull/3362\#issuecomment-541055675}}. 
+He observes there are still issues where content is not downloaded however the app no longer crashes. The high crash rate was sufficient to motivate the developers to address the source of the crash in the source code, however more work was needed to fix the failures to download and apply content. In the Pull Request, the developers also discussed the ramifications of removing the visual indicators when the user triggers a download and decided to simply try to fix the crash. As the developers could not reproduce the crash they were not confident in their `fix' working.
+
 \section{SNAFU and real-world conditions}~\label{aiu-snafu-and-real-world-conditions-section}
 Software development, including developing apps, takes place in the real-world where there are often multiple conflicting demands on the time of participants - the developers. Therefore, absolutes, superlatives, and other pure approaches are unlikely to work. Bugs will happen, automated tests, if written at all, won't necessarily test much or test in depth, \xcancel{bugs will happen}, nothing will be perfect.
 
@@ -127,12 +172,29 @@ The third example of snafu is for the Pocket Code project. An accidental misconf
 
 \subsection{Engineering tradeoffs}~\label{aiu-engineering-tradeoffs-section}
 
-Kiwix download code substitution, positive effects, knock-on effects in terms of functionality.
+Kiwix download code substitution, positive effects, knock-on effects in terms of functionality.\pending{Expand this terse wording.}
 Perceived maintenance overhead of making interim releases of the app meant the dev leads rejected the proposal \url{https://github.com/kiwix/kiwix-android/issues/1426}. A secondary consideration is the burden of creating and rolling out releases of the custom apps; at the time the release process was burdensome for the developers. 
 
-Moonpig took several months to first replace the Robospice SDK and then deploy the new release without that library. Release management is a key factor in decision making. Crash analytics helped quantify the effects on groups of affected users (those on newer releases of Android).
+Moonpig took several months to first replace the third-party Robospice SDK and then deploy the new release without that library. 
+% Note Robospice is still in 500+ apps which may be experiencing an ever increasing crash rate as newer versions of Android become more prevalent. https://www.appbrain.com/stats/libraries/details/robospice/robospice
+Release management is a key factor in decision making. Crash analytics helped quantify the effects on groups of affected users (those on newer releases of Android).
 
 Flo Health have explicit tradeoffs between how developers spend their time developing their app. Firstly they only spend 80\% of the time on core development, the remaining 20\% is ring-fenced for other development work. This 20\% is either spent on whatever the developers choose to work on, or on addressing errors if any error budget has been exceeded~\citep{koutun2021_how_to_deal_with_tech_debt_at_the_scale_of_super_app}.
+
+
+\newthought{Third-party software challenges}
+%To include: Robospice, Chrome.apk, WebView exceptions, OkHttp.
+Third-party software is not modified directly by the app's development team (there may be ways they can modify it in other ways however these ways are beyond the scope of this research). Therefore there may be challenges when the app developers want or need changes to the third-party software. Furthermore the third-party may control what modifications are made to that software. Sometimes the app developers lack the context, wherewithal, permission, and so on to effect timely changes to the third party software i.e. there may be third party software challenges.
+
+In terms of using mobile analytics a couple of examples from the Kiwix case study illustrate some of the challenges app developers need to consider with third-party software that's virtually part of Android: the closely-coupled Google Chrome browser and the WebView component that provides many apps with an embedded web browser and has over 5 billion downloads~\citep{android_webview_app_2022}. Crashes have been frequently reported with both these components for the Kiwix apps amongst many others~\footnote{For example even Google's GMail app, Facebook's app, and the BBC apps were adversely affected in March 2021 \citep{bbcnews2021_google_fixes_crashing_android_app_issues}.}. For some of the crashes the developers are able to change the source code of the app to address some of the crashes however many seem beyond the immediate control of the app developers \emph{and yet the crashes are counted by Android Vitals and Google Play Console towards the cumulative} `bad behavior threshold'. 
+
+The Commercial project, like many, used the third-party opensource okHttp library which is in over 6\% of top apps and 5\% of all apps measured by AppBrain~\citep{appbrain2022_ok_http_stats}.
+%
+To the okHttp's project's credit they provide various automated tests which can help both developers of okHttp and users (i.e. developers) of software that incorporates okHttp in their apps and other software. As the feature set of okHttp increases so can the complexity of using these various features, as the commercial project discovered when a developer inadvertently made changes to improve logging that led to the crash rate increasing several fold. A key challenge for the team was both finding a fix and then testing the fix was effective \emph{before} the revised app was released in the app store (rather than waiting for mobile analytics to report any change in the measured failure rate). They did so with the benefit of building on parts of the existing opensource okHttp codebase.
+
+Grey data sources are frequently used by app developers to discuss problems with third-party components with the two main homes for these discussions being GitHub.com projects and StackOverflow.com.
+
+% x-reference research papers on developers' practices updating Android third-party libraries.
 
 \newthought{Release management}
 Two examples of release management have already been mentioned (for Kiwix custom apps and for Moonpig), the Commercial Project also placed great importance on scheduling releases with the intention of maintaining the goodwill and encouraging adoption of the new release. 
@@ -156,17 +218,25 @@ Figure~\ref{fig:practical-sense-making-process-when-dev-teams-apply-mobile-analy
 
 The impact of reported failures is combined with situational-risk-assessment as a part of the decision-making process performed by developers during triage; for instance to consider whether this reported issue is worth addressing in the current development cycle, (\textit{e.g.} in the current sprint for teams who use sprints for work planning. Developers have to consider multiple criteria including personal, project, and product implications of making code and/or operational changes. An untested hypothesis for their approach is introduced in the discussion chapter on page \pageref{discussion-decision-making-by-dev-teams-section}.
 
+\subsection{Sources of suboptimal practices}
+A cluster of several related themes: weaknesses in dev practices, premature satisfaction, what developers notice, and flaws in the mobile analytics may all lead to suboptimal practices.
+
+\newthought{Weaknesses in dev practices}
+Weaknesses in dev practices result in failure to address reliability issues. And where practices depend on one individual they can fail when the bus factor strikes. 
+
 \newthought{Premature satisfaction}
+A possible suggestion, an inference, is that many of the developers were often satisficed with what the mobile analytics tools reported - where they accepted local optima (determined through a combination of observation and asking the app devs), \textit{e.g.} they accepted the `top' crash cluster as the worst one. Therefore, if there are flaws in what is being reported the effects of those flaws may permeate into the results of what the developers \textit{do} and \textit{don't} do.
 
-A possible suggestion, an inference, is that many of the developers were often satisficed with what the mobile analytics tools reported - where they accepted local optima (determined through a combination of observation and asking the app devs), \textit{e.g.} they accepted the `top' crash cluster as the worst one. Therefore, if there are flaws in what is being reported the effects of those flaws may permeate into the results of what the developers \textit{do} and \textit{don't} do. 
-
+\newthought{Flaws in mobile analytics}
 Indeed, as \secref{chapter-tools-and-their-artefacts} discusses\pending{Add more precise x-reference once that chapter has been fleshed out.} there are flaws in the groupings of similar failures in at least three of the mobile analytics crash reporting outputs.
 
+\newthought{What developers notice}
+One of the success factors is what the developers notice in mobile analytics reports (and what they don't notice does not get acted on).
 
 \section{Integration}~\label{aiu-integration-section}
 \julian{Include pipelines, tracking the source of issues including re-visiting integration into the triage process, trusting the tools, ...}
 
-Integration in this context facilitates and improves the `working together' of mobile analytics with other software tools. It ranges from manual and often short term mechanisms to streamlined pipelining of mobile analytics outputs into other systems. Often there's a basic facility provided which enables issues to be raised directly from a mobile analytics web page.
+Integration of the tools and systems in this context facilitates and improves the `working together' of mobile analytics with other software tools. It ranges from manual and often short term mechanisms to streamlined pipelining of mobile analytics outputs into other systems. Often there's a basic facility provided which enables issues to be raised directly from a mobile analytics web page.
 
 As can be observed in the Greentech project's issues database, for example, the developers include the URL that points to the pertinent report in the source mobile analytics service. These links work for a period, typically hours to weeks, and are limited to people who have access to both systems. They enable authorised users to quickly check the source material from the relevant issue. 
 
@@ -179,21 +249,31 @@ Despite best intentions on multiple projects there were examples where developer
 At least one of the projects, the Commercial Project, used APIs provided by the mobile analytics service to systematically export the contents of the crashes and errors that were captured in that tool: Microsoft App Center~\footnote{Note: several other mobile analytics tools also provide similar API integration points, some of these will be discussed in \secref{chapter-tools-and-their-artefacts}.}\pending{Refine the link once that material has been written.}. Doing so enabled the data to be mined in combination with various other sources of data, however the details are beyond the scope of this PhD.
 
 \subsection{Using issue databases}
-The GTAF team create issues in their online issue database \url{https://gitlab.com/greentech/} for crashes and include links to the source information in the respective mobile analytics tool. These links are a) only available to people who already have access to the mobile analytics account, and b) are ephemeral.
+The GTAF team create issues in their online issue database \url{https://gitlab.com/greentech/} for crashes and include links to the source information in the respective mobile analytics tool. These links are a) only available to people who already have access to the mobile analytics account, and b) are ephemeral. There are several ways development teams can extend the useful life of the private and ephemeral contents. In the three action-research app-centric case studies screenshots of the contents of the reports were combined with extracts of various pertinent statistics, for instance the frequency of a particular crash cluster. These contents were added to issues in the issues database. 
 
+At least some of the developers appreciated the additional information (together with an online link to the relevant report which helped them check for any updates while that report was still available) they said it helped them appreciate the magnitude of the problem which, in turn, helped motivate them to address the issue sooner. The data was generally collected manually and pasted manually when the issues were raised, in part as automating the preservation of the reports is beyond the remit of individual team members.
 
+\newthought{Integrating mobile analytics into the practices of the team}
+One of the app-centric case studies, Moonpig, demonstrated they actively guarded against entropy through frequent, ongoing checking of the various mobile analytics services they used. They had an assigned developer on duty who was expected to check these services during the working day and action any issues or anomalies they noticed.
 
 \newthought{Longer-term adoption and use of mobile analytics}
 
 For the Pocket Code app, there has been an intermittent focus on addressing the causes of failures being reported by the mobile analytics tools. One of the main reasons given by the project leadership was the loss of the product owner who successfully completed his PhD and moved to a role in Industry. 
 
 
-\section{Discussion on the use of mobile analytics}~\label{aiu-discussion-section}
+\section{Interventions to increase use of mobile analytics}~\label{aiu-interventions-section}
+\newthought{Research-led interventions}
+Each of the three app-centric case studies that involved action research included one or more interventions. For the two opensource projects, Kiwix and Catrobat, hackathons were used as they provided an immediate low-ceremony approach that enabled quick and effective collaboration. For the commercial project the intervention was performed over a period of approximately six months and involved working with several of the projects development team to help them understand how mobile analytics provides them with pertinent information and how to then apply that information to fix the underlying issues. 
+
+\newthought{Project-led interventions}
+% It might be worth relocating this to later in the thesis where we discuss pii and ethics.
+For the Catrobat case study, the project leadership saw sufficient benefits from using mobile analytics after the hackathon that they decided to also implement it in the iOS app. However, several months later they subsequently reverse this decision because of the intrusive data collection collected implicitly by Firebase Crashlytics. This topic is discussed later in chapter.\pending{Add a forward reference once that material has been added.}
+
 
 The research focuses on failures identified using mobile analytics and the processes where developers incorporate mobile analytics into those processes. There may be other sources of information about failures and there may be other causes of fixes and improvements.
 
-\newthought{Crashes mentioned in a user review}
-Mobile analytics is one source of information on failures, other sources may be available. In this research, occasionally app store reviews mentioned crashes. 
+\newthought{Crashes mentioned in user reviews}
+Mobile analytics is one source of information on failures, other sources may be available. In this research, many of the apps have reviews in the app store (Google Play) that mention crashes. The reviews vary in their specificity and the project teams seldom diagnosed the crash from the description in the review text.   
 
 \begin{wrapfigure}{R}{0.45\textwidth}
   %\begin{center}
@@ -203,34 +283,31 @@ Mobile analytics is one source of information on failures, other sources may be 
   \label{fig:gp-review-denise-lavington-always-crashes}
 \end{wrapfigure}
 
-As a concrete example, for the Moonpig Android app, on \nth{16} July 2019, Denise Lavington provided a review of the Android app and awarded the app four stars. The review said: \emph{``Always crashing in the middle of purchases. However, it now works well. If it carries on without hiccups it will get 5 stars."} Figure \ref{fig:gp-review-denise-lavington-always-crashes} shows the review in context in Google Play~\footnote{The review is currently still available online (\href{https://play.google.com/store/apps/details?id=com.commonagency.moonpig.uk&reviewId=gp\%3AAOqpTOH68VB5eWqnu7UAqcC81_rbOfWl6dzL_g48jrg0T40MPWBkMxe01KjStXZF6F57nxZxQa-AqosRKDd1xQ}{here}) in Google Play, two years after it was written.}.
+As a concrete example of perhaps the most detailed review, for the Moonpig Android app, on \nth{16} July 2019, Denise Lavington provided a review of the Android app and awarded the app four stars. The review said: \emph{``Always crashing in the middle of purchases. However, it now works well. If it carries on without hiccups it will get 5 stars."} Figure \ref{fig:gp-review-denise-lavington-always-crashes} shows the review in context in Google Play~\footnote{The review is currently still available online (\href{https://play.google.com/store/apps/details?id=com.commonagency.moonpig.uk&reviewId=gp\%3AAOqpTOH68VB5eWqnu7UAqcC81_rbOfWl6dzL_g48jrg0T40MPWBkMxe01KjStXZF6F57nxZxQa-AqosRKDd1xQ}{here}) in Google Play, two years after it was written.}.
 
 The developer investigated this reported issue and could not find any crash in Firebase or Android Vitals that might affect purchases. A possible reason for why the crash did not appear in Android Vitals is that the underlying data is only provided by a user's device if they've opted-in to automatically providing their usage and diagnostics data~\citep{google_play_view_crashes_and_anr_errors} \textit{and} if the aggregate data exceeds an undocumented threshold (a topic discussed elsewhere in the thesis). 
 
-Monitoring reviews can be useful to identify issues (a topic discussed in the Literature). In this case there was insufficient evidence to corroborate the user's report.
+Monitoring reviews can be useful to identify issues including user dissatisfaction (app reviews are discussed in the Literature)\pending{Add link and make this comment more specific to what's covered in the Lit. Review.}. In this case there was insufficient evidence to corroborate the user's report. As a side note, Google Play Console provides automated analysis of reviews, including those that infer stability issues for instance that have the word `crash' in them~\citep{googlesupport_reviews_analysis}. In the author's experience the analysis is imperfect, future research might be of interest.
 
-\newthought{Concommittant variation} establishes a clear connection between an action and one or more outcomes where there are no other know explanations or sources of actions that have led to those outcomes~\citep[pp. 260-266]{mill1884system}. 
 
-\newthought{Fixing crashes may be necessary but not sufficient}
-One of the issues~\footnote{\url{https://jira.catrob.at/browse/CATROID-379}} and associated bug fixes~\footnote{\url{https://github.com/Catrobat/Catroid/pull/3362}} pertaining to the Pocket Code app and the hackathon~\footnote{Via \url{https://jira.catrob.at/browse/CATROID-405}} has a discussion written by one of the project leads in the Pull Request~\footnote{\url{https://github.com/Catrobat/Catroid/pull/3362\#issuecomment-541055675}}. 
-He observes there are still issues where content is not downloaded however the app no longer crashes. The high crash rate was sufficient to motivate the developers to address the source of the crash in the source code, however more work was needed to fix the failures to download and apply content. In the Pull Request, the developers also discussed the ramifications of removing the visual indicators when the user triggers a download and decided to simply try to fix the crash. As the developers could not reproduce the crash they were not confident in their `fix' working.
-
+\section{Discussion on the use of mobile analytics}~\label{aiu-discussion-section}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Julian to continue from here!!!!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+This section combines primary research described here and secondary research including grey literature. 
 
-\newthought{Guarding against entropy:}
-One of the app-centric case studies, Moonpig, demonstrated they actively guarded against entropy through frequent, ongoing checking of the various mobile analytics services they used. They had an assigned developer on duty who was expected to check these services during the working day and action any issues or anomalies they noticed.
 
 \newthought{Strategic improvements in code quality:}
-There are several approaches which tech companies have adopted which may improve code quality, including the reliability of mobile apps. In particular `shift-left'~\footnote{See \url{https://devopedia.org/shift-left} for a clear overview.} encourages moving various development activities earlier in the software development lifecycle. According to Google Kotlin results in 20\% fewer crashes in Android apps~\citep{googleblogs2021_androids_kotlin_first_approach} which is one way to shift-left by obviating some of the causes of crashes \emph{i.e.} poor programming practices Kotlin requires developers to be explicit in the nullability of variables and parameters so some of the issues only found at runtime in Java code is found at compile time when Kotlin is used. 
+There are several approaches which tech companies have adopted which may improve code quality, including the reliability of mobile apps. In particular `shift-left'~\footnote{See \url{https://devopedia.org/shift-left} for a clear overview.} encourages moving various development activities earlier in the software development lifecycle. According to Google Kotlin results in 20\% fewer crashes in Android apps~\citep{googleblogs2021_androids_kotlin_first_approach} which is one way to shift-left by obviating some of the causes of crashes \emph{i.e.} poor programming practices. Kotlin requires developers to be explicit in the nullability of variables and parameters so some of the issues only found at runtime in Java code is found at compile time when Kotlin is used. As a concrete example, the developers of the Google Home app were able to reduce \texttt{NullPointerException}'s by a third through migration from Java to Kotlin~\citep{googleblogs2020_google_home_reduces_crashes_by_a_third}.
+% And see https://en.wikipedia.org/wiki/Shift-left_testing (weak so not cited)
 
-Another possible improvement is to group causes of failures, for instance by the type of Exception thrown, and help find ways to obviate those Exceptions being generated in practice. Techniques such as improving development practices, explicit training and mentoring of the development team, \emph{etc}. in addition to any changes in programming languages may help achieve this aim. The developers of the Google Home app were able to reduce \texttt{NullPointerException}'s by a third through migration from Java to Kotlin~\citep{googleblogs2020_google_home_reduces_crashes_by_a_third}.
-%%%%% And see
-% https://developer.android.com/topic/performance/vitals/crash#prevent-crashes-null-pointer
-% https://en.wikipedia.org/wiki/Shift-left_testing (weak so not cited)
+\newthought{Aim to prevent errors rather than detect them using mobile analytics}. 
+Another possible improvement is to group causes of failures, for instance by the type of Exception thrown, and help find ways to obviate those Exceptions being generated in practice. Techniques such as improving development practices, explicit training and mentoring of the development team, \emph{etc}. in addition to any changes in programming languages may help achieve this aim.  
+%%%%% And see https://developer.android.com/topic/performance/vitals/crash#prevent-crashes-null-pointer
+Similarly, the Kiwix project chose to migrate code from Java to Kotlin, in part to prevent some errors (including errors that led to crashes) from occurring. 
+
 
 And yet an important consideration for code quality is to be aware of a possible anti-pattern: conservation of energy.
 
@@ -239,9 +316,20 @@ means developers may not be willing or practically able to fix some issues, they
 %
 Therefore, one of the strategic considerations is how to enable developers to have justified confidence they can address the more challenging issues.
 
+\newthought{Return on Investment}
+To revisit the topic of motivation, one motivating factor for actually applying mobile analytics is the perceived return on investment in terms of time, energy, opportunity costs, and so on. Developers are more likely to incorporate mobile analytics into their practices when both they and their organisation perceive the return on investment is highly net positive~\footnote{Note: this calculation is not limited to use of mobile analytics, for instance it may also apply to the practice of developers creating and maintaining automated tests, \textit{etc}.}.
+
+The CTO of LocalHalo clearly recognised the ROI of fixing crashes. As he said during the initial interview~\footnote{Repeated here for ease of reading.}: 
+
+\begin{quote}
+    ``If you have lots of crashes you have zero chance of being promoted [by the app store].''
+\end{quote}
+
+The Kiwix project provides a good example of the ROI where two major crashes were addressed within a few hours of elapsed time and resulted in a decrease in the crash rate of the app of approximately a third. The next chapter provides more details of this example.\pending{Add cross-reference when the material is in the next chapter.}
+
+A common and consistent theme that emerged was the importance of engineering leadership who sees the value of applying mobile analytics and related software quality engineering practices in order to use mobile analytics effectively to improve the mobile app development processes. 
+
 \dotfill 
 
-% The following either needs connecting to the previous material or relocating to later in this chapter where we discuss pii and ethics.
-For the Catrobat case study, the project leadership saw sufficient benefits from using mobile analytics after the hackathon that they decided to also implement it in the iOS app. They subsequently reverse this decision because of the intrusive data collection collected implicitly by Firebase Crashlytics. This topic is discussed later in chapter.\pending{Add a forward reference once that material has been added.}
 
 \subsection{What's ``good enough"? and for whom?}
