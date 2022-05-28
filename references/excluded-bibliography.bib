@@ -462,4 +462,92 @@
 	}
 }
 
+@INPROCEEDINGS{4659256,
+    author={Godfrey, Michael W. and German, Daniel M.}, 
+    booktitle={2008 Frontiers of Software Maintenance},   
+    title={The past, present, and future of software evolution},   
+    year={2008},  
+    volume={},  
+    number={},  
+    pages={129-138},  
+    abstract={
+      Change is an essential characteristic of software development, as software systems must respond to evolving requirements, platforms, and other environmental pressures. In this paper, we discuss the concept of software evolution from several perspectives. We examine how it relates to and differs from software maintenance. We discuss insights about software evolution arising from Lehmanpsilas laws of software evolution and the staged lifecycle model of Bennett and Rajlich. We compare software evolution to other kinds of evolution, from science and social sciences, and we examine the forces that shape change. Finally, we discuss the changing nature of software in general as it relates to evolution, and we propose open challenges and future directions for software evolution research.
+    },
+    keywords={}, 
+    doi={10.1109/FOSM.2008.4659256}, 
+    ISSN={}, 
+    month={Sep.},
+    exclusion_rationale = {
+      It covers interesting topics however I'm not sure where it'd fit in my thesis:- perhaps in the discussion about mobile analytics tools needing to evolve, ditto apps needing to evolve? If so, it'd probably belong in the related works chapter. Laws 1, 7, and 8 do look relevant. 
+    },
+}
+
+@INPROCEEDINGS{8933541,  
+    author={Wang, Chong and Li, Ju and Liang, Peng and Daneva, Maya and Sinderen, Marten},  
+    booktitle={2019 IEEE 27th International Requirements Engineering Conference Workshops (REW)},
+    title={Developers' Eyes on the Changes of Apps: An Exploratory Study on App Changelogs},  
+    year={2019},
+    volume={}, 
+    number={}, 
+    pages={207-212},
+    abstract={
+      Release planning for mobile apps has only recently become an area of active research. As a result, little is known about the types of requirements that app developers pay the most attention to when releasing an app. This research uses the changelogs of apps to shed light on this. We report the results of an exploratory study in which we analyzed the requirements that dominate the changes of apps, according to a set of 3000 changelogs collected from 120 apps from three categories in the Apple App Store: Travel, Social networking, and Books. We analyzed the changelogs in terms of functional and non-functional requirements, from a developers' perspective. Our results suggest that developers' releases are by far more concerned with non-functional requirements than with functional requirements. We also found that usability and maintainability are the most frequently mentioned non-functional requirements (NFRs) in the changelogs. Surprisingly, reliability requirements formed only a fraction of the total number of NFRs addressed in all changelogs of apps in the three selected App Store categories.
+    },  
+    keywords={},  
+    doi={10.1109/REW.2019.00042}, 
+    ISSN={},  
+    month={Sep.},
+    exclusion_rationale = {
+      The paper focuses on iOS apps in Apple's App Store rather than where I'm focusing (Google Play for Android apps). It has visible mistakes in the opening material e.g. contradictory claims of the number of Android apps, and bland claims that the number of apps will increase. The work appears to be based on the public release notes that accompany new releases of the iOS apps they're studying rather than my work which is in the use of mobile analytics. Where our work overlaps is mainly in the study of reliability of mobile apps.
+    }
+}
+
+@article{pandey2019application,
+  title={Application of fuzzy DEMATEL approach in analyzing mobile app issues},
+  author={Pandey, Mamta and Litoriya, Ratnesh and Pandey, Prateek},
+  journal={Programming and Computer Software},
+  volume={45},
+  number={5},
+  pages={268--287},
+  year={2019},
+  publisher={Springer},
+  doi = {10.1134/S0361768819050050},
+  exclusion_rationale = {
+    The opening material put me off entirely with specious claims. 
+    The sources of the data being analysed are unclear and undated e.g. did any come from the BlackBerry store? if so, when were the reviews published? It's a pity as some of their claims would be relevant in terms of supporting my work however I can't trust it as evidence based on what I've read in this article.
+    }
+}
+
+@inproceedings{han2014using,
+  title={Using DEMATEL to analyze the quality characteristics of mobile applications},
+  author={Han, Wen-Ming and Hsu, Cheng-Hsien and Yeh, Cheng-Yu},
+  booktitle={Proc. of the International Conference on Future Information Engineering and Manufacturing Science},
+  pages={131--134},
+  year={2014},
+  exclusion_rationale = {
+    The method isn't described and nor are the volumes of responses, etc. Like the previous paper (which references this one) I'd love to have cited it but can't in conscience do so.
+    }
+}
+
+@inproceedings{10.1145/1572272.1572291,
+    author = {Sinha, Saurabh and Shah, Hina and G\"{o}rg, Carsten and Jiang, Shujuan and Kim, Mijung and Harrold, Mary Jean},
+    title = {Fault Localization and Repair for Java Runtime Exceptions},
+    year = {2009},
+    isbn = {9781605583389},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/1572272.1572291},
+    doi = {10.1145/1572272.1572291},
+    abstract = {This paper presents a new approach for locating and repairing faults that cause runtime exceptions in Java programs. The approach handles runtime exceptions that involve a flow of an incorrect value that finally leads to the exception. This important class of exceptions includes exceptions related to dereferences of null pointers, arithmetic faults (e.g., ArithmeticException), and type faults (e.g., ArrayStoreException). Given a statement at which such an exception occurred, the technique combines dynamic analysis (using stack-trace information) with static backward data-flow analysis (beginning at the point where the runtime exception occurred) to identify the source statement at which an incorrect assignment was made; this information is required to locate the fault. The approach also identifies the source statements that may cause this same exception on other executions, along with the reference statements that may raise an exception in other executions because of this incorrect assignment; this information is required to repair the fault. The paper also presents an application of our technique to null pointer exceptions. Finally, the paper describes an implementation of the null-pointer-exception analysis and a set of studies that demonstrate the advantages of our approach for locating and repairing faults in the program.},
+    booktitle = {Proceedings of the Eighteenth International Symposium on Software Testing and Analysis},
+    pages = {153–164},
+    numpages = {12},
+    keywords = {static analysis, fault localization, runtime exceptions, null dereference},
+    location = {Chicago, IL, USA},
+    series = {ISSTA '09},
+    exclusion_rationale = {
+      The work is relatively dated and not directly related to mobile apps. While there may well be useful connections and/or parallels in their approach the gaps are too great for me to justify spending the time on currently.
+    }
+}
+
 }

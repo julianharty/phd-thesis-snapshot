@@ -131,7 +131,7 @@ Broadly the triage process results in one of four outcomes:
     \item Implicitly rejected issues: for some projects this applies to the majority of the failures reported by the various mobile analytics tools.
 \end{enumerate}
 
-The triage process sometimes led to issues being raised in the respective issues database for at least some of the issues they chose to action, for example Catrobat reported them in JIRA, Greentech Apps use GitLab's integrated issues database, Kiwix similarly use Github issues\pending{Ask Moonpig what they did} and the commercial app used recorded them in their organisation-wide issues database. However, projects did not necessarily record every such actioned issue. 
+The triage process sometimes led to issues being raised in the respective issues database for at least some of the issues they chose to action, for example Catrobat reported them in JIRA, Greentech Apps use GitLab's integrated issues database, Kiwix similarly use Github issues. Moonpig often raised issues, however sometimes instead they simply modified the code where they believed the fault was clear and the fix quick and easy to do. The commercial app used recorded them in their organisation-wide issues database. However, projects did not necessarily record every such actioned issue. 
 
 \newthought{Triaging failures}
 
@@ -270,6 +270,7 @@ Each of the three app-centric case studies that involved action research include
 For the Catrobat case study, the project leadership saw sufficient benefits from using mobile analytics after the hackathon that they decided to also implement it in the iOS app. However, several months later they subsequently reverse this decision because of the intrusive data collection collected implicitly by Firebase Crashlytics. This topic is discussed later in chapter.\pending{Add a forward reference once that material has been added.}
 
 
+\subsection{Mobile analytics in a larger context}
 The research focuses on failures identified using mobile analytics and the processes where developers incorporate mobile analytics into those processes. There may be other sources of information about failures and there may be other causes of fixes and improvements.
 
 \newthought{Crashes mentioned in user reviews}
@@ -296,17 +297,31 @@ Monitoring reviews can be useful to identify issues including user dissatisfacti
 % Julian to continue from here!!!!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This section combines primary research described here and secondary research including grey literature. 
+This section combines primary research described here and secondary research including grey literature.
 
+\newthought{Crash reproducibility:} Reproducing and repairing crashes in Android apps has received significant attention from academic researchers. In~\citet{tan2018_repairing_crashes_in_android_apps} they were able to automatically fix some of the crashes that were able to be repeatably triggered by existing GUI-driven automated tests. In at least one case the automated fix was more correct than the flawed one the original developer had implemented. 
+
+As their approach relies on having crashes that can be consistently reproduced via the GUI it is orthogonal to using mobile analytics as a source for crashes, nonetheless it could potentially help provide developers with adequate fixes for failures where the developers have been able to devise and either record the sequence of events or create automated tests the perform the necessary sequence of events. Developers could compare and contrast any fixes they create with those created using the repair tool, \textit{Droix}, devised as part of this research~\citep{tan2018_repairing_crashes_in_android_apps}. Note: as the authors admit, their approach worked for relatively uncomplicated crashes that could be reproduced on Android emulators. Virtually all the mobile analytics failures occurred on real Android devices so there is a gap that would need to be bridged between their work and crashes reported via mobile analytics.  
+
+Repeatability of the failure is clearly a factor in order to demonstrate any improvement and in both academic research and in practice repeatability is desirable. That said, as various of the app-centric case studies demonstrated developers cannot reproduce some of the failures being reported by mobile analytics. 
 
 \newthought{Strategic improvements in code quality:}
-There are several approaches which tech companies have adopted which may improve code quality, including the reliability of mobile apps. In particular `shift-left'~\footnote{See \url{https://devopedia.org/shift-left} for a clear overview.} encourages moving various development activities earlier in the software development lifecycle. According to Google Kotlin results in 20\% fewer crashes in Android apps~\citep{googleblogs2021_androids_kotlin_first_approach} which is one way to shift-left by obviating some of the causes of crashes \emph{i.e.} poor programming practices. Kotlin requires developers to be explicit in the nullability of variables and parameters so some of the issues only found at runtime in Java code is found at compile time when Kotlin is used. As a concrete example, the developers of the Google Home app were able to reduce \texttt{NullPointerException}'s by a third through migration from Java to Kotlin~\citep{googleblogs2020_google_home_reduces_crashes_by_a_third}.
-% And see https://en.wikipedia.org/wiki/Shift-left_testing (weak so not cited)
+There are several approaches which tech companies have adopted which may improve code quality, including the reliability of mobile apps. In particular `shift-left'~\footnote{See \url{https://devopedia.org/shift-left} for a clear overview.} encourages moving various development activities earlier in the software development lifecycle. According to Google Kotlin results in 20\% fewer crashes in the top 1000 Android apps that used Kotlin compared to those written in Java~\citep{googleblogs2021_androids_kotlin_first_approach, muntenescu2020_fewer_crashes_and_more_stability_with_kotlin} which is one way to shift-left by obviating some of the causes of crashes \emph{i.e.} poor programming practices. Kotlin requires developers to be explicit in the nullability of variables and parameters so some of the issues only found at runtime in Java code is found at compile time when Kotlin is used. As a concrete example, the developers of the Google Home app were able to reduce \texttt{NullPointerException}'s by a third through migration from Java to Kotlin~\citep{googleblogs2020_google_home_reduces_crashes_by_a_third}.
+% And see 
+% - https://en.wikipedia.org/wiki/Shift-left_testing (weak so not cited)
+% Alan Richardson on shift-left is not shifting-left in software testing  instead it's starting the work earlier in the software development process. https://devopedia.org/shift-left and https://www.youtube.com/watch?v=AaMp5skiwqA
+% Bjerke-Gulstuen K., Larsen E.W., Stålhane T., Dingsøyr T. (2015) High Level Test Driven Development – Shift Left. In: Lassenius C., Dingsøyr T., Paasivaara M. (eds) Agile Processes in Software Engineering and Extreme Programming. XP 2015. Lecture Notes in Business Information Processing, vol 212. Springer, Cham. https://doi-org.libezproxy.open.ac.uk/10.1007/978-3-319-18612-2_23 however it's a fairly mundane - provide a dedicated tester earlier in the dev't lifecycle, albeit the results seem to be productive according to their slidedeck on semanticscholar.
+
+In research in code quality for Android apps, in the work of \citet{Hamdi2021empirical} the focus was on internal code qualities (\emph{i.e.} coupling, cohesion, complexity, design size, and inheritance) rather than on qualities in use. Their group of qualities are all internal qualities of the code, rather than quality-in-use metrics. 
+
+The developers of the apps in the app-centric case studies may have performed some refactoring as defined in this research~\citep{Hamdi2021empirical}, the amount is unknown (but could be calculated for the opensource codebases). As such refactoring was not mentioned or observed in the app-centric case studies we can assume it was not explicitly performed and that it wasn't performed more than before or after the active case study period. Therefore, improvements in reliability of the apps did not stem from explicit code refactoring work~\footnote{Some code quality improvements may well have been performed as part of bug fixes, however the primary purpose of the changes were to fix causes of failures.}.
 
 \newthought{Aim to prevent errors rather than detect them using mobile analytics}. 
-Another possible improvement is to group causes of failures, for instance by the type of Exception thrown, and help find ways to obviate those Exceptions being generated in practice. Techniques such as improving development practices, explicit training and mentoring of the development team, \emph{etc}. in addition to any changes in programming languages may help achieve this aim.  
+Another possible improvement is to group causes of failures, for instance by the type of Exception thrown, and help find ways to obviate those Exceptions being generated in practice. Techniques such as improving development practices, explicit training and mentoring of the development team, \emph{etc}. in addition to any changes in programming languages may help achieve this aim. %
+Crash analysis, such as the research performed in \citet{su2020_why_my_app_crashes_etc_android_framework_exceptions}, focuses specifically on exceptions specific to the Android framework; however their approach also extends to exceptions in third-party libraries and in the application code. Mobile Analytics would be one of the ways exceptions are detected (their third research question). Furthermore, their two prototype tools: \href{https://github.com/tingsu/Stoat}{Stoat} and \href{https://github.com/crashanalysis/ExLocator}{ExLocator} might help with bug localisation and crash reproduction.
+
 %%%%% And see https://developer.android.com/topic/performance/vitals/crash#prevent-crashes-null-pointer
-Similarly, the Kiwix project chose to migrate code from Java to Kotlin, in part to prevent some errors (including errors that led to crashes) from occurring. 
+The Kiwix project chose to migrate code from Java to Kotlin, in part to prevent some errors (including errors that led to crashes) from occurring. The Commercial project, similarly, was migrating code from Java to Kotlin sporadically.
 
 
 And yet an important consideration for code quality is to be aware of a possible anti-pattern: conservation of energy.
@@ -328,6 +343,11 @@ The CTO of LocalHalo clearly recognised the ROI of fixing crashes. As he said du
 The Kiwix project provides a good example of the ROI where two major crashes were addressed within a few hours of elapsed time and resulted in a decrease in the crash rate of the app of approximately a third. The next chapter provides more details of this example.\pending{Add cross-reference when the material is in the next chapter.}
 
 A common and consistent theme that emerged was the importance of engineering leadership who sees the value of applying mobile analytics and related software quality engineering practices in order to use mobile analytics effectively to improve the mobile app development processes. 
+
+\newthought{Symbiotic information sources}
+Development teams can use both mobile analytics and user feedback where they complement each other. A useful example is where a developer explains how he addressed three distinct types of 1 star review for one of his mobile apps. The example where he used the meta-data of the end user's device is very practical and a similar technique applies for the failure analysis when using mobile analytics~\citep{sunderland2019_the_one_star_android_review}.
+
+The overall development process for mobile apps includes both the release and operational stages of a software lifecycle. Recent research aims to determine whether releases are good, bad, or neutral. One of their key observations is ``Android developers need to pay attention to the quality of their app next release''~\citep[p. 31]{saidani2022_tracking_bad_updates_in_mobile_apps_a_search_based_approach}. They plan to extend their \uppercase{App-Tracker} software tool so it can be integrated into the development pipeline for Android apps which sounds promising, especially if the underlying software could also use mobile analytics data as part of the scoring of a potential release.
 
 \dotfill 
 
