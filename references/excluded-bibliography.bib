@@ -550,4 +550,25 @@
     }
 }
 
+@inproceedings{10.1145/3167918.3167942,
+    author = {Imamura, Yuta and Uekawa, Hiroyuki and Ishihara, Yasuhiro and Sato, Masaya and Yamauchi, Toshihiro},
+    title = {Web Access Monitoring Mechanism for Android Webview},
+    year = {2018},
+    isbn = {9781450354363},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3167918.3167942},
+    doi = {10.1145/3167918.3167942},
+    abstract = {In addition to conventional web browsers, WebView is used to display web content on Android. WebView is a component that enables the display of web content in mobile applications, and is extensively used. As WebView displays web content without having to redirect the user to web browsers, there is the possibility that unauthorized web access may be performed secretly via WebView, and information in Android may be stolen or tampered with. Therefore, it is necessary to monitor and analyze web access via WebView, particularly because attacks exploiting WebView have been reported. However, there is no mechanism for monitoring web access via WebView. In this work, the goals are to monitor web access via WebView and to analyze mobile applications using WebView. To achieve these goals, we propose a web access monitoring mechanism for Android WebView. In this paper, the design and implementation of a mechanism that does not require any modifications to the Android Framework and Linux kernel are presented for the Chromium Android System WebView app. In addition, this paper presents evaluation results for the proposed mechanism.},
+    booktitle = {Proceedings of the Australasian Computer Science Week Multiconference},
+    articleno = {1},
+    numpages = {8},
+    keywords = {webview, Android, web access monitoring},
+    location = {Brisband, Queensland, Australia},
+    series = {ACSW '18},
+    exclusion_rationale = {
+      This paper focuses on implementing HTTP request and response logging in a replacement for the core WebView component in Android 6.0.1 I'm not sure I agree with their claim that ``it is necessary to monitor and analyze web access via WebView". The work is also dated as Google have materially changed the WebView design and implementation several times since Android 6. Finally, their research isn't directly connected with mine - their focus is broadly on security, mine on mobile analytics to measure and help improve mobile analytics. 
+    }
+}
+
 }
