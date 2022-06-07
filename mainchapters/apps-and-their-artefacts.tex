@@ -16,7 +16,6 @@ At one extreme build scripts may fully automate multiple steps to the point of r
 
 As an aside, in Grey Data, there is an excellent example not only of configuring the API Secret Key using the runtime environment (the method used by the Catrobat project) but of an adverse side-effect of changing the build target to a newer release of Android where the app then started to crash frequently on some Samsung device models~\citep{scott2017_android_app_crash_noclassdeffounderror_on_samsung_lollipop_devices}. 
 
-
 \textbf{Use of automated tests}: automated tests can dovetail with using mobile analytics to improve the reliability of mobile apps. For example, they can be used to demonstrate the reproducibility of crashes identified through mobile analytics. In the commercial case study this is what we did for various crashes reported via Android Vitals. For one of these an equivalent example has been released as an opensource project at \url{https://github.com/julianharty/KotlinNPE} which tests the fix. This project is partnered by another opensource project \url{https://github.com/julianharty/AutomatedTestingWithKotlin} as we wanted to find a way to run tests directly in a Java Virtual Machine (JVM) without needing the overhead of the Android runtime. When automated tests need the Android runtime the build process and the runtime environment become much more complicated and the elapsed runtime for the tests can take several orders of magnitude more time.
 
 Use of automated tests for bug reproduction/bug fixes was patchy in all of the development teams in the case studies. \emph{I.e.} they all chose to `fix' at least some crashes directly without the support of automated tests. Their success rates of writing these fixes varied. For example the Kiwix developers were able to fix various NullPointerExceptions directly in the application's source code whereas they were not able to fix the crashes in the custom downloader code. 
@@ -25,17 +24,41 @@ Moonpig's development team chose to write automated tests where they believed th
 
 % COULD_DO if it'd be useful - review the fixes applied after the PocketCode hackathon to see how many included automated tests. Then write up the results here.
 
+
+\textbf{Tests for mobile analytics SDKs}: 
+Several types of tests have been found for mobile analytics SDKs, the first type are tests developers implement to \textit{check the plumbing works i.e.} that the SDK has been integrated and configured adequately for a basic confidence test. The second type are written to check the SDK at a unit or module level.
+
+All of the in-app crash reporting SDKs encountered during the research included confidence tests. Automated tests for the SDKs were uncommon with Segmentio being the counterexample, their codebase includes various automated tests \url{https://github.com/segmentio/analytics-android/search?q=test}. However their end-to-end tests for the Android SDK lacked depth or rigour in terms of what they tested \url{https://github.com/segmentio/analytics-android/blob/master/analytics-samples/analytics-sample/src/androidTest/java/com/segment/analytics/E2ETest.java}. The \texttt{assertMessageReceivedByWebhook} returns void and doesn't throw an error so it's a flawed assertion in my view.\pending{Would some examples with annotations help here?}  
+
+\textbf{Automated tests for logging}: 
 As part of this research I co-wrote various small software projects to provide automated tests of local logging by Android apps~\citep{android_crash_dummy, android_log_assert}; these have been released under permissive opensource licenses. While logging is rarely a source of crashes in mobile apps it's often used to a) by the platform and/or the logging SDK record the actual crash and associated stack trace, and b) by the app developers to record information to help the app developers diagnose possible reasons for the crash~\footnote{As an aside, Google developers worked with app developers to add logging to help diagnose crashes for some older Android devices \url{https://github.com/google/filament/issues/2418}.}. 
 % Note PostHog uses a ShadowLog in their tests of logging https://github.com/PostHog/posthog-android/blob/master/posthog/src/test/java/com/posthog/android/LoggerTest.java
 
+\textbf{Mobile analytics for remote logging}: 
 Some app developers also chose to use mobile analytics for logging, for example in 107 opensource Android projects available on github.com~\citep{harty2021_logging_practices_with_mobile_analytics}. Mobile Analytics SDKs tend to use a network connection to transmit information from the end-user's device to central servers~\footnote{I'm not aware of any exceptions however other transfer mechanisms are possible such as using memory cards or memory sticks.}. As an aside, it should be practical to write automated tests for mobile analytics SDKs to check the data the SDK emits. Doing so is outside the scope of this research and a possible topic for future research. % I have looked at PostHog's code which is actually based heavily on a fork of Segment's opensource code so I then also looked at some of Segment's Android code. I didn't find any code that actually checks the output or the transmission aspects. Note: https://segment.com/docs/connections/sources/catalog/libraries/mobile/android/ uses Square's Tape opensource library to persist event data. This might be something to explore adding memory-card/stick transfer to.
 
 Logging, network IO, and mobile analytics combined in the industrial case study where a high crash rate in a new release was caused by a flawed implementation to increase the logging of network IO through the OkHttp library used by the Android app. 
 
+\subsection{Bug-facing topics}
+
+\begin{itemize}
+    \itemsep0em 
+    \item SDK can cause the app to crash e.g. \href{https://github.com/segmentio/analytics-android/issues/732}{Crash during Google Pre-launch report \#732}.
+    \item Some developers choose to record bugs for failures reported via mobile analytics.
+    \item Bug reproducibility, including the use of automated tests.
+    \item The efficacy of addressing bugs.
+    \item Obviating some bugs by replacing Java code with Kotlin (Upstream improvements).
+\end{itemize}
 
 
 \section{Macro topics}
-Macro-topics touch on multiple aspects of developing mobile apps. This research identified five main macro-topics, three of these have a common trait of tradeoffs developers face, in ethics, in the use of third-party code, and in functionality. The remaining topics have a common trait of scaling: scaling use of mobile analytics by developers and within their engineering microcosm.
+Macro-topics touch on multiple aspects of developing mobile apps. This research identified the following groupings of macro-topics:
+
+\begin{itemize}
+    \item Three of these have a common trait of \textbf{tradeoffs} developers face, in ethics, in the use of third-party code, and in functionality.
+    \item Two have a common trait of \textbf{scaling}: scaling use of mobile analytics by developers and within their engineering microcosm.
+    \item Two cover the trustworthiness and fidelity of the mobile analytics as reflected in the artefacts.\pending{I have an inkling this material is better placed elsewhere in my thesis than this chapter. TBD.} 
+\end{itemize}
 
 \subsection{Tradeoffs}
 At least three types of tradeoffs were evident in the artefacts: 1) the effects of ethical decisions by the project team, 2) downgrading functionality to obtain reliability, and 3) use of third-party vs locally developed functionality. 
@@ -54,6 +77,7 @@ However, the code for the downloader had various bugs and flaws including severa
 However the standard Android downloader didn't provide equivalent facilities to continue partial downloads, or to pause and resume downloads, nor did it provide progress tracking information. Furthermore as the project team had chosen not to incorporate in-app mobile analytics the project team cannot easily determine the effects of these changes \emph{on the end users}. Bugs continue to surface occasionally on the project's GitHub site~\footnote{\textit{e.g.} \url{https://github.com/kiwix/kiwix-android/issues/2845}.} and users sometimes complain in reviews submitted to Google Play. Here are four examples extracted from the developer's view of Google Play:
 
 \begin{itemize}
+    \itemsep0em
     \item ``\textit{Wikipedia nopic without images works again in version 11.18 with search function.! Top Unfortunately, now in March 21 again problems with wikipedia text with 14.2 gb. After 3/4 of the download the process breaks off every time! Too bad. Wikis with smaller amounts of data can be downloaded without any problems. Handling of the app very well.}'', Mar 22, 2021 % https://play.google.com/console/u/0/developers/9116215767541857492/app/4975184706939091905/user-feedback/review-details?reviewId=gp%3AAOqpTOGjPB5Em_o1TfLCzltkR7jvVhdVJAvBZlj9Y0-5i9FOcDaJ4Yjh1yqIHV5-qo-9HkbvGJSAHweXJOQodfo&corpus=PUBLIC_REVIEWS
     \item ``\textit{Download started and it could never finish}'', Mar 25, 2021 % https://play.google.com/console/u/0/developers/9116215767541857492/app/4975184706939091905/user-feedback/review-details?reviewId=gp%3AAOqpTOErPflFJDpyqiz4m4CJW3IPjYoXKGrO0SLZ4L94DwUPj662lAWuS0MOWAXfANZ2D6Vf--EkJLe1RPIeSqk&corpus=PUBLIC_REVIEWS
     \item ``\textit{Seems that library download is b0rken atm?}'', Oct 7, 2021 % https://play.google.com/console/u/0/developers/9116215767541857492/app/4975184706939091905/user-feedback/review-details?reviewId=gp%3AAOqpTOGVOb-MNO3ehakCJsUi7Ur-R_6QJkdnWzFDl7xh6KA28ZUATGKmBO7JzDTgPvULR0UhivkWMp2B0d83qpA&corpus=PUBLIC_REVIEWS
@@ -95,30 +119,24 @@ Various of the mobile analytics services provided API integration, these are cov
 The Google and Microsoft storage integration requires both authorisation and paying for by the organisation. In turn this meant a development team needs to get approval to access and use these services, and the approval may be time-consuming even if senior management has dictated the project will integrate and use these services as a side-effect of corporate processes and working practices. An entirely separate team may be responsible for the `plumbing' in of the project's data from the mobile analytics service where the development team needs to request the necessary work and then wait until that work has been approved, scheduled, and then attempted. As Twitter engineers noted plumbing is a key activity~\citep[page 6]{lin2013_scaling_big_data_mining_infrastructure_the_twitter_experience} 
 
 
+\section{App-facing topics}
 
+\begin{itemize}
+    \itemsep0em
+    \item Improvements in crash rates.
+    \item Build scripts can affect the behaviour of the app.
+    \item User Experience of apps with in-app analytics (visibility and control aspects).
+\end{itemize}
 
-
-\noindent\textcolor[RGB]{220,220,220}{\rule{\linewidth}{1pt}}
-\emph{older material follows and needs integrating.}
-\noindent\textcolor[RGB]{220,220,220}{\rule{\linewidth}{1pt}}
-
-
-
-
-
-\section{Normal and acceptable ranges of failures}
-For the GTAF case study, the crash rates, as measured by Android Vitals, vary massively by release of the app (Al Quran (Tafsir \& by Word).\pending{A great deal more analysis is possible given the number of active apps and the ongoing access to Google Play Console.} 
-
-Android Vitals does not report any failures in the GTAF taskinator app, which is created using React Native according to the development team. This is pertinent as similar behaviours in Android Vitals were observed for another app-centric case study, LocalHalo. 
-
-
-\section{Improvements in crash rates}
+\subsection{Improvements in crash rates}
 For both Catrobat and Kiwix the hackathon and the post-hackathon bug fixes were highly effective in terms of cumulatively reducing the crash rate over several subsequent releases. % TODO Check whether the releases were contiguous.
 The Catrobat case study replicated the improvements seen in the Kiwix case study and also the efficacy of using a hackathon as an immediate intervention. TODO discuss limitations of hackathons and forward link to the section on the useful half-life of hackathons. 
 
 
 For Pocket Code, the improvements in the stability of the app were particularly encouraging as the project had already implemented many of `good' development practices.
 
+
+\textbf{TODO include the other case studies.}
 
 \section{Discussion}\label{apps-and-artefacts-discussion-section}
 Much of a developer's focus, perhaps unsurprisingly, is working with code and modifying code to achieve various objectives. An industry-focused article by Beyang Liu discusses the author's thoughts on developer productivity and introduces a term `\textbf{developer hertz}' as a measure of developer productivity~\citep{liu2022_a_devs_thoughts_onDeveloper_productivity} and defines it as once around the developer's inner loop (illustrated in Figure \ref{fig:developer-inner-loop-outer-loop}). This article provides a helpful context for the work of app developers where automated tests, use of mobile analytics, bug reproducibility, bug tracking, choosing third-party libraries, and various other activities emerged from the thematic analysis of the various findings pertaining to this research.
@@ -149,3 +167,18 @@ If the developer recorded the bug in the reporting system there are two more pot
 
 \section{Summary of apps and their artefacts}
 TBC
+
+
+
+
+\noindent\textcolor[RGB]{220,220,220}{\rule{\linewidth}{1pt}}
+\emph{older material follows and needs integrating.}
+
+\noindent\textcolor[RGB]{220,220,220}{\rule{\linewidth}{1pt}}
+
+
+\section{Normal and acceptable ranges of failures}
+For the GTAF case study, the crash rates, as measured by Android Vitals, vary massively by release of the app (Al Quran (Tafsir \& by Word).\pending{A great deal more analysis is possible given the number of active apps and the ongoing access to Google Play Console.} 
+
+Android Vitals does not report any failures in the GTAF taskinator app, which is created using React Native according to the development team. This is pertinent as similar behaviours in Android Vitals were observed for another app-centric case study, LocalHalo. 
+
