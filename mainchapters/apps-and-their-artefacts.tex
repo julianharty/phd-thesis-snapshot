@@ -7,12 +7,38 @@ To some extent the artefacts reflect macro (big-picture) topics including ethics
 
 
 \section{Code-facing topics}
+\textbf{Build scripts}: App developers use and maintain build scripts to build their apps and the generally the build script combines with various build tools to customise the application binary (the code that's installed on app-centric mobile devices~\footnote{There are various forms of mobile device such as 3G battery powered routers which are outside the scope of this research.}). Commonly used build variants include debug and release build targets. When apps include in-app mobile analytics often the build scripts are modified to specify the necessary SDK dependencies and the application's source code is modified to initialise the SDK.\pending{Add details of the examples from the case studies and other evidence.}
+
+At one extreme build scripts may fully automate multiple steps to the point of releasing a new version of an app in the app store, at the other extreme many of the steps may be manual and performed unsystematically by the development team. Of course many projects are somewhere between these two extremes. In one of the case studies a mistake in a manual step meant the new release of the Pocket Code did not include the correct information and stopped the in-app crash analytics from being reported. The Crashlytics SDK on Android needed two distinct keys, an API Key and a secret key~\footnote{StackOverflow has a good example of how a build script obtains these values from the environment \url{https://stackoverflow.com/q/46814593/340175}~\citep{scott2017_android_app_crash_noclassdeffounderror_on_samsung_lollipop_devices}. The relevant documentation is no longer available, it was at \url{https://docs.fabric.io/android/fabric/settings/working-in-teams.html} according to \url{https://stackoverflow.com/a/40667490/340175}}, and presumably at least one of these was either missing completely or incorrect for that build.
+% https://stackoverflow.com/questions/31596792/how-to-get-test-and-production-values-for-fabric-crashlytics 
+% See also https://www.instabug.com/crashlytics-alternative 
+% and a nice set of examples of how to integrate various SDKs including AppSee and Crashlytics in Ruby code https://github.com/HipByte/motion-fabric 
+
+As an aside, in Grey Data, there is an excellent example not only of configuring the API Secret Key using the runtime environment (the method used by the Catrobat project) but of an adverse side-effect of changing the build target to a newer release of Android where the app then started to crash frequently on some Samsung device models~\citep{scott2017_android_app_crash_noclassdeffounderror_on_samsung_lollipop_devices}. 
+
+
+\textbf{Use of automated tests}: automated tests can dovetail with using mobile analytics to improve the reliability of mobile apps. For example, they can be used to demonstrate the reproducibility of crashes identified through mobile analytics. In the commercial case study this is what we did for various crashes reported via Android Vitals. For one of these an equivalent example has been released as an opensource project at \url{https://github.com/julianharty/KotlinNPE} which tests the fix. This project is partnered by another opensource project \url{https://github.com/julianharty/AutomatedTestingWithKotlin} as we wanted to find a way to run tests directly in a Java Virtual Machine (JVM) without needing the overhead of the Android runtime. When automated tests need the Android runtime the build process and the runtime environment become much more complicated and the elapsed runtime for the tests can take several orders of magnitude more time.
+
+Use of automated tests for bug reproduction/bug fixes was patchy in all of the development teams in the case studies. \emph{I.e.} they all chose to `fix' at least some crashes directly without the support of automated tests. Their success rates of writing these fixes varied. For example the Kiwix developers were able to fix various NullPointerExceptions directly in the application's source code whereas they were not able to fix the crashes in the custom downloader code. 
+
+Moonpig's development team chose to write automated tests where they believed they would be helpful, for some of the failures they believed they had sufficiently detailed sources of information to apply some fixes directly to the codebase, in part through their extensive use of Firebase Analytics for in-app logging and usage monitoring.
+
+% COULD_DO if it'd be useful - review the fixes applied after the PocketCode hackathon to see how many included automated tests. Then write up the results here.
+
+As part of this research I co-wrote various small software projects to provide automated tests of local logging by Android apps~\citep{android_crash_dummy, android_log_assert}; these have been released under permissive opensource licenses. While logging is rarely a source of crashes in mobile apps it's often used to a) by the platform and/or the logging SDK record the actual crash and associated stack trace, and b) by the app developers to record information to help the app developers diagnose possible reasons for the crash~\footnote{As an aside, Google developers worked with app developers to add logging to help diagnose crashes for some older Android devices \url{https://github.com/google/filament/issues/2418}.}. 
+% Note PostHog uses a ShadowLog in their tests of logging https://github.com/PostHog/posthog-android/blob/master/posthog/src/test/java/com/posthog/android/LoggerTest.java
+
+Some app developers also chose to use mobile analytics for logging, for example in 107 opensource Android projects available on github.com~\citep{harty2021_logging_practices_with_mobile_analytics}. Mobile Analytics SDKs tend to use a network connection to transmit information from the end-user's device to central servers~\footnote{I'm not aware of any exceptions however other transfer mechanisms are possible such as using memory cards or memory sticks.}. As an aside, it should be practical to write automated tests for mobile analytics SDKs to check the data the SDK emits. Doing so is outside the scope of this research and a possible topic for future research. % I have looked at PostHog's code which is actually based heavily on a fork of Segment's opensource code so I then also looked at some of Segment's Android code. I didn't find any code that actually checks the output or the transmission aspects. Note: https://segment.com/docs/connections/sources/catalog/libraries/mobile/android/ uses Square's Tape opensource library to persist event data. This might be something to explore adding memory-card/stick transfer to.
+
+Logging, network IO, and mobile analytics combined in the industrial case study where a high crash rate in a new release was caused by a flawed implementation to increase the logging of network IO through the OkHttp library used by the Android app. 
 
 
 
 \section{Macro topics}
+Macro-topics touch on multiple aspects of developing mobile apps. This research identified five main macro-topics, three of these have a common trait of tradeoffs developers face, in ethics, in the use of third-party code, and in functionality. The remaining topics have a common trait of scaling: scaling use of mobile analytics by developers and within their engineering microcosm.
+
 \subsection{Tradeoffs}
-At least three types of tradeoffs were evident in the artefacts" 1) the effects of ethical decisions by the project team, 2) downgrading functionality to obtain reliability, and 3) use of third-party vs locally developed functionality. 
+At least three types of tradeoffs were evident in the artefacts: 1) the effects of ethical decisions by the project team, 2) downgrading functionality to obtain reliability, and 3) use of third-party vs locally developed functionality. 
 
 \textbf{Ethics}: 
 Several of the development teams had to make explicit decisions whether to use mobile analytics and if so which one they would use. The Kiwix project team chose explicitly to exclude mobile analytics from their apps to reduce the potential for end users to be tracked and potentially imprisoned through their use of the app and Wikipedia content in particular~\footnote{The Kiwix project was developed to provide offline access to all of Wikipedia, it was then extended to support and provide lots of other content and material, nonetheless Wikipedia content is the one most likely to put end users at risk in some jurisdictions.} The Kiwix team did decide to use the platform-provided analytics from Google Play Console on the grounds that if the end-user had a) installed the Kiwix app from Google Play and b) had enabled (or at least not disabled) Google's collection of usage and performance data from their phones then the users were not being compromised by the devs using the analytics generated from the data those phones and tablets had provided.
@@ -36,6 +62,7 @@ However the standard Android downloader didn't provide equivalent facilities to 
 
 And another review asks for the download manager that, ironically, used to exist (presumably without realising the app used to have one): ``\textit{edit: still there is no download manager. It is not possible to download the large files. Despite 100 megabits per second, I did not manage to load the large Wikipedia with images. The app itself is very good. Only the download of the huge files always breaks off. I load via PC. A download manager would not be bad.}'', Mar 12, 2021 % https://play.google.com/console/u/0/developers/9116215767541857492/app/4975184706939091905/user-feedback/review-details?reviewId=gp%3AAOqpTOEH9rOv2WWhAUTEChRwgT1Mrq5rYxEp9cQzrqjGDg6aeOccjVgxJeNFU_syr1wNPh9UMw71FKfM13iNy8k&corpus=PUBLIC_REVIEWS 
 
+\textbf{Third-party code}: 
 The third tradeoff is between third-party and locally developed code which generalises the second tradeoff found in the research (of trading functionality for reliability). As a concrete example, the WebView component is ubiquitous on Android and found in many Android apps including several of those in the case study\pending{Is it worth the investment to find out how many of the apps use the Android WebView?}. 
 
 % Google's overview on the WebView component is available at https://developer.android.com/guide/webapps and https://developer.android.com/guide/webapps/webview-privacy discusses crash reporting and other data collection topics pertaining to apps using WebViews.
@@ -50,6 +77,33 @@ As Google Android notes online \url{https://developer.android.com/guide/webapps}
 % https://android.gadgethacks.com/how-to/ditch-googles-webview-switch-androids-system-browser-bromite-0384227/ 
 
 There is no silver bullet for developers in terms of choosing whether to write their own code or use third-party code. Tradeoff 2 enabled the Kiwix team to improve the reliability at the cost of losing functionality; tradeoff 3 allows developers to short-circuit the work of developing their own functionality at the risk of being unable to address some of the failures and problems related to using those third-party components.
+
+\subsection{Scaling}
+\textbf{Developers' access to, and use of, mobile analytics services}: 
+In hindsight it may be blindingly obvious that in order to use mobile analytics one first needs access to the mobile analytics service and then to gain the habits and understanding to actually use what's been made available. And yet, in the majority of the case studies only a minority of the team leaders actually provided access to the majority of their team members. Examples of these case studies include LocalHalo where the CTO appeared to be the only developer with access to Sentry; in the Kiwix Android team where lead developers were the majority of those who had direct access to Android Vitals and similarly for the Catrobat project access tended to be for senior developers who were long-time team members\footnote{Note: hard data was hard to obtain given the nature of the access granted to the researcher and discussions with the projects seldom led to the data being made available.}.
+
+In the commercial project there were challenges in determining who granted access and subsequently developers had to obtain prior approval from their manager before requesting access to mobile analytics, and new team members were not necessarily even aware of the mobile analytics services so couldn't begin to request access. 
+
+The clear counter example was Moonpig where the development team members were routinely provided access to the mobile analytics as part of joining the development team. Furthermore the developers rotated on-duty to actively monitor the mobile analytics to find and respond to any anomalies; therefore they were encouraged to learn how to use, understand, and act on the reports in the mobile analytics services.
+
+\textbf{System integration of mobile analytics outputs}: 
+The commercial project was and is part of a much larger engineering organisation with thousands of staff members. The engineering organisation required integration of all the mobile analytics services into their data lake through data-pipelines~\footnote{A useful overview of data-pipelines from three industry case studies describes various challenges and opportunities those companies experienced~\citep{munappy2020_data_pipeline_management_in_practice_challenges_and_opportunities}.} Several of the enterprise-scale mobile analytics services, including Google Analytics 360 and Microsoft's App Center, provide high-volume exports using their respective proprietary cloud storage service. Microsoft App Center also provides an openAPI that can be used for REST queries interactively \url{https://openapi.appcenter.ms/} and/or programmatically (documented online at \url{https://docs.microsoft.com/en-us/appcenter/api-docs/}). This was used on an \emph{ad-hoc} basis during the case-study before the data-pipeline was fully established and worked adequately for the \emph{ad-hoc} work.  
+% https://docs.microsoft.com/en-us/appcenter/diagnostics/using-the-diagnostics-api 
+
+Various of the mobile analytics services provided API integration, these are covered in the \href{chapter-tools-and-their-artefacts}{Tools and their artefacts} chapter.\pending{Provide a more elegant link.}
+
+The Google and Microsoft storage integration requires both authorisation and paying for by the organisation. In turn this meant a development team needs to get approval to access and use these services, and the approval may be time-consuming even if senior management has dictated the project will integrate and use these services as a side-effect of corporate processes and working practices. An entirely separate team may be responsible for the `plumbing' in of the project's data from the mobile analytics service where the development team needs to request the necessary work and then wait until that work has been approved, scheduled, and then attempted. As Twitter engineers noted plumbing is a key activity~\citep[page 6]{lin2013_scaling_big_data_mining_infrastructure_the_twitter_experience} 
+
+
+
+
+
+\noindent\textcolor[RGB]{220,220,220}{\rule{\linewidth}{1pt}}
+\emph{older material follows and needs integrating.}
+\noindent\textcolor[RGB]{220,220,220}{\rule{\linewidth}{1pt}}
+
+
+
 
 
 \section{Normal and acceptable ranges of failures}
