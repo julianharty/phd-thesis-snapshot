@@ -1,5 +1,61 @@
 \chapter{Tools and their artefacts}~\label{chapter-tools-and-their-artefacts}
-\julian{This chapter covers \utools and \itools.}
+%\julian{This chapter covers \utools and \itools.}
+
+This chapter covers two of the six perspectives, \emph{i.e.} using and improving mobile analytics tools. The primary evidence comes from both the app-centric and the tools-centric case studies, augmented with material from grey data and grey literature.
+
+The evidence has been analysed and prioritised to keep the chapter relatively succinct and on topic. 38 L1 themes emerged in the analysis of the evidence, of these the ones with strongest support in terms of the evidence are included here, the rest would benefit from further work.
+
+The top ranked L1 themes are core to this chapter and they are: 
+{\small
+\begin{enumerate}
+    \itemsep0em
+    \item[1] sdk-design: the design of the client-side SDK affects many aspects of the data collection which then feeds subsequent stages in the processing of the data to provide the mobile analytics.
+    \item[1] ux-design: The design of the User Experience (UX) of the mobile analytics tool for their audience of the software development team (and particularly the app developers).
+    \item[3] product-fit: whether, and if practical how well, the mobile analytics product fits the desires/needs of the developers. 
+    \item[4] actionable-reports: reports the developers can action in order to address concerns presented in the reports.    
+    \item[4] integration-into-workflows: the ability of a given mobile analytics tool/service to be integrated into development team's workflows.
+    \item[6] meta-data: data not directly about the app, instead it's data about the user and/or their device, etc.
+    \item[7] flaws: weaknesses, mistakes, errors, etc. pertaining to the mobile analytics tool/service.
+    \item[8] ethical-considerations: the data collected by mobile analytics may have ethical implications a) for the operator/provider of the service, b) for their partners and customers, c) for the developers, d) for end-users. In this research our main focus is on the implications for the developers, nonetheless the other aspects are also important.
+    \item[8] link-rot-preservation-of-results: the validity of a URL may be finite, as may the contents be even if the link remains. For mobile analytics services link rot is often a common reason why results are no longer available from the mobile analytics service - the link was ephermeral. In such cases the results would need to be preserved while the results are still available. In some cases the rot may be easy to predict, for instance as data ages beyond the predefined date range of a report, in other cases less so, for instance when the active release is updated the data for the previous currently active release might 'disappear' from some reports.
+    \item[10] benefits-of-combining-mobile-analytics-tools: an observation of benefits developers can obtain through combining their use of several mobile analytics tools.
+    \item[11] bug-localisation: features in the tool that may enable developers to localise one or more bugs.
+    \item[12] efficacy-of-tool: how efficient and how effective is the tool, i.e. how efficacious is the tool? Did it achieve the objectives it claims to achieve?
+    \item[12] engineering-challenges: Engineering challenges related to developing the components of the mobile analytics tool/service such as provision of a client-side SDK that collects failures for native (C++) code.
+    \item[12] return-on-investment: developers may make both implicit and explicit choices on what to invest in, for instance in terms of their focus, their effort, and their money. The analytics tools need to convince developers a) to invest and then b) whether to increase that investment (and if so what forms of investment e.g. in terms of writing more code, spending [more] money, using the tool more, etc.).
+    \item[12] testability: the ability to test the overall service, the tool, and/or components that comprise the analytics tool.
+    \item[12] vying-for-attention-of-developers: mobile analytics competes (vies) for the attention of the app developers against a plethora of other competing demands, offerings, and constraints. 
+\end{enumerate}
+}
+
+These can be aggregated into four higher-level (L2) themes: design, fit-for-purpose, utility, dependability.
+
+\section{Design}
+Design of the SDK and the developer-experience (UX) of the mobile analytics emerged as the top two ranked themes for analytics tools. Any in-app SDK needs to integrate easily in to the mobile app and platform-level analytics needs to be seamless and collect sufficient pertinent information to be useful for the app developers. They also need to be robust and timely in terms of collection, transmission, and processing of the underlying data in order for developers to have timely access to the results. 
+
+Fabric Crashlytics is the archetypal example of how a mobile analytics tool can be designed to serve developers well. The product team developed it from the ground up, starting with excellent crash reporting, to provide developers with timely, actionable, attractive, and useful reports. This led to it becoming one of the top three mobile analytics tools for both iOS and Android within NN\pending{Check, correct, and then add reference} months. First Twitter acquired it and then Google did who subsequently integrated it into Firebase Analytics which is the most popular mobile analytics service for Android apps currently.
+
+Mobile Analytics tools vie for attention against a plethora of other developer-oriented tools, project demands, \emph{etc.} Developers need to be enticed into using the tools and then retained on an ongoing basis to meet the objectives of the providers of the mobile analytics services.
+
+\subsection{SDK design}
+Any mobile analytics SDK needs to be designed to collected relevant data and forward that data so it can be processed, analysed, and reported on. Mobile apps %are written using hybrid/cross platform-frameworks, others in platform/managed code, a few may be written purely in native/unmanaged code, and some combine several of these. They 
+can be written in several programming languages. While many mobile apps are written in a single programming language some use several programming languages, for instance Kiwix Android combines Java, Kotlin, and C++. 
+
+Mobile analytics SDKs, in turn, support one or more of the programming languages. If they do not support the programming languages then they may not be able to obtain or provide analytics for elements written in the unsupported programming languages. For C and C++ code in particular, the app developers generally need to explicitly configure the code and the build process to incorporate the relevant mobile analytics SDK if it's available.
+
+The SDK needs to be initialised as early as practical each time the app is started (or restarted) if it's to capture pertinent information (including crashes that occur when the app starts or restarts). For mobile analytics SDKs this has led to their developers finding and implementing mechanisms to initialise their SDK in innovative (and unusual) ways, for instance Firebase uses a ContentProvider~\citep{stevenson2016_how_does_firebase_initialize_on_android}. Note: this does not always work, as reported in \citep{reddy2022_crashlytics_fails_to_track_app_startup_crashes}. 
+
+% More reading on Cordova's demise: https://medium.com/codex/the-sunset-of-apache-cordova-alternatives-for-cross-platform-mobile-development-in-2022-9da34234c992
+
+\section{Fit-for-purpose}
+
+
+\section{Utility}
+
+
+\section{Dependability}
+
+
 
 \section{Some limits of what can be measured}
 
