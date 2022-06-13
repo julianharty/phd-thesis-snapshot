@@ -15,9 +15,10 @@ To some extent the artefacts reflect macro (big-picture) topics including ethics
 
 
 \section{Code-facing topics}
-\textbf{Build scripts}: App developers use and maintain build scripts to build their apps and generally the build script combines with various build tools to customise the application binary (the code that's installed on app-centric mobile devices~\footnote{There are various forms of mobile device such as 3G battery powered routers which are outside the scope of this research.}). Commonly used build variants include debug and release build targets. 
+\subsection{Build scripts}
+App developers use and maintain build scripts to build their apps and generally the build script combines with various build tools to customise the application binary (the code that's installed on app-centric mobile devices~\footnote{There are various forms of mobile device such as 3G battery powered routers which are outside the scope of this research.}). Commonly used build variants include debug and release build targets. 
 
-When apps include in-app mobile analytics often the build scripts are modified to specify the necessary SDK dependencies and the application's source code is modified to initialise the SDK. The documentation for Sentry's Android SDK provides a clear three step process of Install, Configure, Verify, so these are reproduced here~\footnote{Use permitted under their opensource license.}. Figure \ref{listing:build_gradle_for_sentry} is a typical example of how a mobile analytics dependency is added to the build file, this is Sentry's install step in their process.
+When apps include in-app mobile analytics often the build scripts are modified to specify the necessary SDK dependencies and the application's source code is modified to initialise the SDK. The documentation for Sentry's Android SDK provides a clear three step process of \textbf{Install}, \textbf{Configure}, \textbf{Verify}, so these are reproduced here~\footnote{Use permitted under their opensource license.}. Figure \ref{listing:build_gradle_for_sentry} is a typical example of how a mobile analytics dependency is added to the build file, this is Sentry's \textbf{install} step in their process.
 
 \begin{listing}
 \begin{minted}{groovy}
@@ -29,7 +30,7 @@ dependencies {
 \label{listing:build_gradle_for_sentry}
 \end{listing}
 
-The configuration step requires a setting that is uniquely allocated by Sentry for this app when the developers use Sentry's online service. Figure \ref{listing:android_manifest_xml_for_sentry} shows the syntax of the configuration; the developers would need to obtain the unique dsn (data source name) to use for their app and use that value in place of the example value.
+The \textbf{configuration} step requires a setting that is uniquely allocated by Sentry for this app when the developers use Sentry's online service. Listing \ref{listing:android_manifest_xml_for_sentry} shows the syntax of the configuration; the developers would need to obtain the unique dsn (data source name) to use for their app and use that value in place of the example value.
 
 \begin{listing}
 \begin{minted}{xml}
@@ -42,7 +43,10 @@ The configuration step requires a setting that is uniquely allocated by Sentry f
 \label{listing:android_manifest_xml_for_sentry}
 \end{listing}
 
-The code snippet in Listing \ref{listing:android_activity_to_verify_sentry_works_in_app} sends details of a caught exception to Sentry's service each time the code is run. Running this code (by using the app) helps verify the installation and configuration steps have been completed adequately. Note: this code would generally be removed from the app once the verification has been completed successfully, developers would effectively replace it with custom code for any additional reporting not already provided automatically by the SDK. % https://docs.sentry.io/platforms/android/usage/  https://docs.sentry.io/platforms/android/enriching-events/breadcrumbs/  https://docs.sentry.io/platforms/android/configuration/integrations/okhttp/
+\textbf{Verification} is not strictly part of the build scripts as it's part of the app, nonetheless it's included here since it is closely connected to the previous steps.
+
+The code snippet in Listing \ref{listing:android_activity_to_verify_sentry_works_in_app} sends details of a caught exception to Sentry's service each time the code is run. Running this code (by using the app) helps \textbf{verify} the installation and configuration steps have been completed adequately. Note: this code would generally be removed from the app once the verification has been completed successfully, developers would effectively replace it with custom code for any additional reporting not already provided automatically by the SDK. % https://docs.sentry.io/platforms/android/usage/  https://docs.sentry.io/platforms/android/enriching-events/breadcrumbs/  https://docs.sentry.io/platforms/android/configuration/integrations/okhttp/
+
 During the period of this research, the SDKs have continued to evolve and tend to offer developers a greater range of information and also they tend to automated more of the underlying data collection, for example the Sentry 3.1.0 Android Gradle plugin automatically instruments the OkHttp library if it's part of the app~\footnote{\url{https://docs.sentry.io/platforms/android/configuration/integrations/okhttp/}}.
 
 
@@ -77,7 +81,18 @@ At one extreme build scripts may fully automate multiple steps to the point of r
 
 As an aside, in Grey Data, there is an excellent example not only of configuring the API Secret Key using the runtime environment (the method used by the Catrobat project) but of an adverse side-effect of changing the build target to a newer release of Android where the app then started to crash frequently on some Samsung device models~\citep{scott2017_android_app_crash_noclassdeffounderror_on_samsung_lollipop_devices}. 
 
-\textbf{Use of automated tests}: automated tests can dovetail with using mobile analytics to improve the reliability of mobile apps. For example, they can be used to demonstrate the reproducibility of crashes identified through mobile analytics. In the commercial case study this is what we did for various crashes reported via Android Vitals. For one of these an equivalent example has been released as an opensource project at \url{https://github.com/julianharty/KotlinNPE} which tests the fix. This project is partnered by another opensource project \url{https://github.com/julianharty/AutomatedTestingWithKotlin} as we wanted to find a way to run tests directly in a Java Virtual Machine (JVM) without needing the overhead of the Android runtime. When automated tests need the Android runtime the build process and the runtime environment become much more complicated and the elapsed runtime for the tests can take several orders of magnitude more time.
+
+\subsection{Calls to the Mobile Analytics SDK}
+
+\begin{itemize}
+    \item Commercial project: extensive use of Microsoft App Center to record caught exceptions, in particular.
+    \item Moonpig: extensive use of Firebase Analytics to record breadcrumb information to help determine and understand what led to undesirable events.
+    \item 57 opensource Android apps:\pending{TBD how much to write up here vs. reference in my jointly authored paper \citep{harty2021_logging_practices_with_mobile_analytics}.} 
+\end{itemize}
+
+
+\subsection{Use of automated tests for the app}
+Automated tests can dovetail with using mobile analytics to improve the reliability of mobile apps. For example, they can be used to demonstrate the reproducibility of crashes identified through mobile analytics. In the commercial case study this is what we did for various crashes reported via Android Vitals. For one of these an equivalent example has been released as an opensource project at \url{https://github.com/julianharty/KotlinNPE} which tests the fix. This project is partnered by another opensource project \url{https://github.com/julianharty/AutomatedTestingWithKotlin} as we wanted to find a way to run tests directly in a Java Virtual Machine (JVM) without needing the overhead of the Android runtime. When automated tests need the Android runtime the build process and the runtime environment become much more complicated and the elapsed runtime for the tests can take several orders of magnitude more time.
 
 Use of automated tests for bug reproduction/bug fixes was patchy in all of the development teams in the case studies. \emph{I.e.} they all chose to `fix' at least some crashes directly without the support of automated tests. Their success rates of writing these fixes varied. For example the Kiwix developers were able to fix various NullPointerExceptions directly in the application's source code whereas they were not able to fix the crashes in the custom downloader code. 
 
@@ -86,21 +101,29 @@ Moonpig's development team chose to write automated tests where they believed th
 % COULD_DO if it'd be useful - review the fixes applied after the PocketCode hackathon to see how many included automated tests. Then write up the results here.
 
 
-\textbf{Tests for mobile analytics SDKs}: 
+\subsection{Tests for mobile analytics SDKs}
 Several types of tests have been found for mobile analytics SDKs, the first type are tests developers implement to \textit{check the plumbing works i.e.} that the SDK has been integrated and configured adequately for a basic confidence test. The second type are written to check the SDK at a unit or module level.
 
-All of the in-app crash reporting SDKs encountered during the research included confidence tests. Automated tests for the SDKs were uncommon with Segmentio being the counterexample, their codebase includes various automated tests \url{https://github.com/segmentio/analytics-android/search?q=test}. However their end-to-end tests for the Android SDK lacked depth or rigour in terms of what they tested \url{https://github.com/segmentio/analytics-android/blob/master/analytics-samples/analytics-sample/src/androidTest/java/com/segment/analytics/E2ETest.java}. The \texttt{assertMessageReceivedByWebhook} returns void and doesn't throw an error so it's a flawed assertion in my view.\pending{Would some examples with annotations help here?}  
+\textbf{Support in the SDK}: 
+All of the in-app crash reporting SDKs encountered during the research included confidence tests (verifying the SDK has been configured adequately). The app-centric case studies might have used these verification tests when they enabled their mobile analytics SDKs, however as noted earlier these verification tests are unlikely to be long-term additions to the app's codebase and no evidence is available on whether they were used or not. 
 
-\textbf{Automated tests for logging}: 
+\textbf{Did the app-centric case studies have crash reporting tests?} 
+The Catrobat project included automated unit tests for crash reporting~\footnote{The source code for the tests is available online \url{https://github.com/Catrobat/Catroid/pull/2419/files} and the pertinent code review discussions are available online \url{https://github.com/Catrobat/Catroid/pull/2371}.} until the project removed Firebase Analytics from the project several months after the core case study~\footnote{Pull request that removed the tests \url{https://github.com/Catrobat/Catroid/pull/3832}.}. Kiwix does not use in-app mobile analytics so does not have any tests for them either. 
+
+Automated tests for the opensource SDKs used in the app-centric case studies are available on github.com: Amplitude Android~\footnote{\url{https://github.com/amplitude/Amplitude-Android/search?q=test}}, Segment.io's Android SDK~\footnote{ \url{https://github.com/segmentio/analytics-android/search?q=test}}, Sentry's Android SDK~\footnote{\url{https://github.com/getsentry/sentry-java/search?q=test}} and React Native SDK~\footnote{\url{https://github.com/getsentry/sentry-react-native/search?q=test}}, and Firebase's Android SDK~\footnote{\url{https://github.com/firebase/firebase-android-sdk/search?q=test}}, amongst others. 
+
+While these SDKs have various automated unit tests, end-to-end tests for the SDKs are harder to find. Segment provides an End to End test  \href{https://github.com/segmentio/analytics-android/blob/master/analytics-samples/analytics-sample/src/androidTest/java/com/segment/analytics/E2ETest.java}{E2ETest.java}~\footnote{They also provide a standalone command-line test tool \url{https://github.com/segmentio/library-e2e-tester}.}, and clearly describe why they have chosen to test their service in production~\citep{segment2018_we_test_in_production_you_should_too}.  
+
+\subsection{Automated tests for logging}
 As part of this research I co-wrote various small software projects to provide automated tests of local logging by Android apps~\citep{android_crash_dummy, android_log_assert}; these have been released under permissive opensource licenses. While logging is rarely a source of crashes in mobile apps it's often used to a) by the platform and/or the logging SDK record the actual crash and associated stack trace, and b) by the app developers to record information to help the app developers diagnose possible reasons for the crash~\footnote{As an aside, Google developers worked with app developers to add logging to help diagnose crashes for some older Android devices \url{https://github.com/google/filament/issues/2418}.}. 
 % Note PostHog uses a ShadowLog in their tests of logging https://github.com/PostHog/posthog-android/blob/master/posthog/src/test/java/com/posthog/android/LoggerTest.java
 
-\textbf{Mobile analytics for remote logging}: 
+\subsection{Mobile analytics for remote logging}
 Some app developers also chose to use mobile analytics for logging, for example in 107 opensource Android projects available on github.com~\citep{harty2021_logging_practices_with_mobile_analytics}. Mobile Analytics SDKs tend to use a network connection to transmit information from the end-user's device to central servers~\footnote{I'm not aware of any exceptions however other transfer mechanisms are possible such as using memory cards or memory sticks.}. As an aside, it should be practical to write automated tests for mobile analytics SDKs to check the data the SDK emits. Doing so is outside the scope of this research and a possible topic for future research. % I have looked at PostHog's code which is actually based heavily on a fork of Segment's opensource code so I then also looked at some of Segment's Android code. I didn't find any code that actually checks the output or the transmission aspects. Note: https://segment.com/docs/connections/sources/catalog/libraries/mobile/android/ uses Square's Tape opensource library to persist event data. This might be something to explore adding memory-card/stick transfer to.
 
 Logging, network IO, and mobile analytics combined in the industrial case study where a high crash rate in a new release was caused by a flawed implementation to increase the logging of network IO through the OkHttp library used by the Android app. 
 
-\subsection{Bug-facing topics}
+\section{Bug-facing topics}
 
 \begin{itemize}
     \itemsep0em 
@@ -112,7 +135,7 @@ Logging, network IO, and mobile analytics combined in the industrial case study 
 \end{itemize}
 
 
-\section{Macro topics}
+\section{Macro topics}\pending{13-Jun-2022 This topic may move to the Process chapter, either partly or completely. If so, the effects on the artefacts (would still belong here). TBD when I've revisited that chapter.}
 Macro-topics touch on multiple aspects of developing mobile apps. This research identified the following groupings of macro-topics:
 
 \begin{itemize}
@@ -122,13 +145,15 @@ Macro-topics touch on multiple aspects of developing mobile apps. This research 
 \end{itemize}
 
 \subsection{Tradeoffs}
-At least three types of tradeoffs were evident in the artefacts: 1) the effects of ethical decisions by the project team, 2) downgrading functionality to obtain reliability, and 3) use of third-party vs locally developed functionality. 
+At least three types of tradeoffs were evident in the artefacts: 1) the effects of ethical decisions by the project team\pending{Discuss the process of the decision-making in the Process chapter, not here, then cross-reference to that material here.}, 2) downgrading functionality to obtain reliability, and 3) use of third-party vs locally developed functionality. 
 
-\textbf{Ethics}: 
+\textbf{Ethics}\pending{These 2 paragraphs will be relocated to the Process chapter soon.}: 
 Several of the development teams had to make explicit decisions whether to use mobile analytics and if so which one they would use. The Kiwix project team chose explicitly to exclude mobile analytics from their apps to reduce the potential for end users to be tracked and potentially imprisoned through their use of the app and Wikipedia content in particular~\footnote{The Kiwix project was developed to provide offline access to all of Wikipedia, it was then extended to support and provide lots of other content and material, nonetheless Wikipedia content is the one most likely to put end users at risk in some jurisdictions.} The Kiwix team did decide to use the platform-provided analytics from Google Play Console on the grounds that if the end-user had a) installed the Kiwix app from Google Play and b) had enabled (or at least not disabled) Google's collection of usage and performance data from their phones then the users were not being compromised by the devs using the analytics generated from the data those phones and tablets had provided.
 
 The Catrobat team started by adding Fabric Crashlytics into their Pocket Code Android app several years before becoming a case study for this research. After seeing the results of applying the techniques from this research they choose to add Crashlytics to their iOS Pocket Code app and were also planning to use Firebase Analytics to record more granular usage data to both the Android and iOS apps. However, as a side-effect of migrating from the Fabric Analysis to Firebase Analysis - using the same client side SDK release they discovered they started receiving demographic data in tandem to the reliability analytics. Google then set a deadline where developers would need to replace the Fabric client side SDK with a similar one from Firebase to continue receiving any of the reports. The Catrobat team decided to stop using Crashlytics entirely rather than having demographics meta data collected by these SDKs in their apps. The Catrobat team had no objections to continuing to use the platform-provided analytics.
 
+\textbf{Impact of ethical decision to remove mobile analytics}: The Catrobat project team chose explicitly to remove support for Crashlytics in the Pocket Code app when Google's deadline for migrating to Firebase Crashlytics expired. At the time, the project team discussed whether to keep Google Analytics support in the Pocket Code app. Pull Request 
+\href{https://github.com/Catrobat/Catroid/pull/3832}{3832} in the Pocket Code repository provides a written record of the changes made to the codebase and the discussion.
 
 \textbf{Reliability trumps enhanced functionality}: 
 The core Kiwix Android app included a custom file downloader that downloaded material such as Wikipedia in German for offline use. This downloader kept track of partial downloads and also allowed end users to control when to allow the downloads and when to pause or stop them. This functionality was designed to help users often in areas with intermittent, controlled, and sometimes expensive connectivity to increase their chances of being able to download the content within their budget. To provide some concrete examples in some parts of the world users would download content that took several entire \emph{days} even if the connection didn't fail, and the cost of the connection was metered and capped to 1GB of data.
@@ -225,6 +250,21 @@ They \emph{may} triage, mitigate, and/or attempt to fix the flaw, and if so they
 
 If the developer recorded the bug in the reporting system there are two more potential points of transition; T1 is when the developer believes the issue has been addressed for instance through modifications to the source code of the app, and T2 would be if there is evidence from the mobile analytics that the changes had the desired results. \emph{Not all teams/developers seek or record T2}.
 
+
+\subsection{Sources of `truth'}\pending{This probably belongs in the Methodology}
+In terms of the app and the artefacts there are several sources of `truth' in terms of the use of mobile analytics. These include:
+\begin{itemize}
+    \itemsep0em
+    \item The developers: including what they say they do, and how they used mobile analytics.
+    \item The source code, including the build scripts and relevant configuration files. The source code + the build process generates one or more application binaries, and they may also generate and run various automated tests that exercise the app and/or the mobile analytics SDK(s).
+    \item The app binary: encapsulates and packages the software that is intended to run on end-user devices. 
+\end{itemize}
+
+This research included interviewing some app developers and working with others to learn about their perceptions of using mobile analytics and the artefacts they created in the process.
+
+Whenever the source code was available it was studied to learn how mobile analytics had a) been integrated b) been used to effect changes in the source code. 
+
+Binary analysis from the Exodus Privacy project was used to analyse the app binaries for the apps in the app-centric case studies.
 
 \section{Summary of apps and their artefacts}
 TBC
