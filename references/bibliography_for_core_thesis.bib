@@ -5596,6 +5596,13 @@ author = {HUAWEI Developers},
   contact = {anchor-locator@gmail.com},
 }
 
+@misc{expo2019_issue5839,
+  title = {Apps sometimes crash (call stack at BaseExperienceActivity\$2.run)},
+  url = {https://github.com/expo/expo/issues/5839},
+  year = {2019},
+  author = {Wiebe Nieuwenhuis},
+}
+
 @misc{huawei_crashservice_github_examples,
   title = {huaweicodelabs/CrashService},
   url = {https://github.com/huaweicodelabs/CrashService},
@@ -6058,7 +6065,7 @@ author = {HUAWEI Developers},
   title = {Customers | Sentry},
   url = {https://sentry.io/customers/},
   quote = {1M developers at over 80K companies already use Sentry. Why don’t you?},
-  organization = {Segment},
+  organization = {{Sentry}},
   year = {2022},
   month = {Jan},
 }
@@ -6070,6 +6077,19 @@ author = {HUAWEI Developers},
   year = {2021},
   note = {Accessed, \nth{15} Sep 2021},
   quote = {Breadcrumbs show you events that lead to errors.},
+}
+
+@misc{sentry2021_mobile_vitals_four_metrics_every_mobile_developer_should_care_about,
+  title = {Mobile Vitals - Four Metrics Every Mobile Developer Should Care About},
+  url = {https://blog.sentry.io/2021/08/23/mobile-vitals-four-metrics-every-mobile-developer-should-care-about},
+  author = {Philipp Hofmann},
+  year = {2021},
+  extracts = {
+    To catch the most frustrating performance issues, you need to explore what’s happening on your users’ devices. That means visibility into how fast your app starts, duration of HTTP requests, number of slow and frozen frames, how fast your views are loading, and more. With Sentry for Mobile, you can now easily monitor your React Native, iOS, and Android app’s performance in real-time without additional setup (or accumulating a pile of testing devices).
+
+    Mobile Vitals
+    We believe there are four metrics every mobile team should track to better understand how their app is performing: Cold starts, warm starts, slow frames, and frozen frames. These four metrics, as a core part of Sentry’s performance monitoring, gives you the details you need to not only prioritize critical performance issues but trace the issue down to the root cause to solve them faster.
+  }
 }
 
 @misc{sigg2016_sovereignty_of_apps_there_s_more_to_relevance_than_downloads,
@@ -6801,6 +6821,20 @@ author = {HUAWEI Developers},
   }
 }
 
+@online{___answersblog_2015_may_crashlytics-no1-in-performance,
+  url = {https://web.archive.org/web/20160304014842/http://answers.io/blog/answers-named-2-in-mobile-analytics-crashlytics-1-in-performance},
+  title = {Answers Named \#2 in Mobile Analytics, Crashlytics \#1 in Performance},
+  author = {Wayne Chang},
+  year = {2015},
+  organization = {{Twitter Inc.}},
+  abstract = {
+    Before Answers, developers had to wade through mountains of data about their apps to find what they were looking for. We wanted to fix this, so we went to the drawing board and set out to build a mobile analytics solution you didn’t need to analyze.
+
+    Today, just ten months after our launch, we’re proud to announce that SourceDNA, the world's largest database of mobile app intelligence, reported Answers is ranked as #2 on iOS and #3 on Android in the mobile analytics space.
+    
+    We’re also excited to see that SourceDNA named Crashlytics as the number one most implemented performance SDK -- with a higher score than #2-6 combined.
+  }
+}
 
 @online{___answersblog_2015_june_update,
   title = {Answers June update: behind the curtain},
@@ -6929,6 +6963,20 @@ author = {HUAWEI Developers},
     
     The flow framework, illustrated in 
     https://thenewstack.io/3-trends-in-tracking-software-delivery/ , includes 4 value stream metrics: features, defects, risks, and debts under the topic of flow distribution. PS: That article might help support my PhD claims on the merits of using usage-derived mobile analytics. 
+  }
+}
+
+@online{kim2017_what_information_does_crashlytics_collect_from_end_users,
+  title = {What information does Crashlytics collect from End Users?},
+  url = {https://stackoverflow.com/questions/43610494/what-information-does-crashlytics-collect-from-end-users},
+  author = {Michael Kim and Mike Bonnell and Jaber Shabeek},
+  year = {2017},
+  organization = {Stack Exchange},
+  publisher = {Stack Overflow},
+  abstract = {
+    I'm using Crashlytics in fabric. I read privacy-policy.pdf to check privacy issue. I found stored information includes device state information, unique device identifiers and so on. I'd like to know what exact information is gathered for device state information and unique device identifier.
+
+    Thanks & Regards, Michael Kim.
   }
 }
 
@@ -7110,6 +7158,15 @@ https://github.com/Displayr/flipTime/graphs/contributors
   },
 }
 
+@online{chelo2020_firebase_does_not_collect_age_or_gender_data,
+  title = {Firebase does not collect age and gender data},
+  url = {https://stackoverflow.com/questions/59969976/firebase-does-not-collect-age-and-gender-data},
+  author = {Simone Chelo},
+  year = {2020},
+  organization = {Stack Exchange},
+  publisher = {Stack Overflow},
+}
+
 @online{itil_ishikawa_example,
   title = {Annex 6C: Ishikawa Diagrams},
   url = {http://gurri-itil.tripod.com/Service\%20Support/cd/content/ss06_6c.htm},
@@ -7128,6 +7185,24 @@ https://github.com/Displayr/flipTime/graphs/contributors
     year = {2015}
 }
 % izzy's name found in https://android.izzysoft.de/text/books/images/inoffizielles_android_1.png
+
+@online{joe2016_firebase_analytics_demographics,
+  title = {Firebase Analytics demographics},
+  url = {https://stackoverflow.com/questions/37401842/firebase-analytics-demographics},
+  author = {Joe},
+  year = {2012},
+  organization = {Stack Exchange},
+  publisher = {Stack Overflow},
+  abstract = {
+    The Firebase Analytics dashboard shows a card for demographics, including age and gender.
+
+    According to https://support.google.com/firebase/answer/6317486?hl=en Firebase should be automatically collecting age and gender. Can anyone explain how it collects that information, and if anything else needs to be done in order to provide it?
+
+    In my dashboard, I'm seeing no age or gender data. I also haven't found any public API in the firebase-analytics SDK that would allow for setting the age or gender of the user.
+
+    If it comes from the advertiser id, does that mean we must also integrate with AdMob in order to get that data -- and if we don't use AdMob, then age and gender are impossible to gather? And does AdMob then also have to be linked with the Firebase project before it can start populating that data?
+  }
+}
 
 @online{krysmanski2012_so_redirect-stdout-to-logcat-in-android-NDK,
   title = {Redirect stdout to logcat in Android NDK},
@@ -7669,6 +7744,29 @@ https://github.com/Displayr/flipTime/graphs/contributors
   note = {Last checked on 2021-06-05},
 }
 
+@online{android2022_firebase_crash_integration_into_android_studio_electric_eel,
+  title = {App Quality Insights from Firebase Crashlytics},
+  url = {https://developer.android.com/studio/preview/features#aqi},
+  year = {2022},
+  note = {accessed 09 Jun 2022},
+  author = {{Android Project}},
+  organization ={{Android Developers}},  
+  abstract = {
+    App Quality Insights from Firebase Crashlytics
+
+    Starting with Android Studio Electric Eel, you can see and act on app crash data from Firebase Crashlytics directly in the IDE. This integration pulls stack trace data and crash statistics from Crashlytics into the new App Quality Insights tool window in the IDE, so you don't have to jump back and forth between your browser and the IDE. Development teams can benefit from key capabilities including the following:
+
+    See lines in your code highlighted when they have related Crashlytics event data.
+    See the stack trace for top crashes and click on the stack trace to jump to the relevant lines in your code.
+    See summary statistics about top crash and non-fatal events, for example grouped by device manufacturer and Android version.
+    Filter events by severity, time, and app version.
+    Get a browser link that opens the Crashlytics dashboard page with more details about the event.
+    With the Android Studio and Crashlytics integration, you can write code and address top crash issues all in the same spot. This enriched development experience helps you stay informed about your app's performance and minimize disruptions for your users. If you encounter any issues with this feature, file a bug. %https://issuetracker.google.com/issues/new?title=%5BAQI%5D%20%3CTitle%3E&cc=adarshf@google.com,makuchaku@google.com,%20jbakermalone@google.com&format=PLAIN&component=192708&type=BUG&priority=P1&severity=S2&hotlistIds=4012235&assignee=vkryachko@google.com&template=840533
+
+    If you're not using Crashlytics yet and would like to learn more about its offerings, see Firebase Crashlytics. https://firebase.google.com/products/crashlytics
+  },
+}
+
 @online{android_log_assert,
   title = {AndroidLogAssert},
   url = {https://github.com/ISNIT0/AndroidLogAssert},
@@ -7757,6 +7855,18 @@ https://github.com/Displayr/flipTime/graphs/contributors
   note = {Last checked on 2020-11-02},
   abstract = {We review all apps and app updates submitted to the App Store in an effort to determine whether they are reliable, perform as expected, respect user privacy, and are free of objectionable content. As you plan and build your app, use these guidelines and resources to help your app approval go as smoothly as possible.},
   quote_1 = {Review times may vary by app. On average, 50\% of apps are reviewed in 24 hours and over 90\% are reviewed in 48 hours.}
+}
+
+@online{apple_ios_share_diagnostics,
+  title = {Share analytics, diagnostics, and usage information with Apple},
+  url = {https://support.apple.com/en-vn/HT202100},
+  author = {Apple},
+  organization = {Apple},
+  year = {2017},
+  note = {Last checked on 2022-06-09},
+  abstract = {
+    Apple asks customers to help improve the iOS by occasionally providing analytics, diagnostic, and usage information. Apple collects this information anonymously.
+  }
 }
 
 @online{chooseanopensourcelicense2020,

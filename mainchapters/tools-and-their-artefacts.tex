@@ -33,19 +33,128 @@ These can be aggregated into four higher-level (L2) themes: design, fit-for-purp
 \section{Design}
 Design of the SDK and the developer-experience (UX) of the mobile analytics emerged as the top two ranked themes for analytics tools. Any in-app SDK needs to integrate easily in to the mobile app and platform-level analytics needs to be seamless and collect sufficient pertinent information to be useful for the app developers. They also need to be robust and timely in terms of collection, transmission, and processing of the underlying data in order for developers to have timely access to the results. 
 
-Fabric Crashlytics is the archetypal example of how a mobile analytics tool can be designed to serve developers well. The product team developed it from the ground up, starting with excellent crash reporting, to provide developers with timely, actionable, attractive, and useful reports. This led to it becoming one of the top three mobile analytics tools for both iOS and Android within NN\pending{Check, correct, and then add reference} months. First Twitter acquired it and then Google did who subsequently integrated it into Firebase Analytics which is the most popular mobile analytics service for Android apps currently.
+Fabric Crashlytics is the archetypal example of how a mobile analytics tool can be designed to serve developers well. The product team developed it from the ground up, starting with excellent crash reporting, to provide developers with timely, actionable, attractive, and useful reports. This led to it becoming one of the top three mobile analytics tools for both iOS and Android within 10 months of being launched~\citep{___answersblog_2015_may_crashlytics-no1-in-performance}. % See also https://web.archive.org/web/20151203150947/http://fabric.io/blog/crashlytics-answers-named-top-mobile-sdks
+First Twitter acquired it and then Google did; they subsequently integrated it into Firebase Analytics which is the most popular mobile analytics service for Android apps currently.
+
+Platform-level analytics provides an outsider's perspective on the behaviour of mobile app, in contrast to in-app analytics that provides an insider's perspective. In this research Google's Android Vitals provides the platform-level analytics as it has the largest reach of any platform-level analytics across the widest range of devices. The platform provides users the ability to allow or deny analytics to be sent from their device. Apple's iOS (and MacOS) ask the user explicitly~\citep{apple_ios_share_diagnostics}, Android does not - users need to find the setting and opt-out~\citep{google_play_share_usage_and_diagnostics_info_with_google}. % See also https://chefkochblog.wordpress.com/2018/02/09/how-to-disable-android-usage-diagnostics-sharing/ I've not referenced this as they don't provide evidence of the default settings.
 
 Mobile Analytics tools vie for attention against a plethora of other developer-oriented tools, project demands, \emph{etc.} Developers need to be enticed into using the tools and then retained on an ongoing basis to meet the objectives of the providers of the mobile analytics services.
 
 \subsection{SDK design}
 Any mobile analytics SDK needs to be designed to collected relevant data and forward that data so it can be processed, analysed, and reported on. Mobile apps %are written using hybrid/cross platform-frameworks, others in platform/managed code, a few may be written purely in native/unmanaged code, and some combine several of these. They 
 can be written in several programming languages. While many mobile apps are written in a single programming language some use several programming languages, for instance Kiwix Android combines Java, Kotlin, and C++. 
-
-Mobile analytics SDKs, in turn, support one or more of the programming languages. If they do not support the programming languages then they may not be able to obtain or provide analytics for elements written in the unsupported programming languages. For C and C++ code in particular, the app developers generally need to explicitly configure the code and the build process to incorporate the relevant mobile analytics SDK if it's available.
-
-The SDK needs to be initialised as early as practical each time the app is started (or restarted) if it's to capture pertinent information (including crashes that occur when the app starts or restarts). For mobile analytics SDKs this has led to their developers finding and implementing mechanisms to initialise their SDK in innovative (and unusual) ways, for instance Firebase uses a ContentProvider~\citep{stevenson2016_how_does_firebase_initialize_on_android}. Note: this does not always work, as reported in \citep{reddy2022_crashlytics_fails_to_track_app_startup_crashes}. 
-
 % More reading on Cordova's demise: https://medium.com/codex/the-sunset-of-apache-cordova-alternatives-for-cross-platform-mobile-development-in-2022-9da34234c992
+
+Mobile analytics SDKs, in turn, support one or more of the programming languages. If they do not support the programming languages then they may not be able to obtain or provide analytics for elements written in the unsupported programming languages. For C and C++ code in particular, the app developers generally need to explicitly configure the code and the build process to incorporate the relevant mobile analytics SDK if it's available. % For a counterexample Fabric Crashlytics claimed their SDK was very easy to integrate https://web.archive.org/web/20151019132428/https://crashlytics.com/blog/the-wait-is-over-launching-crashlytics-for-android-ndk
+
+\textbf{SDK initialisation}: 
+The SDK needs to be initialised as early as practical each time the app is started (or restarted) if it's to capture pertinent information (including crashes that occur when the app starts or restarts). For mobile analytics SDKs this has led to their developers finding and implementing mechanisms to initialise their SDK in innovative (and unusual) ways, for instance Firebase uses a ContentProvider~\citep{stevenson2016_how_does_firebase_initialize_on_android}. Note: this does not always work, as reported in \citep{reddy2022_crashlytics_fails_to_track_app_startup_crashes}. When the SDK initialises it obtains various meta data about the app and the device. 
+
+\textbf{Meta-data}: 
+Figure \ref{fig:fabric-crashlytics-privacy-policy} provides an illustration of the privacy policy for Fabric Crashlytics which lists various the meta-data it collected at the time. The successor Firebase Crashlytics lists similar data being collected for crashes~\url{https://firebase.google.com/support/privacy#crash-stored-info}. The details of why these details were necessary was discussed online~\citep{kim2017_what_information_does_crashlytics_collect_from_end_users}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{images/fabric-crashlytics/crashlytics-privacy-policy-38154ffbd69ef44a478b54365dc9b3ad.png}
+    \caption{Fabric Crashlytics Privacy Policy (in 2015)\\{source: \tiny \url{https://web.archive.org/web/20150405071731/http://try.crashlytics.com/security/}}}
+    \label{fig:fabric-crashlytics-privacy-policy}
+\end{figure}
+
+However, some app developers may receive data they didn't expect, particularly if they migrated from Fabric Crashlytics to Firebase Crashlytics. 
+
+To provide some additional context Fabric and Firebase both offered facilities to combine various datasets into their reporting, for instance based on advertising SDKs. This led to reports that include demographics in addition to the crash analytics, \emph{etc.}~\footnote{Discussions on how the demographics are captured and made available include~\citep{joe2016_firebase_analytics_demographics} and~\citep{chelo2020_firebase_does_not_collect_age_or_gender_data}.}. 
+
+The forced migration from Fabric Crashlytics to Firebase Crashlytics had two stages, the first was to migrate the project to the Firebase user interface and the second was to replace the Fabric SDK with the Firebase SDK. The Firebase SDK automatically collected additional data~\citep{firebase_help_GA4_2021_predefined_user_dimensions}.
+
+As mentioned in the previous chapter, the Catrobat project chose to stop using Firebase Crashlytics when they discovered the demographics of the end users was also being recorded. 
+%
+
+In collaborative research into using Firebase Analytics for logging, 50 of 107 active Android opensource projects initialised just the Firebase Analytics SDK, they did not use any other aspect of the SDK~\citep{harty2021_logging_practices_with_mobile_analytics}~\footnote{Perhaps they thought that `Getting Started' was all they needed to do? or perhaps the default data was `good enough'?}. Therefore the contents and the limitations of the default meta-data are of particular interest since it is all those developers would have available to them. The remaining 57 projects used additional API calls to record additional information on one or more code-paths in the respective app.
+
+\textbf{Runtime activities for the SDK}: 
+When the SDK is running, which they do in the background without being visible to the user of the app, they are responsible for the safekeeping and transmission of the collected data. Some collect data automatically, or autonomously. For example, Sentry's in-app SDK collects `automatic instrumentation'~\citep{sentry2021_mobile_vitals_four_metrics_every_mobile_developer_should_care_about}, and Android Vitals collects usage data, app crashes, and ANRs automatically.
+
+At least some of the SDKs store analytics data locally on the device on an interim basis, the stored data would be removed once it had been successfully transmitted. Various SDKs limit the number of items they store. The SDKs also vary in how and when they transmit the data and on their behaviour if there isn't a suitable network connection to transmit the data.
+
+\textbf{Limitations in visibility by an SDK}:
+Android Vitals does not collect crashes that are contained within an application's runtime. React-Native is a popular cross-platform app development framework. It includes its own application runtime environment and this runtime automatically restarts the app if it crashes. These crashes are not visible to Android Vitals as evidenced by two of the apps within the app centric case studies: LocalHalo and Taskinator where Android Vitals showed no crashes for either these apps, with one exception. 
+
+Conversely, in-app analytics SDKs were not able to measure ANRs which meant Android Vitals was the primary source of ANR analytics for Android app developers~\footnote{There is an opensource utility that uses a watchdog timer to detect ANRs~\citep{salomonbrys_github_anr_watchdog}. Investigating it was beyond the scope of the immediate research, nonetheless Sentry used that code as a basis for their ANR reporting (\href{https://github.com/getsentry/sentry-java/blob/3f8d7b1cc869bb056c9db99b459e43f6c375784a/sentry-android-core/src/main/java/io/sentry/android/core/ANRWatchDog.java}{sentry-android-core...ANRWatchDog.java}).}. 
+
+Note: Google has subsequently added a mechanism to enable apps to obtain information about previous ANRs when the app next started. The method is \href{https://developer.android.com/reference/kotlin/android/app/ActivityManager#gethistoricalprocessexitreasons}{\texttt{getHistoricalProcessExitReasons()}}~\footnote{The source code is available online: \url{https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/ApplicationExitInfo.java} and provides more details of the design and the data structures.}, added in \href{https://developer.android.com/about/versions/11}{Android 11}, API level 30.
+% Various discussions and explanations of using this API follow:
+% https://commonsware.com/R/pages/chap-dataaccess-002.html - possibly the best and clearest code examples with explanations.
+% Announcing the new functionality in 2021 https://firebase.blog/posts/2021/11/whats-new-at-Firebase-Summit-2021
+% https://medium.com/@yangweigbh/monitoring-app-termination-on-android-11-97d514a3f9 
+% Facebook's SDK to obtain cached ANRs https://developers.facebook.com/docs/reference/androidsdk/current/facebook/com/facebook/internal/instrument/anrreport/anrhandler.html/ and https://github.com/facebook/facebook-android-sdk/blob/5fe6e2a9d7056a17f54c1cae13e00788723d34f6/facebook-core/src/main/java/com/facebook/internal/instrument/anrreport/ANRHandler.kt
+%
+At the time of writing, Firebase Analytics uses this mechanism to obtain the ANR and other app exit data, see \href{https://github.com/firebase/firebase-android-sdk/blob/73131b69b0134456441e7fa218964b6a766fcec7/firebase-crashlytics/src/main/java/com/google/firebase/crashlytics/FirebaseCrashlytics.java}{\texttt{github.com.........FirebaseCrashlytics.java}}.
+
+\textbf{Some failures did emerge}:
+That exception was when Android Vitals did report crashes in March and April 2020. Figure \ref{fig:localhalo-android-vitals-no-data-16-march-2020} was recorded on \nth{16} March 2020 before these started and shows the App Health Overview page with a link to a video introducing Android Vitals~\footnote{This appears as a mainly black rectangle in this thumbnail screenshot.}, and the App Health Details page with no data.
+
+\begin{figure}[htbp!]
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/localhalo/apphealthoverviewplace_5550596_no_data.png}
+  \captionof*{figure}{App Health Overview page}
+\end{minipage}\hfill%
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/localhalo/apphealthdetailsplace_55505963_no_data.png}
+  \captionof*{figure}{App Health Details page}
+\end{minipage}
+    \caption{No Android Vitals reports on \nth{16} March 2020}
+    \label{fig:localhalo-android-vitals-no-data-16-march-2020}
+\end{figure}
+
+Figure~\ref{fig:localhalo-android-vitals-high-failures-26-march-2020} was recorded ten days later in \nth{26} March 2020 and shows the alerts for both high crash and ANR rates in the App Health Overview page and the graph for the rampant crash rate in the corresponding App Health Details page. These indicate the failures were related to the native runtime rather than within the React Native code. These were not reported by any Sentry Alerts and they do not appear in the weekly summary reports, except potentially by the absence of data shown in Figure~\ref{fig:sentry-missing-data-march-2020}. While the reason for this was not explained in the interviews or in the analytics data, it is likely that this caused by severe crashes that prevented Sentry's SDK from reporting any data.
+
+\begin{figure}[htbp!]
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/localhalo/apphealthoverviewplace_5550596_high_errors.png}
+  \captionof*{figure}{App Health Overview page}
+\end{minipage}\hfill%
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/localhalo/apphealthdetailsplace_55505963_high_errors.png}
+  \captionof*{figure}{App Health Details page}
+\end{minipage}
+    \caption{Alerts and graphs in Android Vitals on \nth{26} March 2020}
+    \label{fig:localhalo-android-vitals-high-failures-26-march-2020}
+\end{figure}
+
+A release in March 2020 had a high crash rate for the production release of their Android app. The top crash cluster was for:
+
+{\small \texttt{java.lang.RuntimeExceptionhost.exp.exponent.experience.a\$b.run}} 
+
+This was traced to a problem in the expo library the development team used in the app~\citep{expo2019_issue5839}~\footnote{Expo is a very popular opensource platform for making universal native apps that run on Android, iOS, and the web \url{https://github.com/expo/expo}.}. In that issue several developers for different Android apps provide data from Google Play Console confirming they also receive similar crash clusters. The cause has not yet been definitively traced or addressed, however for the LocalHalo app the crashes stopped being reported once a new release of the Android app, release 1.3.0, was released around \nth{6} April 2020.
+
+
+\begin{figure}[htbp!]
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/localhalo/sentry-weekly-report-16-mar-2020.png}
+  \captionof*{figure}{\nth{16} -~\nth{22} March 2020}
+  \label{fig:localhalo-sentry-weekly-report-16-mar-2020}
+\end{minipage}\hfill%
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/localhalo/sentry-weekly-report-23-mar-2020.png}
+  \captionof*{figure}{\nth{23} -~\nth{29} March 2020}
+  \label{fig:localhalo-sentry-weekly-report-23-mar-2020}
+\end{minipage}
+    \caption{Missing data reported in Sentry, in March 2020}
+    \label{fig:sentry-missing-data-march-2020}
+\end{figure}
+
+
+\subsection{Developer experience}
+After the end of the cases studies, nonetheless of relevance, in June 2022 Google released Canary 3 of the integrated development environment (IDE) called Android Studio Electric Eel. This includes the facility to directly see and work with crashes reported by Firebase Crashlytics within the IDE. This makes the analytics information immediately and continuously available to the developers rather than relying on them visiting the Crashlytics website. It aims to reduce context switching and also encourage faster investigation and remediation of crashes~\citep{android2022_firebase_crash_integration_into_android_studio_electric_eel}.
 
 \section{Fit-for-purpose}
 

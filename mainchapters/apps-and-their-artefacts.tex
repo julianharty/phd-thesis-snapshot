@@ -1,14 +1,75 @@
 \chapter{Apps and their artefacts}~\label{chapter-apps-and-their-artefacts}
 \julian{This chapter covers \uartefacts and \iartefacts. I'm currently drafting this chapter to try and work out what the major topics and groupings are, and then where the evidence I have fits. I'm currently inspired by \href{https://about.sourcegraph.com/blog/developer-productivity-thoughts}{A dev's thoughts on developer productivity}\citep{liu2022_a_devs_thoughts_onDeveloper_productivity} and the underlying spreadsheet of the findings is \href{https://docs.google.com/spreadsheets/d/1PcwJ6E_X6peCP1dBPADEAJXOBpnb4JY1gSGNyPSxedA/edit?usp=sharing}{here} and you should have access from your Google account if you are helping me with this thesis.}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/rough-sketches/apps-and-their-artefacts-fishbone-12-jun-2022-b.jpeg}
+    \caption{Apps and their artefacts fishbone diagram\\source: \href{https://miro.com/app/board/uXjVOts6mvo=/?share_link_id=402034254193}{diagram on miro.com}}
+    \label{fig:apps-and-their-artefacts-fishbone}
+\end{figure}
+% Note on 12-Jun-2022: Using miro's fishbone design has been helpful both in terms of me realising that I'd like a better way to illustrate the material and also to help me decide what material belongs in which chapter. Several items will be relocated from this chapter to other chapters, these are shown in the figure as free standing grey post-its. There are two links between topics, these are shown with directional arrows.
+
 The artefacts are a product, an outcome, of what developers do as they create and maintain their mobile apps. They include the source code of the codebase which evolves on an ongoing basis for active projects, any bug-tracking/bug-management system, outputs from builds including test results, outputs from mobile analytics. 
 
-To some extent the artefacts reflect macro (big-picture) topics including ethics, scaling, data-pipelines, engineering tradeoffs, and decisions on using third-party code.
+To some extent the artefacts reflect macro (big-picture) topics including ethics, scaling, data-pipelines, engineering tradeoffs, and decisions on using third-party code. Figure \ref{fig:apps-and-their-artefacts-fishbone} illustrates the topics covered in this chapter.
 
 
 \section{Code-facing topics}
-\textbf{Build scripts}: App developers use and maintain build scripts to build their apps and the generally the build script combines with various build tools to customise the application binary (the code that's installed on app-centric mobile devices~\footnote{There are various forms of mobile device such as 3G battery powered routers which are outside the scope of this research.}). Commonly used build variants include debug and release build targets. When apps include in-app mobile analytics often the build scripts are modified to specify the necessary SDK dependencies and the application's source code is modified to initialise the SDK.\pending{Add details of the examples from the case studies and other evidence.}
+\textbf{Build scripts}: App developers use and maintain build scripts to build their apps and generally the build script combines with various build tools to customise the application binary (the code that's installed on app-centric mobile devices~\footnote{There are various forms of mobile device such as 3G battery powered routers which are outside the scope of this research.}). Commonly used build variants include debug and release build targets. 
 
+When apps include in-app mobile analytics often the build scripts are modified to specify the necessary SDK dependencies and the application's source code is modified to initialise the SDK. The documentation for Sentry's Android SDK provides a clear three step process of Install, Configure, Verify, so these are reproduced here~\footnote{Use permitted under their opensource license.}. Figure \ref{listing:build_gradle_for_sentry} is a typical example of how a mobile analytics dependency is added to the build file, this is Sentry's install step in their process.
+
+\begin{listing}
+\begin{minted}{groovy}
+dependencies {
+    implementation 'io.sentry:sentry-android:6.0.0'
+}
+\end{minted}
+\caption{Example: Install Sentry \texttt{build.gradle} to an Android app's codebase\\source: \href{https://docs.sentry.io/platforms/android/}{Android Sentry Documentation}}
+\label{listing:build_gradle_for_sentry}
+\end{listing}
+
+The configuration step requires a setting that is uniquely allocated by Sentry for this app when the developers use Sentry's online service. Figure \ref{listing:android_manifest_xml_for_sentry} shows the syntax of the configuration; the developers would need to obtain the unique dsn (data source name) to use for their app and use that value in place of the example value.
+
+\begin{listing}
+\begin{minted}{xml}
+<application>
+  <meta-data android:name="io.sentry.dsn"\\
+  android:value="https://examplePublicKey@o0.ingest.sentry.io/0" />
+</application>
+\end{minted}
+\caption{Example: Configure Sentry for that Android app\\source: \href{https://docs.sentry.io/platforms/android/}{Android Sentry Documentation}}
+\label{listing:android_manifest_xml_for_sentry}
+\end{listing}
+
+The code snippet in Listing \ref{listing:android_activity_to_verify_sentry_works_in_app} sends details of a caught exception to Sentry's service each time the code is run. Running this code (by using the app) helps verify the installation and configuration steps have been completed adequately. Note: this code would generally be removed from the app once the verification has been completed successfully, developers would effectively replace it with custom code for any additional reporting not already provided automatically by the SDK. % https://docs.sentry.io/platforms/android/usage/  https://docs.sentry.io/platforms/android/enriching-events/breadcrumbs/  https://docs.sentry.io/platforms/android/configuration/integrations/okhttp/
+During the period of this research, the SDKs have continued to evolve and tend to offer developers a greater range of information and also they tend to automated more of the underlying data collection, for example the Sentry 3.1.0 Android Gradle plugin automatically instruments the OkHttp library if it's part of the app~\footnote{\url{https://docs.sentry.io/platforms/android/configuration/integrations/okhttp/}}.
+
+
+\begin{listing}
+\begin{minted}{kotlin}
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import io.sentry.Sentry
+
+class MyActivity : AppCompatActivity() {
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    try {
+      throw Exception("This is a test.")
+    } catch (e: Exception) {
+      Sentry.captureException(e)
+    }
+  }
+}
+\end{minted}
+\caption{Example: writing code to verify the install and configuration of the Android app\\ source: \href{https://docs.sentry.io/platforms/android/}{Android Sentry Documentation}}
+\label{listing:android_activity_to_verify_sentry_works_in_app}
+\end{listing}
+
+The majority of the other SDKs used in the case studies offer equivalent installation, configuration, and verification steps and include developer-oriented documentation of these steps; note: they may use other terms to describe these steps.
+
+\textbf{Build scripts partly encapsulate the build process}.  
 At one extreme build scripts may fully automate multiple steps to the point of releasing a new version of an app in the app store, at the other extreme many of the steps may be manual and performed unsystematically by the development team. Of course many projects are somewhere between these two extremes. In one of the case studies a mistake in a manual step meant the new release of the Pocket Code did not include the correct information and stopped the in-app crash analytics from being reported. The Crashlytics SDK on Android needed two distinct keys, an API Key and a secret key~\footnote{StackOverflow has a good example of how a build script obtains these values from the environment \url{https://stackoverflow.com/q/46814593/340175}~\citep{scott2017_android_app_crash_noclassdeffounderror_on_samsung_lollipop_devices}. The relevant documentation is no longer available, it was at \url{https://docs.fabric.io/android/fabric/settings/working-in-teams.html} according to \url{https://stackoverflow.com/a/40667490/340175}}, and presumably at least one of these was either missing completely or incorrect for that build.
 % https://stackoverflow.com/questions/31596792/how-to-get-test-and-production-values-for-fabric-crashlytics 
 % See also https://www.instabug.com/crashlytics-alternative 
