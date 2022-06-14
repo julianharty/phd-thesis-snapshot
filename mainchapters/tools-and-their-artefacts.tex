@@ -28,7 +28,14 @@ The top ranked L1 themes are core to this chapter and they are:
 \end{enumerate}
 }
 
-These can be aggregated into four higher-level (L2) themes: design, fit-for-purpose, utility, dependability.
+These can be aggregated into four higher-level (L2) themes: design, fit-for-purpose, utility, dependability. Figure \ref{fig:analytics-tools-and-their-artefacts-fishbone-diagram} illustrates the top L1 themes and their main higher-level (L2) theme.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/rough-sketches/analytics-tools-and-their-artefacts-fishbone-diagram-14-jun-2022a.jpeg}
+    \caption{Analytics Tools and their Artefacts Fishbone Diagram\\Source: \href{https://miro.com/app/board/uXjVOtIsyWo=/?share_link_id=293061080490}{Miro}}
+    \label{fig:analytics-tools-and-their-artefacts-fishbone-diagram}
+\end{figure}
 
 \section{Design}
 Design of the SDK and the developer-experience (UX) of the mobile analytics emerged as the top two ranked themes for analytics tools. Any in-app SDK needs to integrate easily in to the mobile app and platform-level analytics needs to be seamless and collect sufficient pertinent information to be useful for the app developers. They also need to be robust and timely in terms of collection, transmission, and processing of the underlying data in order for developers to have timely access to the results. 
@@ -41,7 +48,10 @@ Platform-level analytics provides an outsider's perspective on the behaviour of 
 Mobile Analytics tools vie for attention against a plethora of other developer-oriented tools, project demands, \emph{etc.} Developers need to be enticed into using the tools and then retained on an ongoing basis to meet the objectives of the providers of the mobile analytics services.
 
 \subsection{SDK design}
-Any mobile analytics SDK needs to be designed to collected relevant data and forward that data so it can be processed, analysed, and reported on. Mobile apps %are written using hybrid/cross platform-frameworks, others in platform/managed code, a few may be written purely in native/unmanaged code, and some combine several of these. They 
+Any mobile analytics SDK needs to be designed to collected relevant data and forward that data so it can be processed, analysed, and reported on. 
+
+\textbf{Programming language support}: 
+Mobile apps %are written using hybrid/cross platform-frameworks, others in platform/managed code, a few may be written purely in native/unmanaged code, and some combine several of these. They 
 can be written in several programming languages. While many mobile apps are written in a single programming language some use several programming languages, for instance Kiwix Android combines Java, Kotlin, and C++. 
 % More reading on Cordova's demise: https://medium.com/codex/the-sunset-of-apache-cordova-alternatives-for-cross-platform-mobile-development-in-2022-9da34234c992
 
@@ -76,9 +86,16 @@ When the SDK is running, which they do in the background without being visible t
 
 At least some of the SDKs store analytics data locally on the device on an interim basis, the stored data would be removed once it had been successfully transmitted. Various SDKs limit the number of items they store. The SDKs also vary in how and when they transmit the data and on their behaviour if there isn't a suitable network connection to transmit the data.
 
-\textbf{Limitations in visibility by an SDK}:
+\textbf{Limitations in visibility by an SDK}: 
+In short, the viewpoint of the SDK affects and can limit what it can observe/record. Also some mobile apps incorporate their own runtime which may hide some failures from being observed by the platform.
+
+\textbf{Android Vitals}: 
 Android Vitals does not collect crashes that are contained within an application's runtime. React-Native is a popular cross-platform app development framework. It includes its own application runtime environment and this runtime automatically restarts the app if it crashes. These crashes are not visible to Android Vitals as evidenced by two of the apps within the app centric case studies: LocalHalo and Taskinator where Android Vitals showed no crashes for either these apps, with one exception. 
 
+\textbf{Some failures did emerge}:
+That exception was when Android Vitals did report crashes in March and April 2020. Figure \ref{fig:localhalo-android-vitals-no-data-16-march-2020} was recorded on \nth{16} March 2020 before these started and shows the App Health Overview page with a link to a video introducing Android Vitals~\footnote{This appears as a mainly black rectangle in this thumbnail screenshot.}, and the App Health Details page with no data.
+
+\textbf{In-app analytics support for detecting ANRs}: 
 Conversely, in-app analytics SDKs were not able to measure ANRs which meant Android Vitals was the primary source of ANR analytics for Android app developers~\footnote{There is an opensource utility that uses a watchdog timer to detect ANRs~\citep{salomonbrys_github_anr_watchdog}. Investigating it was beyond the scope of the immediate research, nonetheless Sentry used that code as a basis for their ANR reporting (\href{https://github.com/getsentry/sentry-java/blob/3f8d7b1cc869bb056c9db99b459e43f6c375784a/sentry-android-core/src/main/java/io/sentry/android/core/ANRWatchDog.java}{sentry-android-core...ANRWatchDog.java}).}. 
 
 Note: Google has subsequently added a mechanism to enable apps to obtain information about previous ANRs when the app next started. The method is \href{https://developer.android.com/reference/kotlin/android/app/ActivityManager#gethistoricalprocessexitreasons}{\texttt{getHistoricalProcessExitReasons()}}~\footnote{The source code is available online: \url{https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/ApplicationExitInfo.java} and provides more details of the design and the data structures.}, added in \href{https://developer.android.com/about/versions/11}{Android 11}, API level 30.
@@ -90,8 +107,8 @@ Note: Google has subsequently added a mechanism to enable apps to obtain informa
 %
 At the time of writing, Firebase Analytics uses this mechanism to obtain the ANR and other app exit data, see \href{https://github.com/firebase/firebase-android-sdk/blob/73131b69b0134456441e7fa218964b6a766fcec7/firebase-crashlytics/src/main/java/com/google/firebase/crashlytics/FirebaseCrashlytics.java}{\texttt{github.com.........FirebaseCrashlytics.java}}.
 
-\textbf{Some failures did emerge}:
-That exception was when Android Vitals did report crashes in March and April 2020. Figure \ref{fig:localhalo-android-vitals-no-data-16-march-2020} was recorded on \nth{16} March 2020 before these started and shows the App Health Overview page with a link to a video introducing Android Vitals~\footnote{This appears as a mainly black rectangle in this thumbnail screenshot.}, and the App Health Details page with no data.
+\subsection{LocalHalo React Native example}
+The LocalHalo app-centric case study provides an illustration where app crashes were not observed by Android Vitals until a failure in the React Native runtime occurred.
 
 \begin{figure}[htbp!]
 \centering
