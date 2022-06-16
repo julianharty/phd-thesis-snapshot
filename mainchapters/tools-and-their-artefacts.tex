@@ -38,16 +38,16 @@ These can be aggregated into four higher-level (L2) themes: design, fit-for-purp
 \end{figure}
 
 \section{Design}
-Design of the SDK and the developer-experience (UX) of the mobile analytics emerged as the top two ranked themes for analytics tools. Any in-app SDK needs to integrate easily in to the mobile app and platform-level analytics needs to be seamless and collect sufficient pertinent information to be useful for the app developers. They also need to be robust and timely in terms of collection, transmission, and processing of the underlying data in order for developers to have timely access to the results. 
+Design of the SDK, see \ref{section-sdk-design}, and the developer-experience (UX), see \ref{section-developer-experience-ux-design}, of the mobile analytics emerged as the top two ranked themes for analytics tools. Any in-app SDK needs to integrate easily in to the mobile app and platform-level analytics needs to be seamless and collect sufficient pertinent information to be useful for the app developers. They also need to be robust and timely in terms of collection, transmission, and processing of the underlying data in order for developers to have timely access to the results. 
 
-Fabric Crashlytics is the archetypal example of how a mobile analytics tool can be designed to serve developers well. The product team developed it from the ground up, starting with excellent crash reporting, to provide developers with timely, actionable, attractive, and useful reports. This led to it becoming one of the top three mobile analytics tools for both iOS and Android within 10 months of being launched~\citep{___answersblog_2015_may_crashlytics-no1-in-performance}. % See also https://web.archive.org/web/20151203150947/http://fabric.io/blog/crashlytics-answers-named-top-mobile-sdks
+Fabric Crashlytics is an archetypal example of how a mobile analytics tool can be designed to serve developers well. The product team developed it from the ground up, starting with excellent crash reporting, to provide developers with timely, actionable, attractive, and useful reports. This led to it becoming one of the top three mobile analytics tools for both iOS and Android within 10 months of being launched~\citep{___answersblog_2015_may_crashlytics-no1-in-performance}. % See also https://web.archive.org/web/20151203150947/http://fabric.io/blog/crashlytics-answers-named-top-mobile-sdks
 First Twitter acquired it and then Google did; they subsequently integrated it into Firebase Analytics which is the most popular mobile analytics service for Android apps currently.
 
 Platform-level analytics provides an outsider's perspective on the behaviour of mobile app, in contrast to in-app analytics that provides an insider's perspective. In this research Google's Android Vitals provides the platform-level analytics as it has the largest reach of any platform-level analytics across the widest range of devices. The platform provides users the ability to allow or deny analytics to be sent from their device. Apple's iOS (and MacOS) ask the user explicitly~\citep{apple_ios_share_diagnostics}, Android does not - users need to find the setting and opt-out~\citep{google_play_share_usage_and_diagnostics_info_with_google}. % See also https://chefkochblog.wordpress.com/2018/02/09/how-to-disable-android-usage-diagnostics-sharing/ I've not referenced this as they don't provide evidence of the default settings.
 
 Mobile Analytics tools vie for attention against a plethora of other developer-oriented tools, project demands, \emph{etc.} Developers need to be enticed into using the tools and then retained on an ongoing basis to meet the objectives of the providers of the mobile analytics services.
 
-\subsection{SDK design}
+\subsection{SDK design}~\label{section-sdk-design}
 Any mobile analytics SDK needs to be designed to collected relevant data and forward that data so it can be processed, analysed, and reported on. 
 
 \textbf{Programming language support}: 
@@ -60,26 +60,10 @@ Mobile analytics SDKs, in turn, support one or more of the programming languages
 \textbf{SDK initialisation}: 
 The SDK needs to be initialised as early as practical each time the app is started (or restarted) if it's to capture pertinent information (including crashes that occur when the app starts or restarts). For mobile analytics SDKs this has led to their developers finding and implementing mechanisms to initialise their SDK in innovative (and unusual) ways, for instance Firebase uses a ContentProvider~\citep{stevenson2016_how_does_firebase_initialize_on_android}. Note: this does not always work, as reported in \citep{reddy2022_crashlytics_fails_to_track_app_startup_crashes}. When the SDK initialises it obtains various meta data about the app and the device. 
 
-\textbf{Meta-data}: 
-Figure \ref{fig:fabric-crashlytics-privacy-policy} provides an illustration of the privacy policy for Fabric Crashlytics which lists various the meta-data it collected at the time. The successor Firebase Crashlytics lists similar data being collected for crashes~\url{https://firebase.google.com/support/privacy#crash-stored-info}. The details of why these details were necessary was discussed online~\citep{kim2017_what_information_does_crashlytics_collect_from_end_users}.
+\textbf{Data automatically collected by SDKs}
+The mobile analytics SDKs have collected data automatically for years, the developers do not need to write additional code to collect this data. The data includes meta-data, for instance about the device and version of the platform. Depending on the SDK it may also collect demographic data, sensor data such as the geo-location, other data such as other apps that are installed, and various events that occur including network requests and responses. The data collected is covered shortly in \ref{section-meta-data}.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=10cm]{images/fabric-crashlytics/crashlytics-privacy-policy-38154ffbd69ef44a478b54365dc9b3ad.png}
-    \caption{Fabric Crashlytics Privacy Policy (in 2015)\\{source: \tiny \url{https://web.archive.org/web/20150405071731/http://try.crashlytics.com/security/}}}
-    \label{fig:fabric-crashlytics-privacy-policy}
-\end{figure}
-
-However, some app developers may receive data they didn't expect, particularly if they migrated from Fabric Crashlytics to Firebase Crashlytics. 
-
-To provide some additional context Fabric and Firebase both offered facilities to combine various datasets into their reporting, for instance based on advertising SDKs. This led to reports that include demographics in addition to the crash analytics, \emph{etc.}~\footnote{Discussions on how the demographics are captured and made available include~\citep{joe2016_firebase_analytics_demographics} and~\citep{chelo2020_firebase_does_not_collect_age_or_gender_data}.}. 
-
-The forced migration from Fabric Crashlytics to Firebase Crashlytics had two stages, the first was to migrate the project to the Firebase user interface and the second was to replace the Fabric SDK with the Firebase SDK. The Firebase SDK automatically collected additional data~\citep{firebase_help_GA4_2021_predefined_user_dimensions}.
-
-As mentioned in the previous chapter, the Catrobat project chose to stop using Firebase Crashlytics when they discovered the demographics of the end users was also being recorded. 
-%
-
-In collaborative research into using Firebase Analytics for logging, 50 of 107 active Android opensource projects initialised just the Firebase Analytics SDK, they did not use any other aspect of the SDK~\citep{harty2021_logging_practices_with_mobile_analytics}~\footnote{Perhaps they thought that `Getting Started' was all they needed to do? or perhaps the default data was `good enough'?}. Therefore the contents and the limitations of the default meta-data are of particular interest since it is all those developers would have available to them. The remaining 57 projects used additional API calls to record additional information on one or more code-paths in the respective app.
+Any of these data elements \textit{may} help developers to improve their software, however, use of this data may be considered a privacy risk, particularly for end-users and may lead to ethical conundra for the development team and their organisation.\pending{Link to the ethics material.}
 
 \textbf{Runtime activities for the SDK}: 
 When the SDK is running, which they do in the background without being visible to the user of the app, they are responsible for the safekeeping and transmission of the collected data. Some collect data automatically, or autonomously. For example, Sentry's in-app SDK collects `automatic instrumentation'~\citep{sentry2021_mobile_vitals_four_metrics_every_mobile_developer_should_care_about}, and Android Vitals collects usage data, app crashes, and ANRs automatically.
@@ -170,8 +154,51 @@ This was traced to a problem in the expo library the development team used in th
 \end{figure}
 
 
-\subsection{Developer experience}
+\subsection{Developer experience}~\label{section-developer-experience-ux-design}
 After the end of the cases studies, nonetheless of relevance, in June 2022 Google released Canary 3 of the integrated development environment (IDE) called Android Studio Electric Eel. This includes the facility to directly see and work with crashes reported by Firebase Crashlytics within the IDE. This makes the analytics information immediately and continuously available to the developers rather than relying on them visiting the Crashlytics website. It aims to reduce context switching and also encourage faster investigation and remediation of crashes~\citep{android2022_firebase_crash_integration_into_android_studio_electric_eel}.
+
+\subsection{Meta-data}~\label{section-meta-data}
+Meta-data may help developers with bug localisation and reproduction pertaining to the device model, its underlying hardware characteristics, the release of the platform, and so on. 
+
+Figure \ref{fig:fabric-crashlytics-privacy-policy} provides an illustration of the privacy policy for Fabric Crashlytics which lists various the meta-data it collected at the time. The successor Firebase Crashlytics lists similar data being collected for crashes~\url{https://firebase.google.com/support/privacy#crash-stored-info}. The details of why these details were necessary was discussed online~\citep{kim2017_what_information_does_crashlytics_collect_from_end_users}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{images/fabric-crashlytics/crashlytics-privacy-policy-38154ffbd69ef44a478b54365dc9b3ad.png}
+    \caption{Fabric Crashlytics Privacy Policy (in 2015)\\{source: \tiny \url{https://web.archive.org/web/20150405071731/http://try.crashlytics.com/security/}}}
+    \label{fig:fabric-crashlytics-privacy-policy}
+\end{figure}
+
+However, some app developers may receive data they didn't expect, particularly if they migrated from Fabric Crashlytics to Firebase Crashlytics. 
+
+To provide some additional context Fabric and Firebase both offered facilities to combine various datasets into their reporting, for instance based on advertising SDKs. This led to reports that include demographics in addition to the crash analytics, \emph{etc.}~\footnote{Discussions on how the demographics are captured and made available include~\citep{joe2016_firebase_analytics_demographics} and~\citep{chelo2020_firebase_does_not_collect_age_or_gender_data}.}. 
+
+The forced migration from Fabric Crashlytics to Firebase Crashlytics had two stages, the first was to migrate the project to the Firebase user interface and the second was to replace the Fabric SDK with the Firebase SDK. The Firebase SDK automatically collected additional data~\citep{firebase_help_GA4_2021_predefined_user_dimensions}.
+
+As mentioned in the previous chapter, the Catrobat project chose to stop using Firebase Crashlytics when they discovered the demographics of the end users was also being recorded. 
+
+In collaborative research into using Firebase Analytics for logging, 50 of 107 active Android opensource projects initialised just the Firebase Analytics SDK, they did not use any other aspect of the SDK~\citep{harty2021_logging_practices_with_mobile_analytics}~\footnote{Perhaps they thought that `Getting Started' was all they needed to do? or perhaps the default data was `good enough'?}. Therefore the contents and the limitations of the default meta-data are of particular interest since it is all those developers would have available to them. The remaining 57 projects used additional API calls to record additional information on one or more code-paths in the respective app.
+
+\subsection{Engineering challenges}~\label{section-engineering-challenges}
+Engineering challenges for mobile analytics include:
+\begin{itemize}
+    \item Support of collecting information from native code. This can be particularly pertinent for apps that include libraries in native code that are provided by third-parties.
+    \item Collecting information from the earliest stage of app startup to the apps shutdown, otherwise data collection is incomplete.
+    \item Establishing and maintaining sufficient information to calculate and provide sufficiently accurate comparisons, ratios, and so on. As an example, determining the Probability of Failure On Demand (\href{glossary-pfod}{PFOD}), requires counts of non-failures - those events/transactions/\emph{etc.} that \emph{worked}. Also, the sources/inputs/conditions that contributed to the failure may be useful to the app developer, does the mobile analytics SDK collect these? In the Kiwix case study, there were various sources of WebView crashes, these needed to be identified in order to attempt to prevent similar crashes in future.
+    \item For the Vitals Scraper utility developed as part of this research, there were engineering challenges in first developing and then maintaining an automated interface to obtain reports and related information from Google Play Console and Android Vitals.
+    \item For platform tools, collecting pertinent information across the process boundary includes engineering challenges. For in-app analytics, collecting information, such as ANRs, was a challenge during the period of the active app-centric case studies. 
+\end{itemize}
+
+\subsection{Vying for the attention of developers}~\label{section-vying-for-devs-attention}
+Mobile Analytics tools compete for finite attention developers are able to provide. They vy for developers' attention to be selected and if selected then they vy for attention on an ongoing basis in order to communicate their alerts, reports, \emph{etc.} Pricing, licensing, and management approvals sometimes prevent some development team members from being able to use the tools directly.
+
+\begin{itemize}
+    \item Access and use of mobile analytics tools allows them to be used interactively, where this is impractical copies, extracts, \emph{etc.} of reports and related material helps  preserve them for future analysis, for evidence, and so on. These copies and extracts can also extend the reach to people who don't have direct access to the tools. Several of the app-centric case studies, including Kiwix, Catrobat, LocalHalo, and the Commercial project limited access to various tools to a subset of the developers. In contrast, Moonpig, provided access to every member of the development team who had access to the source code of the app.
+    \item When the analytics tools lack the attention of developers the effects of existing and new issues propagate and may enable these issues to snowball. The Kiwix project provided a good example of this with the loss of the lead developer for the Android app.
+    \item The majority of the app-centric case studies used multiple mobile analytic tools. Some of the developers chose to ignore aspects of particular tools, for instance the crash analytics in Android Vitals in favour for similar services from other tools, even though Android Vitals is able to record some crashes that the other tools do not capture \emph{e.g.} owing to limitations in the respective SDK. The tools need to convince developers of the merits of their reports. The Moonpig development team, in particular, checked the reports of multiple tools to reduce their blind-spots.
+    \item The LocalHalo project illustrated the flip-flop of failures between two analytics tools. This was insightful and demonstrates the value of having a combination of platform-level and in-app analytics, at least for apps written in frameworks such as react-native.
+\end{itemize}
+
 
 \section{Fit-for-purpose}
 
