@@ -15,4 +15,26 @@ dependencies {
 \end{listing}
 
 \section{References including internal cross-references}
-TBC
+A locally defined latex command \texttt{\\secref{}} combines \\autoref\{\#1\} and \\nameref\{\#1\}. 
+Usage example: \texttt{\\secref\{section:my\}}, from \url{https://stackoverflow.com/a/30844515/340175}.
+
+\section{Side-by-side figures}
+Use minipages. For example:
+
+\begin{figure}[htbp!]
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/localhalo/sentry-weekly-report-16-mar-2020.png}
+  \captionof*{figure}{\nth{16} -~\nth{22} March 2020}
+  \label{fig:localhalo-sentry-weekly-report-16-mar-2020}
+\end{minipage}\hfill%
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/localhalo/sentry-weekly-report-23-mar-2020.png}
+  \captionof*{figure}{\nth{23} -~\nth{29} March 2020}
+  \label{fig:localhalo-sentry-weekly-report-23-mar-2020}
+\end{minipage}
+    \caption{Missing data reported in Sentry, in March 2020}
+    \label{fig:sentry-missing-data-march-2020}
+\end{figure}
