@@ -3,7 +3,15 @@
 
 This chapter covers two of the six perspectives, \emph{i.e.} using and improving mobile analytics tools. The primary evidence comes from both the app-centric and the tools-centric case studies, augmented with material from grey data and grey literature.
 
-The evidence has been analysed and prioritised to keep the chapter relatively succinct and on topic. 38 L1 themes emerged in the analysis of the evidence, of these the ones with strongest support in terms of the evidence are included here, the rest would benefit from further work.
+The evidence has been analysed and prioritised to keep the chapter relatively succinct and on topic. 38 L1 themes emerged in the analysis of the evidence, of these the ones with strongest support in terms of the evidence are included here, the rest would benefit from further work. The L1 themes included in this chapter have be aggregated into four higher-level (L2) themes: design (\secref{section-design}), fit-for-purpose (\secref{section-fit-for-purpose}), utility (\secref{section-utility}), dependability (\secref{section-dependability}). Figure \ref{fig:analytics-tools-and-their-artefacts-fishbone-diagram} illustrates the top L1 themes and their main higher-level (L2) theme.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/rough-sketches/analytics-tools-and-their-artefacts-fishbone-diagram-21-jun-2022d.jpeg}
+    \caption{Analytics Tools and their Artefacts Fishbone Diagram\\Source: \href{https://miro.com/app/board/uXjVOtIsyWo=/?share_link_id=293061080490}{Miro}}
+    \label{fig:analytics-tools-and-their-artefacts-fishbone-diagram}
+\end{figure}
+
 
 The top ranked L1 themes are core to this chapter and they are: 
 {\small
@@ -28,13 +36,6 @@ The top ranked L1 themes are core to this chapter and they are:
 \end{enumerate}
 }
 
-These can be aggregated into four higher-level (L2) themes: design (\secref{section-design}), fit-for-purpose (\secref{section-fit-for-purpose}), utility (\secref{section-utility}), dependability (\secref{section-dependability}). Figure \ref{fig:analytics-tools-and-their-artefacts-fishbone-diagram} illustrates the top L1 themes and their main higher-level (L2) theme.
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{images/rough-sketches/analytics-tools-and-their-artefacts-fishbone-diagram-21-jun-2022d.jpeg}
-    \caption{Analytics Tools and their Artefacts Fishbone Diagram\\Source: \href{https://miro.com/app/board/uXjVOtIsyWo=/?share_link_id=293061080490}{Miro}}
-    \label{fig:analytics-tools-and-their-artefacts-fishbone-diagram}
-\end{figure}
 
 \section{Design}~\label{section-design}
 Design of the SDK, see \ref{section-sdk-design}, and the developer-experience (UX), see \ref{section-developer-experience-ux-design}, of the mobile analytics emerged as the top two ranked themes for analytics tools. Any in-app SDK needs to integrate easily in to the mobile app and platform-level analytics needs to be seamless and collect sufficient pertinent information to be useful for the app developers. They also need to be robust and timely in terms of collection, transmission, and processing of the underlying data in order for developers to have timely access to the results. 
@@ -159,7 +160,8 @@ After the end of the cases studies, nonetheless of relevance, in June 2022 Googl
 \subsection{Meta-data}~\label{section-meta-data}
 Meta-data may help developers with bug localisation and reproduction pertaining to the device model, its underlying hardware characteristics, the release of the platform, and so on. 
 
-Figure \ref{fig:fabric-crashlytics-privacy-policy} provides an illustration of the privacy policy for Fabric Crashlytics which lists various the meta-data it collected at the time. The successor Firebase Crashlytics lists similar data being collected for crashes~\url{https://firebase.google.com/support/privacy#crash-stored-info}. The details of why these details were necessary was discussed online~\citep{kim2017_what_information_does_crashlytics_collect_from_end_users}.
+Figure \ref{fig:fabric-crashlytics-privacy-policy} provides an illustration of the privacy policy for Fabric Crashlytics which lists various the meta-data it collected at the time. The successor Firebase Crashlytics lists similar data being collected for crashes~\url{https://firebase.google.com/support/privacy#crash-stored-info}. The details of why these details were necessary was discussed online by Mike Bonnell, % https://stackoverflow.com/users/3975963/mike-bonnell
+one of the Crashlytics engineering team, in response to a question on StackOverflow~\citep{kim2017_what_information_does_crashlytics_collect_from_end_users}.
 
 \begin{figure}
     \centering
@@ -168,7 +170,7 @@ Figure \ref{fig:fabric-crashlytics-privacy-policy} provides an illustration of t
     \label{fig:fabric-crashlytics-privacy-policy}
 \end{figure}
 
-However, some app developers may receive data they didn't expect, particularly if they migrated from Fabric Crashlytics to Firebase Crashlytics. 
+Of note, some app developers may receive data they didn't expect, particularly if they migrated from Fabric Crashlytics to Firebase Crashlytics. 
 
 To provide some additional context Fabric and Firebase both offered facilities to combine various datasets into their reporting, for instance based on advertising SDKs. This led to reports that include demographics in addition to the crash analytics, \emph{etc.}~\footnote{Discussions on how the demographics are captured and made available include~\citep{joe2016_firebase_analytics_demographics} and~\citep{chelo2020_firebase_does_not_collect_age_or_gender_data}.}. 
 
@@ -326,6 +328,21 @@ The final topic for the integration into workflows is on pipeline integration be
     \item Efficacy of the tool: how efficient and how effective is the tool, i.e. how efficacious is the tool? Did it achieve the objectives it claims to achieve?
     \item Benefits of combining tools: an observation of benefits developers can obtain through combining their use of several mobile analytics tools.
 \end{itemize}
+
+\subsection{Efficacy of the tool}
+% 4 findings currently: Android Vitals, Kiwix.
+Current design of Android Vitals includes notifications and alerts, the use of colour, comparisons, and so on are all intended to get the attention of the developers and help the developers focus on egregious issues.
+
+Future design? (should this go in the discussion section? probably yes unless the improvements came directly from the case studies.) More options for grouping and comparisons (e.g. compared to what? what are the commonalities and contrasts between when the app's measured as performing well vs. performing badly?) Helping developers recognise common causes and common failures, and the likely effects of addressing these failures in future. (Surely Google's got enough data, ML, AI, etc. to be able to predict probable improvements for a specific app).
+
+\subsection{Benefits of combining tools}
+% 6 findings currently: 2 - Kiwix, 3 - LocalHalo, 1 - Moonpig:
+Moonpig's development team actively combined Firebase Crashlytics and Google Analytics for diagnostics in addition to the information available in Android Vitals. They estimated they used Android Vitals approximately 30\% of their time to identify flaws and issues related to their Android app.
+%
+They also incorporated in-app analytics by using Firebase Analytics which recorded analytics related to how the users use the mobile apps and whether errors or other problems occurred while the app was being used. 
+
+Some crashes were only reported in Android Vitals, Moonpig's hypothesis was that as Crashlytics waits to send crash reports until the app next restarts, some users never restarted the app therefore those crashes remained unreported \textit{even if crashlytics had detected and recorded them}.
+
 
 
 
