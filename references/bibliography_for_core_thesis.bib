@@ -7374,6 +7374,75 @@ https://github.com/Displayr/flipTime/graphs/contributors
     year = {2019}
 }
 
+@online{play_console_help_understanding_pre_launch_reports_2022,
+  title = {Understand your pre-launch report},
+  url = {https://support.google.com/googleplay/android-developer/answer/9844487},
+  year = {2022},
+  author = {Google},
+  abstract = {
+    This article helps you to understand your pre-launch report results by providing an overview of the errors, warnings or issues that your report might uncover. If you want to know how to set up and run a pre-launch report, go to Use a pre-launch report to identify issues.
+
+    When your pre-launch report is available, you can view a test summary that includes the number of errors, warnings and minor issues found during testing, categorised by issue type. You’ll also see a recommendation based on your app’s testing results.
+
+    Note: Though the pre-launch report is a practical and powerful tool that can help you to improve your app, Google can’t guarantee that tests will identify all issues. To make sure that your results are as comprehensive and relevant to you as possible, review and update your pre-launch report settings.
+  },
+  stability_extract = {
+    Each section of the stability tab details issues found during testing, which can include:
+
+    The issue type and icon:
+    Red indicates an error
+    Yellow indicates a warning
+    Green indicates that testing found no issues
+    The number of devices the issue was detected on
+    The stack trace associated with the issue
+    The relevant API (if applicable)
+    The number of times the issue was detected during testing (if applicable)
+    Next to each issue, you can select Show more for granular details about the issue, such as the device's name, screen size, Android version, RAM, application binary interface (ABI) and locale. You can select each device model to see the device specifications, view a screenshot and video from testing, demo loop output and stack traces (which you can also download). Be advised that the availability of these details may vary.
+
+    Note: Crashes found during testing are also listed on your app’s crashes and ANRs page. Since crashes found while generating a pre-launch report come from test devices, they don’t affect your crash statistics.
+
+    View test devices without issues
+    At the bottom of the Stability tab, you can view the Test devices without issues table to see information about tests that did not turn up any issues. 
+
+    On each row, you'll see the name of the testing device, the device's Android version and an icon showing whether your app had any testing issues.
+  }
+}
+
+@online{play_console_use_a_pre_launch_report_to_identify_issues_2022,
+  title = {Use a pre-launch report to identify issues},
+  url = {https://support.google.com/googleplay/android-developer/answer/9842757},
+  year = {2022},
+  author = {Google},
+  abstract = {
+    This article explains how to set up and run a pre-launch report. If you’ve run a pre-launch report and you want to know how to interpret the results, go to Understand your pre-launch report.
+
+    A pre-launch report is automatically generated when you publish an app to internal, closed or open testing. It helps to identify issues proactively before your app reaches users. It includes tests for: Stability issues, Android compatibility issues, Performance issues, Accessibility issues, Security vulnerabilities, Privacy issues
+  },
+  five_languages_extract = {
+    Step 4: View test reports for specific languages
+    If you'd like to view test results for specific languages, you can set up language preferences on the Pre-launch report settings page. You can select up to five languages. 
+
+    Tip: Since the pre-launch report runs automatically when you upload a test app bundle, you can only add language preferences after the initial test completes.  
+
+    Set up language preferences
+    Open Play Console.
+    Select an app.
+    On the left menu, select Testing > Pre-launch report > Settings.
+    Under 'Test your app in specific languages', select + Add language.
+    Select up to five languages. For future tests, you'll only see test results from these languages.
+    Note: If you don’t select any languages, we’ll automatically select languages in which your app has the most installs.
+    Click Save
+  }
+}
+
+@online{google2020_pre-launch-reports-false-positives,
+  title = {Could you fix Pre-launch report false-positives triggered by your own code base?},
+  url = {https://issuetracker.google.com/issues/160907013},
+  authors = {{gr...@gmail.com et al}},
+  year = {2020},
+  publisher = {{Google Android IssueTracker}},
+}
+
 @online{popper_crokage_2019,
     title = {CROKAGE: A New Way to Search Stack Overflow},
     url = {https://stackoverflow.blog/2019/08/14/crokage-a-new-way-to-search-stack-overflow/?cb=1},
