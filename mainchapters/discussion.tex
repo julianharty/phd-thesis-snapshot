@@ -287,7 +287,8 @@ Using software libraries can also add to the complexities; and some have sophist
 
 \begin{table}[]
     \centering
-    \begin{tabular}{c|c}
+    \resizebox{\textwidth}{!}{% See https://tex.stackexchange.com/a/27105/88466 TODO improve the readability of the table.
+    \begin{tabular}{c|ccccc}
         \toprule
         \textit{stage} & During init & During shutdown & In background service & In `flight' & In a `runtime' \\
         \midrule
@@ -297,7 +298,7 @@ Using software libraries can also add to the complexities; and some have sophist
          Fabric Crashlytics &  & Unknown & Unknown & EC & \\
          Sentry & N & & & Y & Y \\
          \bottomrule
-    \end{tabular}
+    \end{tabular}}
     \caption{w-i-p: Mapping error and crash reporting to mobile analytics tools \\ E = Error, C = Crash, B = Breadcrumb, K = Custom content, N = No}
     \label{tab:discussion-mapping-error-and-crash-reporting-to-ma-tools}
 \end{table}
