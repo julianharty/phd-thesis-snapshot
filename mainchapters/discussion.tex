@@ -3,18 +3,49 @@
 
 \epigraph{Every honest researcher I know admits he's just a professional amateur. He's doing whatever he's doing for the first time. That makes him an amateur. He has sense enough to know that he's going to have a lot of trouble, so that makes him a professional.}{Charles Franklin Kettering (1876-1958)}~\footnote{With thanks to \citealp{zieris2020_phd_qualitative_analysis_of_knowledge_transfer_in_pair_programming}}
 
-%%%%%%%%%%
-% Include discussion that the world moves on.
 
-This chapter contains various discussion topics, including: validity of my research and of the analytics tools, where the various analytics tools provide the most value, ethics and legal aspects, abandoned apps, and finally other app stores beyond Google Play.
-%TBD whether to include a discussion of:
-%%% other analytics tools I've researched during my PhD (e.g. those covered in my probation report)
-%%% sweetspots for Crashlytics, Firebase, etc.
+\section{Mobile analytics is a socio-technical system}
+Mobile Analytics is a socio-technical system in which both the technical and the social aspects need to be addressed both to maximise the good effects and to minimise the fruitless and bad effects of using these systems~\citep{baxter2011_socio-technical-systems-from-design-methods-to-systems-engineering}.\pending{Consider critiquing this paper here.}
+
+There are several cross-cutting concerns with using mobile analytics: trustworthiness holistically with an additional focus on the ethical and legal aspects which are topics developers seldom get directly involved in the software they use and produce impacts, or interacts with, both of these aspects.
+
+Studying a mobile analytics system is particularly challenging as there are few opportunities to observe the system in-use, as intended, by the designers and by the developers who use the system. White-hat study requires permission to access and use the system particularly while it is in production-use. Further, permission to publish the findings is also vital. To the best of my knowledge, none of the providers of mobile analytics services encourages independent verification of their service. 
+
+Few developers want to actively investigate flaws in a mobile analytics service; they use it with an implicit expectation it’s sufficiently OK to be worth using it where they can mostly `set and forget’ their use of the SDK (as evidenced by the experiences in many of the app-centric case studies and by the analysis of 57 opensouce Android apps that use Firebase Analytics). The clear exception to the set and forget practice was Moonpig who actively and attentively modified their use of Firebase Analytics to log additional information when the development teams had concerns about the app (in practice the service) adversely affecting one or more users. Their attentiveness was rewarded by their Android app being more reliable than similar apps.
+
+The richest and most complex perspectives are for the processes, that is, how development teams use mobile analytics. As the mobile analytics software improves, there is tremendous potential to improve the use of mobile analytics in order to deliver high-quality mobile apps. To achieve ongoing effective use, development teams need to obtain sufficient opportunities to use the tools and the tools need to facilitate gentle and adaptive approaches that suit the developers’ current context. At the time of writing, Google’s recent enhancements that integrate Firebase Analytics into the Android Studio IDE provide a tantalising opportunity to start to observe, and potentially measure, the engagement and the results in terms of more bugs being fixed and those fixes being made more quickly than developers did previously. 
 
 
-Apps are a popular and relevant subset of all software, they run remotely on other people’s equipment where they are the primary owners of the data on their devices, and where the platform and pre-installed platform software determine various aspects of the data collection. The apps and the analytics libraries they use control what data is reported and when. 
+\section{Critique on this research}
 
-At the time of writing neither Apple (iOS) nor Android appear to provide an API for programmers to enable apps to check per-user or per-device preferences for usage and diagnostics information sharing. The lack of such APIs means that each app developer is responsible for deciding whether to ask user's for permission or simply assume their app can collect and send analytics data. 
+
+\section{Utility and scalability}
+
+
+\section{Empower users}
+Now may be the ‘golden age’ in terms of app developers being able to default to gathering mobile analytics data, as the legal context may constrain this practice and legislation may require developers to change the default to not collecting mobile analytics data unless users explicitly opt-in. There may be further constraints on what data can be collected and who is responsible for protecting and preserving the data~\citep{bbcnews2022_google_signup_fasttrack_to_surveillance, beuc2022_google_surveillance_action}. 
+
+Conversely, currently users have little autonomy or control about data being collected and analysed related to their use of mobile apps. For example, when users create a new Google account the default one-step activation enables extensive tracking including web and app tracking~\citep{bbcnews2022_google_signup_fasttrack_to_surveillance, beuc2022_google_surveillance_action}. A Google account is essential for using an Android device. % https://www.beuc.eu/FastTrackToSurveillance
+This means Google at a platform-level is likely to collect analytics from the vast majority of Android users about their app usage. 
+
+From an app developer's perspective, this extensive collection of platform-level analytics can provide benefits including the ability to learn about and address various problems in their apps. Furthermore, they are not directly responsible for any aspect of the service apart from as users of the analytics reports.
+
+As discussed earlier, at a per-app level, the majority of Android apps include at least one mobile analytics library. These apps could offer \textbf{privacy by default} however developers and/or their organisations mainly choose to collect data by default. Some apps offer users an option to control the data collection by mobile analytics SDK(s); in turn the mobile analytics SDK needs to  provide developers with a mechanism to disable/enable collection of the underlying data.
+
+As the vast majority of Android apps in Google Play are free~\footnote{96.3\% on \nth{30} June 2022 according to \url{https://www.appbrain.com/stats}} the app developers may consider the provision of analytics data as a \emph{quid pro quo}~\footnote{\url{https://en.wikipedia.org/wiki/Quid_pro_quo}}. And yet there may be plenty of scope to improve the situation for these two key stakeholders in the mobile app ecosystem, who in turn are part of a larger platform~\footnote{An interesting business-focused discussion on platforms which also applies to various Android platforms (from Google, Amazon, and others) and Apple's iOS platform is \citet{KAPOOR2021_socio_technical_platform_ecosystems_etc}}.
+
+Some users may wish to have access to the analytics data that's being collected. There are no fundamental reasons why this should not be technically possible, especially for opensourced SDKs where app developers and/or the SDK developers could modify the SDK to provide such access. Furthermore, although current mobile analytics SDKs transmit the data transparently and automatically, it is possible to involve the users in the transmission either upon request by the user or more generally. As a simple example the author and the Kiwix project have implemented the information can be sent in an email generated by the app; the Kiwix UI to send a diagnostics report is shown in Figure \ref{fig:kiwix-diagnostic-report-ui}, it was based on another opensource project \href{https://github.com/Ereza/CustomActivityOnCrash}{Ereza/CustomActivityOnCrash}. % As an aside and as a historical note: the original design and intention was to collect crash reports, see https://github.com/kiwix/kiwix-android/wiki/Crash-Reporting dated 2 Jul 2019. And see https://github.com/kiwix/kiwix-android/issues/335
+
+\begin{figure}
+    \centering
+    \includegraphics[width=6cm]{images/kiwix/Screenshot-Diagnostic-Report-30-Jun-2022.png}
+    \caption{Kiwix: asks user what data they would like to send}
+    \label{fig:kiwix-diagnostic-report-ui}
+\end{figure}
+
+The Android platform does not currently provide any documented way, such as an API, for an app to check the user's setting for providing diagnostics information. If it did, app developers could then make their apps adapt accordingly. Note: The adaption might be more nuanced than simply applying the same setting within the app as users may wish to control the provision of analytics on a per-app or contextual basis, for instance.
+% At the time of writing neither Apple (iOS) nor Android appear to provide an API for programmers to enable apps to check per-user or per-device preferences for usage and diagnostics information sharing. 
+The lack of such an API means each app developer is responsible for deciding whether to ask user's for permission or simply assume their app can collect and send analytics data.
 
 Listing~\ref{code:androidx_preferences_example} is an example Google provides for Android developers to learn how to use the AndroidX preference library~\footnote{Reproduction permitted as the code sample is released under their~\href{https://developer.android.com/license}{Content License}.}. This example generates a GUI to ask users if they wish to enable message notifications and/or send feedback including reporting technical issues. 
 
@@ -40,6 +71,64 @@ Source: \url{https://developer.android.com/guide/topics/ui/settings}
 
 
 Preferences, permissions, and usage analytics share similarities in terms of considerations such as informed consent, whether the settings are temporary or permanent, and so on.
+
+
+\textbf{Informed consent}
+is an awkward conundrum for both end users and app developers as neither is particularly interested in the minutiae when compared to the functionality of an app.  
+At the time of the Catrobat case-study their Android app opened with a mandatory screen where users were faced with the following text in Listing \ref{pocketcode-privacypolicy}:
+
+\input{empirical-studies/pocket-code-android-policy}
+
+Welcome back, 727 words 4,590 characters later~\footnote{According to \url{https://wordcounter.net/}}. 
+
+I hope the experience of scrolling past the privacy policy here provided you with an idea of how adding a mandatory, relatively comprehensive privacy policy interrupts the flow. % One of the topics in the future work chapter, \href{enhancing-quality-vs-enhancing-ux}{\textit{\nameref{enhancing-quality-vs-enhancing-ux}}}, considers whether developers may obtain greater return on their investment by improving user experience rather than improving technical qualities of an app. As \href{enhancing-quality-vs-enhancing-ux}{Figure \ref{fig:Firebase-pocketcode-android-7-day-new-user-retention-29-may-2020}} shows, the Pocket Code app only retains 4\% of new users by day 2. Perhaps, the low retention rate may restrict the growth of the user-base even though the quality has improved markedly.
+Few users would voluntarily read these terms, and, via Firebase Analytics, we discovered that the Pocket Code app only retained 4\% of new users by day 2 which indicates many may simply abandon the app when presented with these terms at startup.  % IIRC there's quite a bit of research that aims to identify improvements to UIs and to presenting information to end users. For now, I'll skip digging for details. 
+
+Both `informed' and `consent' are important considerations - how to improve (and perhaps even check for) end users being sufficiently informed, and then also providing mechanisms where end users can freely consent to whatever data is gathered for analytical purposes. Or is it enough for developers to deem use of an app as providing sufficient consent? This appears to be an area well worth further research. 
+
+
+Other changes to the relationships between end-users, their organisations where appropriate, app-developers, mobile analytics providers, the app store, and platform providers may need to be re-envisaged as changes to the availability of analytics data may upset current business models.
+
+% Additional topics could include rewards and payments for information, users paying to use the software, other sources of funding e.g. along the lines of https://creativecommons.org/2019/09/16/grant-for-the-web/
+
+In summary for this section, currently end-users of mobile apps have unnecessarily limited choices in terms of the data collected by app developers or the Android platform. It is practical to improve the service provided to end-users and to provide them with greater freedom and control over the data collection. Some may wish to have access to the underlying data too. The platform could provide app developers with information about the user's data collection preferences and could also implement changes to help give users more choice while also protecting them from intrusive data gathering (both Google and Apple have made changes in relationship to other tracking mechanisms~\citep{bbcnews2022_google_moves_to_make_android_apps_more_private}). 
+
+
+\section{Empower developers}
+Helping to improve the competence of developers so they create higher-quality apps pre-release is an area on which platform providers (e.g. Google and Apple) can focus their efforts.  Given the breadth and depth of usage and failure data that the platforms collect, there is scope to develop tools that use that data to forewarn developers of probably-flawed code in their codebase. Cloud-based developer-oriented utilities including Amazon’s CodeWhisperer~\citep{desai2022_amazon_codewhisperer}, and CodeGuru~\footnote{\url{https://aws.amazon.com/codeguru/}}, and GitHub’s copilot~\footnote{\url{https://github.com/features/copilot}} services demonstrate several large-scale approaches aimed at helping developers improve their productivity and code quality. Mobile Analytics has the potential to feed tools and algorithms that would provide developers seamless mechanisms to similarly improve the quality of their mobile apps based on real world measurements and real world results.
+
+
+\section{Improving analytical capabilities}
+Areas currently underserved by mobile analytics tools include bug localisation and bug reproduction. Mobile analytics based on failures that occur for end users are derived from presence-only data (based on p. 1383 DOI: 10.1214/10-AOAS331) 
+
+“Note that this does not consist of all locations where an Angophora costata tree is found—rather it is the locations where the species has been reported to be found.”
+The analytics report contains [all] the failures that have been reported, it does not consist of all the failures that occurred.
+
+Furthermore the analytics do not report on when the same code did not fail in use. Both bug localisation and bug reproduction could be improved when the entire population of usage data were available to be analysed. However, as mentioned previously, neither the developers nor the analytics services are likely to obtain data for the entire [underlying] population of users. Currently mobile analytics tools such as Microsoft App Center provide developers with the option to integrate their general purpose mobile analytics SDK into an app, by doing so, App Center is able to calculate a percentage of the percentage of the users that a crash or error affects. 
+
+An approach similar to delta debugging as currently practiced may help identify relevant factors/context while also removing irrelevant factors/context that led to failures in the app. (Related work exists for web applications: On the use of delta debugging to reduce recordings and facilitate debugging of web applications their work relied on recording user input and replaying these using Selenium and reproduced a small number of examples.) Locating the causes of failures is a topic long discussed in the literature. In contrast to that work, at least some failures in mobile apps depend on elements close to the user, such as their mobile device, their network connectivity, their profile, their past and/or current use of the software, and so on. Furthermore there’s unlikely to be an existing automated test that reproduces the failure, otherwise why wasn’t the failure addressed pre-release?
+
+Once the conditions have been found that reproduce the failure, techniques can be applied to simplify conditions that reproduce it. If users are willing to participate in the bug reproduction process, approaches such as Reproducing Context-sensitive Crashes of Mobile Apps using Crowdsourced Monitoring might be viable. Using Mobile Analytics for crashes, freezes, and other performance issues addresses these topics described in App Store 2.0 
+
+
+
+\section{Safeguards}
+
+
+\section{Summary}
+
+
+%%%%%%%%%%
+% Include discussion that the world moves on.
+
+This chapter contains various discussion topics, including: validity of my research and of the analytics tools, where the various analytics tools provide the most value, ethics and legal aspects, abandoned apps, and finally other app stores beyond Google Play.
+%TBD whether to include a discussion of:
+%%% other analytics tools I've researched during my PhD (e.g. those covered in my probation report)
+%%% sweetspots for Crashlytics, Firebase, etc.
+
+
+Apps are a popular and relevant subset of all software, they run remotely on other people’s equipment where they are the primary owners of the data on their devices, and where the platform and pre-installed platform software determine various aspects of the data collection. The apps and the analytics libraries they use control what data is reported and when. 
+
 
 \section{The half-life of the hackathons}
 Both the Kiwix and Catrobat case studies included a hackathon early on. For Kiwix the improvements in the crash rate were almost immediate as a new release of the app with several fixes was released within a week of the session at the hackathon. The project team also increased their focus on addressing crashes and other stability issues which drove ongoing significant improvements over a series of releases of the core app; and when the custom apps were also updated their stability also improved markedly. %TODO link to the findings 
