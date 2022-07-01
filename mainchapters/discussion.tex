@@ -4,6 +4,11 @@
 \epigraph{Every honest researcher I know admits he's just a professional amateur. He's doing whatever he's doing for the first time. That makes him an amateur. He has sense enough to know that he's going to have a lot of trouble, so that makes him a professional.}{Charles Franklin Kettering (1876-1958)}~\footnote{With thanks to \citealp{zieris2020_phd_qualitative_analysis_of_knowledge_transfer_in_pair_programming}}
 
 
+Several of the discussion topics are more general in nature, for instance on privacy and on informed consent by users, so these discussion topics are in this chapter.  
+
+
+
+
 \section{Mobile analytics is a socio-technical system}
 Mobile Analytics is a socio-technical system in which both the technical and the social aspects need to be addressed both to maximise the good effects and to minimise the fruitless and bad effects of using these systems~\citep{baxter2011_socio-technical-systems-from-design-methods-to-systems-engineering}.\pending{Consider critiquing this paper here.}
 
@@ -18,9 +23,150 @@ The richest and most complex perspectives are for the processes, that is, how de
 
 \section{Critique on this research}
 
+\subsection{The impact of covid and other unavailability}
+GTAF was one of several case studies that was adversely affected by the main contact being unwell and unavailable for a month or so during the active period. Thankfully, having ongoing access to Google Play Console has enabled a longer-term analysis of the behaviours of their Android apps.
+
+The emergence of COVID-19 materially affected both the Catrobat case study and some planned research, it also adversely affected the development team's working practices.
+
+
+
+\subsection{Validity of my research}
+
+\subsection{Threats to Validity}~\label{discussion-threats-to-validity-section}
+In the Methodology chapter threats to validity of the methodology and the use of empirical studies were discussed (see page \pageref{methodology-threats-to-validity-section}). This section broadens the scope to include additional threats to the validity of the research.
+
+Let us consider validity from a practical, pragmatic perspective. 
+Research by ~\cite{scaffidi2007developing}, states real world developers and users base their decisions on what the paper describes as low-ceremony evidence~\emph{``such as reviews, reputation, advertising claims, qualitative information, or aggregation of group opinion"}. The paper proposes a notation that includes credentials and provenance to help people to systematically adapt their their confidence in software dynamically as new information emerges. Making decisions with imperfect information is also covered in the same paper (~\cite{scaffidi2007developing}) where they discuss \emph{good enough} decision making using \emph{``less-than-perfect information"}. In my industry experience, and in the research described in this thesis, their claims hold true. And in terms of my research I have aimed to assess aspects of the credibility of several analytics tools and provide provenance for the evidence that has been collected during the practical aspects of the research.
+
+TODO Using ratings and reviews to measure quality? Tim Menzies quote on software analytics. 
+
+
+
+\subsection{Validity of the tools being used}
+
+\subsubsection{Validity of platform analytics}
+
+\subsubsection{Validity of Fabric Crashlytics}
+
+\subsubsection{Validity of various mobile apps}
+
+Our simple opensource Android app, Zipternet~\footnote{\url{https://github.com/ISNIT0/zipternet}}, included HTML-based content. In the initial releases the app had a flaw that caused a crash to occur when any external web links were selected in the content~\footnote{See issue 6 on Github for this project:~\href{https://github.com/ISNIT0/zipternet/issues/6}{Fix crash of the app when external URL selected in WebView}.}. This crash occurred consistently whenever any external web link was selected and was detected and reported by Google Play Console's pre-launch report and it was also reported in Android Vitals, albeit less often than when the crash occurred on devices we used for local testing of the app.
+
+
+In February 2020 the iOS version of the Pocket Code app was enhanced to include a mechanism to cause crashes deterministically~\footnote{See JIRA ticket:~\href{https://jira.catrob.at/browse/CATTY-161}{CATTY-161 - INTERMEDIATE TICKET: Add ``easter egg" for Crashlytics} for the iOS feature.}. This ability to cause crashes deterministically was designed and implemented to determine whether the crashes would be reported correctly in Firebase Crashlytics (they were). The iOS team removed the ``easter egg" immediately after the workshop in Poland~\footnote{See JIRA ticket:~\href{https://jira.catrob.at/browse/CATTY-162}{CATTY-162 - TRAINING TICKET: Remove "easter egg" for Crashlytics}.}. The Android version of Pocket Code already used the older Fabric Crashlytics API and crashes were being reported in the Fabric Crashlytics dashboard.
+
+\subsection{Internal validity}
+
+\subsection{External validity}
+
+\subsection{Ecological validity}
+As Wikipedia notes \emph{``Essentially, ecological validity is a commentary on the relative strength of a study's implication(s) for policy, society, culture, etc."} (\cite{wikipedia_ecological_validity}).
+
+One of the aims of my research is to determine whether it is applicable for and relevant to real-world developers of mobile apps. 
+
+Working with non-profit opensource projects, where the teams are generally willing to make their practices and results public, helps with being able to obtain information and publish the results. However, as many research projects discover, what might work for opensource projects -- while important and interesting to the research community -- might not matter much to the industry of professional and commercial development teams. 
+
+Opensource apps are a tiny proportion of mobile apps available to users, so another level of learning and validation could be achieved through the insights of these professional and commercial development teams. Surveys tend to have poor response rates and lack the depth or richness I was seeking therefore I chose to engage at a deeper level as a fellow developer interviewing developers of several apps. Of course we would need the permission of their organisations, and some shared examples of their tools, their practices and their results of applying analytics well, and even times when they hadn't.
+
+I have been fortunate to receive external confirmation from various external sources that the research is of interest and appears to have some validity. These include: validation from the Google engineering team responsible for Android Vitals and Google Play Console. It also includes validation from developers of mature opensource and commercial Android applications. 
+
+One of the challenges in this research has been to balance internal, external and ecological validity, a challenge others have faced in their research in other areas including educational software (~\cite{ransdell1993educational_software_evaluation_research_validities}) where they realised there are multiple factors that influence the outcomes and results of their experiments and research. Similarly, real-world development of mobile apps, and changes in the stability of their apps depend on multiple factors. And from a research perspective, it was, and is, impractical to observe or measure everything that might contribute to the changes in stability, etc. What does appear to be clear are two related factors:
+
+\begin{enumerate}
+    \item When developers pay attention to flaws reported in analytics tools they are able to effect improvements to the app which significantly reduce the failure rate and improve the stability of the apps for end users.
+    \item Developers will release updates that unintentionally and or exacerbate the failure rate, despite their best intentions. They need to pay ongoing attention to the reported failures if they wish to maintain or decrease the measured stability of their apps as both their app and the ecosystems evolve~\footnote{Ecosystems evolve as new devices, operating system releases, networks, updates to libraries, and to other related apps and components (such as the Google \href{ection-webview-component}{WebView component}), etc. change.}.
+\end{enumerate}
+
+\subsubsection{Validity from the Google Engineering Team}
+
+
+
+\subsubsection{Other validation}
+In email discussions of my research in 2020 one of the leading authors in the field, \href{https://scholar.google.com/citations?user=zuUsFkgAAAAJ&hl=en&oi=sra}{Li Li}, confirmed the novelty, importance and relevance of my research.
+
+
+
+
 
 \section{Utility and scalability}
 
+\subsection{...TBD...}
+If we focus on Android apps what are the implications and how relevant are the approaches and results?
+
+
+\subsection{Do the concepts scale?}
+This research is limited to apps available in Google Play for practical reasons. Here we consider whether the approach could scale beyond Google Play for Android apps, and later whether the approach could work for other platforms.
+
+\subsubsection{Beyond Google Play?}
+Other Android app stores are available, particularly in China as~\citep{wang2018_beyond_google_play} describes. Of the Chinese app stores, in 2018 only 2 (Tencent Myapp, and 360 Market) provided a quality rating. Their work indicates that at least some app stores are not likely to provide stability analytics similar, or equivalent, to those Google provides in Google Play Console and Android Vitals. Developers, therefore, would need to implement any analytics into their app rather than rely on the app store. Two more recent app stores are discussed next: Huawei and Amazon.
+
+\textbf{Huawei}: 
+Huawei needed a comprehensive alternative to the Google Android ecosystem, driven by the ramifications of the ongoing ban in the USA~\citep{androidauthority2021_the_huawei_ban}. 
+% And https://www.cnet.com/news/huawei-ban-timeline-chinese-company-android-rival-coming-phones-tablets/
+They have been ramping up their app store~\citep{androidauthority2021_huawei_app_gallery}, known as \href{https://appgallery.huawei.com/}{HUAWEI App Gallery}. According to~\citep{vodafone2021_huawei_appgallery}, it had over 180 billion downloads in the past year - which would infer lots of usage of those downloaded apps and very likely lots of crashes! 
+%
+In 2020, Huawei announced \emph{``HUAWEI is one of the world's top three application store"} [sic]~\citep{huawei2020_press_release_on_hms_ecosystem}, serving 600 million Huawei device users. In March 2021, Huawei stated they have over 2.7 million developers outside the Chinese Mainland~\citep{}. 
+Huawei are rolling out their Android operating system HarmonyOS to a wide range of their existing devices~\footnote{\url{https://www.huaweicentral.com/huawei-harmonyos-upgrade-plan-devices-and-rollout-time-list/}} which may accelerate the growth of activity in their app ecosystem. In short, they have a large and growing ecosystem with lots of apps and users of those apps.
+
+Huawei provide an optional Analytics SDK for developers~\citep{huawei_analyticskit}; in turn it provides a crash and error reporting SDK together with a Codelab~\citep{huawei_crashservice_codelab} and examples~\citep{huawei_crashservice_github_examples}. They encourage developers to test the crash reporting and their API includes facilities to enable and disable crash collection, to generate a test crash, to record Exceptions, and to report custom events~\citep{huawei_ag_connect_crash}. 
+Their crash reporting appears to be integrated in an online console for developers~\footnote{\url{https://developer.huawei.com/consumer/en/console}~\citep{huawei_introduction_to_appgallery_connect_crash_service}}. 
+
+They also provide a programmatic data export service~\citep{huawei_analyticskit_dataexport_codelab}. According to one of their developer-oriented articles~\citep{huawei_introduction_to_appgallery_connect_crash_service}, \emph{``The crash rate of a problem is greater than the threshold 1\%"}~\citep{huawei_introduction_to_appgallery_connect_crash_service}, which is similar to Google's bad behavior threshold of 1.09\%. In their AppGallery Connect Service whitepaper they mention crashes and ANRs in an image titled \emph{``Analysis: Driving Operations Decision-Making with Data"}, however the whitepaper did not provide any more details on how the information would be collected or provided~\citep{huawei_appgallery_connect_service_whitepaper}. 
+
+\begin{comment}
+\begin{itemize}
+    \item How to enable the Analytics service~\url{https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-enabling-0000001050745155-V5} and see \url{https://developer.huawei.com/consumer/en/codelabsPortal/carddetails/HMSAnalyticsKit}. There's also a codelab for enabling analytics in Kotlin~\url{https://developer.huawei.com/consumer/en/codelabsPortal/carddetails/HMSAnalyticsKit-Kotlin}. There's also the article on Medium~\citep{huawei2020_appgallery_connect_crash_service_article_on_medium} and the associated source code on GitHub~\url{https://github.com/SerkanMUTLU/Huawei-AppGallery-Crash-Service}.
+    \item How the Crash Service works \url{https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-introduction-0000001055732708}. Three steps: 1) integrate the SDKs, 2) test the crash service, and 3) analyse a crash. 
+    \item Their Android Sample Code is available \url{https://developer.huawei.com/consumer/en/doc/development/HMSCore-Examples/android-sample-code-0000001050745043}
+    \item Pre-release Check for their Analytics SDK \url{https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/android-pre-release-check-0000001050420841-V5}, which includes a spreadsheet (which I've downloaded) that covers basic sanity testing.
+    \item Lots of clear articles (still lacking in various details) that help to understand how their analytics SDK behaves and how that behaviour can be modified (and checked) by developers. For example~\citep{huawei_accessing_analytics_kit}.
+    \item Online training videos on their Analytics software \url{https://developer.huawei.com/consumer/en/training/detail/101582991973534154}
+    \item Cloud Testing articles \href{https://forums.developer.huawei.com/forumPortal/en/topic/0201271583209350068}{Part 1} and \href{}{Part 2}. And a more structured article~\url{https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-cloudtest-introduction-0000001083002880}.
+    \item Developer reports he cannot see crashes for the productFlavor that should use the Huawei crash reporting~\url{https://stackoverflow.com/questions/64800108/can-not-see-crashes-for-android-on-appgallery-connect}. It's not clear whether a) the library needs to be instantiated by the application at runtime, b) if there'll be conflicts between the Huawei and Google Firebase crashlytics libraries and/or instantiation.
+    \item \url{https://developer.huawei.com/consumer/en/appgallery/} marketing to the developers.
+    \item \url{https://developer.huawei.com/consumer/en/codelabsPortal/index} HUAWEI Codelabs.
+    \item \url{https://stackoverflow.com/questions/tagged/huawei-mobile-services} Active support from Huawei for developers.
+    \item \url{https://stackoverflow.com/questions/67885601/react-native-app-crashes-while-launching-after-implementing-hmscore} Interesting answer from Shirley who works for Huawei I believe about how their support HMS Core on non-Huawei devices \url{https://stackoverflow.com/a/67886284/340175} - Details saved in my references in the HUAWEI folder.
+    \item App Rollbacks \textit{are} supported! \url{https://developer.huawei.com/consumer/en/doc/distribution/app/agc-help-rollback-0000001146534647}
+    \item Developers can provide messages in the app store for their users \url{https://developer.huawei.com/consumer/en/doc/distribution/app/agc-help-developers-message-0000001146438657}
+    \item \emph{Intermediate: Easy fix of application crash using Huawei Crash Service and Remote Configuration}~\url{https://forums.developer.huawei.com/forumPortal/en/topic/0202581794223780039}
+\end{itemize}
+\end{comment}
+
+Huawei have published a ``success story" of how Doodle Draw used Huawei's crash service to detect and then resolve an \emph{``unexpected exit problem"} on the day they started using the crash service. The crash rate of the app was then \emph{``decreased from 1\% to 0.06\%, greatly improving the app quality"}~\citep{huawei_agc_success_stories}. It is slightly ironical their article discusses ``success stories" yet there is only one success story, more have been requested.
+
+Key differences between their provision and that provided by Google include the lack of integrated platform (device-level) analytics from the Operating System, the need for developers to integrate a full Analytics SDK in order to then use the crash and error reporting SDK. They do not mention of the equivalent of Android Vitals. In terms of pre-release checks and testing, they provide various elements that offer similar capabilities to the pre-packaged pre-launch reports that Google Play Console provides. For example, they have an Integration Check~\citep{huawei_appgallery_integration_check} which appears to perform various forms of static analysis and Cloud Testing~\citep{huawei_appgallery_cloud_testing} that in turn includes similar automated testing capabilities. 
+
+As Huawei develops HarmonyOS and their app store, potentially platform-level analytics could be added and made available by Huawei in future.
+
+\textbf{Amazon app store}: 
+Another major app store for Android apps is the \href{https://developer.amazon.com/apps-and-games}{Amazon appstore}, which includes `millions of devices in over 236 countries and territories'. They provide an \href{https://developer.amazon.com/settings/console/home}{amazon developer console} which offers a subset of the Google Play Console's features together with some Amazon specific product and service offerings. 
+
+Many, but not all, of Google Firebase Android SDKs are able to be used beyond Google Play. The other SDKs require Google Play services which is part of the Google Android platform. And uniquely, firebase-analytics states `\emph{automatic insights such as demographics are only available on devices with Google Play services.}'~\citep{firebasesupport2020_dependencies_of_firebase_sdks_on_google_play_services}. 
+
+
+\textbf{Could the techniques improve reliability beyond Google Play?} 
+These brief introductions into Huawei's and Amazon's, global app store ecosystems indicate there provide sufficient developer-oriented tools and services for developers to be able to measure reliability of their Android-like apps were they distributed in these app stores, and to be able to use the analytics offered by these providers (and potentially other analytics providers, for instance Countly claims their Android SDK should work on HarmonyOS~\citep{countly_which_operating_systems_are_supported}) to identify reliability issues and potentially address them. Neither of these ecosystems currently provide the richness of the Google Play Console or Android Vitals, they could choose to do so in future and the underlying Android based operating systems could gather similar data, at least from a technical perspective.
+
+\subsubsection{Beyond Android?}
+
+Apple also provides a platform and an app store (called the `App Store'). 
+
+For iOS Apple describes how developers can collect crash reports from TestFlight and from the App Store. In the same article they describe how users can locate and email crash reports and email them to the app's developer, for instance if the developer does not have them. They do not explain how the developer or user reach each other to communicate about the crash or the contact details~\footnote{\href{https://developer.apple.com/documentation/xcode/diagnosing_issues_using_crash_reports_and_device_logs/acquiring_crash_reports_and_diagnostic_logs}{Acquiring Crash Reports and Diagnostic Logs}.}. 
+%
+Apple also provide practical advice on how to diagnose issues using crash reports, memory inefficiencies using `jetsam event reports' and problems using `device console logs'~\footnote{See Xcode documentation:~\href{https://developer.apple.com/documentation/xcode/diagnosing_issues_using_crash_reports_and_device_logs}{Diagnosing Issues Using Crash Reports and Device Logs}.}. 
+% 
+From various online discussions~\footnote{Examples of discussions on iOS crash logs include:~\href{https://stackoverflow.com/questions/10145665/crash-reports-from-app-on-app-store}{Crash reports from app on App Store}, and the poorly titled forum post ~\href{https://developer.apple.com/forums/thread/30934}{App Analytics Crashes}.} 
+% See also https://stackoverflow.com/questions/50709109/ios-app-store-get-crash-reports
+The iOS analytics include some of the reporting and analysis provided by Google in the Google Play Store tools, for instance~\emph{``...how crashes break down across OS versions and different devices"}~\cite{apple2020_how_to_review_your_apps_crash_logs}. Their reports currently lack some of the more sophisticated reporting that Google Play and Android Vitals provide. Nonetheless, sufficient raw elements are available to developers to enable them to discover crashes and memory issues from end users in order to address these. Apple also launched Feedback Assistant in 2019 with the aim of enabling people to submit effective bug reports using either an app or a website~\cite{appledeveloper2020_bug_reporting_feedback_assistant_for_developers}. Authorised members of the app's development team can access and review the feedback reports using similar tools~\cite{appledeveloper2020_bug_reporting_feedback_assistant_for_developers}.
+
+
+\subsection{Applicability to Other App Stores?}~\pending{Integrate with the Beyond Android topic.}
+App Stores were popularised for mobile apps for Android, iOS, and other smartphone platforms now extinct (\emph{e.g.} Windows Mobile), even if App Stores existed several years before smartphones did. % COULD_DO cite early versions of the Mobile Developer's Guide to the Galaxy, etc.
+
+% Isabel: add a figure across the domains, inter-domain considerations. See her scanned notes.
+
+They then spread to other mainstream operating systems including OSX, some Linux distributions, etc. using a similar business and software development model to the Android and iOS app stores. Recently, e.g. in 2019, App Stores were also reported for Radiology - for instance in an article in Harvard Business Review on \emph{What AI ``App Stores" will mean for Radiology}~\cite{hbr_what_ai_app_stores_mean_for_radiology}. The authors of the article envisage various benefits that emerge from applying a \emph{marketplace model} for these apps, including better feedback for developers. In tandem, the importance of incorporating appropriate analytics and ensuring they are trustworthy also seems worthy of further research and analysis. 
 
 \section{Empower users}
 Now may be the ‘golden age’ in terms of app developers being able to default to gathering mobile analytics data, as the legal context may constrain this practice and legislation may require developers to change the default to not collecting mobile analytics data unless users explicitly opt-in. There may be further constraints on what data can be collected and who is responsible for protecting and preserving the data~\citep{bbcnews2022_google_signup_fasttrack_to_surveillance, beuc2022_google_surveillance_action}. 
@@ -98,11 +244,40 @@ In summary for this section, currently end-users of mobile apps have unnecessari
 Helping to improve the competence of developers so they create higher-quality apps pre-release is an area on which platform providers (e.g. Google and Apple) can focus their efforts.  Given the breadth and depth of usage and failure data that the platforms collect, there is scope to develop tools that use that data to forewarn developers of probably-flawed code in their codebase. Cloud-based developer-oriented utilities including Amazon’s CodeWhisperer~\citep{desai2022_amazon_codewhisperer}, and CodeGuru~\footnote{\url{https://aws.amazon.com/codeguru/}}, and GitHub’s copilot~\footnote{\url{https://github.com/features/copilot}} services demonstrate several large-scale approaches aimed at helping developers improve their productivity and code quality. Mobile Analytics has the potential to feed tools and algorithms that would provide developers seamless mechanisms to similarly improve the quality of their mobile apps based on real world measurements and real world results.
 
 
-\section{Improving analytical capabilities}
-Areas currently underserved by mobile analytics tools include bug localisation and bug reproduction. Mobile analytics based on failures that occur for end users are derived from presence-only data (based on p. 1383 DOI: 10.1214/10-AOAS331) 
+\subsection{The half-life of the hackathons}
+Both the Kiwix and Catrobat case studies included a hackathon early on. For Kiwix the improvements in the crash rate were almost immediate as a new release of the app with several fixes was released within a week of the session at the hackathon. The project team also increased their focus on addressing crashes and other stability issues which drove ongoing significant improvements over a series of releases of the core app; and when the custom apps were also updated their stability also improved markedly. %TODO link to the findings 
 
-“Note that this does not consist of all locations where an Angophora costata tree is found—rather it is the locations where the species has been reported to be found.”
-The analytics report contains [all] the failures that have been reported, it does not consist of all the failures that occurred.
+For the Catrobat case study, the improvements took a bit longer to take effect based partly on the more involved pre-release work. The second release after the hackathon had further improvements and between them they improved the stability significantly. %TODO link to the findings 
+However, the improvements then petered out. We had arranged for a second more involved hackathon in the form of a 1-day pre-conference workshop at TestFest 2020, a conference with about 500 participants. %TODO link to more details about the planned workshop.
+The workshop did occur however the early effects of Covid-19 becoming a global pandemic meant that some of the workshop participants did not come and remained at home and many of the rest were also organisers of the conference and ended up spending their time hurriedly reorganising many aspects of the conference instead of participating in the workshop. The subsequent increase in restrictions related to COVID-19 are a likely cause of why there was little further progress in terms of addressing stability issues for the Catrobat project.
+
+\subsection{Left untended, entropy returns}
+Several of the projects described in the case studies have had increased failure rates post the case studies, as confirmed by reviewing the relevant analytics reports which continued to be made available for research purposes. In each case, the increase occurred after a loss in focus on actively addressing causes of production errors being reported by the respective analytics tools.
+
+\textbf{Post case study - Kiwix Android}
+The Kiwix Android case study was scaled back in early 2020, however I continued to monitor it as a background activity with the agreement of the project leads. One of the many side-effects of the Covid-19 pandemic was a significant reduction in funding for the Kiwix project in Summer 2020 which culminated in the end of the funded lead-developer role for the Android codebase. The lead developer finished working on the project in late 2020 and since then the project has been mainly maintained by a mix of volunteers on a part-time basis. 
+
+The crash and ANR rates have both increased in 2021, and are 0.73\% and 0.46\% respectively for the 30 days to \nth{11} June 2021 for the Kiwix Android app (the most recent release is v3.4.4 released on \nth{20} May 2021). Many of the most common crashes are related to the embedded WebView component... TBC
+
+\section{Setting the use of mobile analytics in a broader context}
+
+\subsection{Catrobat: Research findings and results from the Case Study}
+% Why Catrobat, what did I gain, similarities and contrasts, why include in the PhD.
+% Existing best practices, assiduously applied didn't reduce the crash rate, my approach did! :)
+% Needs to be applied on a long term basis
+
+
+\subsection{Decision making by development teams}~\label{discussion-decision-making-by-dev-teams-section}
+As an untested hypothesis, as part of their decision making when triaging an issue: developers may apply an informal form of failure mode and effect analysis (FMEA) based on multiple-criteria decision making (MCDM) using similar criteria to the work described in \citealt{lo2018_novel_multi_criteria_decision_making_based_FMEA_model_for_risk_assessment}, \textit{i.e.}, severity, occurrence, detection (of a cause they can fix), and expected cost. An area of future research could be in the habits of decision making during triage and in ways to improve the decision making and the outcomes of those decisions.
+
+
+\section{Improving analytical capabilities}
+Areas currently underserved by mobile analytics tools include bug localisation and bug reproduction. Mobile analytics based on failures that occur for end users are derived from presence-only data, based on ~\citet[p.1383]{warton2010_poisson_point_process_models_solve_the_pseudo_absence_problem_for_presence_only_data_in_ecology}. 
+
+\begin{itemize}
+    \item``\textit{Note that this does not consist of all locations where an Angophora costata tree is found—rather it is the locations where the species has been reported to be found.}'' (from ~\citet[p.1383]{warton2010_poisson_point_process_models_solve_the_pseudo_absence_problem_for_presence_only_data_in_ecology})
+    \item The analytics report contains [all] the failures that have been reported, it does not consist of all the failures that occurred. The word all is in square brakets as some failures might be screened-out or removed from the reports by the processing of the data for various reasons including: suspected fraud/spam, issues with the content of the message, \emph{etc.}
+\end{itemize}
 
 Furthermore the analytics do not report on when the same code did not fail in use. Both bug localisation and bug reproduction could be improved when the entire population of usage data were available to be analysed. However, as mentioned previously, neither the developers nor the analytics services are likely to obtain data for the entire [underlying] population of users. Currently mobile analytics tools such as Microsoft App Center provide developers with the option to integrate their general purpose mobile analytics SDK into an app, by doing so, App Center is able to calculate a percentage of the percentage of the users that a crash or error affects. 
 
@@ -113,6 +288,17 @@ Once the conditions have been found that reproduce the failure, techniques can b
 
 
 \section{Safeguards}
+
+\subsection{Quis custodiet ipsos custodes?}
+\url{https://en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes\%3F}
+Who watches the watchers? The app store is all powerful, promoting one app, demoting or even blocking another. What it reports is expected to be taken on trust. And who has time or resources to check or verify the veracity of what is being reported and to whom? As the Editorial Board of the Financial Times proposed three rules to build trust in the use of automated algorithms in decision making~\emph{``algorithms that companies and governments deploy in sensitive areas such as healthcare, education, policing, justice and workplace monitoring should be subject to audit and comprehension by outside experts."}\citep{ft2021_building_trust_in_ai_systems_is_essential}. Given the revenues, powers and business implications of the major app stores, I believe they should also be subject to audit and comprehension by outside experts.
+
+To the credit of several providers of analytics SDKs, including Crashlytics and Huawei's crash reporting SDK, they provide mechanisms to test their crash reporting service. However, these tests do not necessarily mean the analytics are completely accurate, reliable, and scalable. For example, in an online tutorial, a developer at Huawei explained~\emph{``Note : If an error is occurred in try catch block, Crash service won’t catch it. Crash Service just catches critical error that is stopped app"}~\citep{huawei2020_appgallery_connect_crash_service_article_on_medium}. Conversely, Google Android collects usage statistics from small percentages of users from WebView components incorporated into Android apps including crash reports~\footnote{An example of WebView crash reports for specific Samsung device models is discussed on Stack Overflow~\citep{ebling2018_so_s9_specific_webview_device_crash_report}}. Google discusses user privacy implications in these crash reports~\citep{android_webview_privacy}.
+
+Also, as Huawei acknowledged in the version history for their Android SDK their SDK previously caused some crashes (in versions 1.5.0.300, for instance) and needed improvements in the crash rate (in version 1.5.2.300) accuracy~\citep{huawei_android_crashservice_sdk_version_change_history}. Similar issues may well exist in other Analytics SDK and related services. 
+
+It's encouraging to see Huawei's honesty which increases their credibility in this area. Even better would be for all the analytics providers to release the source code and the measurement techniques they use so both of these can be independently checked and verified.
+
 
 
 \section{Summary}
@@ -130,36 +316,10 @@ This chapter contains various discussion topics, including: validity of my resea
 Apps are a popular and relevant subset of all software, they run remotely on other people’s equipment where they are the primary owners of the data on their devices, and where the platform and pre-installed platform software determine various aspects of the data collection. The apps and the analytics libraries they use control what data is reported and when. 
 
 
-\section{The half-life of the hackathons}
-Both the Kiwix and Catrobat case studies included a hackathon early on. For Kiwix the improvements in the crash rate were almost immediate as a new release of the app with several fixes was released within a week of the session at the hackathon. The project team also increased their focus on addressing crashes and other stability issues which drove ongoing significant improvements over a series of releases of the core app; and when the custom apps were also updated their stability also improved markedly. %TODO link to the findings 
-
-For the Catrobat case study, the improvements took a bit longer to take effect based partly on the more involved pre-release work. The second release after the hackathon had further improvements and between them they improved the stability significantly. %TODO link to the findings 
-However, the improvements then petered out. We had arranged for a second more involved hackathon in the form of a 1-day pre-conference workshop at TestFest 2020, a conference with about 500 participants. %TODO link to more details about the planned workshop.
-The workshop did occur however the early effects of Covid-19 becoming a global pandemic meant that some of the workshop participants did not come and remained at home and many of the rest were also organisers of the conference and ended up spending their time hurriedly reorganising many aspects of the conference instead of participating in the workshop. The subsequent increase in restrictions related to COVID-19 are a likely cause of why there was little further progress in terms of addressing stability issues for the Catrobat project.
-
-\section{Decision making by development teams}~\label{discussion-decision-making-by-dev-teams-section}
-As an untested hypothesis, as part of their decision making when triaging an issue: developers may apply an informal form of failure mode and effect analysis (FMEA) based on multiple-criteria decision making (MCDM) using similar criteria to the work described in \citealt{lo2018_novel_multi_criteria_decision_making_based_FMEA_model_for_risk_assessment}, \textit{i.e.}, severity, occurrence, detection (of a cause they can fix), and expected cost. An area of future research could be in the habits of decision making during triage and in ways to improve the decision making and the outcomes of those decisions.
-
-\section{The WebView component}~\label{section-webview-component}
-
-(something that's used in a vast number of Android apps in my experience, including eBay, GMail~\footnote{\url{https://www.google.com/appsstatus\#hl=en&v=issue&sid=1&iid=aa75515d184a2423be444d676b7ebf45}}), and many others. The BBC development team wrote a detailed and rich blog post~\url{https://www.bbc.co.uk/blogs/internet/entries/3533ce9c-393a-43d8-8f44-0c46214c86aa} on their use of WebViews to host their JavaScript based games for several years. The article includes Wardley Mapping diagrams that position their use of analytics amongst other technologies.
-
-Notes, to be expanded:
-\begin{itemize}
-    \item \url{https://www.theverge.com/2021/3/22/22345696/google-android-apps-crashing-fix-system-webview} and \url{https://9to5google.com/2021/04/20/android-webview-crash-fix/}
-    \item \url{https://play.google.com/store/apps/details?id=com.google.android.webview} 1,000,000,000+ installs, 5,930,222 ratings on \nth{3} June 2021.
-    \item \url{https://www.appbrain.com/app/android-system-webview/com.google.android.webview} and possibly discuss the effects of custom WebViews such as from ASUS~\url{https://www.appbrain.com/app/asus-webview/com.asus.webview}
-    \item \url{https://www.google.com/appsstatus/ir/fw6156fs1panucr.pdf} Google's explanation of what happened and how they intend to improve matters.
-    \item BBC iPlayer app description from \nth{5} April 2021~\citep{bbc_iplayer_app_april_2021_webview_information}.
-    \item \url{https://www.bbc.co.uk/news/technology-56496783}
-    \item \url{https://www.bbc.com/pidgin/world-56481802}
-    \item \url{https://www.bugsnag.com/blog/android-system-webview-causes-apps-to-crash} NB: I don't agree with their claims... App developers should be able to write code that handles at least some exceptions related to WebViews.
-\end{itemize}
 
 
 
-\subsection{...TBD...}
-If we focus on Android apps what are the implications and how relevant are the approaches and results?
+
 
 \section{On Measurement}
 Measurement may begin using rough and approximate measurements and tools, for instance the length of a yard which used to depend on the span of the king's arm~\footnote{One source is:~\url{http://nisltd.co.uk/asp/default.aspx?page=history_of_calibration}}. France, in particular, led to the standardisation of various measurements including the metre~\footnote{\emph{e.g.}~\url{http://www2.culture.gouv.fr/culture/actualites/celebrations/metre.htm} (in French).}.
@@ -178,127 +338,6 @@ Debugging in the large is a term presented in Microsoft's research into Windows 
 
 It may be viable to significantly accelerate troubleshooting and reduce the latency by using techniques that were described and applied in a project called CellScope by~\citealp{padmanabha2018_mitigating_the_latency_accuracy_tradeoff_in_moile_data_analytics_systems}. They demonstrated their model was able to make useful and relatively accurate predictions of anomalies in power consumption by mobile apps within one day of the Carat app\footnote{\url{https://play.google.com/store/apps/details?id=edu.berkeley.cs.amplab.carat.android&hl=en_GB&gl=US}}. Unfortunately this Android app was last updated for end users in 2018 and the Carat power recommendation app project no longer appears to be active according to the respective Android\footnote{\url{https://github.com/carat-project/carat-android}, last updated in August 2019} and iOS\footnote{\url{https://github.com/carat-project/carat/}, last updated in February 2018} opensource codebases. Furthermore, the CellScope software does not appear to have been published so future research may need to recreate something similar from scratch.
 
-\section{Threats to Validity}~\label{discussion-threats-to-validity-section}
-In the Methodology chapter threats to validity of the methodology and the use of empirical studies were discussed (see page \pageref{methodology-threats-to-validity-section}). This section broadens the scope to include additional threats to the validity of the research.
-
-Let us consider validity from a practical, pragmatic perspective. 
-Research by ~\cite{scaffidi2007developing}, states real world developers and users base their decisions on what the paper describes as low-ceremony evidence~\emph{``such as reviews, reputation, advertising claims, qualitative information, or aggregation of group opinion"}. The paper proposes a notation that includes credentials and provenance to help people to systematically adapt their their confidence in software dynamically as new information emerges. Making decisions with imperfect information is also covered in the same paper (~\cite{scaffidi2007developing}) where they discuss \emph{good enough} decision making using \emph{``less-than-perfect information"}. In my industry experience, and in the research described in this thesis, their claims hold true. And in terms of my research I have aimed to assess aspects of the credibility of several analytics tools and provide provenance for the evidence that has been collected during the practical aspects of the research.
-
-TODO Using ratings and reviews to measure quality? Tim Menzies quote on software analytics. 
-
-\subsection{Validity of my research}
-
-
-
-\subsection{Validity of the tools being used}
-
-\subsubsection{Validity of platform analytics}
-
-\subsubsection{Validity of Fabric Crashlytics}
-
-\subsubsection{Validity of various mobile apps}
-
-Our simple opensource Android app, Zipternet~\footnote{\url{https://github.com/ISNIT0/zipternet}}, included HTML-based content. In the initial releases the app had a flaw that caused a crash to occur when any external web links were selected in the content~\footnote{See issue 6 on Github for this project:~\href{https://github.com/ISNIT0/zipternet/issues/6}{Fix crash of the app when external URL selected in WebView}.}. This crash occurred consistently whenever any external web link was selected and was detected and reported by Google Play Console's pre-launch report and it was also reported in Android Vitals, albeit less often than when the crash occurred on devices we used for local testing of the app.
-
-
-In February 2020 the iOS version of the Pocket Code app was enhanced to include a mechanism to cause crashes deterministically~\footnote{See JIRA ticket:~\href{https://jira.catrob.at/browse/CATTY-161}{CATTY-161 - INTERMEDIATE TICKET: Add ``easter egg" for Crashlytics} for the iOS feature.}. This ability to cause crashes deterministically was designed and implemented to determine whether the crashes would be reported correctly in Firebase Crashlytics (they were). The iOS team removed the ``easter egg" immediately after the workshop in Poland~\footnote{See JIRA ticket:~\href{https://jira.catrob.at/browse/CATTY-162}{CATTY-162 - TRAINING TICKET: Remove "easter egg" for Crashlytics}.}. The Android version of Pocket Code already used the older Fabric Crashlytics API and crashes were being reported in the Fabric Crashlytics dashboard.
-
-\subsection{Internal validity}
-
-\subsection{External validity}
-
-\subsection{Ecological validity}
-As Wikipedia notes \emph{``Essentially, ecological validity is a commentary on the relative strength of a study's implication(s) for policy, society, culture, etc."} (\cite{wikipedia_ecological_validity}).
-
-One of the aims of my research is to determine whether it is applicable for and relevant to real-world developers of mobile apps. 
-
-Working with non-profit opensource projects, where the teams are generally willing to make their practices and results public, helps with being able to obtain information and publish the results. However, as many research projects discover, what might work for opensource projects -- while important and interesting to the research community -- might not matter much to the industry of professional and commercial development teams. 
-
-Opensource apps are a tiny proportion of mobile apps available to users, so another level of learning and validation could be achieved through the insights of these professional and commercial development teams. Surveys tend to have poor response rates and lack the depth or richness I was seeking therefore I chose to engage at a deeper level as a fellow developer interviewing developers of several apps. Of course we would need the permission of their organisations, and some shared examples of their tools, their practices and their results of applying analytics well, and even times when they hadn't.
-
-I have been fortunate to receive external confirmation from various external sources that the research is of interest and appears to have some validity. These include: validation from the Google engineering team responsible for Android Vitals and Google Play Console. It also includes validation from developers of mature opensource and commercial Android applications. 
-
-One of the challenges in this research has been to balance internal, external and ecological validity, a challenge others have faced in their research in other areas including educational software (~\cite{ransdell1993educational_software_evaluation_research_validities}) where they realised there are multiple factors that influence the outcomes and results of their experiments and research. Similarly, real-world development of mobile apps, and changes in the stability of their apps depend on multiple factors. And from a research perspective, it was, and is, impractical to observe or measure everything that might contribute to the changes in stability, etc. What does appear to be clear are two related factors:
-
-\begin{enumerate}
-    \item When developers pay attention to flaws reported in analytics tools they are able to effect improvements to the app which significantly reduce the failure rate and improve the stability of the apps for end users.
-    \item Developers will release updates that unintentionally and or exacerbate the failure rate, despite their best intentions. They need to pay ongoing attention to the reported failures if they wish to maintain or decrease the measured stability of their apps as both their app and the ecosystems evolve~\footnote{Ecosystems evolve as new devices, operating system releases, networks, updates to libraries, and to other related apps and components (such as the Google \href{ection-webview-component}{WebView component}), etc. change.}.
-\end{enumerate}
-
-\subsubsection{Validity from the Google Engineering Team}
-
-
-
-\subsubsection{Other validation}
-In email discussions of my research in 2020 one of the leading authors in the field, \href{https://scholar.google.com/citations?user=zuUsFkgAAAAJ&hl=en&oi=sra}{Li Li}, confirmed the novelty, importance and relevance of my research.
-
-
-
-\section{Do the concepts scale?}
-This research is limited to apps available in Google Play for practical reasons. Here we consider whether the approach could scale beyond Google Play for Android apps, and later whether the approach could work for other platforms.
-
-\subsection{Beyond Google Play?}
-Other Android app stores are available, particularly in China as~\citep{wang2018_beyond_google_play} describes. Of the Chinese app stores, in 2018 only 2 (Tencent Myapp, and 360 Market) provided a quality rating. Their work indicates that at least some app stores are not likely to provide stability analytics similar, or equivalent, to those Google provides in Google Play Console and Android Vitals. Developers, therefore, would need to implement any analytics into their app rather than rely on the app store. Two more recent app stores are discussed next: Huawei and Amazon.
-
-\textbf{Huawei}: 
-Huawei needed a comprehensive alternative to the Google Android ecosystem, driven by the ramifications of the ongoing ban in the USA~\citep{androidauthority2021_the_huawei_ban}. 
-% And https://www.cnet.com/news/huawei-ban-timeline-chinese-company-android-rival-coming-phones-tablets/
-They have been ramping up their app store~\citep{androidauthority2021_huawei_app_gallery}, known as \href{https://appgallery.huawei.com/}{HUAWEI App Gallery}. According to~\citep{vodafone2021_huawei_appgallery}, it had over 180 billion downloads in the past year - which would infer lots of usage of those downloaded apps and very likely lots of crashes! 
-%
-In 2020, Huawei announced \emph{``HUAWEI is one of the world's top three application store"} [sic]~\citep{huawei2020_press_release_on_hms_ecosystem}, serving 600 million Huawei device users. In March 2021, Huawei stated they have over 2.7 million developers outside the Chinese Mainland~\citep{}. 
-Huawei are rolling out their Android operating system HarmonyOS to a wide range of their existing devices~\footnote{\url{https://www.huaweicentral.com/huawei-harmonyos-upgrade-plan-devices-and-rollout-time-list/}} which may accelerate the growth of activity in their app ecosystem. In short, they have a large and growing ecosystem with lots of apps and users of those apps.
-
-Huawei provide an optional Analytics SDK for developers~\citep{huawei_analyticskit}; in turn it provides a crash and error reporting SDK together with a Codelab~\citep{huawei_crashservice_codelab} and examples~\citep{huawei_crashservice_github_examples}. They encourage developers to test the crash reporting and their API includes facilities to enable and disable crash collection, to generate a test crash, to record Exceptions, and to report custom events~\citep{huawei_ag_connect_crash}. 
-Their crash reporting appears to be integrated in an online console for developers~\footnote{\url{https://developer.huawei.com/consumer/en/console}~\citep{huawei_introduction_to_appgallery_connect_crash_service}}. 
-
-They also provide a programmatic data export service~\citep{huawei_analyticskit_dataexport_codelab}. According to one of their developer-oriented articles~\citep{huawei_introduction_to_appgallery_connect_crash_service}, \emph{``The crash rate of a problem is greater than the threshold 1\%"}~\citep{huawei_introduction_to_appgallery_connect_crash_service}, which is similar to Google's bad behavior threshold of 1.09\%. In their AppGallery Connect Service whitepaper they mention crashes and ANRs in an image titled \emph{``Analysis: Driving Operations Decision-Making with Data"}, however the whitepaper did not provide any more details on how the information would be collected or provided~\citep{huawei_appgallery_connect_service_whitepaper}. 
-
-\begin{comment}
-\begin{itemize}
-    \item How to enable the Analytics service~\url{https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/service-enabling-0000001050745155-V5} and see \url{https://developer.huawei.com/consumer/en/codelabsPortal/carddetails/HMSAnalyticsKit}. There's also a codelab for enabling analytics in Kotlin~\url{https://developer.huawei.com/consumer/en/codelabsPortal/carddetails/HMSAnalyticsKit-Kotlin}. There's also the article on Medium~\citep{huawei2020_appgallery_connect_crash_service_article_on_medium} and the associated source code on GitHub~\url{https://github.com/SerkanMUTLU/Huawei-AppGallery-Crash-Service}.
-    \item How the Crash Service works \url{https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-crash-introduction-0000001055732708}. Three steps: 1) integrate the SDKs, 2) test the crash service, and 3) analyse a crash. 
-    \item Their Android Sample Code is available \url{https://developer.huawei.com/consumer/en/doc/development/HMSCore-Examples/android-sample-code-0000001050745043}
-    \item Pre-release Check for their Analytics SDK \url{https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/android-pre-release-check-0000001050420841-V5}, which includes a spreadsheet (which I've downloaded) that covers basic sanity testing.
-    \item Lots of clear articles (still lacking in various details) that help to understand how their analytics SDK behaves and how that behaviour can be modified (and checked) by developers. For example~\citep{huawei_accessing_analytics_kit}.
-    \item Online training videos on their Analytics software \url{https://developer.huawei.com/consumer/en/training/detail/101582991973534154}
-    \item Cloud Testing articles \href{https://forums.developer.huawei.com/forumPortal/en/topic/0201271583209350068}{Part 1} and \href{}{Part 2}. And a more structured article~\url{https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-cloudtest-introduction-0000001083002880}.
-    \item Developer reports he cannot see crashes for the productFlavor that should use the Huawei crash reporting~\url{https://stackoverflow.com/questions/64800108/can-not-see-crashes-for-android-on-appgallery-connect}. It's not clear whether a) the library needs to be instantiated by the application at runtime, b) if there'll be conflicts between the Huawei and Google Firebase crashlytics libraries and/or instantiation.
-    \item \url{https://developer.huawei.com/consumer/en/appgallery/} marketing to the developers.
-    \item \url{https://developer.huawei.com/consumer/en/codelabsPortal/index} HUAWEI Codelabs.
-    \item \url{https://stackoverflow.com/questions/tagged/huawei-mobile-services} Active support from Huawei for developers.
-    \item \url{https://stackoverflow.com/questions/67885601/react-native-app-crashes-while-launching-after-implementing-hmscore} Interesting answer from Shirley who works for Huawei I believe about how their support HMS Core on non-Huawei devices \url{https://stackoverflow.com/a/67886284/340175} - Details saved in my references in the HUAWEI folder.
-    \item App Rollbacks \textit{are} supported! \url{https://developer.huawei.com/consumer/en/doc/distribution/app/agc-help-rollback-0000001146534647}
-    \item Developers can provide messages in the app store for their users \url{https://developer.huawei.com/consumer/en/doc/distribution/app/agc-help-developers-message-0000001146438657}
-    \item \emph{Intermediate: Easy fix of application crash using Huawei Crash Service and Remote Configuration}~\url{https://forums.developer.huawei.com/forumPortal/en/topic/0202581794223780039}
-\end{itemize}
-\end{comment}
-
-Huawei have published a ``success story" of how Doodle Draw used Huawei's crash service to detect and then resolve an \emph{``unexpected exit problem"} on the day they started using the crash service. The crash rate of the app was then \emph{``decreased from 1\% to 0.06\%, greatly improving the app quality"}~\citep{huawei_agc_success_stories}. It is slightly ironical their article discusses ``success stories" yet there is only one success story, more have been requested.
-
-Key differences between their provision and that provided by Google include the lack of integrated platform (device-level) analytics from the Operating System, the need for developers to integrate a full Analytics SDK in order to then use the crash and error reporting SDK. They do not mention of the equivalent of Android Vitals. In terms of pre-release checks and testing, they provide various elements that offer similar capabilities to the pre-packaged pre-launch reports that Google Play Console provides. For example, they have an Integration Check~\citep{huawei_appgallery_integration_check} which appears to perform various forms of static analysis and Cloud Testing~\citep{huawei_appgallery_cloud_testing} that in turn includes similar automated testing capabilities. 
-
-As Huawei develops HarmonyOS and their app store, potentially platform-level analytics could be added and made available by Huawei in future.
-
-\textbf{Amazon app store}: 
-Another major app store for Android apps is the \href{https://developer.amazon.com/apps-and-games}{Amazon appstore}, which includes `millions of devices in over 236 countries and territories'. They provide an \href{https://developer.amazon.com/settings/console/home}{amazon developer console} which offers a subset of the Google Play Console's features together with some Amazon specific product and service offerings. 
-
-Many, but not all, of Google Firebase Android SDKs are able to be used beyond Google Play. The other SDKs require Google Play services which is part of the Google Android platform. And uniquely, firebase-analytics states `\emph{automatic insights such as demographics are only available on devices with Google Play services.}'~\citep{firebasesupport2020_dependencies_of_firebase_sdks_on_google_play_services}. 
-
-
-\textbf{Could the techniques improve reliability beyond Google Play?} 
-These brief introductions into Huawei's and Amazon's, global app store ecosystems indicate there provide sufficient developer-oriented tools and services for developers to be able to measure reliability of their Android-like apps were they distributed in these app stores, and to be able to use the analytics offered by these providers (and potentially other analytics providers, for instance Countly claims their Android SDK should work on HarmonyOS~\citep{countly_which_operating_systems_are_supported}) to identify reliability issues and potentially address them. Neither of these ecosystems currently provide the richness of the Google Play Console or Android Vitals, they could choose to do so in future and the underlying Android based operating systems could gather similar data, at least from a technical perspective.
-
-\subsection{Beyond Android?}
-
-Apple also provides a platform and an app store (called the `App Store'). 
-
-For iOS Apple describes how developers can collect crash reports from TestFlight and from the App Store. In the same article they describe how users can locate and email crash reports and email them to the app's developer, for instance if the developer does not have them. They do not explain how the developer or user reach each other to communicate about the crash or the contact details~\footnote{\href{https://developer.apple.com/documentation/xcode/diagnosing_issues_using_crash_reports_and_device_logs/acquiring_crash_reports_and_diagnostic_logs}{Acquiring Crash Reports and Diagnostic Logs}.}. 
-%
-Apple also provide practical advice on how to diagnose issues using crash reports, memory inefficiencies using `jetsam event reports' and problems using `device console logs'~\footnote{See Xcode documentation:~\href{https://developer.apple.com/documentation/xcode/diagnosing_issues_using_crash_reports_and_device_logs}{Diagnosing Issues Using Crash Reports and Device Logs}.}. 
-% 
-From various online discussions~\footnote{Examples of discussions on iOS crash logs include:~\href{https://stackoverflow.com/questions/10145665/crash-reports-from-app-on-app-store}{Crash reports from app on App Store}, and the poorly titled forum post ~\href{https://developer.apple.com/forums/thread/30934}{App Analytics Crashes}.} 
-% See also https://stackoverflow.com/questions/50709109/ios-app-store-get-crash-reports
-The iOS analytics include some of the reporting and analysis provided by Google in the Google Play Store tools, for instance~\emph{``...how crashes break down across OS versions and different devices"}~\cite{apple2020_how_to_review_your_apps_crash_logs}. Their reports currently lack some of the more sophisticated reporting that Google Play and Android Vitals provide. Nonetheless, sufficient raw elements are available to developers to enable them to discover crashes and memory issues from end users in order to address these. Apple also launched Feedback Assistant in 2019 with the aim of enabling people to submit effective bug reports using either an app or a website~\cite{appledeveloper2020_bug_reporting_feedback_assistant_for_developers}. Authorised members of the app's development team can access and review the feedback reports using similar tools~\cite{appledeveloper2020_bug_reporting_feedback_assistant_for_developers}.
 
 
 \section{Considerations on the methodology and case study procedure}~\label{discussion-on-methodology-and-case-study-procedure}
@@ -314,16 +353,6 @@ Express mechanisms and permission for authorised users to collect analytics arte
 
 
 \subsection{Considerations on the app-centric case study procedure}~\label{discussion-considerations-on-the-app-centric-case-study-procedure}
-
-\subsection{Quis custodiet ipsos custodes?}
-\url{https://en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes\%3F}
-Who watches the watchers? The app store is all powerful, promoting one app, demoting or even blocking another. What it reports is expected to be taken on trust. And who has time or resources to check or verify the veracity of what is being reported and to whom? As the Editorial Board of the Financial Times proposed three rules to build trust in the use of automated algorithms in decision making~\emph{``algorithms that companies and governments deploy in sensitive areas such as healthcare, education, policing, justice and workplace monitoring should be subject to audit and comprehension by outside experts."}\citep{ft2021_building_trust_in_ai_systems_is_essential}. Given the revenues, powers and business implications of the major app stores, I believe they should also be subject to audit and comprehension by outside experts.
-
-To the credit of several providers of analytics SDKs, including Crashlytics and Huawei's crash reporting SDK, they provide mechanisms to test their crash reporting service. However, these tests do not necessarily mean the analytics are completely accurate, reliable, and scalable. For example, in an online tutorial, a developer at Huawei explained~\emph{``Note : If an error is occurred in try catch block, Crash service won’t catch it. Crash Service just catches critical error that is stopped app"}~\citep{huawei2020_appgallery_connect_crash_service_article_on_medium}. Conversely, Google Android collects usage statistics from small percentages of users from WebView components incorporated into Android apps including crash reports~\footnote{An example of WebView crash reports for specific Samsung device models is discussed on Stack Overflow~\citep{ebling2018_so_s9_specific_webview_device_crash_report}}. Google discusses user privacy implications in these crash reports~\citep{android_webview_privacy}.
-
-Also, as Huawei acknowledged in the version history for their Android SDK their SDK previously caused some crashes (in versions 1.5.0.300, for instance) and needed improvements in the crash rate (in version 1.5.2.300) accuracy~\citep{huawei_android_crashservice_sdk_version_change_history}. Similar issues may well exist in other Analytics SDK and related services. 
-
-It's encouraging to see Huawei's honesty which increases their credibility in this area. Even better would be for all the analytics providers to release the source code and the measurement techniques they use so both of these can be independently checked and verified.
 
 
 \subsection{Necessary? Sufficient?}
@@ -426,52 +455,6 @@ mentioned they had seen a few sporadic crashes on phone models they had no acces
 
 Developers therefore can obtain higher returns in terms of improvements in measured quality if they choose to fix causes that lead to the most frequent failures where the time-to-repair is small. A company analysed 1 billion java errors recorded in logs and determined that fixing the top ten most frequent errors would reduce the crash rate by 97.3\%~\citep{overops2021_what_causes_97pct_of_1billion_java_logged_errors}. Their article does not explore how practical it would be to address those ten errors. This research, on using mobile analytics, has not yet encountered any mobile apps where so few crashes are the cause of so many errors, nonetheless both the research and this example from industry illustrate the value in fixing the worst offenders provided the bugs are tractable and easy to fix within the timescales available to the developers. Furthermore, mobile analytics done well helps keep the signal to noise ratio high in terms of aggregating and reporting on patterns of failures.
 
-\section{Android Vitals}
-\subsection{Which apps can Android Vitals help?}
-As Google only provides various reports in Android Vitals once they decide enough data exists to preserve the privacy of end users Android Vitals provides little for developers of less popular apps. 
-
-Based on very rough approximations combining my case studies with AppBrain's download statistics to 19th June 2019, shown in figure \ref{fig:appbrain_download_statistics_jun_2019}\cite{appbrain_download_statistics_june_2019}, of the total populations of app developers:
-\begin{itemize}
-    \item 3\% to 4\% (those with 100,000 to 500,000 total downloads) will get limited value as at least one report will be provided.
-    \item < 1\% (those with 500,000 to 1,000,000 total downloads) will get some value as many of the reports will be provided, but not all.
-    \item 1\% (those with > 1,000,000 total downloads) will get extensive value as most/all the reports will be provided.
-\end{itemize}
-
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=\textwidth, keepaspectratio]{images/appbrain/AppBrain_Download_Statistics_20-Jun-2019.png}
-    \caption{AppBrain: Download distribution of Android apps (June 2019)}
-    \label{fig:appbrain_download_statistics_jun_2019}
-\end{figure}
-
-\subsection{Limitations in using Android Vitals for Observability}
-Observability provides two key benefits according to~\citealp{lightstephq2021_observability_will_never_replace_monitoring}: 1) monitor key signals, and 2) understand changes in a system. Mobile analytics facilitates observability of mobile apps, and in particular Android Vitals facilitates the observation of app startup times, performance, ANRs and crashes that occur when an app starts-up. However the inability of storing and analysing the data over time in Android Vitals (beyond the standard reports and recent failure details) limits the ability to observe and analyse stats and/or failures over time.
-
-
-
-\subsection{Who gets sufficient usage to see more detailed reports?}
-Our limited insight into Android Vitals already indicates that reports are only provided when there is sufficient data collected to 'prime the pump'. It may be possible to estimate how many apps of those in Google Play Store are likely to have enough volumes of usage data. Google makes various recommendations for developers on how to apply the results Android Vitals reports \url{https://developer.android.com/distribute/best-practices/develop/android-vitals} however the developers can't do much until Android Vitals actually shows them the data. For apps with less than about 50k active installs \textit{("Installs on Active Devices (devices online in the past 30 days with this app installed)}." according to Google Play Console's tool tip). These counts are around 20\% to 30\% of the total install count for various apps used in our research \textit{e.g.} the active installs would be around 20k for an app that shows at having 100,000+ [total] installs to end users in Google Play.
-
-Data provided by AppBrain~\cite{appbrain_download_statistics_june_2019} was used to estimate the populations of apps that are not likely to generate enough data to see various reports in Android Vitals.
-% wikimedes 5373 active installs - Crash rate by app version only (not device or Android version).
-% wikimedzh 3769 active installs - no Android Vitals reports
-% wikimedfa 2807 active installs - no Android Vitals reports
-% 
-Based on Android Vitals reports for Kiwix custom apps we infer that few apps with less than 20,000 total installs will have any detailed reports; WikiMed in Spanish has 5,373 active installs and has one report, for crash rate by app version. None of the other reports are available for this app. The threshold for when there is enough data for Google to provide a report depends on various factors, so the total installs is a proxy measurement and imperfect. Therefore Android Vitals is unlikely to offer much value for developers of (973,381 + 730,419 + 553,261 + 284,634) apps i.e. 2,541,695 apps in Google Play. For the next 92,678 the value of Android Vitals might increase somewhat, depending on how their app behaves and their user-base (e.g. are they on a few Android versions or spread across a spectrum - the larger the spread the less likely the reports will have data). And so on. By my admittedly limited view into the overall data set, Android Vitals is best placed to help the developers of the top (21,728 + 35,854) 57,582 apps, approximately 2\% to 3\% of the total population (2,691,955 apps). These apps (according to AppBrain's data on library use) are also more likely to use Firebase, Crashlytics, etc. so also have some of the run-time data available from these sources in addition to Android Vitals.
-
-My work is to investigate two broad sources of data - data collected by the operating system (here effectively what appears in Android Vitals) and data collected using in-app libraries, particularly mobile analytics, it could include heatmapping (e.g. Appsee, found in over 790 Android apps with over 375 million downloads~\cite{appbrain_appsee}), crash handlers, etc. to provide feedback to measure how well the development team did in terms of testing and code quality. What they learn could also be useful to help them improve how they develop and test their apps in future, particularly with the greater detail mobile analytics (particularly Firebase) can provide the team.
-
-\subsection{All that glitters is not gold}
-Android Vitals sometimes reports excessive network usage running in the background while the device is running on battery, as shown in figure \ref{fig:android_vitals_excessive_network_usage}. As the Kiwix app is designed to enable users to download sometimes extremely large files, and to do so in the background, this warning is to be expected and not a bug - it's a feature. So, not everything that Android Vitals flags necessarily needs to be acted on. % c.f. EduVPN's behaviour. 
-
-% Isabel mentions why devs don't use paper: https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=emerson+murphy+hill+static+analysis&btnG=
-
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=\textwidth, keepaspectratio]{images/android-vitals-screenshots/Excessive_network_usage_by_kiwix_15_jun_2019.png}
-    \caption{Excessive background network usage on battery}
-    \label{fig:android_vitals_excessive_network_usage}
-\end{figure}
 
 \section{Ethics of incorporating mobile analytics}
 Tradeoffs; comparing other approaches which may have similar effect with less/no tracking.
@@ -569,20 +552,6 @@ being able to understand their system. This is somewhat ironic given that I was 
 \section{Additional considerations}
 This section covers several additional topics, including: abandoned apps, additional app stores beyond Google Play and beyond Android, and implications for apps stores for medical devices?
 
-\subsection{Abandoned Apps}
-Users are not the only people who many abandon apps, developers do so too. By the very nature of abandoning an app a developer is also likely to abandon the reports and data associated with that app, including data from mobile analytics. As many researchers discover there are many abandoned opensource source code repositories, and similarly various organisations, including AppBrain, have identified apps that are effectively abandoned. % MUST-DO add citation for AppBrain report.
-
-\subsection{The Reaper Cometh}
-AppBrain is a business that actively monitors and reports on Android Apps in the Google Play Store. The business was founded by two other ex-Google engineers. They state Google is actively culling Android apps from the Google Play store and estimate approximately 16\% of apps are \emph{"low quality apps"} and \emph{"unlikely to be useful"}~\footnote{\url{https://www.appbrain.com/stats/number-of-android-apps}} % Percentage of low quality apps: 16%
-
-
-\subsection{Applicability to Other App Stores?}
-App Stores were popularised for mobile apps for Android, iOS, and other smartphone platforms now extinct (\emph{e.g.} Windows Mobile), even if App Stores existed several years before smartphones did. % COULD_DO cite early versions of the Mobile Developer's Guide to the Galaxy, etc.
-
-% Isabel: add a figure across the domains, inter-domain considerations. See her scanned notes.
-
-They then spread to other mainstream operating systems including OSX, some Linux distributions, etc. using a similar business and software development model to the Android and iOS app stores. Recently, e.g. in 2019, App Stores were also reported for Radiology - for instance in an article in Harvard Business Review on \emph{What AI ``App Stores" will mean for Radiology}~\cite{hbr_what_ai_app_stores_mean_for_radiology}. The authors of the article envisage various benefits that emerge from applying a \emph{marketplace model} for these apps, including better feedback for developers. In tandem, the importance of incorporating appropriate analytics and ensuring they are trustworthy also seems worthy of further research and analysis. 
-
 \section{Using Mobile Analytics as a fulcrum}
 % Source a discussion with Joe Reeve on \nth{10} September 2021 where he proposed the idea of mobile analytics being used as a pivot point by teams to encourage, enable, and allow changes in behaviour without blaming the team. Here's this new source of data which can help us improve our app...
 \begin{mdframed}
@@ -594,33 +563,6 @@ Changing people’s behaviour is difficult, because it means implicitly telling 
 
 There are various ways that adopting a tool impacts business practices, for enterprises this is typically the function of a product’s Customer Success team. I believe an important function of product design is to move as much education from Customer Success into the product. A great product should not only facilitate best practices, it should be a vector of change management to enforce them." Joseph E. Reeve, \nth{10} September 2021 in discussion.
 \end{mdframed}
-
-\section{Left untended, entropy returns}
-Several of the projects described in the case studies have had increased failure rates post the case studies, as confirmed by reviewing the relevant analytics reports which continued to be made available for research purposes. In each case, the increase occurred after a loss in focus on actively addressing causes of production errors being reported by the respective analytics tools.
-
-\textbf{Post case study - Kiwix Android}
-The Kiwix Android case study was scaled back in early 2020, however I continued to monitor it as a background activity with the agreement of the project leads. One of the many side-effects of the Covid-19 pandemic was a significant reduction in funding for the Kiwix project in Summer 2020 which culminated in the end of the funded lead-developer role for the Android codebase. The lead developer finished working on the project in late 2020 and since then the project has been mainly maintained by a mix of volunteers on a part-time basis. 
-
-The crash and ANR rates have both increased in 2021, and are 0.73\% and 0.46\% respectively for the 30 days to \nth{11} June 2021 for the Kiwix Android app (the most recent release is v3.4.4 released on \nth{20} May 2021). Many of the most common crashes are related to the embedded WebView component... TBC
-
-\section{Setting the use of mobile analytics in a broader context}
-
-\subsection{Catrobat: Research findings and results from the Case Study}
-% Why Catrobat, what did I gain, similarities and contrasts, why include in the PhD.
-% Existing best practices, assiduously applied didn't reduce the crash rate, my approach did! :)
-% Needs to be applied on a long term basis
-
-
-
-\section{The impact of covid and other unavailability}
-GTAF was one of several case studies that was adversely affected by the main contact being unwell and unavailable for a month or so during the active period. Thankfully, having ongoing access to Google Play Console has enabled a longer-term analysis of the behaviours of their Android apps.
-
-The emergence of COVID-19 materially affected both the Catrobat case study and some planned research, it also adversely affected the development team's working practices.
-
-
-
-\section{Temporary parking}
-Several of the discussion topics (from Catrobat) are more general in nature, for instance on privacy and on informed consent by users, so these discussion topics are in the main discussion chapter.  
 
 
 
