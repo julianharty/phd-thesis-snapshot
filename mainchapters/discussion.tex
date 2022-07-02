@@ -3,6 +3,7 @@
 
 \epigraph{Every honest researcher I know admits he's just a professional amateur. He's doing whatever he's doing for the first time. That makes him an amateur. He has sense enough to know that he's going to have a lot of trouble, so that makes him a professional.}{Charles Franklin Kettering (1876-1958)}~\footnote{With thanks to \citealp{zieris2020_phd_qualitative_analysis_of_knowledge_transfer_in_pair_programming}}
 
+% The discussion chapter was shaped by (ab-)using an affinity diagram process. Here's a link with comment accesss to the MIRO board https://miro.com/app/board/uXjVOpTlE1E=/?share_link_id=149030074901 
 
 Several of the discussion topics are more general in nature, for instance on privacy and on informed consent by users, so these discussion topics are in this chapter.  
 
@@ -22,6 +23,35 @@ The richest and most complex perspectives are for the processes, that is, how de
 
 
 \section{Critique on this research}
+
+
+\subsection{On Measurement}
+Measurement may begin using rough and approximate measurements and tools, for instance the length of a yard which used to depend on the span of the king's arm~\footnote{One source is:~\url{http://nisltd.co.uk/asp/default.aspx?page=history_of_calibration}}. France, in particular, led to the standardisation of various measurements including the metre~\footnote{\emph{e.g.}~\url{http://www2.culture.gouv.fr/culture/actualites/celebrations/metre.htm} (in French).}.
+
+Software development and testing are still in flux where various people and groups have yet to coalesce or truly agree to common, unambiguous and definitive measurements. Even newer standards, including~\cite{iso29119-1-2013}, which were intended to provide a pragmatic and useful guide to practitioners (\cite{reid2012_iso29119_eurostar}), would only be used by a minority (19\% according to a poll by EuroSTAR Conferences in 2013~\footnote{\url{https://conference.eurostarsoftwaretesting.com/poll-result-will-you-be-using-iso-29119-standards-in-your-testing/})} of an estimated 60 respondents to the poll~\footnote{\url{https://conference.eurostarsoftwaretesting.com/standards-a-case-for-the-defence/}}.
+
+How to measure anything. 
+
+My research into the \emph{use} of mobile analytics tools led into research into the characteristics of several of the actual tools in widespread use by developers of mobile apps. The measurements and assessments of these tools is immature and my work provides a possible starting point to enable these and other analytics tools to be measured and assessed.
+
+\subsubsection{Inaccuracies in software analytics generally}
+Other inaccuracies in various analytics tools provide a backdrop to this research in mobile analytics. For instance, from the domain of ecommerce web sites, a startup, Littledata~\footnote{\href{https://www.littledata.io/}{www.littledata.io/}}, claims 80\% of Shopify merchants are missing at least 20\% of transaction data for those that use Google Analytics to track their transactions and revenues~\citep{littledata2020_google_analytics_doesnt_match_shopify}. The company provides software which claims to provide 100\% accuracy and offer their customers a 30-day free trial to enable a three-way comparison between Google Analytics, Shopify's standard tracker, and their `solution'. Unfortunately for them, the incomplete and misspelt eBook waters-down reduces the confidence in their claims of providing 100\% accuracy. Also, even if two of the systems agree on the transactions and finances these systems are not necessarily correct. Additional evidence, for instance, of all the source events would be needed to cross-verify that what any of the systems report actually matches the inputs.
+
+\subsection{Considerations on the methodology and case study procedure}~\label{discussion-on-methodology-and-case-study-procedure}
+
+\subsubsection{Considerations on the methodology}~\label{discussion-considerations-on-the-methodology}
+One of the largest challenges in terms of applying the methodology was on restrictions, real and assumed, in the systematic, timely, efficacious, and ongoing collection of data. The restrictions were particularly onerous in terms of collecting the analytics artefacts from Google Play Console and Android Vitals, however the effects also applied to other proprietary mobile analytics tools. There challenges were practical, risk-based, and ethical. 
+
+There is the potential for adverse real-world consequences of not having systematic, timely, efficacious, and ongoing collection of data. These include, missing pertinent information, incomplete data, an opportunity-cost (where spending time and resources devising ways to collect the data diverts from actually using, \textit{i.e.} applying, all the relevant\footnote{TBD whether to focus on ideal, relevant, sweetspot, or net-present-value, etc. of data.} data!).  The depth and the breadth of Google's influence is immense in online services, in app development and sale, and in billions of people's lives generally (including those of many researchers). The ongoing availability and use of these services are subject to Google's benevolence, and while policies and similar legal documents provide some indications of Google's requirements they do not address  Published experiences of those Google deems to have \ldots 
+
+Power imbalances between Google (in particular) \ldots
+
+Express mechanisms and permission for authorised users to collect analytics artefacts would provide clarity and materially improve the ability of authorised researchers and authorised members of development teams to obtain, use, and preserve the analytics artefacts. Furthermore, the provision of suitable APIs would facilitate higher-speed and more efficient collection of the data. Microsoft's App Centre is currently one of the leading mobile analytics offerings in their provision of both cloud storage mechanisms and APIs to access and preserve analytics artefacts. While these do not include mechanisms to obtain the rendered (\textit{i.e.} graphical) reports, at least the underlying data can be collected, analysed independently and even integrated into subsequent, downstream processing.  
+
+
+\subsubsection{Considerations on the app-centric case study procedure}~\label{discussion-considerations-on-the-app-centric-case-study-procedure}
+
+
 
 \subsection{The impact of covid and other unavailability}
 GTAF was one of several case studies that was adversely affected by the main contact being unwell and unavailable for a month or so during the active period. Thankfully, having ongoing access to Google Play Console has enabled a longer-term analysis of the behaviours of their Android apps.
@@ -259,6 +289,21 @@ The Kiwix Android case study was scaled back in early 2020, however I continued 
 
 The crash and ANR rates have both increased in 2021, and are 0.73\% and 0.46\% respectively for the 30 days to \nth{11} June 2021 for the Kiwix Android app (the most recent release is v3.4.4 released on \nth{20} May 2021). Many of the most common crashes are related to the embedded WebView component... TBC
 
+\subsection{Using Mobile Analytics as a fulcrum}
+% Source a discussion with Joe Reeve on \nth{10} September 2021 where he proposed the idea of mobile analytics being used as a pivot point by teams to encourage, enable, and allow changes in behaviour without blaming the team. Here's this new source of data which can help us improve our app...
+\begin{mdframed}
+
+``On changing behaviour
+
+The most valuable outcome of adopting a new tool is usually a change in business practices, rather than the tool itself.
+Changing people’s behaviour is difficult, because it means implicitly telling them that the current behaviour is wrong. A new tool is a pivot point that acts as an excuse to change without having to acknowledge flaws.
+
+There are various ways that adopting a tool impacts business practices, for enterprises this is typically the function of a product’s Customer Success team. I believe an important function of product design is to move as much education from Customer Success into the product. A great product should not only facilitate best practices, it should be a vector of change management to enforce them." Joseph E. Reeve, \nth{10} September 2021 in discussion.
+\end{mdframed}
+
+
+
+
 \section{Setting the use of mobile analytics in a broader context}
 
 \subsection{Catrobat: Research findings and results from the Case Study}
@@ -285,9 +330,26 @@ An approach similar to delta debugging as currently practiced may help identify 
 
 Once the conditions have been found that reproduce the failure, techniques can be applied to simplify conditions that reproduce it. If users are willing to participate in the bug reproduction process, approaches such as Reproducing Context-sensitive Crashes of Mobile Apps using Crowdsourced Monitoring might be viable. Using Mobile Analytics for crashes, freezes, and other performance issues addresses these topics described in App Store 2.0 
 
+\subsection{Bug reproduction}
+
+
+\subsection{Bug localisation}
+
+
+\subsection{Debugging in the large}
+Debugging in the large is a term presented in Microsoft's research into Windows Error Reporting~\href{glossary-wer}{(WER)} where large scale collection of errors from end-user devices can help developers detect, prioritise, and address various errors that may not appear during development and local testing of the software~\citep{kinshuman2011_debugging_in_the_very_large}. The various mobile analytics services analysed during this research also support debugging in the large (and they suffer from some of the flaws that were reported in WER a decade ago). 
+
+It may be viable to significantly accelerate troubleshooting and reduce the latency by using techniques that were described and applied in a project called CellScope by~\citealp{padmanabha2018_mitigating_the_latency_accuracy_tradeoff_in_moile_data_analytics_systems}. They demonstrated their model was able to make useful and relatively accurate predictions of anomalies in power consumption by mobile apps within one day of the Carat app\footnote{\url{https://play.google.com/store/apps/details?id=edu.berkeley.cs.amplab.carat.android&hl=en_GB&gl=US}}. Unfortunately this Android app was last updated for end users in 2018 and the Carat power recommendation app project no longer appears to be active according to the respective Android\footnote{\url{https://github.com/carat-project/carat-android}, last updated in August 2019} and iOS\footnote{\url{https://github.com/carat-project/carat/}, last updated in February 2018} opensource codebases. Furthermore, the CellScope software does not appear to have been published so future research may need to recreate something similar from scratch.
+
 
 
 \section{Safeguards}
+
+\subsection{``Data is the new gold''}
+
+Sensitivity of allowing external access to analytics data, MUST-DO complete this section. 
+% original text: "We can no longer provide this information outside of the company for sensitivity reasons ..."
+
 
 \subsection{Quis custodiet ipsos custodes?}
 \url{https://en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes\%3F}
@@ -300,163 +362,7 @@ Also, as Huawei acknowledged in the version history for their Android SDK their 
 It's encouraging to see Huawei's honesty which increases their credibility in this area. Even better would be for all the analytics providers to release the source code and the measurement techniques they use so both of these can be independently checked and verified.
 
 
-
-\section{Summary}
-
-
-%%%%%%%%%%
-% Include discussion that the world moves on.
-
-This chapter contains various discussion topics, including: validity of my research and of the analytics tools, where the various analytics tools provide the most value, ethics and legal aspects, abandoned apps, and finally other app stores beyond Google Play.
-%TBD whether to include a discussion of:
-%%% other analytics tools I've researched during my PhD (e.g. those covered in my probation report)
-%%% sweetspots for Crashlytics, Firebase, etc.
-
-
-Apps are a popular and relevant subset of all software, they run remotely on other people’s equipment where they are the primary owners of the data on their devices, and where the platform and pre-installed platform software determine various aspects of the data collection. The apps and the analytics libraries they use control what data is reported and when. 
-
-
-
-
-
-
-
-\section{On Measurement}
-Measurement may begin using rough and approximate measurements and tools, for instance the length of a yard which used to depend on the span of the king's arm~\footnote{One source is:~\url{http://nisltd.co.uk/asp/default.aspx?page=history_of_calibration}}. France, in particular, led to the standardisation of various measurements including the metre~\footnote{\emph{e.g.}~\url{http://www2.culture.gouv.fr/culture/actualites/celebrations/metre.htm} (in French).}.
-
-Software development and testing are still in flux where various people and groups have yet to coalesce or truly agree to common, unambiguous and definitive measurements. Even newer standards, including~\cite{iso29119-1-2013}, which were intended to provide a pragmatic and useful guide to practitioners (\cite{reid2012_iso29119_eurostar}), would only be used by a minority (19\% according to a poll by EuroSTAR Conferences in 2013~\footnote{\url{https://conference.eurostarsoftwaretesting.com/poll-result-will-you-be-using-iso-29119-standards-in-your-testing/})} of an estimated 60 respondents to the poll~\footnote{\url{https://conference.eurostarsoftwaretesting.com/standards-a-case-for-the-defence/}}.
-
-How to measure anything. 
-
-My research into the \emph{use} of mobile analytics tools led into research into the characteristics of several of the actual tools in widespread use by developers of mobile apps. The measurements and assessments of these tools is immature and my work provides a possible starting point to enable these and other analytics tools to be measured and assessed.
-
-\subsection{Inaccuracies in software analytics generally}
-Other inaccuracies in various analytics tools provide a backdrop to this research in mobile analytics. For instance, from the domain of ecommerce web sites, a startup, Littledata~\footnote{\href{https://www.littledata.io/}{www.littledata.io/}}, claims 80\% of Shopify merchants are missing at least 20\% of transaction data for those that use Google Analytics to track their transactions and revenues~\citep{littledata2020_google_analytics_doesnt_match_shopify}. The company provides software which claims to provide 100\% accuracy and offer their customers a 30-day free trial to enable a three-way comparison between Google Analytics, Shopify's standard tracker, and their `solution'. Unfortunately for them, the incomplete and misspelt eBook waters-down reduces the confidence in their claims of providing 100\% accuracy. Also, even if two of the systems agree on the transactions and finances these systems are not necessarily correct. Additional evidence, for instance, of all the source events would be needed to cross-verify that what any of the systems report actually matches the inputs.
-
-\section{Debugging in the large}
-Debugging in the large is a term presented in Microsoft's research into Windows Error Reporting~\href{glossary-wer}{(WER)} where large scale collection of errors from end-user devices can help developers detect, prioritise, and address various errors that may not appear during development and local testing of the software~\citep{kinshuman2011_debugging_in_the_very_large}. The various mobile analytics services analysed during this research also support debugging in the large (and they suffer from some of the flaws that were reported in WER a decade ago). 
-
-It may be viable to significantly accelerate troubleshooting and reduce the latency by using techniques that were described and applied in a project called CellScope by~\citealp{padmanabha2018_mitigating_the_latency_accuracy_tradeoff_in_moile_data_analytics_systems}. They demonstrated their model was able to make useful and relatively accurate predictions of anomalies in power consumption by mobile apps within one day of the Carat app\footnote{\url{https://play.google.com/store/apps/details?id=edu.berkeley.cs.amplab.carat.android&hl=en_GB&gl=US}}. Unfortunately this Android app was last updated for end users in 2018 and the Carat power recommendation app project no longer appears to be active according to the respective Android\footnote{\url{https://github.com/carat-project/carat-android}, last updated in August 2019} and iOS\footnote{\url{https://github.com/carat-project/carat/}, last updated in February 2018} opensource codebases. Furthermore, the CellScope software does not appear to have been published so future research may need to recreate something similar from scratch.
-
-
-
-\section{Considerations on the methodology and case study procedure}~\label{discussion-on-methodology-and-case-study-procedure}
-
-\subsection{Considerations on the methodology}~\label{discussion-considerations-on-the-methodology}
-One of the largest challenges in terms of applying the methodology was on restrictions, real and assumed, in the systematic, timely, efficacious, and ongoing collection of data. The restrictions were particularly onerous in terms of collecting the analytics artefacts from Google Play Console and Android Vitals, however the effects also applied to other proprietary mobile analytics tools. There challenges were practical, risk-based, and ethical. 
-
-There is the potential for adverse real-world consequences of not having systematic, timely, efficacious, and ongoing collection of data. These include, missing pertinent information, incomplete data, an opportunity-cost (where spending time and resources devising ways to collect the data diverts from actually using, \textit{i.e.} applying, all the relevant\footnote{TBD whether to focus on ideal, relevant, sweetspot, or net-present-value, etc. of data.} data!).  The depth and the breadth of Google's influence is immense in online services, in app development and sale, and in billions of people's lives generally (including those of many researchers). The ongoing availability and use of these services are subject to Google's benevolence, and while policies and similar legal documents provide some indications of Google's requirements they do not address  Published experiences of those Google deems to have \ldots 
-
-Power imbalances between Google (in particular) \ldots
-
-Express mechanisms and permission for authorised users to collect analytics artefacts would provide clarity and materially improve the ability of authorised researchers and authorised members of development teams to obtain, use, and preserve the analytics artefacts. Furthermore, the provision of suitable APIs would facilitate higher-speed and more efficient collection of the data. Microsoft's App Centre is currently one of the leading mobile analytics offerings in their provision of both cloud storage mechanisms and APIs to access and preserve analytics artefacts. While these do not include mechanisms to obtain the rendered (\textit{i.e.} graphical) reports, at least the underlying data can be collected, analysed independently and even integrated into subsequent, downstream processing.  
-
-
-\subsection{Considerations on the app-centric case study procedure}~\label{discussion-considerations-on-the-app-centric-case-study-procedure}
-
-
-\subsection{Necessary? Sufficient?}
-Freezes and crashes may adversely impact a user's perspective, Google may limit the visibility of apps that score poorly in terms of 'stability' as I will cover later in my thesis. However, are performant applications sufficient to thrive? There may be other barriers, or hurdles, developers need to overcome such as providing software that is attractive, serves whatever the user wants to do, and is intuitive.
-
-Research published by Microsoft on Windows Error Reporting (WER) states~\emph{``WER augments, but does not replace, other methods for improving software quality."}~\citep{kinshuman2009_debugging_in_the_very_large, kinshuman2011_debugging_in_the_very_large}. Similarly, using mobile analytics to find and prioritise failures to address augments rather than replaces other methods for improving software quality. For failures that are able to be detected and reported using mobile analytics - relying solely on using mobile analytics to detect and address them may overwhelm developers in fix, patch and release cycles rather than other improvements to the app. Furthermore users of these failing apps may simply stop using it, reject it, and the developers who provide the app~\citep{dimensionalresearch2015_mobile_app_use_and_abandonment}. Other quality issues that mobile analytics does not capture, need to be addressed using other techniques and tools.
-
-In 2019 Menzies in his paper \emph{``Take Control: On the Unreasonable Effectiveness of Software Analytics"}~\cite{menzies2019take} indicates that a small number of predictable software analytics variables can be used to predict software qualities for projects. 
-
-\emph{``Specifically, the number of variables required to make predictions about SE projects is remarkably small which means that (a) most of the things we think might affect software quality have little impact in practice; (b) controlling just a few key variables can be enough to improve software quality."}
-
-
-\section{Trade-offs of: ``Fail Early"?}
-Fail Early has been argued as a helpful policy in various contexts MUST-DO expand and provide examples. Fail Fast mentioned in~\citep{gray1986_why_do_computers_stop_and_what_can_be_done_about_it} but not explained or discussed. Make bugs easy [easier] to find~\citep{shore2004_fail_fast_software_debugging}.
-
-The benefits of applying a fail fast approach are described in~\citep{shore2004_fail_fast_software_debugging} with the aim of immediate and visible failure. For rare failures and those the developer cannot easily track down, this approach may help the developer learn about causes of the failures (for instance by raising an explicit exception in the program) where the failure is reported by mobile analytics. For platform level analytics, these fail fast failures would result in crash clusters reported by the analytics. However, Android Vitals does not currently include the message portion of exceptions. The examples in~\citep{shore2004_fail_fast_software_debugging} make extensive use of the messages for communications, so when developers rely on platform-level analytics they may need to consider ways to augment the communications of failures (such as incorporating a crash reporting library or service into their app)~\footnote{We did explore an alternative approach, where the application code added meta-information as an entry in the stack trace as a proof-of-concept, the implementation is available online at~\href{https://github.com/ISNIT0/AndroidCrashDummy/blob/cfa7f0817c436d7e657741e0a5d9a76644e5a898/app/src/main/java/com/example/user/androidtestapp/MainActivity.java\#L28-L50}{AndroidCrashDummy MainActivity.java\#L28-L50}.  However, we decided not to release an app in Google Play with this capability at the time.}. For in-app analytics the developer has the option to report the error using the respective API. An example of reporting an error with additional parameters is shown in Listing~\ref{listing:microsoft-app-center-handled-exception}~\footnote{The Microsoft App Center documentation is released under a Creative Commons Attribution 4.0 International Public License~\href{https://github.com/MicrosoftDocs/appcenter-docs/blob/live/LICENSE}{App Center Docs LICENSE}.}.
-
-\begin{listing}
-\begin{minted}[
-    gobble=4,
-    frame=single,
-    fontsize=\tiny,
-    breaklines=true
-  ]{java}
-try {
-    // your code goes here.
-} catch (Exception exception) {
-    Map<String, String> properties = new HashMap<String, String>() {{
-        put("Category", "Music");
-        put("Wifi", "On");
-    }};
-    Crashes.trackError(exception, properties, null);
-}
-\end{minted}
-\caption[Microsoft AppCenter: example of reporting a crash in Android]{Example of reporting a crash in Android.  Source~\href{https://docs.microsoft.com/en-us/appcenter/sdk/crashes/android}{ Microsoft App Center documentation}}
-\label{listing:microsoft-app-center-handled-exception}
-\end{listing}
-
-
-When developers do not write exception handlers for parts of their code, unhandled exceptions cause the app to crash when they occur. The user may be annoyed by this behaviour if the crash visibly~\footnote{Here visibility refers to the user noticing the crash and being aware of the crash adversely impacting their experience.}  affects their use of the app. The aphorism, \emph{`every cloud has a silver lining'}, may yet hold true in these circumstances provided developers become aware of the crash and choose to address it suitably, as these crashes are detected by various mobile analytics tools and platforms and then reported to the development team.
-
-In contrast a lukewarm, and sometimes expedient approach, is where developers add minimalist \texttt{try\{\}...catch\{\}} handlers to wrap the code that may throw an exception. These exceptions are no longer `unhandled' however nor are they adequately handled in terms of the application providing error management, or attempts to recover from the error, or informing the user of a problem that's occurred, and so on. MUST-DO provide some code snippet examples and analysis of the prevalence of the use of this approach.
-
-To add to the complexities, app stores are seldom disinterested observers. If the measured crash rate increases beyond what they deem an acceptable threshold (1\% for Huawei %~\citep{huawei_introduction_to_appgallery_connect_crash_service}
-, 1.09\% for Google Play's bad behavior threshold) they may reduce the visibility of the app in the app store and/or otherwise mark it down. Therefore developers need to be mindful of their strategy to crashes and crash reporting and aim to keep the overall failure rate of their app well below any bad behaviour threshold.
-
-Using software libraries can also add to the complexities; and some have sophisticated error handling strategies which include expectations on how developers will write their code to use that library adequately. RxJava is a very popular library for Android apps. That library explicitly changed their error handling strategy in version 2.0 and require developers to abide by their requirements for error handling~\footnote{\url{https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0\#error-handling}}. In version 2.0~\emph{``RxJava defaults to printing the Throwable's stacktrace to the console and calls the current thread's uncaught exception handler."}. The wiki page goes on to say~\emph{``Unfortunately, RxJava can't tell which of these out-of-lifecycle, undeliverable exceptions should or shouldn't crash your app."} So developers who use this library may end up with their app terminating abruptly where the reported crash rate also increases as a result.
-
-% MUST-DO subject to approval or a suitable alternative example: add the OkHttpv3 example from the large case study in the relevant section, then discuss the example here.
-
-\begin{table}[]
-    \centering
-    \resizebox{\textwidth}{!}{% See https://tex.stackexchange.com/a/27105/88466 TODO improve the readability of the table.
-    \begin{tabular}{c|ccccc}
-        \toprule
-        \textit{stage} & During init & During shutdown & In background service & In `flight' & In a `runtime' \\
-        \midrule
-         Mobile Analytics tool & & & & & \\
-         \midrule
-         Google Play Console with Android Vitals & C & C & C & C & \\
-         Fabric Crashlytics &  & Unknown & Unknown & EC & \\
-         Sentry & N & & & Y & Y \\
-         \bottomrule
-    \end{tabular}}
-    \caption{w-i-p: Mapping error and crash reporting to mobile analytics tools \\ E = Error, C = Crash, B = Breadcrumb, K = Custom content, N = No}
-    \label{tab:discussion-mapping-error-and-crash-reporting-to-ma-tools}
-\end{table}
-
-TODO discuss: the reporting mechanisms and limitations in addition to Table~\ref{tab:discussion-mapping-error-and-crash-reporting-to-ma-tools}'s examples of what they can capture. Also discuss the primary focus of this research has been on Crashes, then on Errors, then on ANRs~\pending{Note: this material probably belongs in the Tools chapter once I've established it.}.
-
-\textbf{Measuring reliability}: 
-Failure rates include: unhandled exceptions, ANRs, and errors. Errors include: handled exceptions that are recovered from, caught exceptions, logic errors, calculation and content errors, and many others. 
-
-Even \textit{if} an app catches and 'handles' every exception it may not be truly reliable \textit{i.e.} there may be various errors that occur that do not lead to a runtime exception or an ANR. As such, the measured failure rate - assuming it is accurate or undercounting - is the lower bound of the true error rate.
-
-\section{Mitigation techniques}
-Summary: \textit{Reduce the incidence, reduce the severity, prevent the trigger, fix if and when practical given the many constraints the team, and the individuals,  are operate under.}
-
-\subsection{Approaches to reducing failure rate}
-There are many approaches to reducing the measured failure rate. The `logical' one is to fix whatever the cause is, or at least write code that handles causes robustly, reliably and in ways that serve the user well. And if this is easy and practical many developers and projects will adopt this approach. However like many things that involve people and their motivations they may choose other approaches for various reasons, such as:
-
-\begin{itemize}
-    \item Information gathering: where the cause of a failure is not known and not understood, programmers may add code to collect and report additional information to enable them to learn enough about the context of the failure in order to address it once they have learned enough to do so.
-    \item Error masking: for instance, catching an exception so it does not get reported or counted.
-    \item Error avoiding: change the flow of control of the code so the unreliable path is avoided where practical.
-    \item Reduce the incidence: in a similar way to back-off retry algorithms used elsewhere in software~\footnote{For example, back-off algorithms were designed into Ethernet retransmissions, in logins after previous logins failed, and used in GMail for retrying failed connections, \emph{etc.}} apps can be coded to reduce the frequency of failures. 
-    %%%% See also https://github.com/OWASP/owasp-masvs/blob/master/Document/0x09-V4-Authentication_and_Session_Management_Requirements.md
-    % https://mobile-security.gitbook.io/mobile-security-testing-guide/general-mobile-app-testing-guide/0x04e-testing-authentication-and-session-management
-    \item Functional amputation: generally that of failing code deemed so flawed it is not worth trying to correct. Post amputation a replacement may be provided, perhaps from another source and either used instead or grafted into the current project (for instance using an external software library). The replacement of the custom downloader in Kiwix Android is one example where this approach was used.
-    \item Blocking: Prevent users from using the app on devices where severe problems occur, \emph{``... exclude those devices until a fix is available."} is one approach recommended in Google's Android Vitals Best Practices~\cite{android_vitals_best_practices}.
-\end{itemize}
-
-Note: a reviewer of an earlier version of the above list argued they were merely bad software development practices - perhaps. And yet, empirically they are practiced to varying degrees and may mitigate against high failure rates when it is impractical to fix a cause quickly, completely, and efficaciously.
-
-Fixing bugs may be considered a chore~\citep{scrumdictionary_chore} by many, and there are discussions in the context of Agile software development practices whether work on bugs should be allocated story points at all~\emph{etc.}~\citep{se2012_story_points_for_bug_fixing_tasks_in_scrum} where one respondent was adamant that they should not, otherwise developers would be earning points for poor quality work~\footnote{\url{https://softwareengineering.stackexchange.com/a/162166/93935}}; furthermore the tester is blamed for not finding the bugs (as if that were a) practical or b) appropriate). In response to seeing three crash clusters for their app a project manager responded~\emph{``I don’t know how broad these categories are, but my understanding is that fixing bugs isn’t the sexiest thing to do in life. What if we could free up some budget and hire a team to do the boring work?"}~\footnote{From an unpublished email discussion on addressing crash clusters.}  Those who fix bugs rather than work on features may be perceived as adding less value to a project or team, hence the seemingly illogical `bad' practices may actually be logical in terms of game theory. Interesting research is emerging in applying game theories to software development~\citep{GAVIDIACALDERON2021_game_theoretic_analysis_of_software_development_practices} and may help provide insights into how sources of crashes and other failures are addressed in practice and lead to improvements to reliability of mobile apps through applying game theories.
-
-\subsection{Disproportionate returns}
-The failure footprint~\footnote{A first approximation of a suitable measure of a failure footprint is multiplying the frequency by the number of affected users. Projects may choose to develop their own algorithm if this is not sufficient for their context and needs.} varies, as does the effort needed to address specific failures. As noted in the Kiwix case study, fixing two of the top three most frequent crashes reduced the overall crash rate by around a third. Neither of the fixes were complicated. This does not hold true for all failures, some have a tiny footprint, for instance one developer (for the opensource SmartNavi Android app)
-mentioned they had seen a few sporadic crashes on phone models they had no access to and decided it would be futile to try and address these crashes in the circumstances. Similarly, the lead developer for the GTAF Android apps explained the developers consider the ease of fixing crashes before tackling them. 
-
-Developers therefore can obtain higher returns in terms of improvements in measured quality if they choose to fix causes that lead to the most frequent failures where the time-to-repair is small. A company analysed 1 billion java errors recorded in logs and determined that fixing the top ten most frequent errors would reduce the crash rate by 97.3\%~\citep{overops2021_what_causes_97pct_of_1billion_java_logged_errors}. Their article does not explore how practical it would be to address those ten errors. This research, on using mobile analytics, has not yet encountered any mobile apps where so few crashes are the cause of so many errors, nonetheless both the research and this example from industry illustrate the value in fixing the worst offenders provided the bugs are tractable and easy to fix within the timescales available to the developers. Furthermore, mobile analytics done well helps keep the signal to noise ratio high in terms of aggregating and reporting on patterns of failures.
-
-
-\section{Ethics of incorporating mobile analytics}
+\subsection{Ethics of incorporating mobile analytics}
 Tradeoffs; comparing other approaches which may have similar effect with less/no tracking.
 
 Our work exists within a wider context and in society, and the choices we make when we design and implement software and related systems may affect the lives of many people. This applies for those working with mobile apps. Recent investigations into 5000 Android apps discovered 200 leaked sensitive information through logging this data to the device log~\citep{zhou2020_mobilogleak}. Contents of the device logs can be read by other software that has, or obtains, permission to the log. 
@@ -537,10 +443,100 @@ Data ownership and safeguarding.
 \end{itemize}
 
 
-\subsection{"Data is the new gold"}
 
-Sensitivity of allowing external access to analytics data, MUST-DO complete this section. 
-% original text: "We can no longer provide this information outside of the company for sensitivity reasons ..."
+
+\section{Mitigation techniques}
+Summary: \textit{Reduce the incidence, reduce the severity, prevent the trigger, fix if and when practical given the many constraints the team, and the individuals,  are operate under.}
+
+\subsection{Approaches to reducing failure rate}
+There are many approaches to reducing the measured failure rate. The `logical' one is to fix whatever the cause is, or at least write code that handles causes robustly, reliably and in ways that serve the user well. And if this is easy and practical many developers and projects will adopt this approach. However like many things that involve people and their motivations they may choose other approaches for various reasons, such as:
+
+\begin{itemize}
+    \item Information gathering: where the cause of a failure is not known and not understood, programmers may add code to collect and report additional information to enable them to learn enough about the context of the failure in order to address it once they have learned enough to do so.
+    \item Error masking: for instance, catching an exception so it does not get reported or counted.
+    \item Error avoiding: change the flow of control of the code so the unreliable path is avoided where practical.
+    \item Reduce the incidence: in a similar way to back-off retry algorithms used elsewhere in software~\footnote{For example, back-off algorithms were designed into Ethernet retransmissions, in logins after previous logins failed, and used in GMail for retrying failed connections, \emph{etc.}} apps can be coded to reduce the frequency of failures. 
+    %%%% See also https://github.com/OWASP/owasp-masvs/blob/master/Document/0x09-V4-Authentication_and_Session_Management_Requirements.md
+    % https://mobile-security.gitbook.io/mobile-security-testing-guide/general-mobile-app-testing-guide/0x04e-testing-authentication-and-session-management
+    \item Functional amputation: generally that of failing code deemed so flawed it is not worth trying to correct. Post amputation a replacement may be provided, perhaps from another source and either used instead or grafted into the current project (for instance using an external software library). The replacement of the custom downloader in Kiwix Android is one example where this approach was used.
+    \item Blocking: Prevent users from using the app on devices where severe problems occur, \emph{``... exclude those devices until a fix is available."} is one approach recommended in Google's Android Vitals Best Practices~\cite{android_vitals_best_practices}.
+\end{itemize}
+
+Note: a reviewer of an earlier version of the above list argued they were merely bad software development practices - perhaps. And yet, empirically they are practiced to varying degrees and may mitigate against high failure rates when it is impractical to fix a cause quickly, completely, and efficaciously.
+
+Fixing bugs may be considered a chore~\citep{scrumdictionary_chore} by many, and there are discussions in the context of Agile software development practices whether work on bugs should be allocated story points at all~\emph{etc.}~\citep{se2012_story_points_for_bug_fixing_tasks_in_scrum} where one respondent was adamant that they should not, otherwise developers would be earning points for poor quality work~\footnote{\url{https://softwareengineering.stackexchange.com/a/162166/93935}}; furthermore the tester is blamed for not finding the bugs (as if that were a) practical or b) appropriate). In response to seeing three crash clusters for their app a project manager responded~\emph{``I don’t know how broad these categories are, but my understanding is that fixing bugs isn’t the sexiest thing to do in life. What if we could free up some budget and hire a team to do the boring work?"}~\footnote{From an unpublished email discussion on addressing crash clusters.}  Those who fix bugs rather than work on features may be perceived as adding less value to a project or team, hence the seemingly illogical `bad' practices may actually be logical in terms of game theory. Interesting research is emerging in applying game theories to software development~\citep{GAVIDIACALDERON2021_game_theoretic_analysis_of_software_development_practices} and may help provide insights into how sources of crashes and other failures are addressed in practice and lead to improvements to reliability of mobile apps through applying game theories.
+
+
+\subsection{Trade-offs of: ``Fail Early"?}
+Fail Early has been argued as a helpful policy in various contexts MUST-DO expand and provide examples. Fail Fast mentioned in~\citep{gray1986_why_do_computers_stop_and_what_can_be_done_about_it} but not explained or discussed. Make bugs easy [easier] to find~\citep{shore2004_fail_fast_software_debugging}.
+
+The benefits of applying a fail fast approach are described in~\citep{shore2004_fail_fast_software_debugging} with the aim of immediate and visible failure. For rare failures and those the developer cannot easily track down, this approach may help the developer learn about causes of the failures (for instance by raising an explicit exception in the program) where the failure is reported by mobile analytics. For platform level analytics, these fail fast failures would result in crash clusters reported by the analytics. However, Android Vitals does not currently include the message portion of exceptions. The examples in~\citep{shore2004_fail_fast_software_debugging} make extensive use of the messages for communications, so when developers rely on platform-level analytics they may need to consider ways to augment the communications of failures (such as incorporating a crash reporting library or service into their app)~\footnote{We did explore an alternative approach, where the application code added meta-information as an entry in the stack trace as a proof-of-concept, the implementation is available online at~\href{https://github.com/ISNIT0/AndroidCrashDummy/blob/cfa7f0817c436d7e657741e0a5d9a76644e5a898/app/src/main/java/com/example/user/androidtestapp/MainActivity.java\#L28-L50}{AndroidCrashDummy MainActivity.java\#L28-L50}.  However, we decided not to release an app in Google Play with this capability at the time.}. For in-app analytics the developer has the option to report the error using the respective API. An example of reporting an error with additional parameters is shown in Listing~\ref{listing:microsoft-app-center-handled-exception}~\footnote{The Microsoft App Center documentation is released under a Creative Commons Attribution 4.0 International Public License~\href{https://github.com/MicrosoftDocs/appcenter-docs/blob/live/LICENSE}{App Center Docs LICENSE}.}.
+
+\begin{listing}
+\begin{minted}[
+    gobble=4,
+    frame=single,
+    fontsize=\tiny,
+    breaklines=true
+  ]{java}
+try {
+    // your code goes here.
+} catch (Exception exception) {
+    Map<String, String> properties = new HashMap<String, String>() {{
+        put("Category", "Music");
+        put("Wifi", "On");
+    }};
+    Crashes.trackError(exception, properties, null);
+}
+\end{minted}
+\caption[Microsoft AppCenter: example of reporting a crash in Android]{Example of reporting a crash in Android.  Source~\href{https://docs.microsoft.com/en-us/appcenter/sdk/crashes/android}{ Microsoft App Center documentation}}
+\label{listing:microsoft-app-center-handled-exception}
+\end{listing}
+
+
+When developers do not write exception handlers for parts of their code, unhandled exceptions cause the app to crash when they occur. The user may be annoyed by this behaviour if the crash visibly~\footnote{Here visibility refers to the user noticing the crash and being aware of the crash adversely impacting their experience.}  affects their use of the app. The aphorism, \emph{`every cloud has a silver lining'}, may yet hold true in these circumstances provided developers become aware of the crash and choose to address it suitably, as these crashes are detected by various mobile analytics tools and platforms and then reported to the development team.
+
+In contrast a lukewarm, and sometimes expedient approach, is where developers add minimalist \texttt{try\{\}...catch\{\}} handlers to wrap the code that may throw an exception. These exceptions are no longer `unhandled' however nor are they adequately handled in terms of the application providing error management, or attempts to recover from the error, or informing the user of a problem that's occurred, and so on. MUST-DO provide some code snippet examples and analysis of the prevalence of the use of this approach.
+
+To add to the complexities, app stores are seldom disinterested observers. If the measured crash rate increases beyond what they deem an acceptable threshold (1\% for Huawei %~\citep{huawei_introduction_to_appgallery_connect_crash_service}
+, 1.09\% for Google Play's bad behavior threshold) they may reduce the visibility of the app in the app store and/or otherwise mark it down. Therefore developers need to be mindful of their strategy to crashes and crash reporting and aim to keep the overall failure rate of their app well below any bad behaviour threshold.
+
+Using software libraries can also add to the complexities; and some have sophisticated error handling strategies which include expectations on how developers will write their code to use that library adequately. RxJava is a very popular library for Android apps. That library explicitly changed their error handling strategy in version 2.0 and require developers to abide by their requirements for error handling~\footnote{\url{https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0\#error-handling}}. In version 2.0~\emph{``RxJava defaults to printing the Throwable's stacktrace to the console and calls the current thread's uncaught exception handler."}. The wiki page goes on to say~\emph{``Unfortunately, RxJava can't tell which of these out-of-lifecycle, undeliverable exceptions should or shouldn't crash your app."} So developers who use this library may end up with their app terminating abruptly where the reported crash rate also increases as a result.
+
+% MUST-DO subject to approval or a suitable alternative example: add the OkHttpv3 example from the large case study in the relevant section, then discuss the example here.
+
+\begin{table}[]
+    \centering
+    \resizebox{\textwidth}{!}{% See https://tex.stackexchange.com/a/27105/88466 TODO improve the readability of the table.
+    \begin{tabular}{c|ccccc}
+        \toprule
+        \textit{stage} & During init & During shutdown & In background service & In `flight' & In a `runtime' \\
+        \midrule
+         Mobile Analytics tool & & & & & \\
+         \midrule
+         Google Play Console with Android Vitals & C & C & C & C & \\
+         Fabric Crashlytics &  & Unknown & Unknown & EC & \\
+         Sentry & N & & & Y & Y \\
+         \bottomrule
+    \end{tabular}}
+    \caption{w-i-p: Mapping error and crash reporting to mobile analytics tools \\ E = Error, C = Crash, B = Breadcrumb, K = Custom content, N = No}
+    \label{tab:discussion-mapping-error-and-crash-reporting-to-ma-tools}
+\end{table}
+
+TODO discuss: the reporting mechanisms and limitations in addition to Table~\ref{tab:discussion-mapping-error-and-crash-reporting-to-ma-tools}'s examples of what they can capture. Also discuss the primary focus of this research has been on Crashes, then on Errors, then on ANRs~\pending{Note: this material probably belongs in the Tools chapter once I've established it.}.
+
+\textbf{Measuring reliability}: 
+Failure rates include: unhandled exceptions, ANRs, and errors. Errors include: handled exceptions that are recovered from, caught exceptions, logic errors, calculation and content errors, and many others. 
+
+Even \textit{if} an app catches and 'handles' every exception it may not be truly reliable \textit{i.e.} there may be various errors that occur that do not lead to a runtime exception or an ANR. As such, the measured failure rate - assuming it is accurate or undercounting - is the lower bound of the true error rate.
+
+
+\subsection{Disproportionate returns}
+The failure footprint~\footnote{A first approximation of a suitable measure of a failure footprint is multiplying the frequency by the number of affected users. Projects may choose to develop their own algorithm if this is not sufficient for their context and needs.} varies, as does the effort needed to address specific failures. As noted in the Kiwix case study, fixing two of the top three most frequent crashes reduced the overall crash rate by around a third. Neither of the fixes were complicated. This does not hold true for all failures, some have a tiny footprint, for instance one developer (for the opensource SmartNavi Android app)
+mentioned they had seen a few sporadic crashes on phone models they had no access to and decided it would be futile to try and address these crashes in the circumstances. Similarly, the lead developer for the GTAF Android apps explained the developers consider the ease of fixing crashes before tackling them. 
+
+Developers therefore can obtain higher returns in terms of improvements in measured quality if they choose to fix causes that lead to the most frequent failures where the time-to-repair is small. A company analysed 1 billion java errors recorded in logs and determined that fixing the top ten most frequent errors would reduce the crash rate by 97.3\%~\citep{overops2021_what_causes_97pct_of_1billion_java_logged_errors}. Their article does not explore how practical it would be to address those ten errors. This research, on using mobile analytics, has not yet encountered any mobile apps where so few crashes are the cause of so many errors, nonetheless both the research and this example from industry illustrate the value in fixing the worst offenders provided the bugs are tractable and easy to fix within the timescales available to the developers. Furthermore, mobile analytics done well helps keep the signal to noise ratio high in terms of aggregating and reporting on patterns of failures.
+
 
 \subsection{Human behaviours around automation}
 % Confirmation bias (via Isabel)
@@ -549,25 +545,39 @@ My experiences of email discussions with the Google Engineering team provided an
 % Stress I'm considered an outsider even though I worked for Google.
 being able to understand their system. This is somewhat ironic given that I was a senior software quality engineer at Google for four years and worked on assessing the behaviours and qualities of Google's mobile apps for several years during that role.
 
-\section{Additional considerations}
-This section covers several additional topics, including: abandoned apps, additional app stores beyond Google Play and beyond Android, and implications for apps stores for medical devices?
-
-\section{Using Mobile Analytics as a fulcrum}
-% Source a discussion with Joe Reeve on \nth{10} September 2021 where he proposed the idea of mobile analytics being used as a pivot point by teams to encourage, enable, and allow changes in behaviour without blaming the team. Here's this new source of data which can help us improve our app...
-\begin{mdframed}
-
-``On changing behaviour
-
-The most valuable outcome of adopting a new tool is usually a change in business practices, rather than the tool itself.
-Changing people’s behaviour is difficult, because it means implicitly telling them that the current behaviour is wrong. A new tool is a pivot point that acts as an excuse to change without having to acknowledge flaws.
-
-There are various ways that adopting a tool impacts business practices, for enterprises this is typically the function of a product’s Customer Success team. I believe an important function of product design is to move as much education from Customer Success into the product. A great product should not only facilitate best practices, it should be a vector of change management to enforce them." Joseph E. Reeve, \nth{10} September 2021 in discussion.
-\end{mdframed}
-
-
 
 
 \section{Summary of the Discussion Chapter}
+
+%%%%%%%%%%
+% Include discussion that the world moves on.
+
+This chapter contains various discussion topics, including: validity of my research and of the analytics tools, where the various analytics tools provide the most value, ethics and legal aspects, abandoned apps, and finally other app stores beyond Google Play.
+%TBD whether to include a discussion of:
+%%% other analytics tools I've researched during my PhD (e.g. those covered in my probation report)
+%%% sweetspots for Crashlytics, Firebase, etc.
+
+
+Apps are a popular and relevant subset of all software, they run remotely on other people’s equipment where they are the primary owners of the data on their devices, and where the platform and pre-installed platform software determine various aspects of the data collection. The apps and the analytics libraries they use control what data is reported and when. 
+
+
+\subsection{Red pill or blue pill?}
+Like\unsure{This topic may be too controversial, speculative, or awkward for my thesis. It may be deferred e.g. for the proposed game and mechanics paper.} various software development activities beyond writing the code for the core product (mobile apps in the context of this research) developers have a choice whether to perform and incorporate various non-core activities. These include using mobile analytics first as a consumer of existing content (such as that provided by Android Vitals or the default offerings of in-app analytics) and then potentially as activists, designing and implementing, modifying and enhancing, the client side code including any mobile analytics SDK, and potentially taking responsibility for the server-side code and infrastructure. 
+
+Conversely some developers may choose to insulate themselves from the effects of mobile analytics, for instance by adding try/catch code to smother errors and exceptions reported when the code runs. Doing so can artificially improve the measured reliability of an app as the crash rate decreases, however it may lead to other errors and to a poor end user experience.
+
+Developers have an ongoing choice whether to take ``red pills'' or ``blue pills''~\citep{wikipedia_red_pill_or_blue_pill} depending on their willingness to be exposed to messy reality in terms of how their software performs in use. This choice is not unique to software developers and applies to researchers~\citep{pecorini_blue_pill_or_red_pill} amongst others. There's an interesting debate in \citet{bringsjord2012_red_pill_robots_please} on whether to create blue pill robots or not. In the paper's Objections section raised the concept of a `\textit{correspondence account} of truth'~\citep[p. 396]{bringsjord2012_red_pill_robots_please} mobile analytics enables developers to investigate reality by providing such a correspondence account. The harder challenge to overcome is for developers who may be indifferent to the truth of the situation in terms of the performance of their app. While ~\citet[p. 396]{bringsjord2012_red_pill_robots_please} argues no such engineer exists not all app developers are engineers, and in some of the app-centric case studies there were often times when the mobile analytics were far removed from the daily activities of the development teams.
+
+\subsection{Necessary? Sufficient?}
+Freezes and crashes may adversely impact a user's perspective, Google may limit the visibility of apps that score poorly in terms of 'stability' as I will cover later in my thesis. However, are performant applications sufficient to thrive? There may be other barriers, or hurdles, developers need to overcome such as providing software that is attractive, serves whatever the user wants to do, and is intuitive.
+
+Research published by Microsoft on Windows Error Reporting (WER) states~\emph{``WER augments, but does not replace, other methods for improving software quality."}~\citep{kinshuman2009_debugging_in_the_very_large, kinshuman2011_debugging_in_the_very_large}. Similarly, using mobile analytics to find and prioritise failures to address augments rather than replaces other methods for improving software quality. For failures that are able to be detected and reported using mobile analytics - relying solely on using mobile analytics to detect and address them may overwhelm developers in fix, patch and release cycles rather than other improvements to the app. Furthermore users of these failing apps may simply stop using it, reject it, and the developers who provide the app~\citep{dimensionalresearch2015_mobile_app_use_and_abandonment}. Other quality issues that mobile analytics does not capture, need to be addressed using other techniques and tools.
+
+In 2019 Menzies in his paper \emph{``Take Control: On the Unreasonable Effectiveness of Software Analytics"}~\cite{menzies2019take} indicates that a small number of predictable software analytics variables can be used to predict software qualities for projects. 
+
+\emph{``Specifically, the number of variables required to make predictions about SE projects is remarkably small which means that (a) most of the things we think might affect software quality have little impact in practice; (b) controlling just a few key variables can be enough to improve software quality."}
+
+
 My research indicates mobile analytics can be used to effectively and efficiently improve the measured stability qualities of various Android apps from disparate sources, development teams and software stacks. And yet, there are appear to be material flaws in key analytics tools. My research touches on various implications of using analytics including which projects are best served by the integral analytics Google provides in Google Play Console. There are numerous areas of potential interest to researchers and industry alike including the integrity and accuracy of the various tools and reports. I will introduce my planned future work in the Future Work chapter.
 
 
