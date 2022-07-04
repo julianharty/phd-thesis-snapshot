@@ -5608,6 +5608,23 @@ series = {MOBILESoft '19}
   author = {Google Android Developers},
   year = {2020},
   organization = {Google Inc.},
+  extracts = {
+    What they did
+    The Google Home team decided to incorporate Kotlin into their codebase to make programming more productive and to enable the usage of modern language features like var/val, smart casts, coroutines, and more. As of June 2020, about 30\% of the codebase is written in Kotlin, and Kotlin development is encouraged for all new features.
+
+    The team also adopted Jetpack libraries to improve developer velocity, decrease the need for boilerplate code maintenance, and reduce the necessary amount of code. Jetpack libraries also helped make their code more testable, since there are clearer functional boundaries and APIs.
+
+    Results
+    "Efficacy and writing less code that does more is the ‘speed’ increase you can achieve with Kotlin.” - Jared Burrows, Software Engineer on Google Home
+
+    Switching to Kotlin resulted in a reduction in the amount of required code, compared to the equivalent of existing Java code. One example is the use of data classes and the Parcelize plugin: a class which was 126 hand-written lines in Java can now be represented in just 23 lines in Kotlin—an 80\% reduction. Additionally, equality and parcelizing methods can be automatically generated and kept up to date. Many nested loops and filtering checks were also simplified using the functional methods available in Kotlin.
+
+    Because Kotlin can make nullability a part of the language, tricky situations can be avoided, like when inconsistent usage of nullability annotations in Java might lead to a missed bug. Since the team started migrating to developing new features with Kotlin, they saw a 33\% decrease in NullPointerExceptions. Since this is the most common crash type on Google Play Console, reducing them led to a dramatically improved user experience.
+
+    With a large, mature app like Google Home—which has over a million lines of code—it's helpful to be able to gradually add Jetpack libraries. Incorporating them allowed the team to consolidate and replace custom tailored solutions, sometimes even with a single library. Since Jetpack libraries can help engineers follow best practices and be less verbose (for example, using Room or ConstraintLayout), readability was increased as well. The team considers many of the newer Jetpack libraries ‘must-haves,’ including ViewModel and LiveData, both of which are used extensively in the Google Home codebase.
+
+    The Google Home app team found the Jetpack KTX integrations with Kotlin coroutines to be especially helpful. The team is now able to avoid tricky asynchronous programming bugs by associating coroutines with lifecycle-aware components like ViewModel.
+  }
 }
 
 @misc{googleblogs2021_androids_kotlin_first_approach,
@@ -6648,6 +6665,7 @@ author = {HUAWEI Developers},
   year = {2022},
   note = "[Online; accessed 22-June-2022]",
 }
+
 @online{7_basic_quality_tools_with_R,
   title = {7 Basic Quality Tools with {R}},
   url = {https://towardsdatascience.com/7-basic-tools-of-quality-using-r-49fef5481e07},
@@ -7698,7 +7716,8 @@ https://github.com/Displayr/flipTime/graphs/contributors
 @online{google2020_pre-launch-reports-false-positives,
   title = {Could you fix Pre-launch report false-positives triggered by your own code base?},
   url = {https://issuetracker.google.com/issues/160907013},
-  authors = {{gr...@gmail.com et al}},
+  authors = {Various contributors},
+  authors-x = {{gr...@gmail.com et al}},
   year = {2020},
   publisher = {{Google Android IssueTracker}},
 }
@@ -8120,6 +8139,14 @@ https://github.com/Displayr/flipTime/graphs/contributors
   author={Martínez, Pablo A.}, 
   year={2019}, 
   month={Jul}
+}
+
+@misc{marcher2021_how_google_terminated-a-developer,
+    title = {How Google Play "terminated" a developer},
+    url = {https://diegomarcher.medium.com/how-google-play-terminated-a-developer-432c23cbe486},
+    author = {Diego Marcher},
+    journal={Medium},
+    year = {2021},
 }
 
 @misc{moneycontrolnews2021_cowin_apps_crash,
