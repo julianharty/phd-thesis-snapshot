@@ -138,11 +138,23 @@ Logging, network IO, and mobile analytics combined in the industrial case study 
 \begin{itemize}
     \itemsep0em 
     \item SDK can cause the app to crash e.g. \href{https://github.com/segmentio/analytics-android/issues/732}{Crash during Google Pre-launch report \#732}.
-    \item Some developers choose to record bugs for failures reported via mobile analytics.
+    \item Some developers choose to record bugs for failures reported via mobile analytics. (e.g. Kiwix \href{https://github.com/kiwix/kiwix-android/issues/2482}{Issue 2482:} Crash Report 3.4.1: IllegalArgumentException org.kiwix.kiwixmobile.core.main.CoreMainActivity.navigate). Note: As part of reviewing this bug I noticed at least one new bug in Android Vitals, where they list the same crash cluster several times in the results, details are in the issue on GitHub.
     \item Bug reproducibility, including the use of automated tests.
     \item The efficacy of addressing bugs.
     \item Obviating some bugs by replacing Java code with Kotlin (Upstream improvements).
 \end{itemize}
+
+\subsection{Intermittent appearances of bugs}~\label{section-intermittent-appearances-of-bugs-55-crashes}
+In some instances, failures have remained submerged for several releases - for instance with the Kiwix Android app, in September 2019 there were 55 crashes reported for a \texttt{WebViewFactory MissingWebViewPackageException}; see Figure~\ref{fig:55-crashes-missing-webview-package-exception}. This crash disappeared for several releases before reappearing. The disappearance might have been for various reasons, one possible one was simply the particular user who was adversely affected stopped using the app. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13.5cm]{images/android-vitals-screenshots/55-crashes-WebViewFactory-MissingWebViewPackageException_2019-09-19-kiwix_trimmed.png}
+    \caption{Kiwix Android 55 crashes for one user}
+    \label{fig:55-crashes-WebViewFactory-MissingWebViewPackageException}
+\end{figure}
+
+\FloatBarrier
 
 
 \section{Macro topics}\pending{13-Jun-2022 This topic may move to the Process chapter, either partly or completely. If so, the effects on the artefacts (would still belong here). TBD when I've revisited that chapter.}

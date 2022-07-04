@@ -526,7 +526,7 @@ How much do these flaws matter? In this study we found these examples where the 
 All the app-centric case studies have a mobile analytics tool in common -- Android Vitals -- and through these various case studies many examples emerged, and some of the issues were able to be scoped, compared, and assessed. Android Vitals therefore provided a backbone for analysis of all the various mobile analytics tools/services used during the research.\pending{Relocate the the methodology.}
 
 \textbf{Published flaws in Android Vitals}: Since 2011, Google has published a list of various changes and corrections to Google Play Console~\citep{google_play_troubleshoot_app_statistics_problems}. This research found numerous additional flaws, and many of these were reported to Google's engineering team for Google Play Console and Android Vitals. Of the flaws I reported to Google, some were confirmed as being accepted; the rest remained unconfirmed (but nonetheless Google may have accepted them internally).  %that were not published by Google even though their engineering team acknowledged many of these flaws (they chose not to respond to the rest of the flaws). 
-Fourteen of the flaws found during this research have already been published~\citep{harty_improving_app_quality_despite_flawed_mobile_analytics, harty_google_play_console_insightful_development_using_android_vitals_and_pre_launch_reports, harty_better_android_apps_using_android_vitals}; they are repeated in Table \ref{tab:flaws-discovered-in-android-vitals} for ease of reference. The \nth{15} item was discovered as part of this research, where Google Play Console displayed newer dates than the actual release date for various apps.
+Sixteen flaws have been found in Android Vitals and Google Play Console to date as part of this research. Of these, fourteen have already been published~\citep{harty_improving_app_quality_despite_flawed_mobile_analytics, harty_google_play_console_insightful_development_using_android_vitals_and_pre_launch_reports, harty_better_android_apps_using_android_vitals}; they are repeated in Table \ref{tab:flaws-discovered-in-android-vitals} for ease of reference. The \nth{15} item was discovered as part of this research, where Google Play Console displayed newer dates than the actual release date for various apps; and the \nth{16} item during writing up this research. This \nth{16} item, where identical crash clusters appeared several times in the listing is not the first instance of flaws in app store related listings, for example Apple's rankings for iOS went haywire for several days according to \citet{lotan2015_apple_apps_and_algorithmic_glitches}.
 
 
 \begin{table}
@@ -552,15 +552,16 @@ Fourteen of the flaws found during this research have already been published~\ci
         13 & Second country's data conflated with that of the first & Misleading report, poor UX. \\
         14 & 10x mismatch with crashlytics & Lack of trust in at least one of the mobile analytics tools. \\
         
-        15 & Incorrect date for last update & Misleading developer experience, loss of trust in the service. 
-%         16 & Future times and dates in Microsoft App Center reports.
-%       17 & Data missing from stack traces.
+        15 & Incorrect date for last update & Misleading developer experience, loss of trust in the service. \\
+        16 & Several identical crash clusters in the paged list of ranked results, e.g. \href{https://github.com/kiwix/kiwix-android/issues/2482}{Kiwix issue 2482}. & Adversely affects counts of matching crash clusters, confusing. \\
+%         17 & Future times and dates in Microsoft App Center reports.
+%       18 & Data missing from stack traces.
     \end{tabular}}
     \caption{Flaws discovered in Google Play Console with Android Vitals}
     \label{tab:flaws-discovered-in-android-vitals}
 \end{table}
 
-Of these 15 flaws, the most pivotal from a research perspective is the first one, that testing is discouraged. Google appears unwilling to subject its service to external scrutiny, and its dominance in the online world puts investigators at risk of being barred from using various services considered essential to varying degrees. In contrast, several providers of mobile analytics tools make at least some of the relevant software available under an opensource license (e.g., PostHog, Sentry, Segment.io, Count.ly provide both client and server code; Firebase Analytics and App Center make client SDKs available). 
+Of these 16 flaws, the most pivotal from a research perspective is the first one, that testing is discouraged. Google appears unwilling to subject its service to external scrutiny, and its dominance in the online world puts investigators at risk of being barred from using various services considered essential to varying degrees. In contrast, several providers of mobile analytics tools make at least some of the relevant software available under an opensource license (e.g., PostHog, Sentry, Segment.io, Count.ly provide both client and server code; Firebase Analytics and App Center make client SDKs available). 
 
 %
 Google has made numerous modifications and enhancements to Android Vitals during the period of this research and some of these changes have addressed some of the flaws that were reported to them previously. Nonetheless Android Vitals still has flaws at the time of writing, for instance some failure clusters are still fragmented into several groups rather than being fully aggregated.

@@ -1,0 +1,14 @@
+\subsection{Validity of my research}
+
+\subsection{Validity of the tools being used}
+
+\subsubsection{Validity of platform analytics}
+
+\subsubsection{Validity of Fabric Crashlytics}
+
+\subsubsection{Validity of various mobile apps}
+
+Our simple opensource Android app, Zipternet~\footnote{\url{https://github.com/ISNIT0/zipternet}}, included HTML-based content. In the initial releases the app had a flaw that caused a crash to occur when any external web links were selected in the content~\footnote{See issue 6 on Github for this project:~\href{https://github.com/ISNIT0/zipternet/issues/6}{Fix crash of the app when external URL selected in WebView}.}. This crash occurred consistently whenever any external web link was selected and was detected and reported by Google Play Console's pre-launch report and it was also reported in Android Vitals, albeit less often than when the crash occurred on devices we used for local testing of the app.
+
+
+In February 2020 the iOS version of the Pocket Code app was enhanced to include a mechanism to cause crashes deterministically~\footnote{See JIRA ticket:~\href{https://jira.catrob.at/browse/CATTY-161}{CATTY-161 - INTERMEDIATE TICKET: Add ``easter egg" for Crashlytics} for the iOS feature.}. This ability to cause crashes deterministically was designed and implemented to determine whether the crashes would be reported correctly in Firebase Crashlytics (they were). The iOS team removed the ``easter egg" immediately after the workshop in Poland~\footnote{See JIRA ticket:~\href{https://jira.catrob.at/browse/CATTY-162}{CATTY-162 - TRAINING TICKET: Remove "easter egg" for Crashlytics}.}. The Android version of Pocket Code already used the older Fabric Crashlytics API and crashes were being reported in the Fabric Crashlytics dashboard.

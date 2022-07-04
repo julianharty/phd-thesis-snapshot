@@ -1,11 +1,12 @@
 \chapter{Discussion}
 \label{chapter-discussion}
 
-\epigraph{Every honest researcher I know admits he's just a professional amateur. He's doing whatever he's doing for the first time. That makes him an amateur. He has sense enough to know that he's going to have a lot of trouble, so that makes him a professional.}{Charles Franklin Kettering (1876-1958)}~\footnote{With thanks to \citealp{zieris2020_phd_qualitative_analysis_of_knowledge_transfer_in_pair_programming}}
+\epigraph{Every honest researcher I know admits he's just a professional amateur. He's doing whatever he's doing for the first time. That makes him an amateur. He has sense enough to know that he's going to have a lot of trouble, so that makes him a professional.}{Charles Franklin Kettering (1876-1958)}~\footnote{Epigraph, with thanks to \citealp{zieris2020_phd_qualitative_analysis_of_knowledge_transfer_in_pair_programming}}
 
 % The discussion chapter was shaped by (ab-)using an affinity diagram process. Here's a link with comment accesss to the MIRO board https://miro.com/app/board/uXjVOpTlE1E=/?share_link_id=149030074901 
+% Similarly a draft of the new material is available in Google Docs for my collaborators using their Google accounts. {\small\href{https://docs.google.com/document/d/1tdmyTwoFuxMYJNMBw7yWxmpRDVeOuQ4yReNKQKcq9GM/edit?usp=sharing}{docs.google.com/document/d/1tdmyTwoFuxMYJNMBw7yWxmpRDVeOuQ4yReNKQKcq9GM/edit?usp=sharing}}
 
-Several of the discussion topics are more general in nature, for instance on privacy and on informed consent by users, so these discussion topics are in this chapter.  
+Several of the discussion topics are more general in nature, for instance on privacy and on informed consent by users, and so they are covered in this chapter. They are organised as follows: a critique on this research followed by the utility and scalability of applying this research in future. Empowering users to participate and developers to improve their practices helps us consider two of the key populations of people who are most affected by the use of mobile analytics. 
 
 
 
@@ -17,50 +18,80 @@ There are several cross-cutting concerns with using mobile analytics: trustworth
 
 Studying a mobile analytics system is particularly challenging as there are few opportunities to observe the system in-use, as intended, by the designers and by the developers who use the system. White-hat study requires permission to access and use the system particularly while it is in production-use. Further, permission to publish the findings is also vital. To the best of my knowledge, none of the providers of mobile analytics services encourages independent verification of their service. 
 
-Few developers want to actively investigate flaws in a mobile analytics service; they use it with an implicit expectation it’s sufficiently OK to be worth using it where they can mostly `set and forget’ their use of the SDK (as evidenced by the experiences in many of the app-centric case studies and by the analysis of 57 opensouce Android apps that use Firebase Analytics). The clear exception to the set and forget practice was Moonpig who actively and attentively modified their use of Firebase Analytics to log additional information when the development teams had concerns about the app (in practice the service) adversely affecting one or more users. Their attentiveness was rewarded by their Android app being more reliable than similar apps.
+Few developers want to actively investigate flaws in a mobile analytics service; they use it with an implicit expectation it’s sufficiently OK to be worth using it where they can mostly `set and forget’ their use of the SDK. This behaviour was evidenced by the experiences in many of the app-centric case studies and by the analysis of 107 opensouce Android apps that use Firebase Analytics where 50 of the projects simply used the default/basic initialisation and the rest modified their calls to the SDK infrequently~\citep{harty2021_logging_practices_with_mobile_analytics}. The clear exception to the set and forget practice was Moonpig who actively and attentively modified their use of Firebase Analytics to log additional information when the development teams had concerns about the app (in practice the service) adversely affecting one or more users. Their attentiveness was rewarded by their Android app being more reliable than similar apps.
 
-The richest and most complex perspectives are for the processes, that is, how development teams use mobile analytics. As the mobile analytics software improves, there is tremendous potential to improve the use of mobile analytics in order to deliver high-quality mobile apps. To achieve ongoing effective use, development teams need to obtain sufficient opportunities to use the tools and the tools need to facilitate gentle and adaptive approaches that suit the developers’ current context. At the time of writing, Google’s recent enhancements that integrate Firebase Analytics into the Android Studio IDE provide a tantalising opportunity to start to observe, and potentially measure, the engagement and the results in terms of more bugs being fixed and those fixes being made more quickly than developers did previously. 
+The richest and most complex perspectives are for the processes, \textit{i.e.}, how development teams use mobile analytics. As the mobile analytics software improves, there is tremendous potential to improve the use of mobile analytics in order to deliver high-quality mobile apps. To achieve ongoing effective use, development teams need to obtain sufficient opportunities to use the tools and the tools need to facilitate gentle and adaptive approaches that suit the developers’ current context. At the time of writing, Google’s recent enhancements that integrate Firebase Analytics into the Android Studio IDE provide a tantalising opportunity to start to observe, and potentially measure, the engagement and the results in terms of more bugs being fixed and those fixes being made more quickly than developers did previously. 
 
 
 \section{Critique on this research}
-
+Of necessity this research has been opportunistic, it has taken advantage of opportunities that arose for instance discussions with Google's Engineering team for Android Vitals emerged when I reported various flaws that were found during the Kiwix and Catrobat case studies. The work with Iteratively and subsequently Amplitude happened because the founders of Iteratively sought out people recognised as leaders in mobile analytics and my early publications led them to me. They then offered to share their experiences and findings in order to assist with the research, \emph{etc. etc.}. The research has applied a systematic approach to the various app-centric and tool-centric case studies that combine a mix of piecemeal and \emph{ad hoc} work. As Alan Hodgkin notes when introducing his auto-biography ``he believes that chance often plays as large a role as design in scientific discovery''~\citep[inside front cover]{hodgkin1992_chance_and_design}, to a certain extent this research also depended on the effects of chance and of opportunities taken. Also, in writing this thesis I have done my best to not ```clutter up'' the literature with irrelevant personal reminiscences'~\citep[p. 1]{hodgkin1976chance}; that may come in a future publication of this work for practitioners in Industry where additional examples that predate the research can also be entertained. 
 
 \subsection{On Measurement}
-Measurement may begin using rough and approximate measurements and tools, for instance the length of a yard which used to depend on the span of the king's arm~\footnote{One source is:~\url{http://nisltd.co.uk/asp/default.aspx?page=history_of_calibration}}. France, in particular, led to the standardisation of various measurements including the metre~\footnote{\emph{e.g.}~\url{http://www2.culture.gouv.fr/culture/actualites/celebrations/metre.htm} (in French).}.
+Ultimately mobile analytics is predicated with an acceptance that it is possible to measure pertinent and salient items through the use of software that collects data and other software that analyses that data in aggregate form.
+
+Measurement may begin using rough and approximate measurements and tools, for instance the length of a yard which used to depend on the span of the king's arm~\footnote{One source is:~\url{http://nisltd.co.uk/asp/default.aspx?page=history_of_calibration}}. France, in particular, led to the standardisation of various measurements including the metre~\footnote{\emph{e.g.}~\url{http://www2.culture.gouv.fr/culture/actualites/celebrations/metre.htm} (in French).}. 
 
 Software development and testing are still in flux where various people and groups have yet to coalesce or truly agree to common, unambiguous and definitive measurements. Even newer standards, including~\cite{iso29119-1-2013}, which were intended to provide a pragmatic and useful guide to practitioners (\cite{reid2012_iso29119_eurostar}), would only be used by a minority (19\% according to a poll by EuroSTAR Conferences in 2013~\footnote{\url{https://conference.eurostarsoftwaretesting.com/poll-result-will-you-be-using-iso-29119-standards-in-your-testing/})} of an estimated 60 respondents to the poll~\footnote{\url{https://conference.eurostarsoftwaretesting.com/standards-a-case-for-the-defence/}}.
 
-How to measure anything. 
 
-My research into the \emph{use} of mobile analytics tools led into research into the characteristics of several of the actual tools in widespread use by developers of mobile apps. The measurements and assessments of these tools is immature and my work provides a possible starting point to enable these and other analytics tools to be measured and assessed.
+Mobile analytics has reached the point in terms of many of the elements that are measured but not necessarily correlated those measurements with the effects on business and project goals. My research into the \emph{use} of mobile analytics tools led into research into the characteristics of several of the actual tools in widespread use by developers of mobile apps. The measurements and assessments of these tools is immature and my work provides a possible starting point to enable these and other analytics tools to be measured and assessed.
 
 \subsubsection{Inaccuracies in software analytics generally}
 Other inaccuracies in various analytics tools provide a backdrop to this research in mobile analytics. For instance, from the domain of ecommerce web sites, a startup, Littledata~\footnote{\href{https://www.littledata.io/}{www.littledata.io/}}, claims 80\% of Shopify merchants are missing at least 20\% of transaction data for those that use Google Analytics to track their transactions and revenues~\citep{littledata2020_google_analytics_doesnt_match_shopify}. The company provides software which claims to provide 100\% accuracy and offer their customers a 30-day free trial to enable a three-way comparison between Google Analytics, Shopify's standard tracker, and their `solution'. Unfortunately for them, the incomplete and misspelt eBook waters-down reduces the confidence in their claims of providing 100\% accuracy. Also, even if two of the systems agree on the transactions and finances these systems are not necessarily correct. Additional evidence, for instance, of all the source events would be needed to cross-verify that what any of the systems report actually matches the inputs.
 
+
+\subsubsection{Seeking adequacy in mobile analytics}
+In~\citet[p. 3]{hubbard2014measure} the author claims that anything is measurable. In practice this research has both investigated and applied aspects of a four-point list~\citep[p.7]{hubbard2014measure} reproduced here for ease of reference %[p. 7](\emph{ibid})
+
+\begin{enumerate}
+    \itemsep0em
+    \item ``\textit{Decision makers usually have imperfect information (i.e., uncertainty) about the best choice for a decision.}
+    \item \textit{These decisions should be modeled quantitatively because (as we will see) quantitative models have a favourable track record compared to unaided expert judgement.}
+    \item \textit{Measurements inform uncertain decisions.}
+    \item \textit{For any decision or set of decisions, there is a large combination of things to measure and ways to measure them - but perfect certainty is rarely a realistic option.}''
+\end{enumerate}
+
+The research demonstrates developers are able to achieve material improvements to the quality of their mobile apps when they choose to pay attention to mobile analytics even when the tools and the practices are flawed. An open question is the adequacy, or otherwise, in the currently available mobile analytics tools and services. They are able to help developers make some decisions adequately, but not necessarily to make an optimal or prioritised set of decisions. 
+
+
 \subsection{Considerations on the methodology and case study procedure}~\label{discussion-on-methodology-and-case-study-procedure}
 
-\subsubsection{Considerations on the methodology}~\label{discussion-considerations-on-the-methodology}
+
+% \subsubsection{Considerations on the methodology}~\label{discussion-considerations-on-the-methodology}
+\textbf{Considerations on the methodology}: 
 One of the largest challenges in terms of applying the methodology was on restrictions, real and assumed, in the systematic, timely, efficacious, and ongoing collection of data. The restrictions were particularly onerous in terms of collecting the analytics artefacts from Google Play Console and Android Vitals, however the effects also applied to other proprietary mobile analytics tools. There challenges were practical, risk-based, and ethical. 
 
-There is the potential for adverse real-world consequences of not having systematic, timely, efficacious, and ongoing collection of data. These include, missing pertinent information, incomplete data, an opportunity-cost (where spending time and resources devising ways to collect the data diverts from actually using, \textit{i.e.} applying, all the relevant\footnote{TBD whether to focus on ideal, relevant, sweetspot, or net-present-value, etc. of data.} data!).  The depth and the breadth of Google's influence is immense in online services, in app development and sale, and in billions of people's lives generally (including those of many researchers). The ongoing availability and use of these services are subject to Google's benevolence, and while policies and similar legal documents provide some indications of Google's requirements they do not address  Published experiences of those Google deems to have \ldots 
+\textbf{Power imbalances}: 
+Power imbalances is immense between Google (and other major platform providers) and any developers/researchers interested in investigating the behaviour of the platform's mobile analytics services.
 
-Power imbalances between Google (in particular) \ldots
+The depth and the breadth of Google's influence is vast in online services, in app development and sale, and in billions of people's lives generally (including those of many researchers). The ongoing availability and use of these services are subject to Google's benevolence, and while policies and similar legal documents provide some indications of Google's requirements they do not address specifics and the Google engineering team chose not to answer requests to perform systematic evaluation of their service. This left aspects of the planned research in limbo. There have been numerous, sporadic, issues where Google has withdrawn access not only to an individual but to people and organisations Google decides are related to an individual. This led to a loss of income and even livelihood for some app developers (\textit{e.g.} \citet{Martinez_2019, mark_dodson_medium_story}). This research was therefore cautious in nature which is particularly key as the author has connections with multiple organisations who have popular apps in the Google Play Store. 
+
+There is the potential for adverse real-world consequences of not having systematic, timely, efficacious, and ongoing collection of data. These include, missing pertinent information, incomplete data, an opportunity-cost (where spending time and resources devising ways to collect the data diverts from actually using, \textit{i.e.} applying, all the relevant\footnote{TBD whether to focus on ideal, relevant, sweetspot, or net-present-value, etc. of data.} data!). 
 
 Express mechanisms and permission for authorised users to collect analytics artefacts would provide clarity and materially improve the ability of authorised researchers and authorised members of development teams to obtain, use, and preserve the analytics artefacts. Furthermore, the provision of suitable APIs would facilitate higher-speed and more efficient collection of the data. Microsoft's App Centre is currently one of the leading mobile analytics offerings in their provision of both cloud storage mechanisms and APIs to access and preserve analytics artefacts. While these do not include mechanisms to obtain the rendered (\textit{i.e.} graphical) reports, at least the underlying data can be collected, analysed independently and even integrated into subsequent, downstream processing.  
 
 
-\subsubsection{Considerations on the app-centric case study procedure}~\label{discussion-considerations-on-the-app-centric-case-study-procedure}
-
-
+%\subsubsection{Considerations on the app-centric case study procedure}~\label{discussion-considerations-on-the-app-centric-case-study-procedure}
+\textbf{Considerations on the app-centric case study procedure}: 
+The app-centric case studies provided a useful variety of projects, apps, and business domains. Additional app-centric case studies may well increase the weight of at least some of the evidence and also provide new examples and insights - they are therefore desirable. Nonetheless, they do not negate the benefits of systematic testing and interrogation of mobile analytics services. This research was augmented by some small-scale and limited systematic testing and the results may be published at a later date since the findings did not massively disrupt the findings being published here.
 
 \subsection{The impact of covid and other unavailability}
-GTAF was one of several case studies that was adversely affected by the main contact being unwell and unavailable for a month or so during the active period. Thankfully, having ongoing access to Google Play Console has enabled a longer-term analysis of the behaviours of their Android apps.
+The emergence of COVID-19 materially affected several of the app-centric case studies and some planned research, it also adversely affected the working practices of various development teams.
+Examples of the disruption include:
 
-The emergence of COVID-19 materially affected both the Catrobat case study and some planned research, it also adversely affected the development team's working practices.
+\begin{itemize}
+    \item Catrobat: the workshop planned in Poland to evaluate the use of mobile analytics to help software testers test the Pocket Code had to be abandoned.
+    \item Catrobat: Planned follow-up work to integrate and evaluate Firebase Analytics in Pocket Code for both their Android and iOS apps was abandoned owing to knock-on effects on the project team in Graz, Austria. 
+    \item GTAF: the main contact was unwell and unavailable for a month or so during the active period. Thankfully, having ongoing access to Google Play Console has enabled a longer-term analysis of the behaviours of their Android apps, nonetheless communications and collaboration were both abruptly interrupted.
+    \item Commercial App project: much of the work was planned to be on-site in another country working directly with the development team, however there were no commercial flights available to that country for the duration of the active case study. Working remotely meant communications were more stilted and the work progressed more slowly than it might otherwise have done. 
+\end{itemize}
+
+Despite the effects of these disruptions the research that did happen was productive. 
 
 
 
-\subsection{Validity of my research}
+
+
 
 \subsection{Threats to Validity}~\label{discussion-threats-to-validity-section}
 In the Methodology chapter threats to validity of the methodology and the use of empirical studies were discussed (see page \pageref{methodology-threats-to-validity-section}). This section broadens the scope to include additional threats to the validity of the research.
@@ -68,26 +99,12 @@ In the Methodology chapter threats to validity of the methodology and the use of
 Let us consider validity from a practical, pragmatic perspective. 
 Research by ~\cite{scaffidi2007developing}, states real world developers and users base their decisions on what the paper describes as low-ceremony evidence~\emph{``such as reviews, reputation, advertising claims, qualitative information, or aggregation of group opinion"}. The paper proposes a notation that includes credentials and provenance to help people to systematically adapt their their confidence in software dynamically as new information emerges. Making decisions with imperfect information is also covered in the same paper (~\cite{scaffidi2007developing}) where they discuss \emph{good enough} decision making using \emph{``less-than-perfect information"}. In my industry experience, and in the research described in this thesis, their claims hold true. And in terms of my research I have aimed to assess aspects of the credibility of several analytics tools and provide provenance for the evidence that has been collected during the practical aspects of the research.
 
-TODO Using ratings and reviews to measure quality? Tim Menzies quote on software analytics. 
+% TODO Using ratings and reviews to measure quality? Tim Menzies quote on software analytics. 
 
 
+% \subsection{Internal validity}
 
-\subsection{Validity of the tools being used}
-
-\subsubsection{Validity of platform analytics}
-
-\subsubsection{Validity of Fabric Crashlytics}
-
-\subsubsection{Validity of various mobile apps}
-
-Our simple opensource Android app, Zipternet~\footnote{\url{https://github.com/ISNIT0/zipternet}}, included HTML-based content. In the initial releases the app had a flaw that caused a crash to occur when any external web links were selected in the content~\footnote{See issue 6 on Github for this project:~\href{https://github.com/ISNIT0/zipternet/issues/6}{Fix crash of the app when external URL selected in WebView}.}. This crash occurred consistently whenever any external web link was selected and was detected and reported by Google Play Console's pre-launch report and it was also reported in Android Vitals, albeit less often than when the crash occurred on devices we used for local testing of the app.
-
-
-In February 2020 the iOS version of the Pocket Code app was enhanced to include a mechanism to cause crashes deterministically~\footnote{See JIRA ticket:~\href{https://jira.catrob.at/browse/CATTY-161}{CATTY-161 - INTERMEDIATE TICKET: Add ``easter egg" for Crashlytics} for the iOS feature.}. This ability to cause crashes deterministically was designed and implemented to determine whether the crashes would be reported correctly in Firebase Crashlytics (they were). The iOS team removed the ``easter egg" immediately after the workshop in Poland~\footnote{See JIRA ticket:~\href{https://jira.catrob.at/browse/CATTY-162}{CATTY-162 - TRAINING TICKET: Remove "easter egg" for Crashlytics}.}. The Android version of Pocket Code already used the older Fabric Crashlytics API and crashes were being reported in the Fabric Crashlytics dashboard.
-
-\subsection{Internal validity}
-
-\subsection{External validity}
+% \subsection{External validity}
 
 \subsection{Ecological validity}
 As Wikipedia notes \emph{``Essentially, ecological validity is a commentary on the relative strength of a study's implication(s) for policy, society, culture, etc."} (\cite{wikipedia_ecological_validity}).
@@ -107,24 +124,22 @@ One of the challenges in this research has been to balance internal, external an
     \item Developers will release updates that unintentionally and or exacerbate the failure rate, despite their best intentions. They need to pay ongoing attention to the reported failures if they wish to maintain or decrease the measured stability of their apps as both their app and the ecosystems evolve~\footnote{Ecosystems evolve as new devices, operating system releases, networks, updates to libraries, and to other related apps and components (such as the Google \href{ection-webview-component}{WebView component}), etc. change.}.
 \end{enumerate}
 
-\subsubsection{Validity from the Google Engineering Team}
+\subsection{Validity from the Google Engineering Team}
+The sustained level of active interest by the Google engineering team responsible for Google Play, including Google Play Console and Android Vitals was a surprise. It is a pity they chose not to elaborate on how they used the material they received from this research, nonetheless the lack of elaboration is consistent with the company's practices generally. The fact they requested ongoing updates and provided continuity of communications as and when their management changed is an indication they valued the material and it is likely they applied at least some of the findings about flaws in their service and similarly in recommendations that were made during the research.
 
-
-
-\subsubsection{Other validation}
+\subsection{Other validation}
 In email discussions of my research in 2020 one of the leading authors in the field, \href{https://scholar.google.com/citations?user=zuUsFkgAAAAJ&hl=en&oi=sra}{Li Li}, confirmed the novelty, importance and relevance of my research.
 
 
-
-
-
 \section{Utility and scalability}
+If we focus on Android apps what are the implications and how relevant are the approaches and results? In every one of the app centric case studies the developers were able to use the outputs of mobile analytics to successfully find and fix crashes that caused their app(s) to fail in use. The projects ranged from sole-developers to 100+ person teams at a major enterprise. The mobile analytics ranged from purely relying on what the app store/platform provided through projects that included in-app crash and error reporting, to those who incorporated multiple mobile analytics SDKs. Generally, those teams that included at least one mobile analytics SDK found they preferred using that mobile analytics service in preference to the platform provided analytics in so far as the mobile analytics service provided similar information. The possible exception was the GTAF project who weren't able to provide sufficiently specific answers. 
 
-\subsection{...TBD...}
-If we focus on Android apps what are the implications and how relevant are the approaches and results?
+Where the in-app analytics service lacked particular types of failure, ANRs is the key example, then the teams also used Android Vitals from time to time. Moonpig demonstrated the benefits of ongoing checking of both the platform-level and in-app analytics, rather than preferring one over the other.
 
+Based on these results, on personal pre-research examples, and from examples drawn from grey materials, using mobile analytics appears to provide utility to many development teams and therefore to scale beyond the particular instances studied in the app-centric case studies.
 
-\subsection{Do the concepts scale?}
+% Julian to continue from here!
+\subsection{Do the concepts scale further?}
 This research is limited to apps available in Google Play for practical reasons. Here we consider whether the approach could scale beyond Google Play for Android apps, and later whether the approach could work for other platforms.
 
 \subsubsection{Beyond Google Play?}
@@ -301,20 +316,7 @@ Changing people’s behaviour is difficult, because it means implicitly telling 
 There are various ways that adopting a tool impacts business practices, for enterprises this is typically the function of a product’s Customer Success team. I believe an important function of product design is to move as much education from Customer Success into the product. A great product should not only facilitate best practices, it should be a vector of change management to enforce them." Joseph E. Reeve, \nth{10} September 2021 in discussion.
 \end{mdframed}
 
-
-
-
-\section{Setting the use of mobile analytics in a broader context}
-
-\subsection{Catrobat: Research findings and results from the Case Study}
-% Why Catrobat, what did I gain, similarities and contrasts, why include in the PhD.
-% Existing best practices, assiduously applied didn't reduce the crash rate, my approach did! :)
-% Needs to be applied on a long term basis
-
-
-\subsection{Decision making by development teams}~\label{discussion-decision-making-by-dev-teams-section}
-As an untested hypothesis, as part of their decision making when triaging an issue: developers may apply an informal form of failure mode and effect analysis (FMEA) based on multiple-criteria decision making (MCDM) using similar criteria to the work described in \citealt{lo2018_novel_multi_criteria_decision_making_based_FMEA_model_for_risk_assessment}, \textit{i.e.}, severity, occurrence, detection (of a cause they can fix), and expected cost. An area of future research could be in the habits of decision making during triage and in ways to improve the decision making and the outcomes of those decisions.
-
+Inspired by the work of \citet{winter2022_lets_talk_with_developers_etc_automatic_program_repair} we may envisage ways mobile analytics can help developers to repair programs, in this context, their mobile apps and supporting software, though a range of automated analysis and possibly even proposed automatic program repairs. Mobile analytics can already help developers understand what went wrong where, and reduce the time and effort needed to debug issues~\citep[p. 10]{winter2022_lets_talk_with_developers_etc_automatic_program_repair}.
 
 \section{Improving analytical capabilities}
 Areas currently underserved by mobile analytics tools include bug localisation and bug reproduction. Mobile analytics based on failures that occur for end users are derived from presence-only data, based on ~\citet[p.1383]{warton2010_poisson_point_process_models_solve_the_pseudo_absence_problem_for_presence_only_data_in_ecology}. 
@@ -324,20 +326,33 @@ Areas currently underserved by mobile analytics tools include bug localisation a
     \item The analytics report contains [all] the failures that have been reported, it does not consist of all the failures that occurred. The word all is in square brakets as some failures might be screened-out or removed from the reports by the processing of the data for various reasons including: suspected fraud/spam, issues with the content of the message, \emph{etc.}
 \end{itemize}
 
-Furthermore the analytics do not report on when the same code did not fail in use. Both bug localisation and bug reproduction could be improved when the entire population of usage data were available to be analysed. However, as mentioned previously, neither the developers nor the analytics services are likely to obtain data for the entire [underlying] population of users. Currently mobile analytics tools such as Microsoft App Center provide developers with the option to integrate their general purpose mobile analytics SDK into an app, by doing so, App Center is able to calculate a percentage of the percentage of the users that a crash or error affects. 
+Furthermore the analytics do not report on when the same code did not fail in use. Both bug localisation and bug reproduction could be improved when the entire population of usage data were available to be analysed. Currently mobile analytics tools such as Microsoft App Center provide developers with the option to integrate their general purpose mobile analytics SDK into an app, by doing so, App Center is able to calculate a percentage of the percentage of the users that a crash or error affects. 
+%
+However, as mentioned previously, neither the developers nor the analytics services are likely to obtain data for the entire [underlying] population of users. I propose we do not yet know enough to determine the effects of only the calculations being based on subsets of a population of mobile app users. In a business context there has been debate on the effects, flaws, and limitations of Google Analytics using sampling (for example in \citet{mangold2020_google_analytics_data_sampling_what_you_need_to_know, rauhut2021_how_accurate_is_sampled_google_analytics_data_a_simple_experiment_to_find_out}).
+% See also:
+% https://matomo.org/blog/what-is-google-analytics-data-sampling-and-whats-so-bad-about-it/
+% https://support.google.com/analytics/answer/2637192?hl=en
 
-An approach similar to delta debugging as currently practiced may help identify relevant factors/context while also removing irrelevant factors/context that led to failures in the app. (Related work exists for web applications: On the use of delta debugging to reduce recordings and facilitate debugging of web applications their work relied on recording user input and replaying these using Selenium and reproduced a small number of examples.) Locating the causes of failures is a topic long discussed in the literature. In contrast to that work, at least some failures in mobile apps depend on elements close to the user, such as their mobile device, their network connectivity, their profile, their past and/or current use of the software, and so on. Furthermore there’s unlikely to be an existing automated test that reproduces the failure, otherwise why wasn’t the failure addressed pre-release?
+Certainly in the app-centric case studies there have been examples of frequent volumes of failures being attributed to a single user, for instance as shown in \secref{section-intermittent-appearances-of-bugs-55-crashes}. 
 
-Once the conditions have been found that reproduce the failure, techniques can be applied to simplify conditions that reproduce it. If users are willing to participate in the bug reproduction process, approaches such as Reproducing Context-sensitive Crashes of Mobile Apps using Crowdsourced Monitoring might be viable. Using Mobile Analytics for crashes, freezes, and other performance issues addresses these topics described in App Store 2.0 
+Hypothesis: At this stage I estimate developers are likely to be able to find and address somewhere between 90\% and 99\% of material failures using mobile analytics gathered from a majority of the overall population (active userbase). Both the 90\% and 99\% are based on the 70:20:9:1 concept in~\citet{rugg2015_beyond_the_80_20_principle}; while it may be an oversimplification it seems adequate as a heuristic. And given that even the best performing app developers have software where failures, including crashes, occur in use it's unlikely that any development team with a popular app will ever reach zero failures in use. There are likely to be `black swan events' in terms of failures \emph{i.e.} failures not visible to the development team even though they occur~\footnote{See comments in the following online article \url{https://theconversation.com/friday-essay-a-rare-bird-how-europeans-got-the-black-swan-so-wrong-161654}.}.
+
+
+An approach similar to delta debugging~\footnote{Nicely described and illustrated in \url{https://www.st.cs.uni-saarland.de/dd/}} as currently practiced may help identify relevant factors/context while also removing irrelevant factors/context that led to failures in the app. (Related work exists for web applications: On the use of delta debugging to reduce recordings and facilitate debugging of web applications their work relied on recording user input and replaying these using Selenium and reproduced a small number of examples.) Locating the causes of failures is a topic long discussed in the literature. In contrast to that work, at least some failures in mobile apps depend on elements close to the user, such as their mobile device, their network connectivity, their profile, their past and/or current use of the software, and so on. Furthermore there’s unlikely to be an existing automated test that reproduces the failure, otherwise why wasn't the failure addressed pre-release?
+
+Once the conditions have been found that reproduce the failure, techniques can be applied to simplify conditions that reproduce it~\citep{zeller2002_simplifying_and_isolating_fault_inducing_input}. If users are willing to participate in the bug reproduction process, approaches such as Reproducing Context-sensitive Crashes of Mobile Apps using Crowdsourced Monitoring might be viable. Using Mobile Analytics for crashes, freezes, and other performance issues addresses these topics described in App Store 2.0~\citep{gomez2017_app_store_2.0_from_crowdsourced_info_to_actionable_feedback_in_mobile_ecosystems}. 
 
 \subsection{Bug reproduction}
-
+In the author's experience app developers are frequently faced with failures they are not able to reproduce practically. Practical limitations of being able to reproduce crashes is also corroborated by numerous \textit{ad-hoc} informal discussions with development teams for many apps in industry. This indicates app development teams may need other practical mechanisms to determine whether failures have been ameliorated or even fixed. Concepts such as relative correctness e.g. in~\citep{ghardallou2016debugging_without_testing} show promise in terms of comparing the failures reported in subsequent releases of an app, the absence of a particular failure \textit{might} indicate the failure has at least been partly addressed provided the developers have made attempts to address at least one possible cause of the failure.
+% https://www.whyprogramsfail.com/
 
 \subsection{Bug localisation}
 
 
 \subsection{Debugging in the large}
 Debugging in the large is a term presented in Microsoft's research into Windows Error Reporting~\href{glossary-wer}{(WER)} where large scale collection of errors from end-user devices can help developers detect, prioritise, and address various errors that may not appear during development and local testing of the software~\citep{kinshuman2011_debugging_in_the_very_large}. The various mobile analytics services analysed during this research also support debugging in the large (and they suffer from some of the flaws that were reported in WER a decade ago). 
+
+This research corroborates arguments presented in \citet{gomez2017_app_store_2.0_from_crowdsourced_info_to_actionable_feedback_in_mobile_ecosystems} where the app store (Google Play) generates actionable feedback for developers with the aim of helping developers improve the performance and quality of their apps. To be fair to Google their tools in Google Play predate the paper, however the authors might not have had first hand experience of using those tools. % Abstract: App Store 2.0 will exploit crowdsourced information about apps, devices, and users to increase the overall quality of the delivered mobile apps. App Store 2.0 generates different kinds of actionable feedback from the crowd information. This feedback helps developers deal with potential errors that could affect their apps before publication or even when the apps are in the users' hands. The App Store 2.0 vision has been transformed into a concrete implementation for Android devices.
 
 It may be viable to significantly accelerate troubleshooting and reduce the latency by using techniques that were described and applied in a project called CellScope by~\citealp{padmanabha2018_mitigating_the_latency_accuracy_tradeoff_in_moile_data_analytics_systems}. They demonstrated their model was able to make useful and relatively accurate predictions of anomalies in power consumption by mobile apps within one day of the Carat app\footnote{\url{https://play.google.com/store/apps/details?id=edu.berkeley.cs.amplab.carat.android&hl=en_GB&gl=US}}. Unfortunately this Android app was last updated for end users in 2018 and the Carat power recommendation app project no longer appears to be active according to the respective Android\footnote{\url{https://github.com/carat-project/carat-android}, last updated in August 2019} and iOS\footnote{\url{https://github.com/carat-project/carat/}, last updated in February 2018} opensource codebases. Furthermore, the CellScope software does not appear to have been published so future research may need to recreate something similar from scratch.
 
@@ -372,6 +387,8 @@ Similarly to the ethics and concerns of what to log into a log file, what is log
 Mobile analytics may also log similar sensitive information and automatically send it for analysis and processing therefore similar concerns and similar research into the practices of developers and the behaviours of the apps their create may be pertinent. Some of the sensitive data is logged automatically by the mobile analytics library where the developer (and potentially their management and/or clients) is effectively making the decision to share the sensitive information by incorporating the library into the software they create.
 
 The ownership and who has a) access b) control of the data collected by mobile analytics are also germane. For example, can users stop the data being collected at source? (and is it legitimate for them to do so?) do they have easy to use facilities to address the `right to be forgotten'~\citep{gdpr_article_17_right_to_erasure}\footnote{The right to be forgotten is also a popular topic for news articles, for instance with an estimated 129 articles on the topic in The Guardian newspaper in the UK~\citep{guardiannewspaper_right_to_be_forgotten_articles} at the time of writing.}. 
+
+The topic of what app developers should do in terms of disclosing personal data lawfully was covered in \citet{vandersype2014_on_lawful_disclosure_of_personal_user_data_what_should_app_developers_do} by considering the EU Data Protection Directive, in particular. In their work they identified various limitations of their work including the ``legally undefined'' role of app developers [p.33](\emph{ibid}) nonetheless their encouragement for developers to take privacy-friendly design decisions [p.31](\emph{ibid}) still holds especially as another conundrum emerges when considering whether the data collected by a particular app's use of mobile analytics would include personal data. 
 
 Research into \emph{Data Ethics} is emerging, for example, the first international workshop on ethical data-centric design of intelligent behaviour~\citep{datethics2020_workshop}. I participated in this inaugural online workshop particularly for the following topics in the call for participation: `Personal activity data as design material', `Responsibility and values in designing with data', and ```from data to actions"'. My particular request for the workshop was to consider ways to truly enable new users of mobile apps to make~\emph{informed consent} when they need to be informed the app may collect analytics. We had rich, enlightening discussions on this and related topics and the potential to collaborate on future research on this and the larger topic of ethics in data-centric design; initial results are available as a visual PDF at~\url{https://mobilehci-2020.datacentricdesign.org/#results}.
 
@@ -559,6 +576,12 @@ This chapter contains various discussion topics, including: validity of my resea
 
 
 Apps are a popular and relevant subset of all software, they run remotely on other people’s equipment where they are the primary owners of the data on their devices, and where the platform and pre-installed platform software determine various aspects of the data collection. The apps and the analytics libraries they use control what data is reported and when. 
+
+
+
+
+\subsection{Decision making by development teams}~\label{discussion-decision-making-by-dev-teams-section}
+As an untested hypothesis, as part of their decision making when triaging an issue: developers may apply an informal form of failure mode and effect analysis (FMEA) based on multiple-criteria decision making (MCDM) using similar criteria to the work described in \citealt{lo2018_novel_multi_criteria_decision_making_based_FMEA_model_for_risk_assessment}, \textit{i.e.}, severity, occurrence, detection (of a cause they can fix), and expected cost. An area of future research could be in the habits of decision making during triage and in ways to improve the decision making and the outcomes of those decisions.
 
 
 \subsection{Red pill or blue pill?}
