@@ -1490,7 +1490,18 @@ numpages = {14}
    journal={Journal of Systems and Software},
    author={Oliveira, Juliana and Borges, Deise and Silva, Thaisa and Cacho, Nelio and Castor, Fernando},
    year={2018},
-   pages={1–18}
+   pages={1–18},
+   keywords = {Exception handling, Android, Robustness, Maintainability},
+   extracts = {
+    Highlights
+        • Most of the method calls to Android abstractions are not protected.
+        • Use of Android abstractions often decreases robustness.
+        • Lack of changes to exception handling code leads to uncaught exception.
+        • The change scenarios that decrease robustness are described.
+   },
+   thoughts = {
+    This paper helps explain that mobile apps have their own distinct challenges in terms of maintaining the reliability of the app (however I suspect some frameworks for desktop apps might have similar challenges but predate the researchers interested in these topics). 
+   }
 }
 
 
@@ -1926,7 +1937,7 @@ numpages = {14}
 	journal = {BMJ}
 }
 
-@ARTICLE{not_cited_yet_soltani2020_search_based_crash_reproduction_and)its_impact_on_debugging,  
+@ARTICLE{not_cited_yet_soltani2020_search_based_crash_reproduction_and_its_impact_on_debugging,  
     author={Soltani, Mozhan and Panichella, Annibale and van Deursen, Arie}, 
     journal={IEEE Transactions on Software Engineering},
     title={Search-Based Crash Reproduction and Its Impact on Debugging}, 
@@ -2172,19 +2183,6 @@ numpages = {14}
 }
 
 
-@inproceedings{yildirim2019_ux_analytics_for_android_platforms,
-  title={User Experience Analytics for Android Platforms},
-  author={Y{\i}ld{\i}r{\i}m, {\.I}lkan},
-  pages = {553--555},
-  booktitle={ISAS2019-ENS - 3rd International Symposium on Innovative Approaches in Scientific Studies (Engineering and Natural Sciences)},
-  url = {http://www.set-science.com/manage/uploads/ISAS2019-ENS_0042/SETSCI_ISAS2019-ENS_0042_00105.pdf},
-  year = {2019},
-  publisher = {SET Technology - Turkey},
-  more_info = {http://www.set-science.com/index.php?go=d1001a2417e2b87d5b7c53e16c5e1675&conf_id=42&paper_id=105},
-  volume = {4},
-  address = {Ankara, Turkey},
-  commentz = {This does not appear to be structured or run as a IEEE/ACM style conference and the citation is hard to ascertain.}
-}
 @article{not_yet_cited_zhan2021_research_on_thirdparty_libraries_in_android_apps_an_SLR_etc,
   author={Zhan, Xian and Liu, Tianming and Fan, Lingling and Li, Li and Chen, Sen and Luo, Xiapu and Liu, Yang},
   journal={IEEE Transactions on Software Engineering}, 
@@ -2593,6 +2591,14 @@ https://latex.org/forum/viewtopic.php?t=32485
   address = {New York, NY, USA},
 }
 
+@book{walz2015_apptentive_the_mobile_marketers_guide_to_app_store_ratings_and_reviews,
+  title = {The Mobile Marketer's Guide to App Store Ratings and Reviews},
+  author = {Alex Walz and Robi Ganguly},
+  year = {2015},
+  publisher = {{Apptentive}},
+  pages = {55},
+}
+
 @book{weinberg1992quality,
   title={Quality software management (Vol. 1) systems thinking},
   author={Weinberg, Gerald M},
@@ -2686,6 +2692,31 @@ https://latex.org/forum/viewtopic.php?t=32485
     booktitle = {Proceedings of the 33rd ACM/IEEE International Conference on Automated Software Engineering},
     pages = {702–713},
     numpages = {12}
+}
+
+@inbook{li2020_experience_or_aging_why_does_android_stop_responding_and_what_can_we_do_about_it,
+    author = {Li, Mingliang and Lin, Hao and Liu, Cai and Li, Zhenhua and Qian, Feng and Liu, Yunhao and Sun, Nian and Xu, Tianyin},
+    title = {Experience: Aging or Glitching? Why Does Android Stop Responding and What Can We Do about It?},
+    year = {2020},
+    isbn = {9781450370851},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3372224.3380897},
+    abstract = {Almost every Android user has unsatisfying experiences regarding responsiveness, in particular Application Not Responding (ANR) and System Not Responding (SNR) that directly disrupt user experience. Unfortunately, the community have limited understanding of the prevalence, characteristics, and root causes of unresponsiveness. In this paper, we make an in-depth study of ANR and SNR at scale based on fine-grained system-level traces crowdsourced from 30,000 Android systems. We find that ANR and SNR occur prevalently on all the studied 15 hardware models, and better hardware does not seem to relieve the problem. Moreover, as Android evolves from version 7.0 to 9.0, there are fewer ANR events but more SNR events. Most importantly, we uncover multifold root causes of ANR and SNR and pinpoint the largest inefficiency which roots in Android's flawed implementation of Write Amplification Mitigation (WAM). We design a practical approach to eliminating this largest root cause; after large-scale deployment, it reduces almost all (&gt;99\%) ANR and SNR caused by WAM while only decreasing 3\% of the data write speed. In addition, we document important lessons we have learned from this study, and have also released our measurement code/data to the research community.},
+    booktitle = {Proceedings of the 26th Annual International Conference on Mobile Computing and Networking},
+    articleno = {20},
+    numpages = {11},
+    extracts = {
+        We invited the active users in Xiaomi’s smartphone community to participate in our measurement study by installing Android-MOD on their phones. Over 30,000 users opted in and collected data for us for three weeks, involving 15 different models of Android phones. All the data are collected with informed consent of opt-in users, and no personally identifiable information (PII) was collected.
+    },
+    thoughts = {
+        This is a helpful paper that demonstrates the power of crowdsourcing and on gathering reliability related data from Android device logs to measure and then improve the reliability. They addressed a common cause of ANRs and SNRs where the OS writes to a memory card over time where the Android OS algorithm was causing problems some of the time on some device models. The authors were able to convince Google to implement a joint improvement to Android. The reliability is much better for the users who received this patch. What's not known is the extent their work, and the fix that Google subsequently applied, has on the Android userbase afterwards (after 2018/2019). In theory it should be possible to see the difference for popular apps that run on Android devices that pre and post date the authors' work. 
+        
+        The authors claim they reduced the ANRs caused by the WAM by more than 99\% and the overall frequency of ANRs by 32\%.
+        
+        Their focus was on the behaviour of Android and how to improve that behaviour in terms of responsiveness, etc. They did not investigate the app-specific causes of ANRs (which comprised 26\% "app-specific defects (26\%) [p. 1]."
+    },
+    keywords = {Android; Responsiveness; Application Not Responding (ANR); System Not Responding (SNR); Write Amplification Mitigation (WAM).},
 }
 
 @inbook{MacLean2015_pro_android_5_book,
@@ -3450,7 +3481,7 @@ isbn="978-3-319-67687-6"
     on, we propose using the devices that are mentioned in user reviews. We mine the user
     reviews of 99 free game apps and find that, apps receive user reviews from a large
     number of devices: between 38 to 132 unique devices. However, most of the reviews
-    (80%) originate from a small subset of devices (on average, 33%). Furthermore, we
+    (80\%) originate from a small subset of devices (on average, 33\%). Furthermore, we
     find that developers of new game apps with no reviews can use the review data of similar
     game apps to select the devices that they should focus on first. Finally, among the
     set of devices that generate the most reviews for an app, we find that some devices
@@ -4367,31 +4398,6 @@ series = {MOBILESoft '19}
   address = {Graz, Austria},
 }
 
-@inproceedings{nurmuradov2017_caret-hm-heatmapping-android-emulator,
-    author = {Nurmuradov, Dmitry and Bryce, Renee},
-    title = {Caret-HM: Recording and Replaying Android User Sessions with Heat Map Generation Using UI State Clustering},
-    year = {2017},
-    isbn = {9781450350761},
-    publisher = {Association for Computing Machinery},
-    url = {https://doi.org/10.1145/3092703.3098231},
-    doi = {10.1145/3092703.3098231},
-    abstract = { The Caret-HM framework allows Android developers to record and replay user sessions
-    and convert them into heatmaps. One advantage of our framework over existing solutions
-    is that it allows developers to control the environment while simplifying the recording
-    process by giving users access to their applications via a web browser. The heatmap
-    generation using Android user sessions and clustering UI states is a unique feature
-    of our framework. Heat maps allow developers to identify the usage of application
-    features for testing and guiding business decisions. We provide a qualitative comparison
-    to the existing solutions. The video with demonstration is available at https://www.youtube.com/watch?v=eMSNAKM1Bj4
-    },
-    booktitle = {Proceedings of the 26th ACM SIGSOFT International Symposium on Software Testing and Analysis},
-    pages = {400–403},
-    numpages = {4},
-    keywords = {User Sessions, Web-based Android Emulator, Mobile, Heat Map, Android},
-    address = {Santa Barbara, CA, USA},
-    series = {ISSTA 2017}
-}
-
 @inproceedings{olesen2020_10_years_of_hackathons,
   author = {Falk Olesen, Jeanette and Halskov, Kim},
   title = {10 Years of Research With and On Hackathons},
@@ -4428,6 +4434,23 @@ series = {MOBILESoft '19}
     In order to localize testing problems in a large software-intensive company, we conducted a current state analysis via web-based questionnaire among experienced testing practitioners, most having at least 5 years experience in these tasks. The scope of the survey was decided to keep broad with the goal of finding future improvements within tool, process and method development. In this paper, we will concentrate on those survey results that have psychological underlying. Based on the results, we suggest a set of improvements for testing and, especially, test reporting. Implementation of these improvements is still underway, but the findings and suggestions provide insight into psychology of testing.
   },
   pdf = {https://ppig.org/files/2009-PPIG-21st-paakkonen.pdf},
+}
+
+@INPROCEEDINGS{panichella2015_how_can_i_improve_my_app_classifying_user_reviews_for_sw_maintenance_and_evolution,  
+    author={Panichella, Sebastiano and Di Sorbo, Andrea and Guzman, Emitza and Visaggio, Corrado A. and Canfora, Gerardo and Gall, Harald C.},  
+    booktitle={2015 IEEE International Conference on Software Maintenance and Evolution (ICSME)},  
+    title={How can i improve my app? Classifying user reviews for software maintenance and evolution},  
+    year={2015},  
+    volume={},
+    number={}, 
+    pages={281-290},  
+    abstract={
+        App Stores, such as Google Play or the Apple Store, allow users to provide feedback on apps by posting review comments and giving star ratings. These platforms constitute a useful electronic mean in which application developers and users can productively exchange information about apps. Previous research showed that users feedback contains usage scenarios, bug reports and feature requests, that can help app developers to accomplish software maintenance and evolution tasks. However, in the case of the most popular apps, the large amount of received feedback, its unstructured nature and varying quality can make the identification of useful user feedback a very challenging task. In this paper we present a taxonomy to classify app reviews into categories relevant to software maintenance and evolution, as well as an approach that merges three techniques: (1) Natural Language Processing, (2) Text Analysis and (3) Sentiment Analysis to automatically classify app reviews into the proposed categories. We show that the combined use of these techniques allows to achieve better results (a precision of 75\% and a recall of 74\%) than results obtained using each technique individually (precision of 70\% and a recall of 67\%).
+    },  
+    keywords={}, 
+    doi={10.1109/ICSM.2015.7332474},
+    ISSN={},  
+    month={Sep.},
 }
 
 @inproceedings{parate2016_RECKON_an_analytics_framework_for_app_developers_HP_AppPulseMobile,
@@ -5004,7 +5027,7 @@ series = {MOBILESoft '19}
     }
 }
 
-@inproceedings{wang2019understanding,
+@inproceedings{wang2019_understanding_the_evolution_of_mobile_app_ecosystems_a_longitudinal_measurement_of_google_play,
   title={Understanding the evolution of mobile app ecosystems: A longitudinal measurement study of {Google Play}},
   author={Wang, Haoyu and Li, Hao and Guo, Yao},
   booktitle={The World Wide Web Conference},
@@ -5407,6 +5430,16 @@ series = {MOBILESoft '19}
     We believe in simplicity. We're excited to simplify idea for everyone through our technology solutions and community. Our slogan is "Simplicity is the key to brilliance".
   },
   note = {Last visited: \nth{01} July 2021},
+}
+
+@misc{appsee2015_youtube_visual_analytics_budapest_mobile_meetup,
+  title = {Appsee - Visual Analytics presented by Zahi Boussiba at Budapest.Mobile Meetup},
+  url = {https://youtu.be/aRN_XrxNCNE},
+  year = {2015},
+  author = {AppCraft Community},
+  abstract = {
+    The CEO of Appsee, Zahi Boussiba spoke about Visual Analytics at Budapest.Mobile meetup. 
+  }
 }
 
 @misc{apteligent2016_data_report_network_crash_edition,
@@ -6347,6 +6380,17 @@ author = {HUAWEI Developers},
   }
 }
 
+@misc{not_yet_cited_samsung2022_issues_and_bugs_channel,
+  title = {Samsung Developers - Issues and Bugs Channel},
+  url = {https://developer.samsung.com/partner/IBChannel/form?formName=MDc2MzY1},
+  year = {2022},
+  abstract = {
+    Issues and Bugs Channel
+    The issues and bugs channel is a communication channel specifically for app developers, for the purpose of enhancing quality monitoring and quality control of both your apps and Samsung devices.
+    Apply for Partnership and Build new connection with us.
+  }
+}
+
 @misc{scmp2021_chinas_covid_19_tracking_app_crashes,
   title = {China’s Covid-19 tracking app crashes as traffic surges amid fresh coronavirus outbreak},
   url = {https://www.scmp.com/tech/policy/article/3143487/chinas-covid-19-tracking-app-crashes-traffic-surges-amid-fresh},
@@ -6556,6 +6600,30 @@ author = {HUAWEI Developers},
 
     It has over one million applications worldwide, and has had over 180 billion cumulative application downloads in the past year. Currently, there are more than 45,000 apps available.
   }
+}
+
+@misc{explainxkcd_1098_star_ratings,
+    author = {Explain xkcd contributors},
+    title = {1098: Star Ratings - Explain xkcd},
+    howpublished = {\url{https://www.explainxkcd.com/wiki/index.php?title=1098:_Star_Ratings&oldid=248516}},
+    year = {2022},
+    note = "[Online; accessed 09-July-2022]",
+}
+
+@misc{explainxkcd_937_tornadoguard,
+    author = {Explain xkcd contributors},
+    title = {937: TornadoGuard - Explain xkcd},
+    howpublished = {\url{https://www.explainxkcd.com/wiki/index.php?title=937:_TornadoGuard&oldid=285031}},
+    year = {2022},
+    note = "[Online; accessed 09-July-2022]",
+}
+
+@misc{novoda_akan2016_asking_for_app_feedback_the_effective_way,
+    title = {Asking for app feedback — the effective way},
+    url = {https://blog.novoda.com/asking-for-app-feedback-the-effective-way/},
+    author = {Denis Akan},
+    year = {2016},
+    publisher = {{Novoda}},
 }
 
 @misc{wikipedia_ecological_validity,
@@ -8760,7 +8828,7 @@ https://github.com/Displayr/flipTime/graphs/contributors
   relevance_to_phd={The research studies information mobile apps collect and send over the network, often for advertising, also for analytics. The author developed various tools (AntMonitor, AntShield, NoMoAds, and AutoLabel) to help users see what was happening and to block unwanted communications. The tools can block analytics data being sent, which would affect our approach by reducing the number of users the data is collected from. They discuss related works that use static analysis to identify third-party data collection libraries.}
 }
 
-@phdthesis{stanik2020requirements_intelligence_on_the_analysis_of_user_feedback,
+@phdthesis{stanik2020_requirements_intelligence_on_the_analysis_of_user_feedback,
   title={Requirements Intelligence: On the Analysis of User Feedback},
   author={Stanik, Christoph},
   year={2020},
@@ -8871,7 +8939,7 @@ Systems and software engineering — Systems and software Quality Requirements a
   title = {Mobile app Use and Abandonment Global Survey of Mobile app Users},
   year = {2015},
   publisher = {{HP}},
-  author = {{dimensional research}},
+  author = {{Dimensional Research}},
   institution = {{Dimensional Research}},
   executive_summary = {
     Users are reaching for mobile devices numerous times everyday to use mobile apps. These users shared that peer reviews and ratings significantly affect their app choices. App stability and performance heavily define the user experience and overall satisfaction. Yet this study finds that users are experiencing severe app performance issues regularly. Importantly, apps that exhibit these issues are quickly abandoned after just a few occurrences.

@@ -1,5 +1,9 @@
 \chapter{Related Work}
 \label{chapter-related-work}
+
+% Additional, older material is online in https://docs.google.com/document/d/1OdoBsLboTZHzv1UP9g7nUriVLgpu6ZGqjXLmRAAlAfs/edit?usp=sharing
+% New ideas and material are being added to a Google Doc for a while, then I'll revise this chapter. https://docs.google.com/document/d/1i3cCk2-8zwVioAuMbBQDLcUViihhHY6gk0MJNPevFbA/edit?usp=sharing
+
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{images/my/the_mobile_ecosystem_sketch.png}
@@ -18,14 +22,176 @@ Research in how mobile apps are created and tested, the relevance of app stores,
     \caption{Mobile and Desktop Growth and Convergence}
     \label{fig:my_shonan_hysteresis_sketch}
 \end{figure}
-.
-
 
 The practicalities of the research and the case studies where nearly all the work pertains to the Google Android ecosystem also helps in the selection criteria of relevant related works. As the vast majority of active research in the domain of mobile apps also pertains to this ecosystem, this means the topic is richly served in terms of related works.
 
-\section{The mobile app ecosystem}
 
-Dated works when BlackBerry and Windows Phone app stores existed. Mainly to set the context and identify there has been plenty of research into generations of the ecosystem.
+\textit{This chapter is scoped to make it short enough to be readable.} 
+
+\julian{1-para T tactic of the broad literature, I'm picking these ones that are most directly germane to my research. Where others have done similar work they've done so in other ways eg MSR rather than focusing on the development teams. When you observe the teams the effects of the processes, artefacts, and the tools emerged. This is why I've picked these 3 aspects and 6 perspectives. SQ improvement.}
+
+\section{App Stores and their Effects on Software Development and Engineering}
+App stores and their ecosystem have affected the lives of billions of end users and millions of software developers. They have become the primary route to market for many app developers and their organisations (exceptions include companies who developed strong businesses elsewhere such as Amazon and Netflix). 
+From a research perspective, in 2010, early papers were published on various effects of app stores on academic research e.g. how app stores addressed some of the previous constraints such as reaching more users and facilitating the distribution of the apps and feedback from those users~\cite{cramer2010_research_in_the_large_app_stores, miluzzo2010research_in_the_app_store_era}. 
+
+\begin{itemize}
+    \item Cramer \emph{et al} discussed aspects of \emph{research in the large} and in particular for my research the importance of ``playing by the rules"~\cite{cramer2010_research_in_the_large_app_stores}.\pending{Where should I mention that my research has been shaped to play by the rules of the app store?}
+
+    \item Miluzzo \emph{et al} introduced other relevant research aspects, \textit{i.e.}  ongoing concerns such as how to assess correctness when there is no \emph{``ground truth"} - a challenge when evaluating mobile analytics for shipping apps; and a software development model of \textit{``deploy-use-refine"}~\cite{miluzzo2010research_in_the_app_store_era}, where app development refines the app based on data gleaned from usage of the app. Their paper even explained how a silly mistake caused their app to crash where the app store then delayed the new release of the app by several weeks. Even in 2010 crashes adversely affected the app store's perception of an app.\pending{Ditto where should I mention that our case studies used usage data to refine the app to improve the measured reliability of the apps.} % Their work on CenseMe received an ACM Test of Time award, see https://www.cs.dartmouth.edu/~campbell/page-3/
+     
+\end{itemize}
+
+\citet{wang2019_understanding_the_evolution_of_mobile_app_ecosystems_a_longitudinal_measurement_of_google_play} provides an helpful longitudinal evaluation of the Google Play ecosystem and raises interesting questions and observations about Google Play; but does not seem to consider flaws, or the effects of flaws, in the app store's data collection, algorithms,\textit{ etc.}
+
+In terms of effects of app stores on software engineering practices there have been several seminal papers written by authors at UCL as part of their App Store Analysis Group~\footnote{http://www0.cs.ucl.ac.uk/staff/F.Sarro/projects/UCLappA/UCLappA.html} while it was active (until roughly 2019). Of these papers, \emph{``App store effects on software engineering practices"}~\citep{alsubaihin2019app_store_effects_on_software_engineering} combined interviews with a survey to ask developers of their experiences of developing mobile apps and how those experiences differed with developing other software. There are plenty of other papers that consider the app store from various perspectives but they do not cover software quality or mobile analytics.
+
+Of the ten developers they interviewed a couple were for popular apps (800,000 downloads, 2,000 ratings, 1,000 ratings), the rest were for less popular apps. % 0.1% ratings to downloads for a developer of 1M downloads app: https://www.quora.com/What-is-a-typical-ratio-of-reviews-to-active-users-to-downloads-for-iOS-and-Google-Play-apps
+Their research identified automatic in-app crash reporting as the most frequent source of bug reports and the second-most frequently addressed in terms of bug fixes (end-user written bugs were addressed slightly more frequently)~\citep[p. 10]{alsubaihin2019app_store_effects_on_software_engineering}. 
+
+Of particular interest was the discovery that the quality of the [source] code was the least important factor to build a successful app according to the survey results and furthermore the number of downloads were the highest measure of success~\citep[p. 13]{alsubaihin2019app_store_effects_on_software_engineering}\pending{Replace repeated citations with \emph{ibid}?}. Note: Google subsequently (but not necessarily because of this research) have placed a lot of focus on encouraging developers to improve the quality of their Android apps in Google Play. 
+
+Their research is one of several that discusses the gaming of app store ratings, such gaming is unsurprising given the importance placed on these ratings and particularly in having mobile apps with high ratings in the app store. Ratings are one of the topics of the next section given their importance in the mobile app ecosystem.
+
+
+\section{Sources of information for developers of mobile apps}
+Feedback comes in various forms in an app-store ecosystem, ratings and reviews are two of them and possibly the best known ones because they are public and highly visible to end users and anyone else who wishes to see them. These are covered in this section.
+
+Note: the following sources of feedback are not limited to mobile apps within an app store they can be used for other software, however these are outside the scope of this research.
+
+End users can provide feedback through other public channels such as social media (Twitter and Facebook being the largest and best known), or through a variety of private channels ranging from email (Google Play displays the contact email address for each app developer in the Google Play Store) to in-app feedback. Several of these will be mentioned as examples otherwise they're also beyond the scope of this research for various reasons. 
+
+Feedback can also be generated by software at run time. These include GUI-oriented utilities such as heatmapping tools (covered in \secref{section-heatmapping}, application-oriented utilities including logging and mobile analytics, and platform-oriented tools.
+
+
+\subsection{Ratings in app stores}
+
+\begin{figure}[htbp!]
+\centering
+\begin{minipage}{.4\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/xkcd/tornadoguard.png}
+  \captionof*{figure}{TornadoGuard \url{https://xkcd.com/937}}
+  \label{fig:xkcd-tornadoguard}
+\end{minipage}\hfill%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/xkcd/star_ratings.png}
+  \captionof*{figure}{Understanding online star ratings \url{https://xkcd.com/1098}}
+  \label{fig:xkcd-star-ratings}
+\end{minipage}
+    \caption{XKCD's views on App Store Ratings and Reviews}
+    \label{fig:xkcd-app-store-ratings}
+\end{figure}
+% https://www.explainxkcd.com/wiki/index.php/937:_TornadoGuard
+% https://www.explainxkcd.com/wiki/index.php/1098:_Star_Ratings
+
+Apps with poor ratings are less likely to be downloaded by new users~\citep{dimensionalresearch2015_mobile_app_use_and_abandonment}. Ratings also affect where an app appears in search results and whether an app store will choose to promote that app, or another. In the author's experience when one team's Android app's overall rating dropped from 4.4 to 4.3 stars the business noticed an almost immediate reduction in revenues from the app in addition to discovering that app was ranked lower in the search results. Therefore ratings are an important measure for app developers, and one they may choose to influence positively. 
+
+Gaming ratings includes activities such as an app first asking if a user is happy with the app, and if they say yes then providing a link to encourage the user to rate the app positively in the app store. \citet{novoda_akan2016_asking_for_app_feedback_the_effective_way} provides an illustrative industry case study of how Novoda improved the rating of a major newspaper's app. And in terms of the SDKs developers can use for in-app feedback, Apptentive is one of several companies that provides SDKs to help developers optimise their ratings and reviews and guides on how to do so within a mobile app~\citep{walz2015_apptentive_the_mobile_marketers_guide_to_app_store_ratings_and_reviews}. Unsurprisingly, ratings are also a subject of research interest.
+
+Here are several representative papers that focus on engineering aspects of ratings and reviews.  \citet{alsubaihin2019app_store_effects_on_software_engineering} discusses the symbiotic relationship between releases and the ratings and reviews that app received [p. 14]. Some developers time their releases based on the feedback they've received and monitor ratings and reviews for their latest release to influence the rollout of the new release. There have been innovative ideas on using ratings to prioritise software engineering activities including software testing of Android games apps~\citep{khalid2014_prioritizing_the_devices_to_test_your_app_on_casestudy_android_games}. And in \citet{greenheld2018_automating_developers_responses_to_app_reviews} the value of developers responding to reviews was highlighted. 
+
+As we will discover later in this thesis Google Play Console includes a set of live release management reports aimed at helping app developers observe the effects of a new release as it's rolled out to the userbase. They also use popularity of the app in various regions to control automated pre-release testing of new releases of an app.\pending{Add forward links to these two topics in those chapters.} 
+
+Via Figure \ref{fig:xkcd-app-store-ratings} XKCD aptly sums up two facets of flaws in app store ratings and reviews, averaging reviews may not be a good measure~\citep{explainxkcd_937_tornadoguard}, and the star ratings are not treated as a linear scale in practice~\citep{explainxkcd_1098_star_ratings}. In summary, app Store ratings therefore may not be an ideal measure of the quality of an app from a software engineering perspective! 
+% See also stanik2020_requirements_intelligence_on_the_analysis_of_user_feedback
+% shen2017_towards_release_strategy_optimization_for_apps_in_google_play 
+
+Similarly reviews in app stores have been analysed for various purposes including for complaints and bug reports. Of the many and various research on reviews of mobile apps in app stores \citet{khalid2015_what_do_mobile_app_users_complain_about} clearly establishes connections between what users of iOS apps complain about and the effects of these complaints on ratings of those apps; and \citet{panichella2015_how_can_i_improve_my_app_classifying_user_reviews_for_sw_maintenance_and_evolution} extends that work to consider the relevance of various review-topics to developers. Panichella \emph{et al} also extend the work to include Android apps in the Google Play Store.
+
+Feedback comes in various forms, ratings and reviews are only two of them.  One that's seldom used in industry and seldom researched is implicit feedback recorded through user-interactions with the GUI of the mobile app. Common terms for this mechanism include `heatmaps' and `heatmapping' and there are commercial SDKs and opensource projects available that perform the recording within an app at runtime. The elixir of automating `record and playback' test automation sometimes uses similar methods to record the interactions with a mobile app. 
+
+\subsection{Heatmapping, and similar approaches}~\label{section-heatmapping} 
+Perceived advantages of these recordings of user-interactions include being able to visualise the user interactions remotely and to combine individual recordings to create heatmaps overlaid on the app's GUI. When the GUI recordings are combined with logs generated via the app being used several commercial services offered the promise of being able to determine the actions that led to [some of the] problems occurring in the app~\footnote{Not all failures stem from the user interactions.}. One provider of these services, Appsee, presented how their service could be used to identify what caused an app to crash, the presentation is preserved in a YouTube video~\citep{appsee2015_youtube_visual_analytics_budapest_mobile_meetup}. Their CEO also contributed material on the benefits of visual analytics, as his company described it, to a book I co-wrote~\citep[pp. 94-95]{harty_aymer_playbook_2016}, as did the CEO of a similar service called Azetone [pp. 88-92]. % UXCAM has a similar term: User-journey analytics https://uxcam.com/user-analytics-and-profile
+
+A combination of personal experience, and checking with free online Android app analytics services including AppBrain and the Exodus Privacy project, indicate heatmapping and similar visual analytics are only used in a tiny minority of mobile apps. Given the increasing amounts of legislation intended to protect end-users' privacy such as GDPR it seems unlikely that heatmapping, \textit{etc.} would become a mainstream practice for mobile app developers. Therefore they are outside the scope of this research.
+
+% \emph{``Requirements Intelligence: On the Analysis of User Feedback"}~\cite{stanik2020_requirements_intelligence_on_the_analysis_of_user_feedback}. continuous sources for requirements-related information; comparison between explicit and implicit user feedback (like app usage data).
+
+
+
+% Julian continue here...
+
+
+
+
+
+
+\subsection{Papers to consider}
+\begin{itemize}
+    \item \emph{``App store effects on software engineering practices"}~\citep{alsubaihin2019app_store_effects_on_software_engineering}. \emph{``While automatic in-app crash reporting is the most prolific channel of reporting bugs, the one mostly prioritised by our respondents is user reviews in app stores."} - what are the effects of the crashes being a lower priority than user reviews? They don't discuss other sources of crash reports (e.g. platform crash reporting).
+    
+    \item \emph{``A survey of app store analysis for software engineering"}~\cite{martin2016survey, martin2017_survey_in_app_store_analysis_for_software_engineering_IEEE_edition}.
+    
+    \item \emph{``Why people hate your app: Making sense of user feedback in a mobile app store"}~\cite{fu2013people}. A key paper, many citations (some also highly relevant).
+    
+    \item \emph{``Analyzing and Automatically Labelling The Types of User Issues that are Raised in Mobile App Reviews"}~\cite{mcilroy2016analyzing} - discusses crashes, crash libraries, analytics, relatively early paper on the topic.
+    
+    \item \emph{``Revisiting the Mobile Software Ecosystems Literature"}~\cite{steglich2019revisiting} Helps to define what an ecosystem is.
+    
+    \item \emph{``Beyond Google Play: A large-scale comparative study of Chinese Android app markets"}~\cite{wang2018_beyond_google_play}.
+    
+    \item \emph{``Measurement, modeling, and analysis of the mobile app ecosystem"}~\cite{petsas2017measurement}.
+    
+    \item \emph{``A Measurement-based Study on Application Popularity in Android and iOS App Stores"}~\cite{liu2015measurement}.
+    
+    \item \emph{``Understanding the Evolution of Mobile App Ecosystems: A Longitudinal Measurement Study of Google Play"}~\cite{wang2019understanding} (2019): Lots of interesting questions and observations about Google Play; but they don't seem to consider flaws, or the effects of flaws, in the app store's data collection, algorithms, etc.
+    
+    \item \emph{``Release Practices for Mobile Apps--What do Users and Developers Think?"}~\cite{nayebi2016release}.
+    
+    \item \emph{``Towards Release Strategy Optimization for Apps in Google Play"}~\citep{shen2017_towards_release_strategy_optimization_for_apps_in_google_play}. ``empirical study to help developers decide the release opportunity to maximize positive feedback from users at scale.". They identify three patterns of update intervals: successive, normal, sparse. Their work does not use signals such as the stability of the app. They also claim ``Additionally, app quality can be unstable with fast [release] iteration[s]."
+    
+    \item \emph{``Determinants of Mobile Apps' Success: Evidence from the App Store Market"}~\citep{lee2014_determinants_of_mobile_app_success_evidence_from_the_app_store_market} Survivorship for apps, hazard models, quality updates one of the topics in the paper. iOS - Apple App Store. A focus on sellers rather than app developers. Figure 1, sustainability of app sales: empirical approach. 4 Hazard models App Quality update (App\_quality\_update): \emph{``1 if an app’s quality indicators were updated (adding more app features or fixing bugs)"}. Survivorship in the app store ecosystems and what devs can do to increase their app's survival. Seller [app developer]-level decisions, app-level decisions, user response to the decisions. It doesn't discuss app store algorithms or their effects. c.f. the more recent articles on iTunes rankings of apps from Medium.com~\citep{lotan2015_apple_apps_and_algorithmic_glitches, lotan2015_apples_app_charts}.
+    
+    \item \emph{``Feature lifecycles as they spread, migrate, remain, and die in App Stores"}~\cite{sarro2015_feature_lifecycles_in_appstores} discusses \emph{adaptive development} as a concept for developers of apps in app stores. Notes: Their research is based on `non-free features from two app stores (Samsung and Blackberry)' (both relatively dwarfed by Google Play) and their work predates the availability of platform level analytics, etc. Relevance to my work: developers can obtain requirements (in terms of work they're potentially `required' to do) from many sources, including direct feedback from end users of the apps, signals in terms of willingness to install and keep using their app, and from analytics. Developers want and increase the value of their work by prioritising potential work appropriately. Signals and data from mobile analytics may provide useful, additional sources of information that's sufficiently relevant for developers to accept these `requirements' and address them.
+    
+    \item \emph{``Which version should be released to app store?"}~\cite{nayebi2017version}.
+    
+    \item \emph{``Modern release engineering in a nutshell - why researchers should care"}~\cite{adams2016modern}.
+    
+    \item The \emph{``Data analytics for decision support in software release management"}~\cite{didar2018data_analytics_phd_thesis}, a PhD thesis, introduces a proposed Plan-Monitor-Improve Framework for release management.
+    
+    \item \emph{"An Explorative Study of the Mobile App Ecosystem from App Developers' Perspective"}~\cite{wang2017_exploratory_study_of_the_mobile_app_ecosystem}: 1,000,000+ apps on Google Play, 320,000 developers, over half of the developers only released a single app. The paper mainly focuses on the \emph{"the group of aggressive developers who have released more than 50 apps, trying to understand how and why they create so many apps"}. Provides some context on who writes the mobile apps in Google Play, provides an estimate of the population of developers (in 2017).
+    
+    \item \emph{``Requirements Intelligence: On the Analysis of User Feedback"}~\cite{stanik2020_requirements_intelligence_on_the_analysis_of_user_feedback}. continuous sources for requirements-related information; comparison between explicit and implicit user feedback (like app usage data).
+    
+    \item \emph{``Are apps ready for new Android releases?"}~\cite{guilardi_are_apps_ready_for_new_android_releases}. A current (2020) paper where the researchers discovered that developers are slow to revise and update their Android apps for new releases of the operating system. Some of the apps have flaws exposed when running on new versions of the operating system. For apps to retain their quality they need to be updated, new releases of the operating system are one such reason. (Releases of libraries another, new contexts of use, etc. another...).
+    
+    \item \emph{``Revisiting Prior Empirical Findings For Mobile Apps: An Empirical Case Study on the 15 Most Popular Open-Source Android Apps"}~\citep{syer2013_empirical_findings_for_mobile_apps} is work from 2013 (when Google Code was still a major active public source code repository) that compares the codebases of 15 opensource mobile apps with 5 other opensource desktop/server projects. A key finding in their research includes the development process - where there are frequent releases yet the development and release processes are immature. albeit based on codebases from 2011 so a decade ago is still relevant. They ask various open-ended questions:
+    \begin{itemize}
+        \item Does such a high frequency of releases mitigate the lack of testing? 
+        \item If there are frequent releases for the mobile app, then does quality matter as much?
+        \item Is the project in a constant beta testing state? 
+        \item Does the platform provide sufficient support for building high quality apps quickly? 
+        \item Is the frequent release only influenced by the demand factor in the app store? 
+        \item Are the developers of mobile apps more skilled or do they have more resources at hand? 
+        \item Or, are mobile apps themselves less complex to develop?
+    \end{itemize}
+    
+    Perhaps the cost of failures in the app store was/is perceived to be low in the Google Play app store, at least for these 15 opensource apps? Later work investigated aspects such as the release frequency~\citep{nayebi2016release}
+    
+    \item Both Medium articles by Gilad Lotan in 2015 on Apple's App Store rankings provide interesting colour to the discussion of the rankings over time~\citep{lotan2015_apple_apps_and_algorithmic_glitches, lotan2015_apples_app_charts}; however they're not directly relevant to software development practices so might not be that relevant.
+    
+    \item \citep{khalid2016_examining_the_relationship_between_findbugs_warnings_and_app_ratings} (this probably belongs elsewhere). Ditto \citep{not_cited_yet_necmiye2017_a_slr_opinion_mining_studies_from_mobile_app_store_reviews}. 
+    
+\end{itemize}
+
+
+App Stores behave as intermediaries between developers and the users of their software. They make various aspects more transparent including pricing, information about the apps, releases, and ratings \& reviews. There are hundreds of thousands of developers of Android apps according to various sources (320,000 in 2017~\cite{wang2017_exploratory_study_of_the_mobile_app_ecosystem}, ...).
+
+
+In an App Store first the developer then the app store are involved in making a release available to some or all of the user population. There are various competing factors that affect when would be a good time to make a release. Too few and an app may be considered stale or neglected, too many and users may balk at the seemingly endless updates and communications costs. Groups of researchers have investigated various aspects of release engineering, including~\cite{adams2016modern} that argues the relevance of modern release engineering and the relevance for researchers, and~\cite{nayebi2017version} which concentrates on which version of opensource apps should have been released to the app store. Developers, and their stakeholders, want to make more informed decisions about which releases to make; however there does not appear to have been much research into the testing and quality indicators available to app developers before they make their release public.
+
+
+
+Although this research is on the Android ecosystem Microsoft 
+However none of these (these researches) provide X which is my need... 
+
+\textit{Generally, excluded from this topic: Windows, iOS, and BlackBerry ecosystems. Revenue generation such as in-app purchases, paid-for apps, advertising.} 
+% Dated works when BlackBerry and Windows Phone app stores existed. Mainly to set the context and identify there has been plenty of research into generations of the ecosystem.
+
+Before we leave the topic of App Store ecosystems and in particular a developer focused perspective on the ecosystem, the work of \citet{wang2017_exploratory_study_of_the_mobile_app_ecosystem} looks potentially interesting as it states it looks at the Google Play store from a developer's perspective. However, the paper concentrates on the characteristics of developers who have many apps in the app store rather than on the software development/engineering aspects.
+
 
 
 \section{Making mobile apps}
@@ -46,8 +212,6 @@ Books:
 
 \textbf{Development practices}
 
-Advertising in apps: 
-
 \textbf{Testing practices}
 
 \textbf{Code Quality: Static Analysis}
@@ -62,7 +226,7 @@ When to release an app:
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Earlier material follows %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Android, given its mainly opensource codebase and popularity as a platform (Number 1 globally) is also well researched with 53 papers on the topic at ICSE 2020 and related conferences and workshops \href{https://conferences.computer.org/icse/#!/search}{ICSE 2020 Search Page}, whereas only 3 papers were on the also extremely popular iOS platform at the same set of conferences and workshops.
+
 
 \begin{figure}[htbp!]
     \centering
@@ -71,9 +235,8 @@ Android, given its mainly opensource codebase and popularity as a platform (Numb
     \label{fig:related_works_ishikawa_diagram}
 \end{figure}
 
-Ishikawa diagrams, also known as fishbone diagrams, can help illustrate the relationships and relevance of various topics to the overall objective. Figure~\ref{fig:related_works_ishikawa_diagram} is an example of an Ishikawa diagram for Service Support, with the aim of providing [good] quality air travel service~\cite{itil_ishikawa_example}. 
-\akb{No need to provide a separate example of an Ishikawa diagram - you can explain the diagram features / notation using the diagram you've produced for your research. }
-%%%%%%%%%%%%
+Ishikawa diagrams, also known as fishbone diagrams, can help illustrate the relationships and relevance of various topics to the overall objective.\unsure{I could modify this diagram to include the 6 perspectives on the right-hand side - would this help the reader sufficiently to be worth doing? Note: the topics need revising and redrawing} 
+
 % Learn more about Ishikawa diagrams
 % https://www.moresteam.com/toolbox/fishbone-diagram.cfm 
 
@@ -495,7 +658,6 @@ Nonetheless, several facets are able to be tracked remotely for mobile apps, an 
 
 There are well-established tools, techniques and practices for recording the time taken. Many of the tools are suited to use locally and directly by a developer, including Memory, App, and Network Profilers~\footnote{\url{https://developer.android.com/studio/profile\#android-studio-tools}}.For remote measurements the tools include Google's Android Vitals and Firebase Performance Monitoring\footnote{\url{https://firebase.google.com/docs/perf-mon}}.
 
-User experience (UX) can be assessed using a wide variety of tools and techniques, such as heatmapping (which uses screen and/or interaction recording), A/B testing frameworks, funnel and journey analytics, and so on. By their very nature they're user-focused and - in practice - seldom incorporated into mobile apps or development practices for mobile apps. Similarly, based on my investigations, they are seldom researched although I have co-written work on this topic including examples of using heatmapping to improve usability of mobile apps~\cite{harty_aymer_playbook_2016}. Superficial research has been published to assess the events recorded by one of the heatmapping analytics tools - Appsee~\citep{yildirim2019_ux_analytics_for_android_platforms}. For those interested in developing a d-i-y approach to heatmapping there are a couple of options available including, the Caret-HM project~\footnote{\url{https://github.com/stlab-unt/Caret-HM}} that uses a web interface to interact with an Android emulator to record touchscreen interactions for apps installed on the emulator. The research is described in~\citep{nurmuradov2017_caret-hm-heatmapping-android-emulator}. It may be useful for small scale heatmapping however the combination of using a web interface with an emulator rather than actual Android devices limits the realism and the scale of the approach.
 
 \subsection{Development Logging}
 Consider a 2D matrix of use of logging (amount, choice of library and API, formatting and customisation), and the range of the logging (local<->logging at a distance). Papers such as \emph{A Methodology and Framework to Simplify Usability Analysis of Mobile Applications}~\url{https://doi.org/10.1109/ASE.2009.12}. Remember to cover this topic in the work we did on logging (And the recent Shonan work). Mention the Shonan workshop in this section too.
@@ -609,80 +771,6 @@ Topics include: Agile development and the effects of the software that's develop
     \item Who tests the software developers use? for instance the many APIs and libraries? Flaws in this software, created by others, may affect the development teams and the users of their software products, amongst others. This software will include proprietary code and will probably include opensource code, perhaps pre-packaged as libraries of binary code. Some of that software may be poorly maintained, and yet the quality of that software may adversely affect the quality of the code using it. 
 \end{itemize}
 
-\section{App Stores and their Effects on Software Development and Engineering}
-The concept of an App Store has existed since at least 2003, according to the co-founder and CEO of Salesforce~\cite{benioff_trailblazer_2019}, where the idea was proposed by Steve Jobs and later implemented as \href{https://appexchange.salesforce.com/}{\emph{AppExchange}} in the Salesforce platform. Around the same period various app stores emerged for mobile apps~\footnote{Tens of app distribution platforms are listed on Wikipedia:~\href{https://en.wikipedia.org/wiki/List_of_mobile_app_distribution_platforms}{List\_of\_mobile\_app\_distribution\_platforms}}; and the concept seems to have been introduced around 1999 by Handandgo~\footnote{\url{https://en.wikipedia.org/wiki/Handango}}. Academic research into the effects of app stores emerged in or around 2010, for instance with the work of Kimbler who investigated the effects on mobile operators from a business strategy perspective~\cite{kimbler_app_store_strategies_2010} (who lost out in the overall battle of app stores, now platform specific app stores dominate the market). 
-
-Also in 2010, early papers were published on various effects of app stores on academic research e.g. how app stores addressed some of the previous constraints such as reaching more users and facilitating the distribution of the apps and feedback from those users~\cite{cramer2010_research_in_the_large_app_stores, miluzzo2010research_in_the_app_store_era}. 
-
-\begin{itemize}
-    \item Cramer \emph{et al} discussed aspects of \emph{research in the large} and in particular for my research the importance of ``playing by the rules"~\cite{cramer2010_research_in_the_large_app_stores}. My research was also shaped to play by the rules of the app store.
-
-    \item Miluzzo \emph{et al} introduced other relevant research aspects, \textit{i.e.}  ongoing concerns such as how to assess correctness when there is no \emph{``ground truth"} - a challenge when evaluating mobile analytics for shipping apps; and a software development model of \textit{``deploy-use-refine"}~\cite{miluzzo2010research_in_the_app_store_era}, where app development refines the app based on data gleaned from usage of the app. Our case studies used usage data to refine the app to improve the measured reliability of the apps. Their paper even explained how a silly mistake caused their app to crash where the app store then delayed the new release of the app by several weeks. Even in 2010 crashes adversely affected the app store's perception of an app. % Their work on CenseMe received an ACM Test of Time award, see https://www.cs.dartmouth.edu/~campbell/page-3/
-\end{itemize}
-
-\subsection{Papers to consider}
-\begin{itemize}
-    \item \emph{``App store effects on software engineering practices"}~\citep{alsubaihin2019app_store_effects_on_software_engineering}. \emph{``While automatic in-app crash reporting is the most prolific channel of reporting bugs, the one mostly prioritised by our respondents is user reviews in app stores."} - what are the effects of the crashes being a lower priority than user reviews? They don't discuss other sources of crash reports (e.g. platform crash reporting).
-    
-    \item \emph{``A survey of app store analysis for software engineering"}~\cite{martin2016survey, martin2017_survey_in_app_store_analysis_for_software_engineering_IEEE_edition}.
-    
-    \item \emph{``Why people hate your app: Making sense of user feedback in a mobile app store"}~\cite{fu2013people}. A key paper, many citations (some also highly relevant).
-    
-    \item \emph{``Analyzing and Automatically Labelling The Types of User Issues that are Raised in Mobile App Reviews"}~\cite{mcilroy2016analyzing} - discusses crashes, crash libraries, analytics, relatively early paper on the topic.
-    
-    \item \emph{``Revisiting the Mobile Software Ecosystems Literature"}~\cite{steglich2019revisiting} Helps to define what an ecosystem is.
-    
-    \item \emph{``Beyond Google Play: A large-scale comparative study of Chinese Android app markets"}~\cite{wang2018_beyond_google_play}.
-    
-    \item \emph{``Measurement, modeling, and analysis of the mobile app ecosystem"}~\cite{petsas2017measurement}.
-    
-    \item \emph{``A Measurement-based Study on Application Popularity in Android and iOS App Stores"}~\cite{liu2015measurement}.
-    
-    \item \emph{``Understanding the Evolution of Mobile App Ecosystems: A Longitudinal Measurement Study of Google Play"}~\cite{wang2019understanding} (2019): Lots of interesting questions and observations about Google Play; but they don't seem to consider flaws, or the effects of flaws, in the app store's data collection, algorithms, etc.
-    
-    \item \emph{``Release Practices for Mobile Apps--What do Users and Developers Think?"}~\cite{nayebi2016release}.
-    
-    \item \emph{``Towards Release Strategy Optimization for Apps in Google Play"}~\citep{shen2017_towards_release_strategy_optimization_for_apps_in_google_play}. ``empirical study to help developers decide the release opportunity to maximize positive feedback from users at scale.". They identify three patterns of update intervals: successive, normal, sparse. Their work does not use signals such as the stability of the app. They also claim ``Additionally, app quality can be unstable with fast [release] iteration[s]."
-    
-    \item \emph{``Determinants of Mobile Apps' Success: Evidence from the App Store Market"}~\citep{lee2014_determinants_of_mobile_app_success_evidence_from_the_app_store_market} Survivorship for apps, hazard models, quality updates one of the topics in the paper. iOS - Apple App Store. A focus on sellers rather than app developers. Figure 1, sustainability of app sales: empirical approach. 4 Hazard models App Quality update (App\_quality\_update): \emph{``1 if an app’s quality indicators were updated (adding more app features or fixing bugs)"}. Survivorship in the app store ecosystems and what devs can do to increase their app's survival. Seller [app developer]-level decisions, app-level decisions, user response to the decisions. It doesn't discuss app store algorithms or their effects. c.f. the more recent articles on iTunes rankings of apps from Medium.com~\citep{lotan2015_apple_apps_and_algorithmic_glitches, lotan2015_apples_app_charts}.
-    
-    \item \emph{``Feature lifecycles as they spread, migrate, remain, and die in App Stores"}~\cite{sarro2015_feature_lifecycles_in_appstores} discusses \emph{adaptive development} as a concept for developers of apps in app stores. Notes: Their research is based on `non-free features from two app stores (Samsung and Blackberry)' (both relatively dwarfed by Google Play) and their work predates the availability of platform level analytics, etc. Relevance to my work: developers can obtain requirements (in terms of work they're potentially `required' to do) from many sources, including direct feedback from end users of the apps, signals in terms of willingness to install and keep using their app, and from analytics. Developers want and increase the value of their work by prioritising potential work appropriately. Signals and data from mobile analytics may provide useful, additional sources of information that's sufficiently relevant for developers to accept these `requirements' and address them.
-    
-    \item \emph{``Which version should be released to app store?"}~\cite{nayebi2017version}.
-    
-    \item \emph{``Modern release engineering in a nutshell - why researchers should care"}~\cite{adams2016modern}.
-    
-    \item The \emph{``Data analytics for decision support in software release management"}~\cite{didar2018data_analytics_phd_thesis}, a PhD thesis, introduces a proposed Plan-Monitor-Improve Framework for release management.
-    
-    \item \emph{"An Explorative Study of the Mobile App Ecosystem from App Developers' Perspective"}~\cite{wang2017_exploratory_study_of_the_mobile_app_ecosystem}: 1,000,000+ apps on Google Play, 320,000 developers, over half of the developers only released a single app. The paper mainly focuses on the \emph{"the group of aggressive developers who have released more than 50 apps, trying to understand how and why they create so many apps"}. Provides some context on who writes the mobile apps in Google Play, provides an estimate of the population of developers (in 2017).
-    
-    \item \emph{``Requirements Intelligence: On the Analysis of User Feedback"}~\cite{stanik2020requirements_intelligence_on_the_analysis_of_user_feedback}. continuous sources for requirements-related information; comparison between explicit and implicit user feedback (like app usage data).
-    
-    \item \emph{``Are apps ready for new Android releases?"}~\cite{guilardi_are_apps_ready_for_new_android_releases}. A current (2020) paper where the researchers discovered that developers are slow to revise and update their Android apps for new releases of the operating system. Some of the apps have flaws exposed when running on new versions of the operating system. For apps to retain their quality they need to be updated, new releases of the operating system are one such reason. (Releases of libraries another, new contexts of use, etc. another...).
-    
-    \item \emph{``Revisiting Prior Empirical Findings For Mobile Apps: An Empirical Case Study on the 15 Most Popular Open-Source Android Apps"}~\citep{syer2013_empirical_findings_for_mobile_apps} is work from 2013 (when Google Code was still a major active public source code repository) that compares the codebases of 15 opensource mobile apps with 5 other opensource desktop/server projects. A key finding in their research includes the development process - where there are frequent releases yet the development and release processes are immature. albeit based on codebases from 2011 so a decade ago is still relevant. They ask various open-ended questions:
-    \begin{itemize}
-        \item Does such a high frequency of releases mitigate the lack of testing? 
-        \item If there are frequent releases for the mobile app, then does quality matter as much?
-        \item Is the project in a constant beta testing state? 
-        \item Does the platform provide sufficient support for building high quality apps quickly? 
-        \item Is the frequent release only influenced by the demand factor in the app store? 
-        \item Are the developers of mobile apps more skilled or do they have more resources at hand? 
-        \item Or, are mobile apps themselves less complex to develop?
-    \end{itemize}
-    
-    Perhaps the cost of failures in the app store was/is perceived to be low in the Google Play app store, at least for these 15 opensource apps? Later work investigated aspects such as the release frequency~\citep{nayebi2016release}
-    
-    \item Both Medium articles by Gilad Lotan in 2015 on Apple's App Store rankings provide intersting colour to the discussion of the rankings over time~\citep{lotan2015_apple_apps_and_algorithmic_glitches, lotan2015_apples_app_charts}; however they're not directly relevant to software development practices so might not be that relevant.
-    
-\end{itemize}
-
-
-App Stores behave as intermediaries between developers and the users of their software. They make various aspects more transparent including pricing, information about the apps, releases, and ratings \& reviews. There are hundreds of thousands of developers of Android apps according to various sources (320,000 in 2017~\cite{wang2017_exploratory_study_of_the_mobile_app_ecosystem}, ...).
-
-
-In an App Store first the developer then the app store are involved in making a release available to some or all of the user population. There are various competing factors that affect when would be a good time to make a release. Too few and an app may be considered stale or neglected, too many and users may balk at the seemingly endless updates and communications costs. Groups of researchers have investigated various aspects of release engineering, including~\cite{adams2016modern} that argues the relevance of modern release engineering and the relevance for researchers, and~\cite{nayebi2017version} which concentrates on which version of opensource apps should have been released to the app store. Developers, and their stakeholders, want to make more informed decisions about which releases to make; however there does not appear to have been much research into the testing and quality indicators available to app developers before they make their release public.
-
 
 \section{Developing Mobile Apps}
 
@@ -715,7 +803,7 @@ Their research excluded various factors that also affect robustness, in particul
 
 In the work of~\citep{khalid2015_what_do_mobile_app_users_complain_about} the authors note that iOS apps with frequent functional errors or crashes are more likely to be rated poorly in the app store. Their work did not extend to Android apps, however it seems reasonable that errors and crashes in Android apps would also lead to lower ratings in the app store, and conversely Google states that~\emph{``Performance and stability are directly linked to positive ratings on Google Play."}~\citep{android_vitals_best_practices}.
 
-\textbf{MUST-DO} write about the fault-proneness paper reference on Android APIs~\citep{linares2013_api_change_and_fault_proneness_android}.
+\textbf{MUST-DO} write about the fault-proneness paper reference on Android APIs: one source that causes crashes is the revision of APIs used by Android apps~\citep{linares2013_api_change_and_fault_proneness_android}.
 % via Oliveria... 
 % Linares-Vásquez et al. (2013) investigated the relation between the success of Android applications (in terms of user ratings) and the change- and fault-proneness of the underlying APIs. They have computed bug fixes and changes in the interfaces, implementation and exception handling of 7.097 Android applications belonging to different domains. They found that APIs used by successful apps (high user ratings) are significantly less change- and fault-proneness than APIs used by unsuccessful apps. In terms of changes to the set of exceptions thrown by methods, the study did not observe any significant difference between different levels of rating.
 

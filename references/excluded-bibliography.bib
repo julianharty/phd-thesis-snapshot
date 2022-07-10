@@ -612,3 +612,112 @@
 	    This paper might fit better with Developer Experience (DevEx).
 	}
 }
+
+@misc{samsung_hossain2019_seven_mistakes_to_avoid_when_developing_for_the_galaxy_fold,
+  title = {Seven Mistakes To Avoid When Developing For The Galaxy Fold},
+  url = {https://developer.samsung.com/sdp/blog/en-us/2019/04/05/seven-mistakes-to-avoid-when-developing-for-the-galaxy-fold},
+  author = {Md. Iqbal Hossain},
+  year = {2019},
+  publisher = {Samsung Developers},
+  exclusion_rationale = {
+    I think the article is too specific to the Samsung foldable devices to provide much insight beyond the specific instances where crashes could occur in poorly written Android apps where the crashes are triggered by the device being folded.
+  }
+}
+
+@article{Weichbroth_Baj-Rogowska_2019, 
+    title={Do online reviews reveal mobile application usability and user experience? The case of WhatsApp}, 
+    volume={Vol. 18}, 
+    ISSN={2300-5963}, 
+    url={http://yadda.icm.edu.pl/baztech/element/bwmeta1.element.baztech-450fdfaf-caa5-4cc4-a644-8ff85d9744e7}, 
+    journal={Annals of Computer Science and Information Systems}, 
+    author={Weichbroth, Paweł and Baj-Rogowska, Anna}, 
+    year={2019}, 
+    pages={747–754},
+    doi = {10.15439/2019F289},
+    abstract = {
+        The variety of hardware devices and the diversity of their users imposes new requirements and expectations on designers and developers of mobile applications (apps). While the Internet has enabled new forms of communication platform, online stores provide the ability to review apps. These informal online app reviews have become a viral form of electronic word-of-mouth (eWOM), covering a plethora of issues. In our study, we set ourselves the goal of investigating whether online reviews reveal usability and user experience (UUX) issues, being important quality-in-use characteristics. To address this problem, we used sentiment analysis techniques, with the aim of extracting relevant keywords from eWOM WhatsApp data. Based on the extracted keywords, we next identified the original users' reviews, and individually assigned each attribute and dimension to them. Eventually, the reported issues were thematically synthesized into 7 attributes and 8 dimensions. If one asks whether online reviews reveal genuine UUX issues, in this case, the answer is definitely affirmative.
+    },
+    exclusion_rationale = {
+        Only 399 reviews were collected from Google Play, which seems a minute proportion of those for the WhatsApp app, which has 166 million reviews according to https://play.google.com/store/apps/details?id=com.whatsapp&hl=en_GB&gl=US on 09 July 2022. The paper seems to have simplistic conclusions e.g. eWOW works!
+    }
+}
+
+@INPROCEEDINGS{8860063,  
+    author={Weichbroth, Paweł and Baj-Rogowska, Anna},  
+    booktitle={2019 Federated Conference on Computer Science and Information Systems (FedCSIS)},  
+    title={Do Online Reviews Reveal Mobile Application Usability and User Experience? The Case of WhatsApp},   
+    year={2019},  
+    volume={}, 
+    number={}, 
+    pages={747-754},  
+    abstract={
+        The variety of hardware devices and the diversity of their users imposes new requirements and expectations on designers and developers of mobile applications (apps). While the Internet has enabled new forms of communication platform, online stores provide the ability to review apps. These informal online app reviews have become a viral form of electronic word-of-mouth (eWOM), covering a plethora of issues. In our study, we set ourselves the goal of investigating whether online reviews reveal usability and user experience (UUX) issues, being important quality-in-use characteristics. To address this problem, we used sentiment analysis techniques, with the aim of extracting relevant keywords from eWOM WhatsApp data. Based on the extracted keywords, we next identified the original users' reviews, and individually assigned each attribute and dimension to them. Eventually, the reported issues were thematically synthesized into 7 attributes and 8 dimensions. If one asks whether online reviews reveal genuine UUX issues, in this case, the answer is definitely affirmative.
+    },  
+    keywords={},  
+    doi={10.15439/2019F289},  
+    ISSN={2300-5963},  
+    month={Sep.},
+    exclusion_rationale = {
+        A repeat of the above reference, I found that one first.
+    }
+}
+
+@inproceedings{10.1145/3377811.3380328,
+    author = {Bernal-C\'{a}rdenas, Carlos and Cooper, Nathan and Moran, Kevin and Chaparro, Oscar and Marcus, Andrian and Poshyvanyk, Denys},
+    title = {Translating Video Recordings of Mobile App Usages into Replayable Scenarios},
+    year = {2020},
+    isbn = {9781450371216},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3377811.3380328},
+    doi = {10.1145/3377811.3380328},
+    abstract = {Screen recordings of mobile applications are easy to obtain and capture a wealth of information pertinent to software developers (e.g., bugs or feature requests), making them a popular mechanism for crowdsourced app feedback. Thus, these videos are becoming a common artifact that developers must manage. In light of unique mobile development constraints, including swift release cycles and rapidly evolving platforms, automated techniques for analyzing all types of rich software artifacts provide benefit to mobile developers. Unfortunately, automatically analyzing screen recordings presents serious challenges, due to their graphical nature, compared to other types of (textual) artifacts. To address these challenges, this paper introduces V2S, a lightweight, automated approach for translating video recordings of Android app usages into replayable scenarios. V2S is based primarily on computer vision techniques and adapts recent solutions for object detection and image classification to detect and classify user actions captured in a video, and convert these into a replayable test scenario. We performed an extensive evaluation of V2S involving 175 videos depicting 3,534 GUI-based actions collected from users exercising features and reproducing bugs from over 80 popular Android apps. Our results illustrate that V2S can accurately replay scenarios from screen recordings, and is capable of reproducing ≈89\% of our collected videos with minimal overhead. A case study with three industrial partners illustrates the potential usefulness of V2S from the viewpoint of developers.},
+    booktitle = {Proceedings of the ACM/IEEE 42nd International Conference on Software Engineering},
+    pages = {309–321},
+    numpages = {13},
+    keywords = {screen recordings, bug reporting, object detection},
+    location = {Seoul, South Korea},
+    series = {ICSE '20},
+    exclusion_rationale = {
+        Their work is interesting and may be useful to help reproduce bugs that have been previously videoed, they do not investigate mobile analytics and nor does their approach suit working at a global app-store scale or for measuring the experiences of the majority of userbases. Screen recordings are not in widescale use, and in my experience their use is declining for mobile apps rather than becoming more prevalent so this work - while of interest for narrower, specific bug reproduction, etc. isn't likely to be adopted by mainstream app developers. This leaves aside additional topics such as complying with regulations such as GDPR.
+    }
+}
+
+@inproceedings{nurmuradov2017_caret-hm-heatmapping-android-emulator,
+    author = {Nurmuradov, Dmitry and Bryce, Renee},
+    title = {Caret-HM: Recording and Replaying Android User Sessions with Heat Map Generation Using UI State Clustering},
+    year = {2017},
+    isbn = {9781450350761},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3092703.3098231},
+    doi = {10.1145/3092703.3098231},
+    abstract = {The Caret-HM framework allows Android developers to record and replay user sessions and convert them into heatmaps. One advantage of our framework over existing solutions is that it allows developers to control the environment while simplifying the recording process by giving users access to their applications via a web browser. The heatmap generation using Android user sessions and clustering UI states is a unique feature of our framework. Heat maps allow developers to identify the usage of application features for testing and guiding business decisions. We provide a qualitative comparison to the existing solutions. The video with demonstration is available at https://www.youtube.com/watch?v=eMSNAKM1Bj4},
+    booktitle = {Proceedings of the 26th ACM SIGSOFT International Symposium on Software Testing and Analysis},
+    pages = {400–403},
+    numpages = {4},
+    keywords = {Android, Heat Map, Web-based Android Emulator, Mobile, User Sessions},
+    location = {Santa Barbara, CA, USA},
+    series = {ISSTA 2017},
+    exclusion_rationale = {
+        Firstly it's demonstrated with Android emulators rather than real-world devices. Secondly it uses a toy demo app rather than real-world apps. This is too far removed from the world of app developers.
+    }
+}
+
+
+@inproceedings{yildirim2019_ux_analytics_for_android_platforms,
+  title={User Experience Analytics for Android Platforms},
+  author={Y{\i}ld{\i}r{\i}m, {\.I}lkan},
+  pages = {553--555},
+  booktitle={ISAS2019-ENS - 3rd International Symposium on Innovative Approaches in Scientific Studies (Engineering and Natural Sciences)},
+  url = {http://www.set-science.com/manage/uploads/ISAS2019-ENS_0042/SETSCI_ISAS2019-ENS_0042_00105.pdf},
+  year = {2019},
+  publisher = {SET Technology - Turkey},
+  more_info = {http://www.set-science.com/index.php?go=d1001a2417e2b87d5b7c53e16c5e1675&conf_id=42&paper_id=105},
+  volume = {4},
+  address = {Ankara, Turkey},
+  commentz = {This does not appear to be structured or run as a IEEE/ACM style conference and the citation is hard to ascertain.},
+  exclusion_rationale = {
+    From memory this paper was quite weak and given the lack of clarity of the extent of this being a peer-reviewed work, etc. it's unlikely to be a reference to depend on. Also the topic involves the use of AppSee and heatmapping which I've decided is too impractical for mainstream app developers to adopt (as discussed in my related works chapter).
+  }
+}

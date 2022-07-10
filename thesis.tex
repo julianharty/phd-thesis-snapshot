@@ -63,14 +63,22 @@
 \pagenumbering{arabic}
 %
 \input{mainchapters/introduction}
-
-%\input{DeviceSelection.tex}
-%\input{OnTestingForMobileApps.tex}
-
-\input{mainchapters/related-work}
 \input{mainchapters/a-grounding-in-the-domain}
-\input{mainchapters/methodology}
-\input{empirical-studies/case-studies}
+\input{mainchapters/related-work}
+%\input{mainchapters/methodology}
+\input{mainchapters/methodology-for-marian}
+\input{mainchapters/case-studies-overview}
+
+%\input{empirical-studies/case-studies}
+
+\begin{comment}
+\end{comment}
+\input{mainchapters/analytics-in-use}
+\input{mainchapters/apps-and-their-artefacts}
+\input{mainchapters/tools-and-their-artefacts}
+% \input{mainchapters/discussion}
+
+
 \input{mainchapters/code-needed}
 \input{mainchapters/findings-results}
 
@@ -89,6 +97,7 @@
 %\input{catrobat-case-study.tex}
 % Grey literature - non peer-reviewed e.g. commercial. 
 \backmatter
+\renewcommand{\bibname}{References}  % See https://tex.stackexchange.com/questions/631139/change-standard-name-of-the-bibliography-in-memoir-class
 \bibliographystyle{ACM-Reference-Format}
 \refstepcounter{chapter}
 \label{the-bibliography-follows}
@@ -100,7 +109,7 @@
 %\appendix
 % \setcounter{chapter}{-1}
 \chapter{Meta materials - not part of the final thesis}
-
+\input{appendicies/thematic-analysis}
 \input{meta-chapters/meta-chapter-introduction}
 \input{meta-chapters/inventories}
 \input{meta-chapters/the-red-thread}
