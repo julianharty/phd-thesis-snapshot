@@ -1,6 +1,88 @@
 \chapter{Insufficiently related works}
 These are outtakes from the related works chapter as they're insufficiently related to the core thesis to be included there. And yet, these topics are potentially relevant so could be re-included as needed in the main thesis or in future publications on related topics.
 
+
+\section{Topics to include in this chapter}
+The following hierarchical list includes topics I planed to include in the related works chapter. As they're here then at least some of them have been removed from that chapter :)
+
+
+\begin{itemize}
+    \item An overview on~\href{software.quality}{\emph{software quality}} including various viewpoints of quality e.g. Gerry Weinberg):
+    \begin{itemize} 
+        \item Nomenclature including multiple competing definitions of various NFRs. Mention ISO standards, \citep[Chapter 5]{chung2000_non_functional_requirements_in_software_engineering} on not prescribing relationships or the terms as their approach is intended to help the developers rather than dictate.
+        \item Software defects, faults and failures~\hyperlink{defects.faults.failures}{\emph{link}}
+        \item Bug investigation and localisation
+        \item QoE: Quality of Experience
+        \item Classic references e.g. Phadke~\citep{phadke1995_quality_engineering_using_robust_design} and perhaps Non-functional requirements in Software Engineering? 
+        \item relevant / related academic research in my field
+        \item Reliability. Introduced in ~\hyperlink{software.quality}{Software Quality}, and then expanded in a subsection~\hyperlink{software.reliability}{\emph{here}}
+        \item Then focus on stability (as used by HP and then Google) encompassing reliability, freezes, etc.
+        \item Discuss MTBF, usage paths and profiles and their effects on the measured values
+        \item Maslow's hierarchy of needs where reliability is one of the base levels, yet vital. c.f Sommerville.
+    \end{itemize}
+    \item Measurement and Analytics
+    \begin{itemize}
+        \item Views from outside software engineering e.g. how to measure anything book
+        \item Logging
+        \item Telemetry
+        \item Software Analytics e.g. Buse and Zimmermann
+        \item Software Analytics tools and concepts e.g. free the data.
+        \item Sources and mechanisms for collecting data and information about mobile apps
+        \begin{itemize}
+            \item Human-centric sources e.g. ratings and reviews. Perhaps also discuss some of the flaws and limitations either here or in the 'caveats...' section later?
+            \item Perhaps also consider in-app feedback c.f. the Mobile Twin Peaks paper?
+            \item Alpha, Beta, Crowd, and other forms of testing with subsets of a population.
+            \item Program-centric sources e.g. logging, crash reporting libraries, analytics libraries, platform-level observations.
+        \end{itemize}
+        \item Using Data
+        \item Privacy and Control
+    \end{itemize}
+    \item Software Development Practices
+    \begin{itemize}
+        \item Agile development and the effects on the software that is developed and released.
+        \item Motivations for/of software developers.
+    \end{itemize}
+    \item Software Testing
+    \begin{itemize}
+        \item Schools of Software Testing? Old work that might help set the scene
+        \item Classic references on software testing e.g. Boris Beizer
+        \item using testing to measure quality and measuring software testing e.g. effectiveness.
+    \end{itemize}
+    \item App Stores and their effects on software development and engineering
+    \begin{itemize}
+        \item App Stores as ecosystems
+        \item Release Planning (c.f DevOps and Release Engineering (including Shonan)
+        \item Ratings and Reviews
+        \item Google Play (and other Android app stores)
+    \end{itemize}
+    \item Developing mobile apps
+    \begin{itemize}
+        \item Single and multi-platform approaches
+        \item A brief history of mobile app development
+        \item Various species of bugs that affect mobile apps
+    \end{itemize}
+    \item Testing of Mobile Apps (this might be a distinct section in the Related Works as it's a rich topic). Do we care about testing of mobile apps that predates app store ecosystems?
+    \begin{itemize}
+        \item Automated testing frameworks and tools
+        \item Testing practices (from both research and practical perspectives)
+        \item Test Oracles
+        \item Device Selection (as one aspect of testing for bug identification and investigation)
+        \item Testing by crowds
+        \item Measuring the efficacy of testing
+    \end{itemize}
+    \item Mobile Analytics~\hyperlink{mobile.analytics}{\emph{link}}
+    \begin{itemize}
+        \item types and sources of mobile analytics (also refer to appendix)
+        \item Using Mobile Analytics to assess app behaviours
+    \end{itemize}
+    \item Caveats, constraints, flaws, limitations
+    \begin{itemize}
+        \item For instance on blind-spots, excessive trust and the ironies of automation. 
+        \item Using crashes, ANRs, etc. as the test oracle - what will we miss if we only consider these aspects? how relevant is what we miss and what can we do to fill in some of the gaps?
+    \end{itemize}
+    \item Has anyone else published in my areas of research?
+\end{itemize}
+
 \section{In-app advertising}
 While advertising in apps has been extensively researched the connection with mobile analytics is indirect. What they may share are:
 \begin{itemize}
@@ -12,3 +94,51 @@ While advertising in apps has been extensively researched the connection with mo
 
 \section{Heatmapping}
 User experience (UX) can be assessed using a wide variety of tools and techniques, such as heatmapping (which uses screen and/or interaction recording), A/B testing frameworks, funnel and journey analytics, and so on. By their very nature they're user-focused and - in practice - seldom incorporated into mobile apps or development practices for mobile apps. Similarly, based on my investigations, they are seldom researched although I have co-written work on this topic including examples of using heatmapping to improve usability of mobile apps~\cite{harty_aymer_playbook_2016}. Superficial research has been published to assess the events recorded by one of the heatmapping analytics tools - Appsee~\citep{yildirim2019_ux_analytics_for_android_platforms}. For those interested in developing a d-i-y approach to heatmapping there are a couple of options available including, the Caret-HM project~\footnote{\url{https://github.com/stlab-unt/Caret-HM}} that uses a web interface to interact with an Android emulator to record touchscreen interactions for apps installed on the emulator. The research is described in~\citep{nurmuradov2017_caret-hm-heatmapping-android-emulator}. It may be useful for small scale heatmapping however the combination of using a web interface with an emulator rather than actual Android devices limits the realism and the scale of the approach.
+
+
+\section{Software development practices}
+\subsection{Papers to consider on software development practices}
+\begin{itemize}
+    \item \emph{A systematic review of theory use in studies investigating the motivations of software engineers}~\citep{hall2009systematic}.
+    \item \emph{Designing Engineering Onboarding for 60+ Nationalities}~\citep{harty2020_designing_engineering_onboarding}. Onboarding software developers and staff generally also includes exceptions and exception handling. These exceptions can be collected and analysed to determine where the onboarding is failing. Again there can be the concept of non-fatal and fatal exceptions. Fatal exceptions shouldn't happen ideally, there are mechanisms to handle them adequately in terms of error recovery, however we'd like to know about them and address them.
+    \item \emph{Enabling Productive Software Development by Improving Information Flow}~\citep{murphy_enabling_2019}. 
+    \begin{itemize}
+        \item ``The flow of information among software developers is directly related to productivity."
+        \item ``When the flow of information is adequately supported, delivery times on software can be shortened, and productivity within an organization can rise."
+    \end{itemize}
+    \item \emph{Continuous delivery sounds great, but will it work here?}~\citep{humble2018_continuous_delivery_sounds_great}. 
+    \begin{itemize}
+        \item ``Continuous delivery is about reducing the risk and transaction cost of taking changes from version control to production. Achieving this goal means implementing a series of patterns and practices that enable developers to create fast feedback loops and work in small batches. This, in turn, increases the quality of products, allows developers to react more rapidly to incidents and changing requirements and, in turn, build more stable and higher-quality products and services at lower costs."
+        \item ``If this sounds too good to be true, bear in mind: continuous delivery is not magic. It's about continuous, daily improvement at all levels of the organization—the constant discipline of pursuing higher performance. As presented in this article, however, these ideas can be implemented in any domain; this requires thoroughgoing, disciplined, and ongoing work at all levels of the organization. Particularly hard, though essential, are the cultural and architectural changes required."
+    \end{itemize}
+    
+\end{itemize}
+
+
+\section{Software Testing}
+
+\subsection{Papers to consider}
+\begin{itemize}
+    \item TBC
+    \item \emph{``Debugging without testing"}~\cite{ghardallou2016debugging_without_testing} It may be possible to demonstrate a bug has been fixed without testing, for instance by comparing behaviours before and after changes were made to the software. This paper's premise of being able to debug without testing held true in some of my research. Testing has not able to reproduce all the conditions needed for some bugs to emerge. Other information, such as stack traces, may help developers perceive likely causes of a bug, such as a crash, sufficiently for the developers to take what they believe is corrective action.  
+    
+    \item ~\emph{`Communication in Testing: Improvements for Testing Management'}~\citep{paakkonen2009_communication_in_testing}: 
+    \begin{itemize}
+        \item Three quality approaches: mapping of process, product, and quality-in-use => three perspectives: software engineer (developer), testing, and end-user. The first two are easier to measure for a software company, yet the quality-in-use is the most important for any product. \textbf{TBC}
+    \end{itemize}
+    
+    \item Behaviourally Adequate Software Testing \url{https://leicester.figshare.com/articles/Behaviourally_Adequate_Software_Testing/10106189} - Behavioural Coverage, search-based white-box generation strategies. Measures of testing adequacy. \emph{One intuitive notion of adequacy, which has been discussed in theoretical terms over the past three decades, is the idea of behavioural coverage; if it is possible to infer an accurate model of a system from its test executions, then the test set must be adequate.} IIRC the programs they assess are tiny, and how can we determine 'accurate model', perhaps it'll be accurate for what it tests, but incomplete? "The truth, \emph{the whole truth}, and nothing but the truth" springs to mind. % See also Uncertainty-Driven Black-Box Test Data Generation (seems less relevant to my research) and Assessing Test Adequacy for Black-Box Systems Without Specifications (perhaps more relevant).
+    
+    \item Various papers listed on \url{https://testroots.org/publications.html} which focus on IDE measurements of developers running automated tests, CI and tests~\emph{``Oops, My Tests Broke the Build: An Explorative Analysis of Travis CI with GitHub"}, and code quality correlations between test and system code.
+    
+    \item "Probably approximately correct learning" however it seems to be unrealistic and impractical for shipping mobile app development teams.
+\end{itemize}
+
+
+\subsection{Record and Playback - extends logging for various purposes}
+\newthought{Record and replay/playback}
+Recreate the `journey' (however relevant context may be missing or different and therefore affect the results and conclusions). Various reasons why recreating the journey is desirable e.g. to reproduce failures to help understand their characteristics and causes, to learn indirectly by observing and visualising the journey. \emph{c.f.} heatmapping. Record and replay offers the possibility of moving beyond using breadcrumbs as it is intended to record sufficient information to reproduce the use of an app. However there are various limitations in the tooling, the techniques, and at least as importantly the unacceptability of recording end user sessions on their devices using production releases of apps downloaded from the app store. 
+
+\newthought{Prior art in record and replay/playback}
+\textit{FYI This will be moved to the Related Work chapter}
+TBC

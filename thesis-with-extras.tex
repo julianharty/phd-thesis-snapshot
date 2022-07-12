@@ -70,13 +70,19 @@
 \input{meta-chapters/actions.tex}
 
 \input{mainchapters/introduction}
-
-%\input{DeviceSelection.tex}
-%\input{OnTestingForMobileApps.tex}
-
-\input{mainchapters/related-work}
 \input{mainchapters/a-grounding-in-the-domain}
+\input{mainchapters/related-work}
+%\input{mainchapters/methodology}
+\input{mainchapters/methodology-for-marian}
+
 \input{empirical-studies/case-studies}
+\input{mainchapters/case-studies-overview}
+
+\input{mainchapters/analytics-in-use}
+\input{mainchapters/apps-and-their-artefacts}
+\input{mainchapters/tools-and-their-artefacts}
+
+
 \input{mainchapters/code-needed}
 \input{mainchapters/findings-results}
 
@@ -91,10 +97,12 @@
 \input{mainchapters/conclusions}
 \input{mainchapters/future-work}
 
+
 %\input{fieldstones.tex}
 %\input{catrobat-case-study.tex}
 % Grey literature - non peer-reviewed e.g. commercial. 
 \backmatter
+\renewcommand{\bibname}{References}  % See https://tex.stackexchange.com/questions/631139/change-standard-name-of-the-bibliography-in-memoir-class
 \bibliographystyle{ACM-Reference-Format}
 \refstepcounter{chapter}
 \label{the-bibliography-follows}
@@ -103,6 +111,7 @@
 
 % \clearemptydoublepage
 %\appendix
+\input{appendicies/thematic-analysis}
 \chapter{Thesis Countdown :)}
 \label{the-appendicies-follow}
 \input{meta-chapters/thesis_countdown}
@@ -113,6 +122,8 @@
 \input{appendicies/crash-recording-and-reporting}
 \input{empirical-studies/analytics-tools}
 \input{appendicies/on-mobile-analytics}
+%\input{DeviceSelection.tex}
+%\input{OnTestingForMobileApps.tex}
 
 % Add index
 %\printindex

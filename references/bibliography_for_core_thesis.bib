@@ -427,6 +427,27 @@ abstract = "This study extends the “Uses and Gratifications” approach (U&G) 
   publisher={Springer}
 }
 
+@article{chandra2015_how_to_smash_the_next_billion_mobile_app_bugs,
+    author = {Chandra, Ranveer and Karlsson, B\"{o}rje F. and Lane, Nicholas D. and Liang, Chieh-Jan Mike and Nath, Suman and Padhye, Jitu and Ravindranath, Lenin and Zhao, Feng},
+    title = {How to the Smash Next Billion Mobile App Bugs?},
+    year = {2015},
+    issue_date = {January 2015},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {19},
+    number = {1},
+    issn = {2375-0529},
+    url = {https://doi.org/10.1145/2786984.2786997},
+    doi = {10.1145/2786984.2786997},
+    abstract = {
+        With users increasingly dependent on their phones, tablets, and wearables, the mobile app ecosystem is more important today than ever before. Creating and distributing apps has never been more accessible. Even single developers can now reach global audiences. But mobile apps must cope with extremely varied and dynamic operating conditions due to factors like diverse device characteristics, wireless network heterogeneity, and varied user behavior. App developers and operators of app marketplaces both lack testing tools that can effectively account for such diversity and, as a result, app failures and performance bugs (like excessive energy consumption) are commonly found today. To address this challenge to mobile app development, we have developed key techniques for scalable automated mobile app testing within two prototype services --- VanarSena and Caiipa. In this paper, we describe our vision for SMASH, a unified cloud-based mobile app testing service that combines the strengths of both previous systems to tackle the complexities presently faced by testers of mobile apps.
+    },
+    journal = {GetMobile: Mobile Comp. and Comm.},
+    month = {jun},
+    pages = {34–38},
+    numpages = {5}
+}
+
 @article{cruz2019_guess_what_test_your_app,
   title={To the attention of mobile software developers: guess what, test your app!},
   author={Cruz, Luis and Abreu, Rui and Lo, David},
@@ -647,6 +668,31 @@ url="https://doi.org/10.1007/s13347-019-00354-x"
   year={2014},
   publisher={Oxford University Press}
 }
+
+@article{not_cited_yet_gonzalez2018_owncloud_android_app_in_review_heaven,
+ author = {González, David},
+ doi = {10.5446/42813},
+ title = {ownCloud Android app in review heaven ...},
+ url = {https://dx.doi.org/10.5446/42813},
+ year = {2018},
+ video = {https://av.tib.eu/media/42813},
+ abstract = {
+    	In this lightning talk, I will go through some keys to achieve better reviews in an Android app and how we have implemented them in the ownCloud Android app. How did the ownCloud Android app get from 2-3 to 4-5 stars ratings? This is the question we are going to answer in this lightning talk through the next points: - OwnCloud Android app reviews in the past and main reasons for the bad ones. - New process to receive better reviews, including some tips and real examples that can be useful for other apps. - How to monitor user reviews by using the Google Play Console and real numbers of the ownCloud Android app. https://cfp.owncloud.com/occon18/talk/BSGK7D
+    	
+    	In this lightning talk, I will go through some keys to achieve better reviews in an Android app and how we have implemented them in the ownCloud Android app.
+    	How did the ownCloud Android app get from 2-3 to 4-5 stars ratings? This is the question we are going to answer in this lightning talk through the next points:
+    	OwnCloud Android app reviews in the past and main reasons for the bad ones.
+    	New process to receive better reviews, including some tips and real examples that can be useful for other apps.
+    	How to monitor user reviews by using the Google Play Console and real numbers of the ownCloud Android app.
+ },
+ thoughts = {
+    Their sourcecode is on github https://github.com/owncloud/android and their app on f-droid and Google Play https://play.google.com/store/apps/details?id=com.owncloud.android  Currently it has 4.0 stars overall on 12.6k reviews. It seems to be crashing a lot according to the promoted reviews (from around 2019 - why does Google show these!?). The devs ask end-users to send them the logs (tap the build number 5 times in the settings, etc.) I wonder if a) they have in app crash reporting, b) what Android Vitals reports. 
+    
+    Many of the current complaints are on poor functionality, they look like they'd help the dev team improve the testing of the app and the service e.g. to upload a mix of pre-existing and new content. To upload from several devices concurrently (interleaved), etc. 
+ }
+}
+
+
 
 @ARTICLE{not_cited_yet_988583,  
   author={Grad, B.},
@@ -1099,6 +1145,23 @@ pages = {6–19},
 numpages = {14}
 }
 
+@ARTICLE{liu2020_privacy_risk_analysis_and_mitigation_of_analytics_libraries_in_the_android_ecosystem,  
+    author={Liu, Xing and Liu, Jiqiang and Zhu, Sencun and Wang, Wei and Zhang, Xiangliang},  
+    journal={IEEE Transactions on Mobile Computing},  
+    title={Privacy Risk Analysis and Mitigation of Analytics Libraries in the Android Ecosystem}, 
+    year={2020},  
+    volume={19},  
+    number={5}, 
+    pages={1184-1199},  
+    abstract={
+        While much effort has been made to detect and measure the privacy leakage caused by the advertising (ad) libraries integrated in mobile applications, analytics libraries, which are also widely used in mobile apps have not been systematically studied for their privacy risks. Different from ad libraries, the main function of analytics libraries is to collect users' in-app actions. Hence, by design analytics libraries are more likely to leak users' private information. In this work, we study what information is collected by the analytics libraries integrated in popular Android apps. We design and implement a framework called “Alde”. Given an app, Alde employs both static analysis and dynamic analysis to detect the users' in-app actions collected by analytics libraries. We also study what private information can be leaked by the apps that use the same analytics library. Moreover, we analyze apps' privacy policies to see whether app developers have notified the users that their in-app action data is collected by analytics libraries. Finally, we select eight widely used analytics libraries to study and apply our method to 300 popular apps downloaded from both Chinese app markets and Google play. Our experimental results show that some apps indeed leak users' personal information through analytics libraries even though their genuine purposes of using analytics services are legal. To mitigate such threats, we have developed an app named “ALManager” that leverages the Xposed framework to manage analytics libraries in other apps.
+    },  
+    keywords={}, 
+    doi={10.1109/TMC.2019.2903186}, 
+    ISSN={1558-0660},  
+    month={May},
+}
+
 @article{lo2018_novel_multi_criteria_decision_making_based_FMEA_model_for_risk_assessment,
     title = {A novel multiple-criteria decision-making-based FMEA model for risk assessment},
     journal = {Applied Soft Computing},
@@ -1281,7 +1344,7 @@ numpages = {14}
   publisher={Palgrave Basingstoke}
 }
 
-@article{mcilroy2016analyzing,
+@article{mcilroy2016_analyzing_and_automatically_labelling_the_types_of_user_issues_raised_in_mobile_app_reviews,
   title={Analyzing and automatically labelling the types of user issues that are raised in mobile app reviews},
   author={McIlroy, Stuart and Ali, Nasir and Khalid, Hammad and Hassan, Ahmed E},
   journal={Empirical Software Engineering},
@@ -1635,14 +1698,6 @@ numpages = {14}
   publisher={Springer},
   doi = {https://doi.org/10.3758/BF03204502},
   abstract = {The difficulties inherent in the evaluation of educational software are described in terms of the tradeoffs between internal, external, and ecological validity. Larger issues in evaluation research design and computer-based instruction are highlighted by primary and metaanalytic studies designed to reveal the effects of computer simulations in psychology classrooms and laboratories. The effectiveness of classroom and laboratory computer activities depends on how the inclusion of software, as well as the evaluation process itself, changes the entire instructional process.},
-}
-
-
-@article{razaghpanah2018apps,
-  title={Apps, trackers, privacy, and regulators: A global study of the mobile tracking ecosystem},
-  abstract={Third-party services form an integral part of the mobile ecosystem: they ease application development and enable features such as analytics, social network integration, and app monetization through ads. However, aided by the general opacity of mobile systems, such services are also largely invisible to users. This has negative consequences for user privacy as third-party services can potentially track users without their consent, even across multiple applications. Using real-world mobile traffic data gathered by the Lumen Privacy Monitor (Lumen), a privacy enhancing app with the ability to analyze network traffic on mobile devices in user space, we present insights into the mobile advertising and tracking ecosystem and its stakeholders. In this study, we develop automated methods to detect third-party advertising and tracking services at the traffic level. Using this technique we identify 2,121 such services, of which 233 were previously unknown to other popular advertising and tracking blacklists. We then uncover the business relationships between the providers of these services and characterize them by their prevalence in the mobile and Web ecosystem. Our analysis of the privacy policies of the largest advertising and tracking service providers shows that sharing harvested data with subsidiaries and third-party affiliates is the norm. Finally, we seek to identify the services likely to be most impacted by privacy regulations such as the European General Data Protection Regulation (GDPR) and ePrivacy directives.},
-  author={Razaghpanah, Abbas and Nithyanand, Rishab and Vallina-Rodriguez, Narseo and Sundaresan, Srikanth and Allman, Mark and Kreibich, Christian and Gill, Phillipa},
-  year={2018}
 }
 
 @article{rennie1998_freedom_and_responsibility_in_medical_publication,
@@ -4578,6 +4633,49 @@ series = {MOBILESoft '19}
     series = {SOSP '17},
 }
 
+@inproceedings {ravindrath2012_appinsight_mobile_app_performance_in_the_wild,
+    author = {Lenin Ravindranath and Jitendra Padhye and Sharad Agarwal and Ratul Mahajan and Ian Obermiller and Shahin Shayandeh},
+    title = {{AppInsight}: Mobile App Performance Monitoring in the Wild},
+    booktitle = {10th USENIX Symposium on Operating Systems Design and Implementation (OSDI 12)},
+    year = {2012},
+    isbn = {978-1-931971-96-6},
+    address = {Hollywood, CA},
+    pages = {107--120},
+    url = {https://www.usenix.org/conference/osdi12/technical-sessions/presentation/ravindranath},
+    publisher = {USENIX Association},
+    month = oct,
+}
+
+@inproceedings{ravindrath2014_automatic_and_scalable_fault_detection_for_mobile_apps,
+    author = {Ravindranath, Lenin and Nath, Suman and Padhye, Jitendra and Balakrishnan, Hari},
+    title = {Automatic and Scalable Fault Detection for Mobile Applications},
+    year = {2014},
+    isbn = {9781450327930},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/2594368.2594377},
+    doi = {10.1145/2594368.2594377},
+    abstract = {This paper describes the design, implementation, and evaluation of VanarSena, an automated fault finder for mobile applications (``apps''). The techniques in VanarSena are driven by a study of 25 million real-world crash reports of Windows Phone apps reported in 2012. Our analysis indicates that a modest number of root causes are responsible for many observed failures, but that they occur in a wide range of places in an app, requiring a wide coverage of possible execution paths. VanarSena adopts a ``greybox'' testing method, instrumenting the app binary to achieve both coverage and speed. VanarSena runs on cloud servers: the developer uploads the app binary; VanarSena then runs several app ``monkeys'' in parallel to emulate user, network, and sensor data behavior, returning a detailed report of crashes and failures. We have tested VanarSena with 3000 apps from the Windows Phone store, finding that 1108 of them had failures; VanarSena uncovered 2969 distinct bugs in existing apps, including 1227 that were not previously reported. Because we anticipate VanarSena being used in regular regression tests, testing speed is important. VanarSena uses two techniques to improve speed. First, it uses a ``hit testing'' method to quickly emulate an app by identifying which user interface controls map to the same execution handlers in the code. Second, it generates a ProcessingCompleted event to accurately determine when to start the next interaction. These features are key benefits of VanarSena's greybox philosophy.},
+    booktitle = {Proceedings of the 12th Annual International Conference on Mobile Systems, Applications, and Services},
+    pages = {190–203},
+    numpages = {14},
+    keywords = {testing, reliability, mobile applications, software engineering},
+    location = {Bretton Woods, New Hampshire, USA},
+    series = {MobiSys '14}
+}
+
+@inproceedings{razaghpanah2018_apps_trackers_privacy_and_regulators_a_global_study_of_the_mobile_tracking_ecosystem,
+  title={Apps, trackers, privacy, and regulators: A global study of the mobile tracking ecosystem},
+  author={Razaghpanah, Abbas and Nithyanand, Rishab and Vallina-Rodriguez, Narseo and Sundaresan, Srikanth and Allman, Mark and Kreibich, Christian and Gill, Phillipa and others},
+  booktitle={The 25th Annual Network and Distributed System Security Symposium (NDSS 2018)},
+  year={2018},
+  url = {http://hdl.handle.net/20.500.12761/507},
+  abstraact = {
+    Third-party services form an integral part of the mobile ecosystem: they ease application development and enable features such as analytics, social network integration, and app monetization through ads. However, aided by the general opacity of mobile systems, such services are also largely invisible to users. This has negative consequences for user privacy as third-party services can potentially track users without their consent, even across multiple applications. Using real-world mobile traffic data gathered by the Lumen Privacy Monitor (Lumen), a privacy enhancing app with the ability to analyze network traffic on mobile devices in user space, we present insights into the mobile advertising and tracking ecosystem and its stakeholders. In this study, we develop automated methods to detect third-party advertising and tracking services at the traffic level. Using this technique we identify 2,121 such services, of which 233 were previously unknown to other popular advertising and tracking blacklists. We then uncover the business relationships between the providers of these services and characterize them by their prevalence in the mobile and Web ecosystem. Our analysis of the privacy policies of the largest advertising and tracking service providers shows that sharing harvested data with subsidiaries and third-party affiliates is the norm. Finally, we seek to identify the services likely to be most impacted by privacy regulations such as the European General Data Protection Regulation (GDPR) and ePrivacy directives.
+  },
+  pages = {1--15},
+}
+
 @inproceedings{rekimoto1999_time_machine_computing,
     author = {Rekimoto, Jun},
     title = {Time-Machine Computing: A Time-Centric Approach for the Information Environment},
@@ -4616,6 +4714,24 @@ series = {MOBILESoft '19}
   publisher = {ACM},
   address = {Santa Cruz, CA, USA}, 
   doi = {10.1145/1514411.1514424},
+}
+
+@inproceedings{santos2016_investigating_the_adoption_of_agile_practices_by_20_undergrad_students_in_mobile_app_devt,
+    author = {Santos, Alan and Kroll, Josiane and Sales, Afonso and Fernandes, Paulo and Wildt, Daniel},
+    title = {Investigating the Adoption of Agile Practices in Mobile Application Development},
+    year = {2016},
+    isbn = {9789897581878},
+    publisher = {SCITEPRESS - Science and Technology Publications, Lda},
+    address = {Setubal, PRT},
+    url = {https://doi.org/10.5220/0005835404900497},
+    doi = {10.5220/0005835404900497},
+    abstract = {The mobile application development market has been dramatically growing in the last few years as the complexity of its applications and speed of software development process. These changes in the mobile development market require a rethinking on the way the software development should be performed by teams. In order to better understand how agile practices support mobile application development, we applied a questionnaire to 20 undergraduate students. These students have been training in an iOS development course combined with agile practices. Our study aims to identify challenges and to report the students experience on the adoption of agile practices to develop mobile applications. Our findings reveal that agile practices help mobile software development mainly in terms of project management and control and development speed. However, aspects of user interface and user experience, different development platforms, and users expectations still point challenges in developing mobile applications.},
+    booktitle = {Proceedings of the 18th International Conference on Enterprise Information Systems},
+    pages = {490–497},
+    numpages = {8},
+    keywords = {Mobile Application, Benefits., Software Development, Challenges, Agile Practices, Software Engineering},
+    location = {Rome, Italy},
+    series = {ICEIS 2016}
 }
 
 @inproceedings{sarro2015_feature_lifecycles_in_appstores,
@@ -4829,7 +4945,7 @@ series = {MOBILESoft '19}
   series = {ESEC/FSE 2018}
 }
 
-@inproceedings{steglich2019revisiting,
+@inproceedings{steglich2019_revisiting_the_mobile_app_ecosystem,
   title={Revisiting the mobile software ecosystems literature},
   author={Steglich, Caio and Marczak, Sabrina and Guerra, Luiz Pedro and Mosmann, Luiz Henrique and Perin, Marcelo and Figueira Filho, Fernando and de Souza, Cleidson},
   booktitle={2019 IEEE/ACM 7th International Workshop on Software Engineering for Systems-of-Systems (SESoS) and 13th Workshop on Distributed Software Development, Software Ecosystems and Systems-of-Systems (WDES)},
@@ -5059,7 +5175,27 @@ series = {MOBILESoft '19}
   }
 }
 
- @inproceedings{Yang_Prasad_Xie_2013_grey_box_automated_gui_model_generation_for_mobile_apps, 
+@inproceedings{xie2015_appwatcher_unveiling_the_underground_market_of_trading_mobile_app_reviews,
+    author = {Xie, Zhen and Zhu, Sencun},
+    title = {AppWatcher: Unveiling the Underground Market of Trading Mobile App Reviews},
+    year = {2015},
+    isbn = {9781450336239},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/2766498.2766510},
+    doi = {10.1145/2766498.2766510},
+    abstract = {Driven by huge monetary reward, some mobile application (app) developers turn to the underground market to buy positive reviews instead of doing legal advertisements. These promotion reviews are either directly posted in app stores like iTunes and Google Play, or published on some popular websites that have many app users. Until now, a clear understanding of this app promotion underground market is still lacking. In this work, we focus on unveiling this underground market and statistically analyzing the promotion incentives, characteristics of promoted apps and suspicious reviewers. To collect promoted apps, we built an automatic data collection system, AppWatcher, which monitored 52 paid review service providers for four months and crawled all the app metadata from their corresponding app stores. Finally, AppWatcher exposes 645 apps promoted in app stores and 29, 680 apps promoted in some popular websites. The current underground market is then reported from various perspectives (e.g., service price, app volume). We identified some interesting features of both promoted apps and suspicious reviewers, which are significantly different from those of randomly chosen apps. Finally, we built a simple tracer to narrow down the suspect list of promoted apps in the underground market.},
+    booktitle = {Proceedings of the 8th ACM Conference on Security & Privacy in Wireless and Mobile Networks},
+    articleno = {10},
+    numpages = {11},
+    keywords = {app stores, fake reviews, mobile app reviews, opinion mining, underground market},
+    location = {New York, New York},
+    series = {WiSec '15}
+}
+
+
+
+@inproceedings{Yang_Prasad_Xie_2013_grey_box_automated_gui_model_generation_for_mobile_apps, 
    address={Rome, Italy},
    title={A Grey-Box Approach for Automated GUI-Model Generation of Mobile Applications},
    ISBN={978-3-642-37057-1},
