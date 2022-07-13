@@ -5786,7 +5786,7 @@ series = {MOBILESoft '19}
     Results
     "Efficacy and writing less code that does more is the ‘speed’ increase you can achieve with Kotlin.” - Jared Burrows, Software Engineer on Google Home
 
-    Switching to Kotlin resulted in a reduction in the amount of required code, compared to the equivalent of existing Java code. One example is the use of data classes and the Parcelize plugin: a class which was 126 hand-written lines in Java can now be represented in just 23 lines in Kotlin—an 80\% reduction. Additionally, equality and parcelizing methods can be automatically generated and kept up to date. Many nested loops and filtering checks were also simplified using the functional methods available in Kotlin.
+    Switching to Kotlin resulted in a reduction in the amount of required code, compared to the equivalent of existing  code. One example is the use of data classes and the Parcelize plugin: a class which was 126 hand-written lines in Java can now be represented in just 23 lines in Kotlin—an 80\% reduction. Additionally, equality and parcelizing methods can be automatically generated and kept up to date. Many nested loops and filtering checks were also simplified using the functional methods available in Kotlin.
 
     Because Kotlin can make nullability a part of the language, tricky situations can be avoided, like when inconsistent usage of nullability annotations in Java might lead to a missed bug. Since the team started migrating to developing new features with Kotlin, they saw a 33\% decrease in NullPointerExceptions. Since this is the most common crash type on Google Play Console, reducing them led to a dramatically improved user experience.
 
@@ -6159,6 +6159,17 @@ author = {HUAWEI Developers},
   year = {2019},
   organization = {{Kiwix-Android Project}},
   abstract = {Uploads to bitbar on travis are not functional on develop or any derived branches. There is a possibility that with the advent of #1219 and the generation of a universal apk that bitbar will select it from the group of generated apks.},
+}
+
+@misc{kiwixandroid_issue_2907_anrs_exceed_bad_bhaviour_threshold_for_android_10_and_11,
+    title = {Kiwix Android: ANRs exceed bad behavior threshold for Android 10 and 11},
+    url = {https://github.com/kiwix/kiwix-android/issues/2907},
+    author = {Julian Harty},
+    year = {2022},
+    organization = {{Kiwix-Android Project}},
+    abstract = {
+        Android Vitals shows that the Kiwix Android app exceeds the bad behavior threshold of 0.47\%. Currently, the ANR rate is 1.06\% which is an increase of 0.12\% over the previous 3 months, and significantly higher than the peer group of apps which has a median of 0.05\%.
+    },
 }
 
 @misc{koutun2021_how_to_deal_with_tech_debt_at_the_scale_of_super_app,
@@ -6547,6 +6558,19 @@ author = {HUAWEI Developers},
   note = {Accessed, \nth{08} July 2021},
   year = {2021},
   url = {https://scrumdictionary.com/term/chore/},
+}
+
+@misc{not_yet_cited_segmentio_analytics_android_issue_808_how_to_send_application_crashed_event,
+    title = {How to send the Application Crashed event},
+    url = {https://github.com/segmentio/analytics-android/issues/808},
+    note = {Accessed \nth{13} July 2022},
+    author = {Pablo Baldez},
+    abstract = {
+        I'm checking the documentation regarding to the lifecycle events and it's not clear to me how can I send the "Application Crashed" event to segment.
+        It seems that it is not an event triggered by default, so I would like to know if there is an easy way to identify when the app is crashed and how to send it to my segment dashboard.
+        
+        you should be able to do it by implementing UncaughtExceptionHandler (see here) and do a track call in uncaughtException
+    },
 }
 
 @misc{segmentio_analytics_android_issue_770_fake_implementation_for_testing,
