@@ -9,7 +9,7 @@ This chapter presents the research findings based on two of the six perspectives
     \label{fig:dev-practices-with-mobile-analytics}
 \end{figure}
 
-\julian{TODO introduce the rest of this chapter. Here's my current running order: \href{aiu-motivating-factors-section}{motivation}, \href{aiu-choosing-mobile-analytics-section}{selection}, \href{aiu-application-of-mobile-analytics-section}{application}, 
+\julian{TODO introduce the rest of this chapter. Here's my current running order: \href{aiu-motivating-factors-section}{motivation}, \href{aiu-choosing-mobile-analytics-section}{choosing mobile analytics}, \href{aiu-application-of-mobile-analytics-section}{application}, 
 \href{aiu-bug-reproduction}{bug reproduction}, 
 \href{aiu-triage-section}{triage}, 
 blockers,  
@@ -21,15 +21,24 @@ the~\href{aiu-discussion-section}{discussion}}
 
 \textbf{Themes that emerged}\pending{This probably wants relocating, possibly into the Methodology chapter?}: 
 %
-In the analysis of the findings there were 41 L1 themes identified in the spreadsheet. These were grouped into  9 L2 themes. Both the L1 and L2 themes were ranked. Figure \ref{fig:analytics-in-use-fishbone-diagram} shows the mapping and key relationships between the themes.
+In the analysis of the findings there were 41 L1 themes identified in the spreadsheet. These were grouped into  4 L2 themes, they were also ranked to help select good examples for this chapter. Figure \ref{fig:analytics-in-use-fishbone-diagram} shows the mapping and key relationships between the themes.\pending{Note: this is a work in progress figure with notes for me that aren't readable here. This figure will be replaced as I edit this chapter.}
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{images/rough-sketches/analytics-in-use-fishbone-diagram-15-jun-2022e.jpeg}
-    \caption{Analytics-in-Use fishbone diagram\\Source:~\href{https://miro.com/app/board/uXjVOtbZPNw=/?share_link_id=876968062021}{MIRO board diagram}.}
+    \includegraphics[width=\textwidth]{images/rough-sketches/analytics-in-use-fishbone-diagram-19-jul-2022g.jpeg}
+    \caption{Analytics-in-Use fishbone diagram\\Source:~\href{https://miro.com/app/board/uXjVOlelPDU=/?share_link_id=219460632025}{MIRO board diagram}.}
     \label{fig:analytics-in-use-fishbone-diagram}
 \end{figure}
 
+The four level 2 themes are each covered in this chapter, they are: 1) motivation, 2) benefits \& achievements, 3) competence \& optimisations, and 4) SNAFU.\pending{Currently there's a fifth L2 theme: evidence which will probably disappear as I revise the chapter.}
+
+Motivation investigates what drives the developers to use mobile analytics to improve their apps, for instance is it `fire-fighting' or `optimisation'? \secref{aiu-motivating-factors-section} presents evidence for this overall theme.
+
+Benefits and achievements of using mobile analytics to improve their apps is discussed next to understand what they can accrue and what they can achieve. \secref{aiu-benefits-and-achievements-section} presents evidence for this overall theme.
+
+Competence and optimisation are vital factors in developers being able to obtain the benefits and gain the achievements. \secref{aiu-competence-and-optimisations} present evidence for this overall theme.
+
+And finally in terms of the higher-level themes, the context the developers are working in plays a major factor in what happens in terms of their use of mobile analytics so it's key to consider the evidence for this theme in \secref{aiu-snafu-and-real-world-conditions-section}.
 
 \begin{figure}
     \centering
@@ -75,10 +84,8 @@ An interesting example from grey literature is the use of an error budget where 
 \newthought{Improving app design}
 Another motivating factor of using mobile analytics is to improve the design of the app in terms of the user experience (UX). A more reliable and stable app is likely to improve the experience of users, this was a topic mentioned by several projects including Moonpig, Moodspace, and Smartnavi. It's not always easy to get the balance right in terms of informing users that the app contains mobile analytics - informing users may paradoxically reduce the user experience as illustrated by the Pocket Code app. At the time of the case study the Android app had pages of mandatory text presented to new users of the app.\pending{Consider adding the contents of the policy to an appendix (it used to be part of the Catrobat case study).}
 
-\newthought{Improve engineering practices}
 
-
-\section{Choosing Mobile Analytics}~\label{aiu-choosing-mobile-analytics-section}
+\subsection{Choosing Mobile Analytics}~\label{aiu-choosing-mobile-analytics-section}
 
 \julian{TODO expand on selection and choosing}
 The choice of which mobile analytics tools to use is in some ways a recursive characteristic. Firstly, there is the choice of whether to include any analytics within the app at all - the Kiwix project team chose not to in order to maximise the protection of end users' privacy and minimise the potential for repressive authorities finding and then abusing usage-related data to penalise end users of Wikipedia and similar material. The rest of the app-centric case studies included at least one in-app mobile analytics SDK in their app.
@@ -111,31 +118,13 @@ TODO discuss the initial config, and `getting started', then the optional additi
 TODO Mention the Pocket Code experience when migrating from Fabric to Firebase and the additional, unexpected analytics that appeared. Forward reference to the discussion on intrusiveness. 
 
 
-\section{Application of mobile analytics}~\label{aiu-application-of-mobile-analytics-section}
+\subsection{Application of mobile analytics}~\label{aiu-application-of-mobile-analytics-section}
 
 \julian{Include horses-for-courses,...} 
 As mentioned previously, several projects including LocalHalo chose to use a particular mobile analytics service for business analytics. Pricing may also be a factor in the choice of SDK and service, however this topic was not actively discussed as part of the case studies.
 
 Paradoxically, sometimes developers choose \emph{not} to apply the results of mobile analytics. Developers may perceive the effort required for something is too much and therefore take alternative action (including inaction). Examples from the case studies include developers choosing to ignore Android Vitals. Sometimes they do this as they've chosen to use another mobile analytics service that provides some of the information Android Vitals provides, particularly on crashes. Others choose to ignore `hard to fix' issues, a topic discussed later in this chapter.
 
-
-\section{Bug reproduction}~\label{aiu-bug-reproduction}
-Being able to reproduce bugs, ideally at-will, enables developers to work more effectively at addressing the bug and having confidence that their intended fixes actually do fix the bug. 
-Bug reproduction can increase the developer's confidence the bug is real and can be managed, it is under control. Then they can make changes to the the software to determine whether their changes address (fix) the bug. 
-
-The developers are not always able to reproduce bugs, for example the developers of the Pocket Code app had to apply their `fix' blindly with the immediate aim of fixing, \emph{i.e.} preventing, the crash \url{https://github.com/Catrobat/Catroid/pull/3362}.  In the commercial app, two experienced engineers spent several days in devising a consistent and clear way to reproduce a crash in the response handling and logging for proprietary code that interacted with the very popular OkHttp opensource library (more details are in the section on the fix process in Section~\ref{aiu-the-fix-process-section}). This effort was deemed necessary and appropriate given the strategic importance of the app to the business and the effects of the crash on a significant subset of users' sessions.
-
-The research also had mixed results reproducing bugs that were found and reported by mobile analytics.
-%
-The Kiwix project included crashes in several software components Google provides android developers: the WebView (an embedded browser), and Chrome.apk - the binary file for the Google Chrome Android app. It also included attempts to reproduce crashes in the app's codebase. 
-
-\begin{itemize}
-    \item One experiment used the same model of Samsung Android smartphone that incurred a higher than usual crash rate, however there was insufficient information available in Android Vitals to determine enough of the events that led to the crash or any of the contextual information. The manual interactive testing did not manage to reproduce the crash.
-    \item Another experiment scripted the semi-autonomous Android Monkey testing utility where the script seeded each test run to make the sequence of generated inputs consistent with the aim of first triggering crashes and then having sufficient information to reproduce those crashes at will.
-    \item Note: a third experiment was on hold for several years awaiting availability of the software tool, CrashScope. This became available in late 2021 and the testing is pending the configuration of the tests with the various apps.
-\end{itemize}
-
-With the exception of the Commercial project, none of the commercial projects (Moonpig, Moodspace, LocalHalo) provided examples of being able to reproduce crashes and other failures that were reported by mobile analytics; nonetheless they chose to use in-app analytics and the respective mobile analytics reports in preference to Android Vitals as they believed these tools provided more relevant reports with the necessary information to enable the developers to find and fix the causes of those crashes.
 
 \section{Triage}~\label{aiu-triage-section}
 \julian{Include decision making, adverse side effects (which feeds into snafu and real-world conditions).}
@@ -175,6 +164,35 @@ The fix process therefore generally includes: a) an assessment of any recognised
 \newthought{Fixing crashes may be necessary but not sufficient}
 One of the issues~\footnote{\url{https://jira.catrob.at/browse/CATROID-379}} and associated bug fixes~\footnote{\url{https://github.com/Catrobat/Catroid/pull/3362}} pertaining to the Pocket Code app and the hackathon~\footnote{Via \url{https://jira.catrob.at/browse/CATROID-405}} has a discussion written by one of the project leads in the Pull Request~\footnote{\url{https://github.com/Catrobat/Catroid/pull/3362\#issuecomment-541055675}}. 
 He observes there are still issues where content is not downloaded however the app no longer crashes. The high crash rate was sufficient to motivate the developers to address the source of the crash in the source code, however more work was needed to fix the failures to download and apply content. In the Pull Request, the developers also discussed the ramifications of removing the visual indicators when the user triggers a download and decided to simply try to fix the crash. As the developers could not reproduce the crash they were not confident in their `fix' working.
+
+
+\section{Benefits and achievements}~\label{aiu-benefits-and-achievements-section}
+TODO introduce this section, possibly from the opening section.
+
+\subsection{Bug reproduction}~\label{aiu-bug-reproduction}
+Being able to reproduce bugs, ideally at-will, enables developers to work more effectively at addressing the bug and having confidence that their intended fixes actually do fix the bug. 
+Bug reproduction can increase the developer's confidence the bug is real and can be managed, it is under control. Then they can make changes to the the software to determine whether their changes address (fix) the bug. 
+
+The developers are not always able to reproduce bugs, for example the developers of the Pocket Code app had to apply their `fix' blindly with the immediate aim of fixing, \emph{i.e.} preventing, the crash \url{https://github.com/Catrobat/Catroid/pull/3362}.  In the commercial app, two experienced engineers spent several days in devising a consistent and clear way to reproduce a crash in the response handling and logging for proprietary code that interacted with the very popular OkHttp opensource library (more details are in the section on the fix process in Section~\ref{aiu-the-fix-process-section}). This effort was deemed necessary and appropriate given the strategic importance of the app to the business and the effects of the crash on a significant subset of users' sessions.
+
+The research also had mixed results reproducing bugs that were found and reported by mobile analytics.
+%
+The Kiwix project included crashes in several software components Google provides android developers: the WebView (an embedded browser), and Chrome.apk - the binary file for the Google Chrome Android app. It also included attempts to reproduce crashes in the app's codebase. 
+
+\begin{itemize}
+    \item One experiment used the same model of Samsung Android smartphone that incurred a higher than usual crash rate, however there was insufficient information available in Android Vitals to determine enough of the events that led to the crash or any of the contextual information. The manual interactive testing did not manage to reproduce the crash.
+    \item Another experiment scripted the semi-autonomous Android Monkey testing utility where the script seeded each test run to make the sequence of generated inputs consistent with the aim of first triggering crashes and then having sufficient information to reproduce those crashes at will.
+    \item Note: a third experiment was on hold for several years awaiting availability of the software tool, CrashScope. This became available in late 2021 and the testing is pending the configuration of the tests with the various apps.
+\end{itemize}
+
+With the exception of the Commercial project, none of the commercial projects (Moonpig, Moodspace, LocalHalo) provided examples of being able to reproduce crashes and other failures that were reported by mobile analytics; nonetheless they chose to use in-app analytics and the respective mobile analytics reports in preference to Android Vitals as they believed these tools provided more relevant reports with the necessary information to enable the developers to find and fix the causes of those crashes.
+
+\subsection{Improve engineering practices}
+\newthought{Improve engineering practices}
+ this needs continuing TODO.
+
+\section{Competence and optimisations}~\label{aiu-competence-and-optimisations}
+
 
 \section{SNAFU and real-world conditions}~\label{aiu-snafu-and-real-world-conditions-section}
 Software development, including developing apps, takes place in the real-world where there are often multiple conflicting demands on the time of participants - the developers. Therefore, absolutes, superlatives, and other pure approaches are unlikely to work. Bugs will happen, automated tests, if written at all, won't necessarily test much or test in depth, \xcancel{bugs will happen}, nothing will be perfect.
