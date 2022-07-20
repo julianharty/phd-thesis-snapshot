@@ -1035,3 +1035,136 @@
         This is a really motiviating article that ties in with recent discussions with Gordon Rugg on Meh, Ick, etc. and the like|dislike 2x2 matrix. It's only in the excluded bibliography as I doubt I'll discuss either work in my thesis.
      }
 }
+
+@article{10.1093/comjnl/43.2.95,
+    author = {Randell, Brian},
+    title = "{Turing Memorial Lecture Facing Up to Faults}",
+    journal = {The Computer Journal},
+    volume = {43},
+    number = {2},
+    pages = {95-106},
+    year = {2000},
+    month = {01},
+    abstract = "{As individuals, organizations and indeed the world at large have become more dependent on computer-based systems, so there has been an ever-growing amount of research into means for improving the dependability of these systems. In particular, there has been much work on trying to gain an increased understanding of the many and varied types of faults that need to be prevented or tolerated in order to reduce the probability and severity of system failures. In this talk I discuss the assumptions that are often made by computing system designers regarding faults, survey a number of continuing issues related to fault tolerance, and identify some of the latest challenges facing researchers in this arena.}",
+    issn = {0010-4620},
+    doi = {10.1093/comjnl/43.2.95},
+    url = {https://doi.org/10.1093/comjnl/43.2.95},
+    eprint = {https://academic.oup.com/comjnl/article-pdf/43/2/95/1165299/430095.pdf},
+     exclusion_rationale = {
+        This is a good paper for generating ideas on faults, failures, reliability, dependability, etc. And it might fit well with my related work chapter, but for now I'll park it here in the excluded biography.
+     },
+}
+
+
+
+@inproceedings{10.1145/1294261.1294275,
+    author = {Tucek, Joseph and Lu, Shan and Huang, Chengdu and Xanthos, Spiros and Zhou, Yuanyuan},
+    title = {Triage: Diagnosing Production Run Failures at the User's Site},
+    year = {2007},
+    isbn = {9781595935915},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/1294261.1294275},
+    doi = {10.1145/1294261.1294275},
+    abstract = {Diagnosing production run failures is a challenging yet important task. Most previous work focuses on offsite diagnosis, i.e.development site diagnosis with the programmers present. This is insufficient for production-run failures as: (1) it is difficult to reproduce failures offsite for diagnosis; (2) offsite diagnosis cannot provide timely guidance for recovery or security purposes; (3)it is infeasible to provide a programmer to diagnose every production run failure; and (4) privacy concerns limit the release of information(e.g. coredumps) to programmers.To address production-run failures, we propose a system, called Triage, that automatically performs onsite software failure diagnosis at the very moment of failure. It provides a detailed diagnosis report, including the failure nature, triggering conditions, related code and variables, the fault propagation chain, and potential fixes. Triage achieves this by leveraging lightweight re-execution support to efficiently capture the failure environment and repeatedly replay the moment of failure, and dynamically--using different diagnosis techniques--analyze an occurring failure. Triage employs a failure diagnosis protocol that mimics the steps a human takes in debugging. This extensible protocol provides a framework to enable the use of various existing and new diagnosis techniques. We also propose a new failure diagnosis technique, delta analysis, to identify failure related conditions, code, and variables.We evaluate these ideas in real system experiments with 10 real software failures from 9 open source applications including four servers. Triage accurately diagnoses the evaluated failures, providing likely root causes and even the fault propagation chain, while keeping normal-run overhead to under 5\%. Finally, our user study of the diagnosis and repair of real bugs shows that Triage saves time (99.99\% confidence), reducing the total time to fix by almost half.},
+    booktitle = {Proceedings of Twenty-First ACM SIGOPS Symposium on Operating Systems Principles},
+    pages = {131–144},
+    numpages = {14},
+    keywords = {onsite, diagnosis, debugging},
+    location = {Stevenson, Washington, USA},
+    series = {SOSP '07},
+    exclusion_rationale = {
+        This is too specialised and relatively dated work. The concepts may be transferable, however that's too far removed from my current work to follow up currently.
+    },
+}
+
+@article{10.1145/2110356.2110360,
+    author = {Yuan, Ding and Zheng, Jing and Park, Soyeon and Zhou, Yuanyuan and Savage, Stefan},
+    title = {Improving Software Diagnosability via Log Enhancement},
+    year = {2012},
+    issue_date = {February 2012},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {30},
+    number = {1},
+    issn = {0734-2071},
+    url = {https://doi.org/10.1145/2110356.2110360},
+    doi = {10.1145/2110356.2110360},
+    abstract = {Diagnosing software failures in the field is notoriously difficult, in part due to the fundamental complexity of troubleshooting any complex software system, but further exacerbated by the paucity of information that is typically available in the production setting. Indeed, for reasons of both overhead and privacy, it is common that only the run-time log generated by a system (e.g., syslog) can be shared with the developers. Unfortunately, the ad-hoc nature of such reports are frequently insufficient for detailed failure diagnosis. This paper seeks to improve this situation within the rubric of existing practice. We describe a tool, LogEnhancer that automatically “enhances” existing logging code to aid in future post-failure debugging. We evaluate LogEnhancer on eight large, real-world applications and demonstrate that it can dramatically reduce the set of potential root failure causes that must be considered while imposing negligible overheads.},
+    journal = {ACM Trans. Comput. Syst.},
+    month = {feb},
+    articleno = {4},
+    numpages = {28},
+    keywords = {program analysis, failure diagnostics, software diagnosability, debugging, Log},
+    exclusion_rationale = {
+        I agree with their opening statements in the abstract. Nonetheless their approach differs significantly and wasn't performed on mobile apps, so this paper isn't sufficiently related to cite AFAIK.
+    }
+}
+
+@inproceedings{10.1145/3132747.3132769,
+    author = {Bittau, Andrea and Erlingsson, \'{U}lfar and Maniatis, Petros and Mironov, Ilya and Raghunathan, Ananth and Lie, David and Rudominer, Mitch and Kode, Ushasree and Tinnes, Julien and Seefeld, Bernhard},
+    title = {Prochlo: Strong Privacy for Analytics in the Crowd},
+    year = {2017},
+    isbn = {9781450350853},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3132747.3132769},
+    doi = {10.1145/3132747.3132769},
+    abstract = {The large-scale monitoring of computer users' software activities has become commonplace, e.g., for application telemetry, error reporting, or demographic profiling. This paper describes a principled systems architecture---Encode, Shuffle, Analyze (ESA)---for performing such monitoring with high utility while also protecting user privacy. The ESA design, and its Prochlo implementation, are informed by our practical experiences with an existing, large deployment of privacy-preserving software monitoring.With ESA, the privacy of monitored users' data is guaranteed by its processing in a three-step pipeline. First, the data is encoded to control scope, granularity, and randomness. Second, the encoded data is collected in batches subject to a randomized threshold, and blindly shuffled, to break linkability and to ensure that individual data items get "lost in the crowd" of the batch. Third, the anonymous, shuffled data is analyzed by a specific analysis engine that further prevents statistical inference attacks on analysis results.ESA extends existing best-practice methods for sensitive-data analytics, by using cryptography and statistical techniques to make explicit how data is elided and reduced in precision, how only common-enough, anonymous data is analyzed, and how this is done for only specific, permitted purposes. As a result, ESA remains compatible with the established workflows of traditional database analysis.Strong privacy guarantees, including differential privacy, can be established at each processing step to defend against malice or compromise at one or more of those steps. Prochlo develops new techniques to harden those steps, including the Stash Shuffle, a novel scalable and efficient oblivious-shuffling algorithm based on Intel's SGX, and new applications of cryptographic secret sharing and blinding. We describe ESA and Prochlo, as well as experiments that validate their ability to balance utility and privacy.},
+    booktitle = {Proceedings of the 26th Symposium on Operating Systems Principles},
+    pages = {441–459},
+    numpages = {19},
+    location = {Shanghai, China},
+    series = {SOSP '17},
+    exclusion_rationale = {
+        Not developer or mobile app focused, so exclude. Could be relevant for work on logging or mobile analytics SDKs.
+    }
+}
+
+@article{10.1145/3460345,
+author = {He, Shilin and He, Pinjia and Chen, Zhuangbin and Yang, Tianyi and Su, Yuxin and Lyu, Michael R.},
+    title = {A Survey on Automated Log Analysis for Reliability Engineering},
+    year = {2021},
+    issue_date = {July 2022},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {54},
+    number = {6},
+    issn = {0360-0300},
+    url = {https://doi.org/10.1145/3460345},
+    doi = {10.1145/3460345},
+    abstract = {Logs are semi-structured text generated by logging statements in software source code. In recent decades, software logs have become imperative in the reliability assurance mechanism of many software systems, because they are often the only data available that record software runtime information. As modern software is evolving into a large scale, the volume of logs has increased rapidly. To enable effective and efficient usage of modern software logs in reliability engineering, a number of studies have been conducted on automated log analysis. This survey presents a detailed overview of automated log analysis research, including how to automate and assist the writing of logging statements, how to compress logs, how to parse logs into structured event templates, and how to employ logs to detect anomalies, predict failures, and facilitate diagnosis. Additionally, we survey work that releases open-source toolkits and datasets. Based on the discussion of the recent advances, we present several promising future directions toward real-world and next-generation automated log analysis.},
+    journal = {ACM Comput. Surv.},
+    month = {jul},
+    articleno = {130},
+    numpages = {37},
+    keywords = {Log, log parsing, log mining, log compression, log analysis, logging},
+    exclusion_rationale = {
+        This will be relevant when I'm focusing on logging, not now though.
+    }
+}
+
+@inproceedings{10.1145/3453483.3454101,
+    author = {Zuo, Gefei and Ma, Jiacheng and Quinn, Andrew and Bhatotia, Pramod and Fonseca, Pedro and Kasikci, Baris},
+    title = {Execution Reconstruction: Harnessing Failure Reoccurrences for Failure Reproduction},
+    year = {2021},
+    isbn = {9781450383912},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3453483.3454101},
+    doi = {10.1145/3453483.3454101},
+    abstract = {Reproducing production failures is crucial for software reliability. Alas, existing bug reproduction approaches are not suitable for production systems because they are not simultaneously efficient, effective, and accurate. In this work, we survey prior techniques and show that existing approaches over-prioritize a subset of these properties, and sacrifice the remaining ones. As a result, existing tools do not enable the plethora of proposed failure reproduction use-cases (e.g., debugging, security forensics, fuzzing) for production failures. We propose Execution Reconstruction (ER), a technique that strikes a better balance between efficiency, effectiveness and accuracy for reproducing production failures. ER uses hardware-assisted control and data tracing to shepherd symbolic execution and reproduce failures. ER’s key novelty lies in identifying data values that are both inexpensive to monitor and useful for eliding the scalability limitations of symbolic execution. ER harnesses failure reoccurrences by iteratively performing tracing and symbolic execution, which reduces runtime overhead. Whereas prior production-grade techniques can only reproduce short executions, ER can reproduce any reoccuring failure. Thus, unlike existing tools, ER reproduces fully replayable executions that can power a variety of debugging and reliabilty use cases. ER incurs on average 0.3\% (up to 1.1\%) runtime monitoring overhead for a broad range of real-world systems, making it practical for real-world deployment.},
+    booktitle = {Proceedings of the 42nd ACM SIGPLAN International Conference on Programming Language Design and Implementation},
+    pages = {1155–1170},
+    numpages = {16},
+    keywords = {symbolic execution, debugging},
+    location = {Virtual, Canada},
+    series = {PLDI 2021},
+    exclusion_rationale = {
+        This might be of interest for future work, not yet though.
+    }
+}
+
+
+
+

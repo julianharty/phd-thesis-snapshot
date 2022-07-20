@@ -88,6 +88,53 @@ The following hierarchical list includes topics I planed to include in the relat
 
 Dated works when BlackBerry and Windows Phone app stores existed. They mainly help set the context and identify there has been plenty of research into generations of the ecosystem but aren't sufficiently relevant to cover in the core thesis.
 
+
+Monetization is a post-release measurement, where revenues and other business-oriented metrics are applied to consider the successfulness of a mobile app. Although the paper focuses on small development teams (see the following quote as an example) in my experience many developers have measures they use in order to assess their prior work and focus their immediate future work. 
+\emph{``In such apps where the development organization is small, often the developers will also have to make several engineering decisions that could affect their bottom line. Therefore software engineering researchers have examined how we can provide data to mobile app developers so that they can make these decisions in a more careful fashion."}~\citep[p. 28]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} This may be useful to support the bug triage process that developers use when determining which of the reliability bugs they choose to fix.
+
+\emph{``Currently there are also several analytics companies (AppAnnie [1], Quettra [9], Crittercism [6] etc.) that provide valuable usage data to developers for improving their monetization strategies. They track the downloads of apps, and how the apps are being used, when users purchase things from the app etc. These companies are able to track such user data, by incorporating tracking libraries in the mobile devices. Using this information developers are able to make smarter data driven decisions with respect to making their app more successful. However, most of these recommendations are more from a marketing perspective than software engineering perspective."}~\citep[p. 28]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} 
+There's a lot to unpack here. Firstly although this topic discusses monetization strategies, the use of analytics can also help developers make smarter data driven decisions with respect to making their app more successful from a~\emph{software engineering} perspective. Secondly, the tracking libraries mentioned here are added to the app rather than to the device. 
+\begin{itemize}
+    \item AppAnnie~\citep{appannie2021}: 
+    \item Crittercism: rebranded as Apteligent, which was acquired by VMWare in 2017. A few traces remain on StackOverflow and GitHub, etc. of Crittercism's analytics products of 2015. Essentially crash reporting. Some integration into enterprise systems e.g. to Splunk.
+    \item Quettra: Acquired by SimilarWeb~\citep{techcrunch2015_quettra_mobile_analytics_acquired} their focus was described as a deep understanding of the users, which was then intended to help developers improve retention and also improve targeting of adverts.
+\end{itemize}
+
+
+\emph{``There has been some recent initial work in this direction where Bavota et al. [16] looked at the impact of using certain APIs on the ratings and Tian et al. [94] model a set of factors (like size of app, complexity of app and its UI, quality of the library code etc.) against the ratings. They were able to find that there is initial evidence that high rated apps have a certain DNA (certain value for various factors)."}~\citep[p. 29]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} 
+
+\subsection{Papers to consider}
+\begin{itemize}
+    \item \emph{``A survey of app store analysis for software engineering"}~\cite{martin2016survey, martin2017_survey_in_app_store_analysis_for_software_engineering_IEEE_edition}.
+    
+    \item \emph{``Revisiting the Mobile Software Ecosystems Literature"}~\cite{steglich2019_revisiting_the_mobile_app_ecosystem} Helps to define what an ecosystem is.
+    
+    \item \emph{``Beyond Google Play: A large-scale comparative study of Chinese Android app markets"}~\cite{wang2018_beyond_google_play}.
+    
+    \item \emph{``Measurement, modeling, and analysis of the mobile app ecosystem"}~\cite{petsas2017measurement}.
+    
+    \item \emph{``A Measurement-based Study on Application Popularity in Android and iOS App Stores"}~\cite{liu2015measurement}.
+    
+    \item \emph{``Understanding the Evolution of Mobile App Ecosystems: A Longitudinal Measurement Study of Google Play"}~\cite{wang2019understanding} (2019): Lots of interesting questions and observations about Google Play; but they don't seem to consider flaws, or the effects of flaws, in the app store's data collection, algorithms, etc.
+
+    
+    \item \emph{``Determinants of Mobile Apps' Success: Evidence from the App Store Market"}~\citep{lee2014_determinants_of_mobile_app_success_evidence_from_the_app_store_market} Survivorship for apps, hazard models, quality updates one of the topics in the paper. iOS - Apple App Store. A focus on sellers rather than app developers. Figure 1, sustainability of app sales: empirical approach. 4 Hazard models App Quality update (App\_quality\_update): \emph{``1 if an app’s quality indicators were updated (adding more app features or fixing bugs)"}. Survivorship in the app store ecosystems and what devs can do to increase their app's survival. Seller [app developer]-level decisions, app-level decisions, user response to the decisions. It doesn't discuss app store algorithms or their effects. c.f. the more recent articles on iTunes rankings of apps from Medium.com~\citep{lotan2015_apple_apps_and_algorithmic_glitches, lotan2015_apples_app_charts}.
+    
+    \item \emph{``Feature lifecycles as they spread, migrate, remain, and die in App Stores"}~\cite{sarro2015_feature_lifecycles_in_appstores} discusses \emph{adaptive development} as a concept for developers of apps in app stores. Notes: Their research is based on `non-free features from two app stores (Samsung and Blackberry)' (both relatively dwarfed by Google Play) and their work predates the availability of platform level analytics, etc. Relevance to my work: developers can obtain requirements (in terms of work they're potentially `required' to do) from many sources, including direct feedback from end users of the apps, signals in terms of willingness to install and keep using their app, and from analytics. Developers want and increase the value of their work by prioritising potential work appropriately. Signals and data from mobile analytics may provide useful, additional sources of information that's sufficiently relevant for developers to accept these `requirements' and address them.
+    
+    \item The \emph{``Data analytics for decision support in software release management"}~\cite{didar2018data_analytics_phd_thesis}, a PhD thesis, introduces a proposed Plan-Monitor-Improve Framework for release management.
+
+    
+    \item \emph{``Requirements Intelligence: On the Analysis of User Feedback"}~\cite{stanik2020_requirements_intelligence_on_the_analysis_of_user_feedback}. continuous sources for requirements-related information; comparison between explicit and implicit user feedback (like app usage data).
+
+    
+    \item Both Medium articles by Gilad Lotan in 2015 on Apple's App Store rankings provide interesting colour to the discussion of the rankings over time~\citep{lotan2015_apple_apps_and_algorithmic_glitches, lotan2015_apples_app_charts}; however they're not directly relevant to software development practices so might not be that relevant.
+    
+    \item (this probably belongs elsewhere) \citet{not_cited_yet_necmiye2017_a_slr_opinion_mining_studies_from_mobile_app_store_reviews}. 
+    
+\end{itemize}
+
+
 \section{In-app advertising}
 While advertising in apps has been extensively researched the connection with mobile analytics is indirect. What they may share are:
 \begin{itemize}
