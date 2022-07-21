@@ -1165,6 +1165,97 @@ author = {He, Shilin and He, Pinjia and Chen, Zhuangbin and Yang, Tianyi and Su,
     }
 }
 
+@InProceedings{10.1007/978-3-030-12388-8_19,
+    author="Kohli, Puneet
+    and Chadha, Anjali",
+    editor="Arai, Kohei
+    and Bhatia, Rahul",
+    title="Enabling Pedestrian Safety Using Computer Vision Techniques: A Case Study of the 2018 Uber Inc. Self-driving Car Crash",
+    booktitle="Advances in Information and Communication",
+    year="2020",
+    publisher="Springer International Publishing",
+    address="Cham",
+    pages="261--279",
+    abstract="Human lives are important. The decision to allow self-driving vehicles operate on our roads carries great weight. This has been a hot topic of debate between policy-makers, technologists and public safety institutions. The recent Uber Inc. self-driving car crash, resulting in the death of a pedestrian, has strengthened the argument that autonomous vehicle technology is still not ready for deployment on public roads. In this work, we analyze the Uber car crash and shed light on the question, ``Could the Uber Car Crash have been avoided?''. We apply state-of-the-art Computer Vision models to this highly practical scenario. More generally, our experimental results are an evaluation of various image enhancement and object recognition techniques for enabling pedestrian safety in low-lighting conditions using the Uber crash as a case study.",
+    isbn="978-3-030-12388-8",
+    exclusion_rationale = {
+        I found this in the context of looking for research into the prevalence and use of vehicle dashcams. It isn't suitable to support my thesis given the gruesome subject - it'd unnecessarily distract the reader of my thesis. Nonetheless the work is very interesting e.g. for captur.ai's work, hence I'm recording it here.
+    }
+}
 
+@article{MANTELERO2016238,
+    title = {Personal data for decisional purposes in the age of analytics: From an individual to a collective dimension of data protection},
+    journal = {Computer Law & Security Review},
+    volume = {32},
+    number = {2},
+    pages = {238-255},
+    year = {2016},
+    issn = {0267-3649},
+    doi = {https://doi.org/10.1016/j.clsr.2016.01.014},
+    url = {https://www.sciencedirect.com/science/article/pii/S0267364916300280},
+    author = {Alessandro Mantelero},
+    keywords = {Big data, Right to privacy, Data protection, Group privacy, Collective interests, Data protection authorities, Risk assessment},
+    abstract = {In the big data era, new technologies and powerful analytics make it possible to collect and analyse large amounts of data in order to identify patterns in the behaviour of groups, communities and even entire countries. Existing case law and regulations are inadequate to address the potential risks and issues related to this change of paradigm in social investigation. This is due to the fact that both the right to privacy and the more recent right to data protection are protected as individual rights. The social dimension of these rights has been taken into account by courts and policymakers in various countries. Nevertheless, the rights holder has always been the data subject and the rights related to informational privacy have mainly been exercised by individuals. This atomistic approach shows its limits in the existing context of mass predictive analysis, where the larger scale of data processing and the deeper analysis of information make it necessary to consider another layer, which is different from individual rights. This new layer is represented by the collective dimension of data protection, which protects groups of persons from the potential harms of discriminatory and invasive forms of data processing. On the basis of the distinction between individual, group and collective dimensions of privacy and data protection, the author outlines the main elements that characterise the collective dimension of these rights and the representation of the underlying interests.},
+    exclusion_rationale = {
+        This is more focused on the people aspects than monitoring of app failures and flaws so it's somewhat removed from my research. Nonetheless the concept of Group privacy is relevant. This might migrate into my thesis at some point.
+    }
+}
+
+@ARTICLE{7814287,  
+    author={Huang, Gang and Xu, Mengwei and Lin, Felix Xiaozhu and Liu, Yunxin and Ma, Yun and Pushp, Saumay and Liu, Xuanzhe},  
+    journal={IEEE Transactions on Mobile Computing},  
+    title={ShuffleDog: Characterizing and Adapting User-Perceived Latency of Android Apps},   year={2017},  volume={16},  number={10}, 
+    pages={2913-2926}, 
+    abstract={
+    Numerous complains have been made by Android users who severely suffer from the sluggish response when interacting with their devices. However, very few studies have been conducted to understand the user-perceived latency or mitigate the UI-lagging problem. In this paper, we conduct the first systematic measurement study to quantify the user-perceived latency using typical interaction-intensive Android apps in running with and without background workloads. We reveal the insufficiency of Android system in ensuring the performance of foreground apps and therefore design a new system to address the insufficiency accordingly. We develop a lightweight tracker to accurately identify all delay-critical threads that contribute to the slow response of user interactions. We then build a resource manager that can efficiently schedule various system resources including CPU, I/O, and GPU, for optimizing the performance of these threads. We implement the proposed system on commercial smartphones and conduct comprehensive experiments to evaluate our implementation. Evaluation results show that our system is able to significantly reduce the user-perceived latency of foreground apps in running with aggressive background workloads, up to 10x, while incurring negligible system overhead of less than 3.1 percent CPU and 7 MB memory.
+    },  
+    keywords={},  
+    doi={10.1109/TMC.2017.2651823}, 
+    ISSN={1558-0660},  
+    month={Oct},
+    exclusion_rationale = {
+        An interesting paper on how they managed to improve algorithms within Android to reduce user-perceived latency. It ties in with the work that reduces ANRs because of flaws in the algorithm that writes to SD-cards. In terms of my PhD this is relatively distant as it's OS and User centric rather than focusing on what developers can do, etc.
+    }
+}
+
+@ARTICLE{8720158,  
+    author={Guo, Bin and Ouyang, Yi and Guo, Tong and Cao, Longbing and Yu, Zhiwen},  
+    journal={IEEE Access},   
+    title={Enhancing Mobile App User Understanding and Marketing With Heterogeneous Crowdsourced Data: A Review},  
+    year={2019}, 
+    volume={7}, 
+    number={}, 
+    pages={68557-68571}, 
+    abstract={The mobile app market has been surging in recent years. It has some key differentiating characteristics which make it different from traditional markets. To enhance mobile app development and marketing, it is important to study the key research challenges such as app user profiling, usage pattern understanding, popularity prediction, requirement and feedback mining, and so on. This paper reviews CrowdApp, a research field that leverages heterogeneous crowdsourced data for mobile app user understanding and marketing. We first characterize the opportunities of the CrowdApp, and then present the key research challenges and state-of-the-art techniques to deal with these challenges. We further discuss the open issues and future trends of the CrowdApp. Finally, an evolvable app ecosystem architecture based on heterogeneous crowdsourced data is presented.
+    },  
+    keywords={}, 
+    doi={10.1109/ACCESS.2019.2918325}, 
+    ISSN={2169-3536},  
+    month={},
+    exclusion_rationale = {
+        The core of this paper provides a useful literature review of various aspects of research into mobile apps. However it then peters out with their proposal for a vague CrowdApp system that the authors consider would augment the collection of recommendations from end users and combine it with various other sources of existing data. They do not appear to have make any more effort into developing their concept.
+    }
+}
+
+
+@article{spolaor2018_delta_data_extraction_and_logging_tool_for_android,  
+  author={Spolaor, Riccardo and Santo, Elia Dal and Conti, Mauro}, 
+  journal={IEEE Transactions on Mobile Computing}, 
+  title={DELTA: Data Extraction and Logging Tool for Android},
+  year={2018},  
+  volume={17}, 
+  number={6}, 
+  pages={1289-1302},
+  abstract={
+    In recent years, the use of smartphones has increased exponentially, and so have their capabilities. Together with an increase in processing power, smartphones are now equipped with a variety of sensors and provide an extensive set of API. These capabilities allow us to extract data related to environment, user habits, and operating system itself. This data is extremely valuable in many research fields such as user authentication, intrusion, and information leaks detection. For these reasons, researchers need a solid and reliable logging tool to collect data from mobile devices. In this paper, we first survey the existing logging tools available on the Android platform, comparing their features and their impact on the system. Then, we present DELTA - Data Extraction and Logging Tool for Android, which improves the existing Android logging solutions in terms of flexibility, fine-grained tuning capabilities, extensibility, and available set of logging features. We fully implement DELTA and we run a thorough performance evaluation. The results show that our tool has a low impact on the performance of the system, on battery consumption, and on user experience. Finally, we make the DELTA source code available to the research community.},  
+  keywords={},  
+  doi={10.1109/TMC.2017.2762692}, 
+  ISSN={1558-0660},  
+  month={June},
+  exclusion_rationale = {
+        The researchers focus on providing dynamic, extensible logging for research-oriented logging within mobile apps. This is in principle relevant to logging by developers even if it's more research than practitioner oriented. 
+        However, what tips the balance against including this research is the lack of availability of their source code (or at least I can't find it and their paper doesn't provide a link to it).
+  }
+}
 
 

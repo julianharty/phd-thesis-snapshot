@@ -1196,6 +1196,8 @@ numpages = {14}
     doi={10.1109/TMC.2019.2903186}, 
     ISSN={1558-0660},  
     month={May},
+    relevance_to_phd={Of particular interest is their AlManager 'app' intended to give end users the ability to see and control what data is reported to various mobile analytics data sinks. In their research they created a prototype that ran on one Android phone model. I get the impression they did not actually test it with end users or make their app available. Also their implementation seemed to involve modifying the binary files of various apps in order to intercept the calls the the mobile analytics SDKs, using https://github.com/rovo89/Xposed, so their approach won't fly in real-world app stores unless the app stores provide this facility. Nonetheless it helps demonstrate one way to give users sovereignty over their data - that's a good thing, subject to finding ways to also help developers understand key aspects of how their app is behaving.
+    },
 }
 
 @article{lo2018_novel_multi_criteria_decision_making_based_FMEA_model_for_risk_assessment,
@@ -2081,22 +2083,6 @@ numpages = {14}
     doi={10.1109/TSE.2018.2877664},  
     ISSN={1939-3520},  
     month={Dec},
-}
-
-@article{spolaor2018_delta_data_extraction_and_logging_tool_for_android,  
-  author={Spolaor, Riccardo and Santo, Elia Dal and Conti, Mauro}, 
-  journal={IEEE Transactions on Mobile Computing}, 
-  title={DELTA: Data Extraction and Logging Tool for Android},
-  year={2018},  
-  volume={17}, 
-  number={6}, 
-  pages={1289-1302},
-  abstract={
-    In recent years, the use of smartphones has increased exponentially, and so have their capabilities. Together with an increase in processing power, smartphones are now equipped with a variety of sensors and provide an extensive set of API. These capabilities allow us to extract data related to environment, user habits, and operating system itself. This data is extremely valuable in many research fields such as user authentication, intrusion, and information leaks detection. For these reasons, researchers need a solid and reliable logging tool to collect data from mobile devices. In this paper, we first survey the existing logging tools available on the Android platform, comparing their features and their impact on the system. Then, we present DELTA - Data Extraction and Logging Tool for Android, which improves the existing Android logging solutions in terms of flexibility, fine-grained tuning capabilities, extensibility, and available set of logging features. We fully implement DELTA and we run a thorough performance evaluation. The results show that our tool has a low impact on the performance of the system, on battery consumption, and on user experience. Finally, we make the DELTA source code available to the research community.},  
-  keywords={},  
-  doi={10.1109/TMC.2017.2762692}, 
-  ISSN={1558-0660},  
-  month={June},
 }
 
 @article{Schuenemann2011_guidelines2_0_do_no_net_harm,
@@ -5280,6 +5266,24 @@ series = {MOBILESoft '19}
   abstract = {The continuing expansion of mobile app ecosystems has attracted lots of efforts from the research community. However, although a large number of research studies have focused on analyzing the corpus of mobile apps and app markets, little is known at a comprehensive level on the evolution of mobile app ecosystems. Because the mobile app ecosystem is continuously evolving over time, understanding the dynamics of app ecosystems could provide unique insights that cannot be achieved through studying a single static snapshot. In this paper, we seek to shed light on the dynamics of mobile app ecosystems. Based on 5.3 million app records (with both app metadata and apks) collected from three snapshots of Google Play over more than three years, we conduct the first study on the evolution of app ecosystems from different aspects. Our results suggest that although the overall ecosystem shows promising progress in regard of app popularity, user ratings, permission usage and privacy policy declaration, there still exists a considerable number of unsolved issues including malicious apps, update issues, third-party tracking threats, improper app promotion behaviors, and spamming/malicious developers. Our study shows that understanding the evolution of mobile app ecosystems can help developers make better decision on developing and releasing apps, provide insights for app markets to identifying misbehaviors, and help mobile users to choose desired apps.},
 }
 
+@inproceedings{wei2016_taming_android_fragmentation_characterising_and_detecting_compatibility_issues_for_android_apps,
+    author = {Wei, Lili and Liu, Yepang and Cheung, Shing-Chi},
+    title = {Taming Android Fragmentation: Characterizing and Detecting Compatibility Issues for Android Apps},
+    year = {2016},
+    isbn = {9781450338455},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/2970276.2970312},
+    doi = {10.1145/2970276.2970312},
+    abstract = {Android ecosystem is heavily fragmented. The numerous combinations of different device models and operating system versions make it impossible for Android app developers to exhaustively test their apps. As a result, various compatibility issues arise, causing poor user experience. However, little is known on the characteristics of such fragmentation-induced compatibility issues and no mature tools exist to help developers quickly diagnose and fix these issues. To bridge the gap, we conducted an empirical study on 191 real-world compatibility issues collected from popular open-source Android apps. Our study characterized the symptoms and root causes of compatibility issues, and disclosed that the patches of these issues exhibit common patterns. With these findings, we propose a technique named FicFinder to automatically detect compatibility issues in Android apps. FicFinder performs static code analysis based on a model that captures Android APIs as well as their associated context by which compatibility issues are triggered. FicFinder reports actionable debugging information to developers when it detects potential issues. We evaluated FicFinder with 27 large-scale open-source Android apps. The results show that FicFinder can precisely detect compatibility issues in these apps and uncover previously-unknown issues.},
+    booktitle = {Proceedings of the 31st IEEE/ACM International Conference on Automated Software Engineering},
+    pages = {226–237},
+    numpages = {12},
+    keywords = {compatibility issues, Android fragmentation},
+    location = {Singapore, Singapore},
+    series = {ASE 2016},
+}
+
 @inproceedings{not_yet_cited_9463119,  
   author={Wendland, Tyler and Sun, Jingyang and Mahmud, Junayed and Mansur, S. M. Hasan and Huang, Steven and Moran, Kevin and Rubin, Julia and Fazzini, Mattia}, 
   booktitle={2021 IEEE/ACM 18th International Conference on Mining Software Repositories (MSR)},   
@@ -6909,6 +6913,21 @@ author = {HUAWEI Developers},
   author = {{UXCam}},
   year = {2020},
   publisher = {HackerMoon},
+}
+
+@misc{vardy2018_a_survey_of_dashcams_in_uk_cars,
+    title = {Dashcam Confessions - A Survey of Dashcams in UK Cars | Peter Vardy},
+    url = {https://www.petervardy.com/dashcam-confessions},
+    year = {2018},
+    author = {{Peter Vardy}},
+    abstract = {
+        Dashcam Nation: Why Brits Are Turning to In-Car Cameras
+        Us Brits really value our privacy. Except, it would seem, when we are in our cars. These days, many of us are driving around with a camera recording our every turn and lane change.
+
+        In fact, it is estimated that there are already a whopping 840,000 dashcams installed in UK cars, and the market is growing fast. Some retailers have even seen dashcam sales surge by 104 per cent in the last 12 months.
+
+        What does this all add up to? Well, it suggests that we really are a dashcam nation. To find out more about the phenomenon, the team here at Peter Vardy launched a nationwide survey.
+    },
 }
 
 @misc{vodafone2021_huawei_appgallery,
@@ -9163,6 +9182,16 @@ https://github.com/Displayr/flipTime/graphs/contributors
   address = {Melbourne, Florida, USA},
 }
 
+@phdthesis{patro2015_building_blocks_to_understand_wireless_experience,
+  title={Building blocks to understand wireless experience},
+  author={Patro, Ashish},
+  year={2015},
+  school={The University of Wisconsin-Madison},
+  address={Madison, WI, USA},
+  relevance_to_phd={
+    A tale of two apps, monitoring experiences in the wild. His thesis extends the work in the paper he co-wrote and published in 2013.
+  }
+}
 
 @phdthesis{shuba2019mobile,
   title={Mobile Data Transparency and Control},

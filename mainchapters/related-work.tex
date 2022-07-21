@@ -293,6 +293,8 @@ The absence of automated tests does not prove developers do not test their Andro
 
 An incredible amount of research energy has gone into trying to find better ways to test mobile apps, ranging from autonomous tools that where the researchers endeavour to deliver better coverage than a small free utility called \texttt{monkey} (and sometimes manage to do so), through to ways to generate automated tests from the text of reviews. Virtually none of these endeavours seem to make any difference to the testing developers do, they don't use the tools developed from these research efforts. 
 
+\emph{``Thus even if the app is tested on one device, there is no guarantee that it may work on another device."}~\citep[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - I agree. They don't provide any substance for this statement.
+
 research gaps...
 
 And yet, researchers also continue to complain app developers don't test their apps sufficiently. They sometimes berate the app developers to `test their apps' ,\emph{e.g.}~\citet{cruz2019_guess_what_test_your_app}.
@@ -306,36 +308,71 @@ Developers do want automated tests and tools to provide them with feedback~\cite
 
 For project teams with large volumes of automated tests, what value do those tests provide? Fortuitously one of the app-centric case studies, Catrobat, has an opensource codebase and their uses of automated tests are well researched. The Catrobat project makes extensive use of various forms of automated tests including using Behaviour-Driven-Development (BDD) practices~\citet{ali2019using_catrobat}, testing under adverse conditions~\citet{adamsen2015systematic_catrobat}, the use of sizing for automated tests~\citet{hirsch2019approach_catrobat}, \emph{etc}. % TODO add additional references for Catrobat. See the findings-results chapter.
 
+\subsection{Mobile Analytics}
+In-app analytics have been used to help developers understand ways their mobile app is used by large populations of end-users and the effects of various conditions on the behaviours of the end users. There has been some research into using mobile analytics to understand usage patterns of specific apps, for example:
+
+\begin{itemize}
+    \item \citet{parate2016_RECKON_an_analytics_framework_for_app_developers_HP_AppPulseMobile} describes how automatic instrumentation of mobile apps using mobile analytics tools including HP's App Pulse Mobile is able to help developers better understand their users.
+    \item \citet{ferre2017_extending_mobile_app_analytics_for_usability_test_logging} identified the importance of usability testing in terms of success of mobile apps, while there are challenges and severe limitations with usability testing in the lab. This research evaluated the use of Google Analytics for Mobile Applications to provide continuous usability logging. They describe a three-stage proposed approach to logging. In the third stage they have two alternatives, one for lab usability testing, the other for continuous usability logging.
+    \item and the Insight toolkit~\citet{patro2013_capturing_mobile_experience_in_the_wild} which is covered in more detail next.
+\end{itemize}   
+
+Two mobile apps incorporated a toolkit library called Insight~\citep[p. 82]{patro2015_building_blocks_to_understand_wireless_experience}~\footnote{Interim aspects of this research was also published~\citet{patro2013_capturing_mobile_experience_in_the_wild}.} that combined passive analytics, such as session length, with factors, such as network condition and client device, with the aim of helping the developers recognise correlations between these factors and application use and revenues[p. 82](\textit{ibid}).
+
+The research describes generic data, collected by Insight for any app, and app-specific data, which is defined and implemented by the developers of that app~\citep[pp. 87-88]{patro2015_building_blocks_to_understand_wireless_experience}. They identified a correlation between battery drain and session lengths, as battery drain increased the session lengths decreased, and also the correlation between screen brightness and battery drain. The device model was a material factor in the rate the battery drained, and in particular on Kindle Fire devices the drain was far higher when the screen was bright. ``\emph{controlling the screen brightness on a Kindle Fire device reduced the average battery drain by 40\% while using SB}''~\citep[p. 13]{patro2015_building_blocks_to_understand_wireless_experience} Note: SB is short for StudyBlue, one of the two apps in this study.
+
+The research using Insight was one of the catalytic agents for this research as it was able to publish data obtained using mobile analytics for two popular real-world apps. They also made both their client and server code freely available online as opensource projects: \url{https://github.com/patroashish/InsightClient} and \url{https://github.com/patroashish/InsightServers}. Although they mention they developed an iOS SDK it does not appear to have been made available online~\citep[p. 85]{patro2015_building_blocks_to_understand_wireless_experience}.
+
+Perhaps paradoxically the Insight client SDK, freely available at \url{https://github.com/patroashish/InsightClient}, does not record or report any failures of the SDK or of the associated app it has been integrated with. Assuming crashes, freezes, and other similar issues might affect the end-user experience it seems odd the SDK doesn't track these aspects. Furthermore the SDK only sends the analytics data when there is a working mobile network immediately available, it does not appear to queue events, incorporate any robustness mechanisms, or include any re-transmission capabilities.
+
+With the exception of a brief comparison between Insight and three then popular mobile analytics services their research does not investigate any other mobile analytics offering.
+
+Note: there has also been research into similar sounding work on software analytics for mobile apps~\citet{minelli2013_software_analytics_samoa}, however that research is into characteristics of the source code rather than in the use of mobile analytics by app developers.
+
+Research into mobile analytics is surprisingly rare, especially given the prevalence of apps that include mobile analytics SDKs and their use by mobile app developers. A possible reason for the rarity is the challenges in researchers obtaining access to the outputs of the mobile analytics. For the research using Insight they negotiated special non-disclosure agreements (NDAs) and the data was pre-filtered to increase the privacy of the end users~\citep[p. 91]{patro2015_building_blocks_to_understand_wireless_experience}. 
+
+Before we leave the topic of mobile analytics research into the privacy aspects of the mobile analytics SDKs is pertinent as the choices developers make in terms of selecting in-app mobile analytics has various consequences including the privacy for the end users who indirectly provide the underlying data. Two illustrative areas of research into the privacy and data leakage aspects are:
+
+\begin{itemize}
+        \item \citet{razaghpanah2018_apps_trackers_privacy_and_regulators_a_global_study_of_the_mobile_tracking_ecosystem} where a privacy-focused app is used to obtain the network traffic sent to ad and analytics end points from end-user devices. That traffic is analysed to understand where it goes, who has access to the underlying data, and what of the content is most likely to contravene ePrivacy and GDPR directives.
+        \item \citet{liu2020_privacy_risk_analysis_and_mitigation_of_analytics_libraries_in_the_android_ecosystem}, in contrast, modifies the binary files of various apps in order to intercept the calls to the respective in-app SDKs of various mobile analytics libraries. They developed a proof-of-concept Android app AlManager that a) allows the user to see the contents of the calls made to the in-app SDKs, and b) to block or replace the contents with blank data. They also studied characteristics of the calls the apps made in terms of the App, Activity, and User level in terms of the data being sent to the mobile analytics SDK(s).
+\end{itemize}
+
+The first of these papers focuses on the data that is sent, the contents, and where that data goes. The second concentrates on analysing app binaries, finding all the calls to the mobile analytics SDKs, intercepting these and enabling users to see, block or blank out data that would then be sent by the respective mobile analytics SDK.
 
 \subsection{Heatmapping, and similar approaches}~\label{section-heatmapping} 
 Perceived advantages of these recordings of user-interactions include being able to visualise the user interactions remotely and to combine individual recordings to create heatmaps overlaid on the app's GUI. When the GUI recordings are combined with logs generated via the app being used several commercial services offered the promise of being able to determine the actions that led to [some of the] problems occurring in the app~\footnote{Not all failures stem from the user interactions.}. One provider of these services, Appsee, presented how their service could be used to identify what caused an app to crash, the presentation is preserved in a YouTube video~\citep{appsee2015_youtube_visual_analytics_budapest_mobile_meetup}. Their CEO also contributed material on the benefits of visual analytics, as his company described it, to a book I co-wrote~\citep[pp. 94-95]{harty_aymer_playbook_2016}, as did the CEO of a similar service called Azetone [pp. 88-92]. % UXCAM has a similar term: User-journey analytics https://uxcam.com/user-analytics-and-profile
 
-A combination of personal experience, and checking with free online Android app analytics services including AppBrain and the Exodus Privacy project, indicate heatmapping and similar visual analytics are only used in a tiny minority of mobile apps. Given the increasing amounts of legislation intended to protect end-users' privacy such as GDPR it seems unlikely that heatmapping, \textit{etc.} would become a mainstream practice for mobile app developers. Therefore they are outside the scope of this research.
+Despite the visual appeal of heatmapping and being able to watch video recordings - in many ways similar to the now popular dash-cams~\footnote{\emph{``When it comes to those of us who actively use dashcams, we found that more than half (51.3\%) of Brits have them installed, and a further 22\% are considering making a purchase.''}~\citet{vardy2018_a_survey_of_dashcams_in_uk_cars}. They were bought for: Insurance purposes (53.8\%), Safety of vehicle while unattended (37.8\%), To capture unexpected events (12\%). Crashes can feature in all these reasons where the recording can help determine what happened.} - they have not been widely adopted by app developers. A combination of personal experience, and checking with free online Android app analytics services including AppBrain and the Exodus Privacy project, indicate heatmapping and similar visual analytics are only used in a tiny minority of mobile apps. Given the increasing amounts of legislation intended to protect end-users' privacy such as GDPR it seems unlikely that heatmapping, \textit{etc.} would become a mainstream practice for mobile app developers. Therefore they are outside the scope of this research.
 
 % \emph{``Requirements Intelligence: On the Analysis of User Feedback"}~\cite{stanik2020_requirements_intelligence_on_the_analysis_of_user_feedback}. continuous sources for requirements-related information; comparison between explicit and implicit user feedback (like app usage data).
 
 
 
 \subsection{Summary so far} % Or curiosities, or gaps in the research at this stage...?
-App stores, their ecosystems, and their effects on developers have been covered from various angles. Some of the research describes snapshots of one or more app stores. And some of the research involves developers of live apps in a mainstream app store. Ratings and reviews are covered from many angles including fraud~\citep{xie2015_appwatcher_unveiling_the_underground_market_of_trading_mobile_app_reviews}
+App stores, their ecosystems, and their effects on developers have been covered from various angles. Some of the research describes snapshots of one or more app stores. And some of the research involves developers of live apps in a mainstream app store. Ratings and reviews are covered from many angles including fraud~\citep{xie2015_appwatcher_unveiling_the_underground_market_of_trading_mobile_app_reviews}. 
 
 One of the curiosities reported in~\citet{alsubaihin2019app_store_effects_on_software_engineering} is: \emph{``while automatic in-app crash reporting is the most prolific channel of reporting bugs, the one mostly prioritised by our respondents is user reviews in app stores."}[p. 13] - what are the effects of the crashes being a lower priority than user reviews? Also, they don't discuss other sources of crash reports (e.g. platform crash reporting) even though these existed at the time of their research.
 
 Similarly, in terms of managing releases in app stores, the platform provided release management tools and reports were not mentioned. 
 
+\begin{quote}
+    \emph{``...with explicit and implicit feedback now available (almost) continuously, questions arise. How can practitioners use this information and integrate it into their development processes to decide when to release updates?''}\citep[pp. 48-49]{maalej2016_towards_data_driven_requirements_engineering}    
+\end{quote}
 
+Building on a point made in this paper: \emph{``the future of app quality engineering is data driven."}~\citep[p. 24]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} % cite 97.
 
 \julian{TODO complete this thought: However none of these (these researches) provide X which is my need...}
 
 
 
 
-\section{Software Development Practices}
+\section{Software Development}
 Many mobile app development teams would describe their development practices as Agile or based on along the principles of Agile development. % Solo app developers are less likely to use these practices, nonetheless there has been various research into adaptions of Agile and Scrum in attempts to suit them. Various examples are in the excluded-bibliography.
 
 Topics include: Agile development and the effects of the software that's developed and released. Motivations for/of software developers.
 
-\subsection{Papers to consider on software development practices}
+\subsection{Software development practices}
 Jez Humble's work could be part of a preamble for software development practices, to set the scene.
 
 \begin{itemize}
@@ -348,6 +385,12 @@ Jez Humble's work could be part of a preamble for software development practices
 \end{itemize}
 
 In terms of trying to understand real-world practices please avoid \citet{santos2016_investigating_the_adoption_of_agile_practices_by_20_undergrad_students_in_mobile_app_devt} which sounds relevant but only surveyed 20 undergraduate students who took an iOS development course. 
+
+\subsection{Software analytics}
+Buse and Zimmermann
+
+\emph{```Bad Smells" in software analytics papers'}~\citep{menzies2019_badsmells_in_software_analytics}.
+
 
 \section{Developing Mobile Apps}
 Mobile apps need to be made and developers make them. There are various working practices, apps are made by visionaries, employees, amateurs, and communities. Many claim to be ``Agile" in their working practices. There are various activities involved including development, testing, release, and deployment. Figure~\ref{fig:my_mobile-app-makers} highlights these activities as part of the overall ecosystem.
@@ -483,6 +526,19 @@ What to log depends materially on the context of intended use of the contents of
 
 
 \subsubsection{Designing logging}
+
+\subsection{Maintenance of mobile apps}
+\emph{``The area of software maintenance is one of the most researched areas in Software Engineering. However, due to the fact that mobile apps is a young subarea within SE, the maintenance of mobile applications remains to be largely undiscovered."} - My work does investigate aspects of maintenance. 
+
+\emph{``Syer et al. [93] compares mobile apps to larger “traditional” software systems in terms of size and time to fix defects. They find that mobile apps resemble Unix utilities, i.e., they tend to be small and developed by small groups. They also find that mobile apps tend to respond to reported defects quickly."} - Check the details of what quickly means and how the teams discovered the defects.
+
+\emph{``Bavota et al. [16], show that the quality (in terms of change and fault-proneness) of the APIs used by Android apps negatively impacts their success, in terms of user ratings. Similarly, McDonnell et al. [65], study the stability and adoption rates for the APIs in the Android ecosystem."} - Skim read both these papers to determine their relevance.
+
+\emph{``Another line of work examined Android-related bug reports. Bhattacharya et al. [18] study 24 mobile Android apps in order to understand the bug-fixing process. They find that mobile bug reports are of high quality, especially for security related bugs. Martie et al. [63] analyzed topics in the Android platform bugs in order to uncover the most debated topics over time. Similarly, Liu et al. [58] detected and characterized performance bugs among Android apps."} - Looks at how the bugs were fixed and compare the practices they detected with those I'm aware of. Are platform bugs that relevant? They look at performance bugs (Android Vitals also reports performance issues, Firebase Analytics has tools for performance tracking), I'm looking mainly into reliability measurements and issues.
+
+Following on from the challenges and future directions section on maintenance research for mobile apps: do researchers focus in areas where the streetlights are rather than where the problems are? \emph{i.e.} on where they can find material to study rather than on issues that practically affect the majority of developers of apps?
+
+
 
 
 \subsection{Managing Releases in App Stores}
@@ -766,7 +822,7 @@ Buse and Zimmerman wrote a short paper in 2010 which helped establish the field 
 \end{figure}
 \begin{itemize}
 
-    \item \emph{``Capturing Mobile Experience in the Wild: A Tale of Two Apps"}~\citep{patro2013_capturing_mobile_experience_in_the_wild}. Also mention the respective GitHub projects \url{https://github.com/patroashish/InsightClient} and \url{https://github.com/patroashish/InsightServers}.
+
 
     \item Davenport \textit{et al.} Competing on Analytics (\cite{davenport2017competing_on_analytics}) figure 1. Note: Google with version 4 of Google Analytics, launched in October 2020, are offering some machine learning based analytics to their customers, for instance to help marketeers... TBC. MUST-DO continue this topic and provide references to sources.
     
@@ -922,49 +978,3 @@ There is some interesting large-scale research into analysis of various releases
 \end{itemize}
 
 In summary, the approach proposed in~\citep{kong2019_mining_android_crash_fixes} has the potential to mine crash stack traces (which are available to the developers of the particular apps) to help with aspects of reproducing a subset of those crashes which pertain to Android framework-related crashes. Similarly it appears it could complement the automated testing provided by Google as part of the pre-launch reports available in Google Play Console and other services. 
-
-
-
-\hypertarget{mobile.analytics}{}
-\section{Mobile Analytics}~\label{rw-mobile-analytics-papers}
-\subsection{Papers to consider}
-\begin{itemize}
-    \item \emph{``"}~\citep{parate2016_RECKON_an_analytics_framework_for_app_developers_HP_AppPulseMobile} describes how automatic instrumentation of mobile apps using mobile analytics tools including HP's App Pulse Mobile is able to help developers better understand their users. 
-    \item \emph{```Bad Smells" in software analytics papers'}~\citep{menzies2019_badsmells_in_software_analytics}.
-    \item \emph{Software analytics for mobile applications--insights \& lessons learned}~\citep{minelli2013_software_analytics_samoa}. Their online site is still up \url{http://samoa.inf.usi.ch/} and one of the authors provided me with access to their software.
-    \item \emph{``Mining Device-Specific Apps Usage Patterns from Large-Scale Android Users"}~\citep{li2017_mining_device_Specific_app_usage_patterns}
-    \item \emph{``Extending Mobile App Analytics for Usability Test Logging"}~\citealt{ferre2017_extending_mobile_app_analytics_for_usability_test_logging} identified the importance of usability testing in terms of success of mobile apps, while there are challenges and severe limitations with usability testing in the lab. This research evaluated the use of Google Analytics for Mobile Applications to provide continuous usability logging. They describe a three-stage proposed approach to logging. In the third stage they have two alternatives, one for lab usability testing, the other for continuous usability logging. 
-    \item \emph{``DELTA: Data Extraction and Logging Tool for Android"}~\citep{spolaor2018_delta_data_extraction_and_logging_tool_for_android} introduces three types of data logging can collect from mobile devices: 
-    \item \emph{``Apps, Trackers, Privacy, and Regulators: A Global Study of the Mobile Tracking Ecosystem''}~\citep{razaghpanah2018_apps_trackers_privacy_and_regulators_a_global_study_of_the_mobile_tracking_ecosystem} to set the context.
-    \item \citet{liu2020_privacy_risk_analysis_and_mitigation_of_analytics_libraries_in_the_android_ecosystem}
-\end{itemize}
-
-Direct vs indirect analytics - 
-Challenges of research into usage-derived analytics - perhaps why there are gaps in knowledge, compounded for indirect analytics. A tale of two apps, any others?
-
-
-\section{Placeholder for related work migrated from elsewhere in this thesis}
-There are several key survey papers, the following was written in the RQ section as part of determining that this research is a) relevant and b) hasn't been covered by others. The contents need to be woven into the rest of the thesis.
-
-\begin{mdframed}[style=MyFrame]
-
-
-
-
-Building on a point made in this paper: \emph{``the future of app quality engineering is data driven."}~\citep{maalej2016_towards_data_driven_requirements_engineering} % cite 97.
-
-\emph{``Thus even if the app is tested on one device, there is no guarantee that it may work on another device."} - I agree. They don't provide any substance for this statement.
-
-\emph{``The area of software maintenance is one of the most researched areas in Software Engineering. However, due to the fact that mobile apps is a young subarea within SE, the maintenance of mobile applications remains to be largely undiscovered."} - My work does investigate aspects of maintenance. 
-
-\emph{``Syer et al. [93] compares mobile apps to larger “traditional” software systems in terms of size and time to fix defects. They find that mobile apps resemble Unix utilities, i.e., they tend to be small and developed by small groups. They also find that mobile apps tend to respond to reported defects quickly."} - Check the details of what quickly means and how the teams discovered the defects.
-
-\emph{``Bavota et al. [16], show that the quality (in terms of change and fault-proneness) of the APIs used by Android apps negatively impacts their success, in terms of user ratings. Similarly, McDonnell et al. [65], study the stability and adoption rates for the APIs in the Android ecosystem."} - Skim read both these papers to determine their relevance.
-
-\emph{``Another line of work examined Android-related bug reports. Bhattacharya et al. [18] study 24 mobile Android apps in order to understand the bug-fixing process. They find that mobile bug reports are of high quality, especially for security related bugs. Martie et al. [63] analyzed topics in the Android platform bugs in order to uncover the most debated topics over time. Similarly, Liu et al. [58] detected and characterized performance bugs among Android apps."} - Looks at how the bugs were fixed and compare the practices they detected with those I'm aware of. Are platform bugs that relevant? They look at performance bugs (Android Vitals also reports performance issues, Firebase Analytics has tools for performance tracking), I'm looking mainly into reliability measurements and issues.
-
-Following on from the challenges and future directions section on maintenance research for mobile apps: do researchers focus in areas where the streetlights are rather than where the problems are? \emph{i.e.} on where they can find material to study rather than on issues that practically affect the majority of developers of apps?
-
-
-\end{mdframed}
-
