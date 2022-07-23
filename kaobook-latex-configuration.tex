@@ -1,0 +1,69 @@
+%----------------------------------------------------------------------------------------
+%	CUSTOM CODE FROM JULIAN
+%----------------------------------------------------------------------------------------
+
+\newskip\tufteskipamount
+\tufteskipamount=1.0\baselineskip plus 0.5ex minus 0.2ex
+
+\newcommand{\tuftebreak}{\par\ifdim\lastskip<\tufteskipamount
+  \removelastskip\penalty-100\tufteskip\fi}
+
+\newcommand{\tufteskip}{\vspace\tufteskipamount}
+
+\makeatletter
+\def\tuftebreak{%
+  \if@nobreak\else
+    \par
+    \ifdim\lastskip<\tufteskipamount
+      \removelastskip \penalty -100
+      \tufteskip
+    \fi
+  \fi
+}
+\makeatother
+
+%--------------------------------------------
+
+\newlength\ltempa
+\newlength\ltempb
+\newcommand\newthought[1]{%
+   %\addvspace{1.0\baselineskip plus 0.5ex minus 0.2ex}%
+   \noindent\expandafter\formatnewthought#1\relax}
+\def\formatnewthought#1#2\relax{%
+  \tuftebreak
+  \settowidth\ltempa{\textsc{#1#2}}%
+  \settowidth\ltempb{\textsc{#1\mbox{}#2}}%
+  \addtolength\ltempa{-\ltempb}%
+  \textbf{#1}\kern\ltempa\textsc{#2}%
+}
+
+%--------------------------------------------
+
+\usepackage{comment}
+\usepackage{nth}
+\usepackage{copyrightbox}
+\usepackage{svg}
+
+%--------------------------------------------
+
+\newcommand{\secref}[1]{\autoref{#1}. \nameref{#1}} % \secref{section:my} %from https://stackoverflow.com/a/30844515/340175
+
+%--------------------------------------------
+
+\newcommand{\julian}[1]{\textcolor{olive}{[JH: #1]}}
+
+%--------------------------------------------
+
+% To address the error: Class scrbook Error: undefined old font command `\sf'.
+% From: https://github.com/ftilmann/latexdiff/issues/92 
+\makeatletter
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\makeatother
+
+%----------------------------------------------------------------------------------------
