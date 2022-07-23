@@ -50,7 +50,18 @@
 
 %--------------------------------------------
 
+% comment these for final
+\newcommand{\yijun}[1]{\textcolor{red}{[YY: #1 ?]}}
+% \def\yy#1#2{\textcolor{red}{#1}\footnote{YY:{#2}\textcolor{black}}}
+\newcommand{\yy}[2]{{#1}\footnote{YY:{#2}}}
+
+\newcommand{\akb}[1]{\textcolor{purple}{[AKB: #1]}}
+\newcommand{\arosha}[1]{\textcolor{purple}{[AKB: #1 ?]}}
+
+\newcommand{\marian}[1]{\textcolor{blue}{[MP: #1 ?]}}
 \newcommand{\julian}[1]{\textcolor{olive}{[JH: #1]}}
+\newcommand{\isabel}[1]{\textcolor{brown}{[IE: #1]}}
+
 
 %--------------------------------------------
 
@@ -65,5 +76,23 @@
 \DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
 \DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
 \makeatother
+
+%----------------------------------------------------------------------------------------
+
+% The following clashes with the \requirepackage{todonotes} which is part of kaobook
+%\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}  % From https://tex.stackexchange.com/a/178806/88466
+
+\begin{comment}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\pending}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+\end{comment}
+
+%----------------------------------------------------------------------------------------
+% Adjustbox is used to shrink a couple of large tables. I'd like to find a better approach, however it does an adequate job.
+
+\usepackage{adjustbox}
 
 %----------------------------------------------------------------------------------------
