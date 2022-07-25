@@ -195,6 +195,23 @@ What to log depends materially on the context of intended use of the contents of
 
 
 \subsubsection{Designing logging}
+In the excluded work bibliography {balagtas2009_a_methodology_and_framework_to_simplify_usability_analysis_of mobile_apps} presents a utility EvaHelper with the aim of structuring usability measurements in Android apps. The paper discusses logging and the importance of designing log messages.
+
+\subsubsection{Software telemetry}
+Software telemetry focuses on ways to collect and transport data related to the running and use of software in order to analyse that data. Telemetry makes explicit the need to address both the distance and the scale involved in many modern software systems including cloud and mobile apps.
+
+\emph{Software Telemetry}~\cite{riedesel2021_software_telemetry} discusses telemetry including the roots in system logs on early computer systems. The inside cover of the book shows three pipelines stages: emitting, shipping, and presentation. While these are useful concepts to help understand telemetry they appear to miss out several essential stages, such as: design and implementation of the telemetry data (which comes before emitting the data) and analysis of the data once it has been received from the shipping stage and prior to the presentation. 
+
+A specific use of telemetry for mobile apps is covered in \emph{``DELTA: Data Extraction and Logging Tool for Android"}~\citep{spolaor2018_delta_data_extraction_and_logging_tool_for_android} describes an extensible set of software intended to help researchers log various data for further analysis. It includes a client app. They say their approach is modular and available for other researchers to use but they don't seem to actually provide any details of how/where to obtain it. The paper introduces three types of data logging can collect from mobile devices, listed below:
+    \begin{enumerate}
+        \item Sensor data: is gathered directly by querying the many sensors embedded in modern mobile devices. This includes a wide variety of information about the device itself and its surrounding environment (e.g., the device's position, orientation and relative speed).
+        \item  Device/OS context data: is the state of the device itself and its operating system (e.g., battery level, list of running processes, traffic statistics, and file system activity).
+        \item User interaction data: is related to the device's user and her actions and habits, such as how she interacts with the touchscreen, with the keyboard and with elements of the User Interface.
+    \end{enumerate}
+
+\subsection{Profiling performance}
+\emph{``User interaction-based profiling system for Android application tuning"}~\cite{lee2014_user_interaction_based_profiling_system_for_android_app_tuning} Correlation or causation, needing to investigate... I've discussed one of their figures in many presentations on Mobile Analytics. To be continued...
+    
 
 
 \subsection{Papers to consider on software development practices}
@@ -242,6 +259,17 @@ Recreate the `journey' (however relevant context may be missing or different and
 
 \newthought{Prior art in record and replay/playback}
 TBC
+
+
+\section{Sources of information on software quality for developers of mobile apps}
+\subsection{Heatmapping, and similar approaches}~\label{section-heatmapping} 
+Perceived advantages of these recordings of user-interactions include being able to visualise the user interactions remotely and to combine individual recordings to create heatmaps overlaid on the app's GUI. When the GUI recordings are combined with logs generated via the app being used several commercial services offered the promise of being able to determine the actions that led to [some of the] problems occurring in the app~\footnote{Not all failures stem from the user interactions.}. One provider of these services, Appsee, presented how their service could be used to identify what caused an app to crash, the presentation is preserved in a YouTube video~\sidecite{appsee2015_youtube_visual_analytics_budapest_mobile_meetup}. Their CEO also contributed material on the benefits of visual analytics, as his company described it, to a book I co-wrote~\cite[pp. 94-95]{harty_aymer_playbook_2016}, as did the CEO of a similar service called Azetone [pp. 88-92]. % UXCAM has a similar term: User-journey analytics https://uxcam.com/user-analytics-and-profile
+
+Despite the visual appeal of heatmapping and being able to watch video recordings - in many ways similar to the now popular dash-cams~\footnote{\emph{``When it comes to those of us who actively use dashcams, we found that more than half (51.3\%) of Brits have them installed, and a further 22\% are considering making a purchase.''}~\textcite{vardy2018_a_survey_of_dashcams_in_uk_cars}. They were bought for: Insurance purposes (53.8\%), Safety of vehicle while unattended (37.8\%), To capture unexpected events (12\%). Crashes can feature in all these reasons where the recording can help determine what happened.} - they have not been widely adopted by app developers. A combination of personal experience, and checking with free online Android app analytics services including AppBrain and the Exodus Privacy project, indicate heatmapping and similar visual analytics are only used in a tiny minority of mobile apps. Given the increasing amounts of legislation intended to protect end-users' privacy such as GDPR it seems unlikely that heatmapping, \textit{etc.} would become a mainstream practice for mobile app developers. Therefore they are outside the scope of this research.
+
+% \emph{``Requirements Intelligence: On the Analysis of User Feedback"}~\sidecite{stanik2020_requirements_intelligence_on_the_analysis_of_user_feedback}. continuous sources for requirements-related information; comparison between explicit and implicit user feedback (like app usage data).
+
+
 
 \hypertarget{mobile.testing}{}
 \section{Testing Mobile Apps}
@@ -296,6 +324,14 @@ on remote emulators and/or simulators.
     \item "The Testing Method Based on Image Analysis for Automated Detection of UI Defects Intended for Mobile Applications". \textbf{Springer paper I paid for.}
     
     \item \emph{``Linares-Vasquez et al. [56] propose MonkeyLab, which mines recorded executions to guide the testing of Android mobile apps."} Their approach records GUI events (click events). Members of the project team (developers, testers, etc.) perform the actions, the authors claim their log collection process could scale to collecting logs from ordinary users. Key limitations include events that aren't purely dependent on the user's GUI inputs, there would also be challenges getting users to accept such an approach where the app records every input they made. Also, they generate GUI events that have x,y coordinates - absolute positioning that may have limited portability to other devices, screen rotations, and so on. Their playback also appears to require rooted devices. There are numerous other limitations described in their paper, nonetheless their work shows promise in terms of detecting and generating patterns the students did not find. It would be interesting to compare the results using accomplished software testers with experience and expertise testing similar Android apps.
+    
+    \item \emph{``A Framework for the Automatic Execution of Measurement-Based Experiments on Android Devices"}~\cite{malavolta2020_android_runner} Their Android Runner framework may be of interest when aiming to reproduce failures (and/or evaluate improvements intended to address particular failures). Given the use of additional plugins as profilers it is unlikely to be used much in Industry. They provide a set of synthetic Android apps. %floats-lost ~\footnote{\url{https://github.com/S2-group/android-apps-benchmark}} which are designed to test individual, specific hardware components. They do not mention any examples of using their framework for real-world shipping Android apps.
+    
+    \item J2ME write once debug on a million devices quote?
+
+    \item \emph{``JInjector"} the makeup of mobile apps~\cite{sama2009using_jinjector}. \emph{``Statistically most of the code in a J2ME application belongs to the GUI;"}. The tool was also applied to Android apps and provided similar capabilities to instrument the GUI. Null Pointer Exceptions (which affect both Android Java apps and J2ME apps) can elude the development and testing pre-release of apps, even from Google-calibre software engineers. Freezing in J2ME apps were also detected, and freezing is one of the factors measured by the Android platform and reported as ANRs.
+    \item \emph{Do android developers neglect error handling? a maintenance-centric study on the relationship between android abstractions and uncaught exceptions}~\cite{Oliveira_Borges_Silva_Cacho_Castor_2018_android_error_handling}.
+
 \end{itemize}
 
 There has been a tremendous and sustained research interest in software testing, for instance testing is one of the most popular topics at the ICSE series of conferences~\footnote{\url{https://dl.acm.org/conference/icse}} and the focus of entire conferences including AST~\footnote{\url{https://conf.researchr.org/home/icse-2020/ast-2020}}, ICST~\footnote{\url{https://conf.researchr.org/series/icst}}, and so on. Similarly the application of software testing to mobile apps is a rich topic with sustained interest in the challenges and facets of testing mobile apps.
@@ -370,7 +406,7 @@ From the perspective of app developers software testing they appreciate obtainin
 
 
 \subsection{Bugs}
-Species of bugs: inadequate and neglected error handling, data loss bugs.
+Species of bugs: inadequate and neglected error handling, data loss bugs. \emph{``Finding resume and restart errors in Android applications"}~\cite{shan2016finding}. Which leads to "Large-scale analysis of framework-specific exceptions in Android apps" (2018) where the exceptions should be detectable by Android Vitals, I hope.
 
 Exception handling is strongly related to program robustness.~\citep{Oliveira_Borges_Silva_Cacho_Castor_2018_android_error_handling}. In particular, they observed that developers did not write sufficient code to handle exceptions that could be thrown when their Android app uses Android-specific abstractions. Uncaught exceptions lead to the application crashing, and crashes are an indication of poor reliability of the application. Of course, the exception needs to occur in order for the app to crash, and not every uncaught exception causes the app to crash, they may crash an internal thread within the app instead~\citep{Oliveira_Borges_Silva_Cacho_Castor_2018_android_error_handling}. %Note: not all caught exceptions are handled adequately. E.g. some may simply be logged and the code allowed to continue unchanged. Sometimes the exception may mean internal state and/or data are incomplete or incorrect for reliable and correct operations of the app. 
 Their research excluded various factors that also affect robustness, in particular they chose not to study: ``security vulnerabilities, excessive resource consumption, and race conditions."~\citep{Oliveira_Borges_Silva_Cacho_Castor_2018_android_error_handling}. %As an observation, they appear to over-state the LOC they analysed, or at least they're inflating the counts to count every line of code six-times even if those lines are identical for two or more releases.
@@ -402,17 +438,67 @@ Given there are bugs that lead to crashes in mobile apps, are there ways to redu
 
 
 \section{Mobile analytics}
-\subsection{Additional papers to consider}
+
+"QoE Doctor: Diagnosing Mobile App QoE with Automated UI Control and Cross-layer Analysis"~\cite{chen2014qoe}.
+
+
+"An Approach to Detect Android Antipatterns"~\cite{hecht2015approach}. Using static analysis to find poor designs that lead to poor quality apps. Their approach could be complementary to mine and to ... software testing.
+
+
+\subsection{Analytics more broadly in business, etc.}
+It might be worth using Dataclysm~\sidecite{rudder2014dataclysm} and some analysis on the contents of the book \url{https://medium.com/@crypto_dealer/thoughts-on-dataclysm-by-christian-rudder-a7fcd09f423c} as examples of how analytics can provide insights in many domains, including what people want, how people present themselves and how they behave. c.f. \cite{GAVIDIACALDERON2021_game_theoretic_analysis_of_software_development_practices} to compensate for the characteristics identified in Dataclysm.
+
+Davenport \textit{et al.} Competing on Analytics (\cite{davenport2017competing_on_analytics}) figure \ref{fig:davenport-analytics-for-competitive-advantage}. Note: Google with version 4 of Google Analytics, launched in October 2020, are offering some machine learning based analytics to their customers, for instance to help marketeers... TBC. MUST-DO continue this topic and provide references to sources.
+    
+In 2006 the earlier version of Davenport's article 2017 \cite{davenport2017competing_on_analytics} was published: \cite{davenport2006competing_on_analytics} that proposed several related functions: understanding customers and their contexts (including equipment and settings), product and service quality \emph{``detect quality problems early and minimise them"}, and to \emph{``improve quality, efficacy, and, where applicable, safety of products and services"}.
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/hbr/davenport-et-al-competing-on-analytics-2017-competitive-advantage.png}
+    \caption{Davenport et al. Analytics for Competitive Advantage}
+    \label{fig:davenport-analytics-for-competitive-advantage}
+\end{figure}
+\afterpage{\clearpage}
+
+\subsection{Privacy aspects and Control}
+% The purpose driven privacy preservation for accelerometer-based activity recognition 
+The tradeoff between privacy and utility for data that can uniquely identify over 99\% of users from high-frequency data collection from accelerometers in mobile phones~\sidecite{menasria2018_purpose_driven_privacy_preservation_accelerometers}. Accelerometer data is one class of data that could be collected using mobile analytics. The paper discusses the compression of data that is disclosed so irrelevant private information can be reduced while also maintaining adequate utility of the analysis of the data that is disclosed. Their approach might offer the potential to reduce irrelevant private information collected by mobile analytics. %COULD-DO cite Blaine Price's personal paper on: Challenges in Eliciting Privacy and Usability Requirements for Lifelogging  
+
+Privacy related violations by platform providers, including Apple and Google, where a user's phone (and presumably similar devices including tablet computers) are tracking users without the user's informed consent. A recent complaint was filed by NOYB - European Center for Digital Rights~\sidecite{noyb2020_noyb_files_complaint_against_apples_tracking_code_idfa} and reported by the Financial Times~\sidecite{ft2020_apple_tracks_iphone_users_without_consent}. The complaint is that iPhones track users and Apple shares the data with all the app developers. According to the article in the Financial Times, in June 2020 Apple promised their latest operating system, iOS 14, would include a privacy dashboard and that apps would need to ask users for permission before accessing the unique IDFA (Identifier for Advertisers). However, again in this article~\emph{``Apple then said in September that it would delay the changes, “to give developers the time they need” until “early next year”."}. The delay finished with the rollout of iOS 14.5 and iOS includes a device-wide setting to disable access to the IDFA otherwise users are prompted to grant permission when an app asks for access. % https://www.plotprojects.com/blog/ios-14-5-what-is-apples-idfa-change-and-how-will-it-impact-advertisers/ and https://clearcode.cc/blog/apple-idfa/ 
+\emph{c.f.} using infra-red cameras to detect people in ways they're unfamiliar with and do not expect. 
+
+UW blog post~\sidecite{mcquate_I_saw_you_were_online} and the underlying CHI 2020 paper~\sidecite{cobb2020_ux_s_with_online_status_indicators} regarding how online status indicators shape their behaviour and on whether people know and can correctly control whether their data is being shared. Conversely, in his PhD thesis~\sidecite{adam2009balancing}, Adam noted that users of mobile devices were willing to withhold sensitive data provided they would not be found out. The users want blameless ways to control their privacy.
+
+Mobile analytics collects a time-series of data online. In 2015, research into privacy concerns of continual observation identified a number of concerns with the erosion of privacy for users in these circumstances~\sidecite{erdogdu2015_privacy_utility_tradeoff_under_continual_observation}. The authors discussed various end-user concerns in having to trust the collection of their user data, including two trust boundaries: either locally, where~\emph{``the user may not entirely trust the aggregating entity in the first place,"} or at the aggregator's side - where the user trusts the entity collecting the data but not third-parties who may also gain access to the data. Either or both of these concerns may apply when users use mobile apps that collect analytics data. Their experiment that assessed whether six households could keep private their use of a microwave while simultaneously sharing data that enabled their washer-drier usage to be accurately tracked. Given the small-scale nature of the experiment it would be premature to determine whether the framework proposed in the research would also apply to mobile analytics, nonetheless the research offers a possible approach to increasing the privacy of mobile analytics data provided the data is still efficacious and sufficiently accurate for diagnostics, problem analysis, and reporting purposes.  % c.f. research into whether decentralised or centralised approaches are better for covid-19 tracking. See Without a trace: Why did corona apps fail? in the excluded works bibliography.
+
+A great title, I wish I understood the topic: "From the Information Bottleneck to the Privacy Funnel"~\cite{makhdoumi2014_from_information_bottleneck_to_the_privacy_funnel}. Also their approach is unlikely to be used in mobile analytics software as there's little perceived practical need to provide privacy of this form :( This paper uses the term log-loss however I think it's different from log-loss in \secref{irw-section-calculating-loss-using-logarithms}.
+
+\emph{``The Nightmare of Our Snooping Phones"}~\sidecite{nytimes20210721_the_nightmare_of_our_snooping_phones}
 \begin{itemize}
-
-    \item 
-    \item \emph{``DELTA: Data Extraction and Logging Tool for Android"}~\citep{spolaor2018_delta_data_extraction_and_logging_tool_for_android} describes an extensible set of software intended to help researchers log various data for further analysis. It includes a client app. They say their approach is modular and available for other researchers to use but they don't seem to actually provide any details of how/where to obtain it. The paper introduces three types of data logging can collect from mobile devices, listed below:
-    \begin{enumerate}
-        \item Sensor data: is gathered directly by querying the many sensors embedded in modern mobile devices. This includes a wide variety of information about the device itself and its surrounding environment (e.g., the device's position, orientation and relative speed).
-        \item  Device/OS context data: is the state of the device itself and its operating system (e.g., battery level, list of running processes, traffic statistics, and file system activity).
-        \item User interaction data: is related to the device's user and her actions and habits, such as how she interacts with the touchscreen, with the keyboard and with elements of the User Interface.
-    \end{enumerate}
-
+    \item \emph{``This is about a structural failure that allows real-time data on Americans’ movements to exist in the first place and to be used without our knowledge or true consent. This case shows the tangible consequences of practices by America’s vast and largely unregulated data-harvesting industries."}
+    \item \emph{``This data is in the hands of companies that we deal with daily, like Facebook and Google, and also with information-for-hire middlemen that we never directly interact with."}
+    \item \emph{``This data is often packaged in bulk and is anonymous in theory, but it can often be traced back to individuals, as the tale of the Catholic official shows. The existence of this data in such sheer volume on virtually everyone creates the conditions for misuse that can affect the wicked and virtuous alike."}
+    \item \emph{``The New York Times editorial board wrote in 2019 that if the U.S. government had ordered Americans to provide constant information about their locations, the public and members of Congress would likely revolt. Yet, slowly over time, we have collectively and tacitly agreed to hand over this data voluntarily."}
 \end{itemize}
+
+
+\emph{``Prochlo: Strong privacy for analytics in the crowd"}  ~\cite{prochlo2017_strong_privacy_analytics_in_the_crowd_46411} Various Google authors. 2017. Quote from the abstract:~\emph{``The large-scale monitoring of computer users' software activities has become commonplace, e.g., for application telemetry, error reporting, or demographic profiling. This paper describes a principled systems architecture---Encode, Shuffle, Analyze (ESA)---for performing such monitoring with high utility while also protecting user privacy. The ESA design, and its Prochlo implementation, are informed by our practical experiences with an existing, large deployment of privacy-preserving software monitoring."}.
+
+\emph{``You Can't Always Get What You Want: Towards User-Controlled Privacy on Android''} my notes are in excluded bibliography, \cite{Caputo_2022}.
+
+\subsection{Ubiquitous Analytics}
+\emph{``A measurement study of tracking in paid mobile applications"}~\cite{seneviratne2015_a_measurement_study_of_tracking_in_paid_mobile_apps}. Of the trackers this paper identified, 14\% of paid apps and 11\% of free apps used trackers that provided utilities such as crash and/or bug reporting and 28\% of paid apps and 24\% free apps used trackers that provided analytics (some of these also collected information on crashes). Their process was quite involved in order for the researchers to identify the trackers, currently (in 2021) various online services including the exodus-privacy~\cite{exodus_privacy_project} and AppBrain~\cite{appbrain} provide such information for Android apps freely. Virtually everyone of the 300 participants' devices had at least one tracker incorporated into at least one app on their device. 50\% of the users had more than 25 trackers. Therefore, this research confirms tracking in mobile apps is endemic and has been performed for years. 
+ 
+After OSX operating system updates, and when new users first login, they are asked to "help app developers improve their products and services automatically." Tickbox, default un-selected: "Share crash and usage data with app developers", "Help app developers improve their apps by allowing Apple to share crash and usage data with them." Further details, including from a user's perspective what's collected, how long the data is kept, and how to disable diagnostics from being sent are all described in \url{https://support.apple.com/en-gb/guide/mac-help/mh27990/mac}
+
+
+\subsection{Miscellaneous topics}
+
 Direct vs indirect analytics - 
 Challenges of research into usage-derived analytics - perhaps why there are gaps in knowledge, compounded for indirect analytics. A tale of two apps, any others?
+
+\subsection{Software Analytics}
+\emph{``Software analytics (Bird et al. 2015; Menzies and Zimmermann 2013b, 2018)... is a workflow that distills large amounts of low-value data into small chunks of very high-value data."}~\cite[page 2110]{agrawal2020_better_software_analytics_via_duo} (\emph{``Better software analytics via “DUO”: Data mining algorithms using/used-by optimizers"}). The authors present software quality as one of many areas where DUO is relevant. % Relevance here: establishes terminology/definition for software analytics. 
+
+\section{Calculating loss using logarithms}~\label{irw-section-calculating-loss-using-logarithms}
+Further reading: 
+\url{https://www.kaggle.com/dansbecker/what-is-log-loss} is refreshingly clear and succinct, I still don't quite understand the topic yet though... My current understanding is the article proposes a way to use logs (log10 rather than software writing log messages) to calculate the combined predictions of various events vs the actual results. They provide source code in python. It might be of interest when measuring predictions in software testing, in releases of apps, etc.

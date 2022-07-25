@@ -13,7 +13,7 @@ The evidence has been analysed and prioritised to keep the chapter relatively su
 \end{figure}
 
 
-\section{Design}~\label{section-design}
+\section{Design}~\label{section-design}~\label{tata-chapter-section-design}
 Design emerged as by far the most pertinent topic for the mobile analytics tools. There are two key, connected facets: the design of the on-device SDK, including addressing various engineering challenges and deciding on the meta-data to collect, and UX design to engage the developers to actually use the results of the mobile analytics [effectively].
 
 Design of the SDK, see \ref{section-sdk-design}, and the developer-experience (UX), see \ref{section-developer-experience-ux-design}, of the mobile analytics emerged as the top two ranked themes for analytics tools. Any in-app SDK needs to integrate easily in to the mobile app, and platform-level analytics need to be seamless and collect sufficient pertinent information to be useful for the app developers. They also need to be robust and timely in terms of collection, transmission, and processing of the underlying data in order for developers to have timely access to the results. 
@@ -60,7 +60,7 @@ That exception was when Android Vitals did report crashes in March and April 202
 \textbf{In-app analytics support for detecting ANRs}: 
 Conversely, in-app analytics SDKs were not able to measure ANRs which meant Android Vitals was the primary source of ANR analytics for Android app developers~\footnote{There is an opensource utility that uses a watchdog timer to detect ANRs~\citep{salomonbrys_github_anr_watchdog}. Investigating it was beyond the scope of the immediate research, nonetheless Sentry used that code as a basis for their ANR reporting (\href{https://github.com/getsentry/sentry-java/blob/3f8d7b1cc869bb056c9db99b459e43f6c375784a/sentry-android-core/src/main/java/io/sentry/android/core/ANRWatchDog.java}{sentry-android-core...ANRWatchDog.java}).}. 
 
-Note: Google has subsequently added a mechanism to enable apps to obtain information about previous ANRs when the app next started. The method is \href{https://developer.android.com/reference/kotlin/android/app/ActivityManager#gethistoricalprocessexitreasons}{\texttt{getHistoricalProcessExitReasons()}}~\footnote{The source code is available online: \url{https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/ApplicationExitInfo.java} and provides more details of the design and the data structures.}, added in \href{https://developer.android.com/about/versions/11}{Android 11}, API level 30.
+Note: Google has subsequently added a mechanism to enable apps to obtain information about previous ANRs when the app next started. The method is \index{gethistoricalprocessexitreasons}\href{https://developer.android.com/reference/kotlin/android/app/ActivityManager#gethistoricalprocessexitreasons}{\texttt{getHistoricalProcessExitReasons()}}~\footnote{The source code is available online: \url{https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/ApplicationExitInfo.java} and provides more details of the design and the data structures.}, added in \href{https://developer.android.com/about/versions/11}{Android 11}, API level 30.
 % Various discussions and explanations of using this API follow:
 % https://commonsware.com/R/pages/chap-dataaccess-002.html - possibly the best and clearest code examples with explanations.
 % Announcing the new functionality in 2021 https://firebase.blog/posts/2021/11/whats-new-at-Firebase-Summit-2021

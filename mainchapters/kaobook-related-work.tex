@@ -11,9 +11,6 @@
     \caption{The Modern Mobile App Ecosystem}
     \label{fig:my_modern-mobile-app-ecosystem}
 \end{figure}
-\afterpage{\clearpage}
-
-
 
 The modern mobile ecosystem, illustrated in Figure~\ref{fig:my_modern-mobile-app-ecosystem} sets the context for the thesis and this chapter together with the research questions. 
 My work nestles within the works of many people in various related fields: in software quality, in analytics, and in the mobile device ecosystem. As researchers we understand and recognise there are gaps in the current state of the art, this chapter aims to identify several pertinent gaps which led to this research being performed, \emph{i.e.} which motivated me to act. The mobile ecosystems touch on billions of people's lives, where flaws in the apps and the ecosystem can adversely affect the lives of many of those people. 
@@ -28,7 +25,6 @@ At times this chapter will draw from broader sources, for instance in software d
     \caption{Mobile and Desktop Growth and Convergence}
     \label{fig:my_shonan_hysteresis_sketch}
 \end{figure}
-\afterpage{\clearpage}
 
 The practicalities of the research and the case studies where nearly all the work pertains to the Google Android ecosystem also helps in the selection criteria of relevant related works. As the vast majority of active research in the domain of mobile apps also pertains to this ecosystem, this means the topic is richly served in terms of related works.
 
@@ -296,13 +292,6 @@ Before we leave the topic of mobile analytics research into the privacy aspects 
 
 The first of these papers focuses on the data that is sent, the contents, and where that data goes. The second concentrates on analysing app binaries, finding all the calls to the mobile analytics SDKs, intercepting these and enabling users to see, block or blank out data that would then be sent by the respective mobile analytics SDK.
 
-\subsection{Heatmapping, and similar approaches}~\label{section-heatmapping} 
-Perceived advantages of these recordings of user-interactions include being able to visualise the user interactions remotely and to combine individual recordings to create heatmaps overlaid on the app's GUI. When the GUI recordings are combined with logs generated via the app being used several commercial services offered the promise of being able to determine the actions that led to [some of the] problems occurring in the app~\footnote{Not all failures stem from the user interactions.}. One provider of these services, Appsee, presented how their service could be used to identify what caused an app to crash, the presentation is preserved in a YouTube video~\sidecite{appsee2015_youtube_visual_analytics_budapest_mobile_meetup}. Their CEO also contributed material on the benefits of visual analytics, as his company described it, to a book I co-wrote~\cite[pp. 94-95]{harty_aymer_playbook_2016}, as did the CEO of a similar service called Azetone [pp. 88-92]. % UXCAM has a similar term: User-journey analytics https://uxcam.com/user-analytics-and-profile
-
-Despite the visual appeal of heatmapping and being able to watch video recordings - in many ways similar to the now popular dash-cams~\footnote{\emph{``When it comes to those of us who actively use dashcams, we found that more than half (51.3\%) of Brits have them installed, and a further 22\% are considering making a purchase.''}~\textcite{vardy2018_a_survey_of_dashcams_in_uk_cars}. They were bought for: Insurance purposes (53.8\%), Safety of vehicle while unattended (37.8\%), To capture unexpected events (12\%). Crashes can feature in all these reasons where the recording can help determine what happened.} - they have not been widely adopted by app developers. A combination of personal experience, and checking with free online Android app analytics services including AppBrain and the Exodus Privacy project, indicate heatmapping and similar visual analytics are only used in a tiny minority of mobile apps. Given the increasing amounts of legislation intended to protect end-users' privacy such as GDPR it seems unlikely that heatmapping, \textit{etc.} would become a mainstream practice for mobile app developers. Therefore they are outside the scope of this research.
-
-% \emph{``Requirements Intelligence: On the Analysis of User Feedback"}~\sidecite{stanik2020_requirements_intelligence_on_the_analysis_of_user_feedback}. continuous sources for requirements-related information; comparison between explicit and implicit user feedback (like app usage data).
-
 
 
 \subsection{Summary so far} % Or curiosities, or gaps in the research at this stage...?
@@ -361,11 +350,72 @@ In terms of trying to understand real-world practices please avoid \textcite{san
 Measuring software quality
 
 
+One of the challenges has been to find ways to measure beyond an app, to behaviours that are externally observable but not easy to measure within an app. Unresponsiveness of software is a particular concern for mobile apps where apps stop responding for longer than deemed acceptable. Google Android coined the term ANR (TODO replace with glossary entry) for when the application stops responding. One of the challenges has been how to detect and measure these, particularly remotely on end-user devices. 
+
+An opensource project provides Android developers with a mechanism to detect and report ANRs in their application. It includes support to report the ANRs to various crash reporters~\cite{salomonbrys_github_anr_watchdog}. (Two of the four listed (Crashlytics and HockeyApp) have been acquired by Google and Microsoft respectively). Note: In 2012, Google was asked to provide a facility to detect ANRs from the application~\footnote{\url{https://issuetracker.google.com/issues/36951741}} so developers would be aware of them and be able to address them. The issue was marked obsolete by Google in 2014 without comment. Approximately six years later, in 2020, Google Android launched an API call that apps can use to determine whether the app was previously quit by the operating system (see \secref{tata-chapter-section-design} for more detail). 
+
 \subsection{Software analytics}
+Software analytics includes the use of analytics to measure and potentially improve processes, products, and software tools. Some of the early published research came from Microsoft Research. For example, Buse and Zimmerman wrote a short paper in 2010 which helped establish the field of:~\emph{``Analytics for Software Development"}~\sidecite{buse_analytics_2010}. The first figure in that paper is reproduced here as~\ref{fig:software_analytics_buse_and_zimmerman_2010}. They had derived that figure from a more general business-focused diagram in Davenport and Harris's book~\emph{``Analytics at work: Smarter decisions, better results"}~\cite{davenport2010analytics_at_work},  in Figure 1.1, titled\emph{``Key questions addressed by analytics"} and found in page 7 of ~\sidecite{davenport2010analytics_at_work}). 
+
 Buse and Zimmermann
+\begin{figure}
+    \centering
+    \includegraphics[width=14cm]{images/Buse_and_Zimmermann_2010_figure.png}
+    \caption{Software Analytics, Buse and Zimmerman (2010)}
+    \label{fig:software_analytics_buse_and_zimmerman_2010}
+\end{figure}
+\afterpage{\clearpage}
+
+
+In the Buse and Zimmermann paper they \emph{``distinguish between questions of information which can be directly measured, from questions of insight which arise from a careful analytic analysis and provide managers with a basis for action.''}~\cite{buse_analytics_2010}.
+
+\subsubsection{The development managers' perspective}
+\emph{``Information needs for software development analytics"}~\cite{buse2012_information_needs_for_software_development_analytics}. They asked 110 Microsofties, a mix of development leads and managers about their use of software development analytics. MUST-DO discuss how my work and their guidelines for software development analytics align. What does my work add to their work? What does it provide that they identified back in 2012? Their focus seems to be more on the code than the product of the code (apps and the services (and the qualities of those services) those apps provide to end users). What information do mobile app developers need in terms of improving the reliability of their apps? How can the developers make good decisions in this area?
+
+\begin{comment}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/related-work/buse2012-edited-figure-2.png}
+    \caption{Revised Figure 2 from TODO}%~\footnote{cite{buse2012_information_needs_for_software_development_analytics}}}
+    \label{fig:buse2012-edited-figure-2}
+\end{figure}
+\afterpage{\clearpage}
+\end{comment}
+
+\begin{itemize}
+    \item ~\emph{``we ultimately want to} empower software development teams to independently gain and share insight \emph{from their data without relying on a separate entity"}
+    \item \emph{``Analytics can help: monitor a project; know what's really working; improve efficiency; manage risk; anticipate changes; evaluate past decisions."}
+    
+    \item Oddly, Figure 2 in their paper seems to have a mistake in the direction of More Difficult from Information to Insight, see~\ref{fig:buse2012-edited-figure-2}.
+    
+    \item \emph{``In other words, both developers and managers find it more important to understand the past than try to predict the future; echoing George Santayana, “those who cannot remember the past are condemned to repeat it.”"}.
+    
+    \item From Figure 4 in their work, Failure Information (\emph{``reports of crashes or other problems"})is in the top 3 that the development leads would use and top for managers when making decisions relevant to their engineering process. Telemetry (\emph{``user benchmarks"} would be used by around 80\% of development leads and 90\% of managers in the survey.
+    
+    \item \emph{``The landscape of artifacts and indicators in software engineering is well known, but the concrete decisions they might support are not. We conjecture that understanding how managers and developers can make use of information is critical to understanding what information should be delivered to them."}. My research somewhat inverts this by looking at what's being delivered in terms of commercial, pre-existing mobile analytics and considers how that information has been used to improve the reliability of the mobile apps that were the source of the raw information.
+    
+\end{itemize}~\cite{buse2012_information_needs_for_software_development_analytics}.
+
+\subsubsection{Learning from Windows Error Reporting}
+The data collection and analysis of Android Vitals has some similarities with Microsoft's `Windows Error Reporting' (WER) which they describe in an article in 2011~\cite{kinshuman2011_debugging_in_the_very_large} and a longer conference paper from 2009~\cite{kinshuman2009_debugging_in_the_very_large}. Similarities include both mechanisms being designed to work effectively at scale of at least a billion end-user machines/devices, capturing crash data, and using error statistics as a tool in debugging. Differences include the platform (Android), the lack of automatic diagnosis (which WER provided), and most relevantly, Google provides several million third-party developers with access to data for the apps they are responsible for and provides them with various comparative analytics of the technical performance of their app compared to those apps of their peers. (Microsoft provided 700 third-party developers, for instance of device drivers, with WER information, and the paper provides a concrete example of how one vendor addressed the top 20 reported issues for their code, and how the fixes percolated out to the end users and halved the percentage of all kernel crashes attributed to that vendor (from 7.6\% to 3.8\%)). Statistics-based debugging, described in these papers, was used in Microsoft's WER and may also apply when developers use mobile analytics.
+
+\subsubsection{Beyond Microsoft}
+Microsoft are not unique in publishing research about the use of software analytics. A company, Softeam, used a software analytics platform to collect feedback from their customers and systems with the aim of improving the software quality of their systems~\cite{bagnato2020_challenges_and_benefits_from_using_software_analytics_in_softeam}. They use \url{https://github.com/q-rapids}, a ``Quality-aware rapid software development. H2020 Project (Grant no. 732253)". There are relevant publications listed at \url{https://www.q-rapids.eu/publications}.
+
+\subsubsection{Connecting failures with software analytics}
+In a short paper~\sidecite{kidwell2015_toward_fault_taxonomy_application_of_software_analytics}, the authors propose combining fault classification and software analytics for five types of decisions. These are: targetting testing, release planning, judging stability, targeting training, and targeting inspection of software. failure data mined from software analytics tools such as crash reporting tools helps to bring their concepts and ideas to life. Their paper provided initial indicative evidence of their proposals through evaluation of changes to source code for the Eclipse software and discusses the measurement of refactoring to provide more accurate and relevant measurements of the efficacy of the refactoring, rather than considering approaches to improve mobile apps.
+
+\subsubsection{Caveats with software analytics}
+% This might be better placed in the discussion or later chapter. TBD.
+Using software analytics leads to several \textit{caveats} to consider the `so what' aspects and whether the research is being done well. 
+\emph{``Software Analytics, so what?"}~\cite{menzies2013_software_analytics_so_what} to set the context.
 
 \emph{```Bad Smells" in software analytics papers'}~\sidecite{menzies2019_badsmells_in_software_analytics}.
 
+A couple of examples of risks and concerns when using mobile analytics 
+\emph{``How Does Misconfiguration of Analytic Services Compromise Mobile Privacy?"} ICSE 2020. This in turn refers to \emph{``Alde: privacy risk analysis of analytics libraries in the android ecosystem."} 2016, and \emph{``Bug Fixes, Improvements, ... and Privacy Leaks - A Longitudinal Study of PII Leaks Across Android App Versions."} 2018.
 
 \section{Developing Mobile Apps}
 Mobile apps need to be made and developers make them. There are various working practices, apps are made by visionaries, employees, amateurs, and communities. Many claim to be ``Agile" in their working practices. There are various activities involved including development, testing, release, and deployment. Figure~\ref{fig:my_mobile-app-makers} highlights these activities as part of the overall ecosystem.
@@ -396,12 +446,7 @@ Unending materials are written and published online on making apps, beautiful ap
     \end{itemize}
     
     \item \textbf{Species of Bugs}
-    \item J2ME write once debug on a million devices quote?
-    \begin{itemize}
-        \item \emph{``Finding resume and restart errors in Android applications"}~\cite{shan2016finding}. Which leads to "Large-scale analysis of framework-specific exceptions in Android apps" (2018) where the exceptions should be detectable by Android Vitals, I hope.
-        \item \emph{``JInjector"} the makeup of mobile apps~\cite{sama2009using_jinjector}. \emph{``Statistically most of the code in a J2ME application belongs to the GUI;"}. The tool was also applied to Android apps and provided similar capabilities to instrument the GUI. Null Pointer Exceptions (which affect both Android Java apps and J2ME apps) can elude the development and testing pre-release of apps, even from Google-calibre software engineers. Freezing in J2ME apps were also detected, and freezing is one of the factors measured by the Android platform and reported as ANRs.
-        \item \emph{Do android developers neglect error handling? a maintenance-centric study on the relationship between android abstractions and uncaught exceptions}~\cite{Oliveira_Borges_Silva_Cacho_Castor_2018_android_error_handling}.
-    \end{itemize}
+
 \end{itemize}
 
 \hypertarget{mobile.testing}{}
@@ -423,13 +468,7 @@ on remote emulators and/or simulators.
 
 \subsubsection{Papers to consider}
 \begin{itemize}
-    \item \emph{``To the attention of mobile software developers: guess what, test your app!"}~\cite{cruz2019_guess_what_test_your_app}.
-    
     \item Discuss the TestDroid paper! it describes testing that was actually done by developers!~\cite{kaasila2012_testdroid_etc}.
-    
-    \item \emph{``PRADA: Prioritizing Android Devices for Apps by Mining Large-Scale Usage Data"}~\cite{lu2016_PRADA}. 
-        
-    \item \emph{``Automatically Discovering, Reporting and Reproducing Android Application Crashes"}~\cite{moran2016_automatically_drr_android_app_crashes}.
     
     \item \emph{``Is Mutation Analysis Effective at Testing Android Apps?"}~\cite{deng2017_is_mutation_analysis_effective_at_testing_android_apps}.
     
@@ -437,24 +476,12 @@ on remote emulators and/or simulators.
     
     \item \emph{``How do Developers Test Android Applications?"}~\cite{linares2017_how_do_developers_test_android_apps}. Quote:~\emph{``“I mostly do manual testing due to the limited size of my apps. I sometimes use a custom replay system (built into the app) to duplicate bugs after I come across them. This method is usually combined with manual testing (printing debug information to the log) to pinpoint the cause”."}
     
-    \item \emph{``Prioritizing the Devices to Test Your App on: A Case Study of Android Game Apps"}~\cite{khalid2014_prioritizing_the_devices_to_test_your_app_on_casestudy_android_games}.
-    
     \item \emph{``First Steps in Retrofitting a Versatile Software Testing Infrastructure to Android"}~\cite{oliver2018_first_steps_in_retrofitting_a_versatile_sw_testing_architecture}.
     
     \item \emph{``A Large-Scale Study of Application Incompatibilities in Android"}~\cite{cai2019_large_scale_study_of_android_incompatibilities} An oddly insipid paper which promised some interesting run-time issues discovered in their research where the Android version would be a likely cause. However the reproduction package lacked the test scripts or means to reproduce their testing or bug detection. Also, their research now seems to be less relevant in 2020 as Android apparently improved the backwards compatibility \emph{``Yet newer versions (since API 24) had no run-time compatibility issues with apps created in the studied span."}. Their work may well have merit for the research community, It does not appear to have much relevance to developers of real-world Android apps today.
     
-    \item \emph{`A Case Study of Automating User Experience-Oriented Performance Testing on Smartphones"}~\cite{canfora2013_automating_UX_experience_testing_on_smartphones}. %30 citations in Google Scholar. 
-    This research focused on whether their ATE (Automated Testing Equipment) could detect and score perceived UX of two versions of an Android phone, the HTC~\textsuperscript{\textregistered} Nexus One. The key difference was a reduction of RAM by 30\% which made their simple Android application slower on the version with less RAM. They used and processed Android logs to record the differences in timing information. Their ATE provided similar quality scores to human volunteers who used both versions of the phone. Their ATE equipment incorporated servo motors to move the phone around on an otherwise fixed testbed and a camera to record the GUI. (Curiously their photo shows they were using a Samsung phone rather than the one described in the paper.) The paper lacked details of the hardware, the movements the servos provided, or of the simple Android application they created and used for their evaluation.
-    Note: Their approach in moving the phones appears similar to that used by LessPainful (a now defunct company, since acquired ultimately by Microsoft) who provided a commercial testing service across a wide range of Android \textit{and} iOS devices. 
-    This paper's work is relevant for its use of Android logs and logging to record and analyse the usage of the device. Unfortunately there appear to be several material flaws in the paper, for example where they state: ~\emph{`...a score of 30 for CUST-37..."} the only mention of CUST-37 whereas the rest of the paper refers to a CUST-30 configuration (with 30\% less RAM). Have they transposed the two numbers ~\emph{e.g.} should it be a score of 37 for CUST-30? and on a related note, their calculation of the percentage difference in their ATE generated UX score says the CUST-30 received a score of 4.05/5 while the stock configuration received a score of 4.54/5. While the difference in the scores by the humans of 4.54/4.05 is approximately 12\% these scores are out of 5, so the percentage should be twice the one they used ~\emph{i.e. approximately 22.42\%}  \texttt{=((4.54/4.05)/5.00)*100\%}.
-    
+
     \item \emph{``Intent Fuzzer: Crafting Intents of Death"}~\cite{10.1145/2632168.2632169} TODO Link this to the industrial case study and the Kotlin NPE crash.
-    
-    \item \emph{`A Grey-Box Approach for Automated GUI-Model Generation of Mobile Applications'}~\cite{Yang_Prasad_Xie_2013_grey_box_automated_gui_model_generation_for_mobile_apps}: This is one of the relatively early papers that focused on model-based testing for mobile apps. They used a simplified version of a simple tip calculation app as their example application under test. They further simplify the complexity by ignoring changes in the application state related to different data values. Their work built on the work of various approaches to `crawling' GUIs of an application and provides one of the roots of automated dynamic interactions with fairly simple opensource Android applications. It achieved good coverage for these apps. Through no fault of their research mobile apps, and particularly successful mobile apps are far removed from the apps they tested and their approach and tool has fallen into disuse. %Nonetheless two of the authors were granted a US patent for their approach in 2019! :( Automatically extracting a model for the behavior of a mobile application. MR Prasad, W Yang - US Patent 10,360,027, 2019
-    
-    \item "Mobile Testing-as-a-Service (MTaaS)--Infrastructures, Issues, Solutions and Needs"~\cite{gao2014mobile}. This paper, published in 2014, in my view isn't particularly novel. Rather it summed up stuff that was happening in industry at the time and combined it with a bunch of ideas of what \emph{might} be worth doing in the authors' view. The aim of the authors is to set the direction for scaling testing of mobile apps. Six years on is a good time to assess their suggestions.
-    
-    \item "The Testing Method Based on Image Analysis for Automated Detection of UI Defects Intended for Mobile Applications". \textbf{Springer paper I paid for.}
     
     \item \emph{``Linares-Vasquez et al. [56] propose MonkeyLab, which mines recorded executions to guide the testing of Android mobile apps."} Their approach records GUI events (click events). Members of the project team (developers, testers, etc.) perform the actions, the authors claim their log collection process could scale to collecting logs from ordinary users. Key limitations include events that aren't purely dependent on the user's GUI inputs, there would also be challenges getting users to accept such an approach where the app records every input they made. Also, they generate GUI events that have x,y coordinates - absolute positioning that may have limited portability to other devices, screen rotations, and so on. Their playback also appears to require rooted devices. There are numerous other limitations described in their paper, nonetheless their work shows promise in terms of detecting and generating patterns the students did not find. It would be interesting to compare the results using accomplished software testers with experience and expertise testing similar Android apps.
 \end{itemize}
@@ -488,17 +515,27 @@ Test Farms have been available commercially since around 2008~\footnote{Based on
 
 
 \subsection{Maintenance of mobile apps}
-\emph{``The area of software maintenance is one of the most researched areas in Software Engineering. However, due to the fact that mobile apps is a young subarea within SE, the maintenance of mobile applications remains to be largely undiscovered."} - My work does investigate aspects of maintenance. 
 
-\emph{``Syer et al. [93] compares mobile apps to larger “traditional” software systems in terms of size and time to fix defects. They find that mobile apps resemble Unix utilities, i.e., they tend to be small and developed by small groups. They also find that mobile apps tend to respond to reported defects quickly."} - Check the details of what quickly means and how the teams discovered the defects.
+\emph{``The area of software maintenance is one of the most researched areas in Software Engineering. However, due to the fact that mobile apps is a young subarea within SE, the maintenance of mobile applications remains to be largely undiscovered."}~\cite[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - My work does investigate aspects of maintenance. 
 
-\emph{``Bavota et al. [16], show that the quality (in terms of change and fault-proneness) of the APIs used by Android apps negatively impacts their success, in terms of user ratings. Similarly, McDonnell et al. [65], study the stability and adoption rates for the APIs in the Android ecosystem."} - Skim read both these papers to determine their relevance.
+\emph{``Syer et al. [93] compares mobile apps to larger “traditional” software systems in terms of size and time to fix defects. They find that mobile apps resemble Unix utilities, i.e., they tend to be small and developed by small groups. They also find that mobile apps tend to respond to reported defects quickly."}~\cite[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - Check the details of what quickly means and how the teams discovered the defects.
 
-\emph{``Another line of work examined Android-related bug reports. Bhattacharya et al. [18] study 24 mobile Android apps in order to understand the bug-fixing process. They find that mobile bug reports are of high quality, especially for security related bugs. Martie et al. [63] analyzed topics in the Android platform bugs in order to uncover the most debated topics over time. Similarly, Liu et al. [58] detected and characterized performance bugs among Android apps."} - Looks at how the bugs were fixed and compare the practices they detected with those I'm aware of. Are platform bugs that relevant? They look at performance bugs (Android Vitals also reports performance issues, Firebase Analytics has tools for performance tracking), I'm looking mainly into reliability measurements and issues.
+\emph{``Bavota et al. [16], show that the quality (in terms of change and fault-proneness) of the APIs used by Android apps negatively impacts their success, in terms of user ratings. Similarly, McDonnell et al. [65], study the stability and adoption rates for the APIs in the Android ecosystem."}~\cite[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - Skim read both these papers to determine their relevance.
+
+\emph{``Another line of work examined Android-related bug reports. Bhattacharya et al. [18] study 24 mobile Android apps in order to understand the bug-fixing process. They find that mobile bug reports are of high quality, especially for security related bugs. Martie et al. [63] analyzed topics in the Android platform bugs in order to uncover the most debated topics over time. Similarly, Liu et al. [58] detected and characterized performance bugs among Android apps."}~\cite[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - Looks at how the bugs were fixed and compare the practices they detected with those I'm aware of. Are platform bugs that relevant? They look at performance bugs (Android Vitals also reports performance issues, Firebase Analytics has tools for performance tracking), I'm looking mainly into reliability measurements and issues.
 
 Following on from the challenges and future directions section on maintenance research for mobile apps: do researchers focus in areas where the streetlights are rather than where the problems are? \emph{i.e.} on where they can find material to study rather than on issues that practically affect the majority of developers of apps?
 
-
+\emph{``Charting the API minefield using software telemetry data"}~\cite{Kechagia2015_charting_API_minefield_using_telemetry_data}. The stability of Android apps has been measured using telemetry data collected by a centralised crash report management service. Roughly one million stack traces were analysed from thousands of Android applications. A subset (over 500,000) of these stack traces were associated with risky API calls and these were analysed to identify the most common failure reasons. The top five reasons were attributed to:
+    \begin{itemize}
+        \item memory exhaustion,
+        \item race conditions,
+        \item deadlocks,
+        \item missing resources, and
+        \item corrupt resources.
+    \end{itemize}
+    
+    The authors provide a set of recommendations they claim \emph{may} help address various classes of the crash failures. However these recommendations do not appear to have been tested for their efficacy. Their recommendations are theoretical rather than practical. There's an odd claim in the paper in page 1818, \emph{``In addition, the platform of Chen et al. (2011), which is based on remote resource management, can make applications require less memory and resources. Hence, it can eliminate the well-known “non-responsive” exceptions in Android."}. For this claim to hold true \textbf{all} the causes of non-responsive exceptions (or did the authors mean ANRs? they don't define this term or use it elsewhere in the paper) would need to be a) related to remote resources, and b) the difference would need to be directly related to the amount of memory and resources. Google provides five common patterns for diagnosing ANRs~\footnote{\url{https://developer.android.com/topic/performance/vitals/anr\#diagnosing_anrs}} none of these mention remote resource management (even if they may contribute to ANRs). The authors say in the introduction to section 5.1~\emph{`API Recommendations'}, on page 1813,~\emph{``Finally, we provide the frequencies of the representative signatures to show how many crashes could be avoided based on the following solutions."}, however they did not appear to provide this unless they are the charts in  Appendix 1 \textbf{\textit{and}} if their proposals solve \textit{all} the causes of the crashes in each category. This was promising, thought-provoking, and interesting work which sadly lacked evidence their proposed recommendations actually work in practice for any of the apps that provided the crash data or for other Android apps (if their work is generalisable).
 
 
 \subsection{Managing Releases in App Stores}
@@ -765,121 +802,35 @@ These have not yet been incorporated into this section on Software Quality.
 
 \end{itemize}
 
-
+\begin{comment}
 \section{Measurement and Analytics}
 \newthought{Concommittant variation} establishes a clear connection between an action and one or more outcomes where there are no other know explanations or sources of actions that have led to those outcomes~\cite[pp. 260-266]{mill1884system}\todo{This needs a better home, for now this has to do as I'm working on the Analytics in Use chapter where I needed to evict this :)}.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=14cm]{images/Buse_and_Zimmermann_2010_figure.png}
-    \caption{Software Analytics, Buse and Zimmerman (2010)}
-    \label{fig:software_analytics_buse_and_zimmerman_2010}
-\end{figure}
-\afterpage{\clearpage}
 
-Buse and Zimmerman wrote a short paper in 2010 which helped establish the field of:~\emph{``Analytics for Software Development"}~\sidecite{buse_analytics_2010}. The first figure in that paper is reproduced here as~\ref{fig:software_analytics_buse_and_zimmerman_2010}. They had derived that figure from a more general business-focused diagram in Davenport and Harris's book~\emph{``Analytics at work: Smarter decisions, better results"},  in Figure 1.1, titled\emph{``Key questions addressed by analytics"} and found in page 7 of ~\sidecite{davenport2010analytics_at_work}).
 
-\begin{figure}
-    \centering
-    \includegraphics[width=14cm]{images/hbr/davenport-et-al-competing-on-analytics-2017-competitive-advantage.png}
-    \caption{Davenport et al. Analytics for Competitive Advantage}
-    \label{fig:davenport-analytics-for-competitive-advantage}
-\end{figure}
-\afterpage{\clearpage}
 
-\subsection{References/Sources to consider}
-\begin{figure}
-    \centering
-    \includegraphics[width=13cm]{images/related-work/buse2012-edited-figure-2.png}
-    \caption{Revised Figure 2 from~\cite{buse2012_information_needs_for_software_development_analytics}}
-    \label{fig:buse2012-edited-figure-2}
-\end{figure}
-\afterpage{\clearpage}
-
-\begin{comment}
 
 
 \begin{itemize}
-    \item Davenport \textit{et al.} Competing on Analytics (\cite{davenport2017competing_on_analytics}) figure 1. Note: Google with version 4 of Google Analytics, launched in October 2020, are offering some machine learning based analytics to their customers, for instance to help marketeers... TBC. MUST-DO continue this topic and provide references to sources.
-    
-    \item Davenport \textit{et al.} Competing on Analytics (\cite{davenport2006competing_on_analytics}) that proposes several related functions: understanding customers and their contexts (including equipment and settings), product and service quality \emph{``detect quality problems early and minimise them"}, and to \emph{``improve quality, efficacy, and, where applicable, safety of products and services"}.
-    
-    \item \emph{``Charting the API minefield using software telemetry data"}~\cite{Kechagia2015_charting_API_minefield_using_telemetry_data}. The stability of Android apps has been measured using telemetry data collected by a centralised crash report management service. Roughly one million stack traces were analysed from thousands of Android applications. A subset (over 500,000) of these stack traces were associated with risky API calls and these were analysed to identify the most common failure reasons. The top five reasons were attributed to:
-    \begin{itemize}
-        \item memory exhaustion,
-        \item race conditions,
-        \item deadlocks,
-        \item missing resources, and
-        \item corrupt resources.
-    \end{itemize}
-    
-    The authors provide a set of recommendations they claim \emph{may} help address various classes of the crash failures. However these recommendations do not appear to have been tested for their efficacy. Their recommendations are theoretical rather than practical. There's an odd claim in the paper in page 1818, \emph{``In addition, the platform of Chen et al. (2011), which is based on remote resource management, can make applications require less memory and resources. Hence, it can eliminate the well-known “non-responsive” exceptions in Android."}. For this claim to hold true \textbf{all} the causes of non-responsive exceptions (or did the authors mean ANRs? they don't define this term or use it elsewhere in the paper) would need to be a) related to remote resources, and b) the difference would need to be directly related to the amount of memory and resources. Google provides five common patterns for diagnosing ANRs~\footnote{\url{https://developer.android.com/topic/performance/vitals/anr\#diagnosing_anrs}} none of these mention remote resource management (even if they may contribute to ANRs). The authors say in the introduction to section 5.1~\emph{`API Recommendations'}, on page 1813,~\emph{``Finally, we provide the frequencies of the representative signatures to show how many crashes could be avoided based on the following solutions."}, however they did not appear to provide this unless they are the charts in  Appendix 1 \textbf{\textit{and}} if their proposals solve \textit{all} the causes of the crashes in each category. This was promising, thought-provoking, and interesting work which sadly lacked evidence their proposed recommendations actually work in practice for any of the apps that provided the crash data or for other Android apps (if their work is generalisable).
 
-    
-    \item \emph{Software Telemetry}~\cite{riedesel2021_software_telemetry} discusses telemetry including the roots in system logs on early computer systems.
-    
-    \item \emph{``Software analytics (Bird et al. 2015; Menzies and Zimmermann 2013b, 2018)... is a workflow that distills large amounts of low-value data into small chunks of very high-value data."}~\cite[page 2110]{agrawal2020_better_software_analytics_via_duo} (\emph{``Better software analytics via “DUO”: Data mining algorithms using/used-by optimizers"}). The authors present software quality as one of many areas where DUO is relevant. % Relevance here: establishes terminology/definition for software analytics. 
-    
-    \item \emph{``Software Analytics, so what?"}~\cite{menzies2013_software_analytics_so_what} to set the context.
+    \item \emph{``automatically collected usage data, logs, and interaction traces could improve feedback quality and help developers understand feedback and react to it. We call this automatically collected information about software usage implicit feedback."}~\sidecite{maalej2016_towards_data_driven_requirements_engineering}. They claim~\emph{``Thermal tracking of a user’s finger movement on touchscreens is a common approach for usage data analysis."} however I'm not aware of evidence to support this claim either from a research or a practitioner's perspective. (There's a PhD thesis on this topic published \emph{after} this paper: \href{http://usir.salford.ac.uk/id/eprint/37784/}{`Investigating the usability of touch-based user interfaces'}.
     
     
-    \item Buse and Zimmermann...~\cite{buse_analytics_2010} e.g. \emph{“We distinguish between questions of information which can be directly measured, from questions of insight which arise from a careful analytic analysis and provide managers with a basis for action.”}
-    
-    \item \emph{``Information needs for software development analytics"}~\cite{buse2012_information_needs_for_software_development_analytics}. They asked 110 Microsofties, a mix of development leads and managers about their use of software development analytics. MUST-DO discuss how my work and their guidelines for software development analytics align. What does my work add to their work? What does it provide that they identified back in 2012? Their focus seems to be more on the code than the product of the code (apps and the services (and the qualities of those services) those apps provide to end users). What information do mobile app developers need in terms of improving the reliability of their apps? How can the developers make good decisions in this area?
-    \begin{itemize}
-        \item ~\emph{``we ultimately want to} empower software development teams to independently gain and share insight \emph{from their data without relying on a separate entity"}
-        \item \emph{``Analytics can help: monitor a project; know what's really working; improve efficiency; manage risk; anticipate changes; evaluate past decisions."}
-        
-        \item Oddly, Figure 2 in their paper seems to have a mistake in the direction of More Difficult from Information to Insight, see~\ref{fig:buse2012-edited-figure-2}.
-        
-        \item \emph{``In other words, both developers and managers find it more important to understand the past than try to predict the future; echoing George Santayana, “those who cannot remember the past are condemned to repeat it.”"}.
-        
-        \item From Figure 4 in their work, Failure Information (\emph{``reports of crashes or other problems"})is in the top 3 that the development leads would use and top for managers when making decisions relevant to their engineering process. Telemetry (\emph{``user benchmarks"} would be used by around 80\% of development leads and 90\% of managers in the survey.
-        
-        \item \emph{``The landscape of artifacts and indicators in software engineering is well known, but the concrete decisions they might support are not. We conjecture that understanding how managers and developers can make use of information is critical to understanding what information should be delivered to them."}. My research somewhat inverts this by looking at what's being delivered in terms of commercial, pre-existing mobile analytics and considers how that information has been used to improve the reliability of the mobile apps that were the source of the raw information.
-        
-    \end{itemize}~\cite{buse2012_information_needs_for_software_development_analytics}.
-    
-    \item The data collection and analysis of Android Vitals has some similarities with Microsoft's `Windows Error Reporting' (WER) which they describe in an article in 2011~\cite{kinshuman2011_debugging_in_the_very_large} and a longer conference paper from 2009~\cite{kinshuman2009_debugging_in_the_very_large}. Similarities include both mechanisms being designed to work effectively at scale of at least a billion end-user machines/devices, capturing crash data, and using error statistics as a tool in debugging. Differences include the platform (Android), the lack of automatic diagnosis (which WER provided), and most relevantly, Google provides several million third-party developers with access to data for the apps they are responsible for and provides them with various comparative analytics of the technical performance of their app compared to those apps of their peers. (Microsoft provided 700 third-party developers, for instance of device drivers, with WER information, and the paper provides a concrete example of how one vendor addressed the top 20 reported issues for their code, and how the fixes percolated out to the end users and halved the percentage of all kernel crashes attributed to that vendor (from 7.6\% to 3.8\%)). Statistics-based debugging, described in these papers, was used in Microsoft's WER and may also apply when developers use mobile analytics.
-    
-    \item An opensource project provides Android developers with a mechanism to detect and report ANRs in their application. It includes support to report the ANRs to various crash reporters~\cite{salomonbrys_github_anr_watchdog}. (Two of the four listed (Crashlytics and HockeyApp) have been acquired by Google and Microsoft respectively). Note: In 2012, Google was asked to provide a facility to detect ANRs from the application~\footnote{\url{https://issuetracker.google.com/issues/36951741}} so developers would be aware of them and be able to address them. The issue was marked obsolete by Google in 2014 without comment. A similar reporting feature is now available in Android on Google supported devices.
-    
-    \item \emph{``Challenges and Benefits from Using Software Analytics in Softeam"} ICSEW 2020 \emph{``In this industry abstract, we describe the challenges and benefits of collecting feedback from customers and systems to support development cycles. In Softeam, we have performed such collection and support in four iterations by means of a software analytics platform. We describe the encountered challenges and the effects of suggested recommendations to improve the software quality of our systems on the metrics of interest."}~\cite{bagnato2020_challenges_and_benefits_from_using_software_analytics_in_softeam}. They use \url{https://github.com/q-rapids}, a ``Quality-aware rapid software development. H2020 Project (Grant no. 732253)". There are relevant publications listed at \url{https://www.q-rapids.eu/publications}.
-    \item \emph{``"} \emph{``automatically collected usage data, logs, and interaction traces could improve feedback quality and help developers understand feedback and react to it. We call this automatically collected information about software usage implicit feedback."}~\sidecite{maalej2016_towards_data_driven_requirements_engineering}. They claim~\emph{``Thermal tracking of a user’s finger movement on touchscreens is a common approach for usage data analysis."} however I'm not aware of evidence to support this claim either from a research or a practitioner's perspective. (There's a PhD thesis on this topic published \emph{after} this paper: \href{http://usir.salford.ac.uk/id/eprint/37784/}{`Investigating the usability of touch-based user interfaces'}.
-    
-    \item ``A Methodology and Framework to Simplify Usability Analysis of Mobile Applications" Adding logging to a mobile apps can help developers analyse usability, reducing the effort needed
-    
-    \item \emph{``How Does Misconfiguration of Analytic Services Compromise Mobile Privacy?"} ICSE 2020. This in turn refers to \emph{``Alde: privacy risk analysis of analytics libraries in the android ecosystem."} 2016, and \emph{``Bug Fixes, Improvements, ... and Privacy Leaks - A Longitudinal Study of PII Leaks Across Android App Versions."} 2018.
-    
-    \item \emph{``Prochlo: Strong privacy for analytics in the crowd"}  ~\cite{prochlo2017_strong_privacy_analytics_in_the_crowd_46411} Various Google authors. 2017. Quote from the abstract:~\emph{``The large-scale monitoring of computer users' software activities has become commonplace, e.g., for application telemetry, error reporting, or demographic profiling. This paper describes a principled systems architecture---Encode, Shuffle, Analyze (ESA)---for performing such monitoring with high utility while also protecting user privacy. The ESA design, and its Prochlo implementation, are informed by our practical experiences with an existing, large deployment of privacy-preserving software monitoring."}.
 
-    \item "QoE Doctor: Diagnosing Mobile App QoE with Automated UI Control and Cross-layer Analysis"~\cite{chen2014qoe}.
-    \item "An Approach to Detect Android Antipatterns"~\cite{hecht2015approach}. Using static analysis to find poor designs that lead to poor quality apps. Their approach could be complementary to mine and to ... software testing.
-    \item ``Examining the Relationship between FindBugs Warnings and App Ratings"~\cite{khalid2016_examining_the_relationship_between_findbugs_warnings_and_app_ratings} assessed the static-analysis warnings collected using FindBugs with ratings and the associated review comments for 10,000 free-to-download Android apps.
+
+
     
     \item \emph{``Apps, Trackers, Privacy, and Regulators: A Global Study of the Mobile Tracking Ecosystem."} 2018
-    
-    \item \emph{``The Nightmare of Our Snooping Phones"}~\sidecite{nytimes20210721_the_nightmare_of_our_snooping_phones}
-    \begin{itemize}
-        \item \emph{``This is about a structural failure that allows real-time data on Americans’ movements to exist in the first place and to be used without our knowledge or true consent. This case shows the tangible consequences of practices by America’s vast and largely unregulated data-harvesting industries."}
-        \item \emph{``This data is in the hands of companies that we deal with daily, like Facebook and Google, and also with information-for-hire middlemen that we never directly interact with."}
-        \item \emph{``This data is often packaged in bulk and is anonymous in theory, but it can often be traced back to individuals, as the tale of the Catholic official shows. The existence of this data in such sheer volume on virtually everyone creates the conditions for misuse that can affect the wicked and virtuous alike."}
-        \item \emph{``The New York Times editorial board wrote in 2019 that if the U.S. government had ordered Americans to provide constant information about their locations, the public and members of Congress would likely revolt. Yet, slowly over time, we have collectively and tacitly agreed to hand over this data voluntarily."}
-    \end{itemize}
     
     \item \emph{``Continuously assessing and improving software quality with software analytics tools: a case study"}~\cite{martinez_fernandez2019_continuously_assessing_and_improving_software_quality_with_software_analytics_tools}.
     
     \item \emph{``Toward a learned project-specific fault taxonomy: application of software analytics"}~\cite{kidwell2015_toward_fault_taxonomy_application_of_software_analytics}.
+   
+
+    \item \emph{``A Recipe for Responsiveness: Strategies for Improving Performance in Android Applications"}~\cite{nilsson2016_a_recipe_for_responsiveness_for_improving_android_apps_spotify_masters} presents some of the challenges of measuring and improving the performance of a particular, very popular Android app: Spotify. %floats-lost ~\footnote{\href{https://play.google.com/store/apps/details?id=com.spotify.music&hl=en_GB&gl=US}{Spotify: Free Music and Podcasts Streaming}.}. 
+    Several of the measurements described in the paper were later integrated into Google Play Console's Android Vitals service. The author created an additional tool that profiles the performance of UI elements and provided the results as three traffic-light indicators for: Draw, Layout, Execute. The work was well received within Spotify, however as the tool was not applied to other apps and is not available the impact of this research seems to be limited.
     
-    \item \emph{``A measurement study of tracking in paid mobile applications"}~\cite{seneviratne2015_a_measurement_study_of_tracking_in_paid_mobile_apps}. Of the trackers this paper identified, 14\% of paid apps and 11\% of free apps used trackers that provided utilities such as crash and/or bug reporting and 28\% of paid apps and 24\% free apps used trackers that provided analytics (some of these also collected information on crashes). Their process was quite involved in order for the researchers to identify the trackers, currently (in 2021) various online services including the exodus-privacy~\cite{exodus_privacy_project} and AppBrain~\cite{appbrain} provide such information for Android apps freely. Virtually everyone of the 300 participants' devices had at least one tracker incorporated into at least one app on their device. 50\% of the users had more than 25 trackers. Therefore, this research confirms tracking in mobile apps is endemic and has been performed for years. 
-    
-    \item \emph{``User interaction-based profiling system for Android application tuning"}~\cite{lee2014_user_interaction_based_profiling_system_for_android_app_tuning} Correlation or causation, needing to investigate... I've discussed one of their figures in many presentations on Mobile Analytics. To be continued...
-    
-    \item \emph{``A Framework for the Automatic Execution of Measurement-Based Experiments on Android Devices"}~\cite{malavolta2020_android_runner} Their Android Runner framework may be of interest when aiming to reproduce failures (and/or evaluate improvements intended to address particular failures). Given the use of additional plugins as profilers it is unlikely to be used much in Industry. They provide a set of synthetic Android apps. %floats-lost ~\footnote{\url{https://github.com/S2-group/android-apps-benchmark}} which are designed to test individual, specific hardware components. They do not mention any examples of using their framework for real-world shipping Android apps.
-    
-    \item \emph{``A Recipe for Responsiveness: Strategies for Improving Performance in Android Applications"}~\cite{nilsson2016_a_recipe_for_responsiveness_for_improving_android_apps_spotify_masters} presents some of the challenges of measuring and improving the performance of a particular, very popular Android app: Spotify. %floats-lost ~\footnote{\href{https://play.google.com/store/apps/details?id=com.spotify.music&hl=en_GB&gl=US}{Spotify: Free Music and Podcasts Streaming}.}. Several of the measurements described in the paper were later integrated into Google Play Console's Android Vitals service. The author created an additional tool that profiles the performance of UI elements and provided the results as three traffic-light indicators for: Draw, Layout, Execute. The work was well received within Spotify, however as the tool was not applied to other apps and is not available the impact of this research seems to be limited.
-    
-    \item It might be worth using Dataclysm~\sidecite{rudder2014dataclysm} and some analysis on the contents of the book \url{https://medium.com/@crypto_dealer/thoughts-on-dataclysm-by-christian-rudder-a7fcd09f423c} as examples of how analytics can provide insights in many domains, including what people want, how people present themselves and how they behave. c.f. \cite{GAVIDIACALDERON2021_game_theoretic_analysis_of_software_development_practices} to compensate for the characteristics identified in Dataclysm.
+
     
 \end{itemize}
 
@@ -905,8 +856,6 @@ There are well-established tools, techniques and practices for recording the tim
 \subsection{Relative correctness}
 \emph{``Debugging without testing"}~\cite{ghardallou2016debugging_without_testing} It may be possible to demonstrate a bug has been fixed without testing, for instance by comparing behaviours before and after changes were made to the software. This paper's premise of being able to debug without testing held true in some of my research. Testing has not able to reproduce all the conditions needed for some bugs to emerge. Other information, such as stack traces, may help developers perceive likely causes of a bug, such as a crash, sufficiently for the developers to take what they believe is corrective action. 
 
-\subsection{Ubiquitous Analytics}
-After OSX operating system updates, and when new users first login, they are asked to "help app developers improve their products and services automatically." Tickbox, default un-selected: "Share crash and usage data with app developers", "Help app developers improve their apps by allowing Apple to share crash and usage data with them." Further details, including from a user's perspective what's collected, how long the data is kept, and how to disable diagnostics from being sent are all described in \url{https://support.apple.com/en-gb/guide/mac-help/mh27990/mac}
 
 \subsection{Ways data can be used}
 In Industry there are discussions on various ways data can be used to get the most out of the data. Figure~\ref{fig:i_am_using_data_to} presents a decision tree discussed in an article on when to apply each perspective~\cite{amplitude_are_you_data_driven}. For my research, and for development teams who use analytics, we may choose to use these various perspectives to use analytics data more productively. This work leads to the question of identifying and often designing the data that will need to be collected in order to use it.
@@ -919,28 +868,4 @@ In Industry there are discussions on various ways data can be used to get the mo
 \end{figure}
 \afterpage{\clearpage}
 %First discovered via \url{https://twitter.com/iteratively/status/1243641701408935936?s=20}
-
 % SHOULD-DO write about: Identifying and designing data....
-
-In a short paper~\sidecite{kidwell2015_toward_fault_taxonomy_application_of_software_analytics}, the authors propose combining fault classification and software analytics for five types of decisions. These are: targetting testing, release planning, judging stability, targeting training, and targeting inspection of software. failure data mined from software analytics tools such as crash reporting tools helps to bring their concepts and ideas to life. Their paper provided initial indicative evidence of their proposals through evaluation of changes to source code for the Eclipse software and discusses the measurement of refactoring to provide more accurate and relevant measurements of the efficacy of the refactoring, rather than considering approaches to improve mobile apps.
-
-
-\subsection{Privacy and Control}
-
-UW blog post~\sidecite{mcquate_I_saw_you_were_online} and the underlying CHI 2020 paper~\sidecite{cobb2020_ux_s_with_online_status_indicators} regarding how online status indicators shape their behaviour and on whether people know and can correctly control whether their data is being shared. Conversely, in his PhD thesis~\sidecite{adam2009balancing}, Adam noted that users of mobile devices were willing to withhold sensitive data provided they would not be found out. The users want blameless ways to control their privacy.
-
-Mobile analytics collects a time-series of data online. In 2015, research into privacy concerns of continual observation identified a number of concerns with the erosion of privacy for users in these circumstances~\sidecite{erdogdu2015_privacy_utility_tradeoff_under_continual_observation}. The authors discussed various end-user concerns in having to trust the collection of their user data, including two trust boundaries: either locally, where~\emph{``the user may not entirely trust the aggregating entity in the first place,"} or at the aggregator's side - where the user trusts the entity collecting the data but not third-parties who may also gain access to the data. Either or both of these concerns may apply when users use mobile apps that collect analytics data. Their experiment that assessed whether six households could keep private their use of a microwave while simultaneously sharing data that enabled their washer-drier usage to be accurately tracked. Given the small-scale nature of the experiment it would be premature to determine whether the framework proposed in the research would also apply to mobile analytics, nonetheless the research offers a possible approach to increasing the privacy of mobile analytics data provided the data is still efficacious and sufficiently accurate for diagnostics, problem analysis, and reporting purposes.  % c.f. research into whether decentralised or centralised approaches are better for covid-19 tracking. See Without a trace: Why did corona apps fail? in the excluded works bibliography.
-
-% Further reading
-% https://www.kaggle.com/dansbecker/what-is-log-loss (refreshingly clear and succinct, I still don't quite understand the topic yet though...)
-% A great title, I wish I understood the topic: "From the Information Bottleneck to the Privacy Funnel". Also their approach is unlikely to be used in mobile analytics software as there's little perceived practical need to provide privacy of this form :( 
-
-% The purpose driven privacy preservation for accelerometer-based activity recognition 
-The tradeoff between privacy and utility for data that can uniquely identify over 99\% of users from high-frequency data collection from accelerometers in mobile phones~\sidecite{menasria2018_purpose_driven_privacy_preservation_accelerometers}. Accelerometer data is one class of data that could be collected using mobile analytics. The paper discusses the compression of data that is disclosed so irrelevant private information can be reduced while also maintaining adequate utility of the analysis of the data that is disclosed. Their approach might offer the potential to reduce irrelevant private information collected by mobile analytics. %COULD-DO cite Blaine Price's personal paper on: Challenges in Eliciting Privacy and Usability Requirements for Lifelogging  
-
-Privacy related violations by platform providers, including Apple and Google, where a user's phone (and presumably similar devices including tablet computers) are tracking users without the user's informed consent. A recent complaint was filed by NOYB - European Center for Digital Rights~\sidecite{noyb2020_noyb_files_complaint_against_apples_tracking_code_idfa} and reported by the Financial Times~\sidecite{ft2020_apple_tracks_iphone_users_without_consent}. The complaint is that iPhones track users and Apple shares the data with all the app developers. According to the article in the Financial Times, in June 2020 Apple promised their latest operating system, iOS 14, would include a privacy dashboard and that apps would need to ask users for permission before accessing the unique IDFA (Identifier for Advertisers). However, again in this article~\emph{``Apple then said in September that it would delay the changes, “to give developers the time they need” until “early next year”."}. The delay finished with the rollout of iOS 14.5 and iOS includes a device-wide setting to disable access to the IDFA otherwise users are prompted to grant permission when an app asks for access. % https://www.plotprojects.com/blog/ios-14-5-what-is-apples-idfa-change-and-how-will-it-impact-advertisers/ and https://clearcode.cc/blog/apple-idfa/ 
-
-
-
-c.f. using infra-red cameras to detect people in ways they're unfamiliar with and do not expect. 
-

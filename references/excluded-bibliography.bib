@@ -1259,3 +1259,72 @@ author = {He, Shilin and He, Pinjia and Chen, Zhuangbin and Yang, Tianyi and Su,
 }
 
 
+@inproceedings{balagtas2009_a_methodology_and_framework_to_simplify_usability_analysis_of mobile_apps,
+    title={A methodology and framework to simplify usability analysis of mobile applications},
+    author={Balagtas-Fernandez, Florence and Hussmann, Heinrich},
+    booktitle={2009 IEEE/ACM International Conference on Automated Software Engineering},
+    pages={520--524},
+    year={2009},
+    organization={IEEE},
+    abstract = {Usability analysis is an important step in software development in order to improve certain aspects of the system. However, it is often a challenge especially when it comes to evaluating applications running on mobile devices because of the restrictions posed by the device and the lack of supporting tools and software available to collect the necessary usability data. This paper proposes a methodology and framework to aid developers in preparing the mobile system for usability analysis. The focus is on the simplification of the developer's task in preparing the system for evaluation and the processing of the collected usability data by automating some of the tasks involved in the process.},
+    exclusion_rationale = {
+        This is a relatively old paper in the field of mobile apps. Their focus is on usability and finding ways to measure usability. I like their visuals of the developer tasks and their explanation of what's involved and various pertinent factors that would need to be addressed.
+        
+        Apparently they developed a small Android utility library called EvaHelper which generated output in GraphQL. They seem to also have some sort of integration with Anddroid DDMS (long since gone) to access logs and/or to use a demo Android app that generates the log messages. Sadly they do not publish the apps they used the software with, nor the source code (or even binaries) of the library and/or apps that used EvaHelper. 
+    }
+}
+
+@article{Caputo_2022,
+	doi = {10.1109/tdsc.2022.3146020},
+	url = {https://doi.org/10.1109\%2Ftdsc.2022.3146020},
+	year = 2022,
+	publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+	pages = {1--1},
+	author = {Davide Caputo and Francesco Pagano and Giovanni Bottino and Luca Verderame and Alessio Merlo},
+	title = {You Can{\textquotesingle}t Always Get What You Want: Towards User-Controlled Privacy on Android},
+	journal = {{IEEE} Transactions on Dependable and Secure Computing},
+	abstract = {
+	    Mobile applications (hereafter, apps) collect a plethora of information regarding the user behavior and his device through third-party analytics libraries. However, the collection and usage of such data raised several privacy concerns, mainly because the end-user - i.e., the actual owner of the data - is out of the loop in this collection process. Also, the existing privacy-enhanced solutions that emerged in the last years follow an "all or nothing" approach, leaving the user the sole option to accept or completely deny the access to privacy-related data.
+
+        This work has the two-fold objective of assessing the privacy implications on the usage of analytics libraries in mobile apps and proposing a data anonymization methodology that enables a trade-off between the utility and privacy of the collected data and gives the user complete control over the sharing process. To achieve that, we present an empirical privacy assessment on the analytics libraries contained in the 4500 most-used Android apps of the Google Play Store between November 2020 and January 2021. Then, we propose an empowered anonymization methodology, based on MobHide, that gives the end-user complete control over the collection and anonymization process. Finally, we empirically demonstrate the applicability and effectiveness of such anonymization methodology thanks to HideDroid, a fully-fledged anonymization app for the Android ecosystem.
+	},
+	exclusion_rationale = {
+	    This paper is interesting even if it's got flaws in (starting from their very overoptimistic 4.83m apps in Google Play when the maximum estimated number to 2022 is around 3.6m apps (in March 2018) according to the same source they used. https://www.statista.com/statistics/266210/number-of-available-applications-in-the-google-play-store/ (Note: this is a different URL that is publicly available.) Furthermore, since Sep 2018, with one exception (3,040,000 in Sep 2020) the number of apps has been under 3m, which doesn't match their claim of an ongoing increase.
+	    
+	    What I find most interesting is their patching of analytics messages and their measure of the acceptance rate by each of the server-side services. For whatever reason they weren't able to get to grips with protobuf so their acceptance rate for Firebase was abysmally low.
+	    
+	    Some of their data - the captured analytics requests is available in JSON format on kaggle.com https://www.kaggle.com/datasets/x3no21/android-analytics-requests-network-traffic which may be of interest in future.
+	    
+	    It's odd to see so much traffic going to the defunct safedk.com (Table 3). Also, it's not clear if they analysed amplitude's traffic or spoofed it, they cite amplitude's Android SDK in passing.
+	    
+	    The paper provides lots of interesting topics that aren't directly related to how devs use mobile analytics so it's currently excluded from my core thesis.
+	}
+}
+
+
+@inproceedings{lee2014_user_interaction_based_profiling_system_for_android_app_tuning,
+    author = {Lee, Seokjun and Yoon, Chanmin and Cha, Hojung},
+    title = {User Interaction-Based Profiling System for Android Application Tuning},
+    year = {2014},
+    isbn = {9781450329682},
+    publisher = {Association for Computing Machinery},
+    url = {https://doi.org/10.1145/2632048.2636091},
+    doi = {10.1145/2632048.2636091},
+    abstract = {Quality improvement in mobile applications should be based on the consideration of several factors, such as users' diversity in spatio-temporal usage, as well as the device's resource usage, including battery life. Although application tuning should consider this practical issue, it is difficult to ensure the success of this process during the development stage due to the lack of information about application usage. This paper proposes a user interaction-based profiling system to overcome the limitations of development-level application debugging. In our system, the analysis of both device behavior and energy consumption is possible with fine-grained process-level application monitoring. By providing fine-grained information, including user interaction, system behavior, and power consumption, our system provides meaningful analysis for application tuning. The proposed method does not require the source code of the application and uses a web-based framework so that users can easily provide their usage data. Our case study with a few popular applications demonstrates that the proposed system is practical and useful for application tuning.},
+    booktitle = {Proceedings of the 2014 ACM International Joint Conference on Pervasive and Ubiquitous Computing},
+    pages = {289–299},
+    numpages = {11},
+    keywords = {mobile application, tuning, debugging, webbased framework, profiling, user interaction},
+    address = {Seattle, Washington},
+    series = {UbiComp '14},
+    exclusion_rationale = {
+        I like the idea their work is practical given it required users to upload usage data via a web-based framework. Their focus is more on profiling for battery use. 
+        
+        This is actually one of the key papers I cite from at industry conferences and events. Yet I don't know how best to integrate it into my thesis. It's the one that discusses whether a behaviour is desirable, or not. As my thesis focuses on failures in terms of stability/reliability there's a general perception/agreement that the failures are not desirable.  
+        
+        They didn't use mobile analytics AFAIK their analysis seemed to be 1-1 from data recorded through use of the app to understanding the behaviours. They modified the Android kernel (in Android 4.3) and incorporated software called AppScope.
+        
+        Their approach is complementary to using mobile analytics, and indeed it could find performance related bugs with the use of mobile analytics. However it required modifications to the Android kernel which means it's not viable for end-user devices (unless Google Android provides the mechanisms to collect and transmit the data). Also users would need to accept using devices with the additional data collection and Google would have to allow that data collection, and developers have the wherewithal to modify Android to add the necessary support.
+    }
+
+}
