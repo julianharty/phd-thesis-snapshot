@@ -279,6 +279,9 @@ urlcolor=Navy,menucolor=black}
 
 
 \usepackage{array,tabularx,longtable,tabu}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % Define a new right-aligned paragraph column type
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % Define a new left-aligned (no justification) paragraph column type
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % Define a new centered paragraph column type
 \newcommand{\STAB}[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}} % From https://tex.stackexchange.com/a/416169/88466 
 \usepackage{colortbl,tikz}
 \usetikzlibrary{calc}
