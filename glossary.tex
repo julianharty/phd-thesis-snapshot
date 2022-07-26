@@ -1,16 +1,341 @@
-\newglossaryentry{computer}{
-	name=computer,
-	description={is a programmable machine that receives input, stores and manipulates data, and provides output in a useful format}
-}
+% See https://en.wikibooks.org/wiki/LaTeX/Glossary for tips
 
 % Glossary entries (used in text with e.g. \acrfull{fpsLabel} or \acrshort{fpsLabel})
-\newacronym[longplural={Frames per Second}]{fpsLabel}{FPS}{Frame per Second}
-\newacronym[longplural={Tables of Contents}]{tocLabel}{TOC}{Table of Contents}
+% \newacronym[longplural={Frames per Second}]{fpsLabel}{FPS}{Frame per Second}
+% \newacronym[longplural={Tables of Contents}]{tocLabel}{TOC}{Table of Contents}
 
-\newacronym[type=\glsdefaulttype, description={An Application Programming Interface (API) is a particular set of rules and specifications that a software program can follow to access and make use of the services and resources provided by another particular software program that implements that API}]{api}{API}{Application Programming Interface}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acronyms follow in alphabetical order
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Algorithmic decision-making system
 \newacronym[type=\glsdefaulttype, description={Algorithmic decision-making system. (Source \href{http://algorithmtips.org/2019/01/22/welcome/}{algorithmtips.org/2019/01/22/welcome/})}]{adm}{ADM}{Algorithmic decision-making system}
 
+% ANR
+\newacronym[type=\glsdefaulttype, description={Abbreviation for Application Not Responding. A term originated by Google to identify when an Android app stops responding to users for over 5 seconds~\citep{google_play_view_crashes_and_anr_errors}.}]{anr}{ANR}{Application Not Responding}
+
+% API
+\newacronym[type=\glsdefaulttype, description={An Application Programming Interface (API) is a particular set of rules and specifications that a software program can follow to access and make use of the services and resources provided by another particular software program that implements that API}]{api}{API}{Application Programming Interface}
+
+% CTO
+\newacronym[type=\glsdefaulttype, description={Chief Technology Officer. The most senior person who is responsible for the technology used and developed by an organisation, often at board level of a company or organisation.}]{cto}{CTO}{Chief Technology Officer}
+
+% ESSE
+\newacronym[type=\glsdefaulttype, description={Empirical Studies of Software Engineering~\citep[p.1171]{singer2002_ethical_issues_in_empirical_studies_of_software_engineering}}]{esse}{ESSE}{Empirical Studies of Software Engineering}
+
+% EULA
+\newacronym{eula}{EULA}{End User License Agreement}
+
+% FOSS
+\newacronym{foss}{FOSS}{Free and Open Source Software}
+
+% GDPR
+\newacronym{gdpr}{GDPR}{General Data Protection Regulation (\url{https://gdpr-info.eu/})}
+
+% GTAF
+\newacronym[type=\glsdefaulttype, description={Greentech Apps Foundation, \url{https://gtaf.org/}, one of the case studies in this research}]{gtaf}{GTAF}{Greentech Apps Foundation}
+
+% GUI
 \newacronym[type=\glsdefaulttype, description={The Graphical User Interface (GUI) is a visible user interface, a touchscreen, on a mobile device}]{gui}{GUI}{Graphical User Interface}
 
+% ISO
+\newacronym{iso}{ISO}{International Organization for Standardization (\url{https://www.iso.org/home.html})}
+
+% JVM
+\newacronym[type=\glsdefaulttype, description={Java Virtual Machine, for the purposed of this thesis the JVM runs Android apps written in Java and Kotlin. It is not used to run \href{glossary_native_code}{native code}.}]{jvm}{JVM}{Java Virtual Machine}
+
+% MTBF
+\newacronym{mtbf}{MTBF}{Mean Time Between Failure}
+
+% OBB
+\newacronym[type=\glsdefaulttype, description={Android Opaque Binary Blob File~\citep{fileinfo_obb_format}, used to package expansion files for Android APK files~\citep{apk_expansion_files}.}]{obb}{OBB}{Android Opaque Binary Blob File}
+
+% OEM
 \newacronym[type=\glsdefaulttype, description={Original Equipment Manufacturer (OEM) manufacture devices, such as smartphone and tablet devices}]{oem}{OEM}{Original Equipment Manufacturer}
+
+% OKR / OKRs
+\newacronym[longplural = {Objectives and Key Results}]{okr}{OKR}{Objective and Key Result}
+
+% PII
+\newacronym[type=\glsdefaulttype, description={\emph{``Personally Identifiable Information; Any representation of information that permits the identity of an individual to whom the information applies to be reasonably inferred by either direct or indirect means."}~\citep{nist_pii}}]{pii}{PII}{Personally Identifiable Information}
+
+% PFOD
+\newacronym{pfod}{PFOD}{Probability of Failure On Demand} % a shorter version of https://www.aiche.org/ccps/resources/glossary/process-safety-glossary/probability-failure-on-demand-pfod-pfd
+
+% QoE
+\newacronym[type=\glsdefaulttype, description={Oft used in Mobile Telecommunications to measure network transmission characteristics. Here used so we can more easily identify and consider the quality of experiences such as \emph{User Experience}. In the context of this research the focus is on perceived experience as perceived by end users of an app.}]{qoe}{QoE}{Quality of Experience}
+
+% UX
+\newacronym{ux}{UX}{User Experience}
+
+% WER
+\newacronym[type=\glsdefaulttype, description={Windows Error Reporting - a service developed by Microsoft used to find bugs at scale in the Windows Operating System. More information on how they do so available in~\citep{kinshuman2009_debugging_in_the_very_large, kinshuman2011_debugging_in_the_very_large}.}]{wer}{WER}{Windows Error Reporting}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Glossary entries follow in alphabetical order
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Analytics artefacts
+\newglossaryentry{glossary-analytics-artefacts}{
+    name ={Analytics artefacts},
+    description = {Analytics artefacts include published and unpublished outputs. Published outputs include data files and reports online and/or available to download. They also include results from calling APIs, and automated emails generated by analytics tools. Unpublished outputs including screen captures, screen-scraping and parsing.}
+}
+
+% Android developer account
+\newglossaryentry{glossary-android-developer-account}{
+    name = {Android developer account},
+    description = {For the purposes of this research we use Google's concept of a Google Play Developer Account, described variously in~\cite{google_play_how_to_use_the_play_console, google_play_launch_checklist}. Developers need to register for an account, pay a one-time fee, and agree to abide by various policies, terms, and conditions. Someone who has a developer account can invite other people to share aspects of their account.}
+}
+
+% Android vitals
+\newglossaryentry{glossary-android-vitals}{
+    name = {Android vitals},
+    description = {``Android vitals is an initiative by Google to improve the stability and performance of Google Play apps on Android devices.'' Source: \url{https://developer.android.com/topic/performance/vitals}.}
+}
+
+% App
+\newglossaryentry{glossary-app}{
+    name = {App},
+    description = {A common abbreviation for a software application.}
+}
+
+% Breadcrumbs
+\newglossaryentry{glossary-breadcrumbs}{
+    name = {Breadcrumbs},
+    description = {Breadcrumbs are a series of small data messages written via the mobile analytics SDK and intended to \emph{``Breadcrumbs show you events that lead to errors''}. Source: \url{https://sentry.io/features/breadcrumbs/}.}
+}
+
+% Crash analytics
+\newglossaryentry{glossary-crash-analytics}{
+    name = {Crash analytics},
+    description = {Analysis of application crashes collected automatically by software. Identify groupings and patterns in the crashes to provide developers with the opportunity to debug and fix them without needing to spend time reproducing the problem. (Paraphrased from~\citep{ibm_mobile_foundation_7_1_app_crash_analytics}).}
+}
+
+% Data dynamics
+\newglossaryentry{glossary-data-dynamics}{
+    name = {Data dynamics},
+    description = {The study of data moving within, through, between, and across computers including who has access to see some or all of the data, the contents of the data and the information that can be gleaned from it, \emph{etc.}. The concept is introduced from a testing of systems perspective in~\citep{harty2020_fast_abstract_data_dynamics_for_testing_systems}. \emph{c.f.} also: some concepts from physics and signals~\citep{BROOMHEAD1986_217_extracting_qualitative_dynamics_from_experimental_data}. Note: data dynamics is not being used in terms of modifications to data (see~\citep{wang2011_enabling_public_accountability_and_data_dynamics_etc} and/or~\citep{hao2011_privacy_preserving_etc_with_data_dynamics}), although those sorts of modifications may also occur in some circumstances e.g. to revise analytics data that's been collected and forwarded.}
+}
+
+% Developer / development team
+\newglossaryentry{glossary-devs}{
+    name = {Developer / development team},
+    description = {Both these terms are shorthand for people who are actively involved in the development of software. The work of developing software includes working directly with source code and working with other aspects of the project including design, testing, analysis, product and project management, \href{glossary-ux}{UX}, and so on. In this research these two terms are often used interchangeably where the choice aims to make the thesis more readable. Developers can have many roles and often do, and teams may include developers who work on more than one project or app. A development team includes multiple participants where communication increases in importance in terms of affecting the end results and in the human relationships.}
+}
+
+% Development artefacts
+\newglossaryentry{glossary-development-artefacts}{
+    name = {Development artefacts},
+    description = {Development artefacts include the app binary, the source code for the app (including any source code incorporated into the app which is also developed and maintained by the app developers), build scripts, tests, documentation, work schedules, bug tracking systems, \textit{etc.} Note: Third-party source code is generally excluded unless there is a clear and direct connection to the app, for instance through a bug report and/or a pull request created by the app developers.}
+}
+
+% Digital feedback
+%   How about using the following instead? Automated feedback (or automated digitally generated feedback), compared to feedback from people?
+\newglossaryentry{glossary-digital-feedback}{
+    name = {Digital Feedback},
+    description = {Here used to identify feedback from running software, generated automatically. The feedback is structured and the structure generally consistent.}
+}
+
+% Google Play Console
+\newglossaryentry{glossary-google-play-console}{
+    name = {Google Play Console},
+    description = {A Web-based application which is the primary user interface for developers who release Android apps in the Google Play Store. Google also provides mobile apps that provide a subset of the capabilities of Google Play Console.}
+}
+
+% Error
+\newglossaryentry{glossary-error}{
+    name = {Error},
+    description = {``An \textbf{error} is a system state that may cause a failure.''~\citep{abreu2007_on_the_accuracy_of_spectrum_based_fault_localization}, based on~\citep{avizienis2004_basic_concepts_and_taxonomy}.}
+}
+
+% Event demographics
+\newglossaryentry{glossary-event-demographics}{
+    name = {Event demographics},
+    description = {\emph{``Percentage of events triggered by each age group and gender.''} (Source: Google Firebase Analytics tooltip).}
+}
+
+% Explicit feedback
+\newglossaryentry{glossary-explicit-feedback}{
+    name = {Explicit feedback},
+    description = {Feedback provided explicitly, for example, in the form of reviews and comments~\citep{maalej2016_towards_data_driven_requirements_engineering}.}
+}
+
+% Failure
+\newglossaryentry{glossary-failure}{
+    name = {Failure},
+    description = {\emph{``A \textbf{failure} is an event that occurs when delivered service deviates from correct service.''}~\citep{abreu2007_on_the_accuracy_of_spectrum_based_fault_localization}, based on~\citep{avizienis2004_basic_concepts_and_taxonomy}.}
+}
+
+% Failure repository
+\newglossaryentry{glossary-failure-repository}{
+    name = {Failure repository},
+    description = {A central location in which data pertaining to failures of software is stored and managed. Notes: Definition based on a service, ~\href{https://languages.oup.com/google-dictionary-en/}{Oxford Languages}, jointly provided by Google and Oxford University Press. Mentioned but not defined in various sources including:~\citep{maalej2016_towards_data_driven_requirements_engineering}, and exemplified in~\citep{cfdr_usenix}.}
+}
+
+% Fault
+\newglossaryentry{glossary-fault}{
+    name = {Fault},
+    description = {\emph{``A fault is the cause of an error in the system.''}~\citep{abreu2007_on_the_accuracy_of_spectrum_based_fault_localization}, based on~\citep{avizienis2004_basic_concepts_and_taxonomy}.}
+}
+
+% FunDex
+\newglossaryentry{glossary-fundex}{
+    name = {FunDex},
+    description = {A score devised by Hewlett-Packard (HP) as part of their AppPulse Mobile product offering. \emph{``The score starts at 100, but drops with each problem the app has ..."}~\citep{hall2015_HP_courts_developers_with_tools_for_monitoring_mobile_apps}. It combines scores for UI performance, stability, and resource usage.}
+}
+
+% Implicit feedback
+\newglossaryentry{glossary-implicit-feedback}{
+    name = {Implicit feedback},
+    description = {Implicit Feedback &Automatically collected information about software usage~\citep{maalej2016_towards_data_driven_requirements_engineering}.}
+}
+
+% Interaction screen
+\newglossaryentry{glossary-interaction-screen}{
+    name = {Interaction screen},
+    description = {Interaction screen conveys the screen as both an output and input device (rather than the term touch screen)~\footnote{This term is originated by Prof. Arosha K. Bandara, thank you.}}
+}
+
+% iArtefacts
+\newglossaryentry{glossary-iartefacts}{
+    name = {iArtefacts},
+    description = {\textunderscore{I}mprove development \textunderscore{artefacts} pertaining to the use of mobile analytics. One of the six perspectives identified in this research.}
+}
+
+% iTools
+\newglossaryentry{glossary-itools}{
+    name = {iTools},
+    description = {\textunderscore{I}mprove the mobile analytics \textunderscore{tools} and associated artefacts. One of the six perspectives identified in this research.}
+}
+
+% iUse
+\newglossaryentry{glossary-iuse}{
+    name = {iUse},
+    description = {\textunderscore{I}mprove the \textunderscore{use}, the process, of mobile analytics tools and associated artefacts. One of the six perspectives identified in this research.}
+}
+
+% Kiwix
+\newglossaryentry{glossary-kiwix}{
+    name = {Kiwix},
+    description = {Kiwix refers to several related things: to the project~\href{https://github.com/kiwix/kiwix-android/}{github.com/kiwix/kiwix-android/}, to the foundation~\href{https://www.kiwix.org/en/}{www.kiwix.org/en/}, and to the core Android app which is one of the case studies.}
+}
+
+% Mobile Analytics Tools
+\newglossaryentry{glossary-mobile-analytics-tools}{
+    name = {Mobile Analytics Tools},
+    description = {Software tools designed to collect information on one or more mobile platforms. They include \gls{glossary-mobile-app-analytics-tools} and \gls{glossary-mobile-platform-analytics-tools}.}
+}
+
+% Mobile Analytics Services
+\newglossaryentry{glossary-mobile-analytics-services}{
+    name = {Mobile Analytics Services},
+    description = {Services provided using \gls{glossary-mobile-analytics-tools}. Typically mobile analytics services are provided by the owners of the intellectual property rights for the particular mobile analytics tool being used, for instance Sentry provide their mobile analytics service using software they own, they also make their software available as opensource so others may be able to provide similar services subject to the licensing agreements of the various software components.}
+}
+
+% Mobile App Analytics Tools 
+\newglossaryentry{glossary-mobile-app-analytics-tools}{
+    name = {Mobile App Analytics Tools},
+    description = {``Mobile app analytics tools collect and report on in-app data pertaining to the operation of the mobile app and the behavior of users within the app, as well as aggregate market data on apps across public app stores"~\citep{gartner2015_market_guide_for_mobile_app_analytics}. They are a subset of Mobile Analytics Tools.}
+}
+
+% Mobile Platform Analytics Tools
+\newglossaryentry{glossary-mobile-platform-analytics-tools}{
+    name = {Mobile Platform Analytics Tools},
+    description = {Are similar to \gls{glossary-mobile-app-analytics-tools}, however, the data is collected by the platform, outside the app. Some of the data may be similar, some will only be available to either the platform or the app.}
+}
+
+% Operational Analytics 
+\newglossaryentry{glossary-operational-analytics}{
+    name = {Operational Analytics },
+    description = { ``Operational analytics: Provides visibility into the availability and performance of mobile apps in relation to device, network, server and other technology factors. Operational analytics are essential to capture and fix unexpected app behavior (such as crashes, bugs, errors and latency) that can lead to user frustration and abandonment of the app."~\citep{gartner_what_is_mobile_app_analytics_software}.}
+}
+
+% Platform
+\newglossaryentry{glossary-platform}{
+    name = {Platform},
+    description = {Here, a platform includes an operating system, related software resources (including APIs and services), and an ecosystem including an app store. Google Android and Apple's iOS are both mobile platforms. They run on end-user devices and capture aspects of the software that runs on those devices. Platform services can monitor apps from the time they are installed until they are removed.}
+}
+
+% Mobile Analytics Policy
+\newglossaryentry{glossary-mobile-analytics-policy}{
+    name = {Mobile Analytics Policy},
+    description = {Defines the `rules of engagement' when incorporating mobile analytics as part of the development, maintenance and where appropriate the operation of a mobile app.}
+}
+
+% Mobile Analytics Strategy
+\newglossaryentry{glossary-mobile-analytics-strategy}{
+    name = {Mobile Analytics Strategy},
+    description = {Describes how the team intend to work within their mobile analytics policy to achieve the aims and objectives of using mobile analytics.}
+}
+
+% Native Code
+\newglossaryentry{glossary_native_code}{
+    name = {Native Code},
+    description = {Written in C++ and native to the computer (mobile device) architecture.}
+}
+
+% Quality-in-Use 
+\newglossaryentry{glossary-quality-in-use}{
+    name = {Quality-in-Use},
+    description = {Quality-in-Use in this thesis is based on the use of the term in the \acrfull{ISO} 9126/250xx Standards. In this research \Gls{glossary-stability} also pertains to Quality-in-Use models even though ISO 250xx doesn't explicitly include them, possibly as the term \gls{glossary-stability} was not a popular term in software quality, it has become more prevalent since the adoption of the term stability by HP and subsequently by Google in the context of measuring the quality of Android apps.}
+}
+
+% Reliability
+\newglossaryentry{glossary-reliability}{
+    name = {Reliability},
+    description = {A measure of software quality which compares the outcomes of software behaviour which can be reliable, or unreliable. The two main measures are \acrshort{mtbf} and \acrshort{pfod}. One or other of these are used at any one time, not both.}
+}
+
+% Risk
+\newglossaryentry{glossary-risk}{
+    name = {Risk},
+    description = {\emph{``A risk is an unwanted event that has negative consequences.''}~\citep{pfleeger2000_risky_business}.}
+}
+
+% Service Provider
+\newglossaryentry{glossary-service-provider}{
+    name = {Service Provider},
+    description = {An organisation, often commercial, which includes software, and online services (and the people who provide these) that offers developers optional facilities such as in-app- analytics, crash reporting, messaging, feedback mechanisms, \emph{etc.}}
+}
+
+% Stability
+\newglossaryentry{glossary-stability}{
+    name = {Stability},
+    description = {A software quality identified initially by HP as part of their FunDex~\citep{calleosoftware_AppPulseMobile}. The same term was subsequently used by Google to identify and measure two related indications of software failures: crashes and freezes~\citep{android_vitals_overview_2019}.}
+}
+
+% Statistics-based debugging
+\newglossaryentry{glossary-statistics-based-debugging}{
+    name = {Statistics-based debugging},
+    description = {Harnesses automated data collection at a global scale to help programmers more effectively improve system quality~\citep{kinshuman2011_debugging_in_the_very_large}, and more details are available in~\citep{kinshuman2009_debugging_in_the_very_large}.}
+}
+
+% Vitals Scraper
+\newglossaryentry{glossary-vitals-scraper}{
+    name = {Vitals Scraper},
+    description = {Opensource software developed as part of this research to facilitate the downloading, analysis, and preservation of various reports in Google Play Console and Android Vitals. The source code project is available online \url{https://github.com/commercetest/vitals-scraper}.}
+}
+
+% uArtefacts
+\newglossaryentry{glossary-uartefacts}{
+    name = {uArtefacts},
+    description = {\textunderscore{U}nderstand development \textunderscore{artefacts}, including the mobile app, pertaining to the use of mobile analytics. One of the six perspectives identified in this research.}
+}
+
+% uTools
+\newglossaryentry{glossary-utools}{
+    name = {uTools},
+    description = {\textunderscore{U}nderstand the mobile analytics \textunderscore{tools} and associated artefacts. One of the six perspectives identified in this research.}
+}
+
+% uUse
+\newglossaryentry{glossary-uuse}{
+    name = {uUse},
+    description = {\textunderscore{U}nderstand the \textunderscore{use}, the process, of mobile analytics tools and associated artefacts. One of the six perspectives identified in this research.}
+}
+
+\newglossaryentry{glossary-vectored-questioning}{
+    name = {Vectored questioning},
+    description = {A qualitative method to focus questions asked to people on projects with a focus on answering the research questions. Page \pageref{method-vectored-questions} has more detail on this method.}
+}
