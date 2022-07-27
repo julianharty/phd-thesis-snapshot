@@ -1,13 +1,14 @@
 \setchapterpreamble[u]{\margintoc}
 \chapter{Related Work}
 \label{chapter-related-work}
+\epigraph{I recall seeing a package to make quotes}{Snowball} % https://tex.stackexchange.com/a/53378/88466
 
 % Additional, older material is online in https://docs.google.com/document/d/1OdoBsLboTZHzv1UP9g7nUriVLgpu6ZGqjXLmRAAlAfs/edit?usp=sharing
 % New ideas and material are being added to a Google Doc for a while, then I'll revise this chapter. https://docs.google.com/document/d/1i3cCk2-8zwVioAuMbBQDLcUViihhHY6gk0MJNPevFbA/edit?usp=sharing
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{images/my/the_mobile_ecosystem_sketch.png}
+    \includegraphics[width=\linewidth]{images/my/the-mobile-app-ecosystem-27-jul-2022.jpg}
     \caption{The Modern Mobile App Ecosystem}
     \label{fig:my_modern-mobile-app-ecosystem}
 \end{figure}
@@ -35,14 +36,124 @@ The practicalities of the research and the case studies where nearly all the wor
 \newthought{Contents of this chapter}:
 The next section provides an overview of the methodology for this chapter, this may be removed pre-submission, nonetheless it is intended to help explain the rationale and the method that underpins the research into related work.
 
-Subsequent sections are organised to provide the context of the research, starting with research into app stores and their effects on software development and engineering \ref{rw-app-stores-and-their-effects-on-software-development-and-engineering}...
+Subsequent sections are organised to provide the context of the research. There are two strands of existing research that this research builds on The first strand comes from software development generally in terms of: development practices, software quality, including measuring software quality, and then the use of software analytics. The second strand is the app store ecosystem and the effects it places on software development and engineering.
+
+These two strands both affect development practices when developing, testing, releasing, and maintaining mobile apps. A particular aspect of developing mobile apps - feedback - is further developed in terms of the feedback that's available to app developers and the research into several of these forms of feedback. The final topic is existing research into crashes and freezes of mobile apps - these are both indicators of poor quality-in-use of the mobile app.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/my/related-work-chapter-structure-27-jul-2022b.jpeg}
+    \caption{Structure of this related work chapter}
+    \label{fig:related-work-chapter-structure}
+\end{figure}
+
+% Reinstate the following once I've completed the first complete draft of the following sections.
+% starting with research into app stores and their effects on software development and engineering \ref{rw-app-stores-and-their-effects-on-software-development-and-engineering}...
 
 \input{mainchapters/related-work-methodology} % Moved the content to a separate file to reduce noise for the reader of the chapter in latex.
+
+
+\section{Software Development}
+% For the purposes of this research there are at least two camps in research. The first camp is where the research comes from the field and is applied in the field of production, shipping software and the second camp seeks ways to improve the tools, techniques, and results \emph{without} dealing with the practical aspects. The work of the second camp remains unused in reality and oft only reviewed in-passing by other researchers who want to claim their research generates better `results' than that of the other camp members. The second camp's work overall is on an orthogonal path to the work and world of practitioners. The gulf seems wide between these two camps.
+
+%%% Rationale for including this topic 
+Mobile apps are developed using similar practices to other modern software projects, however there are key distinctions/differences such as: the build, packaging, and release processes (which are relatively similar to those for software apps generally), how analytics is designed, implemented, and how analytics works all differ. There are also nuances in the effects of software quality as measured by the app store which are important for us to be aware of.
+
+This section, and associated subsections, provide context for the more specific domain of mobile apps, covered in \secref{rw-developing-mobile-apps-section}~\sidenote{As an observation there appears to be little research into desktop apps, such as those available on MacOS. However, research in that area is outside the scope of this research.}.
+ 
+This section covers the following topics: \secref{rw-software-development-practices-topic}, \secref{rw-software-quality-including-measurement-topic}, and \secref{rw-software-analytics-topic}.
+
+\subsection{Software development practices}~\label{rw-software-development-practices-topic}
+Topics include: Agile development and the effects of the software that's developed and released. Motivations for/of software developers.
+
+Jez Humble's work could be part of a preamble for software development practices, to set the scene.
+
+\begin{itemize}
+    \item \emph{Continuous delivery sounds great, but will it work here?}~\cite{humble2018_continuous_delivery_sounds_great}. 
+    \begin{itemize}
+        \item ``Continuous delivery is about reducing the risk and transaction cost of taking changes from version control to production. Achieving this goal means implementing a series of patterns and practices that enable developers to create fast feedback loops and work in small batches. This, in turn, increases the quality of products, allows developers to react more rapidly to incidents and changing requirements and, in turn, build more stable and higher-quality products and services at lower costs."
+        \item ``If this sounds too good to be true, bear in mind: continuous delivery is not magic. It's about continuous, daily improvement at all levels of the organization—the constant discipline of pursuing higher performance. As presented in this article, however, these ideas can be implemented in any domain; this requires thoroughgoing, disciplined, and ongoing work at all levels of the organization. Particularly hard, though essential, are the cultural and architectural changes required."
+    \end{itemize}
+    
+\end{itemize}
+
+\subsection{Software quality, including measuring software quality}~\label{rw-software-quality-including-measurement-topic}
+
+Measuring software quality
+
+
+One of the challenges has been to find ways to measure beyond an app, to behaviours that are externally observable but not easy to measure within an app. Unresponsiveness of software is a particular concern for mobile apps where apps stop responding for longer than deemed acceptable. Google Android coined the term ANR (TODO replace with glossary entry) for when the application stops responding. One of the challenges has been how to detect and measure these, particularly remotely on end-user devices. 
+
+An opensource project provides Android developers with a mechanism to detect and report ANRs in their application. It includes support to report the ANRs to various crash reporters~\cite{salomonbrys_github_anr_watchdog}. (Two of the four listed (Crashlytics and HockeyApp) have been acquired by Google and Microsoft respectively). Note: In 2012, Google was asked to provide a facility to detect ANRs from the application~\footnote{\url{https://issuetracker.google.com/issues/36951741}} so developers would be aware of them and be able to address them. The issue was marked obsolete by Google in 2014 without comment. Approximately six years later, in 2020, Google Android launched an API call that apps can use to determine whether the app was previously quit by the operating system (see \secref{tata-chapter-section-design} for more detail). 
+
+\subsection{Software analytics}~\label{rw-software-analytics-topic}
+Software analytics includes the use of analytics to measure and potentially improve processes, products, and software tools. Some of the early published research came from Microsoft Research. For example, Buse and Zimmerman wrote a short paper in 2010 which helped establish the field of:~\emph{``Analytics for Software Development"}~\sidecite{buse_analytics_2010}. The first figure in that paper is reproduced here as~\ref{fig:software_analytics_buse_and_zimmerman_2010}. They had derived that figure from a more general business-focused diagram in Davenport and Harris's book~\emph{``Analytics at work: Smarter decisions, better results"}~\cite{davenport2010analytics_at_work},  in Figure 1.1, titled\emph{``Key questions addressed by analytics"} and found in page 7 of ~\sidecite{davenport2010analytics_at_work}). 
+
+Buse and Zimmermann
+\begin{figure}
+    \centering
+    \includegraphics[width=14cm]{images/Buse_and_Zimmermann_2010_figure.png}
+    \caption{Software Analytics, Buse and Zimmerman (2010)}
+    \label{fig:software_analytics_buse_and_zimmerman_2010}
+\end{figure}
+\afterpage{\clearpage}
+
+
+In the Buse and Zimmermann paper they \emph{``distinguish between questions of information which can be directly measured, from questions of insight which arise from a careful analytic analysis and provide managers with a basis for action.''}~\cite{buse_analytics_2010}.
+
+\subsubsection{The development managers' perspective}
+\emph{``Information needs for software development analytics"}~\cite{buse2012_information_needs_for_software_development_analytics}. They asked 110 Microsofties, a mix of development leads and managers about their use of software development analytics. MUST-DO discuss how my work and their guidelines for software development analytics align. What does my work add to their work? What does it provide that they identified back in 2012? Their focus seems to be more on the code than the product of the code (apps and the services (and the qualities of those services) those apps provide to end users). What information do mobile app developers need in terms of improving the reliability of their apps? How can the developers make good decisions in this area?
+
+\begin{comment}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/related-work/buse2012-edited-figure-2.png}
+    \caption{Revised Figure 2 from TODO}%~\footnote{cite{buse2012_information_needs_for_software_development_analytics}}}
+    \label{fig:buse2012-edited-figure-2}
+\end{figure}
+\afterpage{\clearpage}
+\end{comment}
+
+\begin{itemize}
+    \item ~\emph{``we ultimately want to} empower software development teams to independently gain and share insight \emph{from their data without relying on a separate entity"}
+    \item \emph{``Analytics can help: monitor a project; know what's really working; improve efficiency; manage risk; anticipate changes; evaluate past decisions."}
+    
+    \item Oddly, Figure 2 in their paper seems to have a mistake in the direction of More Difficult from Information to Insight, see~\ref{fig:buse2012-edited-figure-2}.
+    
+    \item \emph{``In other words, both developers and managers find it more important to understand the past than try to predict the future; echoing George Santayana, “those who cannot remember the past are condemned to repeat it.”"}.
+    
+    \item From Figure 4 in their work, Failure Information (\emph{``reports of crashes or other problems"})is in the top 3 that the development leads would use and top for managers when making decisions relevant to their engineering process. Telemetry (\emph{``user benchmarks"} would be used by around 80\% of development leads and 90\% of managers in the survey.
+    
+    \item \emph{``The landscape of artifacts and indicators in software engineering is well known, but the concrete decisions they might support are not. We conjecture that understanding how managers and developers can make use of information is critical to understanding what information should be delivered to them."}. My research somewhat inverts this by looking at what's being delivered in terms of commercial, pre-existing mobile analytics and considers how that information has been used to improve the reliability of the mobile apps that were the source of the raw information.
+    
+\end{itemize}~\cite{buse2012_information_needs_for_software_development_analytics}.
+
+\subsubsection{Learning from Windows Error Reporting}
+The data collection and analysis of Android Vitals has some similarities with Microsoft's `Windows Error Reporting' (WER) which they describe in an article in 2011~\cite{kinshuman2011_debugging_in_the_very_large} and a longer conference paper from 2009~\cite{kinshuman2009_debugging_in_the_very_large}. Similarities include both mechanisms being designed to work effectively at scale of at least a billion end-user machines/devices, capturing crash data, and using error statistics as a tool in debugging. Differences include the platform (Android), the lack of automatic diagnosis (which WER provided), and most relevantly, Google provides several million third-party developers with access to data for the apps they are responsible for and provides them with various comparative analytics of the technical performance of their app compared to those apps of their peers. (Microsoft provided 700 third-party developers, for instance of device drivers, with WER information, and the paper provides a concrete example of how one vendor addressed the top 20 reported issues for their code, and how the fixes percolated out to the end users and halved the percentage of all kernel crashes attributed to that vendor (from 7.6\% to 3.8\%)). Statistics-based debugging, described in these papers, was used in Microsoft's WER and may also apply when developers use mobile analytics.
+
+\subsubsection{Beyond Microsoft}
+Microsoft are not unique in publishing research about the use of software analytics. A company, Softeam, used a software analytics platform to collect feedback from their customers and systems with the aim of improving the software quality of their systems~\cite{bagnato2020_challenges_and_benefits_from_using_software_analytics_in_softeam}. They use \url{https://github.com/q-rapids}, a ``Quality-aware rapid software development. H2020 Project (Grant no. 732253)". There are relevant publications listed at \url{https://www.q-rapids.eu/publications}.
+
+\subsubsection{Connecting failures with software analytics}
+In a short paper~\sidecite{kidwell2015_toward_fault_taxonomy_application_of_software_analytics}, the authors propose combining fault classification and software analytics for five types of decisions. These are: targetting testing, release planning, judging stability, targeting training, and targeting inspection of software. failure data mined from software analytics tools such as crash reporting tools helps to bring their concepts and ideas to life. Their paper provided initial indicative evidence of their proposals through evaluation of changes to source code for the Eclipse software and discusses the measurement of refactoring to provide more accurate and relevant measurements of the efficacy of the refactoring, rather than considering approaches to improve mobile apps.
+
+\subsubsection{Caveats with software analytics}
+% This might be better placed in the discussion or later chapter. TBD.
+Using software analytics leads to several \textit{caveats} to consider the `so what' aspects and whether the research is being done well. 
+\emph{``Software Analytics, so what?"}~\cite{menzies2013_software_analytics_so_what} to set the context.
+
+\emph{```Bad Smells" in software analytics papers'}~\sidecite{menzies2019_badsmells_in_software_analytics}.
+
+A couple of examples of risks and concerns when using mobile analytics 
+\emph{``How Does Misconfiguration of Analytic Services Compromise Mobile Privacy?"} ICSE 2020. This in turn refers to \emph{``Alde: privacy risk analysis of analytics libraries in the android ecosystem."} 2016, and \emph{``Bug Fixes, Improvements, ... and Privacy Leaks - A Longitudinal Study of PII Leaks Across Android App Versions."} 2018.
+
 
 \section{App Stores and their Effects on Software Development and Engineering}~\label{rw-app-stores-and-their-effects-on-software-development-and-engineering}
 % Software developers have flocked to develop mobile apps as that's where billions of users find and use software. In the era of mobile apps before smartphone app stores the device manufacturers and the carriers were the dominant parties. Developers provided their apps directly and/or via carriers and/or a variety of third-party app stores. The ecosystem shortly before the point of inflection is nicely captured in \sidecite{lin2009_os_battle_in_the_ecosystem_of_smartphone_industry}. 
 
-App stores are part of an ecosystem that provides and enforces rules while also constrains various choices while also allowing various freedoms for the participants within the ecosystem. The two largest app stores, Google Play and Apple's App Store, each have their own development platform including an IDE and additional software tools, various SDKs, developer programs, release processes, pricing and revenue rules, and so on. 
+App stores are part of an ecosystem that provides and enforces rules while also constrains various choices while also allowing various freedoms for the participants within the ecosystem. The ecosystem needs to sustain competition~\sidecite[][p. 94]{KAPOOR2021_socio_technical_platform_ecosystems_etc} and revenues. The two largest app stores, Google Play and Apple's App Store, each have their own development platform including an IDE and additional software tools, various SDKs, developer programs, release processes, pricing and revenue rules, and so on. 
 %They can effectively severe the connection between developers and their market.
 Pivotal effects include: the app approval process (which gates any release of the app to the general user population), rules and restrictions on what the binary contains, the signing process, how the app is packaged/bundled. How app quality is measured and assessed (by the app store, at least - devs have a vested interest in having high quality apps as determined by the app store).
 
@@ -125,6 +236,20 @@ An area their work did not discuss is whether failure data could, potentially, b
 
 Finally in terms of this paper, they included two stakeholders, the developers and the end users. The app store (and the people and organisation who provide the app store) are also direct stakeholders in the ecosystem. There are additional indirect stakeholders including advertisers, researchers, and probably many others. 
 
+\subsection{Utility and Service Providers}
+Developers use software and related services from various providers where the providers are the primary source of any updates. The providers may charge for their offerings and similarly they may mandate various behaviours from developers and their organisations who use the utilities and/or services.
+
+In the context of this research mobile analytics are provided as utilities and/or services by third-parties to app developers therefore it is useful to learn of pertinent research into the use of these utilities and services. Utilities include software tools, libraries, frameworks, and so on; and services may be provided either for some of these utilities or for additional capabilities, support, and so on. Some of the offerings are specific to mobile apps, however many include other platforms such as web sites and/or web apps. Of these examples, an understanding of the use of software libraries helps identify the proclivity of developers to use them and similarly services that apps use are particularly relevant.
+
+
+\newthought{Libraries: }
+Developers can choose to use external libraries to generate revenue (ads)~\sidecite[][p. 407]{li2016_an_investigation_into_the_use_of_common_libraries_in_android_apps}, to \emph{ease the management of HTTP requests}~\sidecite[][p. 73]{belkhir2019_an_observational_study_on_the_state_of_rest_api_uses_in_android_apps} and in their related work they found 98\% of android apps used third-party libraries in their apps~\sidecite[][p. 218]{abdellatif2020_a_multi_dimensional_study_on_the_state_of_practice_of_rest_apis_usage_in_android_app} and on average 41\% of android apps is contributed by common libraries~\sidecite[][p. 409]{li2016_an_investigation_into_the_use_of_common_libraries_in_android_apps}. Using the data in Fig. 5 of this paper (on p. 409) 5\% of the apps included Google Analytics and 2.6\% used Flurry analytics. Note: Industry data indicates mobile analytics are now incorporated in the vast majority of Android apps.  
+
+\newthought{Services: }
+Two of the extremely popular categories of third-party libraries are advertising (ads) and mobile analytics.\todo{add examples from research using appbrain examples as a grey data backup/alternative.}
+In some ways app developers appear to be similar to their end-users - neither wants to pay up front for what they use.\todo{Add research into the ratio of free to paid apps.} Typically service providers have at least one form of unpaid service offering either time or volume based, many then also have at least one paid-for service offering that do not have the same restrictions of their unpaid offering.
+
+Remote device farms are good examples of services that at least some developers (and/or their organisations) pay for. A relatively dated paper about the then current device farm services provides a useful overview~\sidecite[][]{starov2015_taas_for_mobile_apps_survey} but does not discuss pricing and it predates the now popular service offerings by Google, Amazon, and others. I'm not aware of much research into the use of these device farms apart from some in Brazil IIRC who used an opensource backed test lab service. 
 
 \subsection{Using app store crash analytics to automatically find robustness and reliability failures}~\label{rw-windows-phone-store-crash-analysis-section}
 There was a breakthrough stream of work and research that was developed for Microsoft's now defunct mobile app store for Windows Phone devices. That work included mining 25 million crashes~\footnote{Note: The 25 million crashes were a small subset of the total crashes on end-user devices were a subset of the total based on their third footnote ``The developer has no control over the probability.''~\cite[p. 191]{ravindrath2014_automatic_and_scalable_fault_detection_for_mobile_apps}.} that occurred in 2012 on end-user devices when using various apps on their Windows Phones~\cite[p. 190]{ravindrath2014_automatic_and_scalable_fault_detection_for_mobile_apps}. They determined the top 10\% of error buckets covered more than 90\% of crashes~\cite[p. 192]{ravindrath2014_automatic_and_scalable_fault_detection_for_mobile_apps} and discovered a significant proportion of these stemmed from root causes they could generate externally. For example, they could configure a network proxy to return a HTTP 404 response to a network request for network calls made by any of the mobile apps [p. 192].
@@ -157,6 +282,171 @@ In these three instances the developer accounts were reinstated. In \textcite{ma
 Before we leave the topic of App Store ecosystems and in particular a developer focused perspective on the ecosystem, the work of \textcite{wang2017_exploratory_study_of_the_mobile_app_ecosystem} looks potentially interesting as it states it looked at the Google Play store from a developer's perspective; the title appears misleading as they actually researched mappings between developers and the number of apps they had in Google Play Store. In other words, the paper concentrates on the characteristics of developers who have many apps in the app store rather than on the software development/engineering aspects.
 
 They estimated there were 320,000 developers, over half of the developers only released a single app. The paper main focus though is on the \emph{``the group of aggressive developers who have released more than 50 apps, trying to understand how and why they create so many apps''}. In terms of this research this paper provides some context on who writes the mobile apps in Google Play, provides an estimate of the population of developers (in 2017).
+
+
+\section{Developing Mobile Apps}~\label{rw-developing-mobile-apps-section}
+Mobile apps need to be made and developers make them. There are various working practices, apps are made by visionaries, employees, amateurs, and communities. There are various activities involved including development, testing, release, and deployment. Figure~\ref{fig:my_mobile-app-makers} highlights these activities as part of the overall ecosystem.
+
+Many mobile app development teams would describe their development practices as Agile or based on along the principles of Agile development. % Solo app developers are less likely to use these practices, nonetheless there has been various research into adaptions of Agile and Scrum in attempts to suit them. Various examples are in the excluded-bibliography.
+% Many of these people claim to be ``Agile" in their working practices.
+
+In terms of trying to understand real-world practices please avoid \textcite{santos2016_investigating_the_adoption_of_agile_practices_by_20_undergrad_students_in_mobile_app_devt} which sounds relevant but only surveyed 20 undergraduate students who took an iOS development course. 
+
+\subsection{Assessment criteria [TBC]}
+For the purposes of this research there are two key dimensions in much of the research: 1) how grounded the work is in the real-world, and 2) how applicable it is to the real-world of developing mobile apps. Figure \ref{fig:grounded-and-applicable-boxplots} is a sketch of the two dimensions with five example topics. We will cover these topics shortly, % TODO complete the forward links.
+before we do there are several pertinent research topics for general software development that help provide context for developing mobile apps.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/my/the-mobile-app-ecosystem-makers-27-jul-2022.jpg}
+    \caption{Makers of mobile apps}
+    \label{fig:my_mobile-app-makers}
+\end{figure}
+\afterpage{\clearpage}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/rough-sketches/grounded-and-applicable.jpeg}
+    \caption{Box-plots visualising various research in mobile app software development}
+    \label{fig:grounded-and-applicable-boxplots}
+\end{figure}
+
+
+\subsection{Papers to consider}
+Unending materials are written and published online on making apps, beautiful apps, elegantly engineered apps, those that use and apply various software libraries (which we will cover in the providers section). There are a plethora of books and research materials available too.\todo{This paragraph needs revisiting entirely.} 
+
+\begin{itemize}
+    \item Joorabchi, Mona Erfani, Ali Mesbah, and Philippe Kruchten. \emph{``Real challenges in mobile app development."} Empirical Software Engineering and Measurement, 2013 ACM/IEEE International Symposium on 10 Oct. 2013: 15-24.~\sidecite{joorabchi2013_real_challenges_in_mobile_app_development}
+    
+    \item The extensive use of software libraries. 
+    \begin{itemize}
+        \item \emph{``An Investigation into the Use of Common Libraries in Android Apps"}~\cite{li2016_an_investigation_into_the_use_of_common_libraries_in_android_apps}
+    \end{itemize}
+    
+    \item \textbf{Species of Bugs}
+
+\end{itemize}
+
+\hypertarget{mobile.testing}{}
+\subsection{Testing Mobile Apps}
+
+There has been a tremendous amount of research into practices and tools that might perform better than the mainstream test automation tools available to app developers.
+
+A useful categorisation of testing for mobile apps may be: 
+explicitly designed scripted tests, 
+automatic robots that navigate and sometimes interrogate target apps, and 
+hands-on testing which often vary depending on who performs them and each instance of the testing. 
+Where the testing may be performed:
+on local physical devices,
+on remote physical devices in the `cloud'
+on local emulators and/or local simulators, and
+on remote emulators and/or simulators.
+
+
+
+\subsubsection{Papers to consider}
+\begin{itemize}
+    \item Discuss the TestDroid paper! it describes testing that was actually done by developers!~\cite{kaasila2012_testdroid_etc}.
+    
+    \item \emph{``Is Mutation Analysis Effective at Testing Android Apps?"}~\cite{deng2017_is_mutation_analysis_effective_at_testing_android_apps}.
+    
+    \item \emph{``Mining Android Crash Fixes in the Absence of Issue- and Change-Tracking Systems"}~\cite{kong2019_mining_android_crash_fixes}.
+    
+    \item \emph{``How do Developers Test Android Applications?"}~\cite{linares2017_how_do_developers_test_android_apps}. Quote:~\emph{``“I mostly do manual testing due to the limited size of my apps. I sometimes use a custom replay system (built into the app) to duplicate bugs after I come across them. This method is usually combined with manual testing (printing debug information to the log) to pinpoint the cause”."}
+    
+    \item \emph{``First Steps in Retrofitting a Versatile Software Testing Infrastructure to Android"}~\cite{oliver2018_first_steps_in_retrofitting_a_versatile_sw_testing_architecture}.
+    
+    \item \emph{``A Large-Scale Study of Application Incompatibilities in Android"}~\cite{cai2019_large_scale_study_of_android_incompatibilities} An oddly insipid paper which promised some interesting run-time issues discovered in their research where the Android version would be a likely cause. However the reproduction package lacked the test scripts or means to reproduce their testing or bug detection. Also, their research now seems to be less relevant in 2020 as Android apparently improved the backwards compatibility \emph{``Yet newer versions (since API 24) had no run-time compatibility issues with apps created in the studied span."}. Their work may well have merit for the research community, It does not appear to have much relevance to developers of real-world Android apps today.
+    
+
+    \item \emph{``Intent Fuzzer: Crafting Intents of Death"}~\cite{10.1145/2632168.2632169} TODO Link this to the industrial case study and the Kotlin NPE crash.
+    
+    \item \emph{``Linares-Vasquez et al. [56] propose MonkeyLab, which mines recorded executions to guide the testing of Android mobile apps."} Their approach records GUI events (click events). Members of the project team (developers, testers, etc.) perform the actions, the authors claim their log collection process could scale to collecting logs from ordinary users. Key limitations include events that aren't purely dependent on the user's GUI inputs, there would also be challenges getting users to accept such an approach where the app records every input they made. Also, they generate GUI events that have x,y coordinates - absolute positioning that may have limited portability to other devices, screen rotations, and so on. Their playback also appears to require rooted devices. There are numerous other limitations described in their paper, nonetheless their work shows promise in terms of detecting and generating patterns the students did not find. It would be interesting to compare the results using accomplished software testers with experience and expertise testing similar Android apps.
+    
+    \item \emph{``An Empirical Study of Android Test Generation Tools in Industrial Cases''}~\cite{wang2018_an_empirical_study_of_android_test_generation_tools_in_industrial_cases} 
+\end{itemize}
+
+There has been a tremendous and sustained research interest in software testing, for instance testing is one of the most popular topics at the ICSE series of conferences~\footnote{\url{https://dl.acm.org/conference/icse}} and the focus of entire conferences including AST~\footnote{\url{https://conf.researchr.org/home/icse-2020/ast-2020}}, ICST~\footnote{\url{https://conf.researchr.org/series/icst}}, and so on. Similarly the application of software testing to mobile apps is a rich topic with sustained interest in the challenges and facets of testing mobile apps.
+
+The facets include automated testing and automated bug reproduction, maximising the `bang for the buck' for instance in selecting which device models would be most valuable to use with finite testing. Understandably given the field where many of the authors work - in research - the vast majority of the research is on software apps they have access to, software their can obtain the source code for (particularly opensource), software they can write, and the people they have available to them (other researchers, students, voluntary participants, and people paid to paid to perform specific tasks). Minute amounts of the work is based on mature, popular software with semi- or fully- professional developers and development teams. Some research projects, particularly CRASHSCOPE~\cite{moran2016_automatically_drr_android_app_crashes}, offer the potential to reproduce some of the crashes reported by Mobile Analytics if the tools are sufficiently available and current to actually use.
+
+
+
+
+\subsubsection{Prioritising devices to test on}
+
+Selection criteria include:
+\begin{itemize}
+    \item the relative popularity of a single app across the user base for the app, provided by OpenSignal, and reported over a three year period,
+    \item the usage of similar, popular, Android apps for two app categories: grouped by device model as measured by a very popular app management app in China,
+    \item the devices used most frequently by users who write reviews for the same Android app,
+\end{itemize}
+
+One of the research papers close to the area of my research uses usage data for two popular app categories (games and media) gathered through a popular Android management app in China~\cite{lu2016_PRADA}. Their work uses an operational profile to prioritise the device models to select to test both new or existing apps. The management app, called Wandoujia~\footnote{\url{https://www.wandoujia.com/}}, is used by \emph{`500 million people to find apps they want`}~\footnote{According to Chrome Browser's automatic translation from Chinese.}. Daily usage of the top 100 apps in the two app categories was collected for various device models. In various ways the Wandoujia app management app provides similar capabilities to Google Play, including tracking when apps are installed, and in use. The recommendations are coarse-grained. The research measured the accuracy of their predictions for recommended devices with the actual devices that the app ended up being used on once the app had been launched. 
+
+Their work demonstrates that usage data for several app categories was useful to guide developers on the most popular actual device models for their app. They acknowledge several limitations in their work, including their use of incomplete measures such as foreground network activity for usage which don't suit apps that either perform network processing in the background or don't use the network. Other app management services, particularly Google Play, could provide similar guidance to app developers. And indeed as Google Play collects additional data for the entire apps store it could cover some of the gaps and limitations identified in this research.
+
+
+\subsubsection{Device Testing Services}
+Test Farms have been available commercially since around 2008~\footnote{Based on the author's professional experience.}. Over the years different offerings have peaked and then either been acquired, retired, or disappeared. Google, Amazon and Microsoft offer paid-for device farms as do various specialist businesses. There have been a couple of public-good initiatives including Open Device Labs~\footnote{For example~\url{https://opendevicelab.com/},~\url{https://www.devicelab.org/}}; and Open STF~\sidecite{openstf_website} which is based on a set of opensource projects~\url{https://github.com/openstf/} and enables teams and organisations to build their own device farms or use commercial offerings based on these projects~\footnote{For example~\url{https://www.headspin.io/}.}.
+% https://loadfocus.com/blog/tech/2018/04/building-your-in-house-device-farm-on-mac-os-using-openstf-for-android-testing/ 
+% https://tech.mercari.com/entry/2019/02/18/173236 (on using HeadSpin and NimbleDroid).
+
+
+
+\subsection{Maintenance of mobile apps}
+
+\emph{``The area of software maintenance is one of the most researched areas in Software Engineering. However, due to the fact that mobile apps is a young subarea within SE, the maintenance of mobile applications remains to be largely undiscovered."}~\cite[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - My work does investigate aspects of maintenance. 
+
+\emph{``Syer et al. [93] compares mobile apps to larger “traditional” software systems in terms of size and time to fix defects. They find that mobile apps resemble Unix utilities, i.e., they tend to be small and developed by small groups. They also find that mobile apps tend to respond to reported defects quickly."}~\cite[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - Check the details of what quickly means and how the teams discovered the defects.
+
+\emph{``Bavota et al. [16], show that the quality (in terms of change and fault-proneness) of the APIs used by Android apps negatively impacts their success, in terms of user ratings. Similarly, McDonnell et al. [65], study the stability and adoption rates for the APIs in the Android ecosystem."}~\cite[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - Skim read both these papers to determine their relevance.
+
+\emph{``Another line of work examined Android-related bug reports. Bhattacharya et al. [18] study 24 mobile Android apps in order to understand the bug-fixing process. They find that mobile bug reports are of high quality, especially for security related bugs. Martie et al. [63] analyzed topics in the Android platform bugs in order to uncover the most debated topics over time. Similarly, Liu et al. [58] detected and characterized performance bugs among Android apps."}~\cite[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - Looks at how the bugs were fixed and compare the practices they detected with those I'm aware of. Are platform bugs that relevant? They look at performance bugs (Android Vitals also reports performance issues, Firebase Analytics has tools for performance tracking), I'm looking mainly into reliability measurements and issues.
+
+Following on from the challenges and future directions section on maintenance research for mobile apps: do researchers focus in areas where the streetlights are rather than where the problems are? \emph{i.e.} on where they can find material to study rather than on issues that practically affect the majority of developers of apps?
+
+\emph{``Charting the API minefield using software telemetry data"}~\cite{Kechagia2015_charting_API_minefield_using_telemetry_data}. The stability of Android apps has been measured using telemetry data collected by a centralised crash report management service. Roughly one million stack traces were analysed from thousands of Android applications. A subset (over 500,000) of these stack traces were associated with risky API calls and these were analysed to identify the most common failure reasons. The top five reasons were attributed to:
+    \begin{itemize}
+        \item memory exhaustion,
+        \item race conditions,
+        \item deadlocks,
+        \item missing resources, and
+        \item corrupt resources.
+    \end{itemize}
+    
+    The authors provide a set of recommendations they claim \emph{may} help address various classes of the crash failures. However these recommendations do not appear to have been tested for their efficacy. Their recommendations are theoretical rather than practical. There's an odd claim in the paper in page 1818, \emph{``In addition, the platform of Chen et al. (2011), which is based on remote resource management, can make applications require less memory and resources. Hence, it can eliminate the well-known “non-responsive” exceptions in Android."}. For this claim to hold true \textbf{all} the causes of non-responsive exceptions (or did the authors mean ANRs? they don't define this term or use it elsewhere in the paper) would need to be a) related to remote resources, and b) the difference would need to be directly related to the amount of memory and resources. Google provides five common patterns for diagnosing ANRs~\footnote{\url{https://developer.android.com/topic/performance/vitals/anr\#diagnosing_anrs}} none of these mention remote resource management (even if they may contribute to ANRs). The authors say in the introduction to section 5.1~\emph{`API Recommendations'}, on page 1813,~\emph{``Finally, we provide the frequencies of the representative signatures to show how many crashes could be avoided based on the following solutions."}, however they did not appear to provide this unless they are the charts in  Appendix 1 \textbf{\textit{and}} if their proposals solve \textit{all} the causes of the crashes in each category. This was promising, thought-provoking, and interesting work which sadly lacked evidence their proposed recommendations actually work in practice for any of the apps that provided the crash data or for other Android apps (if their work is generalisable).
+
+
+\subsection{Managing Releases in App Stores}
+% Julian continue here...
+
+\emph{``Release Practices for Mobile Apps--What do Users and Developers Think?"}~\sidecite{nayebi2016release}.
+    
+\emph{``Towards Release Strategy Optimization for Apps in Google Play"}~\cite{shen2017_towards_release_strategy_optimization_for_apps_in_google_play}. ``empirical study to help developers decide the release opportunity to maximize positive feedback from users at scale.". They identify three patterns of update intervals: successive, normal, sparse. Their work does not use signals such as the stability of the app. They also claim ``Additionally, app quality can be unstable with fast [release] iteration[s]."
+
+    
+The \emph{``Data analytics for decision support in software release management"}~\cite{didar2018data_analytics_phd_thesis}, a PhD thesis, introduces a proposed Plan-Monitor-Improve Framework for release management.
+
+\emph{``Revisiting Prior Empirical Findings For Mobile Apps: An Empirical Case Study on the 15 Most Popular Open-Source Android Apps"}~\cite{syer2013_empirical_findings_for_mobile_apps} is work from 2013 (when Google Code was still a major active public source code repository) that compares the codebases of 15 opensource mobile apps with 5 other opensource desktop/server projects. A key finding in their research includes the development process - where there are frequent releases yet the development and release processes are immature. albeit based on codebases from 2011 so a decade ago is still relevant. They ask various open-ended questions:
+    \begin{itemize}
+        \item Does such a high frequency of releases mitigate the lack of testing? 
+        \item If there are frequent releases for the mobile app, then does quality matter as much?
+        \item Is the project in a constant beta testing state? 
+        \item Does the platform provide sufficient support for building high quality apps quickly? 
+        \item Is the frequent release only influenced by the demand factor in the app store? 
+        \item Are the developers of mobile apps more skilled or do they have more resources at hand? 
+        \item Or, are mobile apps themselves less complex to develop?
+    \end{itemize}
+    
+Perhaps the cost of failures in the app store was/is perceived to be low in the Google Play app store, at least for these 15 opensource apps? Later work investigated aspects such as the release frequency~\sidecite{nayebi2016release}
+
+    
+\emph{``Are apps ready for new Android releases?"}~\textcite{guilardi_are_apps_ready_for_new_android_releases} flips the perspective from when developers should release their apps to asking how well developers keep up with new releases of Android. This is a relatively recent paper where the researchers discovered that developers are slow to revise and update their Android apps for new releases of the operating system. Some of the apps have flaws exposed when running on new versions of the operating system. For apps to retain their quality they need to be updated, new releases of the operating system are one such reason. (Releases of libraries another, new contexts of use, etc. another...).
+
+
+As we will discover later in this thesis Google Play Console includes a set of live release management reports aimed at helping app developers observe the effects of a new release as it's rolled out to the userbase. They also use popularity of the app in various regions to control automated pre-release testing of new releases of an app.\todo{Add forward links to these two topics in those chapters.}
 
 
 \section{Sources of information on software quality for developers of mobile apps}~\label{rw-sources-of-info-on-software-quality-for-devs-of-mobile-apps}
@@ -327,266 +617,7 @@ Building on a point made in this paper: \emph{``the future of app quality engine
 \julian{TODO complete this thought: However none of these (these researches) provide X which is my need...}
 
 
-
-\section{Software Development}
-% For the purposes of this research there are at least two camps in research. The first camp is where the research comes from the field and is applied in the field of production, shipping software and the second camp seeks ways to improve the tools, techniques, and results \emph{without} dealing with the practical aspects. The work of the second camp remains unused in reality and oft only reviewed in-passing by other researchers who want to claim their research generates better `results' than that of the other camp members. The second camp's work overall is on an orthogonal path to the work and world of practitioners. The gulf seems wide between these two camps.
-
-%%% Rationale for including this topic 
-Mobile apps are developed using similar practices to other modern software projects, however there are key distinctions/differences such as: the build, packaging, and release processes (which are relatively similar to those for software apps generally), how analytics is designed, implemented, and how analytics works all differ. There are also nuances in the effects of software quality as measured by the app store which are important for us to be aware of.
-
-This section, and associated subsections, provide context for the more specific domain of mobile apps, covered in \secref{rw-developing-mobile-apps-section}~\sidenote{As an observation there appears to be little research into desktop apps, such as those available on MacOS. However, research in that area is outside the scope of this research.}.
- 
-This section covers the following topics: \secref{rw-software-development-practices-topic}, \secref{rw-software-quality-including-measurement-topic}, and \secref{rw-software-analytics-topic}.
-
-\subsection{Software development practices}~\label{rw-software-development-practices-topic}
-Topics include: Agile development and the effects of the software that's developed and released. Motivations for/of software developers.
-
-Jez Humble's work could be part of a preamble for software development practices, to set the scene.
-
-\begin{itemize}
-    \item \emph{Continuous delivery sounds great, but will it work here?}~\cite{humble2018_continuous_delivery_sounds_great}. 
-    \begin{itemize}
-        \item ``Continuous delivery is about reducing the risk and transaction cost of taking changes from version control to production. Achieving this goal means implementing a series of patterns and practices that enable developers to create fast feedback loops and work in small batches. This, in turn, increases the quality of products, allows developers to react more rapidly to incidents and changing requirements and, in turn, build more stable and higher-quality products and services at lower costs."
-        \item ``If this sounds too good to be true, bear in mind: continuous delivery is not magic. It's about continuous, daily improvement at all levels of the organization—the constant discipline of pursuing higher performance. As presented in this article, however, these ideas can be implemented in any domain; this requires thoroughgoing, disciplined, and ongoing work at all levels of the organization. Particularly hard, though essential, are the cultural and architectural changes required."
-    \end{itemize}
-    
-\end{itemize}
-
-\subsection{Software quality, including measuring software quality}~\label{rw-software-quality-including-measurement-topic}
-
-Measuring software quality
-
-
-One of the challenges has been to find ways to measure beyond an app, to behaviours that are externally observable but not easy to measure within an app. Unresponsiveness of software is a particular concern for mobile apps where apps stop responding for longer than deemed acceptable. Google Android coined the term ANR (TODO replace with glossary entry) for when the application stops responding. One of the challenges has been how to detect and measure these, particularly remotely on end-user devices. 
-
-An opensource project provides Android developers with a mechanism to detect and report ANRs in their application. It includes support to report the ANRs to various crash reporters~\cite{salomonbrys_github_anr_watchdog}. (Two of the four listed (Crashlytics and HockeyApp) have been acquired by Google and Microsoft respectively). Note: In 2012, Google was asked to provide a facility to detect ANRs from the application~\footnote{\url{https://issuetracker.google.com/issues/36951741}} so developers would be aware of them and be able to address them. The issue was marked obsolete by Google in 2014 without comment. Approximately six years later, in 2020, Google Android launched an API call that apps can use to determine whether the app was previously quit by the operating system (see \secref{tata-chapter-section-design} for more detail). 
-
-\subsection{Software analytics}~\label{rw-software-analytics-topic}
-Software analytics includes the use of analytics to measure and potentially improve processes, products, and software tools. Some of the early published research came from Microsoft Research. For example, Buse and Zimmerman wrote a short paper in 2010 which helped establish the field of:~\emph{``Analytics for Software Development"}~\sidecite{buse_analytics_2010}. The first figure in that paper is reproduced here as~\ref{fig:software_analytics_buse_and_zimmerman_2010}. They had derived that figure from a more general business-focused diagram in Davenport and Harris's book~\emph{``Analytics at work: Smarter decisions, better results"}~\cite{davenport2010analytics_at_work},  in Figure 1.1, titled\emph{``Key questions addressed by analytics"} and found in page 7 of ~\sidecite{davenport2010analytics_at_work}). 
-
-Buse and Zimmermann
-\begin{figure}
-    \centering
-    \includegraphics[width=14cm]{images/Buse_and_Zimmermann_2010_figure.png}
-    \caption{Software Analytics, Buse and Zimmerman (2010)}
-    \label{fig:software_analytics_buse_and_zimmerman_2010}
-\end{figure}
-\afterpage{\clearpage}
-
-
-In the Buse and Zimmermann paper they \emph{``distinguish between questions of information which can be directly measured, from questions of insight which arise from a careful analytic analysis and provide managers with a basis for action.''}~\cite{buse_analytics_2010}.
-
-\subsubsection{The development managers' perspective}
-\emph{``Information needs for software development analytics"}~\cite{buse2012_information_needs_for_software_development_analytics}. They asked 110 Microsofties, a mix of development leads and managers about their use of software development analytics. MUST-DO discuss how my work and their guidelines for software development analytics align. What does my work add to their work? What does it provide that they identified back in 2012? Their focus seems to be more on the code than the product of the code (apps and the services (and the qualities of those services) those apps provide to end users). What information do mobile app developers need in terms of improving the reliability of their apps? How can the developers make good decisions in this area?
-
-\begin{comment}
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{images/related-work/buse2012-edited-figure-2.png}
-    \caption{Revised Figure 2 from TODO}%~\footnote{cite{buse2012_information_needs_for_software_development_analytics}}}
-    \label{fig:buse2012-edited-figure-2}
-\end{figure}
-\afterpage{\clearpage}
-\end{comment}
-
-\begin{itemize}
-    \item ~\emph{``we ultimately want to} empower software development teams to independently gain and share insight \emph{from their data without relying on a separate entity"}
-    \item \emph{``Analytics can help: monitor a project; know what's really working; improve efficiency; manage risk; anticipate changes; evaluate past decisions."}
-    
-    \item Oddly, Figure 2 in their paper seems to have a mistake in the direction of More Difficult from Information to Insight, see~\ref{fig:buse2012-edited-figure-2}.
-    
-    \item \emph{``In other words, both developers and managers find it more important to understand the past than try to predict the future; echoing George Santayana, “those who cannot remember the past are condemned to repeat it.”"}.
-    
-    \item From Figure 4 in their work, Failure Information (\emph{``reports of crashes or other problems"})is in the top 3 that the development leads would use and top for managers when making decisions relevant to their engineering process. Telemetry (\emph{``user benchmarks"} would be used by around 80\% of development leads and 90\% of managers in the survey.
-    
-    \item \emph{``The landscape of artifacts and indicators in software engineering is well known, but the concrete decisions they might support are not. We conjecture that understanding how managers and developers can make use of information is critical to understanding what information should be delivered to them."}. My research somewhat inverts this by looking at what's being delivered in terms of commercial, pre-existing mobile analytics and considers how that information has been used to improve the reliability of the mobile apps that were the source of the raw information.
-    
-\end{itemize}~\cite{buse2012_information_needs_for_software_development_analytics}.
-
-\subsubsection{Learning from Windows Error Reporting}
-The data collection and analysis of Android Vitals has some similarities with Microsoft's `Windows Error Reporting' (WER) which they describe in an article in 2011~\cite{kinshuman2011_debugging_in_the_very_large} and a longer conference paper from 2009~\cite{kinshuman2009_debugging_in_the_very_large}. Similarities include both mechanisms being designed to work effectively at scale of at least a billion end-user machines/devices, capturing crash data, and using error statistics as a tool in debugging. Differences include the platform (Android), the lack of automatic diagnosis (which WER provided), and most relevantly, Google provides several million third-party developers with access to data for the apps they are responsible for and provides them with various comparative analytics of the technical performance of their app compared to those apps of their peers. (Microsoft provided 700 third-party developers, for instance of device drivers, with WER information, and the paper provides a concrete example of how one vendor addressed the top 20 reported issues for their code, and how the fixes percolated out to the end users and halved the percentage of all kernel crashes attributed to that vendor (from 7.6\% to 3.8\%)). Statistics-based debugging, described in these papers, was used in Microsoft's WER and may also apply when developers use mobile analytics.
-
-\subsubsection{Beyond Microsoft}
-Microsoft are not unique in publishing research about the use of software analytics. A company, Softeam, used a software analytics platform to collect feedback from their customers and systems with the aim of improving the software quality of their systems~\cite{bagnato2020_challenges_and_benefits_from_using_software_analytics_in_softeam}. They use \url{https://github.com/q-rapids}, a ``Quality-aware rapid software development. H2020 Project (Grant no. 732253)". There are relevant publications listed at \url{https://www.q-rapids.eu/publications}.
-
-\subsubsection{Connecting failures with software analytics}
-In a short paper~\sidecite{kidwell2015_toward_fault_taxonomy_application_of_software_analytics}, the authors propose combining fault classification and software analytics for five types of decisions. These are: targetting testing, release planning, judging stability, targeting training, and targeting inspection of software. failure data mined from software analytics tools such as crash reporting tools helps to bring their concepts and ideas to life. Their paper provided initial indicative evidence of their proposals through evaluation of changes to source code for the Eclipse software and discusses the measurement of refactoring to provide more accurate and relevant measurements of the efficacy of the refactoring, rather than considering approaches to improve mobile apps.
-
-\subsubsection{Caveats with software analytics}
-% This might be better placed in the discussion or later chapter. TBD.
-Using software analytics leads to several \textit{caveats} to consider the `so what' aspects and whether the research is being done well. 
-\emph{``Software Analytics, so what?"}~\cite{menzies2013_software_analytics_so_what} to set the context.
-
-\emph{```Bad Smells" in software analytics papers'}~\sidecite{menzies2019_badsmells_in_software_analytics}.
-
-A couple of examples of risks and concerns when using mobile analytics 
-\emph{``How Does Misconfiguration of Analytic Services Compromise Mobile Privacy?"} ICSE 2020. This in turn refers to \emph{``Alde: privacy risk analysis of analytics libraries in the android ecosystem."} 2016, and \emph{``Bug Fixes, Improvements, ... and Privacy Leaks - A Longitudinal Study of PII Leaks Across Android App Versions."} 2018.
-
-\section{Developing Mobile Apps}~\label{rw-developing-mobile-apps-section}
-Mobile apps need to be made and developers make them. There are various working practices, apps are made by visionaries, employees, amateurs, and communities. There are various activities involved including development, testing, release, and deployment. Figure~\ref{fig:my_mobile-app-makers} highlights these activities as part of the overall ecosystem.
-
-Many mobile app development teams would describe their development practices as Agile or based on along the principles of Agile development. % Solo app developers are less likely to use these practices, nonetheless there has been various research into adaptions of Agile and Scrum in attempts to suit them. Various examples are in the excluded-bibliography.
-% Many of these people claim to be ``Agile" in their working practices.
-
-In terms of trying to understand real-world practices please avoid \textcite{santos2016_investigating_the_adoption_of_agile_practices_by_20_undergrad_students_in_mobile_app_devt} which sounds relevant but only surveyed 20 undergraduate students who took an iOS development course. 
-
-\subsection{Assessment criteria [TBC]}
-For the purposes of this research there are two key dimensions in much of the research: 1) how grounded the work is in the real-world, and 2) how applicable it is to the real-world of developing mobile apps. Figure \ref{fig:grounded-and-applicable-boxplots} is a sketch of the two dimensions with five example topics. We will cover these topics shortly, % TODO complete the forward links.
-before we do there are several pertinent research topics for general software development that help provide context for developing mobile apps.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.4\textwidth]{images/my/the-mobile-app-ecosystem-makers-dtrd.png}
-    \caption{Makers of mobile apps}
-    \label{fig:my_mobile-app-makers}
-\end{figure}
-\afterpage{\clearpage}
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{images/rough-sketches/grounded-and-applicable.jpeg}
-    \caption{Box-plots visualising various research in mobile app software development}
-    \label{fig:grounded-and-applicable-boxplots}
-\end{figure}
-
-
-\subsection{Papers to consider}
-Unending materials are written and published online on making apps, beautiful apps, elegantly engineered apps, those that use and apply various software libraries (which we will cover in the providers section). There are a plethora of books and research materials available too.\todo{This paragraph needs revisiting entirely.} 
-
-\begin{itemize}
-    \item Joorabchi, Mona Erfani, Ali Mesbah, and Philippe Kruchten. \emph{``Real challenges in mobile app development."} Empirical Software Engineering and Measurement, 2013 ACM/IEEE International Symposium on 10 Oct. 2013: 15-24.~\sidecite{joorabchi2013_real_challenges_in_mobile_app_development}
-    
-    \item The extensive use of software libraries. 
-    \begin{itemize}
-        \item \emph{``An Investigation into the Use of Common Libraries in Android Apps"}~\cite{li2016_an_investigation_into_the_use_of_common_libraries_in_android_apps}
-    \end{itemize}
-    
-    \item \textbf{Species of Bugs}
-
-\end{itemize}
-
-\hypertarget{mobile.testing}{}
-\subsection{Testing Mobile Apps}
-
-There has been a tremendous amount of research into practices and tools that might perform better than the mainstream test automation tools available to app developers.
-
-A useful categorisation of testing for mobile apps may be: 
-explicitly designed scripted tests, 
-automatic robots that navigate and sometimes interrogate target apps, and 
-hands-on testing which often vary depending on who performs them and each instance of the testing. 
-Where the testing may be performed:
-on local physical devices,
-on remote physical devices in the `cloud'
-on local emulators and/or local simulators, and
-on remote emulators and/or simulators.
-
-
-
-\subsubsection{Papers to consider}
-\begin{itemize}
-    \item Discuss the TestDroid paper! it describes testing that was actually done by developers!~\cite{kaasila2012_testdroid_etc}.
-    
-    \item \emph{``Is Mutation Analysis Effective at Testing Android Apps?"}~\cite{deng2017_is_mutation_analysis_effective_at_testing_android_apps}.
-    
-    \item \emph{``Mining Android Crash Fixes in the Absence of Issue- and Change-Tracking Systems"}~\cite{kong2019_mining_android_crash_fixes}.
-    
-    \item \emph{``How do Developers Test Android Applications?"}~\cite{linares2017_how_do_developers_test_android_apps}. Quote:~\emph{``“I mostly do manual testing due to the limited size of my apps. I sometimes use a custom replay system (built into the app) to duplicate bugs after I come across them. This method is usually combined with manual testing (printing debug information to the log) to pinpoint the cause”."}
-    
-    \item \emph{``First Steps in Retrofitting a Versatile Software Testing Infrastructure to Android"}~\cite{oliver2018_first_steps_in_retrofitting_a_versatile_sw_testing_architecture}.
-    
-    \item \emph{``A Large-Scale Study of Application Incompatibilities in Android"}~\cite{cai2019_large_scale_study_of_android_incompatibilities} An oddly insipid paper which promised some interesting run-time issues discovered in their research where the Android version would be a likely cause. However the reproduction package lacked the test scripts or means to reproduce their testing or bug detection. Also, their research now seems to be less relevant in 2020 as Android apparently improved the backwards compatibility \emph{``Yet newer versions (since API 24) had no run-time compatibility issues with apps created in the studied span."}. Their work may well have merit for the research community, It does not appear to have much relevance to developers of real-world Android apps today.
-    
-
-    \item \emph{``Intent Fuzzer: Crafting Intents of Death"}~\cite{10.1145/2632168.2632169} TODO Link this to the industrial case study and the Kotlin NPE crash.
-    
-    \item \emph{``Linares-Vasquez et al. [56] propose MonkeyLab, which mines recorded executions to guide the testing of Android mobile apps."} Their approach records GUI events (click events). Members of the project team (developers, testers, etc.) perform the actions, the authors claim their log collection process could scale to collecting logs from ordinary users. Key limitations include events that aren't purely dependent on the user's GUI inputs, there would also be challenges getting users to accept such an approach where the app records every input they made. Also, they generate GUI events that have x,y coordinates - absolute positioning that may have limited portability to other devices, screen rotations, and so on. Their playback also appears to require rooted devices. There are numerous other limitations described in their paper, nonetheless their work shows promise in terms of detecting and generating patterns the students did not find. It would be interesting to compare the results using accomplished software testers with experience and expertise testing similar Android apps.
-\end{itemize}
-
-There has been a tremendous and sustained research interest in software testing, for instance testing is one of the most popular topics at the ICSE series of conferences~\footnote{\url{https://dl.acm.org/conference/icse}} and the focus of entire conferences including AST~\footnote{\url{https://conf.researchr.org/home/icse-2020/ast-2020}}, ICST~\footnote{\url{https://conf.researchr.org/series/icst}}, and so on. Similarly the application of software testing to mobile apps is a rich topic with sustained interest in the challenges and facets of testing mobile apps.
-
-The facets include automated testing and automated bug reproduction, maximising the `bang for the buck' for instance in selecting which device models would be most valuable to use with finite testing. Understandably given the field where many of the authors work - in research - the vast majority of the research is on software apps they have access to, software their can obtain the source code for (particularly opensource), software they can write, and the people they have available to them (other researchers, students, voluntary participants, and people paid to paid to perform specific tasks). Minute amounts of the work is based on mature, popular software with semi- or fully- professional developers and development teams. Some research projects, particularly CRASHSCOPE~\cite{moran2016_automatically_drr_android_app_crashes}, offer the potential to reproduce some of the crashes reported by Mobile Analytics if the tools are sufficiently available and current to actually use.
-
-
-
-
-\subsubsection{Prioritising devices to test on}
-
-Selection criteria include:
-\begin{itemize}
-    \item the relative popularity of a single app across the user base for the app, provided by OpenSignal, and reported over a three year period,
-    \item the usage of similar, popular, Android apps for two app categories: grouped by device model as measured by a very popular app management app in China,
-    \item the devices used most frequently by users who write reviews for the same Android app,
-\end{itemize}
-
-One of the research papers close to the area of my research uses usage data for two popular app categories (games and media) gathered through a popular Android management app in China~\cite{lu2016_PRADA}. Their work uses an operational profile to prioritise the device models to select to test both new or existing apps. The management app, called Wandoujia~\footnote{\url{https://www.wandoujia.com/}}, is used by \emph{`500 million people to find apps they want`}~\footnote{According to Chrome Browser's automatic translation from Chinese.}. Daily usage of the top 100 apps in the two app categories was collected for various device models. In various ways the Wandoujia app management app provides similar capabilities to Google Play, including tracking when apps are installed, and in use. The recommendations are coarse-grained. The research measured the accuracy of their predictions for recommended devices with the actual devices that the app ended up being used on once the app had been launched. 
-
-Their work demonstrates that usage data for several app categories was useful to guide developers on the most popular actual device models for their app. They acknowledge several limitations in their work, including their use of incomplete measures such as foreground network activity for usage which don't suit apps that either perform network processing in the background or don't use the network. Other app management services, particularly Google Play, could provide similar guidance to app developers. And indeed as Google Play collects additional data for the entire apps store it could cover some of the gaps and limitations identified in this research.
-
-
-\subsubsection{Device Testing Services}
-Test Farms have been available commercially since around 2008~\footnote{Based on the author's professional experience.}. Over the years different offerings have peaked and then either been acquired, retired, or disappeared. Google, Amazon and Microsoft offer paid-for device farms as do various specialist businesses. There have been a couple of public-good initiatives including Open Device Labs~\footnote{For example~\url{https://opendevicelab.com/},~\url{https://www.devicelab.org/}}; and Open STF~\sidecite{openstf_website} which is based on a set of opensource projects~\url{https://github.com/openstf/} and enables teams and organisations to build their own device farms or use commercial offerings based on these projects~\footnote{For example~\url{https://www.headspin.io/}.}.
-% https://loadfocus.com/blog/tech/2018/04/building-your-in-house-device-farm-on-mac-os-using-openstf-for-android-testing/ 
-% https://tech.mercari.com/entry/2019/02/18/173236 (on using HeadSpin and NimbleDroid).
-
-
-
-\subsection{Maintenance of mobile apps}
-
-\emph{``The area of software maintenance is one of the most researched areas in Software Engineering. However, due to the fact that mobile apps is a young subarea within SE, the maintenance of mobile applications remains to be largely undiscovered."}~\cite[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - My work does investigate aspects of maintenance. 
-
-\emph{``Syer et al. [93] compares mobile apps to larger “traditional” software systems in terms of size and time to fix defects. They find that mobile apps resemble Unix utilities, i.e., they tend to be small and developed by small groups. They also find that mobile apps tend to respond to reported defects quickly."}~\cite[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - Check the details of what quickly means and how the teams discovered the defects.
-
-\emph{``Bavota et al. [16], show that the quality (in terms of change and fault-proneness) of the APIs used by Android apps negatively impacts their success, in terms of user ratings. Similarly, McDonnell et al. [65], study the stability and adoption rates for the APIs in the Android ecosystem."}~\cite[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - Skim read both these papers to determine their relevance.
-
-\emph{``Another line of work examined Android-related bug reports. Bhattacharya et al. [18] study 24 mobile Android apps in order to understand the bug-fixing process. They find that mobile bug reports are of high quality, especially for security related bugs. Martie et al. [63] analyzed topics in the Android platform bugs in order to uncover the most debated topics over time. Similarly, Liu et al. [58] detected and characterized performance bugs among Android apps."}~\cite[p. 27]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} - Looks at how the bugs were fixed and compare the practices they detected with those I'm aware of. Are platform bugs that relevant? They look at performance bugs (Android Vitals also reports performance issues, Firebase Analytics has tools for performance tracking), I'm looking mainly into reliability measurements and issues.
-
-Following on from the challenges and future directions section on maintenance research for mobile apps: do researchers focus in areas where the streetlights are rather than where the problems are? \emph{i.e.} on where they can find material to study rather than on issues that practically affect the majority of developers of apps?
-
-\emph{``Charting the API minefield using software telemetry data"}~\cite{Kechagia2015_charting_API_minefield_using_telemetry_data}. The stability of Android apps has been measured using telemetry data collected by a centralised crash report management service. Roughly one million stack traces were analysed from thousands of Android applications. A subset (over 500,000) of these stack traces were associated with risky API calls and these were analysed to identify the most common failure reasons. The top five reasons were attributed to:
-    \begin{itemize}
-        \item memory exhaustion,
-        \item race conditions,
-        \item deadlocks,
-        \item missing resources, and
-        \item corrupt resources.
-    \end{itemize}
-    
-    The authors provide a set of recommendations they claim \emph{may} help address various classes of the crash failures. However these recommendations do not appear to have been tested for their efficacy. Their recommendations are theoretical rather than practical. There's an odd claim in the paper in page 1818, \emph{``In addition, the platform of Chen et al. (2011), which is based on remote resource management, can make applications require less memory and resources. Hence, it can eliminate the well-known “non-responsive” exceptions in Android."}. For this claim to hold true \textbf{all} the causes of non-responsive exceptions (or did the authors mean ANRs? they don't define this term or use it elsewhere in the paper) would need to be a) related to remote resources, and b) the difference would need to be directly related to the amount of memory and resources. Google provides five common patterns for diagnosing ANRs~\footnote{\url{https://developer.android.com/topic/performance/vitals/anr\#diagnosing_anrs}} none of these mention remote resource management (even if they may contribute to ANRs). The authors say in the introduction to section 5.1~\emph{`API Recommendations'}, on page 1813,~\emph{``Finally, we provide the frequencies of the representative signatures to show how many crashes could be avoided based on the following solutions."}, however they did not appear to provide this unless they are the charts in  Appendix 1 \textbf{\textit{and}} if their proposals solve \textit{all} the causes of the crashes in each category. This was promising, thought-provoking, and interesting work which sadly lacked evidence their proposed recommendations actually work in practice for any of the apps that provided the crash data or for other Android apps (if their work is generalisable).
-
-
-\subsection{Managing Releases in App Stores}
-% Julian continue here...
-
-\emph{``Release Practices for Mobile Apps--What do Users and Developers Think?"}~\sidecite{nayebi2016release}.
-    
-\emph{``Towards Release Strategy Optimization for Apps in Google Play"}~\cite{shen2017_towards_release_strategy_optimization_for_apps_in_google_play}. ``empirical study to help developers decide the release opportunity to maximize positive feedback from users at scale.". They identify three patterns of update intervals: successive, normal, sparse. Their work does not use signals such as the stability of the app. They also claim ``Additionally, app quality can be unstable with fast [release] iteration[s]."
-
-    
-The \emph{``Data analytics for decision support in software release management"}~\cite{didar2018data_analytics_phd_thesis}, a PhD thesis, introduces a proposed Plan-Monitor-Improve Framework for release management.
-
-\emph{``Revisiting Prior Empirical Findings For Mobile Apps: An Empirical Case Study on the 15 Most Popular Open-Source Android Apps"}~\cite{syer2013_empirical_findings_for_mobile_apps} is work from 2013 (when Google Code was still a major active public source code repository) that compares the codebases of 15 opensource mobile apps with 5 other opensource desktop/server projects. A key finding in their research includes the development process - where there are frequent releases yet the development and release processes are immature. albeit based on codebases from 2011 so a decade ago is still relevant. They ask various open-ended questions:
-    \begin{itemize}
-        \item Does such a high frequency of releases mitigate the lack of testing? 
-        \item If there are frequent releases for the mobile app, then does quality matter as much?
-        \item Is the project in a constant beta testing state? 
-        \item Does the platform provide sufficient support for building high quality apps quickly? 
-        \item Is the frequent release only influenced by the demand factor in the app store? 
-        \item Are the developers of mobile apps more skilled or do they have more resources at hand? 
-        \item Or, are mobile apps themselves less complex to develop?
-    \end{itemize}
-    
-Perhaps the cost of failures in the app store was/is perceived to be low in the Google Play app store, at least for these 15 opensource apps? Later work investigated aspects such as the release frequency~\sidecite{nayebi2016release}
-
-    
-\emph{``Are apps ready for new Android releases?"}~\textcite{guilardi_are_apps_ready_for_new_android_releases} flips the perspective from when developers should release their apps to asking how well developers keep up with new releases of Android. This is a relatively recent paper where the researchers discovered that developers are slow to revise and update their Android apps for new releases of the operating system. Some of the apps have flaws exposed when running on new versions of the operating system. For apps to retain their quality they need to be updated, new releases of the operating system are one such reason. (Releases of libraries another, new contexts of use, etc. another...).
-
-
-As we will discover later in this thesis Google Play Console includes a set of live release management reports aimed at helping app developers observe the effects of a new release as it's rolled out to the userbase. They also use popularity of the app in various regions to control automated pre-release testing of new releases of an app.\todo{Add forward links to these two topics in those chapters.}
-
-\subsection{Mobile App Crashes}
+\section{Mobile App Crashes}
 Crashes in mobile apps have garnered a great deal of research, perhaps as crashes are definitive and relatively easy to detect.
 
 There is some interesting large-scale research into analysis of various releases of production Android application binaries~\sidecite{kong2019_mining_android_crash_fixes}. The researchers exercised (tested) a large range of apps seeking crashes of the app using an oracle of a local log file which they queried using the standard Android \texttt{logcat} utility. They also combined their dynamic approach with using static analysis tools to identify potential flaws that would lead to crashes of an app. They then tested newer releases of the same app. If the newer version did not crash they analysed the binary files (the APK files) for both releases to differences to the compiled code that may have been responsible for 'fixing' the crash. They limited their work to Android \emph{framework specific} crashes, and excluded \emph{app-specific} crashes. They devised ways to identify changes that appeared to fix the particular crash(es) they triggered in the earlier releases and generated patch files based on these changes. These patches were then applied to the older release of the app and the app then tested with the same test inputs and runtime environment (at least in terms of using a consistent Android Emulator (also known as a virtual device)). They provide a relatively detailed replication package online at~\url{https://craftdroid.github.io/}.
@@ -600,3 +631,6 @@ There is some interesting large-scale research into analysis of various releases
 
 In summary, the approach proposed in~\sidecite{kong2019_mining_android_crash_fixes} has the potential to mine crash stack traces (which are available to the developers of the particular apps) to help with aspects of reproducing a subset of those crashes which pertain to Android framework-related crashes. Similarly it appears it could complement the automated testing provided by Google as part of the pre-launch reports available in Google Play Console and other services. 
 
+In contrast, ~\sidecite{wang2018_an_empirical_study_of_android_test_generation_tools_in_industrial_cases} evaluated a mixed set of industrial and opensource test automation tools against popular Android apps available in Google Play. They measured code coverage and the count of unique crashes each tool could find in these apps. They also considered more practical aspects such as finding ways to combine tools to increase the code coverage and fault detection, they also measured the effort required to setup each of the tools to test the industrial apps. Their reference tool was Android `Monkey' the ubiquitous tool shipped with the Android SDK and one of the most widely used of these tools. This research appears practical and well grounded. It does not compare any aspect of crashes in the wild \emph{i.e.} those that affect end users and some of the crashes that were detected, such as those reported when Sapienz was used to test the Wattpad app might have established sufficiently unusual conditions for those crashes to be unlikely for most end users. (Nonetheless these crashes might still be of interest to the app's developers). 
+
+The authors did not mention whether they reported the crashes to the app developers, which is a pity as it would have been interesting to learn whether the app developers were willing and able to fix the crashes. If the researchers had reported the crashes to the app developers then this research - if combined with the research in the previous paper~\sidecite{kong2019_mining_android_crash_fixes} - could have been enlightening to measure at a black box level whether the crashes had been successfully fixed post reporting them.
