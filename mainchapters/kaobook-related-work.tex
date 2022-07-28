@@ -13,8 +13,9 @@
     \label{fig:my_modern-mobile-app-ecosystem}
 \end{figure}
 
-The modern mobile ecosystem, illustrated in Figure~\ref{fig:my_modern-mobile-app-ecosystem} sets the context for the thesis and this chapter together with the research questions. 
-%
+The modern mobile ecosystem, illustrated in Figure~\ref{fig:my_modern-mobile-app-ecosystem}, 
+sets the context for the thesis and this chapter together with the research questions. The marketplace - the app store - establishes the ecosystem which generates revenues from the user population and frequently to a lesser extent from the makers -  the developers of the apps. Various providers of utilities and services offer these to the makers and they may also obtain revenues from one or more parties that are part of the ecosystem and/or from others, including advertisers.
+
 My work nestles within the works of many people in various related fields: in software quality, in analytics, and in the mobile device ecosystem. As researchers we understand and recognise there are gaps in the current state of the art, this chapter aims to identify several pertinent gaps which led to this research being performed, \emph{i.e.} which motivated me to act. The mobile ecosystems touch on billions of people's lives, where flaws in the apps and the ecosystem can adversely affect the lives of many of those people. 
 
 Research in how mobile apps are created and tested, the relevance of app stores, service and utility providers, the user bases for mobile apps within the overall population of users of an app store ecosystem are all relevant. And meanwhile understanding why it's hard to create reliable software is also vital as part of acknowledging some of the grim realities development teams need to face if they are to succeed in their other goals and objectives for their mobile apps. An understanding of research into how to measure software qualities, and stability in particular, is key to establishing ways mobile analytics measures these qualities. 
@@ -43,7 +44,7 @@ These two strands both affect development practices when developing, testing, re
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{images/my/related-work-chapter-structure-27-jul-2022b.jpeg}
-    \caption{Structure of this related work chapter}
+    \caption{Structure of this related work chapter\\ Source: \href{https://docs.google.com/drawings/d/1DosM__BfTGqoIYkkkltbyDreCT5wYC1Z0mR9i1ZSxWc/edit?usp=sharing}{Google Drawing}, access limited to collaborators to this thesis.}
     \label{fig:related-work-chapter-structure}
 \end{figure}
 
@@ -64,23 +65,16 @@ This section, and associated subsections, provide context for the more specific 
 This section covers the following topics: \secref{rw-software-development-practices-topic}, \secref{rw-software-quality-including-measurement-topic}, and \secref{rw-software-analytics-topic}.
 
 \subsection{Software development practices}~\label{rw-software-development-practices-topic}
-Topics include: Agile development and the effects of the software that's developed and released. Motivations for/of software developers.
+Jez Humble is a well respected leader in modern software development practices who popularised the concepts of Continuous Delivery and DevOps. In \sidecite{humble2018_continuous_delivery_sounds_great} he argues the benefits of using continuous delivery to reduce risks and transaction costs. to create fast feedback loops, and work in small batches. He also believes it can be applied to any software and any domain. He concludes: \emph{``This, in turn, increases the quality of products, allows developers to react more rapidly to incidents and changing requirements and, in turn, build more stable and higher-quality products and services at lower costs.''}~\sidecite[][p. 39]{humble2018_continuous_delivery_sounds_great}. 
 
-Jez Humble's work could be part of a preamble for software development practices, to set the scene.
+To be successful in applying continuous delivery he identifies the importance of continuous, daily improvement and constant discipline to seek higher performance. Can we assume continuous delivery is suitable for mobile apps and can be applied by developers of those mobile apps? 
 
-\begin{itemize}
-    \item \emph{Continuous delivery sounds great, but will it work here?}~\cite{humble2018_continuous_delivery_sounds_great}. 
-    \begin{itemize}
-        \item ``Continuous delivery is about reducing the risk and transaction cost of taking changes from version control to production. Achieving this goal means implementing a series of patterns and practices that enable developers to create fast feedback loops and work in small batches. This, in turn, increases the quality of products, allows developers to react more rapidly to incidents and changing requirements and, in turn, build more stable and higher-quality products and services at lower costs."
-        \item ``If this sounds too good to be true, bear in mind: continuous delivery is not magic. It's about continuous, daily improvement at all levels of the organization—the constant discipline of pursuing higher performance. As presented in this article, however, these ideas can be implemented in any domain; this requires thoroughgoing, disciplined, and ongoing work at all levels of the organization. Particularly hard, though essential, are the cultural and architectural changes required."
-    \end{itemize}
-    
-\end{itemize}
 
 \subsection{Software quality, including measuring software quality}~\label{rw-software-quality-including-measurement-topic}
 
-Measuring software quality
 
+
+Measuring software quality
 
 One of the challenges has been to find ways to measure beyond an app, to behaviours that are externally observable but not easy to measure within an app. Unresponsiveness of software is a particular concern for mobile apps where apps stop responding for longer than deemed acceptable. Google Android coined the term ANR (TODO replace with glossary entry) for when the application stops responding. One of the challenges has been how to detect and measure these, particularly remotely on end-user devices. 
 
@@ -168,16 +162,14 @@ This research focuses on the Android ecosystem and the Google Play store - the c
 
 
 App stores and their ecosystem have affected the lives of billions of end users and millions of software developers. They have become the primary route to market for many app developers and their organisations (exceptions include companies who developed strong businesses elsewhere such as Amazon and Netflix). 
-From a research perspective, in 2010, early papers were published on various effects of app stores on academic research e.g. how app stores addressed some of the previous constraints such as reaching more users and facilitating the distribution of the apps and feedback from those users~\sidecite{cramer2010_research_in_the_large_app_stores, miluzzo2010research_in_the_app_store_era}. 
+From a research perspective, in 2010, early papers were published on various effects of app stores on academic research e.g. how app stores addressed some of the previous constraints such as reaching more users and facilitating the distribution of the apps and feedback from those users. 
 
-\begin{itemize}
-    \item Cramer \emph{et al} discussed aspects of \emph{research in the large} and in particular for my research the importance of ``playing by the rules"~\cite{cramer2010_research_in_the_large_app_stores}.%\todo{Where should I mention that my research has been shaped to play by the rules of the app store?}
+Cramer \emph{et al} discussed aspects of \emph{research in the large} and in particular for my research the importance of ``playing by the rules"~\sidecite{cramer2010_research_in_the_large_app_stores}. This research identified the importance of what happens when developers were deemed not to play by the rules (covered in \secref{rw-power-dynamics-topic}) and this research has been shaped to play by the rules of the app store. % Where practical through responsible disclosure of flaws found in 
 
-    \item Miluzzo \emph{et al} introduced other relevant research aspects, \textit{i.e.}  ongoing concerns such as how to assess correctness when there is no \emph{``ground truth"} - a challenge when evaluating mobile analytics for shipping apps; and a software development model of \textit{``deploy-use-refine"}~\sidecite{miluzzo2010research_in_the_app_store_era}, where app development refines the app based on data gleaned from usage of the app. Their paper even explained how a silly mistake caused their app to crash where the app store then delayed the new release of the app by several weeks. Even in 2010 crashes adversely affected the app store's perception of an app.\todo{Ditto where should I mention that our case studies used usage data to refine the app to improve the measured reliability of the apps.} % Their work on CenseMe received an ACM Test of Time award, see https://www.cs.dartmouth.edu/~campbell/page-3/
-     
-\end{itemize}
+Miluzzo \emph{et al} introduced other relevant research aspects, \textit{i.e.}  ongoing concerns such as how to assess correctness when there is no \emph{``ground truth"} - a challenge when evaluating mobile analytics for shipping apps; and a software development model of \textit{``deploy-use-refine"}~\sidecite{miluzzo2010research_in_the_app_store_era}, where app development refines the app based on data gleaned from usage of the app. Their paper even explained how a silly mistake caused their app to crash where the app store then delayed the new release of the app by several weeks. Even in 2010 crashes adversely affected the app store's perception of an app.\todo{TBD where should I mention that our case studies used usage data to refine the app to improve the measured reliability of the apps.} % Their work on CenseMe received an ACM Test of Time award, see https://www.cs.dartmouth.edu/~campbell/page-3/
 
-\textcite{wang2019_understanding_the_evolution_of_mobile_app_ecosystems_a_longitudinal_measurement_of_google_play} provides an helpful longitudinal evaluation of the Google Play ecosystem and raises interesting questions and observations about Google Play; but does not seem to consider flaws, or the effects of flaws, in the app store's data collection, algorithms,\textit{ etc.}
+
+In more recent research, \textcite{wang2019_understanding_the_evolution_of_mobile_app_ecosystems_a_longitudinal_measurement_of_google_play} provided an helpful longitudinal evaluation of the Google Play ecosystem and raises interesting questions and observations about Google Play; but does not seem to consider flaws, or the effects of flaws, in the app store's data collection, algorithms,\textit{ etc.}
 
 In terms of effects of app stores on software engineering practices there have been several seminal papers written by authors at UCL as part of their App Store Analysis Group~\footnote{http://www0.cs.ucl.ac.uk/staff/F.Sarro/projects/UCLappA/UCLappA.html} while it was active (until roughly 2019). Of these papers, \emph{``App store effects on software engineering practices"}~\sidecite{alsubaihin2019app_store_effects_on_software_engineering} combined interviews with a survey to ask developers of their experiences of developing mobile apps and how those experiences differed with developing other software. There are plenty of other papers that consider the app store from various perspectives but they do not cover software quality or mobile analytics.
 
@@ -236,7 +228,7 @@ An area their work did not discuss is whether failure data could, potentially, b
 
 Finally in terms of this paper, they included two stakeholders, the developers and the end users. The app store (and the people and organisation who provide the app store) are also direct stakeholders in the ecosystem. There are additional indirect stakeholders including advertisers, researchers, and probably many others. 
 
-\subsection{Utility and Service Providers}
+\subsection{Utility and Service Providers}~\label{rw-utility-and-service-providers-topic}
 Developers use software and related services from various providers where the providers are the primary source of any updates. The providers may charge for their offerings and similarly they may mandate various behaviours from developers and their organisations who use the utilities and/or services.
 
 In the context of this research mobile analytics are provided as utilities and/or services by third-parties to app developers therefore it is useful to learn of pertinent research into the use of these utilities and services. Utilities include software tools, libraries, frameworks, and so on; and services may be provided either for some of these utilities or for additional capabilities, support, and so on. Some of the offerings are specific to mobile apps, however many include other platforms such as web sites and/or web apps. Of these examples, an understanding of the use of software libraries helps identify the proclivity of developers to use them and similarly services that apps use are particularly relevant.
@@ -270,7 +262,7 @@ Several of the authors of the previous paper collaborated with other colleagues 
 Given the nature of Microsoft's objectives they did not consider Mobile Analytics or crash reporting SDKs (which include breadcrumbs and the ability to report caught errors, \emph{etc.}). Nor do their papers mention how the app developer's perceived their various tools and services. It's unclear whether they actually involved app developers in their work. Also, given the demise of the Windows Phone platform and app store it appears much of this work has disappeared without a trace.
 
 
-\subsection{Power dynamics}
+\subsection{Power dynamics}~\label{rw-power-dynamics-topic}
 Grey literature is the main source of the imbalance in power between app developers and the app store, at least in terms of Google Play and Android apps in that store. I have selected four illustrative articles, by four different developers, of the 20+ related articles published on \href{https://medium.com/}{Medium} % More material is available on corporations on mining data from the public  from and via https://jilliancyork.com/
 about how they lost access to their apps and in some cases their account. 
 
@@ -285,17 +277,25 @@ They estimated there were 320,000 developers, over half of the developers only r
 
 
 \section{Developing Mobile Apps}~\label{rw-developing-mobile-apps-section}
-Mobile apps need to be made and developers make them. There are various working practices, apps are made by visionaries, employees, amateurs, and communities. There are various activities involved including development, testing, release, and deployment. Figure~\ref{fig:my_mobile-app-makers} highlights these activities as part of the overall ecosystem.
+Research into the development practices and mechanisms for mobile apps establishes various norms, characteristics, and habits, of app developers. Their work, collectively, is used by billions of people throughout the world. In terms of this research, understanding the development practices and mechanisms is vital. Developers also have a voice and hundreds have been interviewed to learn what's important to them, for example in \sidecite{joorabchi2013_real_challenges_in_mobile_app_development}. They also communicate through various artefacts they create and maintain, again these artefacts have been studied to learn about their work, for example in \sidecite{pascarella2018_self_reported_activities_of_android_developers}.
 
-Many mobile app development teams would describe their development practices as Agile or based on along the principles of Agile development. % Solo app developers are less likely to use these practices, nonetheless there has been various research into adaptions of Agile and Scrum in attempts to suit them. Various examples are in the excluded-bibliography.
+% Some of the effects of their work in terms of software quality will be covered later in this chapter in \secref{rw-mobile-app-crashes-topic}.
+
+Mobile apps need to be made and developers make them. There are various working practices, apps are made by visionaries, employees, amateurs, and communities. There are various activities involved including development, testing, release, and deployment. % Figure~\ref{fig:my_mobile-app-makers} highlights these activities as part of the overall ecosystem.
+
+% Many mobile app development teams would describe their development practices as Agile or based on along the principles of Agile development. % Solo app developers are less likely to use these practices, nonetheless there has been various research into adaptions of Agile and Scrum in attempts to suit them. Various examples are in the excluded-bibliography.
 % Many of these people claim to be ``Agile" in their working practices.
+
+5,000 commit messages (of over 1.8 million identified) were studied that were selected from 8,280 active opensource Android apps where the source code repos were on github.com. The top three activities were app enhancement, followed by bug fixes, and then project management~\sidecite[][p. 144]{pascarella2018_self_reported_activities_of_android_developers}. 35 of the commit messages were attributed to addressing crashes in the app [Figure 3, on p. 151]. They did not investigate how developers had discovered issues nor whether mobile analytics were affected in the commits, leaving these aspects unknown and unreported.
+
+Relatively early research, published in 2013, identified several key topics of concern for app developers including: a strong need for monitoring and analysis support, for instance to monitor the health of an app. Similarly a major problem was crashes \emph{``which are often intermittent, non-deterministic, and irrecoverable.''}~\sidecite[][p. 21]{joorabchi2013_real_challenges_in_mobile_app_development}. Interestingly, one of the discussion topics was to research testing \acrshort{api}s from App Stores[pp. 22-23] which predates Google Play's Pre-launch reports covered in \secref{tata-pre-launch-reports-topic}.
+
+
+As mentioned previously, in \secref{rw-utility-and-service-providers-topic}, Android apps incorporate software libraries extensively~\sidecite{li2016_an_investigation_into_the_use_of_common_libraries_in_android_apps}.
 
 In terms of trying to understand real-world practices please avoid \textcite{santos2016_investigating_the_adoption_of_agile_practices_by_20_undergrad_students_in_mobile_app_devt} which sounds relevant but only surveyed 20 undergraduate students who took an iOS development course. 
 
-\subsection{Assessment criteria [TBC]}
-For the purposes of this research there are two key dimensions in much of the research: 1) how grounded the work is in the real-world, and 2) how applicable it is to the real-world of developing mobile apps. Figure \ref{fig:grounded-and-applicable-boxplots} is a sketch of the two dimensions with five example topics. We will cover these topics shortly, % TODO complete the forward links.
-before we do there are several pertinent research topics for general software development that help provide context for developing mobile apps.
-
+\begin{comment}
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{images/my/the-mobile-app-ecosystem-makers-27-jul-2022.jpg}
@@ -303,30 +303,7 @@ before we do there are several pertinent research topics for general software de
     \label{fig:my_mobile-app-makers}
 \end{figure}
 \afterpage{\clearpage}
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{images/rough-sketches/grounded-and-applicable.jpeg}
-    \caption{Box-plots visualising various research in mobile app software development}
-    \label{fig:grounded-and-applicable-boxplots}
-\end{figure}
-
-
-\subsection{Papers to consider}
-Unending materials are written and published online on making apps, beautiful apps, elegantly engineered apps, those that use and apply various software libraries (which we will cover in the providers section). There are a plethora of books and research materials available too.\todo{This paragraph needs revisiting entirely.} 
-
-\begin{itemize}
-    \item Joorabchi, Mona Erfani, Ali Mesbah, and Philippe Kruchten. \emph{``Real challenges in mobile app development."} Empirical Software Engineering and Measurement, 2013 ACM/IEEE International Symposium on 10 Oct. 2013: 15-24.~\sidecite{joorabchi2013_real_challenges_in_mobile_app_development}
-    
-    \item The extensive use of software libraries. 
-    \begin{itemize}
-        \item \emph{``An Investigation into the Use of Common Libraries in Android Apps"}~\cite{li2016_an_investigation_into_the_use_of_common_libraries_in_android_apps}
-    \end{itemize}
-    
-    \item \textbf{Species of Bugs}
-
-\end{itemize}
+\end{comment}
 
 \hypertarget{mobile.testing}{}
 \subsection{Testing Mobile Apps}
@@ -600,24 +577,7 @@ Before we leave the topic of mobile analytics research into the privacy aspects 
 The first of these papers focuses on the data that is sent, the contents, and where that data goes. The second concentrates on analysing app binaries, finding all the calls to the mobile analytics SDKs, intercepting these and enabling users to see, block or blank out data that would then be sent by the respective mobile analytics SDK.
 
 
-
-\subsection{Summary so far} % Or curiosities, or gaps in the research at this stage...?
-App stores, their ecosystems, and their effects on developers have been covered from various angles. Some of the research describes snapshots of one or more app stores. And some of the research involves developers of live apps in a mainstream app store. Ratings and reviews are covered from many angles including fraud~\sidecite{xie2015_appwatcher_unveiling_the_underground_market_of_trading_mobile_app_reviews}. 
-
-One of the curiosities reported in~\textcite{alsubaihin2019app_store_effects_on_software_engineering} is: \emph{``while automatic in-app crash reporting is the most prolific channel of reporting bugs, the one mostly prioritised by our respondents is user reviews in app stores."}[p. 13] - what are the effects of the crashes being a lower priority than user reviews? Also, they don't discuss other sources of crash reports (e.g. platform crash reporting) even though these existed at the time of their research.
-
-Similarly, in terms of managing releases in app stores, the platform provided release management tools and reports were not mentioned. 
-
-\begin{quote}
-    \emph{``...with explicit and implicit feedback now available (almost) continuously, questions arise. How can practitioners use this information and integrate it into their development processes to decide when to release updates?''}\cite[pp. 48-49]{maalej2016_towards_data_driven_requirements_engineering}    
-\end{quote}
-
-Building on a point made in this paper: \emph{``the future of app quality engineering is data driven."}~\cite[p. 24]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} % cite 97.
-
-\julian{TODO complete this thought: However none of these (these researches) provide X which is my need...}
-
-
-\section{Mobile App Crashes}
+\section{Mobile App Crashes}~\label{rw-mobile-app-crashes-topic}
 Crashes in mobile apps have garnered a great deal of research, perhaps as crashes are definitive and relatively easy to detect.
 
 There is some interesting large-scale research into analysis of various releases of production Android application binaries~\sidecite{kong2019_mining_android_crash_fixes}. The researchers exercised (tested) a large range of apps seeking crashes of the app using an oracle of a local log file which they queried using the standard Android \texttt{logcat} utility. They also combined their dynamic approach with using static analysis tools to identify potential flaws that would lead to crashes of an app. They then tested newer releases of the same app. If the newer version did not crash they analysed the binary files (the APK files) for both releases to differences to the compiled code that may have been responsible for 'fixing' the crash. They limited their work to Android \emph{framework specific} crashes, and excluded \emph{app-specific} crashes. They devised ways to identify changes that appeared to fix the particular crash(es) they triggered in the earlier releases and generated patch files based on these changes. These patches were then applied to the older release of the app and the app then tested with the same test inputs and runtime environment (at least in terms of using a consistent Android Emulator (also known as a virtual device)). They provide a relatively detailed replication package online at~\url{https://craftdroid.github.io/}.
@@ -634,3 +594,20 @@ In summary, the approach proposed in~\sidecite{kong2019_mining_android_crash_fix
 In contrast, ~\sidecite{wang2018_an_empirical_study_of_android_test_generation_tools_in_industrial_cases} evaluated a mixed set of industrial and opensource test automation tools against popular Android apps available in Google Play. They measured code coverage and the count of unique crashes each tool could find in these apps. They also considered more practical aspects such as finding ways to combine tools to increase the code coverage and fault detection, they also measured the effort required to setup each of the tools to test the industrial apps. Their reference tool was Android `Monkey' the ubiquitous tool shipped with the Android SDK and one of the most widely used of these tools. This research appears practical and well grounded. It does not compare any aspect of crashes in the wild \emph{i.e.} those that affect end users and some of the crashes that were detected, such as those reported when Sapienz was used to test the Wattpad app might have established sufficiently unusual conditions for those crashes to be unlikely for most end users. (Nonetheless these crashes might still be of interest to the app's developers). 
 
 The authors did not mention whether they reported the crashes to the app developers, which is a pity as it would have been interesting to learn whether the app developers were willing and able to fix the crashes. If the researchers had reported the crashes to the app developers then this research - if combined with the research in the previous paper~\sidecite{kong2019_mining_android_crash_fixes} - could have been enlightening to measure at a black box level whether the crashes had been successfully fixed post reporting them.
+
+
+\section{Summary so far} % Or curiosities, or gaps in the research at this stage...?
+App stores, their ecosystems, and their effects on developers have been covered from various angles. Some of the research describes snapshots of one or more app stores. And some of the research involves developers of live apps in a mainstream app store. Ratings and reviews are covered from many angles including fraud~\sidecite{xie2015_appwatcher_unveiling_the_underground_market_of_trading_mobile_app_reviews}. 
+
+One of the curiosities reported in~\textcite{alsubaihin2019app_store_effects_on_software_engineering} is: \emph{``while automatic in-app crash reporting is the most prolific channel of reporting bugs, the one mostly prioritised by our respondents is user reviews in app stores."}[p. 13] - what are the effects of the crashes being a lower priority than user reviews? Also, they don't discuss other sources of crash reports (e.g. platform crash reporting) even though these existed at the time of their research.
+
+Similarly, in terms of managing releases in app stores, the platform provided release management tools and reports were not mentioned. 
+
+\begin{quote}
+    \emph{``...with explicit and implicit feedback now available (almost) continuously, questions arise. How can practitioners use this information and integrate it into their development processes to decide when to release updates?''}\cite[pp. 48-49]{maalej2016_towards_data_driven_requirements_engineering}    
+\end{quote}
+
+Building on a point made in this paper: \emph{``the future of app quality engineering is data driven."}~\cite[p. 24]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} % cite 97.
+
+
+\julian{TODO complete this thought: However none of these (these researches) provide X which is my need...}

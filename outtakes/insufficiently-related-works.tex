@@ -96,6 +96,26 @@ The following hierarchical list includes topics I planed to include in the relat
     \item Has anyone else published in my areas of research?
 \end{itemize}
 
+\secref{Software Development}
+Mobile app developers are software developers in a particular domain - mobile smartphone-like devices - and ecosystem - an app store. There are three aspects of software development that are particularly germane to mobile apps: 
+
+\begin{enumerate}
+    \item The software is released from time to time (rather than being embedded) and those releases need to be installed on end user devices in preparation for being used by those end users.
+    \item Software quality measures are applied to the apps by the app store, and potentially by other software tools, end users, and others. 
+    \item Software analytics can be applied to various aspects of the developer's work and to the artefacts they create and maintain.
+\end{enumerate}
+
+Topics include: Agile development and the effects of the software that's developed and released. Motivations for/of software developers.
+
+Active software projects 
+Jez Humble's work could be part of a preamble for software development practices, to set the scene.
+
+\begin{itemize}
+    \item ``Continuous delivery is about reducing the risk and transaction cost of taking changes from version control to production. Achieving this goal means implementing a series of patterns and practices that enable developers to create fast feedback loops and work in small batches. This, in turn, increases the quality of products, allows developers to react more rapidly to incidents and changing requirements and, in turn, build more stable and higher-quality products and services at lower costs.''~\cite{humble2018_continuous_delivery_sounds_great}. 
+    \item ``If this sounds too good to be true, bear in mind: continuous delivery is not magic. It's about continuous, daily improvement at all levels of the organization—the constant discipline of pursuing higher performance. As presented in this article, however, these ideas can be implemented in any domain; this requires thoroughgoing, disciplined, and ongoing work at all levels of the organization. Particularly hard, though essential, are the cultural and architectural changes required.''~\cite{humble2018_continuous_delivery_sounds_great}. 
+\end{itemize}
+
+
 \section{App stores}
 \textit{Generally, excluded from this topic: Windows, iOS, and BlackBerry ecosystems. Revenue generation such as in-app purchases, paid-for apps, advertising.} 
 
@@ -161,29 +181,6 @@ While advertising in apps has been extensively researched the connection with mo
 
 \section{Heatmapping}
 User experience (UX) can be assessed using a wide variety of tools and techniques, such as heatmapping (which uses screen and/or interaction recording), A/B testing frameworks, funnel and journey analytics, and so on. By their very nature they're user-focused and - in practice - seldom incorporated into mobile apps or development practices for mobile apps. Similarly, based on my investigations, they are seldom researched although I have co-written work on this topic including examples of using heatmapping to improve usability of mobile apps~\cite{harty_aymer_playbook_2016}. Superficial research has been published to assess the events recorded by one of the heatmapping analytics tools - Appsee~\citep{yildirim2019_ux_analytics_for_android_platforms}. For those interested in developing a d-i-y approach to heatmapping there are a couple of options available including, the Caret-HM project~\footnote{\url{https://github.com/stlab-unt/Caret-HM}} that uses a web interface to interact with an Android emulator to record touchscreen interactions for apps installed on the emulator. The research is described in~\citep{nurmuradov2017_caret-hm-heatmapping-android-emulator}. It may be useful for small scale heatmapping however the combination of using a web interface with an emulator rather than actual Android devices limits the realism and the scale of the approach.
-
-\section{Software Quality}
-
-
-
-\subsection{Seven Quality Control Tools}
-Ishigawa's work extended beyond the eponymous Ishigawa, or fishbone, diagram %(as illustrated in Figure~\ref{fig:ishikawa_example_itil})
-; he also devised seven basic tools for quality, in turn inspired by W. Ewdards Deming's lectures in Japan in the 1950's~\cite{7_basic_quality_tools_with_R}.
-
-Of these seven tools, two are of particular interest in my research, his diagram to help set this work in context, and Pareto charts (also known as the Pareto distribution diagram), illustrated in one of the appendices~\hyperlink{pareto.diagrams.in.r}{\emph{here}}.
-
-
-\subsection{Lived Experiences of testers using test-related tools}
-\begin{figure}
-    \centering
-    \includegraphics[width=15cm]{images/isabel-evans/Contributors_to_LX_v3.jpeg}
-    \caption{Contributors to LX and Emotions, from~\citealp{evans2021_scared_frustrated_and_quietly_proud}}
-    \label{fig:contributors-to-lx-and-emotions-v3}
-\end{figure}
-
-Figure \ref{fig:contributors-to-lx-and-emotions-v3}, from \citealp{evans2021_scared_frustrated_and_quietly_proud}, discusses factors that contribute to the lived experience of software testers using software tools. A similar consideration may extend these factors to the lived experiences of end users of mobile apps, and separately the lived experiences of users of mobile analytics tools?
-
-%SHOULD-DO cover Quality of Experience (QoE) here. How users perceive QoE, how users communicate their QoE in an app store ecosystem, etc.
 
 
 \section{Software development practices}
@@ -724,7 +721,28 @@ These have not yet been incorporated into this section on Software Quality.
 
 \end{itemize}
 
-\begin{comment}
+\subsection{Seven Quality Control Tools}
+Ishigawa's work extended beyond the eponymous Ishigawa, or fishbone, diagram %(as illustrated in Figure~\ref{fig:ishikawa_example_itil})
+; he also devised seven basic tools for quality, in turn inspired by W. Ewdards Deming's lectures in Japan in the 1950's~\cite{7_basic_quality_tools_with_R}.
+
+Of these seven tools, two are of particular interest in my research, his diagram to help set this work in context, and Pareto charts (also known as the Pareto distribution diagram), illustrated in one of the appendices~\hyperlink{pareto.diagrams.in.r}{\emph{here}}.
+
+
+\subsection{Lived Experiences of testers using test-related tools}
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{images/isabel-evans/Contributors_to_LX_v3.jpeg}
+    \caption{Contributors to LX and Emotions, from~\citealp{evans2021_scared_frustrated_and_quietly_proud}}
+    \label{fig:contributors-to-lx-and-emotions-v3}
+\end{figure}
+
+Figure \ref{fig:contributors-to-lx-and-emotions-v3}, from \citealp{evans2021_scared_frustrated_and_quietly_proud}, discusses factors that contribute to the lived experience of software testers using software tools. A similar consideration may extend these factors to the lived experiences of end users of mobile apps, and separately the lived experiences of users of mobile analytics tools?
+
+%SHOULD-DO cover Quality of Experience (QoE) here. How users perceive QoE, how users communicate their QoE in an app store ecosystem, etc.
+
+
+
+
 \section{Measurement and Analytics}
 \newthought{Concommittant variation} establishes a clear connection between an action and one or more outcomes where there are no other know explanations or sources of actions that have led to those outcomes~\cite[pp. 260-266]{mill1884system}\todo{This needs a better home, for now this has to do as I'm working on the Analytics in Use chapter where I needed to evict this :)}.
 
@@ -764,7 +782,6 @@ These have not yet been incorporated into this section on Software Quality.
     \item Privacy, and who is responsible for the data being collected, shared, and protected?
     \item App usage and retention patterns will also affect usage related mobile analytics. \cite{sigg2016_sovereignty_of_apps_there_s_more_to_relevance_than_downloads} uses the lens of a popular Android power recommendation app, Carat~\footnote{Carat was also a research project \url{carat.cs.helsinki.fi}}, to analyse usage and retention rates\footnote{Note: while their dataset of ``13,779,666 app usage records from 339,842 users and 213,667 apps in 47 categories"~\cite[page 3]{sigg2016_sovereignty_of_apps_there_s_more_to_relevance_than_downloads} is large, it is dwarfed by similar data collected by Google Play across the overall user population of several billion users, however, sadly, this data is not available for analysis.}. They claim actual usage statistics are key for app recommendations, rather than using download counts and user ratings. They argue both download counts and user ratings are prone to manipulation by people. The manipulation of user ratings has been corroborated elsewhere~\footnote{COULD-DO add examples of user rating manipulation? Also is it worth tracking down any evidence of manipulation of download counts? I don't really think so as it's unlikely to be material to my research or findings. The Mobile Analytics tools that have been examined in this research track usage rather than download counts.}
 \end{itemize}
-\end{comment}
 
 Integrated metrics and data about software development projects: dashboards such as~\href{https://bitergia.com/bitergia-analytics/}{Bitergia Analytics} and an online live example of their dashboard~\url{https://onap.biterg.io/app/kibana#/dashboard/Overview?_g=()} aim to provide a holistic view to software development teams of data that matters to them. 
 GrimoreLab~\url{https://chaoss.github.io/grimoirelab/} is used to build various projects including the Bitergia Analytics Platform and~\href{https://cauldron.io/dashboard/1640}{Cauldron.io}. It includes support for a wide variety of data sources (source code management, issues/task management, source code review, mailing lists and forums including stack overflow, continuous integration, synchronous communications, wikis, meeting management, and others). What it does not current support are any analytics data sources which means developers have to look elsewhere and use other tools and dashboards to obtain analytics about how their software is performing and behaving. 
