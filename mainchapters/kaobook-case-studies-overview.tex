@@ -37,7 +37,7 @@ The app-centric structure covers the following topics:
 
 \section{App-centric: GTAF}~\label{case-study-overview-gtaf}
 % A couple of sentences to introduce them
-Greentech Apps Foundation (GTAF) is a UK based charity that provides Islamic apps free of charge and without in-app advertising. The project started in 2016 with the aim of enabling people to learn the Quran in the local language -- Bangla -- in Bangladesh. The project was started by a self-taught Android developer and his cousin Yemin, at the time an undergraduate student in computer science, who is now employed by the project in a hybrid role of software developer and project manager. Table \ref{tab:gtaf_anaytics_overview} summarises the key facts for this case study.
+\Acrfull{gtaf} is a UK based charity that provides Islamic apps free of charge and without in-app advertising. The project started in 2016 with the aim of enabling people to learn the Quran in the local language -- Bangla -- in Bangladesh. The project was started by a self-taught Android developer and his cousin Yemin, at the time an undergraduate student in computer science, who is now employed by the project in a hybrid role of software developer and project manager. Table \ref{tab:gtaf_anaytics_overview} summarises the key facts for this case study.
 
 {\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table*}
@@ -68,7 +68,7 @@ Greentech Apps Foundation (GTAF) is a UK based charity that provides Islamic app
        Active period & June 2020 to September 2020 \\
        \bottomrule
     \end{tabular}
-    \caption{Case Study key facts: GTAF}
+    \caption{Case Study key facts: \acrshort{gtaf}}
     \label{tab:gtaf_anaytics_overview}
 \end{table*}
 }
@@ -102,11 +102,11 @@ The team occasionally used Firebase TestLab~\footnote{\url{https://firebase.goog
 \subsection{GTAF: Experiences of using mobile analytics}
 The development team checks Android Vitals approximately once a week, and Firebase more frequently as the team decided the crash reports in Firebase are more actionable. Perhaps unsurprisingly they check more often after new releases of their apps looking for any new bugs arising in the new release as it rolls out across the user population.
 
-They noticed differences in the Firebase reports compared to Android Vitals, however they were not overly concerned about the differences as their focus was on the crashes reported in Firebase because they contain more contextual detail. The team seldom checked ANRs as they considered these were less impactful on users and less frequent. % TODO ask for access to their Firebase stats?
+They noticed differences in the Firebase reports compared to Android Vitals, however they were not overly concerned about the differences as their focus was on the crashes reported in Firebase because they contain more contextual detail. The team seldom checked \acrshort{anr}s as they considered these were less impactful on users and less frequent. % TODO ask for access to their Firebase stats?
 
 At the time of the case study, the team's development priorities for the rest of 2020 and until April 2021 the team were focusing on bug-fixes which included fixing the causes of crashes being reported by mobile analytics for their apps. In March 2021, they published a blog post which confirms this focus and includes a chart of their average daily crashes for 2020 which shows their progress in addressing peaks in the crash rate~\sideparencite{gtafblog2021_gtaf_accomplishment_2020}. The chart does not provide any additional information \emph{e.g.} of which app(s) the chart was plotted for or the source of the data. However, from the appearance of the chart it can be inferred that the source is probably Firebase Analytics.
 
-The same blog post~\sideparencite{gtafblog2021_gtaf_accomplishment_2020} explains one of their goals for 2021 was to `integrate analytics features in our application' to improve the user experience for the people who use the GTAF apps.
+The same blog post~\sideparencite{gtafblog2021_gtaf_accomplishment_2020} explains one of their goals for 2021 was to `integrate analytics features in our application' to improve the user experience for the people who use the \acrshort{gtaf} apps.
 
 \subsection{GTAF: data collected and methods used for collection}
 The data was collected from four primary sources: 1) an online, \textit{pre-study} interview, recorded in handwritten notes, 2) ongoing read access to Google Play Console with Android Vitals, both automated and interactive snapshots were captured, 3) email correspondence, maintained in a GMail account, and 4) the project's public issues database, which was searched interactively. These are illustrated in Table~\ref{tab:gtaf-data-sources}.
@@ -134,7 +134,7 @@ The data was collected from four primary sources: 1) an online, \textit{pre-stud
 As the project did not provide access to Firebase or the other in-app analytics it was not feasible to compare their outputs, and similarly they did not provide access to the source code of their apps so that could not be studied.
 
 \subsection{GTAF: Intervention}
-None: the GTAF case study did not include a formal intervention.
+None: the \acrshort{gtaf} case study did not include a formal intervention.
 
 \subsection{GTAF: Outcomes for the organisation}
 The organisation found mobile analytics helpful and addressed the crashes they believed were tractable and productive to fix in terms of improving the user experience. And, based on their experiences of using mobile analytics they committed to increasing their use in order to improve their understanding of their mobile apps~\sideparencite{gtafblog2021_gtaf_accomplishment_2020}.
@@ -143,7 +143,7 @@ The organisation found mobile analytics helpful and addressed the crashes they b
 \subsection{GTAF: Contributions to the research}
 TBC\todo{Add forward links when the relevant material has been included.}.
 
-\julian{There is scope to do ongoing analysis of the Google Play Console and Android Vitals reports for the project's 10+ Android apps. They help indicate some foibles in the Dashboard page for several apps - at least, where the combined ANR and crash rate report does not agree with the separate Crash and ANR reports from Android Vitals.}
+\julian{There is scope to do ongoing analysis of the Google Play Console and Android Vitals reports for the project's 10+ Android apps. They help indicate some foibles in the Dashboard page for several apps - at least, where the combined \acrshort{anr} and crash rate report does not agree with the separate Crash and \acrshort{anr} reports from Android Vitals.}
 
 \clearpage
 
@@ -165,7 +165,7 @@ Table~\ref{tab:local_halo_anaytics_overview} provides an overview of this case s
        Google Play Home & \url{https://play.google.com/store/apps/developer?id=NAY+PROTECT+LTD} \\
        Founded &2018 \\
        Business Domain &Digital neighbourhood groups in UK.\\
-       Business type &Startup, two co-founders: CEO and CTO \\
+       Business type &Startup, two co-founders: CEO and \acrshort{cto} \\
        Technologies  &React Native for cross-platform Android and iOS development \\
        &Expo development framework \\
        Source code  &Closed and not available for research \\
@@ -178,7 +178,7 @@ Table~\ref{tab:local_halo_anaytics_overview} provides an overview of this case s
        Research methods &Interview, email discussions, bug analysis, use of mobile analytics \\
        Analytics collected &Live access to: Sentry, Google Play Console with Android Vitals \\
        Research software &Vitals-Scraper used to preserve results \\
-       Additional data collected &Interview notes, emails with the CTO, and automated emails from their mobile analytics services \\
+       Additional data collected &Interview notes, emails with the \acrshort{cto}, and automated emails from their mobile analytics services \\
        Active period &Jan 2020 to June 2020 \\
        \bottomrule
     \end{tabular}
@@ -188,7 +188,7 @@ Table~\ref{tab:local_halo_anaytics_overview} provides an overview of this case s
 }
 
 \subsection{Local Halo: Background - How the case study came about}
-I was introduced to the CEO of Local Halo by one of their team who knew of my work in October 2019. An online call was followed by an in-person meeting with the CEO in November 2019 where he offered to be a case study for my research. After an online call in January 2020 with the CTO, he provided access to Google Play Console with Android Vitals for their Local Halo Android app~\footnote{The underlying app is cross-platform which generates both Android and iOS binaries.}, and to their Sentry~\footnote{\url{https://sentry.io/welcome/}}, which was used to track technical issues with their app and website. 
+I was introduced to the CEO of Local Halo by one of their team who knew of my work in October 2019. An online call was followed by an in-person meeting with the CEO in November 2019 where he offered to be a case study for my research. After an online call in January 2020 with the \acrshort{cto}, he provided access to Google Play Console with Android Vitals for their Local Halo Android app~\footnote{The underlying app is cross-platform which generates both Android and iOS binaries.}, and to their Sentry~\footnote{\url{https://sentry.io/welcome/}}, which was used to track technical issues with their app and website. 
 
 \subsection{Local Halo: App-centric case study procedure}
 {\small
@@ -204,7 +204,7 @@ I was introduced to the CEO of Local Halo by one of their team who knew of my wo
 
 
 \subsection{Local Halo: Development microcosm}
-The development team used the Expo development platform \url{https://expo.dev/} to create native apps that ran on Android and iOS apps. The mobile app was written in React Native~\footnote{\url{https://reactnative.dev/}} (the associated website is likely to have been written using React js~\footnote{\url{https://reactjs.org/}} and also instrumented using Sentry Analytics which were also available for research purposes). These apps were released on Google Play and Apple's App Store respectively. The CTO was actively involved in writing and maintaining the source code and was supported by developers in three locations, in the Ukraine, London, and Kazakhstan.~\sideparencite{karpenko2019_localhalo_a_social_network_for_neighbors}.  Data in the Sentry mobile analytics reports indicate there was at least one distinct developer in addition to the CTO.
+The development team used the Expo development platform \url{https://expo.dev/} to create native apps that ran on Android and iOS apps. The mobile app was written in React Native~\footnote{\url{https://reactnative.dev/}} (the associated website is likely to have been written using React js~\footnote{\url{https://reactjs.org/}} and also instrumented using Sentry Analytics which were also available for research purposes). These apps were released on Google Play and Apple's App Store respectively. The \acrshort{cto} was actively involved in writing and maintaining the source code and was supported by developers in three locations, in the Ukraine, London, and Kazakhstan.~\sideparencite{karpenko2019_localhalo_a_social_network_for_neighbors}.  Data in the Sentry mobile analytics reports indicate there was at least one distinct developer in addition to the CTO.
 
 Little additional information was available during conversations in terms of their development or release practices for their mobile apps. One observation is Expo claims to automate the release process to the app stores so the LocalHalo development team may have relied and used the Expo service. And Sentry provided reports on the release numbers and their rollout.
 
@@ -213,14 +213,14 @@ The development team used at least three distinct mobile analytics services: Mix
 
 Local Halo incorporated two analytics libraries into their cross-platform mobile application: Sentry for crash reporting and Mixpanel for business-oriented usage analytics. For their Android app they also had access to Google Play Console. Interestingly, the Exodus Privacy project detects additional trackers and does not detect Sentry, as their report for Local Halo confirms: \url{https://reports.exodus-privacy.eu.org/en/reports/225323/}.
 
-They seldom used Google Play Console with Android Vitals. According to the CTO it did not suit apps developed in React Native as the crashes did not actually crash the shell app which wraps the React Native app~\footnote{Note, other developers have asked about this behaviour, for instance on StackOverflow \href{https://stackoverflow.com/questions/66166824/native-crash-reporting-for-expo-deployed-to-android/}{Native crash reporting for Expo deployed to Android?}} 
+They seldom used Google Play Console with Android Vitals. According to the \acrshort{cto} it did not suit apps developed in React Native as the crashes did not actually crash the shell app which wraps the React Native app~\footnote{Note, other developers have asked about this behaviour, for instance on StackOverflow \href{https://stackoverflow.com/questions/66166824/native-crash-reporting-for-expo-deployed-to-android/}{Native crash reporting for Expo deployed to Android?}} 
 (which is what appears to be monitored by Android). The shell app restarts the React Native app automatically.
 
-The development team chose to use separate analytics services for user behaviour analytics (Mixpanel) and issues such as crashes and anomalies (Sentry). Presumably the respective SDKs were incorporated into the React Native source code~\footnote{Some of the errors reported by Sentry indicate the integration used TypeScript (which is supported in React Native, see \url{https://reactnative.dev/docs/typescript}. Mixpanel also provides an opensource wrapper that supports React Native \url{https://github.com/mixpanel/mixpanel-react-native}.}~\footnote{Note: Local Halo also incorporated Sentry into their website and provided access to Sentry for their website, however the website is out of scope for this research and will not be considered further here.}. Only two people have access to Sentry: the CTO and me; therefore any other members of the development team would have indirect access, for instance via screenshots and/or bug reports raised by the CTO. 
+The development team chose to use separate analytics services for user behaviour analytics (Mixpanel) and issues such as crashes and anomalies (Sentry). Presumably the respective SDKs were incorporated into the React Native source code~\footnote{Some of the errors reported by Sentry indicate the integration used TypeScript (which is supported in React Native, see \url{https://reactnative.dev/docs/typescript}. Mixpanel also provides an opensource wrapper that supports React Native \url{https://github.com/mixpanel/mixpanel-react-native}.}~\footnote{Note: Local Halo also incorporated Sentry into their website and provided access to Sentry for their website, however the website is out of scope for this research and will not be considered further here.}. Only two people have access to Sentry: the \acrshort{cto} and me; therefore any other members of the development team would have indirect access, for instance via screenshots and/or bug reports raised by the \acrshort{cto}. 
 
-They saw value in using analytics to improve business results, for instance for App Store Optimisation to improve the ranking of their app in the app stores. The CTO made a key observation during the interview: \emph{``If you have lots of crashes you have zero chance of being promoted [by the app store].''}
+They saw value in using analytics to improve business results, for instance for App Store Optimisation to improve the ranking of their app in the app stores. The \acrshort{cto} made a key observation during the interview: \emph{``If you have lots of crashes you have zero chance of being promoted [by the app store].''}
 %
-In terms of user experience analytics the CTO also observed: \emph{``To improve user retention you need to do both: eliminate the bad stuff [and] improve the good stuff [to] increase value''}.
+In terms of user experience analytics the \acrshort{cto} also observed: \emph{``To improve user retention you need to do both: eliminate the bad stuff [and] improve the good stuff [to] increase value''}.
 
 The overall impression was the team had decided to incorporate mobile analytics to help them provide a reliable and valuable service for their current and hoped-for users where the team would address errors on an \emph{ad-hoc} basis.
 
@@ -238,7 +238,7 @@ This case study combines three immediate sources of data with automatically prov
          Pre-study interviews & contemporaneous notes\footnotemark & 3 & Ask the app devs. & Set scope and direction & 1-to-1 meetings with founders: 1 was in-person, 2 were online. \\
          Mid-study communications with developers & GMail & 10\textsuperscript{1} & Ask the app devs. & Insight into the Expo bug & Initiated by the researcher. \\
          Analytics tools \& artefacts &Interactive screenshots \& Vitals-scraper outputs &10\textsuperscript{1} & Beacon finding, drill down, across case comparisons, observation \& analysis. & Insight into the reporting effects of the Expo bug and the reporting provided for React-Native apps & Google Play Console with Android Vitals. \\
-         Analytics tools \& artefacts & Interactive screenshots of the Sentry GUI & 10\textsuperscript{1} & Beacon finding, drill down, across \textit{tool} comparisons\footnotemark, observation \& analysis. & Insights into Sentry's reporting & Access continued until Sentry removed multi-account access from their free tier. \\
+         Analytics tools \& artefacts & Interactive screenshots of the Sentry \acrshort{gui} & 10\textsuperscript{1} & Beacon finding, drill down, across \textit{tool} comparisons\footnotemark, observation \& analysis. & Insights into Sentry's reporting & Access continued until Sentry removed multi-account access from their free tier. \\
          Analytics tools \& artefacts & Sentry automated emails in GMail & 10\textsuperscript{2} & Beacon finding, drill down, observation and analysis. & Insights into Sentry's reporting, dev practices, \& cross-platform reporting & \textit{ditto.} NB: they continue to send weekly reports by email. \\
          \bottomrule
     \end{tabular}
@@ -310,24 +310,24 @@ It was released in 2019, with over 150K downloads by early 2020~\sideparencite{o
 }
 
 \subsection{Moodspace: Background - How the case study came about}
-A practitioner recommended me and my research to the co-founder and CTO of Moodspace. He was willing to answer questions and also provide screenshots from Google Play Console and Android Vitals.
+A practitioner recommended me and my research to the co-founder and \acrshort{cto} of Moodspace. He was willing to answer questions and also provide screenshots from Google Play Console and Android Vitals.
 
 
 \subsection{Moodspace: App-centric case study procedure}
 {\small
 \begin{enumerate}
     \itemsep0em
-    \item Exploration and selection: Moodspace was one of several Android apps developed by the CTO and in a new application domain of health. 
-    \item Engagement: The CTO was happy to answer questions and send a subset of pertinent information, his business responsibilities meant he was cautious about providing direct access to the analytics or development artefacts. 
+    \item Exploration and selection: Moodspace was one of several Android apps developed by the \acrshort{cto} and in a new application domain of health. 
+    \item Engagement: The \acrshort{cto} was happy to answer questions and send a subset of pertinent information, his business responsibilities meant he was cautious about providing direct access to the analytics or development artefacts. 
     \item The action research stage: limited to analysis of ObjectBox in addition to learning how the project used mobile analytics.
     \item \textit{Post-hoc} analysis: similarly constrained by the limited access to artefacts, there was some follow up on research into this app and similar apps in terms of their efficacy in terms of mental health.
-    \item Wrap-up: followed up with the CTO in late 2019 who was actively focusing on fund-raising. There was nothing else to wrap-up.
+    \item Wrap-up: followed up with the \acrshort{cto} in late 2019 who was actively focusing on fund-raising. There was nothing else to wrap-up.
 \end{enumerate}
 }
 
 
 \subsection{Moodspace: Development microcosm}
-The CTO was the sole developer. He actively developed the app to be performant, and chose to use an in-memory ORM database, objectbox to ensure the app was responsive for end users. In his words: 
+The \acrshort{cto} was the sole developer. He actively developed the app to be performant, and chose to use an in-memory ORM database, objectbox to ensure the app was responsive for end users. In his words: 
 
 \begin{quote}
 \emph{``The app doesn't use any API, so all the data's stored in very fast ORM databases like object-box (and uses memory caching). This enables the app to be mostly synchronous, which hugely cuts down on complexity of code. i.e. no need to handle loading, errors, or concurrency. This is a big benefit! And cuts down on errors significantly, with no real impact on performance for users. To illustrate that it has little impact on users, I use firebase performance to run a trace on some methods that call the ORM/cache - it's peak duration is 40ms while the majority of calls take 3-6 ms."} (email correspondence, lightly edited to fix typos and improve readability)\todo{Relocate this comment to the methodology chapter if I provide other edited extracts from emails.}.    
@@ -337,7 +337,7 @@ The CTO was the sole developer. He actively developed the app to be performant, 
 At the time of the interview the team had developed a complete replacement for the Android app which was due to be launched in a couple of months (around August 2019).
 
 \subsection{Moodspace: Experiences of using mobile analytics}
-The app included both Firebase Analytics and Firebase Crashlytics. The discussion covered Firebase Crashlytics and Google Play Console with Android Vitals, Firebase Analytics was not mentioned by the CTO. Details of their use are covered in the \nameref{chapter-analytics-in-use} chapter. They used Crashlytics in preference to Android Vitals, however as part of the interview the CTO noticed Android Vitals had reported an ANR which he believed he should and could fix. He suggested several desirable improvements for Google Play Console with Android Vitals, these will be discussed in the \nameref{chapter-tools-and-their-artefacts} Chapter.
+The app included both Firebase Analytics and Firebase Crashlytics. The discussion covered Firebase Crashlytics and Google Play Console with Android Vitals, Firebase Analytics was not mentioned by the CTO. Details of their use are covered in the \nameref{chapter-analytics-in-use} chapter. They used Crashlytics in preference to Android Vitals, however as part of the interview the \acrshort{cto}noticed Android Vitals had reported an \acrshort{anr} which he believed he should and could fix. He suggested several desirable improvements for Google Play Console with Android Vitals, these will be discussed in the \nameref{chapter-tools-and-their-artefacts} Chapter.
 
 The current privacy policy for the Moodspace app confirms they actively use mobile analytics in the app: 
 
@@ -351,7 +351,7 @@ The current privacy policy for the Moodspace app confirms they actively use mobi
 }
 
 \subsection{Moodspace: Data collected and methods used for collection}
-The main source of data are emails from the CTO which included extracts of screenshots from their Google Play Console with Android Vitals. These were supplemented with some additional research online using grey literature and grey data; Table~\ref{tab:moodspace-data-sources} provides additional details of the data sources used.
+The main source of data are emails from the \acrshort{cto}, these included extracts of screenshots from their Google Play Console with Android Vitals. These were supplemented with some additional research online using grey literature and grey data; Table~\ref{tab:moodspace-data-sources} provides additional details of the data sources used.
 
 \begin{table*}
     \centering
@@ -814,7 +814,7 @@ The project team provided access to Google Play Console for all their Android ap
 \footnotetext{These are opensourced and available online \url{https://github.com/julianharty/testing-with-analytics-workshop/}.}
 
 \subsection{Catrobat: Intervention}
-The key intervention was organise a weekend hackathon with an open invitation for any of the extended development team to participate. During day 1 of the hackathon, after informal introductions and a discussion about the aims of the hackathon, the next task was to create tickets in JIRA for the top 10 crash clusters and the top 10 ANR clusters as reported by Android Vitals. These were reported in JIRA during the first hour of the hackathon, the complete set are available online at \url{https://jira.catrob.at/browse/CATROID-418?jql=labels\%20\%3D\%20hackathon-2019}. 
+The key intervention was organise a weekend hackathon with an open invitation for any of the extended development team to participate. During day 1 of the hackathon, after informal introductions and a discussion about the aims of the hackathon, the next task was to create tickets in JIRA for the top 10 crash clusters and the top 10 \acrshort{anr} clusters as reported by Android Vitals. These were reported in JIRA during the first hour of the hackathon, the complete set are available online at \url{https://jira.catrob.at/browse/CATROID-418?jql=labels\%20\%3D\%20hackathon-2019}. 
 
 The participants, in ones or twos, selected one of these tickets and worked on it. They then selected another ticket and worked on that one. They continued for approximately 5 hours until late afternoon that day. The event closed with a communal meal at a local pizzeria. The participants chose not to continue with day 2 of the hackathon (which was on the Sunday), instead they preferred to work on the issues during the normal working week (Monday to Friday). Several of them did so and continued to work on various tickets raised in the hackathon. The project team made two related releases of the Pocket Code Android app, with cumulative fixes in these releases.
 
@@ -895,7 +895,7 @@ The project included multiple mobile analytics services integrated into their ap
 The data was collected contemporaneously during the consulting engagement and subsequently. Details cannot be provided here nonetheless the methods described in the Methodology chapter were used from a research perspective. Extensive field notes were made contemporaneously in addition to contributions to development artefacts. 
 
 \subsection{C1: Intervention}
-Worked with several teams, including those working on the Android app in particular, to reduce the crash and ANR rates for the app beyond a phased two-stage set of improvements (which were achieved using a combination of Google Play Console with Android Vitals as the primary source and measure and Microsoft App Center to augment, corroborate, and provide inter-tool-comparisons).
+Worked with several teams, including those working on the Android app in particular, to reduce the crash and \acrshort{anr} rates for the app beyond a phased two-stage set of improvements (which were achieved using a combination of Google Play Console with Android Vitals as the primary source and measure and Microsoft App Center to augment, corroborate, and provide inter-tool-comparisons).
 
 \subsection{C1: Outcomes for the company}
 Confidential.
@@ -904,13 +904,13 @@ Confidential.
 \textbf{TBD} as I'm not \todo{Add forward links when the relevant material has been included.}.
 
 \begin{enumerate}
-    \item Excessive ANRs
+    \item Excessive \acrshort{anr}s
     \item Excessive Crash Rate
     \item Gaps in understanding and gaps in testing of changes and generally of networking code increase crash rate several fold
     \item Problems could have ameliorated using Release Management reports
     \item Concerted focus to address native memory leaks that caused some of the crashes
     \item Code written to reproduce the networking errors that led to the crashes, followed by fixes to the underlying code covered adequately by automated tests, bring excessive crash rate under control.
-    \item Majority of ANRs came from another project team's SDK, when the new SDK was integrated and a new release launched, the ANRs were materially improved. 
+    \item Majority of \acrshort{anr}s came from another project team's SDK, when the new SDK was integrated and a new release launched, the \acrshort{anr}s were materially improved. 
     \item Other crashes also addressed leading to further improvements.
     \item Automated build pipelines and implementation of code-quality analysis also help identify potential sources of failures (but signal to noise ratio was low).
 \end{enumerate}
@@ -1089,7 +1089,7 @@ TBC.
 Google Play Console incorporating Android Vitals is probably the largest composite source of analytics for mobile apps on Earth as it reports on up to several billion Android devices for the apps on that device~\footnote{Google does not publish details of how many devices have opted-out of the data being gathered, nor the exact inclusion and exclusion criteria for which apps are reported on so it is hard to determine the overall volumes. Google also owns the most popular in-app mobile analytics service, Firebase. In turn Firebase incorporates a movable feast of analytics offerings including Crashlytics, Google Analytics and Firebase Analytics. These two are almost certainly the top two analytics services on Earth for mobile apps.}.
 
 \newthought{Some history}
-In 2010, Google announced an service that appears to be the first version of what became Android Vitals where users could submit crash reports that developers would receive in their Android Market account~\sideparencite{androiddevelopersblog2010_android_error_crash_reports}. Google continued to evolve their analytics which included providing developers a mechanism to download crash and ANR reports from 2015~\sideparencite{androiddevelopers2015_integrate_play_data_into_your_workflow_with_data_exports} until 2018~\sideparencite{google_play_download_and_export_monthly_reports}. Google launched Android Vitals in 2017~\sideparencite{androiddevelopersblog2017_android_vitals_increase_engagement_etc}.
+In 2010, Google announced an service that appears to be the first version of what became Android Vitals where users could submit crash reports that developers would receive in their Android Market account~\sideparencite{androiddevelopersblog2010_android_error_crash_reports}. Google continued to evolve their analytics which included providing developers a mechanism to download crash and \acrshort{anr} reports from 2015~\sideparencite{androiddevelopers2015_integrate_play_data_into_your_workflow_with_data_exports} until 2018~\sideparencite{google_play_download_and_export_monthly_reports}. Google launched Android Vitals in 2017~\sideparencite{androiddevelopersblog2017_android_vitals_increase_engagement_etc}.
 
 {\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table*}
