@@ -72,9 +72,10 @@ To be successful in applying continuous delivery he identifies the importance of
 
 \subsection{Software quality, including measuring software quality}~\label{rw-software-quality-including-measurement-topic}
 
+Early work, presented at ICSE in 1997, compared two approaches to software testing - debug testing and operational testing~\sidecite{frankl1997choosing_testing_for_reliability}. Their research considered the two approaches including their efficacy at improving reliability of the software being tested. In their work they challenged the focus on faults which they stated was nebulous and not necessarily the best term to use to describe what happened when failures were detected or when changes were made to 'fix' the code that led to the failures. They introduced the concept or notion of \emph{failure regions}, which could be \emph{``eliminated by a program change''}[p. 70]. Their work and their concepts align well with the use of mobile analytics to identify failures, and failure regions that are detected by mobile analytics and potentially addressed by changes to the program \emph{i.e.} the mobile app. We will revisit this paper in \secref{rw-mobile-app-crashes-topic}.
 
 
-Measuring software quality
+%Measuring software quality
 
 One of the challenges has been to find ways to measure beyond an app, to behaviours that are externally observable but not easy to measure within an app. Unresponsiveness of software is a particular concern for mobile apps where apps stop responding for longer than deemed acceptable. Google Android coined the term ANR (TODO replace with glossary entry) for when the application stops responding. One of the challenges has been how to detect and measure these, particularly remotely on end-user devices. 
 
@@ -90,7 +91,6 @@ Buse and Zimmermann
     \caption{Software Analytics, Buse and Zimmerman (2010)}
     \label{fig:software_analytics_buse_and_zimmerman_2010}
 \end{figure}
-\afterpage{\clearpage}
 
 
 In the Buse and Zimmermann paper they \emph{``distinguish between questions of information which can be directly measured, from questions of insight which arise from a careful analytic analysis and provide managers with a basis for action.''}~\cite{buse_analytics_2010}.
@@ -98,17 +98,14 @@ In the Buse and Zimmermann paper they \emph{``distinguish between questions of i
 \subsubsection{The development managers' perspective}
 \emph{``Information needs for software development analytics"}~\cite{buse2012_information_needs_for_software_development_analytics}. They asked 110 Microsofties, a mix of development leads and managers about their use of software development analytics. MUST-DO discuss how my work and their guidelines for software development analytics align. What does my work add to their work? What does it provide that they identified back in 2012? Their focus seems to be more on the code than the product of the code (apps and the services (and the qualities of those services) those apps provide to end users). What information do mobile app developers need in terms of improving the reliability of their apps? How can the developers make good decisions in this area?
 
-\begin{comment}
-
 
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{images/related-work/buse2012-edited-figure-2.png}
-    \caption{Revised Figure 2 from TODO}%~\footnote{cite{buse2012_information_needs_for_software_development_analytics}}}
+    \caption{Revised Figure 2 from TODO}~\footnote{\cite{buse2012_information_needs_for_software_development_analytics}}
     \label{fig:buse2012-edited-figure-2}
 \end{figure}
-\afterpage{\clearpage}
-\end{comment}
+
 
 \begin{itemize}
     \item ~\emph{``we ultimately want to} empower software development teams to independently gain and share insight \emph{from their data without relying on a separate entity"}
@@ -198,7 +195,6 @@ Their research is one of several that discusses the gaming of app store ratings,
     \caption{Annotated version of the framework for presenting the state-of-the-art in software engineering for mobile apps~\cite{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}}
     \label{fig:nagappan2016_future_trends_in_sw_eng_for_mobile_apps_figure_1_annotated}
 \end{figure}
-\afterpage{\clearpage}
 \end{comment}
 
 Mining review data for various forms of data including requests for bug fixes as is using rating as an assessment of goodness. 
@@ -219,7 +215,6 @@ Figure~\ref{fig:nagappan2016_future_trends_in_sw_eng_for_mobile_apps_figure_2_an
     \caption{Annotated version of the various stakeholders in the modern app store ecosystem~\cite{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}}
     \label{fig:nagappan2016_future_trends_in_sw_eng_for_mobile_apps_figure_2_annotated}
 \end{figure*}
-\afterpage{\clearpage}
 \end{comment}  
 
 One of the key challenges identified is restricted access to data held by the app store. The only way they mentioned was to gather historical information by continually mining the app store on a regular basis, [pp 22-23](\textit{ibid}). Perhaps the authors weren't aware that developers of Android apps have access to various historical data about their apps including long term access to all the reviews of their apps. Details of how developers can download these and other reports, including the data structures, are available online~\sidecite{google_play_download_and_export_monthly_reports}.
@@ -286,27 +281,16 @@ Mobile apps need to be made and developers make them. There are various working 
 % Many mobile app development teams would describe their development practices as Agile or based on along the principles of Agile development. % Solo app developers are less likely to use these practices, nonetheless there has been various research into adaptions of Agile and Scrum in attempts to suit them. Various examples are in the excluded-bibliography.
 % Many of these people claim to be ``Agile" in their working practices.
 
-5,000 commit messages (of over 1.8 million identified) were studied that were selected from 8,280 active opensource Android apps where the source code repos were on github.com. The top three activities were app enhancement, followed by bug fixes, and then project management~\sidecite[][p. 144]{pascarella2018_self_reported_activities_of_android_developers}. 35 of the commit messages were attributed to addressing crashes in the app [Figure 3, on p. 151]. They did not investigate how developers had discovered issues nor whether mobile analytics were affected in the commits, leaving these aspects unknown and unreported.
+5,000 commit messages (of over 1.8 million identified) were studied that were selected from 8,280 active opensource Android apps where the source code repositories were on github.com. The top three activities were 1) app enhancement, followed by 2) bug fixes, and then 3) project management~\sidecite[][p. 144]{pascarella2018_self_reported_activities_of_android_developers}. 35 of the commit messages were attributed to addressing crashes in the app [Figure 3, on p. 151]. They did not investigate how developers had discovered issues nor whether mobile analytics were affected in the commits, leaving these aspects unknown and unreported.
 
 Relatively early research, published in 2013, identified several key topics of concern for app developers including: a strong need for monitoring and analysis support, for instance to monitor the health of an app. Similarly a major problem was crashes \emph{``which are often intermittent, non-deterministic, and irrecoverable.''}~\sidecite[][p. 21]{joorabchi2013_real_challenges_in_mobile_app_development}. Interestingly, one of the discussion topics was to research testing \acrshort{api}s from App Stores[pp. 22-23] which predates Google Play's Pre-launch reports covered in \secref{tata-pre-launch-reports-topic}.
 
 
-As mentioned previously, in \secref{rw-utility-and-service-providers-topic}, Android apps incorporate software libraries extensively~\sidecite{li2016_an_investigation_into_the_use_of_common_libraries_in_android_apps}.
+As mentioned previously, in \secref{rw-utility-and-service-providers-topic}, Android apps incorporate software libraries extensively~\sidecite{li2016_an_investigation_into_the_use_of_common_libraries_in_android_apps}. The extensive use of software libraries, generally provided by third-parties, indicate the developers place significant trust with these third-party developers. Also, their apps contain large volumes of code that is \emph{unlikely} to have been tested by the app developers apart from some sanity and/or smoke testing. Flaws and instabilities in these libraries may be latent until the app is being used at scale by end users. How will the developers learn about the effects of emergent flaws and instabilities?
 
-In terms of trying to understand real-world practices please avoid \textcite{santos2016_investigating_the_adoption_of_agile_practices_by_20_undergrad_students_in_mobile_app_devt} which sounds relevant but only surveyed 20 undergraduate students who took an iOS development course. 
+Note: in terms of trying to understand real-world practices please avoid \textcite{santos2016_investigating_the_adoption_of_agile_practices_by_20_undergrad_students_in_mobile_app_devt} which sounds relevant but only surveyed 20 undergraduate students who took an iOS development course. 
 
-\begin{comment}
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{images/my/the-mobile-app-ecosystem-makers-27-jul-2022.jpg}
-    \caption{Makers of mobile apps}
-    \label{fig:my_mobile-app-makers}
-\end{figure}
-\afterpage{\clearpage}
-\end{comment}
-
-\hypertarget{mobile.testing}{}
-\subsection{Testing Mobile Apps}
+\subsection{Testing Mobile Apps}~\label{rw-testing-mobile-apps-topic}
 
 There has been a tremendous amount of research into practices and tools that might perform better than the mainstream test automation tools available to app developers.
 
@@ -321,6 +305,9 @@ on local emulators and/or local simulators, and
 on remote emulators and/or simulators.
 
 
+There has been a lot of research into various artefacts pertaining to mobile apps. Some of the artefacts are mainly generated by end users, for instance ratings and reviews, and others are mainly generated by software developers such as source code. A hybrid artefact are bug reports. These also known as issues particularly for projects based on github.com as it uses that term and developers create bug reports as issues on github.com. Bug reports are a hybrid artefact as potentially anyone can create them including users of the code and the development team. 
+
+That said, for the projects studied in this research they mainly used `issues' and these were mainly created by the project's extended development team (an extended development team may include people involved in project management and/or testing).
 
 \subsubsection{Papers to consider}
 \begin{itemize}
@@ -497,7 +484,7 @@ Feedback can also be generated by software at run time. These include GUI-orient
 \end{figure}
 % https://www.explainxkcd.com/wiki/index.php/937:_TornadoGuard
 % https://www.explainxkcd.com/wiki/index.php/1098:_Star_Ratings
-\afterpage{\clearpage}
+
 
 Apps with poor ratings are less likely to be downloaded by new users~\sidecite{dimensionalresearch2015_mobile_app_use_and_abandonment}. Ratings also affect where an app appears in search results and whether an app store will choose to promote that app, or another. In the author's experience when one team's Android app's overall rating dropped from 4.4 to 4.3 stars the business noticed an almost immediate reduction in revenues from the app in addition to discovering that app was ranked lower in the search results. Therefore ratings are an important measure for app developers, and one they may choose to influence positively. 
 
@@ -602,6 +589,10 @@ App stores, their ecosystems, and their effects on developers have been covered 
 One of the curiosities reported in~\textcite{alsubaihin2019app_store_effects_on_software_engineering} is: \emph{``while automatic in-app crash reporting is the most prolific channel of reporting bugs, the one mostly prioritised by our respondents is user reviews in app stores."}[p. 13] - what are the effects of the crashes being a lower priority than user reviews? Also, they don't discuss other sources of crash reports (e.g. platform crash reporting) even though these existed at the time of their research.
 
 Similarly, in terms of managing releases in app stores, the platform provided release management tools and reports were not mentioned. 
+
+Several points made in \sidecite{frankl1997choosing_testing_for_reliability} discuss the potential perils of relying on the judgement of people involved in debug testing (testing to maximise the faults found in a given period), the first point is based on work by \sidecite{basili1994_software_process_evolution_at_the_sei} where testers who focused on `testing' over estimated their abilities to find all the faults in a program, by proposing it is possible to compare the effectiveness of testing by using operational profiles~\sidecite[][p. 77]{frankl1997choosing_testing_for_reliability}.
+
+The second point is there is the potential for debug testers to confuse \emph{``between detecting failures and achieving reliability.''}~\sidecite[][p. 77]{frankl1997choosing_testing_for_reliability}. Mobile Analytics might be able to provide a real-world measure in terms of achieving reliability. Furthermore, much of the research into mobile app crashes seems to end prematurely - before considering whether reliability of the app has been improved by whatever method and approach they have researched.
 
 \begin{quote}
     \emph{``...with explicit and implicit feedback now available (almost) continuously, questions arise. How can practitioners use this information and integrate it into their development processes to decide when to release updates?''}\cite[pp. 48-49]{maalej2016_towards_data_driven_requirements_engineering}    

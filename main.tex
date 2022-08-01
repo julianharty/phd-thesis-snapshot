@@ -206,10 +206,22 @@
 \listoffigures % Output the list of figures
 
 % Comment both of the following lines to have the LOF and the LOT on different pages
+% \let\cleardoublepage\bigskip
+% \let\clearpage\bigskip
+
+\listoftables % Output the list of tables
 \let\cleardoublepage\bigskip
 \let\clearpage\bigskip
 
-\listoftables % Output the list of tables
+% https://tex.stackexchange.com/a/99656/5125
+\renewcommand{\listoflistings}{%
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Sourcecode Listings}%
+    \listof{listing}{Sourcecode Listings}%
+}
+\listoflistings %\clearpage
+
 
 \endgroup
 
@@ -224,6 +236,8 @@
 \input{mainchapters/kaobook-a-grounding-in-the-domain.tex}
 \input{mainchapters/kaobook-related-work}
 \input{mainchapters/kaobook-case-studies-overview}
+
+\input{mainchapters/kaobook-discussion}
 \clearpage
 
 %\pagelayout{wide} % No margins
