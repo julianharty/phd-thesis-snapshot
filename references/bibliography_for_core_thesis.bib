@@ -3658,20 +3658,11 @@ booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Soft
     publisher = {Association for Computing Machinery},
     url = {https://doi.org/10.1145/1629575.1629586},
     doi = {10.1145/1629575.1629586},
-    abstract = {Windows Error Reporting (WER) is a distributed system that automates the processing
-    of error reports coming from an installed base of a billion machines. WER has collected
-    billions of error reports in ten years of operation. It collects error data automatically
-    and classifies errors into buckets, which are used to prioritize developer effort
-    and report fixes to users. WER uses a progressive approach to data collection, which
-    minimizes overhead for most reports yet allows developers to collect detailed information
-    when needed. WER takes advantage of its scale to use error statistics as a tool in
-    debugging; this allows developers to isolate bugs that could not be found at smaller
-    scale. WER has been designed for large scale: one pair of database servers can record
-    all the errors that occur on all Windows computers worldwide.},
+    abstract = {Windows Error Reporting (WER) is a distributed system that automates the processing of error reports coming from an installed base of a billion machines. WER has collected billions of error reports in ten years of operation. It collects error data automatically and classifies errors into buckets, which are used to prioritize developer effort and report fixes to users. WER uses a progressive approach to data collection, which minimizes overhead for most reports yet allows developers to collect detailed information when needed. WER takes advantage of its scale to use error statistics as a tool in debugging; this allows developers to isolate bugs that could not be found at smaller scale. WER has been designed for large scale: one pair of database servers can record all the errors that occur on all Windows computers worldwide.},
     booktitle = {Proceedings of the ACM SIGOPS 22nd Symposium on Operating Systems Principles},
     pages = {103–116},
     numpages = {14},
-    keywords = {blue screen of death, statistics-based debugging., error reports, bucketing, classifying, minidump, labeling},
+    keywords = {blue screen of death, statistics-based debugging, error reports, bucketing, classifying, minidump, labeling},
     address = {Big Sky, Montana, USA},
     series = {SOSP '09}
 }
@@ -6452,6 +6443,17 @@ Sleep Sounds
   year = {2019},
 }
 
+@misc{keizer2015_windows_10_makes_diagnostic_data_collection_compulsory,
+    title = {Windows 10 makes diagnostic data collection compulsory},
+    url = {https://www.computerworld.com/article/2968288/windows-10-makes-diagnostic-data-collection-compulsory.html},
+    year = {2015},
+    author = {Gregg Keizer},
+    publisher = {ComputerWorld},
+    abstract = {
+        Known as CEIP on earlier editions, Windows 10's 'Feedback & diagnostics' cannot be totally switched off.
+    }
+}
+
 @misc{khan2019_medium_filtering_adb_logcat_efficiently,
   title = {Filtering Android adb logcat efficiently in bash command line},
   url = {https://medium.com/@hissain.khan/filtering-android-adb-logcat-efficiently-in-bash-command-line-4992fb1acd61},
@@ -6483,7 +6485,7 @@ Sleep Sounds
 }
 
 @misc{kiwixandroid_issue_2907_anrs_exceed_bad_bhaviour_threshold_for_android_10_and_11,
-    title = {Kiwix Android: ANRs exceed bad behavior threshold for Android 10 and 11},
+    title = {Kiwix Android: ANRs exceed bad behavior threshold for Android 10 and 11, Issue 2907},
     url = {https://github.com/kiwix/kiwix-android/issues/2907},
     author = {Julian Harty},
     year = {2022},
@@ -7357,6 +7359,18 @@ Sleep Sounds
   organization = {{Google Inc.}},
 }
 
+@misc{androiddevelopersblog2022_new_google_play_sdk_index_helps_you_choose_the_right_sdks_for_your_app,
+    title = {New Google Play SDK Index helps you choose the right SDKs for your app},
+    url = {https://android-developers.googleblog.com/2022/05/new-google-play-sdk-index.html},
+    year = {2022},
+    author = {Yafit Becher and Ray Brusca},
+    abstract = {
+        App developers rely on SDKs to integrate key functionality and services for their apps and games. SDKs are essential building blocks, but developers have shared that it can be hard to figure out which SDKs are reliable and safe to use. So helping developers, like you, make informed decisions about SDKs is part of keeping Google Play a safe, trusted space for billions of people.
+
+        In 2020, we launched Google Play SDK Console to give SDK providers crash reporting, usage statistics, and a way to communicate critical issues to app developers through Google Play Console and Android Studio. Today, we’re taking another step to increase communication and transparency by launching Google Play SDK Index, a new public portal that lists over 100 of the most widely used commercial SDKs, and insights about each one.
+    }
+}
+
 @online{androiddevelopers2020_permission_denials,
   title = {Permission Denials - Android Developers},
   url = {https://developer.android.com/topic/performance/vitals/permissions},
@@ -7376,6 +7390,23 @@ Sleep Sounds
   abstract = {
     The Google Play Developer Console makes a wealth of data available to you so you have the insight needed to successfully publish, grow, and monetize your apps and games. We appreciate that some developers want to access and analyze their data beyond the visualization offered today in the Developer Console, which is why we’ve made financial information, crash data, and user reviews available for export. We're now also making all the statistics on your apps and games (installs, ratings, GCM usage, etc.) accessible via Google Cloud Storage.
   }
+}
+
+@misc{androiddevelopers2022_google_play_sdk_index,
+    title = {Google Play SDK Index},
+    url = {https://developer.android.com/distribute/sdk-index},
+    organization = {{Google Inc.}},
+    author = {{Google Developers}},
+    year = {2022},
+    abstract = {
+        Google Play SDK Index provides insights and usage data for popular commercial SDKs on Google Play so you can make informed decisions about whether an SDK is right for your business and your users.
+
+        Find over 100 of the most widely used commercial SDKs and insights about each one.
+    },
+    extracts = {
+        How SDK providers partner with Google Play
+        SDK providers can claim and register their SDKs on Google Play SDK Console to see statistics and crash reporting, and to share information with developers. SDK providers can send you urgent messages through Google Play Console and Android Studio. Now if there's an issue, Google Play can warn you about it before you publish an app release with a problematic version.
+    }
 }
 
 @misc{appannie2021,
@@ -7702,6 +7733,17 @@ Sleep Sounds
   year = {2022},
   author = {{Google Inc.}},
   note = {Retrieved \nth{1} March 2022},
+}
+
+@misc{posey2021_how_to_reclaim_your_privacy_from_Windows10_part_2,
+    title = {How To Reclaim Your Privacy from Windows 10, Part 2},
+    url = {https://redmondmag.com/articles/2021/03/03/reclaim-privacy-from-windows-2.aspx},
+    author = {Brien Posey},
+    year = {2021},
+    publisher = {{1105 Media Inc.}},
+    abstract = {
+        These are the top four privacy settings to check in your Windows device to make sure Microsoft doesn't collect any data you don't want it to.
+    }
 }
 
 @misc{googlepatent_hyman2016_collecting_application_usage_analytics,

@@ -35,6 +35,8 @@ This chapter first identifies the evidence requirements in \secref{methodology-e
 
 \section{Evidence requirements}~\label{methodology-evidence-requirements}
 Answering the research question requires rich, contextualised evidence of how developers use mobile analytics in practice.\pending{Add paragraph before this to replay findings of literature review, together with the overarching research question. If you organise your literature review as we discussed to use the three columns of the perspectives,  you could introduce the six perspectives at the end of the Lit Review. If the Lit Review takes a different direction introduce the six perspectives here.}  
+Hutchins writes about studying `cognition in the wild' to provide rich and emergent findings from the real world for phenomena that are hard to capture and analyse without their rich context
+~\citep{hutchins1995_cognition_in_the_wild}.
 Hence, the research needs to be situated in real-world industry practice and experience, drawing on different examples of real-world apps and projects for which analytics have relevance, \textit{i.e.}, that are part of an app-store ecosystem that collects analytics, and that are used by real-world users. 
 %The evidence needs to come from the developers, from their app microcosms, and from real-world mobile analytics.
 
@@ -61,7 +63,7 @@ The nature of research in a sometimes messy real-world environment means access 
 \begin{itemize}
     \itemsep0em
     \item \textbf{Development artefacts}: their origin is the development team. They include: app binaries, app source code, tests, work schedules, documentation, bug tracking systems, \textit{etc.}, these were collected during the various case studies and complemented by public sources for additional mobile apps. 
-    \item \textbf{`Grey material'}: includes grey data and grey literature. Some examples were stimulated as part of the case studies; others were found during additional background research.
+    \item \textbf{`Grey material'}: includes grey data and grey literature. Some examples were gathered during the case studies; others were found during additional background research.
     \begin{itemize}
                 \item Grey data includes: various discussion forums used by mobile app developers and other online contextual information, online issue tracking and related code for opensource projects beyond those that were the focus of the app-centric case studies (e.g., open source networking libraries used by Android apps). 
                 \item Grey literature includes: online materials on mobile analytics tools, articles including on medium.com and various blogs. Some were found in response to observations during particular case studies, others were found during additional background research.
@@ -126,7 +128,7 @@ Perhaps unsurprisingly, analytics tools and associated artefacts contribute most
 
 
 \section{Methodology}~\label{methodology-methodology-section}
-The germs of the methodology include three primary complementary sources: Ball and Ormerod's `cognitive ethnography', Runeson and Höst's `guidelines for conducting and reporting case study research in software engineering', and Seaman's `Qualitative methods in empirical studies of software engineering'~\footnote{Note: this methodology was also influenced by additional research from a variety of authors in the fields of software engineering and \href{glossary-esse}{ESSE}.}.
+The methodology builds on three primary complementary sources: Ball and Ormerod's `cognitive ethnography', Runeson and Höst's `guidelines for conducting and reporting case study research in software engineering', and Seaman's `Qualitative methods in empirical studies of software engineering'~\footnote{Note: this methodology was also influenced by additional research from a variety of authors in the fields of software engineering and \href{glossary-esse}{ESSE}.}.
 
 Broadly, this research starts from what Ball and Ormerod described as `cognitive ethnography'~\citep{ball2000_putting_ethnography_to_work_cognitive_ethnography}, that is, observation-based enquiry conducted \textit{in situ} to investigate ``...the interplay between people-laden contexts and expert cognition'' (p. 149). Ball and Ormerod characterise cognitive ethnography in terms of observational specificity, verifiability and purposiveness: 
 
@@ -137,7 +139,7 @@ Broadly, this research starts from what Ball and Ormerod described as `cognitive
 Consistent with this orientation, this research sought to derive a situated understanding of analytics (in terms of the six perspectives in Figure~\ref{fig:six-perspectives-in-the-methodology}). The insights that emerged from the more ethnographically-inspired analysis of naturally-occurring data were then investigated further and tested using other approaches, namely across-case comparison, hypothesis testing (systematic manipulation in micro experiments) and action research (evaluation through interventions in specific cases) -- consistent with Ball and Ormerod's emphasis on verifiability.  
 
 As Runeson and Höst note, software engineering motivates specialised research methodologies as the study objects: develop software, they are project oriented, and the work is advanced engineering work by highly educated people~\citep[pp. 132-133]{runeson_2008_guidelines_for_conducting_and_reporting_case_study_research_in_sw_eng}. % See below comment for the relevant text.
-These criteria apply to all the case studies in this research, and therefore specialised research methods were developed in order to perform the research effectively and productively. 
+These criteria apply to all the case studies in this research, and therefore a variety of research methods was adopted in order to perform the research effectively and productively. 
 
 \begin{comment}
 The study objects are 1) private corporations or units of public agencies developing software rather than public agencies or private corporations using software systems; 2) project oriented rather than line or function oriented; and 3) the studied work is advanced engineering work conducted by highly educated people rather than routine work. 
@@ -486,7 +488,7 @@ This research applies their recommendation where the research informs the practi
 
 All the roles support communications with the project and allow the researcher to ask questions, offer suggestions including issues and/or code contributions, and discuss findings with the developers for their case study. All include at least some observation and analysis. 
 
-The coach and embedded developer roles ended up being fairly similar. They both included organising a hackathon and a field experiment for the respective project. The material differences were two-fold: a) the embedded developer role continued for several years, whereas the coach role was for several months, and b) the embedded developer role included contributions to the project's code-base. 
+The coach and embedded developer roles ended up being fairly similar. They both included organising a hackathon and a field experiment for the the Kiwix and Catrobat projects. The material differences were two-fold: a) the embedded developer role continued for several years, whereas the coach role was for several months, and b) the embedded developer role included contributions to the project's code-base. 
 
 The consultant role included engineering leadership, mentoring developers and product owners in learning how they could integrate mobile analytics into their work practices, co-writing automated tests and related code, code reviews, and working with various mobile analytics tools throughout the assignment.
 
@@ -527,6 +529,7 @@ The decisions were made mutually by the parties involved. Generally, the project
 %Runeson and Höst identify five major process steps for a case study research process \citep[pp. 137-138]{runeson_2008_guidelines_for_conducting_and_reporting_case_study_research_in_sw_eng}:
 
 \begin{comment}
+% Their list
 \begin{enumerate}
     \itemsep0em
     \item Case study design: objectives are defined and the case study is planned.
@@ -543,6 +546,7 @@ The decisions were made mutually by the parties involved. Generally, the project
 %The procedure used in this research aligns broadly with Runeson and Höst's, but makes explicit steps that are oriented to engagement with the projects and their organisations, as well as analysis at different points:
 
 \begin{comment}
+% My list
 \begin{enumerate}
     \itemsep0em
     \item Selection,
@@ -617,7 +621,7 @@ The wrap-up of a case study included various actions such as safeguarding and ar
 
 
 \subsubsection{Observation and analysis}~\label{section-observation-research-method}
-In this research, observation includes either or both development artefacts and analytics artefacts. One example is to observe the outputs from mobile analytics tools (the analytics artefacts) and what the developers do with these subsequently. 
+In this research, observation included either or both development artefacts and analytics artefacts. One example is to observe the outputs from mobile analytics tools (the analytics artefacts) and what the developers do with these subsequently. 
 
 Observation is combined with analysis, both contemporaneous and post-hoc.   Findings were presented to the project and development team, in order to: 1) provide value for the team members who were willing to contribute their time and who provided access to their analytics and other artefacts, and 2) encourage scrutiny and validation of the findings and observations.
 
