@@ -43,8 +43,8 @@ The nature of research in a sometimes messy real-world environment means access 
     \item \textbf{\Gls{glossary-development-artefacts}}: their origin is the development team. They include: app binaries, app source code, tests, work schedules, documentation, bug tracking systems, \textit{etc.}, these were collected during the various case studies and complemented by public sources for additional mobile apps. 
     \item \textbf{\Gls{glossary-grey-material}}: Some examples were gathered during the case studies; others were found during additional background research.
     \begin{itemize}
-                \item Grey data includes: various discussion forums used by mobile app developers and other online contextual information, online issue tracking and related code for opensource projects beyond those that were the focus of the app-centric case studies (\textit{e.g.}, open source networking libraries used by Android apps). 
-                \item Grey literature includes: online materials on mobile analytics tools, articles including on medium.com and various blogs. Some were found in response to observations during particular case studies, others were found during additional background research.
+                \item Grey data\index{Grey data} includes: various discussion forums used by mobile app developers and other online contextual information, online issue tracking and related code for opensource projects beyond those that were the focus of the app-centric case studies (\textit{e.g.}, open source networking libraries used by Android apps). 
+                \item Grey literature\index{Grey literature} includes: online materials on mobile analytics tools, articles including on medium.com and various blogs. Some were found in response to observations during particular case studies, others were found during additional background research.
     \end{itemize}
     \item \textbf{Pre-study interviews}: with developers and, as appropriate, authorised representatives of their organisation. These were used for setting up the study and understanding the development context. They were collected as part of the case studies.
     \item \textbf{Mid-study communications with developers}: usually email correspondence for clarification, to obtain updates, or comment on observations. These were collected as part of the case studies.
@@ -156,7 +156,7 @@ Table~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various rese
         \textbf{Sense-making} & & & & & & \\
         (comprehension and exploration) & & & & & & \\
         Beacon finding and    &S &m &S &m &m &m \\
-        Drill Down            &m &m &S &S &m &m \\
+        Drill-down            &m &m &S &S &m &m \\
         %\tabucline[1pt on 3pt]  \\ % See https://tex.stackexchange.com/a/109301/88466 however here it is terminated prematurely and a bit heavy 
         % Or try https://tex.stackexchange.com/a/229334/88466 or https://tex.stackexchange.com/a/613907/88466 if I've not collapsed these two previous rows soon.
         % Or use a newer latex package, see https://tex.stackexchange.com/a/611494/88466 
@@ -192,7 +192,7 @@ Table~\ref{tab:mapping-analysis-to-six-perspectives} identifies the various rese
 
 `\textbf{Sense-making}'\index{Sense-making} methods were concerned with understanding current practice (as reflected in artefacts, tools, and developers' practices and perspectives -- i.e., perspectives \uartefacts, \utools, and \uuse) and identifying potential improvements in tools and in how analytics are used in app development and maintenance (i.e., perspectives \itools and \iartefacts). The research methods include beacon-finding (see page~\pageref{section-beacon-finding-method}) and drill-down (see page~\pageref{drill-down-research-method}).
 
-Sense-making incorporates an iterative pattern of \textbf{beacon finding} to identify areas of interest within a case, \textbf{drill down} to investigate one or more beacons, and comparisons both within and across~\footnote{While across-case comparisons are grouped under sense-building, they also help with sense-making.} cases to identify patterns, relationships, counterfactuals~\footnote{\emph{``...relating to or expressing what has not happened or is not the case." Oxford Languages.}}, as some characteristics emerge in contrasts across and between studies. Comparisons were performed iteratively on an ongoing basis (for active apps the values are not constant). These comparisons included comparisons across releases, using different windows of time, on different dates, comparisons with peers, and so on.
+Sense-making incorporates an iterative pattern of \textbf{beacon finding} to identify areas of interest within a case, \textbf{drill-down} to investigate one or more beacons, and comparisons both within and across~\footnote{While across-case comparisons are grouped under sense-building, they also help with sense-making.} cases to identify patterns, relationships, counterfactuals~\footnote{\emph{``...relating to or expressing what has not happened or is not the case." Oxford Languages.}}, as some characteristics emerge in contrasts across and between studies. Comparisons were performed iteratively on an ongoing basis (for active apps the values are not constant). These comparisons included comparisons across releases, using different windows of time, on different dates, comparisons with peers, and so on.
 
 
 `\textbf{Sense-building}'\index{Sense-building} methods build on -- and test -- insights found through sense-making. The research methods included micro-experiments, carried out on local apps (see page~\pageref{local-app-experiments-research-method}), FOSS analytics experiments % COULD-DO Arosha's suggested alternative concepts of white and black box testing of the tools. I'm mulling these over. TBD.} 
@@ -222,10 +222,21 @@ Sense-making uses various methods including drill-down, covered in \secref{drill
     \item Drill-down in the current mobile analytics tool for the same app (segment 1 in Figure~\ref{fig:boston-matrix-app-and-mobile-analytics-tool}).
     \item Drill-down in the current mobile tool for other apps (segment 3 in Figure~\ref{fig:boston-matrix-app-and-mobile-analytics-tool}). \\ (If the app incorporates other mobile analytics tools these tools may also help where there is overlapping content common to both tools; for example crashes reported in both Android Vitals and in Crashlytics, (segment 2 in Figure~\ref{fig:boston-matrix-app-and-mobile-analytics-tool}).)
     \item Comparing various analytics artefacts, particularly reports, using various criteria. These comparisons may be within a single mobile analytics tool, or across several mobile analytics tools.
-    \item Searching grey data and grey literature and cross referencing of materials.
+    \item Searching grey data\index{Grey data} and grey literature\index{Grey literature} and cross referencing of materials.
     \item Asking people: for instance colleagues, the developers of the app, the developers of the mobile analytics tool, \textit{etc}.
     \item Experimental `spikes' where a simple,  minimal effort piece of code is written to try out an idea~\footnote{\url{https://en.wikipedia.org/wiki/Spike_(software_development)}}. (These tend to require significant effort so are not likely to be used lightly).
     \item Check development artefacts as these may provide relevant and pertinent information and clues.
+\end{itemize}
+
+Similarly, sense-making can include many activities, such as:
+% NB: I'm not quite sure where to place the following, I might end up moving it or splitting it apart into various sections.
+ \begin{itemize}
+    \itemsep0em
+    \item Collating similar failures.
+    \item Ordering and ranking clusters of failures.
+    \item Bug identification and localisation: Establishing potentially pertinent patterns in the reports, and characterising when a failure \emph{does and does not} occur are part of this work. Obtaining an identifying definitive boundaries may be impractical, the work is often iterative and exploratory in nature and lossy. 
+    \item Bug investigation.
+    \item Checking whether there is likely to be sufficient evidence for any triage process.
 \end{itemize}
 
 \begin{figure}
@@ -239,9 +250,13 @@ Sense-making uses various methods including drill-down, covered in \secref{drill
 
 The notion of \textbf{`beacons'} is borrowed from research on program comprehension; for instance by Wiedenbeck, who helped establish the notion of beacons in software development: ~\emph{``In programming, beacons are lines of code which serve as typical indicators of a particular structure or operation''}~\sidecite[][p. 679]{WIEDENBECK1986_beacons_in_computer_program_comprehension}. The work was extended and updated to explicitly consider the effects of beacons in comprehension of source code, for instance in~\sidecite{crosby2002_roles_beacons_play_in_comprehension_etc}.
 
-The notion of beacons was generalised for this research to include indicators in the analytics of something of interest, or something that required attention.  And so `beacon finding' was an inductive process by which significant indicators in the analytics data were identified -- and then used to identify areas of the code base that required further investigation.  Mobile analytics may include source code that calls APIs in the application's source code, however the bulk of the contents that need to be comprehended comes as outputs from the mobile analytics tools, therefore the beacons will differ accordingly. In this research the beacons include: the shape of graphs in mobile analytics report, failure clusters, a method call in stack traces, and so on\todo{I'm assembling some relevant raw notes in a new file: beacons-in-mobile-analytics.tex TBD where and how I'll integrate it.}.
+The notion of beacons was generalised for this research to include indicators in the analytics of something of interest, or something that required attention.  And so `beacon finding' was an inductive process by which significant indicators in the analytics data were identified -- and then used to identify areas of the code base that required further investigation.  Mobile analytics may include source code that calls APIs in the application's source code, however the bulk of the contents that need to be comprehended comes as outputs from the mobile analytics tools, therefore the beacons will differ accordingly. In this research the beacons include: the shape of graphs in mobile analytics report, failure clusters, a method call in stack traces, and so on\todo{I'm assembling some relevant raw notes in a new file: beacons-in-mobile-analytics.tex they are temporarily integrated next so you can see if they'd add or subract from the thesis.}.
 
 %\marian{Now specify how you spotted beacons... I looked for things on this basis, how I kept track of things, what selection criteria were used and why?}
+
+\begin{kaobox}[frametitle=Beacons in Mobile Analytics]
+\input{mainchapters/beacons-in-mobile-analytics}
+\end{kaobox}
 
 Beacons emerge in various ways. For instance in reports they include: anomalies within a report, mismatches and inconsistencies between two sibling reports or between a master report and the linked detailed report~\todo{Arosha, suggested introducing these terms for different types of report when discussing analytics tools in the lit. review. I agree, TBD once the lit. review has been reworked.}, in the shape of the curve of a graph, in the distribution and groupings of aggregate data, and so on. Similarly, alerts as determined by a mobile analytics service may be considered potential beacons being `promoted' by the mobile analytics reports. 
 
@@ -255,6 +270,7 @@ Beacons identify areas of interest; these need to be investigated further by `dr
 For Segment 1 of Table \ref{fig:boston-matrix-app-and-mobile-analytics-tool} (\emph{i.e.} the same app and the same mobile analytics tool) examples include:
 
 \begin{itemize}
+    \itemsep0em
     \item Going into greater detail in the current report for a `failure cluster'\index{Failure cluster} to understand its characteristics.
     \item  Investigating in more detail in order to understand the report, the nature of the problem, the causes, and effects. 
 \end{itemize}
@@ -278,7 +294,7 @@ The drill-down may be expanded further using feedback mechanisms, e.g.:
  
 \begin{itemize}
 \itemsep0em
-\item Searching grey data and grey literature and cross-referencing of materials.
+\item Searching grey data\index{Grey data} and grey literature\index{Grey literature} and cross-referencing of materials.
     \item Asking people: for instance colleagues, the developers of the app, the developers of the mobile analytics tool, \textit{etc}.
     \item Check development artefacts as these may provide relevant and pertinent information and clues.
 \end{itemize}
@@ -357,7 +373,7 @@ This research used four `feedback mechanisms' to validate and challenge the rese
 \item analysis of code
 \end{itemize}
 
-The first two (i.e., the mid-study communications with developers) extend understanding of topics emerging from sense-making or sense-building, consistent with Ball and Ormerod's `cognitive ethnography'~\sidecite{ball2000_putting_ethnography_to_work_cognitive_ethnography} and Petre's `targeted observation'~\sidecite[][p.234]{petre2009_insights_from_expert_software_design_practice}, by engaging with the developers who are situated in their actual practice in their real-world microcosm.  For example, the developers can be asked about their experiences, perceptions or reasoning about emergent observations, or to explain particular decisions or practices that have been highlighted by the research. The latter two feedback mechanisms provide comparison to additional data drawn from analysis of existing information (i.e., grey literature, grey data, code).  The feedback mechanisms draw on multiple data sources, including some which are independent of the research, hence allowing for comparison/triangulation/colligation -- all with a focus on the research questions.
+The first two (i.e., the mid-study communications with developers) extend understanding of topics emerging from sense-making or sense-building, consistent with Ball and Ormerod's `cognitive ethnography'~\sidecite{ball2000_putting_ethnography_to_work_cognitive_ethnography} and Petre's `targeted observation'~\sidecite[][p.234]{petre2009_insights_from_expert_software_design_practice}, by engaging with the developers who are situated in their actual practice in their real-world microcosm.  For example, the developers can be asked about their experiences, perceptions or reasoning about emergent observations, or to explain particular decisions or practices that have been highlighted by the research. The latter two feedback mechanisms provide comparison to additional data drawn from analysis of existing information (i.e., grey literature\index{Grey literature}, grey data\index{Grey data}, code).  The feedback mechanisms draw on multiple data sources, including some which are independent of the research, hence allowing for comparison/triangulation/colligation -- all with a focus on the research questions.
 
 \subsubsection{Ask the app devs}~\label{section-ask-the-app-devs-research-method}\index{Ask the app developers method}
 The developers of the apps are uniquely able to voice their perceptions and thinking on their use, experience, and perceptions of using mobile analytics. They are therefore well placed to provide feedback on their use of mobile analytics and also answer questions about their use of mobile analytics in their development artefacts and their perceptions of the mobile analytics tools.
@@ -371,7 +387,7 @@ The research method entails communicating with knowledgeable, available and inte
 
 \subsubsection{Grey literature and grey data analysis}~\label{section-grey-literature-and-data-analysis-research-method}\index{Analysis!Grey literature}\index{Analysis!Grey data} %\improvement{So two shades of grey? :)}   
 
-A great deal of grey literature and grey data~\sidecite[][pp 219-221]{banks2010_blog_posts_and_tweets_the_next_frontier_for_grey_literature} is available online, covering mobile analytics and to errors, problems related to source code and libraries used in real-world mobile apps. The main sources of relevant grey data include Stack Exchange websites frequented by mobile app developers (particularly \href{https://stackoverflow.com/}{stackoverflow.com}) and GitHub. 
+A great deal of grey literature\index{Grey literature} and grey data\index{Grey data}~\sidecite[][pp 219-221]{banks2010_blog_posts_and_tweets_the_next_frontier_for_grey_literature} is available online, covering mobile analytics and to errors, problems related to source code and libraries used in real-world mobile apps. The main sources of relevant grey data include Stack Exchange websites frequented by mobile app developers (particularly \href{https://stackoverflow.com/}{stackoverflow.com}) and GitHub. 
 
 Both Stack Exchange and GitHub provide comprehensive and useful search capabilities which help find relevant content, for instances examples where other development teams have found, understood, and addressed particular crashes in their Android app that also apply to the app in the case study.
 
@@ -437,7 +453,7 @@ This research applies their recommendation where the research informs the practi
 
 All the roles support communications with the project and allow the researcher to ask questions, offer suggestions including issues and/or code contributions, and discuss findings with the developers for their case study. All include at least some observation and analysis. 
 
-The coach and embedded developer roles ended up being fairly similar. They both included organising a hackathon and a field experiment for the the Kiwix and Catrobat projects. The material differences were two-fold: a) the embedded developer role continued for several years, whereas the coach role was for several months, and b) the embedded developer role included contributions to the project's code-base.
+The coach and embedded developer roles ended up being fairly similar. They both included organising a hackathon and a field experiment for the the Kiwix\index{Kiwix} and Catrobat\index{Catrobat} projects. The material differences were two-fold: a) the embedded developer role continued for several years, whereas the coach role was for several months, and b) the embedded developer role included contributions to the project's code-base.
 
 The consultant role included engineering leadership, mentoring developers and product owners in learning how they could integrate mobile analytics into their work practices, co-writing automated tests and related code, code reviews, and working with various mobile analytics tools throughout the assignment. (Table \ref{tab:app-centric-studies-research-perspective} maps the roles to the app centric case studies.)
 
@@ -515,7 +531,7 @@ The analytics-centric methodology grounded in case studies corresponds in princi
 \section{Introducing the case studies}~\label{section-introducing-the-case-studies}
 All the case studies involved application of sense-making, sense-building and feedback mechanisms. There are two broad categories of case study: app-centric and tool-centric. 
 
-Each app-centric case study is centred around a single codebase, that codebase may be used in one app or in several, and the organisation may have additional code bases and associated apps. In the Catrobat case study the additional app and codebase provide a useful contrast to the primary one in the case study.
+Each app-centric case study is centred around a single codebase, that codebase may be used in one app or in several, and the organisation may have additional code bases and associated apps. In the Catrobat\index{Catrobat} case study the additional app and codebase provide a useful contrast to the primary one in the case study.
 
 The tool-centric case studies are centred on a single mobile analytics tool. Some of the tool-centric case studies emerged from the app-centric case studies, others emerged from mini-experiments or from grey materials.
 
@@ -635,12 +651,12 @@ The approach adopted to maximise the rigour of the research is to ensure that th
 
 At least some of the results from the micro-experiments also led to subsequent outcomes in the real-world apps and tools. These outcomes help validate the external validity of these more controlled experiments. 
 
-At least two of the software utilities that were developed as part of this research have been used by other projects, vitals scraper was used at Moonpig and crash-dummy was enhanced and used by a corporation (details of whom are covered by private communications). These help provide some indication the software developed as part of this research are reproducible. Also, a set of artefacts generated by vitals-scraper have been published and made available to the research community. 
+At least two of the software utilities that were developed as part of this research have been used by other projects, vitals scraper\index{Vitals scraper} was used at Moonpig\index{Moonpig} and crash-dummy was enhanced and used by a corporation (details of whom are covered by private communications). These help provide some indication the software developed as part of this research are reproducible. Also, a set of artefacts generated by vitals scraper have been published and made available to the research community. 
 
  It is also noteworthy that all the case studies  are real-world projects with real-world engineering desires to apply mobile analytics, \emph{i.e., ``illustrating a tool’s benefits (or lack thereof) on a real software engineering activity taken from practice"}~\sidecite[][p.126]{Ko2015_a_practical_guide_to_controlled_experiments_of_sw_eng_tools_with_human_participants}. When considered together with fact that the case studies cover a variety mobile application development contexts, this supports the \emph{ecological validity} of the research.
 
 \textbf{Repeatability}:
-As mentioned here and elsewhere in the dissertation, the software developed as part of this research has been released under a permissive opensource license to encourage and facilitate further research, and a set of the outputs generated by vitals scraper have been preserved and made available.
+As mentioned here and elsewhere in the dissertation, the software developed as part of this research has been released under a permissive opensource license to encourage and facilitate further research, and a set of the outputs generated by vitals scraper\index{Vitals scraper} have been preserved and made available.
 
 
 \section[Summary of the methodology chapter]{Summary}~\label{methodology-summary-section}
