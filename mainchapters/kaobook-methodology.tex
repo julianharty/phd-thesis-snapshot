@@ -477,8 +477,10 @@ By the \emph{post-hoc} analysis stage, the active engagement with the project ha
 Conclusions, together with their supporting findings and their respective sources, were verified with the project team when feasible. 
 
 \newthought{Analysis of findings:}
-Conceptually, the findings were analysed systematically~\sidecite{cruzes2011_recommended_steps_for_thematic_analysis_in_software_engineering, braun2012_thematic_analysis}.\todo{Integrate their research into this section.} They were first analysed at a granular (low) level; these were then aggregated into higher level themes. Both the lower- and higher-level themes were counted to establish their relative frequency in the findings. 
+Conceptually, the findings were analysed systematically, and the findings were first analysed at a granular (low) level; these were then aggregated into higher level themes. Both the lower- and higher-level themes were counted to establish their relative frequency in the findings. 
 To support the analysis, a spreadsheet was used that incorporates named ranges and formulae to reduce manual errors and make the analysis easier to scale and revise as any new findings emerged. Details on how the thematic analysis was performed are available in the \href{appendix-thematic-analysis}{\nameref{appendix-thematic-analysis}} appendix.
+
+The approach I used was similar to the approach described in ~\sidecite{braun2012_thematic_analysis}. They provide a six phase process which I would have used as-is if I had known about their approach during my analysis, nonetheless my approach was similar and corroborates theirs albeit I used themes at both the lower and higher level analysis, along the lines of~\sidecite[][pp. 280-281]{cruzes2011_recommended_steps_for_thematic_analysis_in_software_engineering}. Visual modelling helped organise the themes and their relationships, as per [p. 280] in the same research. The visual models, in the form of Ishikawa (fishbone) diagrams were reviewed with several academic colleagues and refined iteratively together with suitable revisions to the various themes.
 
 \subsubsection{Field experiment}~\label{section-field-experiment-method}\index{Field experiment}
 In this research, field experiments used real-world apps and their core code repositories. They were not as rigorous as controlled experiments due to the nature of the development teams and their priorities. Nonetheless, they included a control app and an experiment app;  experiments were performed on the experiment app and mobile analytics results compared for both these apps. They are also ecologically valid, ~\sidecite[][p.126]{Ko2015_a_practical_guide_to_controlled_experiments_of_sw_eng_tools_with_human_participants}, as they were situated in real-world challenges found in their core mobile apps.
@@ -491,9 +493,39 @@ My research didn't have the opportunity to compare two tools quantitatively, nor
     \item Both the opensource projects had multiple apps, including one that had the worst reliability of their apps (as measured by mobile analytics). The project leads saw value in helping arrange and support the hackathons. They also had apps which were suitable to act as the control for their hackathon. 
 \end{itemize}
 
-%%%%% Julian Continue here.
+\subsubsection{Hackathon}~\label{section-hackathon-research-method}
+This research method applied the concepts of software development hackathons and added the use of mobile analytics tools as a source of information related to issues in the behaviour (\emph{i.e.}, failure data) of one of more of that team's mobile apps.
+
+In the terminology of \sidecite[][pp. 1-3]{drouhard2016_typology_of_hackathon_events} (as used in ~\sidecite[][p.3]{medina2020_what_do_we_know_about_hackathons_etc_a_SLR}), the hackathons were 
+\emph{communal} as the participants were part of common development communities (as developers for the opensource apps they contributed to); \emph{contributive} as there were common concerns about the issues the hackathons were intended to address with a strong desire for impact; and \emph{catalytic} as one of the aims was to demonstrate a new approach to the use of a dataset (mobile analytics reports) and technology (mobile analytics tools).  
+
+No rewards were offered to participants beyond being at the respective hackathon and participating. ~\sidecite[][p.5]{briscoe2014_digital_innovation_the_hackathon_phenomenon} termed these `Single-Application' hackathons. The participants were current members of the respective development team.  The hackathons included the researcher and a highly-experienced leader and contributor in previous hackathons. They prepared much of the hackathons together; and in one case (PocketCode) co-led the hackathon. The app, topic, and focus were both selected as part of the preparations. The work during the hackathon was determined by the participants, with guidance and suggestions from the organisers.
+
+% https://hackathon-planning-kit.org/ 
+
+The outcomes of the hackathons included bug reports, and code changes \emph{i.e.} fixes intended to address some of the bugs found in the respective hackathon. Both the bug reports and the code changes were analysed over a period of several months to observe the effects of each hackathon. The mobile analytics reports were also monitored as new releases of the respective apps were launched to observe the effects of the code changes.
+
+\subsection{Summary of the analytics-centric methodology}~\label{analytics-centric-methodology-section}
+
+The research needed to be grounded in real-world projects and with real-world app development teams; accordingly the methodology incorporates a mutually-beneficial, symbiotic, bi-directional connection where the iterative research is evaluated with and through these real-world projects and teams. 
+
+The analytics-centric methodology grounded in case studies corresponds in principle to the structure and premises of grounded theory~\sidecite{corbin2014_basics_of_qualitative_research_4th_edition} where patterns are induced, data iterated to see if categories are appropriate, and identifying patterns with comparisons with other data sets for checks and balances. Although the research includes a variety of apps, development teams, and mobile analytics tools, the practical limitations of PhD research compared to the vast volumes of apps, mobile analytics tools, and so on means the research and therefore the results cannot be definitive. The research will not reach saturation in terms of determining the transition point where additional cases wouldn't contribute new insights.
+
 
 \section{Introducing the case studies}~\label{section-introducing-the-case-studies}
+All the case studies involved application of sense-making, sense-building and feedback mechanisms. There are two broad categories of case study: app-centric and tool-centric. 
+
+Each app-centric case study is centred around a single codebase, that codebase may be used in one app or in several, and the organisation may have additional code bases and associated apps. In the Catrobat case study the additional app and codebase provide a useful contrast to the primary one in the case study.
+
+The tool-centric case studies are centred on a single mobile analytics tool. Some of the tool-centric case studies emerged from the app-centric case studies, others emerged from mini-experiments or from grey materials.
+
+
+For the app-centric case studies in this research, every project included at least one actively-used Android app in Google Play\sidenote{By having an active app in Google Play they will also have access to the Google Play Console\index{Google Play Console} with its dashboard, Android Vitals, release tools, and other related reports. Therefore they will \emph{de-facto} have at least one source of analytics, collected by the Google Android platform.}. The case studies range in the richness of their contributions to the research; Table~\ref{tab:app-centric-studies-research-perspective} provides the research context for each of the seven app-centric case studies. The table has four groupings, these are for the four main research methods used in these case studies. The first grouping (and main research method) is for the interview-centric case studies, those without a planned intervention. The other three research methods all involve at least one planned intervention.
+
+As Table~\ref{tab:app-centric-studies-research-perspective} indicates, four project teams were interviewed to provide the developers' perspectives on their use of various mobile analytics tools. Two of these (LocalHalo\index{LocalHalo} and \acrshort{gtaf}\index{GTAF}) provided real-time access to at least one of these tools. GTAF also provided access to their bug tracking system which records issues they find using mobile analytics.
+
+During this research I was already working as part of a development team for the Kiwix\index{Kiwix} project. The other cases were accessed through personal recommendation; two were via academia (Catrobat\index{Catrobat} and \acrlong{gtaf}) and the rest via software developers in industry.
+
 
 \begin{table*}
     \centering
@@ -521,8 +553,103 @@ My research didn't have the opportunity to compare two tools quantitatively, nor
     \label{tab:app-centric-studies-research-perspective}
 \end{table*}
 
+Three project teams were subject to interventions. Of these, both Kiwix\index{Kiwix} and Catrobat\index{Catrobat} develop and work as opensource projects where access to their code, to their issue tracking, and to other aspects of their projects are public. They both also provided access to their mobile analytics tools. The last of these case studies, C1\index{C1}, is based on a mission-critical commercial product where a similar approach to applying mobile analytics was applied for the Android app element of the product.
+
+\subsection{Introducing the tool-centric case studies}~\label{methodology-introducing-the-tool-centric-case-studies-section}
+
+The app-centric cases were complemented by empirical studies with several providers of mobile analytics tools where there was mutual interest in exploratory field studies; Table~\ref{tab:tool-centric-studies-research-perspective} provides the research context for the tool-centric case studies. They entries are grouped by the main research method.
+
+The tool-centric studies range from those that were part of an app-centric case study (the first four listed in Table~\ref{tab:tool-centric-studies-research-perspective} \textit{i.e.}, Fabric Crashlytics\index{Crashlytics!Fabric}, Microsoft App Centre\index{App Center}, Sentry\index{Sentry}, and Google Play Console\index{Google Play Console} with Android Vitals\index{Android Vitals}). Of these the Google Engineering team choose to engage further with the research and the findings based on the initial findings regarding behaviours and flaws in Android Vitals and Google Play Console.
+
+Iteratively (who sought out the researcher, learned about the research, and was happy to share their tools and some of its commercial research), and several mobile analytics providers who provide at least some of their material as opensource. 
+
+Shortly after Iteratively was acquired by Amplitude, the Iteratively SDK was incorporated into an updated version of one of the small local app experiments. In effect it was an informal, early-experience program (\acrshort{ieep}) which continued during the post-acquisition integration of Iteratively's product into Amplitude and the migration of the mobile analytics account.
+
+Finally some minor contributions to two mobile analytics tools that include opensource elements which are not listed in this table (PostHog and Sentry). These minor contributions will be covered separately in the Tools chapter (temporarily the material will be in the  \href{appendix-analytics-tools}{Analytics Tools used in this research} material in the \href{tools-minor-contributions}{minor contributions section}).\todo{Relocate the relevant material to the Tools chapter!}
+
+
+\begin{table*}
+    \centering
+    %\tabcolsep=0.06cm
+    %\tiny
+    \footnotesize
+    \begin{tabular}{p{3.2cm}llp{3.3cm}p{3.3cm}}
+    \toprule
+    Case Study              & Role of Researcher    &  Main Research Method & Research Opportunities             & Research Purpose \\
+    \midrule
+    Firebase Analytics      & Interviewer           & Ask the app devs      & Insights into maintaining a reliable app  & Obtain expert user's view of the most popular mobile analytics tool \\
+    \arrayrulecolor{blue!20}\midrule
+    
+    Fabric Crashlytics      & Analyst/Observer      & Sense-making          & Compare 2 Google Analytics tools  & Triangulation \\   Microsoft App Centre    & Analyst/Observer      & Sense-making         & Crash \& Error analytics          & Blue-chip alternative \\
+    Sentry                  & Analyst/Observer      & Sense-making          & Mobile analytics for React Mobile cross-platform apps    & Increase variety and coverage of tools \\
+    \arrayrulecolor{blue!20}\midrule
+
+    Google Play Console with Android Vitals & Analyst/Observer  & Ask the tool devs & Mutual symbiotic cross-pollination & Learn about the providers' perspectives \\
+    Iteratively             & Consultant            & Ask the tool devs & `Behind the curtain' & Discover state of the art approach to improving the rigour of mobile analytics \\
+    Iteratively->Amplitude  & Interviewer \& IEEP & Ask the tool devs & Explore state of the art novel tool & Insights into \itools \\
+    \arrayrulecolor{black}\bottomrule
+    \end{tabular}
+    \caption[Tool-centric cases: the research perspective]{Tool-centric cases: the research perspective \\ {\footnotesize IEEP = Informal Early Experience Program}}
+    \label{tab:tool-centric-studies-research-perspective}
+\end{table*}
+
+
 \section{Ethical considerations}~\label{methodology-ethical-considerations-section}
+The research was informed by both the researcher's professional experience as a software engineering practitioner, and professional codes of practice. Where appropriate ethics approval was obtained from the Open University's Human Research Ethics Committee (HREC).
+
+During the research, I was a member of three relevant professional bodies: the British Computer Society (BCS), the IEEE, and the ACM, and worked to abide by their respective codes of conduct~\sidecite{bcs_code_of_conduct_2021, ieee_and_acm_code_1999on}.
+
+The ethical considerations implemented during this research can be described using the core concepts presented by Singer and Vinson, namely: \emph{``informed consent, scientific value, beneficence and confidentiality"}~\sidecite[][p.1178]{singer2002_ethical_issues_in_empirical_studies_of_software_engineering}. 
+
+\newthought{Informed consent:}
+Consent was obtained from the development team leaders and development team members who participated; and consent was also obtained from their respective organisation as appropriate. In every case they were explicitly aware of the research from the outset of discussions.  Consent was obtained during the engagement discussions, and in some cases had to be extended during later phases, e.g., if the scope of the study increased and/or additional mobile analytics tools were introduced.
+
+\emph{De-facto} consent was also given in terms of the access provided to the tools and artefacts that teams and their organisations provide during the case study. They may also place constraints on aspects of the use of the materials obtained, \emph{i.e.}, consent may be fine-grained and also context dependent.
+
+Additionally, consent was obtained from the app development teams to share findings with the mobile analytics development teams and vice-versa as and where appropriate. This was not applicable in all the cases.
+
+\newthought{Scientific value:}
+The importance and relevance of seeking ways to improve the quality of mobile apps and the processes used when developing those apps have been confirmed from multiple sources, including academia and industry.\todo{Cross-link with the related work chapter.} The importance of mobile analytics is evidenced by the practices of app developers who include mobile analytics in over 75\% of all Android apps in Google Play, and by the ongoing development of a multitude of mobile analytics tools and related services. This research aims to contribute to knowledge about the practices, the tools, and the outcomes of using mobile analytics tools as part of development practices. 
+
+\newthought{Beneficence:}
+Beneficence aims to maximise the overall benefits for all the stakeholders and harm none. This includes the people who participate in the development teams, their organisations (where applicable), and the end users of their mobile app(s).  The different beneficiaries of the research can be summarised as follows: (1) app developers by helping them make effective use of mobile analytics; (2) organisations involved by helping improve the quality of their apps; (3) analytics tool developers by providing insights into tool use and potential improvements; and (4) end-users by potentially improving the app's performance and reliability downstream.
+
+\newthought{Confidentiality:}
+The confidentiality of the participants and also of the information provided and/or gleaned during the case study was protected unless a) the work is in the public domain, or b) permission was granted to make the information public \textit{e.g.}, as part of this research.
+As the apps run on end-users' mobile devices, the risks of the data collection and the use of that data were also considered throughout the research. In particular, although some of the apps of the projects do contain \href{glossary-pii}{PII}, no PII was collected or analysed in the mobile analytics from a research perspective.
+
+\newthought{Agency of participants and their organisations:}
+`Agency' is the concept that the organisations and the relevant people were free to choose whether they wished to participate in the research, and if so potentially the nature of their involvement and/or the nature of the research. 
+
+Some candidate projects declined to participate in the research on behalf of their project or organisation for various reasons. A common reason was lack of time on their part, another was that some candidate projects perceived the research would not be acceptable to their organisation, for instance owing to confidentiality or business risk. The participating projects chose their model of engagement, which meant the researcher needed to negotiate the modes of engagement to balance ways of working necessitated by the research with the industry practices in domain of mobile app development.
+
 
 \section{Validity and rigour}~\label{methodology-threats-to-validity-section}
+This section discusses the validity and rigour of the research in terms of the methods adopted for data collection and analysis. It complements the later reflections on threats to validity that are presented in the Discussion chapter (see page \pageref{discussion-threats-to-validity-section}).
+
+The use of case studies to explore how analytics affect mobile app development processes and the apps themselves results in a natural trade-off between the internal and external\todo{Revisit once I've got my copy of \textcite{corbin2014_basics_of_qualitative_research_4th_edition}} (including ecological) validity of the research. Because the research is being conducted in the context of mobile application development projects, with limited ability to control for external factors, the internal validity of the overall findings is low. However, the aim of the research is not to \textit{prove} hypotheses about the causal  relationships between mobile analytics and the quality of the software developed.  Instead it to  explore systematically the phenomena relating to the effect of mobile analytics on development processes and artefacts, and use these findings to support the formulation of hypotheses for further study\todo{Ensure I do so, probably in the Discussion.}. In order to ensure that such exploration is grounded in real-world experiences, it was considered appropriate to give priority to  external (and ecological) validity over internal validity.
+
+The approach adopted to maximise the rigour of the research is to ensure that the methods chosen for data collection and analysis are repeatable. While the specific case studies covered in the research were selected opportunistically, the methods used to collect data and analyse it can be carried out by other researchers. The remainder of this section provides some further details of how the research design supports external validity and repeatability.
+
+\textbf{External validity}: was high for both the app and the tool case studies. While it was not practical or viable to control all the factors, the use of control apps, and tracking the changes made to the source code provided probable causation in terms of connecting cause and effect in terms of increases in the stability of the apps being subject to the interventions.
+
+At least some of the results from the micro-experiments also led to subsequent outcomes in the real-world apps and tools. These outcomes help validate the external validity of these more controlled experiments. 
+
+At least two of the software utilities that were developed as part of this research have been used by other projects, vitals scraper was used at Moonpig and crash-dummy was enhanced and used by a corporation (details of whom are covered by private communications). These help provide some indication the software developed as part of this research are reproducible. Also, a set of artefacts generated by vitals-scraper have been published and made available to the research community. 
+
+ It is also noteworthy that all the case studies  are real-world projects with real-world engineering desires to apply mobile analytics, \emph{i.e., ``illustrating a tool’s benefits (or lack thereof) on a real software engineering activity taken from practice"}~\sidecite[][p.126]{Ko2015_a_practical_guide_to_controlled_experiments_of_sw_eng_tools_with_human_participants}. When considered together with fact that the case studies cover a variety mobile application development contexts, this supports the \emph{ecological validity} of the research.
+
+\textbf{Repeatability}:
+As mentioned here and elsewhere in the dissertation, the software developed as part of this research has been released under a permissive opensource license to encourage and facilitate further research, and a set of the outputs generated by vitals scraper have been preserved and made available.
+
 
 \section[Summary of the methodology chapter]{Summary}~\label{methodology-summary-section}
+The methodology has been chosen to maximise the viability of answering the primary research question in real-world projects and contexts where access to the tools is granted by project teams and their respective organisations, and where the development teams actively engage and support the case studies.
+
+The methodology also accommodates complementary research that augments the case studies, for instance with the analysis of various opensource Android codebases)\todo{Add a forward reference to that section on the `log analysis' work.}.
+
+The six perspectives inform the methodology by helping ensure that combinations the various methods address the three key objects of analysis and also address the temporal dimension of determining what \textit{is} and what \textit{could be}.
+
+The Discussion chapter includes various reflections on the methodology, in Section \secref{discussion-on-methodology-and-case-study-procedure} starting on page \pageref{discussion-on-methodology-and-case-study-procedure}.
+
+The next chapter introduces each of the case studies.
