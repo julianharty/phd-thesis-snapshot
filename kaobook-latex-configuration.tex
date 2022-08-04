@@ -125,3 +125,11 @@
 \makeatother 
 
 %----------------------------------------------------------------------------------------
+% This quick and dirty approach comes from a comment on https://tex.stackexchange.com/q/191295/88466
+% A quick and dirty method is to wrap the text into a command, which both prints your text and the makes an entry to the index: \newcommand{\myindex}[1]{#1\index{#1}}, e.g. \myindex{Einstein} will print Einstein right there and generates the index entry Einstein too. However, this is a cheap 'hack' and will not work for more sophisticated index entries ;-) – user31729  Jul 13, 2014 at 15:15 
+
+% I'll try using it for now, otherwise I can advance to the improved approach in the answer https://tex.stackexchange.com/a/191303/88466
+
+\newcommand{\myindex}[1]{#1\index{#1}}
+
+%----------------------------------------------------------------------------------------

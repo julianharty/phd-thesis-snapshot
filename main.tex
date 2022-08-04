@@ -62,7 +62,7 @@
 \graphicspath{{examples/documentation/images/}{images/}} % Paths in which to look for images
 
 \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
-
+\makeindex[name=moonpig,title=Contributions,columns=1]
 \makeglossaries % Make LaTeX produce the files required to compile the glossary
 \input{glossary.tex} % Include the glossary definitions
 
@@ -237,8 +237,17 @@
 \input{mainchapters/kaobook-related-work}
 \input{mainchapters/kaobook-methodology}
 \input{mainchapters/kaobook-case-studies-overview}
-
+\pagelayout{wide} % No margins
+\addpart{Findings}
+\pagelayout{margin} % Restore margins
+\input{mainchapters/kaobook-findings-analytics-in-use}
+\input{mainchapters/kaobook-findings-apps-and-their-artefacts}
+\input{mainchapters/kaobook-findings-tools-and-their-artefacts}
+\pagelayout{wide} % No margins
+\addpart{Discussion, Conclusion, and Future Work}
+\pagelayout{margin} % Restore margins
 \input{mainchapters/kaobook-discussion}
+\input{mainchapters/conclusions-and-future-work}
 \clearpage
 
 %\pagelayout{wide} % No margins
