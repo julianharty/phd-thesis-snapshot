@@ -14,9 +14,15 @@ The evidence has been analysed and prioritised to keep the chapter relatively su
 
 
 \section{Design}~\label{section-design}~\label{tata-chapter-section-design}
-Design emerged as by far the most pertinent topic for the mobile analytics tools. There are two key, connected facets: the design of the on-device SDK, including addressing various engineering challenges and deciding on the meta-data to collect, and UX design to engage the developers to actually use the results of the mobile analytics [effectively].
+Design emerged as by far the most pertinent topic for the mobile analytics tools. There are two key, connected facets: 
 
-Design of the SDK, see \ref{section-sdk-design}, and the developer-experience (UX), see \ref{section-developer-experience-ux-design}, of the mobile analytics emerged as the top two ranked themes for analytics tools. Any in-app SDK needs to integrate easily in to the mobile app, and platform-level analytics need to be seamless and collect sufficient pertinent information to be useful for the app developers. They also need to be robust and timely in terms of collection, transmission, and processing of the underlying data in order for developers to have timely access to the results. 
+
+\begin{itemize}
+\item the design of the on-device SDK, including addressing various engineering challenges and deciding on the meta-data to collect; and 
+\item UX design to engage the developers to actually use the results of the mobile analytics [effectively].
+\end{itemize}
+
+Design of the SDK, see \ref{section-sdk-design}, and the developer-experience (UX), see \ref{section-developer-experience-ux-design}, of the mobile analytics emerged as the top two ranked themes for analytics tools. The design of the on-device SDK is important because any in-app SDK needs to integrate easily in to the mobile app, and platform-level analytics need to be seamless and collect sufficient pertinent information to be useful for the app developers. They also need to be robust and timely in terms of collection, transmission, and processing of the underlying data in order for developers to have timely access to the results. 
 
 Fabric Crashlytics is an archetypal example of how a mobile analytics tool can be designed to serve developers well. The product team developed it from the ground up, starting with excellent crash reporting, to provide developers with timely, actionable, attractive, and useful reports. This led to it becoming one of the top three mobile analytics tools for both iOS and Android within 10 months of being launched~\citep{___answersblog_2015_may_crashlytics-no1-in-performance}. % See also https://web.archive.org/web/20151203150947/http://fabric.io/blog/crashlytics-answers-named-top-mobile-sdks
 First Twitter acquired it and then Google did; they subsequently integrated it into Firebase Analytics which is the most popular mobile analytics service for Android apps currently.
@@ -26,7 +32,7 @@ Platform-level analytics provides an outsider's perspective on the behaviour of 
 Mobile Analytics tools vie for attention against a plethora of other developer-oriented tools, project demands, \emph{etc.} Developers need to be enticed into using the tools and then retained on an ongoing basis to meet the objectives of the providers of the mobile analytics services.
 
 \subsection{SDK design}~\label{section-sdk-design}
-Any mobile analytics SDK needs to be designed to collected relevant data and forward that data so it can be processed, analysed, and reported on. The design of the client-side SDK affects many aspects of the data collection which then feeds subsequent stages in the processing of the data to provide the mobile analytics.
+Any mobile analytics SDK needs to be designed to collect relevant data and forward that data so it can be processed, analysed, and reported on. The design of the client-side SDK affects many aspects of the data collection which then feeds subsequent stages in the processing of the data to provide the mobile analytics.
 
 \textbf{Programming language support}: 
 Mobile apps %are written using hybrid/cross platform-frameworks, others in platform/managed code, a few may be written purely in native/unmanaged code, and some combine several of these. They 
