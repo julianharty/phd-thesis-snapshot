@@ -201,6 +201,22 @@ Bugs found by mobile analytics were fixed in the app including at least one rais
 % Extra feedback on the app https://www.kiledjian.com/main/2020/10/16/navigate-to-your-destination-without-using-gps
 
 \section{Kiwix}
+\subsection{Kiwix: Background - How the case study came about}
+The reliability of the Android app, as reported by Android Vitals\index{Android Vitals}, had been a concern for the core project leaders and by early 2019 was a major concern yet the active developers for the Android app had not been able to materially improve the reliability. We agreed it would be worth trying to focus on improving the reliability and that the planned project wide hackathon in Stockholm would be a great opportunity to do so. In parallel the project had funding to pay for an experienced Android lead developer several days a week and one of his objectives would be to improve the reliability of the app. 
+
+{\small
+\begin{enumerate}
+    \itemsep0em
+    \item Exploration and selection: work with Kiwix started in 2014, predating this case study by many years. 
+    \item Engagement: we were already `engaged'; the scope was agreed to use a planned hackathon as an impetus to focus on improving the crash rate for the main Kiwix app.
+    \item The action research stage: started around six months before the hackathon~\footnote{Many of the expenses were covered by the Kiwix organisation, the researcher covered their own expenses.} and continued for around six further months.
+    \item \textit{Post-hoc} analysis: the analysis was ongoing during the action research stage and continues to date.
+    \item Wrap-up: not applicable as the project is ongoing.
+\end{enumerate}
+}
+
+\subsection{Kiwix: Data collected and methods used for collection}
+The development artefacts including the codebase \href{https://github.com/kiwix/kiwix-android}{github.com/kiwix/kiwix-android} and the issues \href{https://github.com/kiwix/kiwix-android/issues}{github.com/kiwix/kiwix-android/issues} are both public and freely available. They include the history of the source code and of issues raised pertaining to the case study. The analytics artefacts were collected interactively and by using vitals-scraper. Various contemporaneous notes were made during the case study.  
 
 \subsection{Kiwix: Experiences of using mobile analytics}
 The project leaders have consistently chosen \emph{not} to incorporate any analytics in their applications in order to protect the users of Kiwix software. Nonetheless they were willing to use analytics provided by Google Play which are collected by Android rather than by the app. The expectation is that users who are willing to let Android collect this data are unlikely to be at risk from using Kiwix.
@@ -210,6 +226,23 @@ The project was able to significantly reduce the measured crash rates~\footnote{
 
 
 \section{Catrobat}
+
+\subsection{Catrobat: Background - How the case study came about}
+A PhD student who was part of the Catrobat project discovered my research at the MobileSOFT 2019 conference. Their flagship Pocket Code app had a persistently high, chronic crash rate and my early research for the Kiwix project seemed worth evaluating in case it could help them reduce the high crash rate. 
+
+{\small
+\begin{enumerate}
+    \itemsep0em
+    \item Exploration and selection: like Kiwix, the case study includes an open and opensource project with several Android apps, which makes it relatively easy to work with and open to collaboration. It also had an app with a high crash rate so one that offered lots of scope for improvement. Furthermore the Pocket Code app included Fabric Crashlytics and thereby provided the scope to understand Crashlytics and compare the results of the two mobile analytics tools. 
+    \item Engagement: was simple given the open nature of the project and the development team, access was given to both their mobile analytics services and to create issues in JIRA. We agreed on the hackathon to kickstart the action research~\footnote{Many of the expenses were covered by the Catrobat organisation.}. A second workshop was planned for \nth{28} Feb 2020 which did not go as envisaged because of the outbreak of Covid-19 that weekend in parts of Europe.
+    \item The action research stage: effectively started with planning the hackathon and finished just over three months later (with the mass outbreak of Covid-19).
+    \item \textit{Post-hoc} analysis: the progress by the development team for the 20 issues raised during the hackathon have been reviewed, in tandem the improvements to the crash rate were assessed for the two releases post hackathon.
+    \item Wrap-up: the case study transitioned into a quiescent state for various reasons. Given the open nature of the project and the engagement additional action research is expected in 2022.
+\end{enumerate}
+}
+
+\subsection{Catrobat: Data collected and methods used for collection}
+The project team provided access to Google Play Console for all their Android apps and also to their Fabric Crashlytics account. They also provided access to their JIRA and Jenkins systems (read access to both system is public). Their codebases are all public and available as opensource. The majority of the data for this case study is public, in JIRA tickets and in the codebase for Pocket Code. Outputs from the two mobile analytics tools were captured interactively and using vitals scraper for Google Play Console with Android Vitals\index{Android Vitals}. There are some email communications and similarly various handwritten field notes in notebooks.
 
 \subsection{Catrobat: Experiences of using mobile analytics}
 The project had already incorporated Fabric Crashlytics into the Pocket Code Android app. %TODO confirm when and revise accordingly.
@@ -223,9 +256,37 @@ A group of six members of the Catrobat development team were able to usefully ad
 \subsection{C1: Experiences of using mobile analytics}
 The project included multiple mobile analytics services integrated into their apps, including the Android app. However the development teams seldom appeared to use them proactively. 
 
+\subsection{C1: App-centric case study procedure}
+{\small
+\begin{enumerate}
+    \itemsep0em
+    \item Exploration and selection: the company engaged me to jointly improve one of the critical Android apps as part of a wider brief. At the time the Android app had millions of users.
+    \item Engagement: details of the project and the work are confidential. Access was provided to source code and other development and analytics artefacts.
+    \item The action research stage: direct, remote engagement working-from-home using commercially available collaboration tools.
+    \item \textit{Post-hoc} analysis: access to the materials was available after the action research stage and evaluated both for the project team and for research purposes.
+    \item Wrap-up: access to the systems and artefacts are no longer available. A summary of the findings and results were provided to senior management.
+\end{enumerate}
+}
+
 \subsection{C1: Outcomes for the company}
 Confidential.
 
+\subsection{C1: Contributions to the research}
+\textbf{TBD} \todo{Add forward links when the relevant material has been included.}.
+
+\begin{enumerate}
+    \item Excessive \acrshort{anr}s
+    \item Excessive Crash Rate
+    \item Gaps in understanding and gaps in testing of changes and generally of networking code increase crash rate several fold
+    \item Problems could have ameliorated using Release Management reports
+    \item Concerted focus to address native memory leaks that caused some of the crashes
+    \item Code written to reproduce the networking errors that led to the crashes, followed by fixes to the underlying code covered adequately by automated tests, bring excessive crash rate under control.
+    \item Majority of \acrshort{anr}s came from another project team's SDK, when the new SDK was integrated and a new release launched, the \acrshort{anr}s were materially improved. 
+    \item Other crashes also addressed leading to further improvements.
+    \item Automated build pipelines and implementation of code-quality analysis also help identify potential sources of failures (but signal to noise ratio was low).
+\end{enumerate}
+
+Discuss the success factors, what led to the material improvements, and also the sorts of things that led to unexpected increases in failures. Also discuss the utility of the release management reports and of taking action accordingly. Possibly also discuss the value in separating pre-release and post-release sources of data, versioning of the releases, etc.
 
 \section{Minor contributions to opensource analytics tools}
 TODO The content needs to be relocated to the Tools chapter.
