@@ -68,11 +68,17 @@
 % PFOD
 \newacronym{pfod}{PFOD}{Probability of Failure On Demand} % a shorter version of https://www.aiche.org/ccps/resources/glossary/process-safety-glossary/probability-failure-on-demand-pfod-pfd
 
+% PLR (Pre-launch report)
+\newacronym[type=\glsdefaulttype, description={PLR This term is occasionally used in Google Android materials, for example \cite{androiddevelopers2019_improve_your_app_and_game_quality_with_android_vitals_googleio2019}}]{plr}{PLR}{Pre-Launch Report}
+
 % QoE
 \newacronym[type=\glsdefaulttype, description={Oft used in Mobile Telecommunications to measure network transmission characteristics. Here used so we can more easily identify and consider the quality of experiences such as \emph{User Experience}. In the context of this research the focus is on perceived experience as perceived by end users of an app}]{qoe}{QoE}{Quality of Experience}
 
 % SDK
 \newacronym{sdk}{SDK}{Software Development Kit}
+
+% SNAFU
+\newacronym[type=\glsdefaulttype, description={SNAFU describes a common, normal condition where things are generally messed up. The source comes from the military \url{https://english.stackexchange.com/a/310644/433415} where I learned it.}]{snafu}{SNAFU}{Situation Normal All F**ked (Fouled) Up}
 
 % SUT
 \newacronym{sut}{SUT}{System under test}
@@ -112,10 +118,28 @@
     description = {A common abbreviation for a software application}
 }
 
+% Bad behavior threshold
+\newglossaryentry{glossary-bad-behavior-threshold}{
+    name = {Bad Behavior Threshold},
+    description = {Google Play defines two bad behaviour thresholds that are used within the Google Play system to measure the crash rate and the \Gls{anr} rate. The threshold for crashes is 1.09\% and 0.47\% for Glspl{anr} rate}
+}
+
 % Breadcrumbs
 \newglossaryentry{glossary-breadcrumbs}{
     name = {Breadcrumbs},
     description = {Breadcrumbs are a series of small data messages written via the mobile analytics SDK and intended to \emph{``Breadcrumbs show you events that lead to errors''}. Source: \url{https://sentry.io/features/breadcrumbs/}}
+}
+
+% Catrobat
+\newglossaryentry{glossary-catrobat}{
+    name = {Catrobat},
+    description = {Catrobat is a visual programming language and set of creativity tools for smartphones, tablets, and mobile browsers. Catrobat and the software developed by the Catrobat team are inspired by the programming system developed by the Lifelong Kindergarten Group at the MIT Media Lab. Catrobat --- \href{https://catrobat.org/}{catrobat.org/} and \href{https://developer.catrobat.org/}{developer.catrobat.org/} --- is an independent non-profit project creating free open source software (FOSS) under AGPL and CC-BY-SA licenses. (Extracts from \href{https://play.google.com/store/apps/details?id=org.catrobat.catroid}{play.google.com/store/apps/details?id=org.catrobat.catroid}}
+}
+
+% Chrome.apk
+\newglossaryentry{glossary-chrome-apk}{
+    name = {Chrome.apk},
+    description = {Google's Chrome browser appears on Google Android devices as a binary file called Chrome.apk, developers can choose to integrate it into their Android app to provide web browser capabilities and many developers have chosen to do so}
 }
 
 % Crash analytics
@@ -197,6 +221,18 @@
     description = {A score devised by Hewlett-Packard (HP) as part of their AppPulse Mobile product offering. \emph{``The score starts at 100, but drops with each problem the app has ..."}~\cite{hall2015_HP_courts_developers_with_tools_for_monitoring_mobile_apps}. It combines scores for UI performance, stability, and resource usage}
 }
 
+% GitHub
+\newglossaryentry{glossary-github}{
+    name = {GitHub},
+    description = {The world's most popular home for source code repositories. It provides private and public repositories. Much research into Android source code uses public repositories on \href{https://github.com/about}{About GitHub}}
+}
+
+% GitLab
+\newglossaryentry{glossary-gitlab}{
+    name = {GitLab},
+    description = {A popular home for source code repositories. It provides private and public repositories, see \href{https://about.gitlab.com/}{About GitLab} for more details}
+}
+
 % Google Play Console
 \newglossaryentry{glossary-google-play-console}{
     name = {Google Play Console},
@@ -245,6 +281,18 @@
     description = {Kiwix refers to several related things: to the project~\href{https://github.com/kiwix/kiwix-android/}{github.com/kiwix/kiwix-android/}, to the foundation~\href{https://www.kiwix.org/en/}{www.kiwix.org/en/}, and to the core Android app which is one of the case studies}
 }
 
+% Mobile Analytics Policy
+\newglossaryentry{glossary-mobile-analytics-policy}{
+    name = {Mobile Analytics Policy},
+    description = {Defines the `rules of engagement' when incorporating mobile analytics as part of the development, maintenance and where appropriate the operation of a mobile app}
+}
+
+% Mobile Analytics Strategy
+\newglossaryentry{glossary-mobile-analytics-strategy}{
+    name = {Mobile Analytics Strategy},
+    description = {Describes how the team intend to work within their mobile analytics policy to achieve the aims and objectives of using mobile analytics}
+}
+
 % Mobile Analytics Tools
 \newglossaryentry{glossary-mobile-analytics-tools}{
     name = {Mobile Analytics Tools},
@@ -269,6 +317,12 @@
     description = {Are similar to \gls{glossary-mobile-app-analytics-tools}, however, the data is collected by the platform, outside the app. Some of the data may be similar, some will only be available to either the platform or the app}
 }
 
+% Native Code
+\newglossaryentry{glossary_native_code}{
+    name = {Native Code},
+    description = {Written in C++ and native to the computer (mobile device) architecture}
+}
+
 % Operational Analytics 
 \newglossaryentry{glossary-operational-analytics}{
     name = {Operational Analytics },
@@ -281,22 +335,14 @@
     description = {Here, a platform includes an operating system, related software resources (including APIs and services), and an ecosystem including an app store. Google Android and Apple's iOS are both mobile platforms. They run on end-user devices and capture aspects of the software that runs on those devices. Platform services can monitor apps from the time they are installed until they are removed}
 }
 
-% Mobile Analytics Policy
-\newglossaryentry{glossary-mobile-analytics-policy}{
-    name = {Mobile Analytics Policy},
-    description = {Defines the `rules of engagement' when incorporating mobile analytics as part of the development, maintenance and where appropriate the operation of a mobile app}
+\newglossaryentry{glossary-pocket-code}{
+    name = {Pocket Code},
+    description = {Pocket Code provides a visual programming environment where users can freely create, edit, execute, share, and remix programs with others. \href{https://play.google.com/store/apps/details?id=org.catrobat.catroid}{play.google.com/store/apps/details?id=org.catrobat.catroid}. It is one of the flagship mobile apps developed through the \acrshort{glossary-catrobat} project}
 }
 
-% Mobile Analytics Strategy
-\newglossaryentry{glossary-mobile-analytics-strategy}{
-    name = {Mobile Analytics Strategy},
-    description = {Describes how the team intend to work within their mobile analytics policy to achieve the aims and objectives of using mobile analytics}
-}
-
-% Native Code
-\newglossaryentry{glossary_native_code}{
-    name = {Native Code},
-    description = {Written in C++ and native to the computer (mobile device) architecture}
+\newglossaryentry{glossary-pocket-paint}{
+    name = {Pocket Paint},
+    description = {Pocket Paint is a visual paint editor. It is also integrated into Pocket Code and can also be used on its own. \href{https://play.google.com/store/apps/details?id=org.catrobat.paintroid}{play.google.com/store/apps/details?id=org.catrobat.paintroid}. It is a popular mobile app developed through the \acrshort{glossary-catrobat} project}
 }
 
 % Quality-in-Use 
