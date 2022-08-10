@@ -134,7 +134,7 @@ The sustained level of active interest by the Google engineering team responsibl
 In email discussions of my research in 2020 one of the leading authors in the field, \href{https://scholar.google.com/citations?user=zuUsFkgAAAAJ&hl=en&oi=sra}{Li Li}, confirmed the novelty, importance and relevance of my research.
 
 
-\section{Utility and scalability}
+\section{Utility and scalability}~\label{discussion-utility-and-scalability}
 If we focus on Android apps what are the implications and how relevant are the approaches and results? In every one of the app centric case studies the developers were able to use the outputs of mobile analytics to successfully find and fix crashes that caused their app(s) to fail in use. The projects ranged from sole-developers to 100+ person teams at a major enterprise. The mobile analytics ranged from purely relying on what the app store/platform provided through projects that included in-app crash and error reporting, to those who incorporated multiple mobile analytics SDKs. Generally, those teams that included at least one mobile analytics SDK found they preferred using that mobile analytics service in preference to the platform provided analytics in so far as the mobile analytics service provided similar information. The possible exception was the GTAF\index{GTAF} project who weren't able to provide sufficiently specific answers. 
 
 Where the in-app analytics service lacked particular types of failure, ANRs\index{ANR} is the key example, then the teams also used Android Vitals from time to time. Moonpig demonstrated the benefits of ongoing checking of both the platform-level and in-app analytics, rather than preferring one over the other.
@@ -326,7 +326,7 @@ Other changes to the relationships between end-users, their organisations where 
 In summary for this section, currently end-users of mobile apps have unnecessarily limited choices in terms of the data collected by app developers or the Android platform. It is practical to improve the service provided to end-users and to provide them with greater freedom and control over the data collection. Some may wish to have access to the underlying data too. The platform could provide app developers with information about the user's data collection preferences and could also implement changes to help give users more choice while also protecting them from intrusive data gathering (both Google and Apple have made changes in relationship to other tracking mechanisms~\sidecite{bbcnews2022_google_moves_to_make_android_apps_more_private}). 
 
 
-\section{Empower developers}
+\section{Empower developers}~\label{discussion-empower-developers}
 Helping to improve the competence of developers so they create higher-quality apps pre-release is an area on which platform providers (e.g. Google and Apple) can focus their efforts.  Given the breadth and depth of usage and failure data that the platforms collect, there is scope to develop tools that use that data to forewarn developers of probably-flawed code in their codebase. Cloud-based developer-oriented utilities including Amazon’s CodeWhisperer~\sidecite{desai2022_amazon_codewhisperer}, and CodeGuru~\sidenote{\url{https://aws.amazon.com/codeguru/}}, and GitHub’s copilot~\sidenote{\url{https://github.com/features/copilot}} services demonstrate several large-scale approaches aimed at helping developers improve their productivity and code quality. Mobile Analytics has the potential to feed tools and algorithms that would provide developers seamless mechanisms to similarly improve the quality of their mobile apps based on real world measurements and real world results.
 
 
@@ -360,7 +360,7 @@ There are various ways that adopting a tool impacts business practices, for ente
 
 Inspired by the work of \sidecite{winter2022_lets_talk_with_developers_etc_automatic_program_repair} we may envisage ways mobile analytics can help developers to repair programs, in this context, their mobile apps and supporting software, though a range of automated analysis and possibly even proposed automatic program repairs. Mobile analytics can already help developers understand what went wrong where, and reduce the time and effort needed to debug issues~\sidecite[][p. 10]{winter2022_lets_talk_with_developers_etc_automatic_program_repair}.
 
-\section{Improving analytical capabilities}
+\section{Improving analytical capabilities}~\label{discussion-improving-mobile-analytics}
 Areas currently underserved by mobile analytics tools include bug localisation and bug reproduction. Mobile analytics based on failures that occur for end users are derived from presence-only data, based on ~\sidecite[][p.1383]{warton2010_poisson_point_process_models_solve_the_pseudo_absence_problem_for_presence_only_data_in_ecology}. 
 
 \begin{itemize}

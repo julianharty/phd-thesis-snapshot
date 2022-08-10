@@ -173,9 +173,23 @@ One of the success factors is what the developers notice in mobile analytics rep
 
 \section{Competence and optimisations}~\label{aiu-competence-and-optimisations-section}
 
+\subsection{Using issue databases and preserving information}~\label{aiu-using-issue-databases-and-preserving-information-topics}
+The GTAF team create issues in their online issue database \href{https://gitlab.com/greentech/}{gitlab.com/greentech/} for crashes and include links to the source information in the respective mobile analytics tool. These links are a) only available to people who already have access to the mobile analytics account, and b) are ephemeral. There are several ways development teams can extend the useful life of the private and ephemeral contents. 
+
+In the three action-research app-centric case studies screenshots of the contents of the reports were combined with extracts of various pertinent statistics, for instance the frequency of a particular crash cluster. These contents were added to issues in the issues database. The developers appreciated the additional information (together with an online link to the relevant report which helped them check for any updates while that report was still available) they said it helped them appreciate the magnitude of the problem which, in turn, helped motivate them to address the issue sooner. The data was generally collected manually and pasted manually when the issues were raised, in part as automating the preservation of the reports is beyond the remit of individual team members.
+
+\newthought{Integrating mobile analytics into the practices of the team}
+One of the app-centric case studies, Moonpig, demonstrated they actively guarded against entropy through frequent, ongoing checking of the various mobile analytics services they used. They had an assigned developer on duty who was expected to check these services during the working day and action any issues or anomalies they noticed.
+
+\subsection{Engineering leadership}~\label{aiu-engineering-leadership-topic}
+There were clear correlations between having engineering leadership participating and/or supporting the use of mobile analytics and in the measured reliability of the respective apps. \myindex{Moonpig} had integrated the use of mobile analytics in both development and operational aspects of their business. \myindex{Kiwix} achieved manifold improvements and sustained them while the Android project had a professional app developer as the project lead. 
+
+% For the Pocket Code app, there has been an intermittent focus on addressing the causes of failures being reported by the mobile analytics tools.
+In contrast the improvements in \myindex{Pocket Code} petered out after the loss of the Product Owner, a PhD student. One of the main reasons given by the project leadership was the loss of the product owner who successfully completed his PhD and moved to a role in Industry. 
+
 
 \subsection{Triage}~\label{aiu-triage-theme}
-\julian{Include decision making, adverse side effects (which feeds into snafu and real-world conditions).}
+%\julian{Include decision making, adverse side effects (which feeds into snafu and real-world conditions).}
 
 The Triage is where the developers decide what to do, if anything, with failure clusters being reported by mobile analytics. Several of the projects confirmed used mobile analytics as a source when the issues are triaged and the others \textit{probably} did so too even though it was not discussed explicitly.
 
@@ -193,8 +207,9 @@ The triage process sometimes led to issues being raised in the respective issues
 One of the tasks for developers is triaging failures reported by mobile analytics. 
 
 \subsection{Hard to fix issues}
-The GTAF team used a heuristic when deciding which crashes to fix. They chose to work on those perceived as relatively easy to fix and which affected many users. They provided examples of easier to fix exceptions: NullPointerException~\footnote{Helpfully discussed in \href{https://en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}{en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}.} and IndexOutOfBoundsException~\footnote{Discussed in \href{https://stackoverflow.com/a/40006381/340175}{stackoverflow.com/a/40006381/340175}} versus some they found harder to fix: IllegalStateException~\footnote{An example of an Android specific crash is discussed in~\href{https://stackoverflow.com/questions/55158930/illegalstateexception-caused-by-intent}{stackoverflow.com/questions/55158930/illegalstateexception-caused-by-intent}} and native crashes~\footnote{Useful Android documentation on diagnosing native crashes \href{https://source.android.com/devices/tech/debug/native-crash}{source.android.com/devices/tech/debug/native-crash}}.
+The \myindex{GTAF} team used a heuristic when deciding which crashes to fix. They chose to work on those perceived as relatively easy to fix and which affected many users. They provided examples of easier to fix exceptions: NullPointerException~\footnote{Helpfully discussed in \href{https://en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}{en.wikibooks.org/wiki/Java\_Programming/Preventing\_NullPointerException}.} and IndexOutOfBoundsException~\footnote{Discussed in \href{https://stackoverflow.com/a/40006381/340175}{stackoverflow.com/a/40006381/340175}} versus some they found harder to fix: IllegalStateException~\footnote{An example of an Android specific crash is discussed in~\href{https://stackoverflow.com/questions/55158930/illegalstateexception-caused-by-intent}{stackoverflow.com/questions/55158930/illegalstateexception-caused-by-intent}} and native crashes~\footnote{Useful Android documentation on diagnosing native crashes \href{https://source.android.com/devices/tech/debug/native-crash}{source.android.com/devices/tech/debug/native-crash}}.
 
+\myindex{SmartNavi} found it was not practical to identify or try resolving several low-frequency crashes that were only reported for unfamiliar and unavailable devices in China. As there was a sole developer on a voluntary project there was little scope to invest significant time and resources.
 
 \subsection{The fix process}~\label{aiu-the-fix-process-topic}
 Fix processes for issues found from mobile analytics are similar to fixing issues found from other sources, for instance: from testers, from app store reviews, and so on. There are some particular nuances when mobile analytics is the source; for example, the mobile analytics report will generally include one or more instances of a stack trace together with precise meta information. Mobile analytics also includes analytics such as any patterns of the failure. \sidenote{As an aside, several development environments can directly process and help analyse a stack trace for an app, for example in Intellij (which also underpins Android Studio used by many Android developers) \href{https://www.jetbrains.com/help/idea/analyzing-external-stacktraces.html}{jetbrains.com/help/idea/analyzing-external-stacktraces.html}.}. 
@@ -228,18 +243,6 @@ Microsoft App Center, for example, has the facility where comments can be added 
 Despite best intentions on multiple projects there were examples where developers did not add the pertinent cross-referencing between the issues database and the mobile analytics service. %\pending{Ask Moonpig how they did the cross-referencing and how reliably/consistently it was done.}
 
 At least one of the projects, the Commercial Project, used APIs provided by the mobile analytics service to systematically export the contents of the crashes and errors that were captured in that tool: Microsoft App Center~\sidenote{Note: several other mobile analytics tools also provide similar API integration points, some of these will be discussed in \secref{chapter-tools-and-their-artefacts}.}\todo{Refine the link once that material has been written.}. Doing so enabled the data to be mined in combination with various other sources of data, however the details are beyond the scope of this PhD.
-
-\subsection{Using issue databases and preserving information}~\label{aiu-using-issue-databases-and-preserving-information-topics}
-The GTAF team create issues in their online issue database \href{https://gitlab.com/greentech/}{gitlab.com/greentech/} for crashes and include links to the source information in the respective mobile analytics tool. These links are a) only available to people who already have access to the mobile analytics account, and b) are ephemeral. There are several ways development teams can extend the useful life of the private and ephemeral contents. 
-
-In the three action-research app-centric case studies screenshots of the contents of the reports were combined with extracts of various pertinent statistics, for instance the frequency of a particular crash cluster. These contents were added to issues in the issues database. The developers appreciated the additional information (together with an online link to the relevant report which helped them check for any updates while that report was still available) they said it helped them appreciate the magnitude of the problem which, in turn, helped motivate them to address the issue sooner. The data was generally collected manually and pasted manually when the issues were raised, in part as automating the preservation of the reports is beyond the remit of individual team members.
-
-\newthought{Integrating mobile analytics into the practices of the team}
-One of the app-centric case studies, Moonpig, demonstrated they actively guarded against entropy through frequent, ongoing checking of the various mobile analytics services they used. They had an assigned developer on duty who was expected to check these services during the working day and action any issues or anomalies they noticed.
-
-\newthought{Longer-term adoption and use of mobile analytics}
-
-For the Pocket Code app, there has been an intermittent focus on addressing the causes of failures being reported by the mobile analytics tools. One of the main reasons given by the project leadership was the loss of the product owner who successfully completed his PhD and moved to a role in Industry. 
 
 
 \section{Benefits and achievements}~\label{aiu-benefits-and-achievements-section}
@@ -275,6 +278,13 @@ The Kiwix project included crashes in several software components Google provide
 With the exception of the Commercial project, none of the commercial projects (Moonpig, Moodspace, LocalHalo) provided examples of being able to reproduce crashes and other failures that were reported by mobile analytics; nonetheless they chose to use in-app analytics and the respective mobile analytics reports in preference to Android Vitals as they believed these tools provided more relevant reports with the necessary information to enable the developers to find and fix the causes of those crashes.
 
 There are plenty of instances where app developers had to debug and try to fix failures without being able to confidently test the code to a) reproduce the failure, or b) evaluate the changes to the source code. Releasing the new version of the app and monitoring the effects became part of their practice, albeit some projects monitored more assiduously than others. This approach has parallels with the approach described in \sidecite{ghardallou2016debugging_without_testing} however they aim to prove relative correctness whereas using mobile analytics aims to measure characteristics of the software when in real-world use.
+
+\subsection{Pre-launch reports}~\label{aiu-pre-launch-reports}
+The \Gls{gtaf}\index{GTAF} project found crashes pre-launch through using - and paying attention - to the pre-launch reports. Many of the case-studies used pre-launch reports. 
+
+For the \myindex{Kiwix} Android app, the pre-launch report for a newer release (App version: 7230406.aab) showed results that indicated a degradation in the performance of the app compared to a previous release (App version: 7230405.aab). And a crash caused by a \texttt{java.lang.IllegalArgumentException Parameter specified as non-null is null: method org.kiwix.kiwixmobile.core.utils.LanguageUtils.getCurrentLocale, parameter context} occurred with a locale of `ar' (Arabic) on a Sony G8441 device, running Android 8.0.
+
+Various developers have reported false positives \sidenote{\href{https://issuetracker.google.com/issues/160907013}{Could you fix Pre-launch report false-positives triggered by your own code base?}} and this error occurred in several of the case studies including \myindex{Kiwix} and \myindex{C1}. These false positives sometimes led to developers choosing not to use the pre-launch reports.
 
 \subsection{Improving engineering practices}
 \myindex{Moonpig}'s, engineering team used mobile analytics strategically and tactically to nip any unreliability issues `in the bud', \emph{i.e.} quickly and practically, in order to minimise adverse effects on the end users and the business. 
@@ -380,12 +390,12 @@ Therefore, one of the strategic considerations is how to enable developers to ha
 \newthought{Return on Investment}
 To revisit the topic of motivation, one motivating factor for actually applying mobile analytics is the perceived return on investment in terms of time, energy, opportunity costs, and so on. Developers are more likely to incorporate mobile analytics into their practices when both they and their organisation perceive the return on investment is highly net positive.
 
-\begin{kaobox}
+\begin{kaobox}[frametitle=ROI in software development]
 Note: this calculation is not limited to use of mobile analytics, for instance it may also apply to the practice of developers creating and maintaining automated tests, \textit{etc}.
 
 As one of the answers to an internal survey at Microsoft noted: \emph{``Telemetry allows us to prioritize investment for code
 cleanup and bug fixing in a way that has substantial
-customer impact.''}~\sidecite[][p. 992]{buse2012_information_needs_for_software_development_analytics} Mobile Analytics provides telemetry and therefore helps inform discussions regarding \Gls{roi}. Also in that research, on p. 989, Data/Metrics and Customer input were both deemed important by both managers and developers which indicate the potential of combining both these sources of information.
+customer impact.''}~\sidecite[][p. 992]{buse2012_information_needs_for_software_development_analytics} Mobile Analytics provides telemetry and therefore helps inform discussions regarding \Gls{roi}. 
 \end{kaobox}
 
 
@@ -403,6 +413,8 @@ A common and consistent theme that emerged was the importance of engineering lea
 Development teams can use both mobile analytics and user feedback where they complement each other. There was only one example, from Moonpig in \secref{aiu-interventions-theme} where the two sources were combined and contrasted, there may have been other instances but they were not captured in the research. 
 
 A useful example from grey literature is where a developer explains how he addressed three distinct types of 1 star review for one of his mobile apps. The example where he used the meta-data of the end user's device is very practical and a similar technique applies for the failure analysis when using mobile analytics~\sidecite{sunderland2019_the_one_star_android_review}.
+
+Existing research by Microsoft in software analytics found that Data/Metrics and Customer input were both deemed important by both managers and developers which indicate the potential of combining both these sources of information.~\sidecite[][p. 989]{buse2012_information_needs_for_software_development_analytics}
 
 The overall development process for mobile apps includes both the release and operational stages of a software lifecycle. Recent research aims to determine whether releases are good, bad, or neutral. One of their key observations is ``Android developers need to pay attention to the quality of their app next release''~\sidecite[][p. 31]{saidani2022_tracking_bad_updates_in_mobile_apps_a_search_based_approach}. They plan to extend their \uppercase{App-Tracker} software tool so it can be integrated into the development pipeline for Android apps which sounds promising, especially if the underlying software could also use mobile analytics data as part of the scoring of a potential release.
 
@@ -428,4 +440,28 @@ The \secref{aiu-motivating-factors-theme} introduced the concept of strategic vs
 The topic of pricing was not actively discussed as part of the case studies, nonetheless, pricing may also be a factor in the choice of SDK, service, and in determining who on a development team has access. Several of the in-app mobile analytics tools provide a free basic service limited to one or a few team members.  Some also offer bands of pricing where they increase the data retention, and/or provide addition integrations \emph{e.g.} to Slack, etc. 
 
 \subsection{What's ``good enough"? and for whom?}
+Developers in the app-centric case studies seemed to be willing to accept the mobile analytics reports at face value. Various flaws will be discussed in the Tools chapter, nonetheless even flawed mobile analytics may serve the needs of the vast majority of app developers. 
+
+\subsection{Choosing mobile analytics}
+Many factors may affect the choice of mobile analytics, ranging from a wish to not track usage within the app, as demonstrated by \myindex{Kiwix} and \myindex{Catrobat}, though to projects that choose to integrate two or more mobile analytics SDKs into an app, such as \myindex{LocalHalo} and the \myindex{C1} project. None of the development teams mentioned explicitly having requirements to fulfil as part of choosing the services they use, nor of testing that the SDKs actually behaved correctly.  
+
+\subsection{\iuse}
+\myindex{Moonpig} demonstrated a highly effective use of mobile analytics not only to detect failures, including \glspl{glossary-crash-cluster}, they also used mobile analytics to gain additional information of possible causes (similar to the concept of using \gls{glossary-breadcrumbs} however Moonpig used logging more holistically). The example from \myindex{C1} of devising automated tests to reproduce crashes that occurred in complex code and which required non-trivial work to implement suitable dynamic tests demonstrated that developers who are willing and able to invest the time can gain confidence in the reliability and behaviours of their software under realistic conditions.
+
+As \myindex{Kiwix demonstrated} it is possible to increase the reliability for a failing app quickly and effectively. The next chapter includes a summary of the improvements.\todo{Add cross-reference.} In contrast improvements stalled for the \myindex{Pocket Code} Android app when the work was disrupted for various reasons in 2020.
+
+Some improvements in use depend on the reporting and integration facilities offered by the tools, and similarly on the quality and timeliness of the reports, aspects of these are covered in \secref{discussion-empower-developers}, \secref{discussion-improving-mobile-analytics}. 
+
+Others can be effected using the current services offered by the tools, for example relatively simple things such as enabling the entire team to use the mobile analytics, \secref{discussion-utility-and-scalability}, through \secref{aiu-engineering-leadership-topic} that values mobile analytics and encourages using them on an ongoing basis, and by using them regularly, especially before release by using \acrfull{plr} and on release by using the \myindex{Release Management} reports. 
+
+A pragmatic acceptance that an app will not be truly free of failures, means projects and teams should pick their own targets (these should be significantly higher than meeting the \gls{glossary-bad-behavior-threshold}\index{Bad behavior threshold}). \myindex{Android Vitals} provides quartiles per application category so a useful heuristic would be to be in the top quartile in terms of app stability.
+
+As \myindex{SmartNavi} explained some failures are impractical to investigate or address, this was confirmed by the \myindex{Moonpig} case study:
+
+\begin{quote}
+    \emph{``I don't know why some crashes don't even show up but we honestly just accepted that Android is weird on some even weirder devices. As long as our crash-free rate is that high and will go even higher after the next update, we are happy.''} (source Moonpig developer)
+\end{quote}
+
+\section{Summary of Analytics in Use findings}
+This chapter presented ways mobile app developers used mobile analytics together with an overview of ways the use could be improved by app development teams. The next chapter presents the effects of mobile analytics on apps and their artefacts.
 
