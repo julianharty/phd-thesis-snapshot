@@ -655,3 +655,33 @@ AppBrain is a business that actively monitors and reports on Android Apps in the
 % Why Catrobat, what did I gain, similarities and contrasts, why include in the PhD.
 % Existing best practices, assiduously applied didn't reduce the crash rate, my approach did! :)
 % Needs to be applied on a long term basis
+
+\section{Developer Productivity}
+I'm currently inspired by \href{https://about.sourcegraph.com/blog/developer-productivity-thoughts}{A dev's thoughts on developer productivity}~\cite{liu2022_a_devs_thoughts_onDeveloper_productivity}. The following material was extracted from the Apps and their Artefacts chapter; on reflection it probably belongs better in the Analytics in Use chapter or in something like the main Discussion chapter or Future Work...
+
+...
+
+Much of a developer's focus, perhaps unsurprisingly, is working with code and modifying code to achieve various objectives. An industry-focused article by Beyang Liu discusses the author's thoughts on developer productivity and introduces a term `\textbf{developer hertz}' as a measure of developer productivity~\citep{liu2022_a_devs_thoughts_onDeveloper_productivity} and defines it as once around the developer's inner loop (illustrated in Figure \ref{fig:developer-inner-loop-outer-loop}). This article provides a helpful context for the work of app developers where automated tests, use of mobile analytics, bug reproducibility, bug tracking, choosing third-party libraries, and various other activities emerged from the thematic analysis of the various findings pertaining to this research.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/rough-sketches/developer-inner-loop-outer-loop.jpeg}
+    \caption{Developer Inner Loop, Outer Loop\\ redrawn from \cite{liu2022_a_devs_thoughts_onDeveloper_productivity}}
+    \label{fig:developer-inner-loop-outer-loop}
+\end{figure}
+
+\subsection{An iterative development lifecycle for app developers}
+The research includes many findings that illustrate a conceptual iterative loop for app developers in terms of how their code is performing; to answer how's it doing in the real world. Figure \ref{fig:dev-app-reliability-iterative-loop} approximates various potential activities within this loop.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/rough-sketches/dev-app-reliability-iterative-loop.jpeg}
+    \caption{Developer's conceptual app reliability iterative loop}
+    \label{fig:dev-app-reliability-iterative-loop}
+\end{figure}
+
+The loop starts with at the question-mark where the developers have a question about a flaw in the field related to their app's performance. They search for information which may include bug-localisation, adding logging to the app, and trying to reproduce the flaw using various techniques. They \emph{may} record the flaw in their issue tracking system, if so T0 marks the start of that bug in the bug tracking system.
+
+They \emph{may} triage, mitigate, and/or attempt to fix the flaw, and if so they are likely to test the potential improvement(s), package the changes in a potential release and release it via the app store. Once the new release starts to be deployed they can start to seek evidence for any new/additional harm and/or any improvements in the performance of the app.
+
+If the developer recorded the bug in the reporting system there are two more potential points of transition; T1 is when the developer believes the issue has been addressed for instance through modifications to the source code of the app, and T2 would be if there is evidence from the mobile analytics that the changes had the desired results. \emph{Not all teams/developers seek or record T2}.

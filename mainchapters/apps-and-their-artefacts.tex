@@ -24,7 +24,7 @@ This chapter presents the findings from the case studies together with explorati
 The first broad category of themes relevant to the findings are associated with the artefacts of mobile app projects that are more closely connected to the code of the app. This includes build scripts, tests, and integration between analytics and mobile SDKs.
 
 \subsection{Build scripts}
-App developers use and maintain build scripts to build their apps and generally the build script combines with various build tools to customise the application binary (the code that's installed on app-centric mobile devices~\footnote{There are various forms of mobile device such as 3G battery powered routers which are outside the scope of this research.}). Commonly used build variants include debug and release build targets. 
+App developers use and maintain build scripts to build their apps and generally the build script combines with various build tools to customise the \gls{glossary-app-binary} (the code that's installed on app-centric mobile devices~\footnote{There are various forms of mobile device such as 3G battery powered routers which are outside the scope of this research.}). Commonly used build variants include debug and release build targets. 
 
 When apps include in-app mobile analytics often the build scripts are modified to specify the necessary SDK dependencies and the application's source code is modified to initialise the SDK. The documentation for Sentry's Android SDK provides a clear three step process of \textbf{Install}, \textbf{Configure}, \textbf{Verify}, so these are reproduced here~\footnote{Use permitted under their opensource license.}. Listing \ref{listing:build_gradle_for_sentry} is a typical example of how a mobile analytics dependency is added to the build file, this is Sentry's \textbf{install} step in their process.
 
@@ -255,30 +255,6 @@ For Pocket Code, the improvements in the stability of the app were particularly 
 \textbf{TODO include the other case studies.}
 
 \section{Discussion}\label{apps-and-artefacts-discussion-section}
-Much of a developer's focus, perhaps unsurprisingly, is working with code and modifying code to achieve various objectives. An industry-focused article by Beyang Liu discusses the author's thoughts on developer productivity and introduces a term `\textbf{developer hertz}' as a measure of developer productivity~\citep{liu2022_a_devs_thoughts_onDeveloper_productivity} and defines it as once around the developer's inner loop (illustrated in Figure \ref{fig:developer-inner-loop-outer-loop}). This article provides a helpful context for the work of app developers where automated tests, use of mobile analytics, bug reproducibility, bug tracking, choosing third-party libraries, and various other activities emerged from the thematic analysis of the various findings pertaining to this research.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=12cm]{images/rough-sketches/developer-inner-loop-outer-loop.jpeg}
-    \caption{Developer Inner Loop, Outer Loop\\ redrawn from \citep{liu2022_a_devs_thoughts_onDeveloper_productivity}}
-    \label{fig:developer-inner-loop-outer-loop}
-\end{figure}
-
-\subsection{An iterative development lifecycle for app developers}
-The research includes many findings that illustrate a conceptual iterative loop for app developers in terms of how their code is performing; to answer how's it doing in the real world. Figure \ref{fig:dev-app-reliability-iterative-loop} approximates various potential activities within this loop.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=12cm]{images/rough-sketches/dev-app-reliability-iterative-loop.jpeg}
-    \caption{Developer's conceptual app reliability iterative loop}
-    \label{fig:dev-app-reliability-iterative-loop}
-\end{figure}
-
-The loop starts with at the question-mark where the developers have a question about a flaw in the field related to their app's performance. They search for information which may include bug-localisation, adding logging to the app, and trying to reproduce the flaw using various techniques. They \emph{may} record the flaw in their issue tracking system, if so T0 marks the start of that bug in the bug tracking system.
-
-They \emph{may} triage, mitigate, and/or attempt to fix the flaw, and if so they are likely to test the potential improvement(s), package the changes in a potential release and release it via the app store. Once the new release starts to be deployed they can start to seek evidence for any new/additional harm and/or any improvements in the performance of the app.
-
-If the developer recorded the bug in the reporting system there are two more potential points of transition; T1 is when the developer believes the issue has been addressed for instance through modifications to the source code of the app, and T2 would be if there is evidence from the mobile analytics that the changes had the desired results. \emph{Not all teams/developers seek or record T2}.
 
 
 \subsection{Sources of `truth'}\pending{This probably belongs in the Methodology}

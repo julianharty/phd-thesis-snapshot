@@ -50,6 +50,8 @@
 \usepackage[normalem]{ulem}
 \usepackage{cancel}  % https://jansoehlke.com/2010/06/strikethrough-in-latex/
 \useunder{\uline}{\ul}{}
+
+\setminted{fontsize=\small,baselinestretch=1}  % shrink code samples so they don't overwhelm the text.
 %--------------------------------------------
 
 \newcommand{\secref}[1]{\autoref{#1}. \nameref{#1}} % \secref{section:my} %from https://stackoverflow.com/a/30844515/340175
@@ -84,7 +86,15 @@
 \makeatother
 
 %----------------------------------------------------------------------------------------
+% From https://tex.stackexchange.com/a/330980/88466
+% It fixes several compilation warnings about having \\ to split the title of the thesis, etc.
 
+\pdfstringdefDisableCommands{%
+  \def\\{}%
+  \def\texttt#1{<#1>}%
+}
+
+%----------------------------------------------------------------------------------------
 % The following clashes with the \requirepackage{todonotes} which is part of kaobook
 %\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}  % From https://tex.stackexchange.com/a/178806/88466
 
