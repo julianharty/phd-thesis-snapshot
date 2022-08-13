@@ -35,6 +35,7 @@ Further, the research explored a variety of analytics tools, as no two are ident
 
 The varieties of projects, apps, and mobile analytics tools, are all intended to help to uncover emergent features, capabilities, and behaviours; they also help establish ranges of examples of improvements and concerns. An additional objective is to increase the `weight of evidence' in support of particular propositions, rather than to prove them~\sidecite[][see p. 569]{seaman1999_qualitative_methods_in_esse}, which is impractical in the scope of this research.
 
+
 \section{Data sources}~\label{methodology-data-sources}
 The nature of research in a sometimes messy real-world environment means access is opportunistic and often occasional. The evidence will be incomplete, yet rich, complex, and multi-faceted because of the variety of projects investigated. For this research the data sources include:
 
@@ -571,7 +572,24 @@ During this research I was already working as part of a development team for the
 
 Three project teams were subject to interventions. Of these, both Kiwix\index{Kiwix} and Catrobat\index{Catrobat} develop and work as opensource projects where access to their code, to their issue tracking, and to other aspects of their projects are public. They both also provided access to their mobile analytics tools. The last of these case studies, C1\index{C1}, is based on a mission-critical commercial product where a similar approach to applying mobile analytics was applied for the Android app element of the product.
 
+%%%%% Marian, all, please help me integrate and prune the following material (relocated from the apps and their artefacts chapter).
+\newthought{Sources of `truth'}
+In terms of the app-centric case studies there are several sources of `truth' in terms of the use of mobile analytics. These include:
+\begin{itemize}
+    \itemsep0em
+    \item The developers: including what they say they do, and how they used mobile analytics.
+    \item The source code, including the build scripts and relevant configuration files. The source code + the build process generates one or more application binaries, and they may also generate and run various automated tests that exercise the app and/or the mobile analytics SDK(s).
+    \item The app binary: encapsulates and packages the software that is intended to run on end-user devices. 
+\end{itemize}
+
+This research included interviewing some app developers and working with others to learn about their perceptions of using mobile analytics and the artefacts they created in the process.
+
+Whenever the source code was available it was studied to learn how mobile analytics had a) been integrated b) been used to effect changes in the source code. 
+
 The Exodus Privacy project~\sidenote{https://reports.exodus-privacy.eu.org/en/} was used to detect whether the app binary included the appropriate mobile analytics \Glspl{sdk}.
+
+% \isabel{Do you need to put in a sentence just splitting "truth" into facts, perceptions, opinions (and indeed attempts to deceive).? I read something recently (but where?) about the difference between honest and truthful = honest being what you genuinely believe, and truthful being the facts - Is that where you are going with this? What the developers say they do, versus what they actually do...?}
+
 
 \subsection{Introducing the tool-centric case studies}~\label{methodology-introducing-the-tool-centric-case-studies-section}
 

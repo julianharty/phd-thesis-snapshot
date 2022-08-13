@@ -5877,6 +5877,15 @@ series = {MOBILESoft '19}
   organization = {{Android Authority}},
 }
 
+@misc{anon2018_google_stealthily_enables_super_profiles,
+    title = {Google Stealthily Enables ‘Super-Profiles’},
+    author = {{Unknown, possibly Oracle}},
+    year = {2008},
+    publisher = {{ec.europa.eu}},
+    url = {https://ec.europa.eu/competition/mergers/cases/decisions/m4731_20080311_20682_en.pdf},
+    pages = {27},
+}
+
 @misc{apkcombo_website_about_us,
   title = {Aboust us - APKCombo.com},
   url = {https://apkcombo.com/about},
@@ -6574,6 +6583,27 @@ Sleep Sounds
   year = {2019},
   publisher = {{Medium Inc.}},
   organization = {Samsung},
+}
+
+@misc{kiwixandroid_issue_615_fix_memory_leaks,
+    title = {Fix memory leaks \#615},
+    url = {https://github.com/kiwix/kiwix-android/issues/615},
+    year = {2018--2019},
+    organization = {{Kiwix-Android Project}},
+    author = {Various project contributors},
+    abstract = {
+        We must fix all the memory leaks present in the app as it leads to ANR and crashes especially on older devices.
+    }
+}
+
+@misc{kiwixandroid_issue_742_oom_running_espresso_tests,
+    title = {TBC: OOM when running the Espresso tests when testing 'help' on low-end devices},
+    url = {https://github.com/kiwix/kiwix-android/issues/742},
+    author = {Julian Harty},
+    year = {2018},
+    abstract = {
+        When I ran the automated Espresso tests on this device the last test consistently failed as follows.
+    }
 }
 
 @misc{kiwixandroid_issue_1223_bitbar_should_run_tests_on_multiple_devices,
@@ -7384,6 +7414,15 @@ Sleep Sounds
   author = {Shayna Stewart},
   year = {2019},
   organization = {{Y Media Labs}},
+}
+
+@online{android_build_variants_and_product_flavors,
+    title = {Configure build variants},
+    url = {https://developer.android.com/studio/build/build-variants},
+    year = {2022},
+    author = {Google Android},
+    organization = {{Google Inc.}},
+    urldate = {2022-08-13},
 }
 
 % Funny how Google included in docs for their Chinese domain https://developer.android.google.cn/topic/performance/vitals
@@ -8225,6 +8264,36 @@ https://github.com/Displayr/flipTime/graphs/contributors
   organization = {R-bloggers},
 }
 
+@misc{firebasegooglegroup2016_best_way_to_setup_release_debug_firebase_environment,
+    title = {Best way to setup Release/Debug Firebase Analytics environment},
+    publisher = {{Firebase Google Group}},
+    url = {https://groups.google.com/g/firebase-talk/c/3k3ZPnexF4s},
+    extracts = {
+    austyn...@gmail.com, May 26, 2016, 9:36:51 PM to Firebase Google Group
+        I am testing out Firebase Analytics and I don't want my debug data to go into the same pool as my release data. I cannot create a new app with the same package name, so how would I go about accomplishing this?
+
+    dougst...@google.com, May 26, 2016, 10:10:21 PM to Firebase Google Group
+        Austyn, One thing you could try is using a different app id when compiling for debug.  The Android Gradle plugin lets you do this per-type by either specifying a whole new app id, or appending a suffix to the main app id.  Then you can create different projects in the Firebase Console for each instance with its own unique id.
+
+        There are some examples in the Android doc about build flavors here: https://developer.android.com/studio/build/build-variants.html
+
+        Please let me know if this works for you.  I have no tried this myself, but I suspect it will come up for others. Doug
+
+    dougst...@google.com, May 26, 2016, 10:32:14 PM to Firebase Google Group
+        And actually, there is documentation on how to make this work correctly with respect to placing your google-service.json file per-type or per-flavor: https://developers.google.com/android/guides/google-services-plugin
+
+    austyn...@gmail.com, May 27, 2016, 1:07:58 AM to Firebase Google Group
+        Thanks for the tips Doug.
+
+        I added an "applicationId" suffix to my debug buildType, and created a new app (in the same project) in Firebase with the debug package name. Now when you re-download google-services.json, it includes the necessary data for all your Android apps in the one file. This let's you place it in your main app module, so you don't have to create a debug src folder.
+
+        I have one followup question now: Is the inclusion of all clients in google-services.json being deprecated now that the plugin searches each build variant for that file? It seemed redundant to place the same file in each build variant if it's exactly the same.
+
+    dougst...@google.com, May 27, 2016, 11:26:52 PM to Firebase Google Group
+        That I don't know for sure, sorry.  Actually I didn't know that the Firebase console gave you all your app configurations in a single google-services.json.  I suppose that this will be the Firebase way going forward.  It might be the case that older projects created in the Google Developer Console continue to have theirs separated into different files, and the plugin simply recognizes all of these possible variations.  I don't know of any plans to deprecate the all-in-one format since - but it seems easier to use than per-variant files distributed throughout your project. Doug
+    }
+}
+
 @online{firebasesupport2020_dependencies_of_firebase_sdks_on_google_play_services,
   title = {Dependencies of Firebase Android SDKs on Google Play services},
   url = {https://firebase.google.com/docs/android/android-play-services},
@@ -8467,6 +8536,54 @@ https://github.com/Displayr/flipTime/graphs/contributors
     Note: If you don’t select any languages, we’ll automatically select languages in which your app has the most installs.
     Click Save
   }
+}
+
+@online{google2014_google_analytics_exceptions,
+    title = {Google Services 4.4 on API 19 does not submit exceptions},
+    url = {https://issuetracker.google.com/issues/35353120},
+    authors = {Various contributors},
+    year = {2014},
+    publisher = {{Google Android IssueTracker}},
+    extract = {
+    Name of affected component: Mobile Tracking (Android)
+
+    This affects Google Analytics V4 bundled in Google Play services 4.4.52 on an API 19 device or emulator.  It may be isolated to just the Google Play Services 4.4.52 but I was unable to test that on a sub API 19 device.
+
+    Issue summary:
+    When using ga_reportUncaughtExceptions on an 4.4.52/API 19 device exceptions are not dispatched. I also saw the same behavior with subclassing the GA Exception Handler but didn't not confirm that worked on a Non API 19 device.   The are viewable in the log as such:
+
+    06-13 06:39:45.038: V/GAV3(4592): Thread[main,5,main]: Tracking Exception: NullPointerException (@AllTriviaActivity$3:onClick:75) {main}
+
+    but a log entry indicating they were dispatched never appears. However all other GA traffic is dispatched and viewable in reports.
+
+    If used on an API 18 emulator the exception is dispatched and is viewable on GA Crash/Exception report.  Running the identical code on an API 14 device also works.   Also downgrading the API 19 device to 4.0.34 also works.
+
+    Steps to reproduce issue:
+    1. Configure Google Analytics V4 in an Android app compiling against Google Play Services 4.4.52 on an API 19 device/emulator with Google Play Services v4.4.52.
+
+    2. Use a config file for the tracker and in the manfest.  ie
+        <meta-data android:name="com.google.android.gms.analytics.globalConfigResource" android:resource="@xml/gaconfig" />
+
+        <resources xmlns:tools="http://schemas.android.com/tools"
+        tools:ignore="TypographyDashes">
+                <string name="ga_trackingId">XXXXXXXXXXXX</string>
+            <integer name="ga_sessionTimeout">30</integer>
+            <bool name="ga_autoActivityTracking">true</bool>
+                <bool name="ga_reportUncaughtExceptions">true</bool>
+                <string name="ga_logLevel">verbose</string>
+        </resources>
+
+    3. Force an crash to occur and observe the log and GA Crash/Exception report.
+
+    Expected output:
+        The log should indicate that the exception has been caught by GA and passed on to the default handler.  Then the dispatch to the server should be apparent. The crash/exception should also show up in the report.
+
+    Actual results:
+        The crash is caught but never dispatched or indicated that it is saved to the hit store.  The exception never shows up on the GA Crash Exception report even after waiting several days.  Normal GA pages/event hits do appear in their respective reports and the realtime reports.
+
+    Notes:
+        This appears related to the integrated dispatching that is present in Google Play Services 4.4.52. As mentioned above I downgraded my API 19 device to 4.0.34 and the exception was stored to the hit store and was later dispatched. The exception later showed in the reports.  I have read of other people having a similar problem of crashes/exceptions not showing up in reports with other devices.  I am unsure of their version of Google Play Services they were using but it was likely 4.4 due to the recent dates of the postings.
+    }
 }
 
 @online{google2020_pre-launch-reports-false-positives,

@@ -174,10 +174,12 @@ While these SDKs have various automated unit tests, end-to-end tests for the SDK
 
 
 \section{Bug-facing topics}
+Mobile analytics SDKs are software development projects, and like other software they may have material flaws and some can even stop an app from working. 
+
 \begin{itemize}
     \itemsep0em 
     \item SDK can cause the app to crash e.g. \href{https://github.com/segmentio/analytics-android/issues/732}{Crash during Google Pre-launch report \#732}.
-    \item Some developers choose to record bugs for failures reported via mobile analytics. (e.g. Kiwix \href{https://github.com/kiwix/kiwix-android/issues/2482}{Kiwix Android Issue 2482:} Crash Report 3.4.1: IllegalArgumentException org.kiwix.kiwixmobile.core.main.CoreMainActivity.navigate). Note: As part of reviewing this bug I noticed at least one new bug in Android Vitals, where they list the same crash cluster several times in the results, details are in the issue on GitHub.
+    \item Some developers choose to record bugs for failures reported via mobile analytics. (e.g. Kiwix \href{https://github.com/kiwix/kiwix-android/issues/2482}{Kiwix Android Issue 2482:} for a Crash Report for an IllegalArgumentException in release 3.4.1 of the Kiwix Android app). Note: As part of reviewing this bug I noticed at least one new bug in Android Vitals, where they list the same crash cluster several times in the results, details are in the issue on GitHub.
     \item Bug reproducibility, including the use of automated tests.
     \item The efficacy of addressing bugs.
     \item Obviating some bugs by replacing Java code with Kotlin (Upstream improvements).
@@ -185,16 +187,59 @@ While these SDKs have various automated unit tests, end-to-end tests for the SDK
 
 \newthought{Intermittent appearances of bugs}~\label{section-intermittent-appearances-of-bugs-55-crashes}
 In some instances, failures have remained submerged for several releases. Mobile Analytics helps to surface (detect) these failures when they do appear. 
-For instance with the \myindex{Kiwix} Android app, in September 2019 there were 55 crashes reported for a \texttt{WebViewFactory MissingWebViewPackageException}; see Figure~\ref{fig:55-crashes-missing-webview-package-exception}. This crash disappeared for several releases before reappearing. The disappearance might have been for various reasons, a possible reason was simply the particular user who was adversely affected stopped using the app. 
+For instance with the \myindex{Kiwix} Android app, in September 2019 there were 55 crashes reported for a \texttt{WebViewFactory MissingWebViewPackageException}\index{WebView}; see Figure~\ref{fig:55-crashes-WebViewFactory-MissingWebViewPackageException}. This crash disappeared for several releases before reappearing. The disappearance might have been for various reasons, a possible reason was simply the particular user who was adversely affected stopped using the app. 
 
 \begin{figure*}
     \centering
-    \includegraphics[width=\linewidth]{images/android-vitals-screenshots/55-crashes-WebViewFactory-MissingWebViewPackageException_2019-09-19-kiwix_trimmed.png}
+    \includegraphics[width=0.9\linewidth]{images/android-vitals-screenshots/kwix/55-crashes-WebViewFactory-MissingWebViewPackageException_2019-09-19-kiwix_trimmed.png}
     \caption{Kiwix Android 55 crashes for one user}
     \label{fig:55-crashes-WebViewFactory-MissingWebViewPackageException}
 \end{figure*}
 
 \FloatBarrier
+\section{App-facing topics}
+
+
+\begin{itemize}
+    \itemsep0em
+    \item Improvements in crash rates.
+    \item Build scripts can affect the behaviour of the app.
+    \item User Experience of apps with in-app analytics (visibility and control aspects).
+\end{itemize}
+
+\subsection{Improvements in crash rates}
+For both Catrobat and Kiwix the hackathon and the post-hackathon bug fixes were highly effective in terms of cumulatively reducing the crash rate over several subsequent releases. % TODO Check whether the releases were contiguous.
+The Catrobat case study replicated the improvements seen in the Kiwix case study and also the efficacy of using a hackathon as an immediate intervention. TODO discuss limitations of hackathons and forward link to the section on the useful half-life of hackathons. 
+
+
+For Pocket Code, the improvements in the stability of the app were particularly encouraging as the project had already implemented many of `good' development practices.
+
+
+\textbf{TODO include the other case studies.}
+Somewhere (here?) I need to present the improvements in the measured stability/reliability of the apps.
+
+\subsection{Build scripts can affect the behaviour of the app}
+A previous section \secref{aata-build-scripts} explained how build scripts encapsulate the build process and how it's possible to adversely affect the behaviour of in-app mobile analytics. And in \secref{aiu-choosing-mobile-analytics-topic} of the previous chapter, how developers can choose to vary the behaviours of an app, \emph{e.g.} to increase the logging in debug builds. (In Android they can use `build variants' and `product flavors' to do so~\sidecite{android_build_variants_and_product_flavors}.)
+
+Often developers wish to optimise the application binary to remove non-essential code and to obfuscate the object code within the binary to protect the intellectual property contained within. Both the optimisation and any obfuscation tend to occur for release (production) builds of an app, these may affect the behaviour of the app in ways end-users are hard-pressed to discern. When using in-app mobile analytics it's important to preserve this functionality in release builds. Some projects disable mobile analytics in debug builds and others, including case-study \myindex{C1}, use a distinct identifier to separate the traffic so they can be reported-on and analysed separately. (This is discussed by a Google engineer and an app developer in \sidecite{firebasegooglegroup2016_best_way_to_setup_release_debug_firebase_environment}.)
+
+
+\subsection{User Experience of apps with in-app analytics}
+The visibility of any end-user `agreement' varied across the apps in the app-centric case studies that used in-app mobile analytics. Most did not present users with this information, with the exception of \myindex{Pocket Code}.
+
+It required end-users to read and agree to a lengthy legal agreement the first time they used the app. 
+
+In contrast \myindex{Moodspace} took a light-hearted approach in their app, as follows: 
+
+\begin{kaobox}[frametitle=Moodspace privacy policy]
+``To make the app work well at all we collect the following anonymous data:
+\begin{itemize}
+    \item Crash reports: If you've never seen the app crashing, it's because as soon as one happens, we get a crash report. A little red light flashes in our office, a loud siren blares, and we release a fix right away. It's quite annoying actually.
+    \item Analytics: We assume you're going to use the app a certain way. We're almost always wrong, and you often surprise us. Analytics lets us see how people like you actually use the app, so we can make improvements to the right places. Analytics can use the Google Advertising ID to identify you. This doesn't tell us anything about you (it's just some numbers and letters), but if you really want to trick us you can reset your Google Advertising ID at any time. Go to your device Settings > Google > Ads.''
+\end{itemize}~\sidecite{moodspace2021_privacy_policy}
+\end{kaobox}
+
+None of the apps provided end-users with any mechanism to disable in-app mobile analytics.
 
 \section{Macro topics}~\label{aata-macro-topics}
 \julian{13-Jun-2022 This topic may move elsewhere, either partly or completely. If so, the effects on the artefacts (would still belong here). TBD when I've revisited that chapter.}
@@ -208,9 +253,91 @@ Macro-topics touch on multiple aspects of developing mobile apps. This research 
 \end{itemize}
 
 \subsection{Tradeoffs}
-At least three types of tradeoffs were evident in the artefacts: 1) the effects of ethical decisions by the project team (covered in \secref{aiu-ethics-and-pii-topics}, 2) downgrading functionality to obtain reliability, and 3) use of third-party vs locally developed functionality.
+At least three types of tradeoffs were evident in the artefacts: 
+\begin{enumerate}
+    \item \textbf{Ethical tradeoff: } the effects of ethical decisions by the project team (covered in \secref{aiu-ethics-and-pii-topics},
+    \item \textbf{Functionality tradeoff :} downgrading functionality to obtain reliability,
+    \item \textbf{Third-party tradeoff :} use of third-party vs locally developed functionality.
+\end{enumerate}
+
+\newthought{Ethical tradeoffs :} (Tradeoff 1).
+The clearest example from the case studies, as described in the previous chapter in \secref{aiu-ethics-and-pii-topics}, is where the Catrobat project chose to remove in-app analytics from \myindex{Pocket Code} to prevent data being collected by Firebase Analytics \emph{via this app} as other apps on the end user's devices almost certainly are using Firebase Analytics and reporting much or all of the demographic and geographic data to Google's systems.
+
+\newthought{Reliability trumps enhanced functionality: } 
+The core \myindex{Kiwix} Android app included a custom file downloader that downloaded material such as Wikipedia in German for offline use. This downloader kept track of partial downloads and also allowed end users to control when to allow the downloads and when to pause or stop them. This functionality was designed to help users often in areas with intermittent, controlled, and sometimes expensive connectivity to increase their chances of being able to download the content within their budget. To provide some concrete examples in some parts of the world users would download content that took several entire \emph{days} even if the connection didn't fail, and the cost of the connection was metered and capped to 1GB of data.
+
+However, the code for the downloader had various bugs and flaws including several that caused the app to crash. These crashes meant the app had an excessively high crash rate in the Google Play App Store. The then lead developer for the Android codebase had not been able to tame the high crash rate. A consultant was hired who had worked on multiple other Android projects and codebases. This consultant proposed scrapping the custom downloader and replacing it with standard Android functionality provided by Google as part of the Android SDK. This proposal was accepted and implemented\sidenote{The Pull Request with the major changes is \href{https://github.com/kiwix/kiwix-android/pull/1170}{2.5 downloader \#1170}.} and it had the desired effect of reducing the crash rate of the core Kiwix Android app significantly, as illustrated in Figure \ref{fig:kiwix-crash-rate-drops-with-v2_5}. The headline reduction in the report is from 4.59\% to 3.12\% however this includes the interim period when the reduction was taking effect as more users received/installed the newer release, so the improvement was better than than this report suggests - roughly a reduction from over 4\% to 2\%. (The gap in the graph will be discussed in the tools chapter.)\todo{Add cross-reference to the relevant section.} 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/android-vitals-screenshots/kwix/kiwix-crash-rate-drops-with-v2_5.png}
+    \caption{Kiwix crash rate drops once custom networking code replaced}
+    \label{fig:kiwix-crash-rate-drops-with-v2_5}
+\end{figure}
+
+However the standard Android downloader didn't provide equivalent facilities to continue partial downloads, or to pause and resume downloads, nor did it provide progress tracking information. Furthermore as the project team had chosen not to incorporate in-app mobile analytics the project team cannot easily determine the effects of these changes \emph{on the end users}. Bugs continue to surface occasionally on the project's GitHub site~\sidenote{\textit{e.g.} \href{https://github.com/kiwix/kiwix-android/issues/2845}{github.com/kiwix/kiwix-android/issues/2845}.} and users sometimes complain in reviews submitted to Google Play. Here are four \emph{verbatim} examples extracted from the developer's view of Google Play; (the developer's view has greater visibility into ratings and reviews than the public (user-oriented) view):
+
+{\small
+\begin{itemize}
+    \itemsep0em
+    \item ``\textit{Wikipedia nopic without images works again in version 11.18 with search function.! Top Unfortunately, now in March 21 again problems with wikipedia text with 14.2 gb. After 3/4 of the download the process breaks off every time! Too bad. Wikis with smaller amounts of data can be downloaded without any problems. Handling of the app very well.}'', Mar 22, 2021 % https://play.google.com/console/u/0/developers/9116215767541857492/app/4975184706939091905/user-feedback/review-details?reviewId=gp%3AAOqpTOGjPB5Em_o1TfLCzltkR7jvVhdVJAvBZlj9Y0-5i9FOcDaJ4Yjh1yqIHV5-qo-9HkbvGJSAHweXJOQodfo&corpus=PUBLIC_REVIEWS
+    \item ``\textit{Download started and it could never finish}'', Mar 25, 2021 % https://play.google.com/console/u/0/developers/9116215767541857492/app/4975184706939091905/user-feedback/review-details?reviewId=gp%3AAOqpTOErPflFJDpyqiz4m4CJW3IPjYoXKGrO0SLZ4L94DwUPj662lAWuS0MOWAXfANZ2D6Vf--EkJLe1RPIeSqk&corpus=PUBLIC_REVIEWS
+    \item ``\textit{Seems that library download is b0rken atm?}'', Oct 7, 2021 % https://play.google.com/console/u/0/developers/9116215767541857492/app/4975184706939091905/user-feedback/review-details?reviewId=gp%3AAOqpTOGVOb-MNO3ehakCJsUi7Ur-R_6QJkdnWzFDl7xh6KA28ZUATGKmBO7JzDTgPvULR0UhivkWMp2B0d83qpA&corpus=PUBLIC_REVIEWS
+    \item ``\textit{Cant continue interrupted download}'', Oct 15, 2021 % https://play.google.com/console/u/0/developers/9116215767541857492/app/4975184706939091905/user-feedback/review-details?reviewId=gp%3AAOqpTOFxVKQVzPIrgcWHmCX8QnQXaqVkI8JFVwBzLYiDHJrdBbokV8SBDfRRjYltEqBp8lsLVTNFlix3fzFMHYA&corpus=PUBLIC_REVIEWS
+\end{itemize}
+}
+
+And another review asks for the download manager that, ironically, used to exist (presumably without realising the app used to have one): ``\textit{edit: still there is no download manager. It is not possible to download the large files. Despite 100 megabits per second, I did not manage to load the large Wikipedia with images. The app itself is very good. Only the download of the huge files always breaks off. I load via PC. A download manager would not be bad.}'', Mar 12, 2021 % https://play.google.com/console/u/0/developers/9116215767541857492/app/4975184706939091905/user-feedback/review-details?reviewId=gp%3AAOqpTOEH9rOv2WWhAUTEChRwgT1Mrq5rYxEp9cQzrqjGDg6aeOccjVgxJeNFU_syr1wNPh9UMw71FKfM13iNy8k&corpus=PUBLIC_REVIEWS 
+
+\newthought{Third-party code}: 
+The third tradeoff is between third-party and locally developed code which generalises the second tradeoff found in the research (of trading functionality for reliability). As a concrete example, the \Gls{glossary-webview}\index{WebView}\Gls{glossary-webview}\index{WebView} component is ubiquitous on Android and found in many Android apps including several of those in the case study. %Is it worth the investment to find out how many of the apps use the Android WebView?. 
+
+% Google's overview on the WebView component is available at https://developer.android.com/guide/webapps and https://developer.android.com/guide/webapps/webview-privacy discusses crash reporting and other data collection topics pertaining to apps using WebViews.
+
+As projects, including the Kiwix team, discovered crashes can be reported in Android Vitals for the \Gls{glossary-webview}\index{WebView} component. These adversely affect the app's reliability as measured by Android Vitals. While the app developers can fix at least some of the causes of third-party components, including the \Gls{glossary-webview}\index{WebView} component, others may be beyond their direct control.
+
+In March 2021, major apps including apps from the Amazon, BBC, Facebook, Google, Microsoft, etc. failed in use by a release of the \Gls{glossary-webview}\index{WebView} component~\sidecite{peters2021_google_fixes_issue_causing_android_apps_to_crash_etc_webview, bbcnews2021_google_fixes_crashing_android_app_issues, bbc_iplayer_app_april_2021_webview_information}. and Samsung's deadpan observation:
+
+\begin{quote}
+    ``If you are having an issue with the apps forcibly closing on your device, please follow the steps to resolve the issue. This problem has been resolved with the latest app updates of Android System Webview and Chrome, 89.0.4389.105 version.''
+
+    ``To ensure that your apps do not crash, please update both Google Chrome and Android System Webview.''~\sidenote{Source: \href{https://www.samsung.com/ph/support/mobile-devices/google-webview-issue/}{www.samsung.com/ph/support/mobile-devices/google-webview-issue/}}
+\end{quote}
+
+
+All their respective app developers relied on a third-party software component developed and maintained by Google as part of Android. Furthermore, app developers who have incorporated the \Gls{glossary-webview}\index{WebView}\Gls{glossary-webview}\index{WebView} into their app sometimes introduced bugs in their use of the \Gls{glossary-webview}\index{WebView}\Gls{glossary-webview}\index{WebView}. Across a population of 146 opensource Android apps 124 WebView related bugs were found and the root causes analysed~\sidecite[][pp. 704 - 706]{hu2018_a_tale_of_two_cities_how_webview_introduces_bugs_to_android_applications}. Of these bugs, 15 introduced crashes~\sidecite[][p. 706]{hu2018_a_tale_of_two_cities_how_webview_introduces_bugs_to_android_applications}.
+
+As Google Android notes online \url{https://developer.android.com/guide/webapps} there are various alternatives to using a \Gls{glossary-webview}\index{WebView}. They don't mention either a) developers developing their own user interface, or b) other third-party alternatives to their WebView (\emph{e.g.} \href{https://mozilla.github.io/geckoview/}{Mozilla's GeckoView}). 
+% https://stackoverflow.com/questions/35559467/webview-alternatives (the answer is too dated to include in my thesis). and https://www.i-programmer.info/news/193-android/12900-the-geckoview-alternative-to-webview.html 
+% https://android.gadgethacks.com/how-to/ditch-googles-webview-switch-androids-system-browser-bromite-0384227/ 
+
+There is no silver bullet for developers in terms of choosing whether to write their own code or use third-party code. A \textbf{functionality tradeoff} (tradeoff 2) enabled the Kiwix team to improve the reliability at the cost of losing functionality where they replaced their own code with third-party code. 
+
+The \textbf{third-party tradeoff} (tradeoff 3) allows developers to short-circuit the work of developing their own functionality at the risk of being unable to address some of the failures and problems related to using those third-party components. Examples from the app-centric case studies include the use of \myindex{RoboSpice} by \myindex{Moonpig}, and the \myindex{Expo framework} by \myindex{LocalHalo}.
+
+\subsection{Scaling the use of analytics}
+This topic presents two forms of scaling. The first is scaling-out the use of mobile analytics to more team members. The second is scaling up through the integration of mobile analytics where the data can be analysed at scale and combined with other large-volume data sources.
+
+\newthought{Developers' access to, and use of, mobile analytics services: } %\improvement{From Isabel: reminds of the problems I raised in "Stuck in Limbo" security and other permissions preventing people using the tools they need. I'm also struck by the points about free versus paid for software - I think that's worth drawing out more - one of my interviewees talked about managers making decisions to save money by using free stuff/self building tools - but actually losing money/time because people are building tools rather than doing their work...}: 
+In hindsight it may be blindingly obvious that in order to use mobile analytics one first needs access to the mobile analytics service and then to gain the habits and understanding to actually use what's been made available. And yet, in the majority of the case studies only a minority of the team leaders actually provided access to the majority of their team members. Examples of these case studies include LocalHalo where the CTO appeared to be the only developer with access to Sentry; in the Kiwix Android team where lead developers were the majority of those who had direct access to Android Vitals and similarly for the Catrobat project access tended to be for senior developers who were long-time team members\sidenote{Note: hard data was hard to obtain given the nature of the access granted to the researcher and discussions with the projects seldom led to the data being made available.}.
+
+In the commercial project there were challenges in determining who granted access and subsequently developers had to obtain prior approval from their manager before requesting access to mobile analytics, and new team members were not necessarily even aware of the mobile analytics services so couldn't begin to request access. 
+
+The clear counterexample was Moonpig where the development team members were routinely provided access to the mobile analytics as part of joining the development team. Furthermore the developers rotated on-duty to actively monitor the mobile analytics to find and respond to any anomalies; therefore they were encouraged to learn how to use, understand, and act on the reports in the mobile analytics services.
+
+\newthought{System integration of mobile analytics outputs: } 
+The commercial project was and is part of a much larger engineering organisation with thousands of staff members. The engineering organisation required integration of all the mobile analytics services into their data lake through data-pipelines~\sidenote{A useful overview of data-pipelines from three industry case studies describes various challenges and opportunities those companies experienced~\textcite{munappy2020_data_pipeline_management_in_practice_challenges_and_opportunities}.} Several of the enterprise-scale mobile analytics services, including Google Analytics 360 and Microsoft's App Center, provide high-volume exports using their respective proprietary cloud storage service. Microsoft App Center also provides an openAPI that can be used for REST queries interactively \href{https://openapi.appcenter.ms/}{openapi.appcenter.ms/} and/or programmatically (documented online at \href{https://docs.microsoft.com/en-us/appcenter/api-docs/}{docs.microsoft.com/en-us/appcenter/api-docs/}). This was used on an \emph{ad-hoc} basis during the case-study before the data-pipeline was fully established and worked adequately for the \emph{ad-hoc} work.  
+% https://docs.microsoft.com/en-us/appcenter/diagnostics/using-the-diagnostics-api 
+
+Various of the mobile analytics services provided API integration, these are covered in the \href{chapter-tools-and-their-artefacts}{Tools and their artefacts} chapter.\todo{Provide a more elegant link.}
+
+The Google and Microsoft storage integration requires both authorisation and paying for by the organisation. In turn this meant a development team needs to get approval to access and use these services, and the approval may be time-consuming even if senior management has dictated the project will integrate and use these services as a side-effect of corporate processes and working practices. An entirely separate team may be responsible for the `plumbing' in of the project's data from the mobile analytics service where the development team needs to request the necessary work and then wait until that work has been approved, scheduled, and then attempted. As Twitter engineers noted plumbing is a key activity~\sidecite[][page 6]{lin2013_scaling_big_data_mining_infrastructure_the_twitter_experience} 
+
+%%% Julian to continue here on 13 Aug 2022
 
 \section{Discussion}
+As only three of the app-centric case studies provided access to their project's source code and build processes the grey materials have helped to provide additional examples and context.  
+
 
 \subsection{Fieldstones}
 Explain how the absolute percentage of reliability scores is not necessarily a true reflection of the reliability of the app as the score is dependent on several factors including:
@@ -220,10 +347,11 @@ Explain how the absolute percentage of reliability scores is not necessarily a t
     \item The connectivity and transfer mechanism.
     \item Whether the ephemeral data is preserved on-device sufficiently to transfer it.
     \item Any filtering performed during transmission and/or reception of the data.
+    \item Bugs in the SDK that affect the storage and/or transmission, \emph{e.g.} as occurred in Google Analytics for Android on a specific version of Android/Google Play Services \sidecite{google2014_google_analytics_exceptions}.
     \item Any filtering in the reporting.
     \item When and where the failure occurred.
     \item The date and time on the device (and perhaps on intermediate equipment).
     \item Whether the failure conditions occur.
 \end{itemize}
 
-Somewhere I need to present the improvements in the measured stability/reliability of the apps.
+\section{Summary of apps and their artefacts}
