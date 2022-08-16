@@ -198,6 +198,7 @@ For instance with the \myindex{Kiwix} Android app, in September 2019 there were 
 
 \FloatBarrier
 \section{App-facing topics}
+Three topics in particular focus on the mobile app. The first of these is the most closely connected to the main research question (see \ref{overall-research-question}, on page \pageref{overall-research-question}), in terms of improvements to the product quality. 
 
 
 \begin{itemize}
@@ -207,16 +208,139 @@ For instance with the \myindex{Kiwix} Android app, in September 2019 there were 
     \item User Experience of apps with in-app analytics (visibility and control aspects).
 \end{itemize}
 
-\subsection{Improvements in crash rates}
-For both Catrobat and Kiwix the hackathon and the post-hackathon bug fixes were highly effective in terms of cumulatively reducing the crash rate over several subsequent releases. % TODO Check whether the releases were contiguous.
-The Catrobat case study replicated the improvements seen in the Kiwix case study and also the efficacy of using a hackathon as an immediate intervention. TODO discuss limitations of hackathons and forward link to the section on the useful half-life of hackathons. 
+\subsection{Improvements in crash rates}~\label{aata-improvements-in-crash-rates-topic}
+For both Catrobat and Kiwix the hackathon\index{Hackathon} and the post-hackathon bug fixes were highly effective in terms of cumulatively reducing the crash rate over several subsequent releases. % TODO Check whether the releases were contiguous.
+The Catrobat case study replicated the improvements seen in the Kiwix case study and also the efficacy of using a hackathon as an immediate intervention. Note: the discussion chapter discuss limitations of hackathons and the useful half-life of hackathons in \secref{discussion-half-life-of-hackathons}. 
 
 
-For Pocket Code, the improvements in the stability of the app were particularly encouraging as the project had already implemented many of `good' development practices.
+For Pocket Code, the improvements in the stability of the app were particularly encouraging as the project had already implemented many of `good' development practices. Figure \ref{fig:annotated_pocketcode_90_day_fabric_crashlytics_report} shows the cumulative improvement in the crash rate as measured by Fabric Crashlytics. Two releases to Pocket Code were made with fixes for issues identified during the hackathon\index{Hackathon}.
+
+Note: Before the hackathon they had already addressed one of the worst offenders in terms of the crash rate and the effects of that improvement were rolling out during the weeks after the hackathon.
+\sidenote{\href{https://jira.catrob.at/browse/CATROID-405}{JIRA issue 405}} was the \#1 issue with over 2000 crashes reported in the 30 days preceding the hackathon (and over 3200 in the lifetime of the app). However, it had already been addressed in JIRA issue 379\sidenote{"media download progress dialog crashers" \href{https://jira.catrob.at/browse/CATROID-379}{jira.catrob.at/browse/CATROID-379}} and incorporated in to the most recent release \sidenote{Release:
+0.9.65 Nov 13, 6:01 PM: Full rollout.} as part of a major effort to improve the code quality around the embedded WebView component.
+
+Early indications are that the fixes related to the WebView have made a material improvement in the crash-rate for PocketCode 2.45\% vs. 3.9.3\% on Monday \nth{18} November 2019; details are in Table \ref{tab:androidvitals_rollout_of_0_9_65}. Therefore, in terms of assessing any improvement that results from the work of the hackathon\index{Hackathon} the baseline is 2.45\%.
+
+\begin{table}
+    \centering
+    \footnotesize
+    \begin{tabular}{r|r|r|r}
+        App version &Impacted sessions &Crash-free sessions &Number of sessions  \\
+        \hline
+        69 (0.9.65) &2.45\% &	97.55\% 	&~800 \\
+        Production &&& \\
+        \hline
+        66 (0.9.64) &3.93\% &96.07\% 	&~3K
+    \end{tabular}
+    \caption{AndroidVitals: Improvement in crash-rate post WebView improvements}
+    \label{tab:androidvitals_rollout_of_0_9_65}
+\end{table}
 
 
-\textbf{TODO include the other case studies.}
-Somewhere (here?) I need to present the improvements in the measured stability/reliability of the apps.
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=\linewidth]{images/fabric-crashlytics/annotated_pocketcode_90_day_fabric_crashlytics_report.jpg}
+    \caption{Fabric Crashlytics report on improvements in Pocket Code's crash rate}
+    \label{fig:annotated_pocketcode_90_day_fabric_crashlytics_report}
+\end{figure*}
+
+\begin{table*}
+    \centering
+    \footnotesize
+    \tabcolsep=0.06cm
+    \begin{tabular}{r|r|r|r|r}
+    \small
+        App version &Impacted sessions &Crash-free sessions &Number of sessions &Period \\
+        \hline
+        72 (0.9.68) &1.26\% &   98.74\%     &~9K  &11-Jan-2020 to 08-Feb-2020 \\
+        71 (0.9.67) &1.25\% &   98.17\%     &~14K &11-Jan-2020 to 08-Feb-2020 \\
+        70 (0.9.66) &1.65\% &   98.35\%     &~5K  &04-Jan-2020 to 01-Feb-2020 \\
+        69 (0.9.65) &2.05\% &	97.95\% 	&~2K  &22-Oct-2019 to 19-Nov-2019 \\
+        \hline
+        66 (0.9.64) &3.61\% &   96.39\% 	&~16K &22-Oct-2019 to 19-Nov-2019 \\
+    \end{tabular}
+    \caption{AndroidVitals: Improvement in crash-rate post Hackathon}
+    \label{tab:androidvitals_crashrate_post_hackathon}
+\end{table*}
+
+Some notes on Table~\ref{tab:androidvitals_crashrate_post_hackathon}:
+\begin{enumerate}
+    \item The data was reported for thirty-day periods, one of three durations available in the user interface. All figures were calculated and provided by Google's Android Vitals analytics.
+    \item The reports exclude small aggregate counts that fail to meet Google's reporting thresholds.
+    \item The percentages fluctuate depending on where releases are in their maturity (their production lifecycle). Therefore these values are spot figures calculated that day and indicative rather than necessarily being suitable for calculating ratios for different periods. 
+    \item These reports appear to be regenerated once a day, roughly 24 hours apart.
+    \item It is unclear whether the underlying data is filtered to limit it to apps only installed by end users of production releases from Google Play.
+\end{enumerate}
+
+
+\begin{table*}
+\caption{Reductions in Kiwix Crash Rates}
+\footnotesize
+\begin{center}
+\begin{threeparttable}
+\begin{tabular}{c c c c}
+    \toprule
+&\multicolumn{3}{c}{30-day crash rates reported in Android Vitals~\tnote{0}} \\
+\midrule
+\multirow{2}{*}{.} &\multicolumn{2}{c}{Kiwix Apps} \\
+Stage &Release&\cellcolor[HTML]{efefef}Experiment &Control  \\
+
+&\cellcolor[HTML]{efefef}&\cellcolor[HTML]{efefef}Kiwix & WikiMed English \\
+
+1 &0 
+  &\cellcolor[HTML]{efefef}5.07\% &1.13\% \\
+2 &1 &\cellcolor[HTML]{efefef}3.12\%~\tnote{1} &\multirow{2}{*}{\cellcolor[HTML]{A8A8A8}}... \\
+3 &2~\tnote{2} &\cellcolor[HTML]{efefef}1.59\%~\tnote{3} & \cellcolor[HTML]{A8A8A8}... \\
+  &3 &\cellcolor[HTML]{efefef}0.53\%~\tnote{4} &1.09\%~\tnote{5} \\
+4 &4 &\cellcolor[HTML]{efefef}0.72\%~\tnote{6} &0.60\%~\tnote{7} \\
+  &4~\tnote{8} 
+&\cellcolor[HTML]{efefef}0.55\% &0.41\% \\
+  &5 &\cellcolor[HTML]{efefef}0.40\%~\tnote{9} &0.26\%~\tnote{10} \\
+  \bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \item[0] Except when otherwise noted.
+  \item[1] Kiwix Release 2.5 with the previous custom download facility replaced by a Google Android downloader.
+  \item[2] The code is under 25 lines including 10 lines of comments~\url{https://github.com/kiwix/kiwix-android/pull/1388}.
+  \item[3] Aggregate crash rate over 7 days for versions 2.4, 2.5.1, 2.5.2, 2.5.3 (to Aug \nth{26} 2019).
+  \item[4] Previous 30 days crash rate, before release 3.1.2 pushed the crash rate up (same graph as TODO).
+  \item[5] \emph{Unchanged release from the first control.}
+  \item[6] Includes 3.1.2 which had an average (mean) crash rate of roughly 1.7\% (roughly \nth{31} Dec 2019).
+  \item[7] A mixed set of crash rates, averaged by Android Vitals. For the first updated release of Wikimed (the 2019-12 release).
+  \item[8] As usage increased of the more reliable releases the averages declined.
+  \item[9] The crash rates for releases 3.2.1 are 0.23\% and 3.3.1 are 0.31\%
+  \item[10] Release 2020-03 actually has a crash rate of around 0.05\% the numbers are higher as there are still significant volumes of usage on the previous 2 releases.
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+\label{tab:kiwix-evaluation-reductions-in-crash-rates}
+\end{table*}
+%%%% Isabel recommends creating a timeline instead - sounds good SHOULD-DO
+
+Table~\ref{tab:kiwix-evaluation-reductions-in-crash-rates} provides a comparison of the crash rates for the experiment and the control apps over four stages of this case study. There were three phases that interleave with these four stages.
+
+The stages are:
+\begin{enumerate}
+    \itemsep0em
+    \item The baseline,
+    \item Simplifying the most buggy code (which was the downloader),
+    \item Applying the concepts in the research to the experiment,
+    \item The new normal when mobile analytics is actively used.
+\end{enumerate}
+
+With the \myindex{C1} industrial case study the crash rate was reduced fourfold and the \Gls{anr} rate was reduced twofold.\sidenote{The actual values are confidential.} 
+Furthermore, when a developer inadvertently introduced the exception that led to a short term crash rate of over 10\%, caused by a flaw logging \myindex{OkHttp} network responses, the project team were able to quickly detect and address the cause. One the updated release was rolled out the crash rate returned to approximately the previous mean value.  
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/moonpig/firebase_crash_graph_90_days_feb_2020.png}
+    \caption{Moonpig: Firebase Analytics illustrating two crashes that reached production before being addressed}
+    \label{fig:moonpig-firebase-analytics-two-rogue-crashes}
+\end{figure}
+
+\myindex{Moonpig} provided various details of two crashes that emerged in production, including several graphs. Figure \ref{fig:moonpig-firebase-analytics-two-rogue-crashes} illustrates the effects of the crashes where they adversely affected the crash-free session scores and shows the restoration of higher reliability as each crash was addressed.
+
 
 \subsection{Build scripts can affect the behaviour of the app}
 A previous section \secref{aata-build-scripts} explained how build scripts encapsulate the build process and how it's possible to adversely affect the behaviour of in-app mobile analytics. And in \secref{aiu-choosing-mobile-analytics-topic} of the previous chapter, how developers can choose to vary the behaviours of an app, \emph{e.g.} to increase the logging in debug builds. (In Android they can use `build variants' and `product flavors' to do so~\sidecite{android_build_variants_and_product_flavors}.)
@@ -325,6 +449,8 @@ In the commercial project there were challenges in determining who granted acces
 
 The clear counterexample was Moonpig where the development team members were routinely provided access to the mobile analytics as part of joining the development team. Furthermore the developers rotated on-duty to actively monitor the mobile analytics to find and respond to any anomalies; therefore they were encouraged to learn how to use, understand, and act on the reports in the mobile analytics services.
 
+When copies of pertinent information, extracted from mobile analytics reports, are incorporated in to an issue tracking system they: a) are preserved generally for further use, and b) help to share the information at the time with the entire development team (assuming they have access, \emph{etc.}) 
+
 \newthought{System integration of mobile analytics outputs: } 
 The commercial project was and is part of a much larger engineering organisation with thousands of staff members. The engineering organisation required integration of all the mobile analytics services into their data lake through data-pipelines~\sidenote{A useful overview of data-pipelines from three industry case studies describes various challenges and opportunities those companies experienced~\textcite{munappy2020_data_pipeline_management_in_practice_challenges_and_opportunities}.} Several of the enterprise-scale mobile analytics services, including Google Analytics 360 and Microsoft's App Center, provide high-volume exports using their respective proprietary cloud storage service. Microsoft App Center also provides an openAPI that can be used for REST queries interactively \href{https://openapi.appcenter.ms/}{openapi.appcenter.ms/} and/or programmatically (documented online at \href{https://docs.microsoft.com/en-us/appcenter/api-docs/}{docs.microsoft.com/en-us/appcenter/api-docs/}). This was used on an \emph{ad-hoc} basis during the case-study before the data-pipeline was fully established and worked adequately for the \emph{ad-hoc} work.  
 % https://docs.microsoft.com/en-us/appcenter/diagnostics/using-the-diagnostics-api 
@@ -333,25 +459,52 @@ Various of the mobile analytics services provided API integration, these are cov
 
 The Google and Microsoft storage integration requires both authorisation and paying for by the organisation. In turn this meant a development team needs to get approval to access and use these services, and the approval may be time-consuming even if senior management has dictated the project will integrate and use these services as a side-effect of corporate processes and working practices. An entirely separate team may be responsible for the `plumbing' in of the project's data from the mobile analytics service where the development team needs to request the necessary work and then wait until that work has been approved, scheduled, and then attempted. As Twitter engineers noted plumbing is a key activity~\sidecite[][page 6]{lin2013_scaling_big_data_mining_infrastructure_the_twitter_experience} 
 
-%%% Julian to continue here on 13 Aug 2022
+%%% Julian to continue here on 14 Aug 2022
 
 \section{Discussion}
-As only three of the app-centric case studies provided access to their project's source code and build processes the grey materials have helped to provide additional examples and context.  
+As only three of the app-centric case studies provided access to their project's source code and build processes the analysis of 107 opensource Android apps together with various grey materials have helped to provide additional examples and context. These corroborate previous experiences in industry, albeit opensource apps tend to use mobile analytics more superficially, in terms of the depth of data collection and in the variety of mobile analytics services used~\sidenote{Commercial apps may be supported by revenue streams that defray the costs of paid-for commercial mobile analytics services.}.
+
+Three groups of topics emerged: code-facing, bug-facing, and app-facing together with several macro topics that transcend individual facets.
 
 
-\subsection{Fieldstones}
-Explain how the absolute percentage of reliability scores is not necessarily a true reflection of the reliability of the app as the score is dependent on several factors including:
+\subsection{Some thoughts on measurements of reliability}
+% This topic may be better placed elsewhere before the thesis is submitted. TBD.
+The absolute percentage of reliability scores is not necessarily a true reflection of the reliability of the app as the score is dependent on various factors including:
 
 \begin{itemize}
-    \item The settings on the device or in an app that gate whether analytics is provided to the mothership.
-    \item The connectivity and transfer mechanism.
-    \item Whether the ephemeral data is preserved on-device sufficiently to transfer it.
-    \item Any filtering performed during transmission and/or reception of the data.
+    \item The settings on the device or in an app that gate (control) whether analytics is provided to the `mothership'\sidenote{The servers that receive the raw analytics-related data from devices and/or apps.}.
+    \item The connectivity and transfer mechanism. For example Crashlytics only transferred crash data from previous sessions when the app was restarted. If the app was not restarted the data was never sent.
+    \item Whether the ephemeral data is preserved on-device sufficiently to transfer it. Client-side SDKs generally have constraints on how much data they keep and for how long they keep it. Furthermore, adverse termination of the app might cause some or all of the data to be lost.
+    \item the burstiness of aggregate incoming data, some service providers place limits on how much data they will accept and process. 
+    \item Any filtering performed during transmission and/or reception of the data. As an example, Sentry supports inbound data filters~\sidenote{\href{https://blog.sentry.io/2018/01/03/delete-and-discard}{delete and discard}, \href{https://docs.sentry.io/product/data-management-settings/filtering/}{filtering}, and data \href{https://docs.sentry.io/product/data-management-settings/scrubbing/}{`scrubbing'}}
     \item Bugs in the SDK that affect the storage and/or transmission, \emph{e.g.} as occurred in Google Analytics for Android on a specific version of Android/Google Play Services \sidecite{google2014_google_analytics_exceptions}.
     \item Any filtering in the reporting.
-    \item When and where the failure occurred.
+    \item When and where the failure occurred. Timezones, daylight settings from source to destination, any reporting cutoffs (and also any data from an earlier period that arrives after the cutoff for the report generation), contractual constraints~\sidenote{Including the date in the month, \emph{e.g.} see \href{https://help.sentry.io/account/billing/what-happens-when-i-run-out-of-event-capacity-and-a-grace-period-is-triggered/}{Grace periods when capacity is exceeded}.} \emph{etc.} might affect recent and/or historical reports.
     \item The date and time on the device (and perhaps on intermediate equipment).
     \item Whether the failure conditions occur.
+    \item Other aspects including processing failures, problems with cloud services, DDoS attacks, and potentially many others.
 \end{itemize}
 
+All these factors mean that the counts, percentages, improvements/degradations that are presented in reports may be safer to treat as indicative values rather than absolute values. In other words, it may unwise to simply compare absolute values to determine 'better' and 'worse' in terms of the quality of the actual app. Confidence intervals are worthy of consideration.\sidenote{In some ways we're getting the equivalent of spot prices of how that release, etc. fared that period.} 
+% Provide examples from Kiwix (WebView) and the large industrial case study. 
+% c.f. https://gradcoach.com/nominal-ordinal-interval-ratio/ This point is probably worth expanding on
+
+Probability has a part to play in terms of comparing measurements and reports in order to compare results and estimate the likely trajectory of progress in terms of any improvement or detriment. Of these, detriment may be easier to manage based on several factors:
+
+\begin{itemize}
+    \item The presence of failures are easier to identify than the absence of a failure (given some failures may not be visible in reports for various reasons mentioned previously).
+    \item Developers are unlikely to want to ignore detriments if they are paying attention to the quality of their app.
+\end{itemize}
+
+In 2020 Weckert, an artist became popular for an experiment he performed using 99 smartphones, each running Google Maps, where he was able to trick Google Maps into showing traffic jams on otherwise free-moving streets~\sidecite{weckert2020_google_maps_hacks}. In \sidecite{businessinsider2020_artist_creates_fake_traffic_jams_on_google_maps_with_wagon_of_phones} Weckert explained he wanted to draw attention to the blind trust people have in tech companies and platforms. Google Maps and Mobile Analytics services share similar data collection, analysis, and reporting and it may also be possible to trick mobile analytics and feed data that biases the results of the reports.
+% See also
+%%%%% https://www.theguardian.com/technology/2020/feb/03/berlin-artist-uses-99-phones-trick-google-maps-traffic-jam-alert
+%%%%% https://www.theguardian.com/technology/2015/sep/03/google-sued-paper-towns-rip-off-claim-phantomalert-waze
+%%%%% The Power of Virtual Maps
+
+\subsection{\iartefacts}
+Logging errors, using breadcrumbs, in-app crash analytics. Preserving reports and results (and streamlining the tools and processes to do so). Distinguishing between analytics from various release zones (pre-release, production, etc.), safeguarding application keys.  
+
+
 \section{Summary of apps and their artefacts}
+

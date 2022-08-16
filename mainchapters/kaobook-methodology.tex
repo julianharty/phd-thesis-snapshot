@@ -62,7 +62,9 @@ Third-party mobile analytics (including those provided by Google) have terms of 
 
 The choice of tools, including the humble web browser used by the researcher, affects aspects of the ease of collection of online reports. As an example, the screenshot capability of the Mozilla Firefox browser~\sidenote{Described in \url{https://screenshots.firefox.com/}} is far richer than that provided by Google Chrome\index{Google Chrome} at the time of writing. Many of the reports in mobile analytics tools require extensive vertical scrolling; Firefox\index{Firebox} can capture the entire contents easily, but Chrome does not. 
 
-Similarly some content is only generated on screen on demand, in response to user actions, for example through scrolling vertically (such as using `infinite scrolling'~\sidecite[]{parker2012_infinite_scrolling}) and/or paging through reports. Others are contextual and may only appear when the relevant conditions occur. For example, the release management reports in Google Play Console appear for the first 7 days of a new release. Therefore, to capture the content the researcher (or a human/automated proxy) needs to perform these actions and to save/safeguard pertinent materials to facilitate longer term analysis and provide/record evidence. Where practical, the underlying text was collected in addition to visual content; we created software called Vitals Scraper do so for Google Play Console with Android Vitals. The text could then be processed relatively easily and without needing to be re-keyed. Note: it is not always practical or useful to record ``everything"; how much is suitable is a topic for future research. 
+Similarly some content is only generated on screen on demand, in response to user actions, for example through scrolling vertically (such as using `infinite scrolling'~\sidecite[]{parker2012_infinite_scrolling}) and/or paging through reports. Others are contextual and may only appear when the relevant conditions occur. For example, the release management reports in Google Play Console appear for the first 7 days of a new release. 
+
+Therefore, to capture the content the researcher (or a human/automated proxy) needs to perform these actions and to save/safeguard pertinent materials to facilitate longer term analysis and provide/record evidence. Where practical, the underlying text was collected in addition to visual content; we created software called \myindex{Vitals Scraper} do so for Google Play Console with \myindex{Android Vitals}. The text could then be processed relatively easily and without needing to be re-keyed. Note: it is not always practical or useful to record ``everything"; how much is suitable is a topic for future research. 
 
 \subsection{Mapping the data sources to the six perspectives}
 The various data sources described in the previous section each contribute to the six perspectives as indicated in Table~\ref{tab:mapping-datasources-to-six-perspectives}. The table has two indications of the strength of the contribution: `\textbf{S}' indicates a strong contribution, and `\textbf{m}' indicates a moderate contribution. The blank cells indicate low, or marginal, contributions rather than necessarily no contribution at all.
@@ -308,7 +310,7 @@ A representative example of using the feedback mechanisms is:
     \item And when the modified app was released the mobile analytics confirmed the spike had been successfully addressed in the new release.
 \end{itemize}
 
-This example served both the research needs and the practical project needs; and it transpires that developers use a similar form of sense-making; this is discussed in \secref{sensemaking-and-decision-taking-by-developers-section}, starting on page \pageref{sensemaking-and-decision-taking-by-developers-section}.
+This example served both the research needs and the practical project needs; and it transpires that developers use a similar form of sense-making; this is discussed in \secref{aiu-sensemaking-and-decision-taking-by-developers-section}, starting on page \pageref{aiu-sensemaking-and-decision-taking-by-developers-section}.
 
 \subsection{Sense-building}
 Sense-building moves beyond sense-making. Sense-making aims to understand \textit{what is}, while sense-building extends sense-making with direct action and more active research, for example: to devise and run experiments to learn more about the behaviours of mobile analytics, and to seek patterns and generalisations across tools, and case studies. The main methods used for sense-building were local-app experiments, experimentation with \Gls{foss} analytics tools and across-case comparisons. 
@@ -511,16 +513,16 @@ My research didn't have the opportunity to compare two tools quantitatively, nor
 \end{itemize}
 
 \subsubsection{Hackathon}~\label{section-hackathon-research-method}
-This research method applied the concepts of software development hackathons and added the use of mobile analytics tools as a source of information related to issues in the behaviour (\emph{i.e.}, failure data) of one of more of that team's mobile apps.
+This research method applied the concepts of software development hackathons\index{Hackathon} and added the use of mobile analytics tools as a source of information related to issues in the behaviour (\emph{i.e.}, failure data) of one of more of that team's mobile apps.
 
 In the terminology of \sidecite[][pp. 1-3]{drouhard2016_typology_of_hackathon_events} (as used in ~\sidecite[][p.3]{medina2020_what_do_we_know_about_hackathons_etc_a_SLR}), the hackathons were 
 \emph{communal} as the participants were part of common development communities (as developers for the opensource apps they contributed to); \emph{contributive} as there were common concerns about the issues the hackathons were intended to address with a strong desire for impact; and \emph{catalytic} as one of the aims was to demonstrate a new approach to the use of a dataset (mobile analytics reports) and technology (mobile analytics tools).  
 
-No rewards were offered to participants beyond being at the respective hackathon and participating. ~\sidecite[][p.5]{briscoe2014_digital_innovation_the_hackathon_phenomenon} termed these `Single-Application' hackathons. The participants were current members of the respective development team.  The hackathons included the researcher and a highly-experienced leader and contributor in previous hackathons. They prepared much of the hackathons together; and in one case (PocketCode) co-led the hackathon. The app, topic, and focus were both selected as part of the preparations. The work during the hackathon was determined by the participants, with guidance and suggestions from the organisers.
+No rewards were offered to participants beyond being at the respective hackathon\index{Hackathon} and participating. ~\sidecite[][p.5]{briscoe2014_digital_innovation_the_hackathon_phenomenon} termed these `Single-Application' hackathons. The participants were current members of the respective development team.  The hackathons included the researcher and a highly-experienced leader and contributor in previous hackathons. They prepared much of the hackathons together; and in one case (PocketCode) co-led the hackathon. The app, topic, and focus were both selected as part of the preparations. The work during the hackathon was determined by the participants, with guidance and suggestions from the organisers.
 
 % https://hackathon-planning-kit.org/ 
 
-The outcomes of the hackathons included bug reports, and code changes \emph{i.e.} fixes intended to address some of the bugs found in the respective hackathon. Both the bug reports and the code changes were analysed over a period of several months to observe the effects of each hackathon. The mobile analytics reports were also monitored as new releases of the respective apps were launched to observe the effects of the code changes.
+The outcomes of the hackathons\index{Hackathon} included bug reports, and code changes \emph{i.e.} fixes intended to address some of the bugs found in the respective hackathon. Both the bug reports and the code changes were analysed over a period of several months to observe the effects of each hackathon. The mobile analytics reports were also monitored as new releases of the respective apps were launched to observe the effects of the code changes.
 
 \subsection{Summary of the analytics-centric methodology}~\label{analytics-centric-methodology-section}
 
@@ -682,7 +684,7 @@ As mentioned here and elsewhere in the dissertation, the software developed as p
 \section[Summary of the methodology chapter]{Summary}~\label{methodology-summary-section}
 The methodology has been chosen to maximise the viability of answering the primary research question in real-world projects and contexts where access to the tools is granted by project teams and their respective organisations, and where the development teams actively engage and support the case studies.
 
-The methodology also accommodates complementary research that augments the case studies, for instance with the analysis of various opensource Android codebases)\todo{Add a forward reference to that section on the `log analysis' work.}.
+The methodology also accommodates complementary research that augments the case studies, for instance with the analysis of various opensource Android codebases) introduced in \secref{section-sourcecode-analysis-to-augment-app-centric-case-studies}.
 
 The six perspectives inform the methodology by helping ensure that combinations the various methods address the three key objects of analysis and also address the temporal dimension of determining what \textit{is} and what \textit{could be}.
 

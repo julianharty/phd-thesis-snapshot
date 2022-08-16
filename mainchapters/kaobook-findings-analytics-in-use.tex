@@ -39,7 +39,7 @@ Motivation investigates what drives the developers to use mobile analytics to im
 
 Benefits and achievements of using mobile analytics to improve their apps is discussed next to understand what they can accrue and what they can achieve. \secref{aiu-benefits-and-achievements-section} presents evidence for this overall theme.
 
-Competence and optimisation are vital factors in developers being able to obtain the benefits and gain the achievements. \secref{aiu-competence-and-optimisations} present evidence for this overall theme.
+Competence and optimisation are vital factors in developers being able to obtain the benefits and gain the achievements. \secref{aiu-competence-and-optimisations-section} present evidence for this overall theme.
 
 And finally in terms of the higher-level themes, the context the developers are working in plays a major factor in what happens in terms of their use of mobile analytics so it's key to consider the evidence for this theme in \secref{aiu-snafu-and-real-world-conditions-theme}.
 
@@ -228,7 +228,7 @@ In the three action-research app-centric case studies screenshots of the content
 One of the app-centric case studies, Moonpig, demonstrated they actively guarded against entropy through frequent, ongoing checking of the various mobile analytics services they used. They had an assigned developer on duty who was expected to check these services during the working day and action any issues or anomalies they noticed.
 
 \subsection{Engineering leadership}~\label{aiu-engineering-leadership-topic}
-There were clear correlations between having engineering leadership participating and/or supporting the use of mobile analytics and in the measured reliability of the respective apps. \myindex{Moonpig} had integrated the use of mobile analytics in both development and operational aspects of their business. \myindex{Kiwix} achieved manifold improvements and sustained them while the Android project had a professional app developer as the project lead. 
+There were clear correlations between having engineering leadership\index{Engineering leadership} participating and/or supporting the use of mobile analytics and in the measured reliability of the respective apps. \myindex{Moonpig} had integrated the use of mobile analytics in both development and operational aspects of their business. \myindex{Kiwix} achieved manifold improvements and sustained them while the Android project had a professional app developer as the project lead. 
 
 % For the Pocket Code app, there has been an intermittent focus on addressing the causes of failures being reported by the mobile analytics tools.
 In contrast the improvements in \myindex{Pocket Code} petered out after the loss of the Product Owner, a PhD student. One of the main reasons given by the project leadership was the loss of the product owner who successfully completed his PhD and moved to a role in Industry. 
@@ -272,7 +272,7 @@ The fix process therefore generally includes: a) an assessment of any recognised
 \href{https://developer.android.com/guide/playcore/in-app-updates}{developer.android.com/guide/playcore/\hspace{3pt}in-app-updates}. In-app patches of the app binary are therefore outside the scope of this research.}. 
 
 \newthought{Fixing crashes may be necessary but not sufficient}
-One of the issues~\sidenote{\href{https://jira.catrob.at/browse/CATROID-379}{jira.catrob.at/browse/CATROID-379}} and associated bug fixes~\sidenote{\href{https://github.com/Catrobat/Catroid/pull/3362}{github.com/Catrobat/Catroid/pull/3362}} pertaining to the Pocket Code app and the hackathon~\sidenote{Via \href{https://jira.catrob.at/browse/CATROID-405}{jira.catrob.at/browse/CATROID-405}} has a discussion written by one of the project leads in the Pull Request~\sidenote{\href{https://github.com/Catrobat/Catroid/pull/3362\#issuecomment-541055675}{github.com/Catrobat/Catroid/pull/ 3362\#issuecomment-541055675}}. 
+One of the issues~\sidenote{\href{https://jira.catrob.at/browse/CATROID-379}{jira.catrob.at/browse/CATROID-379}} and associated bug fixes~\sidenote{\href{https://github.com/Catrobat/Catroid/pull/3362}{github.com/Catrobat/Catroid/pull/3362}} pertaining to the Pocket Code app and the hackathon\index{Hackathon}~\sidenote{Via \href{https://jira.catrob.at/browse/CATROID-405}{jira.catrob.at/browse/CATROID-405}} has a discussion written by one of the project leads in the Pull Request~\sidenote{\href{https://github.com/Catrobat/Catroid/pull/3362\#issuecomment-541055675}{github.com/Catrobat/Catroid/pull/ 3362\#issuecomment-541055675}}. 
 He observes there are still issues where content is not downloaded however the app no longer crashes. The high crash rate was sufficient to motivate the developers to address the source of the crash in the source code, however more work was needed to fix the failures to download and apply content. In the Pull Request, the developers also discussed the ramifications of removing the visual indicators when the user triggers a download and decided to simply try to fix the crash. As the developers could not reproduce the crash they were not confident in their `fix' working.
 
 \section{Integration}~\label{aiu-integration-section}
@@ -354,11 +354,11 @@ Glspl(plr) can be incorporated into developer's practices to improve the quality
 
 \section{Interventions to increase use of mobile analytics}~\label{aiu-interventions-theme}
 \newthought{Research-led interventions}
-Each of the three app-centric case studies that involved action research included one or more interventions. For the two opensource projects, Kiwix and Catrobat, hackathons were used as they provided an immediate low-ceremony approach that enabled quick and effective collaboration. For the commercial project the intervention was performed over a period of approximately six months and involved working with several of the projects development team to help them understand how mobile analytics provides them with pertinent information and how to then apply that information to fix the underlying issues. 
+Each of the three app-centric case studies that involved action research included one or more interventions. For the two opensource projects, Kiwix and Catrobat, hackathons\index{Hackathon} were used as they provided an immediate low-ceremony approach that enabled quick and effective collaboration. For the commercial project the intervention was performed over a period of approximately six months and involved working with several of the projects development team to help them understand how mobile analytics provides them with pertinent information and how to then apply that information to fix the underlying issues. 
 
 \newthought{Project-led interventions}
 % It might be worth relocating this to later in the thesis where we discuss pii and ethics.
-For the Catrobat case study, the project leadership saw sufficient benefits from using mobile analytics after the hackathon that they decided to also implement it in the iOS app. However, several months later they subsequently reverse this decision because of the data collection collected implicitly by Firebase Crashlytics. This topic is covered in \secref{aiu-ethics-and-pii-topics}.
+For the Catrobat case study, the project leadership saw sufficient benefits from using mobile analytics after the hackathon\index{Hackathon} that they decided to also implement it in the iOS app. However, several months later they subsequently reverse this decision because of the data collection collected implicitly by Firebase Crashlytics. This topic is covered in \secref{aiu-ethics-and-pii-topics}.
 
 
 \subsection{Mobile analytics in a larger context}
@@ -442,7 +442,7 @@ The CTO of LocalHalo clearly recognised the ROI of fixing crashes. As he said du
 
 The Kiwix project provides a good example of the ROI where two major crashes were addressed within a few hours of elapsed time and resulted in a decrease in the crash rate of the app of approximately a third. The next chapter provides more details of this example.\todo{Add cross-reference when the material is in the next chapter.}
 
-A common and consistent theme that emerged was the importance of engineering leadership who sees the value of applying mobile analytics and related software quality engineering practices in order to use mobile analytics effectively to improve the mobile app development processes. 
+A common and consistent theme that emerged was the importance of engineering leadership\index{Engineering leadership} who sees the value of applying mobile analytics and related software quality engineering practices in order to use mobile analytics effectively to improve the mobile app development processes. 
 
 \newthought{Symbiotic information sources}
 Development teams can use both mobile analytics and user feedback where they complement each other. There was only one example, from Moonpig in \secref{aiu-interventions-theme} where the two sources were combined and contrasted, there may have been other instances but they were not captured in the research. 
@@ -454,7 +454,7 @@ Existing research by Microsoft in software analytics found that Data/Metrics and
 The overall development process for mobile apps includes both the release and operational stages of a software lifecycle. Recent research aims to determine whether releases are good, bad, or neutral. One of their key observations is ``Android developers need to pay attention to the quality of their app next release''~\sidecite[][p. 31]{saidani2022_tracking_bad_updates_in_mobile_apps_a_search_based_approach}. They plan to extend their \uppercase{App-Tracker} software tool so it can be integrated into the development pipeline for Android apps which sounds promising, especially if the underlying software could also use mobile analytics data as part of the scoring of a potential release.
 
 
-\subsection{Strategic vs Tactical Uses}
+\subsection{Strategic vs Tactical Uses}~\label{aiu-strategic-vs-tactical-uses-topic}
 The \secref{aiu-motivating-factors-theme} introduced the concept of strategic vs tactical behaviours by developers in their use of mobile analytics. Figure \ref{fig:aiu-strategic-tactical-example} illustrates several of the app-centric case studies on a continuum (some weren't able to be assessed for various reasons). Of these:
 
 \begin{figure}
@@ -483,7 +483,7 @@ Many factors may affect the choice of mobile analytics, ranging from a wish to n
 \subsection{\iuse}
 \myindex{Moonpig} demonstrated a highly effective use of mobile analytics not only to detect failures, including \glspl{glossary-crash-cluster}, they also used mobile analytics to gain additional information of possible causes (similar to the concept of using \gls{glossary-breadcrumbs} however Moonpig used logging more holistically). The example from \myindex{C1} of devising automated tests to reproduce crashes that occurred in complex code and which required non-trivial work to implement suitable dynamic tests demonstrated that developers who are willing and able to invest the time can gain confidence in the reliability and behaviours of their software under realistic conditions.
 
-As \myindex{Kiwix demonstrated} it is possible to increase the reliability for a failing app quickly and effectively. The next chapter includes a summary of the improvements.\todo{Add cross-reference.} In contrast improvements stalled for the \myindex{Pocket Code} Android app when the work was disrupted for various reasons in 2020.
+As \myindex{Kiwix} demonstrated it is possible to increase the reliability for a failing app quickly and effectively. The next chapter includes a summary of the improvements in \secref{aata-improvements-in-crash-rates-topic}. In contrast improvements stalled for the \myindex{Pocket Code} Android app when the work was disrupted for various reasons in 2020.
 
 Some improvements in use depend on the reporting and integration facilities offered by the tools, and similarly on the quality and timeliness of the reports, aspects of these are covered in \secref{discussion-empower-developers}, \secref{discussion-improving-mobile-analytics}. 
 
