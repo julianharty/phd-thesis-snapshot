@@ -16,7 +16,7 @@
 The modern mobile ecosystem, illustrated in Figure~\ref{fig:my_modern-mobile-app-ecosystem}, 
 sets the context for the thesis and this chapter together with the research questions. The marketplace - the app store - establishes the ecosystem which generates revenues from the user population and frequently to a lesser extent from the makers -  the developers of the apps. Various providers of utilities and services offer these to the makers and they may also obtain revenues from one or more parties that are part of the ecosystem and/or from others, including advertisers.
 
-My work nestles within the works of many people in various related fields: in software quality, in analytics, and in the mobile device ecosystem. As researchers we understand and recognise there are gaps in the current state of the art, this chapter aims to identify several pertinent gaps which led to this research being performed, \emph{i.e.} which motivated me to act. The mobile ecosystems touch on billions of people's lives, where flaws in the apps and the ecosystem can adversely affect the lives of many of those people. 
+The research reported in this thesis sits at the intersection of prior art in several related fields, namely: software quality, software analytics, and the mobile device ecosystem. As researchers we understand and recognise there are gaps in the current state of the art. This chapter aims to identify the pertinent gaps which led to this research being performed, \emph{i.e.} which motivated me to act. The mobile ecosystems touch on billions of people's lives, where flaws in the apps and the ecosystem can adversely affect the lives of many of those people. 
 
 Research in how mobile apps are created and tested, the relevance of app stores, service and utility providers, the user bases for mobile apps within the overall population of users of an app store ecosystem are all relevant. And meanwhile understanding why it's hard to create reliable software is also vital as part of acknowledging some of the grim realities development teams need to face if they are to succeed in their other goals and objectives for their mobile apps. An understanding of research into how to measure software qualities, and stability in particular, is key to establishing ways mobile analytics measures these qualities. 
 
@@ -65,14 +65,14 @@ This section, and associated subsections, provide context for the more specific 
 This section covers the following topics: \secref{rw-software-development-practices-topic}, \secref{rw-software-quality-including-measurement-topic}, and \secref{rw-software-analytics-topic}.
 
 \subsection{Software development practices}~\label{rw-software-development-practices-topic}
-Jez Humble is a well respected leader in modern software development practices who popularised the concepts of Continuous Delivery and DevOps. In \sidecite{humble2018_continuous_delivery_sounds_great} he argues the benefits of using continuous delivery to reduce risks and transaction costs. to create fast feedback loops, and work in small batches. He also believes it can be applied to any software and any domain. He concludes: \emph{``This, in turn, increases the quality of products, allows developers to react more rapidly to incidents and changing requirements and, in turn, build more stable and higher-quality products and services at lower costs.''}~\sidecite[][p. 39]{humble2018_continuous_delivery_sounds_great}. 
+Jez Humble is a well respected leader in modern software development practices who popularised the concepts of Continuous Delivery and DevOps. In \sidecite{humble2018_continuous_delivery_sounds_great} he argues the benefits of using continuous delivery to reduce risks and transaction costs, to create fast feedback loops, and work in small batches. He also believes it can be applied to any software and any domain. He concludes: \emph{``This, in turn, increases the quality of products, allows developers to react more rapidly to incidents and changing requirements and, in turn, build more stable and higher-quality products and services at lower costs.''}~\sidecite[][p. 39]{humble2018_continuous_delivery_sounds_great}. 
 
-To be successful in applying continuous delivery he identifies the importance of continuous, daily improvement and constant discipline to seek higher performance. Can we assume continuous delivery is suitable for mobile apps and can be applied by developers of those mobile apps? 
+To be successful in applying continuous delivery Humble identifies the importance of continuous, daily improvement and constant discipline to seek higher performance. Can we assume continuous delivery is suitable for mobile apps and can be applied by developers of those mobile apps? 
 
 
 \subsection{Software quality, including measuring software quality}~\label{rw-software-quality-including-measurement-topic}
 
-Early work, presented at ICSE in 1997, compared two approaches to software testing - debug testing and operational testing~\sidecite{frankl1997choosing_testing_for_reliability}. Their research considered the two approaches including their efficacy at improving reliability of the software being tested. In their work they challenged the focus on faults which they stated was nebulous and not necessarily the best term to use to describe what happened when failures were detected or when changes were made to 'fix' the code that led to the failures. They introduced the concept or notion of \emph{failure regions}, which could be \emph{``eliminated by a program change''}[p. 70]. Their work and their concepts align well with the use of mobile analytics to identify failures, and failure regions that are detected by mobile analytics and potentially addressed by changes to the program \emph{i.e.} the mobile app. We will revisit this paper in \secref{rw-mobile-app-crashes-topic}.
+Early work, presented at ICSE in 1997, compared two approaches to software testing - debug testing and operational testing~\sidecite{frankl1997choosing_testing_for_reliability}. Their research considered the two approaches including their efficacy at improving reliability of the software being tested. This work challenged the focus on faults which they stated was nebulous and not necessarily the best term to use to describe what happened when failures were detected or when changes were made to 'fix' the code that led to the failures. They introduced the notion of \emph{failure regions}, which could be \emph{``eliminated by a program change''}[p. 70]. This research and associated concepts align well with the use of mobile analytics to identify failures, and failure regions that are detected by mobile analytics and potentially addressed by changes to the program \emph{i.e.} the mobile app. We will revisit this paper in \secref{rw-mobile-app-crashes-topic}.
 
 
 %Measuring software quality
@@ -87,7 +87,7 @@ Software analytics includes the use of analytics to measure and potentially impr
 Buse and Zimmermann
 \begin{figure}
     \centering
-    \includegraphics[width=14cm]{images/Buse_and_Zimmermann_2010_figure.png}
+    \includegraphics[width=14cm]{images/related-work/Buse_and_Zimmermann_2010_figure.pdf}
     \caption{Software Analytics, Buse and Zimmerman (2010)}
     \label{fig:software_analytics_buse_and_zimmerman_2010}
 \end{figure}
@@ -101,7 +101,7 @@ In the Buse and Zimmermann paper they \emph{``distinguish between questions of i
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{images/related-work/buse2012-edited-figure-2.png}
+    \includegraphics[width=\linewidth]{images/related-work/buse2012-edited-figure-2.pdf}
     \caption{Revised Figure 2 from TODO}~\footnote{\cite{buse2012_information_needs_for_software_development_analytics}}
     \label{fig:buse2012-edited-figure-2}
 \end{figure}
@@ -150,12 +150,12 @@ Pivotal effects include: the app approval process (which gates any release of th
 
 App Stores behave as intermediaries between developers and the users of their software. They make various aspects more transparent including pricing, information about the apps, releases, and ratings \& reviews. There are hundreds of thousands of developers of Android apps according to various sources (320,000 in 2017~\cite{wang2017_exploratory_study_of_the_mobile_app_ecosystem}). 
 
-Many of the developers of the apps are relatively junior, in a detailed survey with 82 respondents~\cite[p. 142 and p.134]{francese2017_mobile_app_development_and_management_results_from_a_quantitative_investigation} Given the youth of the mobile app store concept and the prolific growth of mobile apps from zero to millions in a decade the relative youth of mobile app developers is very plausible and as the paper observes there was a high level of specialization and expertise among the developers surveyed.
+Based on a survey of mobile app developers (N-82), thre is some evidence that many are relatively junior~\cite[p. 142 and p.134]{francese2017_mobile_app_development_and_management_results_from_a_quantitative_investigation}. Given the youth of the mobile app store concept and the prolific growth of mobile apps from zero to millions in a decade the relative youth of mobile app developers is very plausible and as the paper observes there was a high level of specialization and expertise among the developers surveyed.
 
-In an App Store first the developer then the app store are involved in making a release available to some or all of the user population. There are various competing factors that affect when would be a good time to make a release. Too few and an app may be considered stale or neglected, too many and users may balk at the seemingly endless updates and communications costs. Groups of researchers have investigated various aspects of release engineering, including~\sidecite{adams2016modern} that argues the relevance of modern release engineering and the relevance for researchers, and~\sidecite{nayebi2017version} which concentrates on which version of opensource apps should have been released to the app store. Developers, and their stakeholders, want to make more informed decisions about which releases to make; however there does not appear to have been much research into the testing and quality indicators available to app developers before they make their release public.
+In an App Store, first the developer then the app store are involved in making a release available to some or all of the user population. There are various competing factors that affect when would be a good time to make a release. Too few and an app may be considered stale or neglected, too many and users may balk at the seemingly endless updates and communications costs. Groups of researchers have investigated various aspects of release engineering, including~\sidecite{adams2016modern} that argues the relevance of modern release engineering and the relevance for researchers, and~\sidecite{nayebi2017version} which concentrates on which version of opensource apps should have been released to the app store. Developers, and their stakeholders, want to make more informed decisions about which releases to make; however there does not appear to have been much research into the testing and quality indicators available to app developers before they make their release public.
 
 
-This research focuses on the Android ecosystem and the Google Play store - the combination is the preeminent platform in terms of userbase, reach, and platform analytics provided to app developers. Nonetheless, this research also includes research into several additional platforms and app stores, e.g. the Window Phone platform with Microsoft's app store and Huawei's app store for Android, where they contribute to this research. % COULD_DO YY suggests adding a table of the various app stores, I'm holding off doing so as it'd take several hours to compile the supporting information and also I'd then be in a dilemma whether to re-include my material on the Amazon Fire and related app store, etc.
+This research primarily focuses on the Android ecosystem and the Google Play store - the combination is the preeminent platform in terms of userbase, reach, and platform analytics provided to app developers. However, recognising that these are other ecosystems, this research also includes investigations of several additional platforms and app stores, e.g. the Window Phone platform with Microsoft's app store and Huawei's app store for Android, where they contribute to this research. % COULD_DO YY suggests adding a table of the various app stores, I'm holding off doing so as it'd take several hours to compile the supporting information and also I'd then be in a dilemma whether to re-include my material on the Amazon Fire and related app store, etc.
 
 
 App stores and their ecosystem have affected the lives of billions of end users and millions of software developers. They have become the primary route to market for many app developers and their organisations (exceptions include companies who developed strong businesses elsewhere such as Amazon and Netflix). 
@@ -168,7 +168,7 @@ Miluzzo \emph{et al} introduced other relevant research aspects, \textit{i.e.}  
 
 In more recent research, \textcite{wang2019_understanding_the_evolution_of_mobile_app_ecosystems_a_longitudinal_measurement_of_google_play} provided an helpful longitudinal evaluation of the Google Play ecosystem and raises interesting questions and observations about Google Play; but does not seem to consider flaws, or the effects of flaws, in the app store's data collection, algorithms,\textit{ etc.}
 
-In terms of effects of app stores on software engineering practices there have been several seminal papers written by authors at UCL as part of their App Store Analysis Group~\footnote{http://www0.cs.ucl.ac.uk/staff/F.Sarro/projects/UCLappA/UCLappA.html} while it was active (until roughly 2019). Of these papers, \emph{``App store effects on software engineering practices"}~\sidecite{alsubaihin2019app_store_effects_on_software_engineering} combined interviews with a survey to ask developers of their experiences of developing mobile apps and how those experiences differed with developing other software. There are plenty of other papers that consider the app store from various perspectives but they do not cover software quality or mobile analytics.
+In terms of effects of app stores on software engineering practices there have been several seminal papers written by authors at UCL as part of their App Store Analysis Group~\footnote{http://www0.cs.ucl.ac.uk/staff/F.Sarro/projects/UCLappA/UCLappA.html} while it was active (until roughly 2019). Of these papers, \emph{``App store effects on software engineering practices"}~\sidecite{alsubaihin2019app_store_effects_on_software_engineering} combined interviews with a survey to ask developers of their experiences of developing mobile apps and how those experiences differed with developing other software. There are  other papers that consider the app store from various perspectives but they do not cover software quality or mobile analytics.
 
 Of the ten developers they interviewed a couple were for popular apps (800,000 downloads, 2,000 ratings, 1,000 ratings), the rest were for less popular apps. % 0.1% ratings to downloads for a developer of 1M downloads app: https://www.quora.com/What-is-a-typical-ratio-of-reviews-to-active-users-to-downloads-for-iOS-and-Google-Play-apps
 Their research identified automatic in-app crash reporting as the most frequent source of bug reports and the second-most frequently addressed in terms of bug fixes (end-user written bugs were addressed slightly more frequently)~\cite[p. 10]{alsubaihin2019app_store_effects_on_software_engineering}. 
@@ -222,6 +222,7 @@ One of the key challenges identified is restricted access to data held by the ap
 An area their work did not discuss is whether failure data could, potentially, be a form of requirements? (in a similar fashion to leveraging reviews in the app store to extract `requirements'). And similarly can complaints and failure data be combined to help developers prioritise issues they should consider addressing (the paper restricted the discussion to prioritising issues the developers should be \textit{testing} for).
 
 Finally in terms of this paper, they included two stakeholders, the developers and the end users. The app store (and the people and organisation who provide the app store) are also direct stakeholders in the ecosystem. There are additional indirect stakeholders including advertisers, researchers, and probably many others. 
+%
 
 \subsection{Utility and Service Providers}~\label{rw-utility-and-service-providers-topic}
 Developers use software and related services from various providers where the providers are the primary source of any updates. The providers may charge for their offerings and similarly they may mandate various behaviours from developers and their organisations who use the utilities and/or services.
@@ -469,13 +470,13 @@ Feedback can also be generated by software at run time. These include GUI-orient
 \centering
 \begin{minipage}{.4\textwidth}
   \centering
-  \includegraphics[width=\textwidth]{images/xkcd/tornadoguard.png}
+  \includegraphics[width=\textwidth]{images/xkcd/tornadoguard.pdf}
   \captionof*{figure}{TornadoGuard \url{https://xkcd.com/937}}
   \label{fig:xkcd-tornadoguard}
 \end{minipage}\hfill%
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=\textwidth]{images/xkcd/star_ratings.png}
+  \includegraphics[width=\textwidth]{images/xkcd/star_ratings.pdf}
   \captionof*{figure}{Understanding online star ratings \url{https://xkcd.com/1098}}
   \label{fig:xkcd-star-ratings}
 \end{minipage}

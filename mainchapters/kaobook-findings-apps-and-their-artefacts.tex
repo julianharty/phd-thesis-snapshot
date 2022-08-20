@@ -191,7 +191,7 @@ For instance with the \myindex{Kiwix} Android app, in September 2019 there were 
 
 \begin{figure*}
     \centering
-    \includegraphics[width=0.9\linewidth]{images/android-vitals-screenshots/kwix/55-crashes-WebViewFactory-MissingWebViewPackageException_2019-09-19-kiwix_trimmed.png}
+    \includegraphics[width=0.9\linewidth]{images/android-vitals-screenshots/kiwix/55-crashes-WebViewFactory-MissingWebViewPackageException_2019-09-19-kiwix_trimmed.png}
     \caption{Kiwix Android 55 crashes for one user}
     \label{fig:55-crashes-WebViewFactory-MissingWebViewPackageException}
 \end{figure*}
@@ -203,7 +203,7 @@ Three topics in particular focus on the mobile app. The first of these is the mo
 
 \begin{itemize}
     \itemsep0em
-    \item Improvements in crash rates.
+    \item Improvements in crash and ANR rates.
     \item Build scripts can affect the behaviour of the app.
     \item User Experience of apps with in-app analytics (visibility and control aspects).
 \end{itemize}
@@ -342,6 +342,12 @@ Furthermore, when a developer inadvertently introduced the exception that led to
 \myindex{Moonpig} provided various details of two crashes that emerged in production, including several graphs. Figure \ref{fig:moonpig-firebase-analytics-two-rogue-crashes} illustrates the effects of the crashes where they adversely affected the crash-free session scores and shows the restoration of higher reliability as each crash was addressed.
 
 
+\subsection{Improvements in ANR rates}~\label{aata_improvements_in_anr_rates_topic}
+
+\href{https://jira.catrob.at/browse/CATROID-411}{ANR at org.catrobat.catroid.stage.StageListener.takeScreenshot (StageListener.java:664)} was fixed three months after the hackathon and merged into v0.9.70 of Pocket Code in \url{https://github.com/Catrobat/Catroid/pull/3402}.
+
+%{bumble_chameyev2020_how_we_achieved_a_6x_reduction_of_anrs_part1_collecting_data}
+
 \subsection{Build scripts can affect the behaviour of the app}
 A previous section \secref{aata-build-scripts} explained how build scripts encapsulate the build process and how it's possible to adversely affect the behaviour of in-app mobile analytics. And in \secref{aiu-choosing-mobile-analytics-topic} of the previous chapter, how developers can choose to vary the behaviours of an app, \emph{e.g.} to increase the logging in debug builds. (In Android they can use `build variants' and `product flavors' to do so~\sidecite{android_build_variants_and_product_flavors}.)
 
@@ -376,7 +382,7 @@ Macro-topics touch on multiple aspects of developing mobile apps. This research 
     \item Two cover the trustworthiness and fidelity of the mobile analytics as reflected in the artefacts.\emph{I have an inkling this material is better placed elsewhere in my thesis than this chapter. TBD.} 
 \end{itemize}
 
-\subsection{Tradeoffs}
+\subsection{Tradeoffs}~\label{aata-tradeoffs-topic}
 At least three types of tradeoffs were evident in the artefacts: 
 \begin{enumerate}
     \item \textbf{Ethical tradeoff: } the effects of ethical decisions by the project team (covered in \secref{aiu-ethics-and-pii-topics},
@@ -394,7 +400,7 @@ However, the code for the downloader had various bugs and flaws including severa
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{images/android-vitals-screenshots/kwix/kiwix-crash-rate-drops-with-v2_5.png}
+    \includegraphics[width=\linewidth]{images/android-vitals-screenshots/kiwix/kiwix-crash-rate-drops-with-v2_5.pdf}
     \caption{Kiwix crash rate drops once custom networking code replaced}
     \label{fig:kiwix-crash-rate-drops-with-v2_5}
 \end{figure}
