@@ -4,14 +4,14 @@ This chapter covers two of the six perspectives, \emph{i.e.} using and improving
 
 The evidence has been analysed and prioritised to keep the chapter relatively succinct and on topic. 38 discrete themes (L1 themes) emerged in the analysis of the evidence, of these the 18 with strongest support in terms of the evidence are included here, the rest would benefit from further work. The L1 themes included in this chapter have be aggregated into four higher-level (L2) themes: design (\secref{section-design}), fit-for-purpose (\secref{section-fit-for-purpose}), utility (\secref{section-utility}), dependability (\secref{section-dependability}). Figure \ref{fig:analytics-tools-and-their-artefacts-fishbone-diagram} illustrates the top L1 themes and their primary higher-level (L2) theme.
 
-\begin{figure}
+\begin{figure*}
     \centering
-    \includegraphics[width=\textwidth]{images/rough-sketches/analytics-tools-and-their-artefacts-fishbone-diagram-27-jun-2022f.jpeg}
+    \includegraphics[width=\linewidth]{images/rough-sketches/analytics-tools-and-their-artefacts-fishbone-diagram-27-jun-2022f.jpeg}
     \caption{Analytics Tools and their Artefacts Fishbone Diagram\\Source: \href{https://miro.com/app/board/uXjVOtIsyWo=/?share_link_id=293061080490}{Miro}}
     \label{fig:analytics-tools-and-their-artefacts-fishbone-diagram}
-\end{figure}
+\end{figure*}
 
-\section{Design}~\label{section-design}~\label{tata-chapter-section-design}
+\section{Design}~\label{tata-design-section}
 Design emerged as by far the most pertinent topic for the mobile analytics tools. There are two key, connected facets: 
 
 
@@ -90,41 +90,42 @@ Android Vitals does not collect crashes that are contained within an application
 
 The LocalHalo app-centric case study provides an illustration where app crashes were not observed by Android Vitals until a failure in the React Native runtime occurred.
 
-\begin{figure}[htbp!]
+% The following is hacked it should dynamically calculate the width of the full page (\textwidth is calculated earlier and doesn't account for the extra width provided by using figure* I have read about how to address this for captions (see https://tex.stackexchange.com/a/128490/88466), for now I'll live with the hack.
+\begin{figure*}[htbp!]
 \RawFloats
 \centering
-\begin{minipage}{.45\textwidth}
+\begin{minipage}{.45\linewidth}
   \centering
-  \includegraphics[width=\textwidth]{images/localhalo/apphealthoverviewplace_5550596_no_data.pdf}
+  \includegraphics[width=\linewidth]{images/localhalo/apphealthoverviewplace_5550596_no_data.pdf}
   \captionof*{figure}{App Health Overview page}
 \end{minipage}\hfill%
-\begin{minipage}{.45\textwidth}
+\begin{minipage}{.45\linewidth}
   \centering
-  \includegraphics[width=\textwidth]{images/localhalo/apphealthdetailsplace_55505963_no_data.pdf}
+  \includegraphics[width=\linewidth]{images/localhalo/apphealthdetailsplace_55505963_no_data.pdf}
   \captionof*{figure}{App Health Details page}
 \end{minipage}
     \caption{No Android Vitals reports on \nth{16} March 2020}
     \label{fig:localhalo-android-vitals-no-data-16-march-2020}
-\end{figure}
+\end{figure*}
 
 Figure~\ref{fig:localhalo-android-vitals-high-failures-26-march-2020} was recorded ten days later in \nth{26} March 2020 and shows the alerts for both high crash and ANR rates in the App Health Overview page and the graph for the rampant crash rate in the corresponding App Health Details page. These indicate the failures were related to the native runtime rather than within the React Native code. These were not reported by any Sentry Alerts and they do not appear in the weekly summary reports, except potentially by the absence of data shown in Figure~\ref{fig:sentry-missing-data-march-2020}. While the reason for this was not explained in the interviews or in the analytics data, it is likely that this caused by severe crashes that prevented Sentry's SDK from reporting any data.
 
-\begin{figure}[htbp!]
+\begin{figure*}[htbp!]
 \RawFloats
 \centering
-\begin{minipage}{.45\textwidth}
+\begin{minipage}{.45\linewidth}
   \centering
-  \includegraphics[width=\textwidth]{images/localhalo/apphealthoverviewplace_5550596_high_errors.pdf}
+  \includegraphics[width=\linewidth]{images/localhalo/apphealthoverviewplace_5550596_high_errors.pdf}
   \captionof*{figure}{App Health Overview page}
 \end{minipage}\hfill%
-\begin{minipage}{.45\textwidth}
+\begin{minipage}{.45\linewidth}
   \centering
-  \includegraphics[width=\textwidth]{images/localhalo/apphealthdetailsplace_55505963_high_errors.pdf}
+  \includegraphics[width=\linewidth]{images/localhalo/apphealthdetailsplace_55505963_high_errors.pdf}
   \captionof*{figure}{App Health Details page}
 \end{minipage}
     \caption{Alerts and graphs in Android Vitals on \nth{26} March 2020}
     \label{fig:localhalo-android-vitals-high-failures-26-march-2020}
-\end{figure}
+\end{figure*}
 
 A release in March 2020 had a high crash rate for the production release of their Android app. The top crash cluster was for:
 
@@ -133,7 +134,7 @@ A release in March 2020 had a high crash rate for the production release of thei
 This was traced to a problem in the expo library the development team used in the app~\sidecite{expo2019_issue5839}~\footnote{Expo is a very popular open source platform for making universal native apps that run on Android, iOS, and the web \url{https://github.com/expo/expo}.}. In that issue, several developers for different Android apps provide data from Google Play Console confirming they also receive similar crash clusters. The cause has not yet been definitively traced or addressed, however for the LocalHalo app the crashes stopped being reported once a new release (1.3.0) of the Android app, was launched around \nth{6} April 2020.
 
 
-\begin{figure}[htbp!]
+\begin{figure*}[htbp!]
 \RawFloats
 \centering
 \begin{minipage}{.45\textwidth}
@@ -150,7 +151,7 @@ This was traced to a problem in the expo library the development team used in th
 \end{minipage}
     \caption{Missing data reported in Sentry, in March 2020}
     \label{fig:sentry-missing-data-march-2020}
-\end{figure}
+\end{figure*}
 
 \newthought{Some failures did emerge when the runtime encapsulation fails: }
 That exception was when Android Vitals did report crashes in March and April 2020. Figure \ref{fig:localhalo-android-vitals-no-data-16-march-2020} was recorded on \nth{16} March 2020 before these started and shows the App Health Overview page with a link to a video introducing Android Vitals~\sidenote{This appears as a mainly black rectangle in this thumbnail screenshot.}, and the App Health Details page with no data.
@@ -197,9 +198,109 @@ These challenges are ongoing, various \Glspl{sdk} aim to address one or more of 
 \subsection{Developer experience}~\label{tata-developer-experience-ux-design}
 The design of the User Experience (UX) of the mobile analytics tool for their audience of the software development team (and particularly the app developers).
 
+% TODO add examples from the case-studies
+
+\newthought{Vying for the attention of developers: }
+Mobile Analytics tools compete for finite attention developers are able to provide. This competition occurs at the initial selection and integration phases and continues during the life of the app. This includes seeing attention on an ongoing basis  to communicate their alerts, reports, \emph{etc.} Pricing, licensing, and management approvals sometimes prevent some development team members from being able to use the tools directly.
+
+\begin{itemize}
+    \itemsep0em
+    \item Access and use of mobile analytics tools allows them to be used interactively, where this is impractical copies, extracts, \emph{etc.} of reports and related material helps  preserve them for future analysis, for evidence, and so on. These copies and extracts can also extend the reach to people who don't have direct access to the tools. Several of the app-centric case studies, including Kiwix, Catrobat, LocalHalo, and the Commercial project limited access to various tools to a subset of the developers. In contrast, Moonpig, provided access to every member of the development team who had access to the source code of the app.
+    \item When the analytics tools lack the attention of developers the effects of existing and new issues propagate and may enable these issues to snowball. The Kiwix project provided a good example of this with the loss of the lead developer for the Android app.
+    \item The majority of the app-centric case studies used multiple mobile analytic tools. Some of the developers chose to ignore aspects of particular tools, for instance the crash analytics in Android Vitals in favour for similar services from other tools, even though Android Vitals is able to record some crashes that the other tools do not capture \emph{e.g.} owing to limitations in the respective SDK. The tools need to convince developers of the merits of their reports. The Moonpig development team, in particular, checked the reports of multiple tools to reduce their blind-spots.
+    \item The LocalHalo project illustrated the flip-flop of failures between two analytics tools. This was insightful and demonstrates the value of having a combination of platform-level and in-app analytics, at least for apps written in frameworks such as react-native.
+\end{itemize}
 
 
-\section{\itools}
+\section{Fitness-for-purpose}~\label{tata-fitness-for-purpose-section}
+Simply put, the mobile analytics tools need to be fit for purpose. In the context of this research, fit for purpose means that the tools need to:\todo{Revisit the following list once I've added the subsections.}
+
+\begin{itemize}
+\item fit the needs and desires of the developers (product fit); 
+\item provide actionable reports; and 
+\item be a good return on any investment the developers make in terms of using the tools.
+\end{itemize}
+ 
+When the tools integrate into the workflows of the developers, they're more likely to be adopted as long-term companions and therefore demonstrate they provide a good return on investment. 
+
+Note: two of the topics: fidelity and ethical considerations bridge both this section: fitness-for-purpose and the dependability section.
+
+{\small
+\begin{itemize}
+    \itemsep0em
+    \item \sout{Product Fit: whether, and if practical how well, the mobile analytics product fits the desires/needs of the developers and their organisation.}
+    \item \sout{Actionable Reports: reports the developers can action in order to address concerns presented in the reports.}
+    \item \sout{Integration into workflows: the ability of a given mobile analytics tool/service to be integrated into development team's workflows.}
+    \item Ethical considerations: the data collected by mobile analytics may have ethical implications a) for the operator/provider of the service, b) for their partners and customers, c) for the developers, d) for end-users. In this research our main focus is on the implications for the developers, nonetheless the other aspects are also important.
+    \item ROI (return-on-investment): developers may make both implicit and explicit choices on what to invest in, for instance in terms of their focus, their effort, and their money. The analytics tools need to convince developers a) to invest and then b) whether to increase that investment (and if so what forms of investment e.g. in terms of writing more code, spending [more] money, using the tool more, etc.).
+\end{itemize}
+}
+
+\subsection{Product Fit}
+\newthought{Product fit: } addresses whether, and if practical how well, the mobile analytics product fits the desires/needs of the developers and their organisation. It is similar, but more specific than product/market fit~\footnote{\url{https://en.wikipedia.org/wiki/Product/market_fit}} - or conversely the market is pico-sized, gauged at the level of a development team. % See also concepts from https://en.wikipedia.org/wiki/Lean_startup e.g. actionable metrics.
+
+Developers of mobile analytics tools, such as Iteratively~\sidenote{Iteratively was acquired by Amplitude in 2021 and the products have been enhanced and integrated into Amplitude's product suite.}, seek ways to identify and determine what app developers will find useful. 
+
+In interviews with Iteratively's CEO, he explained they used various techniques including `ten dots', illustrated in Figure \ref{fig:iteratively-product-market-fit}, during one-to-one semi-structured interviews to help Iteratively prioritise the features they developed and provided. Each interviewee was given the opportunity to complete this exercise, an example of their `dot-voting'~\sidecite{18f_dot_voting} is also provided in Figure \ref{fig:iteratively-product-market-fit}.
+The CEO provided access to their live document containing the results of the `dot-voting' and gave permission to analyse it.~\todo{Consider whether to include the analysis of the dot-votes (currently in the relevant empirical studies chapter).}
+
+
+\begin{figure}[htbp!]
+\RawFloats
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/iteratively/spend-10-dots.png}
+  \captionof*{figure}{Spend ten dots}
+  \label{fig:iteratively-spend-ten-dots}
+\end{minipage}\hfill%
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{images/iteratively/dot-voting-example.png}
+  \captionof*{figure}{Dot-voting example}
+  \label{fig:iteratively-dot-voting-example}
+\end{minipage}
+    \caption{Iteratively: Product/Market fit}
+    \label{fig:iteratively-product-market-fit}
+\end{figure}
+
+\myindex{Iteratively} had developed a combination of an online design tool that created a schema for third-party in-app analytics tools. They also provided build tools and a small client-side SDK (\textit{i.e.} a mobile \Gls{sdk}) which validated the schema had been implemented adequately in the mobile app. %, where all the data from the schema and only the data from the schema would be collected by the relevant mobile analytics SDK.
+Iteratively's SDK was intended to limit the collection to only the data contained in the schema. This was intended to stop the collection of other data (such as \Gls{pii} data). Through the use of the SDK, the build tools, and the online design tool development teams and their colleagues with other roles such as marketing, product, and so on could have a consistent and coherent understanding of the data that was being collected. Of interest to this research, they did not address the collection of errors or failures such as crashes in their SDK.
+
+\myindex{LocalHalo} are a good example of a small development team who chose to include several mobile analytics SDKs into their mobile app where each SDK (and the respective service) was chosen to provide orthogonal data. They chose \href{https://sentry.io/}{Sentry} for technology facing analytics and \href{https://mixpanel.com/}{mixpanel} for product (business facing) analytics. Although Sentry provides APIs~\footnote{\url{https://docs.sentry.io/api/}} for integration and data forwarding~\footnote{\url{https://docs.sentry.io/product/data-management-settings/data-forwarding/}} and mixpanel provides data pipelines~\sidenote{\url{https://mixpanel.com/data-integrations/}} LocalHalo did not use these. In contrast for the large commercial project data integration was deemed vital by the organisation in order to facilitate ongoing and \emph{ad-hoc} analysis across multiple sources of information. 
+
+In the case of the corporate project, \myindex{C1}, the product (the mobile analytics tool) also had to fit at the level of the engineering organisation where the mobile analytics needed to be ingested into the corporation's `data-lake'. 
+
+Finally for this topic, despite many mobile analytics SDKs, there may be situations where none provides the answers the developers seek. As a concrete example, \myindex{Smartnavi} uses \myindex{Firebase} and \myindex{Google Analytics}, mainly for tracking the popularity and the use of the app's features. The app also incorporated Fabric Crashlytics for crash reporting. Nonetheless the developer explained none of these analytics products provided analytics related to software running in the background, as a background process on Android. Smartnavi provides GPS services to other apps and runs in the background. As the Android Platform has evolved Google has embedded restrictions that limit and constrain background processes which meant the Smartnavi software is suspended (paused) by Android. The developer would like to improve the app's behaviours when it runs in the background but lacks the analytics to do so.
+
+\subsection{Actionable Reports}
+\textbf{Actionable Reports} are reports the developers can use to decide on what should be done to address concerns presented in the reports. % c.f. actionable metrics https://effectivesoftwaredesign.com/2021/03/23/lean-startup-principles-vanity-metrics-and-actionable-metrics/
+
+Several of the app-centric case studies materialised because the respective development teams became aware of excessive and chronic error rates for their mobile apps. % Kiwix, Catrobat, C1
+These projects (\myindex{Kiwix}, \myindex{Catrobat} and \myindex{C1}) had not managed to materially reduce the high crash rates directly and they were happy to receive help and insight in how to apply the information from the reports in their work. At the time they lacked the wherewithal to do so unaided. With interventions, including those that were part of this research, each of the development teams were able to materially improve the error rates of their respective apps.
+
+None of the currently available mobile analytics tools seen during this research were able to pinpoint the causes of failures, instead they identify one or more effects \emph{e.g.} the app crashes, or is stopped by Android because it became unresponsive. The action-ability comes in part from the meta-data collected by the various mobile analytics tools which helped in bug localisation and in part from the characteristics and patterns contained in the reports. The Moonpig developers, for example, were sometimes able to identify a highly likely reason for the failure from the contents in the reports. They took action by modifying the application's source code.
+
+\myindex{Android Vitals} aims to highlight emerging problems with a deployed app. For instance if there is an acute and significant increase in the crash rate for the production release(s). It also provides cross-connections between problems found in Google Play's pre-launch reports and failures that occur in production. Developers found some of the reported failures easy to comprehend and address, others have been much less tractable. Several of the developers who use Crashlytics said they preferred using it over Android Vitals for comprehending crashes. \myindex{Crashlytics} provided more information than Android Vitals and the reports were easier to digest therefore the Crashlytics reports were more actionable than those from Android Vitals.
+
+As discussed in the flaws topic (\secref{section-flaws-in-the-analytics}, \secref{section-flaws}) various reports have flaws, for instance in their aggregation. There is scope to improve the mobile analytics tools through improving the matching process in the data aggregation (for instance, where there are fragmented `failure clusters') and in the analysis across multiple legitimate failure clusters (such as across all \texttt{NullPointerExceptions}) to help identify underlying flaws in the development of the app.
+
+The \myindex{Moonpig} case study provides an illustrative example of how the development team was able to take proportionate and measured action as the crash-rate of their Android app increased. The cause was related to a known and documented issue with a third-party software library, RoboSpice. There was a clear correlation where the crash-rate increased on newer Android releases. The team was able to evaluate and estimate an appropriate timescale to replace that library by revising the application's source code. They were able to schedule the release to suit other strategic objectives rather than rushing to push out a `fix' of the app.
+
+The release management reports in Google Play Console (that incorporate various Android Vitals reports pertinent to the latest release for the 7 days post release) were highly actionable for the Commercial project. The development team were able to abort releases that had unexpected increases in failure rates before those flawed releases adversely affected swathes of the userbase.
+
+\subsection{Integration into workflows}~\label{tata-integration-into-workflows-section}
+Integration into workflows is the ability of a given mobile analytics tool/service to be integrated into development team's workflows. These workflows include bug tracking and release management. Some mobile analytics tools provide facilities where developers can mark and/or annotate elements in the reports, for instance to remove a crash cluster from the main report or to provide a bug-tracking link to help the developers streamline their work when using mobile analytics.
+
+The\todo{Possibly move the following 3 paragraphs to the analytics in use chapter as I'm discussing what the teams did.} 
+majority~\sidenote{Moodspace and LocalHalo did not provide any details of their bug tracking processes.} of the app-centric case studies partly integrated mobile analytics reports into their bug tracking process by storing at least some of the contents of the reports some of the time.  
+Of the projects that recorded the failures found by mobile analytics, it appears the Catrobat project used the crash's stack trace without anything else of the crash cluster's details or analytics~\sidenote{Examples include: \href{https://jira.catrob.at/browse/CATROID-1025}{Issue CATROID-1025} and \href{https://jira.catrob.at/browse/CATROID-1030}{Issue CATROID-1030}.} Moonpig stated they recorded many of the failures however sometimes they short-circuited the bug tracking system and modified the source code directly where the likely fix was believed to be easy to address with minimal risk. As they monitored the various mobile analytics services assiduously post-release they had at least one safety-net, also they may have recorded pertinent information in their source code repository - as this was not available during the research it is impractical to check at this stage.
+
+\myindex{Kiwix}, \myindex{Catrobat}, \myindex{LocalHalo}, only provided a subset of the development team access to the mobile analytics services. As a result, the rest of the team were blind to any reports or issues \emph{unless someone who has access provides the relevant information in the bug tracking system}. The \myindex{GTAF} project team record crashes reported by Firebase in their bug tracking system however they only embed the URL, they have not included copies of the pertinent details.
+
+
+
+\section{\itools}~\label{tata-itools-section}
 
 
 \section{Fieldstones}
@@ -218,3 +319,5 @@ Aggregation and mining across the matching clusters would also be useful. Taggin
 A placeholder until the relevant content is added to check the formatting in the index for: Android Vitals\index{GitHub Projects!Android Vitals}
 
 Breadcrumbs: in AppPulse Mobile iOS which provided similar capabilities in Android~\sidecite{microfocus2018_apppulse_mobile_android_getting_started_video, hp_apppulse_mobile_android_guide_v1_9} and iOS~\sidecite{freeman2016_apppulse_ios_mobile_example}.
+
+\section{Summary of tools and their artefacts}~\label{tata-summary-section}
