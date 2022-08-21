@@ -49,3 +49,17 @@ The bibliography stretches over several physical files:
 * An imported bibliography from the logging paper co-written and published at MOBILESoft 2021
 
 A significant portion of the references have not yet been cited in my thesis yet. I've just decided to add a prefix of `yet_to_cite` to those I know I've not yet cited. The aim is to easily identify these papers so they can be referenced, or moved to the excluded bibliography file.
+
+### Speeding up the latex compilation
+As the thesis matured the compilations of the thesis started failing as they timed-out on Overleaf after their 4 minute limit for paid accounts (1 minute for free accounts). They provide several articles online for self-help to revise the content so it compiles faster.
+* General overview https://www.overleaf.com/learn/how-to/Why_do_I_keep_getting_the_compile_timeout_error_message%3F
+* Specifics for large images (I had several) https://www.overleaf.com/learn/how-to/Optimising_very_large_image_files
+* Here's how I worked out how to find the large images https://linuxize.com/post/find-large-files-in-linux/
+
+```
+find . -xdev -type f -size +1M
+grep -ir --include=\*.tex eps} .
+grep -ir --include=\*.tex png} .
+for i in *.png; do img2pdf  "$i" --out "${i%.*}.pdf";done
+```
+
