@@ -24,6 +24,34 @@ sudo tlmgr install minifp
 pdflatex -synctex=1 -interaction=nonstopmode  -shell-escape  -file-line-error print_a_chapter.tex
 ```
 
+The compilation may fail, if so, the following command line will extract the name of the missing file and build a basic command string we can run to find which package it's likely to be found in:
+
+```
+pdflatex -synctex=1 -interaction=nonstopmode  -shell-escape  -file-line-error thesis.tex | grep 'LaTeX Error' |  awk -F"[\`\']" '{print "tlmgr info ", $2}'
+```
+For example after about 30 compilation errors it spat out:
+`tlmgr info  nextpage.sty`
+
+However the real challenge is to find out which packages to install, especially as sometimes there isn't a one-to-one match. For example, to find: `mathalfa.sty`
+
+```
+tlmgr info mathalfa.sty
+```
+returns:
+```
+tlmgr: cannot find package mathalfa.sty, searching for other matches:
+
+Packages containing `mathalfa.sty' in their title/description:
+
+Packages containing files matching `mathalfa.sty':
+mathalpha:
+	texmf-dist/tex/latex/mathalpha/mathalfa.sty
+```
+And means we can install the relevant package,
+```
+sudo tlmgr install mathalpha
+```
+
 ## Editing notes
 The thesis is written in UK English and uses Oxford commas. There are many comments in the latex source which do not appear in the generated thesis.
 
@@ -33,13 +61,13 @@ The thesis is written in UK English and uses Oxford commas. There are many comme
 * outtakes: Older materials, notes, brain-farts, etc. Excluded from the thesis.
 * examples: these came from a previous thesis that used this template. They're there for inspiration in the microcosm of latex.
 * frontmatter: contains the boilerplate and preamble for this thesis.
-* images: the many images are gathered here. Not all are included in the thesis. There are also additional images hosted separately e.g. in PowerPoint documents that may be included as and when they're perceived to add to the thesis. The images folder contains various sub-folders, I hope they're identifiable. 
+* images: the many images are gathered here. Not all are included in the thesis. There are also additional images hosted separately e.g. in PowerPoint documents that may be included as and when they're perceived to add to the thesis. The images folder contains various sub-folders, I hope they're identifiable.
 * mainchapters: here's the core of the thesis (when combined with the case studies).
 * meta-chapters: mainly commentary about and related to the thesis and the underlying research.
 * references: mainly the bibliography files.
 * utilities: written in basic bash files to help quantify the source files in the thesis.
 * various files are in the root folder including: print_a_chapter.tex - used to help focus on a subset of the thesis, thesis.tex - generates the thesis with the contents intended for eventual submission, and thesis-with-extras.tex which additionally includes some of the meta-chapters.
- 
+
 
 ### Bibliographic notes
 The bibliography stretches over several physical files:
@@ -62,4 +90,3 @@ grep -ir --include=\*.tex eps} .
 grep -ir --include=\*.tex png} .
 for i in *.png; do img2pdf  "$i" --out "${i%.*}.pdf";done
 ```
-
