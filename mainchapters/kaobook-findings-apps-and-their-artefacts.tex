@@ -42,9 +42,9 @@ dependencies {
 The \textbf{configuration} step requires a setting that is uniquely allocated by Sentry for this app when the developers use Sentry's online service. Listing \ref{listing:android_manifest_xml_for_sentry} shows the syntax of the configuration; the developers would need to obtain the unique dsn (data source name) to use for their app and use that value in place of the example value.
 
 \begin{listing}
-\begin{minted}{xml}
+\begin{minted}[breaksymbol=, breakanywheresymbolpre=]{xml}
 <application>
-  <meta-data android:name="io.sentry.dsn"\\
+  <meta-data android:name="io.sentry.dsn"
   android:value="https://examplePublicKey@o0.ingest.sentry.io/0" />
 </application>
 \end{minted}
