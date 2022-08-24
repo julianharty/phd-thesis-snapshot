@@ -13,6 +13,18 @@ I also needed to download a local copy of `ACM-Reference-Format.bst` before the 
 
 
 Here's a partial list of the commands run
+
+Install pygmentize using Python 3's pip3 command:
+`pip3 -v install pygments`
+
+Run the script `utilities/install_latex_packages.sh` after installing Homebrew and using it to `brew install basictex`
+
+There's probably software to install in addition to all this, anyway once all the software and packages have been installed,
+
+`time latexmk -r LatexMk  thesis` should time the command needed to compile the thesis.
+
+### Older material, useful for debugging ###
+
 ```
 brew install basictex
 
