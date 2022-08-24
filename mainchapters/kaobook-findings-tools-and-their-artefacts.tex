@@ -289,14 +289,47 @@ The \myindex{Moonpig} case study provides an illustrative example of how the dev
 
 The release management reports in Google Play Console (that incorporate various Android Vitals reports pertinent to the latest release for the 7 days post release) were highly actionable for the Commercial project. The development team were able to abort releases that had unexpected increases in failure rates before those flawed releases adversely affected swathes of the userbase.
 
-\subsection{Integration into workflows}~\label{tata-integration-into-workflows-section}
+\subsection{Integration into workflows}~\label{tata-integration-into-workflows-topic}
 Integration into workflows is the ability of a given mobile analytics tool/service to be integrated into development team's workflows. These workflows include bug tracking and release management. Some mobile analytics tools provide facilities where developers can mark and/or annotate elements in the reports, for instance to remove a crash cluster from the main report or to provide a bug-tracking link to help the developers streamline their work when using mobile analytics.
 
-The\todo{Possibly move the following 3 paragraphs to the analytics in use chapter as I'm discussing what the teams did.} 
-majority~\sidenote{Moodspace and LocalHalo did not provide any details of their bug tracking processes.} of the app-centric case studies partly integrated mobile analytics reports into their bug tracking process by storing at least some of the contents of the reports some of the time.  
-Of the projects that recorded the failures found by mobile analytics, it appears the Catrobat project used the crash's stack trace without anything else of the crash cluster's details or analytics~\sidenote{Examples include: \href{https://jira.catrob.at/browse/CATROID-1025}{Issue CATROID-1025} and \href{https://jira.catrob.at/browse/CATROID-1030}{Issue CATROID-1030}.} Moonpig stated they recorded many of the failures however sometimes they short-circuited the bug tracking system and modified the source code directly where the likely fix was believed to be easy to address with minimal risk. As they monitored the various mobile analytics services assiduously post-release they had at least one safety-net, also they may have recorded pertinent information in their source code repository - as this was not available during the research it is impractical to check at this stage.
+When cross-references are stored in mobile analytics, viewers can see which of the issues have been reported (and by inference which have not been acknowledged e.g. because the issues are new to the team).
 
-\myindex{Kiwix}, \myindex{Catrobat}, \myindex{LocalHalo}, only provided a subset of the development team access to the mobile analytics services. As a result, the rest of the team were blind to any reports or issues \emph{unless someone who has access provides the relevant information in the bug tracking system}. The \myindex{GTAF} project team record crashes reported by Firebase in their bug tracking system however they only embed the URL, they have not included copies of the pertinent details.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/rough-sketches/integration-of-mobile-analytics-tool.jpeg}
+    \caption[Addressing the contents of Mobile Analytics reports]{Addressing the contents of Mobile Analytics reports\\Source: Google Drawing \href{https://docs.google.com/drawings/d/1y7QP8UK7ugl0DzWIeH4udRxwsVMHjyQ6Am0qW6glkdE/edit?usp=sharing}{online here}.}
+    \label{fig:addressing-the-contents-of-mobile-analytics}
+\end{figure}
+
+Figure \ref{fig:addressing-the-contents-of-mobile-analytics} illustrates various aspects of integration between mobile analytics and other software tools such as bug trackers. The mobile analytics tool provides reports in a graphical user interface. On the web, the report has a URL (it may not be directly addressable in a mobile app equivalent tool) and visiting the URL with a suitably authenticated account results in the report being rendered if the mobile analytics service is working adequately. The mobile analytics tool \emph{may} provide interactive elements in the report page, for instance to hide the issue, to annotate the report, to modify the selection criteria. 
+
+Some tool's URLs include structural elements for instance to vary the dates or the duration of the report (24 hours, 7 days, \emph{etc.}). And some tools provide for easy export of elements of the report or of the entire presentation of the report \emph{e.g.} as a PDF file or an image file. Another approach, albeit one seldom supported officially is to write code to extract content programmatically; we did so as part of this research and developed vitals-scraper to extract content from Android Vitals.
+
+\newthought{Why do these aspects matter? } 
+Development teams often want to identify and track bugs including any code changes made with the aim of fixing the bug. Mobile analytics may be the source for the information about the bug and when the issue in the bug database includes pertinent information from the mobile analytics tool the development team can use that information to help understand the bug. \emph{The ability to cross-link the mobile analytics report and the issue in the bug tracker can enable team members to review the current, live information in the peer system.} 
+
+Figure \ref{fig:addressing-the-contents-of-mobile-analytics} includes five distinct mechanisms to integrate individual reports, or at least some of their contents.
+\begin{enumerate}
+    \itemsep0em
+    \item The web address or URL: for some reports the URL may include structural elements that affect the contents of the report.
+    \item Exports of the report: these are generally as a PDF or as a \Gls{csv} file (which would include a subset of the entire report).
+    \item Ubiquitous screenshots: some web browsers \emph{e.g.} Google Chrome limit the screenshot to the viewport (what's visible in the web browser), others \emph{e.g.} Firefox provide options to take a screenshot of the entire report.
+    \item Content extracts: \emph{e.g.} using copy+paste links on screen, \emph{e.g.} Android Vitals does so for the stack trace of crashes and for the thread dump of ANRs.
+    \item Programmatic extraction via the GUI: commonly known as screenscraping\sidenote{Note: some mobile analytics tools may provide API access to obtain the reports and/or the contents of the reports however none was discovered during the case studies.}. 
+\end{enumerate}
+
+Text-based content can be stored and processed relatively easily (analysis and processing of graphically-based PDF reports and images is beyond the scope of this research). 
+
+\newthought{Report exports: }
+Android Vitals provides various exports as files of comma-separated values (\Gls{csv} files).  However, these are encoded in a UTF-16 character encoding, an encoding used by less than 0.005\% of websites according to~\sidecite{w3techs_utf16}, via~\sidecite{wikipedia_utf16}. UTF-16 content proved awkward to parse programmatically which complicates and adds friction to any analysis or integration of these CSV reports from Android Vitals.
+
+\newthought{What content does a URL point to? }
+The URLs may point to persistent historical reports or to recent, periodically updated, reports. Some reports are also updated as new releases of an app go into production. The URLs and/or the contents often have a finite life. Trend analysis might be available within the mobile analytics tool, otherwise it can be performed using snapshots of reports for a range/set of consistent periods \emph{e.g.} snapshots taken on the first day of every week can be used to perform trend analysis. Retention policies applied by the mobile analytics service may mean the underlying data is deleted; for example Firebase Crashlytics only retains crash stack traces, \emph{etc.} for 90 days~\sidecite{firebasesupport2022_crashlytics_data_retention_policy}. The data is then deleted from Firebase Crashlytics. Therefore, development teams would need to preserve the contents of the reports if they wish to perform longer-term analysis or for auditing, \emph{etc.}
+
+
+
+
+
 
 
 
