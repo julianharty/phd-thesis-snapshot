@@ -3,7 +3,7 @@
 %----------------------------------------------------------------------------------------
 
 \newskip\tufteskipamount
-\tufteskipamount=0.2\baselineskip plus 0.5ex minus 0.2ex
+\tufteskipamount=1.0\baselineskip plus 0.5ex minus 0.2ex
 
 \newcommand{\tuftebreak}{\par\ifdim\lastskip<\tufteskipamount
   \removelastskip\penalty-100\tufteskip\fi}
@@ -40,7 +40,7 @@
 %--------------------------------------------
 %\usepackage[anythingbreaks]{breakurl}
 \usepackage{etoolbox}
-\appto\UrlBreaks{\do\-}
+\appto\UrlBreaks{\do\-\do\/}
 
 \usepackage{threeparttable}
 \usepackage{comment}

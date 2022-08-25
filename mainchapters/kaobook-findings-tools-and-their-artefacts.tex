@@ -334,6 +334,7 @@ Where the URL points to can affect the integration where a) the underlying conte
 
 The URLs may point to persistent historical reports or to recent, periodically updated, reports. Some reports are also updated as new releases of an app go into production. The URLs and/or the contents often have a finite life. Trend analysis might be available within the mobile analytics tool, otherwise it can be performed using snapshots of reports for a range/set of consistent periods \emph{e.g.} snapshots taken on the first day of every week can be used to perform trend analysis. Retention policies applied by the mobile analytics service may mean the underlying data is deleted; for example Firebase Crashlytics only retains crash stack traces, \emph{etc.} for 90 days~\sidecite{firebasesupport2022_crashlytics_data_retention_policy}. The data is then deleted from Firebase Crashlytics. Therefore, development teams would need to preserve the contents of the reports if they wish to perform longer-term analysis or for auditing, \emph{etc.}
 
+
 \newthought{Integration of event and content verification: }
 As mentioned earlier in this chapter, \hyperlink{tata-design-of-mobile-analytics-events-and-content}{Iteratively's various software tools}  helped the teams design and implement the desired mobile analytics correctly in a mobile app. Their tools were primarily involved before the app was tested or released, nonetheless they included a short duration view of the mobile analytics events being emitted by the app when the app was being used.
 
@@ -341,17 +342,60 @@ In comparison, the release management section of Google Play Console is integrat
 
 The final topic for the integration into workflows is on pipeline integration between mobile analytics tools/services and other high-volume data processing systems used particularly in larger tech-savvy enterprises. In the corporate app-centric case study the organisation required the product's development team to integrate any and all of the mobile analytics services where such integration was available. These were paid-for integrations where the service provider charges for the integration and for the data processing aspects. The app developers did not necessarily use the internal data lake often, instead the Operations and Site Reliability teams did, therefore the details are beyond the scope of this research.
 
-\subsection{Using Web-scraping for ad-hoc integration}
+\subsection{API access to analytics outputs}
+None of the mobile analytics tools encountered during the research provided complete access to the outputs using APIs. Furthermore, the ability to record and preserve copies of visual reports (as well as the underlying data) facilitates both practical use of the data in the field (for instance to record the information in an issues tracking database) and for further analysis and research. 
+
+API access to mobile analytics has been requested previously for Google Play's Developer Console~\sidecite{stackoverflow2013_getting_statistics_from_google_play_developer_console_with_an_api} and various people have developed code that interfaces with Google Play Console in an attempt to provide automated, scripted access to the content.
+
+\begin{kaobox}[frametitle=Opensource projects to download data from Google Play Console]
+Two examples of opensource projects that were created to download data include:
+
+googleplay\_dev\_scraper~\sidenote{  \href{https://github.com/tmurakam/googleplay_dev_scraper}{github.com/tmurakam/googleplay\_dev\_scraper}}, provided mechanisms to automate the downloading of the \Gls{csv} monthly reports rather than the live reports. It was last updated in 2013 so no longer current. 
+
+There was also the Andlytics opensource app that provided developers with access to data from their Google Play Console account~\sidenote{\href{https://github.com/AndlyticsProject/andlytics}{github.com/AndlyticsProject/andlytics}}. 
+However this project also ceased active development for various reasons, probably because Google chose to restrict access to the underlying data in 2019~\sidenote{\href{https://github.com/AndlyticsProject/andlytics/issues/766}{github.com/AndlyticsProject/andlytics/issues/766}}. % See also the historic posts by the project on Facebook for screenshots and updates https://www.facebook.com/Andlytics/
+\end{kaobox}
+
+\newthought{Using Web-scraping for ad-hoc integration: }
 Web-scraping of content from web-sites continues to be a frequent activity performed by many people and services. Web-scraping is used in many fields including bioinfomatics, where the authors discussed why web-scraping was still necessary in a world full of API's~\sidecite{glez2014_web_scraping_in_an_API_world}. A more recent paper by~\sidecite{diouf2019_web_scraping_state_of_the_art_and_areas_of_application} briefly presents various inefficiencies in web scraping. Curiously this paper singles out journalism as an under-served area despite it being written about 7 years earlier in Chapter 4 of~\sidecite{gray2012_the_data_journalism_handbook} (and also covered in a more recent version of the book,~\sidecite[][pp. 133, 238]{bounegru2021_the_data_journalism_handbook}. Suffice to say, web-scraping is a topic that has been written about, albeit not in the context of scraping content from mobile analytics web interfaces. 
 
-API access to mobile analytics has been requested previously~\sidecite{stackoverflow2013_getting_statistics_from_google_play_developer_console_with_an_api} and various people have developed code that interfaces with Google Play Console in an attempt to provide automated, scripted access to the content.
+We developed \myindex{Vitals Scraper} as an opensource project~\sidecite{vitals_scraper_github_package} and released it as an \gls{npm} package~\sidecite{vitals_scraper_npm_package} to address the issue of the lack of access to the outputs of Google Play Console and Android Vitals. Doing so demonstrated the necessity, viability, and some of the maintenance challenges of writing automated software for web-scraping of outputs from Google Play Console with \myindex{Android Vitals}. 
 
-\begin{comment}
+Enterprise-grade mobile analytics services provide mechanisms to export data to homogeneous data storage platforms~\sidecite{androiddevelopers2015_integrate_play_data_into_your_workflow_with_data_exports}; for instance Google Analytics tools export content to Google Cloud Storage~\sidenote{\href{https://support.google.com/googleplay/android-developer/answer/6135870?hl=en-GB}{support.google.com/googleplay/android-developer/answer/6135870}}, and to automate the process~\sidenote{\href{https://cloud.google.com/bigquery-transfer/docs/play-transfer}{cloud.google.com/bigquery-transfer/docs/play-transfer}}. Microsoft App Center is unusually complete and provides a comprehensive set of open APIs \href{https://openapi.appcenter.ms/}{openapi.appcenter.ms/} as well as the ability to export analytics data to Azure \href{https://docs.microsoft.com/en-us/appcenter/analytics/export}{docs.microsoft.com/en-us/appcenter/analytics/export} and even export data for individual users \href{https://docs.microsoft.com/en-us/appcenter/gdpr/analytics-export}{docs.microsoft.com/en-us/appcenter/gdpr/analytics-export}. Google Analytics provides various reporting APIs including those for Exceptions~\sidenote{\href{https://ga-dev-tools.web.app/dimensions-metrics-explorer/exceptions}{ga-dev-tools.web.app/dimensions-metrics-explorer/exceptions}} which are collected by Firebase Analytics for both Android and iOS apps~\sidenote{\href{https://developers.google.com/analytics/devguides/collection/firebase/android}{\nolinkurl{developers.google.com/analytics/devguides/collection/firebase/android}}}. % See also their github site that underpins the docs https://github.com/googleanalytics/ga-dev-tools
+
+Some of the mobile analytics providers offer developers customisation options such as custom dashboards and reports in Sentry \href{https://docs.sentry.io/product/discover-queries/uncover-trends/}{\nolinkurl{docs.sentry.io/product/discover-queries/uncover-trends}}.
+
+As a broader observation, various companies provide app analytics services where they obtain the underlying data % See the discussion for https://stackoverflow.com/a/49893656/340175
+and aim to provide easy to use, attractive, and actionable reports; examples include \href{https://appfigures.com/}{appfigures.com} and \href{https://www.data.ai/en/}{www.data.ai/en} (previously known as AppAnnie). Appfigures also publishes status reports for the performance of Google Play and Apple's App Store Connect service, these track the publishing performance of these two app stores; at the end of February 2022 they observed Google has been several days late publishing their free daily reports. % Screenshots have been recorded for posterity and are available in my research's appfigures.com folder. 
 
 
-Our work in developing \myindex{Vitals Scraper} as an opensource project~\sidecite{vitals_scraper_github_package} and releasing it as an NPM package~\sidecite{vitals_scraper_npm_package} demonstrates the necessity, viability, and some of the maintenance challenges of writing automated software for web-scraping of outputs from Google Play Console with \myindex{Android Vitals}~\footnote{Note: there was another similar sounding opensource project \href{https://github.com/tmurakam/googleplay_dev_scraper}{github.com/tmurakam/googleplay_dev_scraper} that provided mechanisms to automate the downloading of the \Gls{csv} monthly reports rather than the live reports. It was last updated in 2013 so no longer current.}. There was also the Andlytics opensource app that provided developers with access to data from their Google Play Console account~\sidenote{\href{https://github.com/AndlyticsProject/andlytics}{github.com/AndlyticsProject/andlytics}}, however this project also ceased active development for various reasons, probably because Google chose to restrict access to the underlying data in 2019~\sidenote{\href{https://github.com/AndlyticsProject/andlytics/issues/766}{github.com/AndlyticsProject/andlytics/issues/766}}. % See also the historic posts by the project on Facebook for screenshots and updates https://www.facebook.com/Andlytics/
-\end{comment}
+\subsection{Android Vitals}
+As Android Vitals features in every one of the app-centric case studies it has been possible to consider it in greater depth than the other mobile analytics tools investigated in this research. For example, having access to Android Vitals enabled comparisons across case studies and across multiple apps in and across those case studies. Having access also led to direct investigations of the Android Vitals on all the app-centric case studies. Flaws could be compared, for instance: 1) where the second country in the userbase graph was mistakenly used for the title of that report, 2) where a userbase appears to be negative when more users were lost and gained over the lifetime of the app, as shown in Figure \ref{fig:PocketCode-Lifetime-User-KPIs-2020-jan-24}.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/android-vitals-screenshots/catrobat/PocketCode-Lifetime-User-KPIs-2020-jan-24b.png}
+    \caption{Google Play Console Dashboard for PocketCode Lifetime User KPIs on \nth{24} Jan 2020}
+    \label{fig:PocketCode-Lifetime-User-KPIs-2020-jan-24}
+\end{figure}
+
+
+\subsubsection{Which apps can Android Vitals help?}
+As Google only provides various reports in Android Vitals once they decide enough data exists to preserve the privacy of end users Android Vitals provides little for developers of less popular apps. 
+
+Based on very rough approximations combining my case studies with AppBrain's download statistics to \nth{19} June 2019, shown in figure \ref{fig:appbrain_download_statistics_jun_2019}\cite{appbrain_download_statistics_june_2019}, of the total populations of app developers:
+\begin{itemize}
+    \item 3\% to 4\% (those with 100,000 to 500,000 total downloads) will get limited value as at least one report will be provided.
+    \item < 1\% (those with 500,000 to 1,000,000 total downloads) will get some value as many of the reports will be provided, but not all.
+    \item 1\% (those with > 1,000,000 total downloads) will get extensive value as most/all the reports will be provided.
+\end{itemize}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth, keepaspectratio]{images/appbrain/AppBrain_Download_Statistics_20-Jun-2019.png}
+    \caption{AppBrain: Download distribution of Android apps (June 2019)}
+    \label{fig:appbrain_download_statistics_jun_2019}
+\end{figure}
 
 
 
@@ -360,13 +404,16 @@ Our work in developing \myindex{Vitals Scraper} as an opensource project~\sideci
 From the findings identified in this chapter various improvements to the tools have emerged, these are covered in this section.
 
 Two aspects of improving the integration of mobile analytics into development practices. These are:
+
 \begin{itemize}
-    \itemsep0em
-    \item The ease of sharing pertinent information between the mobile analytics service, issue tracking, and to the developer's IDE~\footnote{And possibly integration with various collaboration tools such as Slack, Microsoft Teams, and so on would also be beneficial?}. At Google IO 2022, Google announced integration between Firebase Crashlytics and Android Studio~\sidecite{android2022_firebase_crash_integration_into_android_studio_electric_eel}, and Firebase Crashlytics with Google Play [Console] - both are intended to help developers to work more efficiently and effectively with crashes reported by Firebase Crashlytics~\sidecite{firebaseblog2022_whats_new_at_google_io}. 
-    %Persistent locators and data.  Cross-referencing in mobile analytics so viewers can see which of the issues have been reported (and by inference which have not been acknowledged e.g. because they're new to the team). Discuss improvements in these areas.
-    % See also https://stackoverflow.com/questions/64537875/is-there-a-way-to-integrate-firebase-crashlytics-with-my-github-repository
-    \item How can mobile analytics reporting help developers to tackle and fix more of the failures? The GTAF case study provided an insightful example where the developers sometimes avoided addressing `difficult' failures. Perhaps, a service similar to GitHub's auto-suggestions integrated into mobile analytics and the developer's IDE could help reduce risk of exacerbating a situation by taking action (inaction is sometimes perceived as a safer course of behaviour than trying to tackle an issue and being seen to fail to do so).  
+    \item The ease of sharing pertinent information between the mobile analytics service, issue tracking, and to the developer's IDE~\sidenote{Integration with various collaboration tools such as Slack, Microsoft Teams, and so on would also be beneficial?}. At Google IO 2022, Google announced integration between Firebase Crashlytics and Android Studio~\sidecite{android2022_firebase_crash_integration_into_android_studio_electric_eel}, and Firebase Crashlytics with Google Play [Console] - both are intended to help developers to work more efficiently and effectively with crashes reported by Firebase Crashlytics~\sidecite{firebaseblog2022_whats_new_at_google_io}.
 \end{itemize}
+ 
+
+
+How can mobile analytics reporting help developers to tackle and fix more of the failures? The GTAF case study provided an insightful example where the developers sometimes avoided addressing `difficult' failures. Perhaps, a service similar to GitHub's auto-suggestions integrated into mobile analytics and the developer's IDE could help reduce risk of exacerbating a situation by taking action (inaction is sometimes perceived as a safer course of behaviour than trying to tackle an issue and being seen to fail to do so).  
+
+
 
 
 \section{Fieldstones}
