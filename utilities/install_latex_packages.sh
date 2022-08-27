@@ -1,5 +1,5 @@
-brew install texlive-fonts-recommended
-sudo tlmgr install CJKutf8
+#brew install texlive-fonts-recommended
+#sudo tlmgr install CJKutf8
 sudo tlmgr install adjustbox
 sudo tlmgr install afterpage
 sudo tlmgr install algorithm
@@ -24,6 +24,7 @@ sudo tlmgr install chngcntr
 sudo tlmgr install cleveref
 sudo tlmgr install collection-bibtexextra
 sudo tlmgr install collection-binextra
+sudo tlmgr install collection-latexextra
 sudo tlmgr install color
 sudo tlmgr install copyrightbox
 sudo tlmgr install csquotes
