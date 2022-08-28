@@ -2,7 +2,7 @@
 \chapter{Findings: Mobile Analytics Tools and their Artefacts}~\label{chapter-tools-and-their-artefacts}
 This chapter covers two of the six perspectives, \emph{i.e.} using and improving mobile analytics tools. The primary evidence comes from both the app-centric and the tool-centric case studies, augmented with material from grey data and grey literature.
 
-The evidence has been analysed and prioritised to keep the chapter relatively succinct and on topic. 38 discrete themes (L1 themes) emerged in the analysis of the evidence, of these the 18 with strongest support in terms of the evidence are included here, the rest would benefit from further work. The L1 themes included in this chapter have be aggregated into four higher-level (L2) themes: design (\secref{section-design}), fit-for-purpose (\secref{section-fit-for-purpose}), utility (\secref{section-utility}), dependability (\secref{section-dependability}). Figure \ref{fig:analytics-tools-and-their-artefacts-fishbone-diagram} illustrates the top L1 themes and their primary higher-level (L2) theme.
+The evidence has been analysed and prioritised to keep the chapter relatively succinct and on topic. 38 discrete themes (L1 themes) emerged in the analysis of the evidence, of these the 18 with strongest support in terms of the evidence are included here, the rest would benefit from further work. The L1 themes included in this chapter have be aggregated into four higher-level (L2) themes: design (\secref{tata-design-section}), fit-for-purpose (\secref{tata-fitness-for-purpose-section}), utility (\secref{tata-utility-section}), dependability (\secref{section-dependability}). Figure \ref{fig:analytics-tools-and-their-artefacts-fishbone-diagram} illustrates the top L1 themes and their primary higher-level (L2) theme.
 
 \begin{figure*}
     \centering
@@ -229,7 +229,7 @@ Simply put, the mobile analytics tools need to be fit for purpose. In the contex
  
 When the tools integrate into the workflows of the developers, they're more likely to be adopted as long-term companions and therefore demonstrate they provide a good return on investment. 
 
-Note: two of the topics: fidelity and ethical considerations bridge both this section: fitness-for-purpose and the dependability section.
+Note: two of the topics: fidelity and ethical considerations bridge both this section: fitness-for-purpose and the dependability section, they are covered in \secref{tata-cross-cutting-concerns}.
 
 {\small
 \begin{itemize}
@@ -237,7 +237,6 @@ Note: two of the topics: fidelity and ethical considerations bridge both this se
     \item \sout{Product Fit: whether, and if practical how well, the mobile analytics product fits the desires/needs of the developers and their organisation.}
     \item \sout{Actionable Reports: reports the developers can action in order to address concerns presented in the reports.}
     \item \sout{Integration into workflows: the ability of a given mobile analytics tool/service to be integrated into development team's workflows.}
-    \item Ethical considerations: the data collected by mobile analytics may have ethical implications a) for the operator/provider of the service, b) for their partners and customers, c) for the developers, d) for end-users. In this research our main focus is on the implications for the developers, nonetheless the other aspects are also important.
     \item ROI (return-on-investment): developers may make both implicit and explicit choices on what to invest in, for instance in terms of their focus, their effort, and their money. The analytics tools need to convince developers a) to invest and then b) whether to increase that investment (and if so what forms of investment e.g. in terms of writing more code, spending [more] money, using the tool more, etc.).
 \end{itemize}
 }
@@ -369,7 +368,7 @@ As a broader observation, various companies provide app analytics services where
 and aim to provide easy to use, attractive, and actionable reports; examples include \href{https://appfigures.com/}{appfigures.com} and \href{https://www.data.ai/en/}{www.data.ai/en} (previously known as AppAnnie). Appfigures also publishes status reports for the performance of Google Play and Apple's App Store Connect service, these track the publishing performance of these two app stores; at the end of February 2022 they observed Google has been several days late publishing their free daily reports. % Screenshots have been recorded for posterity and are available in my research's appfigures.com folder. 
 
 
-\subsection{Android Vitals}
+\subsection{Android Vitals}~\label{tata-android-vitals-topic}
 As Android Vitals features in every one of the app-centric case studies it has been possible to consider it in greater depth than the other mobile analytics tools investigated in this research. For example, having access to Android Vitals enabled comparisons across case studies and across multiple apps in and across those case studies. Having access also led to direct investigations of the Android Vitals on all the app-centric case studies. Flaws could be compared, for instance: 1) where the second country in the userbase graph was mistakenly used for the title of that report, 2) where a userbase appears to be negative when more users were lost and gained over the lifetime of the app, as shown in Figure \ref{fig:PocketCode-Lifetime-User-KPIs-2020-jan-24}. This has been observed for several of the apps in the case studies, a pattern for when this occurs has yet to be determined.
 
 \begin{figure}
@@ -380,7 +379,7 @@ As Android Vitals features in every one of the app-centric case studies it has b
 \end{figure}
 
 
-\subsubsection{Which apps can Android Vitals help?}
+\subsubsection{Which apps can Android Vitals help?}~\label{tata-which-apps-can-google-vitals-help}
 As Google only provides various reports in Android Vitals once they decide enough data exists to preserve the privacy of end users Android Vitals provides little for developers of less popular apps. 
 
 Based on very rough approximations combining my case studies with AppBrain's download statistics to \nth{19} June 2019, shown in figure \ref{fig:appbrain_download_statistics_jun_2019}\cite{appbrain_download_statistics_june_2019}, of the total populations of app developers:
@@ -426,26 +425,287 @@ Not all issues flagged by \myindex{Android Vitals} are valid problems that need 
 
 
 
+\section{Utility}~\label{tata-utility-section}
+Utility addresses practical and pragmatic aspects of developers using mobile analytics to achieve their purposes. It's a close cousin to \secref{section-fit-for-purpose} and considers three discrete lower-level themes: efficacy of the mobile analytics tool(s), the benefits of combining tools, and bug-localisation.
+
+An orthogonal topic is included in this section as Google has provided various online tools to help developers pre-release of their Android apps. One in particular, pre-launch reports, compares failures found pre- and post- release and is instructive in how well automated platform-provided checks and tests might help developers reduce the incidence and/or severity of post-release failures.
+
+\subsection{Efficacy of the tool}
+% 4 findings currently: Android Vitals, Kiwix, Moodspace (email/empirical studies), Moonpig (email/empirical studies).
+Efficacy of tools considers how efficient and how effective is the tool, i.e. how efficacious is the tool? Did it achieve the objectives it claims to achieve?\todo{These don't quite align with the rest of this topic and should do. TODO - align them :)}
+
+\newthought{Android Vitals: } 
+The current design of \myindex{Android Vitals} includes notifications and alerts, the use of colour, comparisons, and so on are all intended to get the attention of the developers and help the developers focus on egregious issues. During the app-centric case studies several project teams provided examples of where these worked. Comparisons with peer apps helped inform and motivate the project team for the commercial app, \myindex{C1}, albeit the product owners appeared to be more interested than the core development team. (Note: the comparison is provided per developer account, per app, rather than per logged-in user, in Google Play Console, \emph{i.e.} anyone able to login to see the app's analytics will see the same set of peer apps.). 
+
+\begin{quote}
+    ``\emph{Seeing your app in comparison to apps of peers provides some great motivation to step up your game.}'', Moodspace (2019).
+\end{quote}
+
+\begin{quote}
+    ``\emph{...we noticed them by monitoring with Crashlytics/Firebase, I think specifically in the last case we got a crash velocity alert}'', Moonpig (2020).
+\end{quote}
+
+For the Kiwix project, the project leads were convinced by the reports provided in \myindex{Android Vitals} that an interim bug-fix release would be worth the effort of making and releasing quickly in order to materially reduce the crash rate for the core app (it was - as measured by Android Vitals).
+
+\newthought{\myindex{Crashlytics} and \myindex{Microsoft App Center}: }
+both include in-app crash reporting that project teams preferred using over the equivalent reports in Android Vitals. The reports were more actionable for at least two main reasons, one systemic and the other because of how Google currently processes and reports on crashes in Android Vitals. 
+
+The systemic reason is that in-app \Gls{sdk}s often offer facilities that enable developers to get the apps to report information in addition to crashes. The information may include: \gls{glossary-breadcrumbs}, custom data, handled exceptions (non-fatal errors), and so on. As Android Vitals relies on data that is logged when an app is terminated it does not have access to any of these additional (and optional) data.
+
+Android Vitals limits what it reports to the app developers. Here are two key examples.
+
+\begin{enumerate}
+    \item Android Vitals currently doesn't present the optional \texttt{message} parameter \emph{e.g.} the parameter `\texttt{s}' in Java's \texttt{NullPointerException(String s)}~\footnote{In full, \texttt{NullPointerException(String s)
+Constructs a NullPointerException with the specified detail message.} Source:  \href{https://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html}{docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html}}. While some crashes can be determined without this message (and indeed some fatal exceptions don't include a message as it's an optional parameter) others have only been determined by the developers when the developers have seen the contents of the messages.
+    \item Android Vitals also only provides reports once internal thresholds have been reached whereas the in-app analytics tools report even isolated events. With Android Vitals Google has chosen to protect user's privacy (possibly relatively rather than absolutely) compared to their other mobile analytics product offerings such as Firebase Analytics and Firebase Crashlytics.
+\end{enumerate}
+
+This second example was raised as a requested improvement during the interview with Ian Alexander of Moodspace:
+\begin{quote}
+    ``\emph{The only issue I have with core vitals is that I can't see them all! We are by no means a big app, so don't have enough data to meet Google's standard for anonymised results, so results for most of the core vitals are hidden. I don't quite understand why this should be the case as the headline figure of your apps performance surely doesn't have to rely on anonymous data? Whereas the drilled down details of a core vital should be anonymous, so maybe the details view could just be blocked instead of hiding the entire core vital? To provide context, \myindex{MoodSpace} had at least 4k monthly users, so there must be plenty of apps which get little or no use form core vitals, simply from them being hidden.}'' Moodspace (2019).
+\end{quote}
+
+Auto-instrumentation, for example, provided by Sentry and as seen in the \myindex{LocalHalo} project, can also help developers to identify contributory factors to failures. In the LocalHalo case study, Sentry clearly identified the servers were no longer functional. This occurred months after the project and the app were no longer supported, were the project actively maintained there was sufficient information in the analytics to help the development team focus their attention on the servers. In the commercial project their mobile analytics services did not include equivalent auto-instrumentation, instead one of the developers wrote similar code to log (\emph{i.e.} record) web server responses. In doing so they inadvertently caused the newly released version of the Android app to crash frequently. Here what is noteworthy is that developers sometimes have to write their own code to augment the functionality provided by a mobile analytics service. It's pertinent to mention that auto-instrumentation can also have flaws that include causing the app to crash. A similar example, albeit for a different third-party SDK was when \myindex{Facebook}'s SDK led to high app crash rates.
+
+\subsection{Benefits of combining tools}
+% 6 findings currently: 2 - Kiwix, 3 - LocalHalo, 1 - Moonpig:
+% Benefits of combining mobile analytics tools: an observation of benefits developers can obtain through combining their use of several mobile analytics tools.
+    
+\myindex{Moonpig}'s development team actively combined \myindex{Firebase Crashlytics} and \myindex{Google Analytics} for diagnostics in addition to the information available in Android Vitals. They estimated they used \myindex{Android Vitals} approximately 30\% of their time to identify flaws and issues related to their Android app.
+%
+They also incorporated in-app analytics by using \myindex{Firebase Analytics} which recorded analytics related to how the users use the mobile apps and whether errors or other problems occurred while the app was being used. 
+
+Some crashes were only reported in \myindex{Android Vitals}, \myindex{Moonpig}'s hypothesis was that as \myindex{Crashlytics} waits to send crash reports until the app next restarts, some users never restarted the app therefore those crashes remained unreported \emph{even if crashlytics had detected and recorded them}.
+
+subsection{Bug-localisation}
+% 4 - Moonpig, 1 - Kiwix, 1 - Smartnavi (discussion): 
+% Bug-localisation: features in a mobile analytics tool that may enable developers to localise one or more bugs.
+
+\myindex{Moonpig} provided several examples of how mobile analytics helped with bug localisation. The most instructive example is where there was a clear correlation between an increase in the crash rate of the app and newer Android releases. The development team:
+
+\begin{enumerate}[label=(\alph*)]
+    \item understood the correlation, in part as the early effects were documented by the developer of the relevant third-party software library: \myindex{RoboSpice}, and 
+    \item they were able to make suitable purposeful, controlled improvements to the app where they were able to revise the codebase so the app could be improved despite the removal of RoboSpice.
+\end{enumerate}
+
+With Kiwix, Android Vitals provided sufficient information to help the developers to gauge the probable impact of various flaws that emerged in use of the family of Android apps. The reports weren't necessarily comprehensive or complete so they didn't necessarily pinpoint something the developers could address. Similarly for the \myindex{Smartnavi} Android app the developer was able to determine the crashes \emph{that wouldn't be fixed} because the analytics reports indicated the failures were a) sufficiently sporadic and infrequent, and b) on devices that weren't available outside their respective region \emph{e.g.} China. So the reports helped the developer of Smartnavi to make appropriate triage decisions - the action was to take no further action! 
+
+\subsection{Pre-launch reports}~\label{tata-pre-launch-reports-topic}
+Pre-launch reports are an intrinsic part of Google Play Console and the pre-launch~\sidenote{Google provides a current overview of pre-launch reports online \href{https://play.google.com/console/about/pre-launchreports/}{\nolinkurl{ play.google.com/console/about/pre-launchreports}}.} report includes automated testing of pre-release apps. These reports are generated by a combination of static analysis tools and automated `testing' performed by a software test facility called Robo, which is also used in the Firebase Test Lab service.
+
+Pertinently, \myindex{Google Play Console} identifies issues that are found in both the pre-launch testing and in production, an example is provided in \secref{aiu-pre-launch-reports}. They also automatically select the top five languages~\footnote{More probably they actually select the locales which are more specific than simply a language.} based on the app's userbase~\sidecite{play_console_use_a_pre_launch_report_to_identify_issues_2022}, which is a simple example of how mobile analytics can be used to drive software testing.
+
+\begin{quote}
+``\emph{If you use pre-launch reports to identify issues with your apps, crashes found during testing are listed with your app’s crashes and \Gls{anr}s. However, because crashes found while generating a pre-launch report come from test devices, they don’t affect your crash statistics.}''~\sidecite{play_console_help_view_crashes_2019, play_console_help_understanding_pre_launch_reports_2022}.    
+\end{quote}
+
+As the \myindex{GTAF} project noted, the crashes reported in pre-launch reports do not necessarily affect end users. Conversely the pre-launch report automated testing does not find all the failures that affect end users. (Dua \& Zikr app).
 
 
+Unfortunately the pre-launch reports started reporting false positives claiming that apps were crashing during the automated testing; and this was exacerbated by the tardy responses by the Google engineering team and inadequate `fixes' that didn't work~\sidecite{google2020_pre-launch-reports-false-positives}. % And see also https://github.com/firebase/firebase-android-sdk/issues/2161 https://stackoverflow.com/questions/64706041/fatal-exception-firebase-messaging-intent-handle-java-lang-noclassdeffounder https://forum.unity.com/threads/error-during-google-app-submission-java-lang-noclassdeffounderror-aewt.1005593/
+Some app developers chose to bypass the pre-launch reports so they could release new versions of their apps. These false positives adversely affected several of the app-centric case studies including the commercial project who had experienced other flaws in the pre-release release tracks serving outdated releases to key stakeholders. The pre-launch report for the WikiMed app in Arabic also reported this issue, see Listing \ref{listing:kiwix-wikimed-ar-pre-launch-report-crash}. The crash appears to be in the unrelated YouTube app installed on that device. 
+
+\begin{listing}
+\begin{minted}[fontsize=\tiny,obeytabs=true,tabsize=2]{java}
+FATAL EXCEPTION: Firebase-Messaging-Intent-Handle
+Process: com.google.android.youtube, PID: 27568
+java.lang.NoClassDefFoundError: aewt
+\end{minted}
+\caption{Extract of false positive test failure for the Kiwix Arabic WikiMed app, December 2020}
+\label{listing:kiwix-wikimed-ar-pre-launch-report-crash}
+\end{listing}
+
+Listings \ref{listing:kiwix-pre-launch-report-crash-report-a} and \ref{listing:kiwix-pre-launch-report-crash-report-b} are extracts of stack traces reported in pre-launch reports in 2018 (30+ lines of non app-specific stack traces are removed from both these extracts to improve readability). They were reported, together with crashes that occurred elsewhere in the app, during the period (2018 - 2019) of the excessively high crash rates where the custom file downloading code was quite buggy. %See the empirical-studies/kiwix section for details.
+
+Three lines of four lines for the Kiwix codebase match in the stack traces, the fourth in each is specific to the action - to play/pause the download of a file. The same exception occurs in both cases, an \texttt{IndexOutOfBoundsException} because there are zero elements in an internal array memory structure in the app. The cause of these crashes was likely to be in-common, however as this functionality was stripped out of the codebase shortly afterwards the investigation is beyond the scope of this research. In short the automated testing helped identify a bug probably common to both code paths. The development team had not identified the bug previously and the pre-launch's Robo testing service identified two of the crashes that were probably affecting the userbase~\footnote{At the time, end-users were complaining of the app failing during downloads in their reviews of the app.}. 
+
+Empirically observed, pre-launch reports are preserved for several years (\emph{e.g.} for 6+ years for 30 releases of the \gls{phet} Kiwix app from \nth{19} June 2016 for release 2, to \nth{4} April 2020 for the current release 6200950), and for up to 100 internal releases (\emph{e.g.} Kiwix) from \nth{19} June 2019 for release 4220501, to \nth{30} Jan 2022 for release 7230406. 
+
+For the two main Catrobat apps there are 28 reports starting from \nth{8} March 2018 for release 56, to \nth{16} May 2021 for release 86; and 18 pre-launch reports for Pocket Paint, from \nth{13} May 2021 for release 39, to \nth{3} June 2022 for release 48.
 
 
+\begin{listing}
+\begin{minted}[fontsize=\tiny,obeytabs=true,tabsize=2]{java}
+Pixel 2
+FATAL EXCEPTION: ControllerMessenger
+Process: org.kiwix.kiwixmobile, PID: 13661
+
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.get(ArrayList.java:437)
+	at org.kiwix.kiwixmobile.downloader.DownloadService.playDownload(DownloadService.java:282)
+	at org.kiwix.kiwixmobile.downloader.DownloadFragment$DownloadAdapter.setPlayState(DownloadFragment.java:224)
+	at org.kiwix.kiwixmobile.downloader.DownloadFragment$DownloadAdapter.lambda$getView$2(DownloadFragment.java:279)
+	at org.kiwix.kiwixmobile.downloader.-$$Lambda$DownloadFragment$DownloadAdapter$yTvZa0pAkgIs6Hbsowm8fHRzobg.onClick(Unknown Source:8)
+	at android.view.View.performClick(View.java:6597)
+
+\end{minted}
+\caption{Extract of pre-launch crash report A for Kiwix Android app, in 2018}
+\label{listing:kiwix-pre-launch-report-crash-report-a}
+\end{listing}
 
 
+\begin{listing}
+\begin{minted}[fontsize=\tiny,obeytabs=true,tabsize=2]{groovy}
+Pixel 2
+FATAL EXCEPTION: ControllerMessenger
+Process: org.kiwix.kiwixmobile, PID: 13304
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.get(ArrayList.java:437)
+	at org.kiwix.kiwixmobile.downloader.DownloadService.pauseDownload(DownloadService.java:266)
+	at org.kiwix.kiwixmobile.downloader.DownloadFragment$DownloadAdapter.setPlayState(DownloadFragment.java:227)
+	at org.kiwix.kiwixmobile.downloader.DownloadFragment$DownloadAdapter.lambda$getView$5(DownloadFragment.java:286)
+	at org.kiwix.kiwixmobile.downloader.-$$Lambda$DownloadFragment$DownloadAdapter$LxyhzTeoe7ZUFXuWnasr5s63_Bc.onClick(Unknown Source:6)
+	at android.view.View.performClick(View.java:6597)
+\end{minted}
+\caption{Extract of pre-launch crash report B for Kiwix Android app, in 2018}
+\label{listing:kiwix-pre-launch-report-crash-report-b}
+\end{listing}
+% Complete stack traces available in /empirical-studies/empirical-evidence/kiwix/crashreports-prelaunch-report-2018.txt
 
+In summary, pre-launch reports have found various bugs in at least several of the app-centric case studies, of example they found a Java \texttt{NullPointerException} in \texttt{Locale.getLanguage()} in the oldest pre-launch report for the \gls{phet} app. Their analysis integrated into Android Vitals and used production analytics to help drive the automated testing of new releases of the app. Nonetheless, pre-launch reports have their own flaws and some development teams chose not to use them as they were perceived as troublesome. 
+
+\section{Dependability}~\label{section-dependability}
+Dependability considers the extent to which developers can rely on a mobile-analytics service (and/or the underlying tool~\footnote{Mobile Analytics is inherently something that's ongoing rather than a one-off/occasional event; therefore the key concern is in the provision of a service using an underlying mobile analytics tool. Flaws in the tool are unlikely to be improved by the service that's provided (either in-house by the development team's organisation or by an external provider}, and even a tool with few flaws cannot compensate for a heavily flawed service.). 
+
+During this research four lower-level themes emerged that primarily underpin dependability: 1) flaws, 2) link rot, 3) testability, and 4) trustworthiness; these are covered in this section. Two more lower-level themes in particular also contribute to dependability: fidelity and ethical considerations, these are covered in \secref{tata-cross-cutting-concerns}.
+
+\subsection{Flaws in the mobile analytics tools and/or services}~\label{tata-flaws-topic}
+% 15+ Android Vitals, 5 - Kiwix, 2 - LocalHalo, C1, StackOverflow, iDot (PosttHog & Amplitude don't collect failure data), Microsoft App Center, ...
+%Flaws: weaknesses, mistakes, errors, etc. pertaining to the mobile analytics tool/service.
+
+Software has flaws~\sidenote{As freely acknowledged by Donald Knuth, see~\cite{ditlea1999_knuth_rewriting_the_bible_in_0s_and_1s}}, mobile analytics tools are written in software, therefore mobile analytics tools have flaws. % See also https://en.wikipedia.org/wiki/Knuth_reward_check
+Various flaws have been identified in mobile analytics services, how much do these flaws matter? 
+
+As the common tool across all the app-centric case studies Android Vitals provided a backbone for analysis, and a basis for scoping, comparing, and assessing some of the key issues.
+
+\newthought{Published flaws in Android Vitals: }
+Since 2011, Google has published a list of various changes and corrections to Google Play Console~\sidecite{google_play_troubleshoot_app_statistics_problems}. This research found numerous additional flaws, and many of these were reported to Google's engineering team for Google Play Console and Android Vitals. Of the flaws I reported to Google, some were confirmed as being accepted; the rest remained unconfirmed (but nonetheless Google may have accepted them internally).  %that were not published by Google even though their engineering team acknowledged many of these flaws (they chose not to respond to the rest of the flaws). 
+Sixteen flaws have been found in Android Vitals and Google Play Console to date as part of this research. Of these, fourteen have already been published~\sidecite{harty_improving_app_quality_despite_flawed_mobile_analytics, harty_google_play_console_insightful_development_using_android_vitals_and_pre_launch_reports, harty_better_android_apps_using_android_vitals}; they are repeated in Table \ref{tab:flaws-discovered-in-android-vitals} for ease of reference. The \nth{15} item was discovered as part of this research, where Google Play Console displayed newer dates than the actual release date for various apps; and the \nth{16} item during writing up this research. This \nth{16} item, where identical crash clusters appeared several times in the listing is not the first instance of flaws in app store related listings, for example Apple's rankings for iOS went haywire for several days according to \sidecite{lotan2015_apple_apps_and_algorithmic_glitches}.
+
+
+\begin{table}
+	\footnotesize % Reduce font size
+    %\begin{tabular}{L{0.05\texwidth} L{0.35\textwidth} L{0.4\textwidth}}
+    \begin{tabular}{>{\raggedright\arraybackslash}p{1cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{4cm}}
+        \toprule
+        ID & Flaw & Consequences \\
+        \midrule
+        01 & Testing discouraged & Limits investigation into behaviours and their impacts. \\
+        02 & Negative populations & Nonsensical and therefore untrustworthy statistics \\
+        03 & Repeated graphs & Poor UX, waste of space (waste of real estate). \\
+        04 & Gaps in the data & `Flying blind', loss of confidence in the service. \\
+        05 & Inconsistent data ranges for some reports & Poor UX, confusing, may lead to incorrect/flawed decisions. \\
+        06 & Missing URL parameters & Results incorrectly filtered. \\
+        07 & No updates for 10+ days & `Flying blind', loss of confidence in the service. \\
+        08 & Incorrect ranges in reports & Off-by-one errors. \\
+        09 & Unexplained negative headline rate & Exemplified in \secref{tata-android-vitals-topic}. \\
+        10 & Poor grouping of clusters & Inaccurate summaries, rank of failures skewed, sub-optimal prioritisation. \\
+        11 & No Service problem-reporting & Lack of transparency of historical service outages, \emph{etc.} \\
+        12 & Lack of reports (despite usage) & Unusable analytics for low to mid range usage by end users, `Flying blind' after take-off. \\
+        13 & Second country's data conflated with that of the first & Misleading report, poor UX. \\
+        14 & 10x mismatch with crashlytics & Lack of trust in at least one of the mobile analytics tools. \\
+        15 & Incorrect date for last update & Misleading developer experience, loss of trust in the service. \\
+        16 & Several identical crash clusters in the paged list of ranked results, e.g. \href{https://github.com/kiwix/kiwix-android/issues/2482}{Kiwix issue 2482}. & Adversely affects counts of matching crash clusters, confusing. \\
+        \bottomrule
+%         17 & Future times and dates in Microsoft App Center reports.
+%       18 & Data missing from stack traces.
+    \end{tabular}
+    \caption{Flaws discovered in Google Play Console with Android Vitals}
+    \label{tab:flaws-discovered-in-android-vitals}
+\end{table}
+
+Of these 16 flaws, the most pivotal from a research perspective is the first one, that testing is discouraged. Google appears unwilling to subject its service to external scrutiny, and its dominance in the online world puts investigators at risk of being barred from using various services considered essential to varying degrees. In contrast, several providers of mobile analytics tools make at least some of the relevant software available under an opensource license (e.g., \myindex{PostHog}, \myindex{Sentry}, \myindex{Segment.io}, \myindex{Count.ly} provide both client and server code; \myindex{Firebase Analytics} and \myindex{Microsoft App Center} make client SDKs available). 
+
+Google has made numerous modifications and enhancements to Android Vitals during the period of this research and some of these changes have addressed some of the flaws that were reported to them previously. Nonetheless Android Vitals still has flaws at the time of writing, for instance some failure clusters are still fragmented into several groups rather than being fully aggregated.
+
+Other mobile analytics tools from this research have also had flaws, for example Microsoft App Center's reports include errors and crashes that `happened' hours or even as prematurely as several days in the future. 
+
+\subsection{Link rot}
+Link rot, preservation of results: the validity of a URL may be finite, as may the contents be even if the link remains. 
+
+For mobile analytics services link rot is often a common reason why results are no longer available from the mobile analytics service - the link was ephemeral. In such cases the results would need to be preserved while the results are still available. In some cases the rot may be easy to predict, for instance as data ages beyond the predefined date range of a report, in other cases less so, for instance when the active release is updated the data for the previous currently active release might 'disappear' from some reports.
+
+\subsection{Testability}
+Testability for the purpose of this research is the ability to test the overall service, the tool, and/or components that comprise the analytics tool. 
+
+Testability applies to any SDK, to the data preservation, security, and transmission, to the data aggregation, processing, and analysis, and to the reporting. It could also apply to the human elements such as their interpretation, comprehension, and so on... Access to the underlying source code, to the design objectives/requirements, and so on... may help improve the testability. Commercial and legal constraints, and considerations, might limit and/or bias the testability of a given mobile analytics tool/service.
+
+It's a big subject and perhaps far larger than the scope of many PhDs, certainly it is beyond the scope of this PhD which focuses on other aspects. 
+
+For the purposes of this research testability focuses on working within commercial constraints and on assessing the testability aspects of testing any of the mobile analytics products/services.
+
+\section{Cross-cutting topics}~\label{tata-cross-cutting-concerns}
+
+\subsection{Fidelity}~\label{tata-fidelity-topic}
+\myindex{Moonpig} accepted that not all crashes that end-users experience will be reported as the reporting is optional. 
+
+In email correspondence in January 2020 one of the Engineering Managers at Google for Google Play Console and Android Vitals observed:
+
+\begin{quote}
+    \emph{``Crashlytics doesn't report the same data as Vitals, as we've already discussed. Each sees things that the other doesn't: Crashlytics cannot see any start-up crashes nor ANRs, but it is able to count developer-defined issues beyond crashes. Furthermore Vitals is opt-in by Android users, whereas Crashlytics is SDK crashes so consent comes from installing the app. To reconcile the two yourself you would have to have access to detailed user counts including permissions, but on the Vitals side this is user data not developer data (Crashlytics is different) and our privacy policy prevents us being too granular about this information with you.''}
+\end{quote}
+
+This conversation came about in part from the experiences in 2019 of using Fabric Crashlytics in Catrobat's Pocket Code Android app, and in part from the following mini-experiment. 
+
+\newthought{Travel Europe app mini-experiment: }
+a locally developed Android app called Travel Europe was downloaded on to 10 Android devices each with a unique Google account and with app usage and diagnostics enabled. One of the aims was of the mini-experiment was to determine how completely an in-app analytics service, \myindex{Microsoft App Center}, and the platform analytics from Google Android, would reflect the usage and any errors. Flaws were found in both mobile analytics services. The experiment is described in more detail in \secref{appendix-mini-experiments}.
+
+Various developers in grey data have also observed widely different results in counts provided by various mobile analytics services~\sidecite{,stackoverflow2019_downloads_in_firebase_is_30x_different_from_google_console,stackoverflow2021_google_play_new_users_vs_firebase_first_new_users_comparison}. Mismatches have also been reported, and analysed~\sidecite{soni2017_app_downloads_from_china__firebase_and_itunesconnect_analytics_mismatch}, for an iOS app. % And see also https://gamedev.stackexchange.com/questions/137919/why-are-the-app-analytics-for-itunes-connect-so-wrong
+
+
+\subsection{Ethical considerations} 
+The data collected by mobile analytics may have ethical implications a) for the operator/provider of the service, b) for their partners and customers, c) for the developers, d) for end-users. In this research our main focus is on the implications for the developers, nonetheless the other aspects are also important.
 
 \section{\itools}~\label{tata-itools-section}
 From the findings identified in this chapter various improvements to the tools have emerged, these are covered in this section.
 
-Two aspects of improving the integration of mobile analytics into development practices. These are:
-
+\subsection{Improvements to Google Play Console with Android Vitals}
+The research identified several potential improvements to the Google Play Console and Android Vitals, the main analytics tools used by all the projects studied for the app-centric cases. These were highlighted during semi-structured interviews with different app-centric project team members and ...
+Direct quotes from the CTO of Moodspace (June 2019): \emph{``As for several things I think are missing:''}
 \begin{itemize}
-    \item The ease of sharing pertinent information between the mobile analytics service, issue tracking, and to the developer's IDE~\sidenote{Integration with various collaboration tools such as Slack, Microsoft Teams, and so on would also be beneficial?}. At Google IO 2022, Google announced integration between Firebase Crashlytics and Android Studio~\sidecite{android2022_firebase_crash_integration_into_android_studio_electric_eel}, and Firebase Crashlytics with Google Play [Console] - both are intended to help developers to work more efficiently and effectively with crashes reported by Firebase Crashlytics~\sidecite{firebaseblog2022_whats_new_at_google_io}.
+    \item \textit{``A gradle plugin to integrate play store uploading into CI processes. I currently use a 3rd party plugin to do this, but it would feel a little more secure if it came from Google.''}
+    \item \textit{``Top line core vitals figures even if you don't have enough users!''}
+    \item \textit{``Someway for testers to download old apks from either internal app sharing, or the internal release track.''}
 \end{itemize}
- 
+
+And \emph{``Crashlytics only covers the crash report of Android vitals, so unfortunately there's no way to get things like battery usage of ANR reports unless Google makes those reports available :(. In terms of crashes, I'd always prefer Crashlytics to Android vitals, simply because there are added features like non-fatal reporting and logs which can make surfacing the cause of errors much easier (but do take need added effort to integrate compared to android vitals).''}
 
 
-How can mobile analytics reporting help developers to tackle and fix more of the failures? The GTAF case study provided an insightful example where the developers sometimes avoided addressing `difficult' failures. Perhaps, a service similar to GitHub's auto-suggestions integrated into mobile analytics and the developer's IDE could help reduce risk of exacerbating a situation by taking action (inaction is sometimes perceived as a safer course of behaviour than trying to tackle an issue and being seen to fail to do so).  
+\subsection{Improving integration}~\label{tata-improving-integration-topic}
+There are several aspects of integration to consider. The first is the provision of \Gls{api}s rather than Web Scraping; the second is persistent and timestamped links to reports (\emph{c.f.} how github and wikipedia provide versioned links).
+
+In late 2020 Google made various changes to Google Play Console, they provided the ability for developers to directly download individual stacktraces for crashes, something requested several years earlier by other developers~\sidecite{stackoverflow2018_how_can_i_get_app_crash_log_from_google_play_console}. %Google provided a mechanism to download the summary data using Google Cloud storage which was a useful, small improvement (see \url{https://stackoverflow.com/a/49893656/340175}).
+
+After the end of the cases studies, nonetheless of relevance, in June 2022 Google released Canary 3 of the integrated development environment (IDE) called Android Studio Electric Eel. This includes the facility to directly see and work with crashes reported by Firebase Crashlytics within the IDE. This makes the analytics information immediately and continuously available to the developers rather than relying on them visiting the Crashlytics website. It aims to reduce context switching and also encourage faster investigation and remediation of crashes%~\sidecite{android2022_firebase_crash_integration_into_android_studio_electric_eel}.
+
+
+Sentry provides various tools to help development teams focus on key issues,  \href{https://blog.sentry.io/2021/04/20/silencing-distractions-with-review-list-and-automations}{\nolinkurl{blog.sentry.io/2021/04/20/silencing-distractions-with-review-list-and-automations}}~\sidenote{I don't know what information is populated by Sentry when it creates JIRA tickets.} and on the health of new app releases: %\href{https://docs.sentry.io/platforms/android/configuration/releases/#release-health}{\nolinkurl{docs.sentry.io/platforms/android/configuration/releases/\#release-health}}
+
+
+Several aspects of improving the integration of mobile analytics into development practices. These include:
+
+\begin{enumerate}
+    \item The ease of sharing pertinent information between the mobile analytics service, issue tracking, and to the developer's IDE~\sidenote{Integration with various collaboration tools such as Slack, Microsoft Teams, and so on would also be beneficial?}. At Google IO 2022, Google announced integration between Firebase Crashlytics and Android Studio~\sidecite{android2022_firebase_crash_integration_into_android_studio_electric_eel}, and Firebase Crashlytics with Google Play [Console] - both are intended to help developers to work more efficiently and effectively with crashes reported by Firebase Crashlytics~\sidecite{firebaseblog2022_whats_new_at_google_io}.
+    
+    \item How can mobile analytics reporting help developers to tackle and fix more of the failures? The \myindex{GTAF} case study provided an insightful example where the developers sometimes avoided addressing `difficult' failures. Perhaps, a service similar to \myindex{GitHub}'s auto-suggestions integrated into mobile analytics and the developer's IDE could help reduce risk of exacerbating a situation by taking action (inaction is sometimes perceived as a safer course of behaviour than trying to tackle an issue and being seen to fail to do so).
+    
+    \item Cohesive tracking and support from design, through implementation, to deployment of the use of mobile analytics, along the lines of the work of \myindex{Iteratively} would allow for a coherent project-wide perspective of how mobile analytics are being used, the data that is being collected (and some assurance of data \emph{not being collected}~\sidenote{Key from ethics and compliance perspectives.}).
+\end{enumerate}
+
+As Microsoft's App Center\index{Microsoft App Center} has demonstrated, it is possible to provide rich and relatively comprehensive \Glspl{api} to a major commercial mobile analytics service. % I've started a new appendix \ref{appendix-maaas} where we can compare the APIs and SDKs.
+These, and similar, APIs facilitate innovative, custom, and \emph{ad-hoc} use of the information. They are orthogonal to pipelining of outputs in the cloud (which Microsoft and Google both provide for at least one of their mobile analytics services).
+
+\subsection{Improving the auditability and verifiability}~\label{tata-improving-auditability-and-verifiability}
+Full end-to-end auditability and verifiability of a mobile analytics toolchain can help increase the trustworthiness of the toolchain from use of any client-side SDK through to the reporting (including any interaction via \Glspl{api}, being provided for reporting, analysis, configuration, and interaction).
+
+This is necessary because in \secref{tata-flaws-topic} various flaws were identified in several of the mobile analytics services. And in \secref{tata-which-apps-can-google-vitals-help} some of the additional restrictions were discussed that demonstrated that \myindex{Android Vitals} provides little information of value for apps with user-bases of less than a few thousand. Furthermore, a small experiment, \secref{tata-fidelity-topic}, was sufficient to indicate additional concerns in the fidelity of the mobile analytics tools.
+
+The company who developed what became part of Microsoft App Center's crash reporting, Bit Stadium GmbH, %https://www.crunchbase.com/organization/bit-stadium-gmbh 
+developed a set of opensource projects called CrashScope which they and various other providers of crash reporting \Glspl{sdk} used to test the behaviours of their respective \Gls{sdk}. The report was last run in summer 2017 however the site remained online for another 3 years before disappearing. 
+
+\section[Discussion]{Discussion on mobile analytics tools and their artefacts}~\label{tata-discussion-section}
+
+Despite the various flaws identified in this chapter in the various mobile analytics tools, overall in many cases they helped the various development teams address a subset of the issues. Nonetheless, there is plenty of scope to improve the efficacy of the tools.
 
 
 

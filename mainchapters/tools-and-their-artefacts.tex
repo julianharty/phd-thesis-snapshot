@@ -544,11 +544,11 @@ Sixteen flaws have been found in Android Vitals and Google Play Console to date 
 
 
 \begin{table}
-    \centering
-    \resizebox{\textwidth}{!}{% See https://tex.stackexchange.com/a/27105/88466 TODO improve the readability of the table.
-    \begin{tabular}{cll}
+	\footnotesize % Reduce font size
+    \begin{tabular}{L{0.05\texwidth} L{0.35\textwidth} L{0.4\textwidth}}
+        \toprule
         ID & Flaw & Consequences \\
-         \hline
+         \midrule
         01 & Testing discouraged & Limits investigation into behaviours and their impacts. \\
         02 & Negative populations & Nonsensical and therefore untrustworthy statistics \\
         03 & Repeated graphs & Poor UX, waste of space (waste of real estate). \\
@@ -570,7 +570,7 @@ Sixteen flaws have been found in Android Vitals and Google Play Console to date 
         16 & Several identical crash clusters in the paged list of ranked results, e.g. \href{https://github.com/kiwix/kiwix-android/issues/2482}{Kiwix issue 2482}. & Adversely affects counts of matching crash clusters, confusing. \\
 %         17 & Future times and dates in Microsoft App Center reports.
 %       18 & Data missing from stack traces.
-    \end{tabular}}
+    \end{tabular}
     \caption{Flaws discovered in Google Play Console with Android Vitals}
     \label{tab:flaws-discovered-in-android-vitals}
 \end{table}
