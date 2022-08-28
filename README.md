@@ -102,3 +102,16 @@ grep -ir --include=\*.tex eps} .
 grep -ir --include=\*.tex png} .
 for i in *.png; do img2pdf  "$i" --out "${i%.*}.pdf";done
 ```
+
+### Word Counts in the thesis
+The thesis needs to be less than 100,000 words. Overleaf provides a count, however it doesn't seem to always be accurate e.g. when I've writen more words and recompiled the counts stayed the same. They use texcount. Here's a local command that counts the words in the majority of the thesis (it doesn't count anything in the bibliography or glossary). 
+
+` texcount mainchapters/kaobook* thesis.tex  appendicies/thematic-analysis.tex`
+I also tried using a combination of:
+```
+pdftotext -layout thesis.pdf thesis.txt
+wc thesis.tex
+```
+To get an approximate count to compare with.
+
+
