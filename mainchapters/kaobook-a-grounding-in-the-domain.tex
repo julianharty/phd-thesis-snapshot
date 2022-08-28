@@ -10,8 +10,7 @@ This chapter provides a grounding in the domain of mobile apps, how developers o
 % MUST-DO revise opening sentence and remove the etc. via \akb
 For any individual elements there may be much that is known and seemingly little novelty. And yet, it has become clear that when these elements are combined an interesting and rich domain emerges that can serve developers of their mobile apps.
 
-Before diving into the rest of the chapter, please note, 
-there are limits of the certainty of closed, proprietary systems including those discussed in this thesis. Therefore, there may be situations where there are differences between these observations and findings and those of other users of these tools. To improve readability the thesis includes some generalisations rather than using qualifiers throughout, such as often, mainly, and so on, unless they materially reflect variations in people's experiences.
+While this discussion of the mobile app ecosystem aims to be as detailed and accurate as possible, there are limits to which this is possible in the context of closed, proprietary systems including those discussed in this thesis. Therefore, there may be situations where there are differences between these observations and findings and those of other users of these tools. To improve readability the thesis includes some generalisations rather than using qualifiers throughout, such as often, mainly, and so on, unless they materially reflect variations in people's experiences.
 
 The chapter introduces five 
 %MUST-DO revise this and the next paragraph once the chapter's contents have settled down.
@@ -113,14 +112,12 @@ This section introduces the concept of \textit{Zones} as they apply to finding a
 \subsection{Control (find-fix) zones}
 A find-fix Zone incorporates the scope of finding issues and being able to fix, or at least ameliorate, them. Where issues are discovered in the local Zone, developers can fix the issue without needing to involve others (however they can choose to do so), and indeed some may consider these issues an intrinsic and essential part of iterative software development. Other zones extend beyond the immediate developer and involve other people.
 
-For the purposes of my research I propose three categories of zones:
+For the purposes of my research I have identified three categories of zones:
 \begin{enumerate}
     \item \textbf{Local Zone}: This is local to the developer of software, tests, resources, designs, and so on.
     \item \textbf{Mezzo Zone(s)}: These zones involve other people, they may be peers, team members, other people in the organisation, trusted testers, and so on. There may be anything from virtually no zone for solo independent developers working on their own app, to a plethora of zones involving various stages of pre-release testing, checking and approvals in large corporate organisations.
     \item \textbf{Live Zone}: End users are able to use the released app. The app is finally able to potentially achieve business objectives. 
 \end{enumerate}
-
-
 
 \begin{figure*}
     \includegraphics[width=\linewidth]{images/my/control-find-fix-zones-a.pdf}
@@ -137,7 +134,6 @@ These three categories of zones are illustrated in Figure~\ref{fig:my:control-fi
 \end{figure*}
 
 Figure~\ref{fig:my:control-find-fix-zones-with-information-flows} is a modified version of Figure~\ref{fig:my:control-find-fix-zones-overview} that includes the find-fix information flows. Assuming fixes are made be the development team for the app (rather than improvements that can be addressed in servers, through configuration changes, and so on) then the information about flaws and issues needs to reach that development team somehow. For issues found in external releases (\emph{i.e.} those made available to end-users) 
-
 
 When issues are discovered before the software is released there is the possibility of the developer being able to address them before the software is released (they stakeholders may choose to delay the release to allow this to happen). Where issues are discovered in the released app, unless there are viable mechanisms to patch the app, the fix needs to be made in a subsequent release \textit{and} the end-user needs to use the subsequent release to receive the benefit of the release.
 
