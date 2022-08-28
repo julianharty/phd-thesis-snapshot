@@ -299,12 +299,12 @@ Integration into workflows is the ability of a given mobile analytics tool/servi
 
 When cross-references are stored in mobile analytics, viewers can see which of the issues have been reported (and by inference which have not been acknowledged e.g. because the issues are new to the team).
 
-\begin{figure}
+\begin{figure*}
     \centering
-    \includegraphics[width=\textwidth]{images/rough-sketches/integration-of-mobile-analytics-tool.jpeg}
+    \includegraphics[width=\linewidth]{images/rough-sketches/integration-of-mobile-analytics-tool.jpeg}
     \caption[Addressing the contents of Mobile Analytics reports]{Addressing the contents of Mobile Analytics reports\\Source: Google Drawing \href{https://docs.google.com/drawings/d/1y7QP8UK7ugl0DzWIeH4udRxwsVMHjyQ6Am0qW6glkdE/edit?usp=sharing}{online here}.}
     \label{fig:addressing-the-contents-of-mobile-analytics}
-\end{figure}
+\end{figure*}
 
 Figure \ref{fig:addressing-the-contents-of-mobile-analytics} illustrates various aspects of integration between mobile analytics and other software tools such as bug trackers. The mobile analytics tool provides reports in a graphical user interface. On the web, the report has a URL (it may not be directly addressable in a mobile app equivalent tool) and visiting the URL with a suitably authenticated account results in the report being rendered if the mobile analytics service is working adequately. The mobile analytics tool \emph{may} provide interactive elements in the report page, for instance to hide the issue, to annotate the report, to modify the selection criteria. 
 
@@ -675,6 +675,8 @@ And \emph{``Crashlytics only covers the crash report of Android vitals, so unfor
 There are several aspects of integration to consider. The first is the provision of \Gls{api}s rather than Web Scraping; the second is persistent and timestamped links to reports (\emph{c.f.} how github and wikipedia provide versioned links).
 
 In late 2020 Google made various changes to Google Play Console, they provided the ability for developers to directly download individual stacktraces for crashes, something requested several years earlier by other developers~\sidecite{stackoverflow2018_how_can_i_get_app_crash_log_from_google_play_console}. %Google provided a mechanism to download the summary data using Google Cloud storage which was a useful, small improvement (see \url{https://stackoverflow.com/a/49893656/340175}).
+This ability is valuable as it makes it easier to directly obtain the stacktrace (and both Eclipse and Intellij can process the stack trace to show the relevant lines of code in the GUI). None of the mobile analytics tools offer versioned links, whereas GitHub. the Internet Archive, and Wikipedia do. Versioned links would enable persistent references to the report \emph{as it appeared at that time}. An example of a versioned link used by the Internet Archive is: {\small \url{https://web.archive.org/web/20160920175338/http://www.crashprobe.com/ios/}}, and for GitHub is 
+{\small \url{https://github.com/bitstadium/crashprobe.github.com/commit/4398b88e263d222ed4d55e1dce59d67de11bfaaa}}. The Internet Archive embeds the date and time in the URL while GitHub uses the hash that was generated for a specific commit to the code repository. It should be possible to have something similar for mobile analytics reports, and if so, then these links would provide a persistent reference to that report at that point in time.
 
 After the end of the cases studies, nonetheless of relevance, in June 2022 Google released Canary 3 of the integrated development environment (IDE) called Android Studio Electric Eel. This includes the facility to directly see and work with crashes reported by Firebase Crashlytics within the IDE. This makes the analytics information immediately and continuously available to the developers rather than relying on them visiting the Crashlytics website. It aims to reduce context switching and also encourage faster investigation and remediation of crashes%~\sidecite{android2022_firebase_crash_integration_into_android_studio_electric_eel}.
 
@@ -700,8 +702,20 @@ Full end-to-end auditability and verifiability of a mobile analytics toolchain c
 
 This is necessary because in \secref{tata-flaws-topic} various flaws were identified in several of the mobile analytics services. And in \secref{tata-which-apps-can-google-vitals-help} some of the additional restrictions were discussed that demonstrated that \myindex{Android Vitals} provides little information of value for apps with user-bases of less than a few thousand. Furthermore, a small experiment, \secref{tata-fidelity-topic}, was sufficient to indicate additional concerns in the fidelity of the mobile analytics tools.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/crashprobe.com/CrashProbe-Results-for-iOS-2016-09-06.pdf}
+    \caption{Crashprobe iOS SDL results from \nth{06} Sep 2016}
+    \label{fig:crashprobe-ios-results}
+\end{figure}
+
+
 The company who developed what became part of Microsoft App Center's crash reporting, Bit Stadium GmbH, %https://www.crunchbase.com/organization/bit-stadium-gmbh 
-developed a set of opensource projects called CrashScope which they and various other providers of crash reporting \Glspl{sdk} used to test the behaviours of their respective \Gls{sdk}. The report was last run in summer 2017 however the site remained online for another 3 years before disappearing. 
+developed a set of opensource projects called CrashScope which they and various other providers of crash reporting \Glspl{sdk} used to test the behaviours of their respective \Gls{sdk}. An example of their report, from \nth{6} September 2016, is in Figure \ref{fig:crashprobe-ios-results}. The \href{https://github.com/bitstadium/crashprobe.github.com/commit/30844b9794f7cfd48f35d043f255b58f1f70e7e6}{report was last updated on \nth{8} Jun 2017}, however the site remained online for another 3 years, until \href{https://github.com/bitstadium/crashprobe.github.com/commit/4398b88e263d222ed4d55e1dce59d67de11bfaaa}{\nth{20} Aug 2020}, before disappearing. 
+%%%% More links
+% https://github.com/bitstadium/CrashProbe
+% 
+
 
 \section[Discussion]{Discussion on mobile analytics tools and their artefacts}~\label{tata-discussion-section}
 
