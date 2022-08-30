@@ -7319,7 +7319,23 @@ Sleep Sounds
             2. whether there is an approach which also covers iOS / iTunes Connect?
         So far I found out that first_open could be a great starting place to do this comparison between Firebase and Google Play Console, but it is not that straight forward...
     },
-    
+}
+
+@misc{stackoverflow2022_different_ANR_per_1k_when_full_rollout_100pct,
+    title = {Different ANR per 1k when full rollout 100\%},
+    url = {https://stackoverflow.com/questions/73411892/different-anr-per-1k-when-full-rollout-100},
+    author = {Vlordz},
+    year = {2022},
+    note = {Accessed, \nth{30} Aug 2022},
+    abstract = {
+        I have a problem with ANR per 1.000 after releasing 100\% rollout APK, which has a big difference from when I launched 50\% rollout. I think it happens because Google Play Console just accumulate from the first version of the release, is it a bug? How to see the ANR per 1.000 as a benchmark for our app's performance? thank you Rollout Preview
+    },
+    answers = {
+        It just takes time for the crashes and ANRs to propagate, plus it takes time for users to actually update to the new version, so you really can't compare the stats.
+        The only way you could test it would be to do a 50\% rollout, wait for something like a week, and see what your crash and ANR rate is.
+        Then, increment the build number, and create a new release for it. Release it to production with 100\% rollout right away, and wait another week.
+        At that point, you'll have 2 versions that are internally identical, but you can compare their stats apples-to-apples
+    },
 }
 
 @misc{stackoverflow2022_minimal_reproducible_example,

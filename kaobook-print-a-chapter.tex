@@ -231,29 +231,36 @@
 
 \mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
 \setchapterstyle{kao} % Choose the default chapter heading style
+\pagelayout{wide} % No margins
+\addpart{Prelude}
+\pagelayout{margin} % Restore margins
 
-\begin{comment}
 \input{mainchapters/kaobook-introduction.tex}
 \input{mainchapters/kaobook-related-work}
-\end{comment}
+\begin{comment}
+
 \input{mainchapters/kaobook-a-grounding-in-the-domain.tex}
 \input{mainchapters/kaobook-methodology}
 \input{mainchapters/kaobook-case-studies-overview}
-\begin{comment}
+\end{comment}
 
 \pagelayout{wide} % No margins
 \addpart{Findings}
 \pagelayout{margin} % Restore margins
+\begin{comment}
 \input{mainchapters/kaobook-findings-analytics-in-use}
 \input{mainchapters/kaobook-findings-apps-and-their-artefacts}
-\end{comment}
 \input{mainchapters/kaobook-findings-tools-and-their-artefacts}
-\begin{comment}
+\end{comment}
 \pagelayout{wide} % No margins
 \addpart{Discussion, Conclusion, and Future Work}
 \pagelayout{margin} % Restore margins
+\begin{comment}
 \input{mainchapters/kaobook-discussion}
+\end{comment}
+
 \input{mainchapters/conclusions-and-future-work}
+\begin{comment}
 \clearpage
 
 %\pagelayout{wide} % No margins
