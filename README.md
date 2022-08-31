@@ -104,7 +104,7 @@ for i in *.png; do img2pdf  "$i" --out "${i%.*}.pdf";done
 ```
 
 ### Word Counts in the thesis
-The thesis needs to be less than 100,000 words. Overleaf provides a count, however it doesn't seem to always be accurate e.g. when I've writen more words and recompiled the counts stayed the same. They use texcount. Here's a local command that counts the words in the majority of the thesis (it doesn't count anything in the bibliography or glossary). 
+The thesis needs to be less than 100,000 words. Overleaf provides a count, however it doesn't seem to always be accurate e.g. when I've writen more words and recompiled the counts stayed the same. They use texcount. Here's a local command that counts the words in the majority of the thesis (it doesn't count anything in the bibliography or glossary).
 
 ` texcount mainchapters/kaobook* thesis.tex  appendicies/thematic-analysis.tex`
 I also tried using a combination of:
@@ -114,4 +114,203 @@ wc thesis.tex
 ```
 To get an approximate count to compare with.
 
+### Using Visual Studio Code
+There's a popular package by James Yu called LaTeX-Workshop which integrates into Visual Studio Code to support Latex editing.
 
+I ended up with repeated failures part way through with  `VS Code Error: spawn git ENOENT` - this was caused when I'd specified a  custom external build command with the parameters as part of the command string. These parameters needed to be specified separately - they're now correct in .vscode/settings.json as part of this project.
+
+Key files:
+* The installer for LaTeX Workshop https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop
+* Adding an entry for the path used by terminal sessions, see https://github.com/James-Yu/LaTeX-Workshop/wiki/Install I migrated from bash to zsh as part of the configuration changes to satisfy OSX then created a ~/.zshrc  with
+`export /usr/local/texlive/2022/bin/universal-darwin/:$PATH`
+* ~/Library/Application Support/Code/User/settings.json (modelled on the example from reddit below).
+* .vscode/settings.json (where I override the external build command and args). NB: "-r", "LatexMk" is how to pass the arguments to call the build configuration  that's next:
+* LatexMk (from Overleaf)
+
+Copy the following to `~/Library/Application Support/Code/User/settings.json`:
+
+```
+{
+    "workbench.colorTheme": "Default Light+",
+    "workbench.editor.enablePreview": false,
+
+    "[latex]": {
+        "editor.wordWrap" : "on",
+        "editor.formatOnPaste": false,
+        "editor.suggestSelection": "recentlyUsedByPrefix"
+    },
+    "latex-workshop.view.pdf.viewer": "tab",
+    "editor.minimap.enabled": false,
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "lulatexmk 🔃",
+            "tools": [
+                "lualatexmk"
+            ]
+        },
+        {
+            "name": "latexmk 🔃",
+            "tools": [
+                "latexmk"
+            ]
+        },
+        {
+            "name": "julian 🔃",
+            "tools": [
+                "julian"
+            ]
+        },
+        {
+            "name": "xelatexmk 🔃",
+            "tools": [
+                "xelatexmk"
+            ]
+        },
+        {
+            "name": "platexmk 🔃",
+            "tools": [
+                "platexmk"
+            ]
+        },
+        {
+            "name": "pdflatex ➞ bibtex ➞ pdflatex`×2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "xelatex ➞ biber ➞ xelatex",
+            "tools": [
+                "xelatex",
+                "biber",
+                "xelatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "julian",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-file-line-error",
+                "-r=LatexMk"
+            ],
+            "env": {}
+        },
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-r LatexMk thesis",
+                "-synctex=1",
+                "-file-line-error",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "platexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "xelatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-file-line-error",
+                "-xelatex",
+                "-outdir=%OUTDIR%",
+                "-interaction=nonstopmode",
+                "-halt-on-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-file-line-error",
+                "-lualatex",
+                "-outdir=%OUTDIR%",
+                "-interaction=nonstopmode",
+                "-halt-on-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-halt-on-error",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-halt-on-error",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latex.autoBuild.run": "onSave"
+}
+```
+
+#### Further reading
+
+* https://code.visualstudio.com/docs/?dv=osx
+* https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile
+* https://www.reddit.com/r/LaTeX/comments/mac1rf/vscodelatex_workshopoverleafbuiltin_git_is_a/ provides examples of two configuration files that help integrate Overleaf and Visual Studio Code. I couldn't find where the settings.json was  (or how to get json to appear generally in VS Code).
+* https://tex.stackexchange.com/questions/478865/vs-code-latex-workshop-custom-recipes-file-location complements the reddit information, however it didn't have the example of passing the parameters to call the custom makefile: LatexMk.
+* https://code.visualstudio.com/docs/getstarted/keybindings#_advanced-customization to learn more about the keybindings.
+* https://stackoverflow.com/questions/33791097/how-can-i-change-keyboard-shortcut-bindings-in-visual-studio-code to find out how to  actually see the contents of files as JSON.
+
+#### Using VS Code:
+
+* After installing LaTeX-Workshop and editing the path in terminal, restart VS Code at least once.
+* Cmd+Shift+p
+
+#### Summary of using VS
+I think what I've created is hacky and fragile. Nonetheless it'll do for now. For anyone wanting to make this more robust and reliable it'll be worth investing time in improving the integration and finding out whether the Overleaf custom build steps are needed vs. general purpose latexmk configuration.
