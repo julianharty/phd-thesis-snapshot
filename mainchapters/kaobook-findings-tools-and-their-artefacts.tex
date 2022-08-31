@@ -583,6 +583,11 @@ As the common tool across all the app-centric case studies Android Vitals provid
 
 \newthought{Published flaws in Android Vitals: }
 Since 2011, Google has published a list of various changes and corrections to Google Play Console~\sidecite{google_play_troubleshoot_app_statistics_problems}. This research found numerous additional flaws, and many of these were reported to Google's engineering team for Google Play Console and Android Vitals. Of the flaws I reported to Google, some were confirmed as being accepted; the rest remained unconfirmed (but nonetheless Google may have accepted them internally).  %that were not published by Google even though their engineering team acknowledged many of these flaws (they chose not to respond to the rest of the flaws). 
+
+\begin{kaobox}[frametitle=Ubiquitous errors in the GUI also occur]
+There are also the ubiquitous errors that appear from time to time in the UI of Google Play Console with error codes users are unlikely to decode, examples include \sidecite{kv2020_an_unexpected_error_occurred_google_play_console} where the author tried to investigate the causes; and a bout of errors where a variety of errors were reported in Google Chrome and Safari when attempting to use Google Play Console on \nth{29} August 2022, yet the UI rendered and was useable in Mozilla Firefox.
+\end{kaobox}
+
 Sixteen flaws have been found in Android Vitals and Google Play Console to date as part of this research. Of these, fourteen have already been published~\sidecite{harty_improving_app_quality_despite_flawed_mobile_analytics, harty_google_play_console_insightful_development_using_android_vitals_and_pre_launch_reports, harty_better_android_apps_using_android_vitals}; they are repeated in Table \ref{tab:flaws-discovered-in-android-vitals} for ease of reference. The \nth{15} item was discovered as part of this research, where Google Play Console displayed newer dates than the actual release date for various apps; and the \nth{16} item during writing up this research. This \nth{16} item, where identical crash clusters appeared several times in the listing is not the first instance of flaws in app store related listings, for example Apple's rankings for iOS went haywire for several days according to \sidecite{lotan2015_apple_apps_and_algorithmic_glitches}.
 
 
