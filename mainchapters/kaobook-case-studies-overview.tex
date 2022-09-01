@@ -1,34 +1,22 @@
 \setchapterpreamble[u]{\margintoc}
 \chapter{Overview of the case studies}~\label{chapter-case-studies-overview}
 
-This chapter introduces each of the app-centric and tool-centric case studies using a consistent structure to make them easy to comprehend and to facilitate comparison. For each off the app-centric case studies it uses two summary tables to do so. The first presents the key-facts pertaining to that case study, the second table presents the data sources. These are augmented with brief descriptions to provide additional context. Each of the overviews for the tool-centric case studies includes a table with the key-facts augmented with a contextual summary together with the data collected and methods used for collecting material for this mobile analytics tool.
+This chapter introduces each of the app-centric and tool-centric case studies using a consistent structure to make them easy to comprehend and to facilitate comparison. For each of the app-centric case studies it uses two summary tables to do so. The first presents the key-facts pertaining to that case study, the second table presents the data sources. These are augmented with brief descriptions to provide additional context. Each of the overviews for the tool-centric case studies includes a table with the key-facts augmented with a contextual summary together with the data collected and methods used for collecting material for this mobile analytics tool.
 
 The depth of each section varies to focus on material that's of consequence to the thesis. The findings for the case studies and the additional research are presented in the subsequent three chapters.
 
-The case studies are in three groups, with a couple of interim sections that present complementary research that helps to fill various gaps. These three groups are: 
+The case studies are in four groups that present complementary research that helps to fill various gaps between the app-centric and tool-centric case studies. The groups are: 
 \begin{enumerate}
     \itemsep0em
     \item[1] App-centric case studies that \textbf{do not} have interventions (Sections \ref{case-study-overview-gtaf}, to \ref{case-study-overview-smartnavi}).
     \item[2] App-centric case studies that \textbf{do} have interventions (Sections \ref{case-study-overview-kiwix} to \ref{case-study-overview-C1}).
-    \item[ ] Interim work on various field experiments (Section \ref{section-field-experiments-to-augment-app-centric-case-studies}) and source code analysis (Section \ref{section-sourcecode-analysis-to-augment-app-centric-case-studies}).
-    \item[3] Tool-centric case studies (Sections \ref{case-study-overview-crashlytics} to \ref{case-study-overview-sentry}).
-    \item[ ] Section \ref{section-case-study-misc-contributions} briefly introduces six more mobile analytics tools and another Android app as these provide miscellaneous minor contributions in the subsequent three chapters.
+    \item[3] Interim work on various field experiments (Section \ref{section-field-experiments-to-augment-app-centric-case-studies}) and source code analysis (Section \ref{section-sourcecode-analysis-to-augment-app-centric-case-studies}).
+    \item[4] Tool-centric case studies (Sections \ref{case-study-overview-crashlytics} to \ref{case-study-overview-sentry}).
 \end{enumerate}
 
+Finally, section \ref{section-case-study-misc-contributions} briefly introduces six more mobile analytics tools and another Android app as these provide miscellaneous minor contributions in the subsequent three chapters.
+    
 The app-centric case studies are presented in the same order as Table~\ref{tab:app-centric-studies-research-perspective} for the app-centric cases and then Table~\ref{tab:tool-centric-studies-research-perspective} for the tool-centric cases. 
-
-
-\begin{comment}
-
-covers the following topics:
-\begin{itemize}
-    \itemsep0em
-    \item \textbf{Organisation overview:} including an overview of the development team and practices.
-    \item \textbf{Engagement:} my involvement and the timescales.
-    \item \textbf{Data/methods:} a summary of the data collected and methods used for the data collection based on Table~\ref{tab:mapping-datasources-to-six-perspectives}, including any intervention.
-    \item \textbf{Contributions to the research} and where they are located in the rest of this dissertation.
-\end{itemize}
-\end{comment}
 
 The nature of the case studies means they include observations and findings that occurred at the time. There may be situations where there are differences between these observations and findings and those of other users of these tools. 
 \clearpage
@@ -984,7 +972,7 @@ TBC.
 \section{Tool-centric: Microsoft App Center}~\label{case-study-overview-microsoft-app-center}
 App Center\index{App Center!Microsoft} combines various tools and utilities and includes in-app mobile analytics and crash reporting. The crash reporting aspect probably started as part of the HockeyApp\index{HockeyApp} SDK, Microsoft acquired HockeyApp in late 2016~\footnote{\href{https://web.archive.org/web/20150702124106/http://blogs.msdn.com/b/somasegar/archive/2014/12/11/microsoft-acquires-hockeyapp-leading-mobile-crash-analytics-and-beta-distribution-service-for-ios-android-and-windows-phone.aspx}{http://blogs.msdn.com/b/somasegar/archive/2014/12/11/microsoft-acquires-hockeyapp-leading-mobile-crash-analytics-and-beta-distribution-service-for-ios-android-and-windows-phone.aspx} (via the Web Archive project)}. The earliest mention of Crash reporting in HockeyApp's opensource Android SDK is in 2014~\footnote{\href{https://github.com/bitstadium/HockeySDK-Android/commit/3ccd53c44da791806720604b02d358de66ecbf6a}{github.com/bitstadium/HockeySDK-Android/commit/3ccd53c44da791806720604b02d358de66ecbf6a}.}
 
-A related opensource project, \href{https://github.com/bitstadium/CrashProbe}{github.com/bitstadium/CrashProbe}, and a related website called crashprobe.com~\sidenote{The Web Archive has an example from 2016 of: \href{https://web.archive.org/web/20161124205240/http://www.crashprobe.com/}{www.crashprobe.com}.}, compared the performance of various crash reporting SDKs. As it was opensourced developers of several of these SDKs contributed both source code and results. An example of the report from April 2017 has been cached by the web archive \href{https://web.archive.org/web/20170412015831/http://www.crashprobe.com/ios/}{www.crashprobe.com/ios/} and compares the results of 6 iOS crash reporting tools. 
+A related opensource project, \href{https://github.com/bitstadium/CrashProbe}{github.com/bitstadium/CrashProbe}, and a related website called crashprobe.com~\sidenote{The Web Archive has an example from 2016 of: \href{https://web.archive.org/web/20161124205240/http://www.crashprobe.com/}{www.crashprobe.com}.}, compared the performance of various crash reporting SDKs. As it was opensourced developers of several of these SDKs contributed both source code and results. An example of the report from April 2017 has been cached by the web archive (\href{https://web.archive.org/web/20170412015831/http://www.crashprobe.com/ios/}{www.crashprobe.com/ios/}) and compares the results of 6 iOS crash reporting tools. 
 
 {\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table*}
