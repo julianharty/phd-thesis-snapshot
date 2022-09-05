@@ -49,6 +49,8 @@ Within an app the observation may focus at a single layer, for instance the visu
 
 Analytics, such as user-journeys, can help to answer questions about the usage of the software. They help establish \emph{what-is}. As we understand more about what-is we can then consider \emph{what-would-be-better} and do gap analysis between what-is and what-would-be-better.
 
+\begin{comment}
+
 \begin{figure*}
     \copyrightbox[r]{
         \includegraphics[width=\linewidth]{images/github/loggerstructure.pdf}}
@@ -57,11 +59,24 @@ Analytics, such as user-journeys, can help to answer questions about the usage o
     \label{fig:temp_logger_structure}
 \end{figure*}
 
-\textbf{Reporting/generating and Observing}: 
-What happens within the app stays within the app unless someone looks inside the app or the app reports what's occurring. Observation without action limits the utility of whatever is learned.  \textbf{SHOULD-DO}, it'd be great to have a figure similar to \url{https://github.com/daroczig/logger/blob/master/vignettes/logger_structure.svg} for platform-level analytics. Temporarily it's included here in Figure~\ref{fig:temp_logger_structure}.
+\textbf{SHOULD-DO}, it'd be great to have a figure similar to \url{https://github.com/daroczig/logger/blob/master/vignettes/logger_structure.svg} for platform-level analytics. Temporarily it's included here in Figure~\ref{fig:temp_logger_structure}.
+
+\end{comment}
+
+\newthought{Reporting/generating and Observing: } 
+What happens within the app stays within the app unless someone looks inside the app or the app reports what's occurring. Observation without action limits the utility of whatever is learned.  Android apps can use a specific library provided by Android to write log messages, called \texttt{android.util.log}~\sidenote{Source code for \href{https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/util/Log.java}{android.util.log}} or they can use various alternatives such as the popular opensource Android project, called Timber~\sidenote{\href{https://github.com/JakeWharton/timber}{github.com/JakeWharton/timber}}. These write to the main log file, one of five Android uses generally (the other ones are used by Android internally but developers can still access all five of these logs.) Another of the five logs is \texttt{LOG\_ID\_CRASH}, used by Android to record crashes - highly pertinent to this research.~\sidenote{For completeness, in native code there are seven distinct logs according to Android source code \href{https://android.googlesource.com/platform/system/core/+/pie-release/liblog/include/log/log_id.h}{log\_id.h}.}
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{images/elinux.org/Android-logging-kmc-kobayashi.pdf}
+    \caption[Android Logging]{Android Logging\\Source \href{https://elinux.org/Android_Logging_System}{elinux.org/Android\_Logging\_System}, license \href{https://creativecommons.org/licenses/by-sa/3.0/}{creativecommons.org/licenses/by-sa/3.0/}}
+    \label{fig:android_logging_circa_2010}
+\end{figure}
+
+Figure \ref{fig:android_logging_circa_2010}~\sidenote{Published originally around 2010, see \href{http://blog.kmckk.com/archives/2936958.html}{blog.kmckk.com/archives/2936958.html} (in Japanese).} 
+provides a histoical perspective of Android logging infrastructure at the time. It appears to predate the additional log used to record crashes \texttt{LOG\_ID\_CRASH}.
 
 
-Survivorship bias (\sidecite{wikipedia_survivorship_bias}) is relevant to understanding the information developers receive, some data does not `survive' the journey from source to developer. And much of the information that is does reach the developers does not survive or, perhaps better put, thrive in terms of being used productively. They have plenty of other demands for their time and attention and much of what could be useful isn't used in practice, therefore the data needs to be sufficiently useful and relevant and improvements tractable for any proposed approach to be used long term in practice.
+\newthought{Survivorship bias: } (\sidecite{wikipedia_survivorship_bias}) is relevant to understanding the information developers receive, some data does not `survive' the journey from source to developer. And much of the information that is does reach the developers does not survive or, perhaps better put, thrive in terms of being used productively. They have plenty of other demands for their time and attention and much of what could be useful isn't used in practice, therefore the data needs to be sufficiently useful and relevant and improvements tractable for any proposed approach to be used long term in practice.
 
 \section{Development practices for mobile apps}
 Few if any developers write perfect software, and this applies also to developers of mobile apps. 
@@ -371,8 +386,6 @@ Table~\ref{tab:logging-choices-for-devs} identifies various categories of loggin
 
 There are various enhanced log libraries, for instance~\texttt{timber} which are used by discerning app developers. These libraries also write to the platform log files. 
 
-To Be Continued. %MUST-DO
-
 \begin{figure*}
     \includegraphics[width=\linewidth]{images/rough-sketches/apps-on-device-boundaries-sketch.jpeg}
     \caption{Apps on the device boundaries}
@@ -417,19 +430,19 @@ One of the particular implementation details may be worth considering, which is 
 The following list itemises a set of possible stages in a data funnel for data that originates from a user's device until it is available for use by the development team. real-world funnels are likely to include a subset of these, in a particular order in terms of the data flow.
 
 \begin{itemize}
-    \item Per-app implementation and options
-    \item Per-analytics/logging library implementation and options
-    \item Farming the log (and/or potentially other usage data) data on device
-    \item Device model and operating system combination
-    \item Per device implementation and options
-    \item Data daemons that control/negotiate what data is and is not available/provided
-    \item Data privacy screening (can occur at various points in the funnel)
-    \item Batching, queuing, limits, latencies, transmission triggers, ...
-    \item Connectivity quality and reliability
-    \item Network behaviours e.g. where traffic may be blocked in some geographies, by some network providers, etc.
-    \item Data Collector inbound processing (filtering, buffering, validity checks, non-repudiation, dealing with spoofing, fakes, etc.)
-    \item Analytics tool filtering and reporting. This may include muting of some aspects of the reporting e.g. for issues considered no longer actionable. 
-    \item Content access, storage, combination with other sources, further reporting, etc.
+    \item \textbf{Per-app implementation and options:} these are implemented by the app's developers and include \Gls{api} calls to any mobile analytics \Gls{sdk} and the configuration of the SDK.
+    \item \textbf{Per-analytics/logging library implementation and options:} these are implemented by the developers of the client-side SDK (which is almost invariably in the form of a pre-packaged software library that the app developers include in the app).
+    \item \textbf{Farming the log (and/or potentially other usage data) data on device:} data is available in logs and contemporaneously at runtime~\sidenote{such as which other apps are running, \Gls{cpu} usage, \emph{etc.}} which can be farmed by the app, and/or the SDKs. 
+    \item \textbf{Device model and operating system combination:} The platform software is specific to a device model \emph{i.e.} it is customised by the provider of the device \emph{e.g.} by Samsung for their devices. They use Android frameworks as a major source for their platform software. That software is revised for every Android release, so the combination can affect the data funnels.~\sidenote{A concrete example from Android is a limit of the log tag parameter which had to be no more than 23 characters long in order to be recorded for Android Nougat (7.0)~\cite{android_framework_android_util_log}.}
+    \item \textbf{Per device implementation and options:} Users can configure aspects of apps, the platform, and even replace the operating system on some devices. Any of these can affect the data funnel. 
+    \item \textbf{Data daemons:} these can control/negotiate what data is and is not available/provided. There's also research that filters, fakes, and/or blocks data generally on a per-device basis, \emph{e.g.}~\sidecite{hornyack2011_these_arent_the_droids_youre_looking_for_etc, caputo2022_you_cant_always_get_what_you_want_towards_user_controlled_privacy_on_android}.
+    \item \textbf{Data privacy screening:} which can occur at various points in the funnel, \emph{e.g.} \myindex{Sentry} provides optional `data scrubber' filters~\sidecite{sentry_data_scrubbing}. 
+    \item \textbf{Batching, queuing, limits, latencies, transmission triggers, ...:} resources are finite and workloads are often controlled in software to optimise the behaviour of background activities. There will be occasions when data does not arrive (in a timely manner) because of these various factors.
+    \item \textbf{Connectivity quality and reliability:} inherent in mobile device communications is a dependency on connections used to transfer copies of data. 
+    \item \textbf{Network behaviours:} \emph{e.g.} where traffic may be blocked in some geographies, by some network providers, \emph{etc.}~\sidecite{soni2017_app_downloads_from_china__firebase_and_itunesconnect_analytics_mismatch}
+    \item \textbf{Data Collector inbound processing:} these can include filtering, buffering, validity checks, non-repudiation, dealing with spoofing, fakes, \emph{etc.})
+    \item \textbf{Analytics tool filtering and reporting:} This may include muting of some aspects of the reporting e.g. for issues considered no longer actionable. 
+    \item \textbf{Content access, storage, combination with other sources, further reporting, \emph{etc.}:} once the data has been received and processed an \gls{glossary-analytics-system} then deals with access to content, storage, and so on. Access may be governed by who is granted permissions. Analysts may combine the data with other sources, and/or perform further reporting.
 \end{itemize}
 
 Note: there may also be data injected into the funnel, for instance through \href{https://en.wikipedia.org/wiki/Synthetic_monitoring}{synthetic monitoring}, testing of the apps and/or the analytics clients and APIs, spoofing, denials of service, and so on. 
@@ -547,11 +560,11 @@ Crashes are often considered a concrete measure of poor performance of software 
 This section starts with an overview of \myindex{DevOps} concept of an infinite loop for software generally before becoming more specialised on DevOps for mobile apps. %SHOULD-DO consider expanding this section. TBD how much I should write about the concepts and terms. 
 The focus here is on data from various stages of a conceptual infinite combined development and operations process to indicate where mobile analytics applies in terms of providing data to the development team. This data includes: log data, static analysis results, test results, release and usage data, and mobile analytics data and reports.
 
-In October 2020, one of the students taking part in the PhD symposium at the ICST2020 conference presented a variation of the DevOps loop (as illustrated earlier in this chapter in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}) that is relevant to this research. In the student's figure their focus was on crash reproduction and this illustration is temporarily illustrated in Figure~\ref{fig:crash-reproduction-icst2020}(~\emph{pending an update from the presenter of that topic}).
+In October 2020, one of the students taking part in the PhD symposium at the ICST2020 conference presented a variation of the DevOps loop (as illustrated earlier in this chapter in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}) that is relevant to this research. In the student's figure their focus was on crash reproduction and this illustration is illustrated in Figure~\ref{fig:crash-reproduction-icst2020}~\sidenote{The figure has been redrawn using one of the STAMP project's illustrations (obtained from \href{https://www.stamp-project.eu/download/main/WebHome/Infiny_4.svg?rev=1.3}{www.stamp-project.eu/view/main/}) which is licensed as \href{https://creativecommons.org/licenses/by-sa/4.0/}{creativecommons.org/licenses/by-sa/4.0/} and revised to show an Android example}. %\sidecite{derakhshanfar2021_phd_thesis}
 
 \begin{figure*}
-    \includegraphics[width=\linewidth]{images/icst-2020/crash-reproduction-icst2020.pdf}
-    \caption{Temporary image: Crash Reproduction}
+    \includegraphics[width=\linewidth]{images/my/delft-crash-testing-redrawn.pdf}
+    \caption[Reproduction of crashes in production]{Reproduction of Crashes found in production. \\Redrawn and based on a presentation supporting \cite{derakhshanfar2020_well_informed_test_case_generation_and_crash_reproduction} which is part of the STAMP: Software testing amplification for DevOps research.}
     \label{fig:crash-reproduction-icst2020}
 \end{figure*}
 
@@ -559,7 +572,7 @@ Figure~\ref{fig:oberve-and-apply-devops-loop} is revised illustration that shows
 
 \begin{figure*}
     \includegraphics[width=\linewidth]{images/rough-sketches/hack-of-devops-crash-figure.pdf}
-    \caption{Rough Sketch: Concept of feedback on software and applying it}
+    \caption[Concept of feedback on software and applying it]{Rough Sketch: Concept of feedback on software and applying it}
     \label{fig:oberve-and-apply-devops-loop}
 \end{figure*}
 

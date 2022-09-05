@@ -5,6 +5,8 @@
 
 \bigskip
 
+\bigskip
+
 % This should cover the problem the thesis addresses, the aims and questions, the thesis structure, a summary of the main findings and a discussion on the thesis' contribution. It should prime the reader for what's about to come by providing an overview of what lies ahead.
 
 % Establish your research territory by situating your research in a broader context.
@@ -138,7 +140,7 @@ In the preceding paragraphs several factors have been identified that pertain to
     \emph{``...there are several companies that collect operational data from mobile apps that have been installed on millions of devices. Most of these companies provide the app developers with the data and some rudimentary analysis on them. There is a wide variety of reliability and performance problems that can be solved by building tools and approaches that mine such operational data...''}~\sidecite[][p. 28]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} 
 \end{quote} 
 
-This quote from research helps provide the context of this research, into the use of mobile analytics to help app developers improve the reliability/stability of their mobile apps.
+This quote from research helps provide the context of this research into the use of mobile analytics to help app developers improve the reliability/stability of their mobile apps.
 %
 %\section{Research Focus}
 Research into the use and efficacy of software usage analytics appears to be under-served (this will be discussed in \secref{chapter-related-work}), particularly in terms of being able to use the analytics to identify and potentially address quality flaws in apps in use.
@@ -224,7 +226,7 @@ Here the hypothesis is that analytics can help, as stated by Buse and Zimmermann
 The research aims to provide practical and applicable insights to developers of mobile apps. As such, the strategy was to work predominantly with development teams for mobile apps to ensure -- as far as practical -- that the research is externally validated through their experiences, practices, and feedback. As developers need to make choices appropriate to their context, the research includes a variety of apps including commercial and not-for-profit, small, medium and large development teams, and user bases. The research also has an international flavour with developers situated on various continents including Asia, Europe, and the USA.
 
 \subsection{Potential sources of evidence}
-Broadly we can learn from people, use software analysis tools (including static analysis tools such as Lint~\sidenote{\href{https://en.wikipedia.org/wiki/Lint\_(software)}{Lint, on Wikipedia}})~\sidenote{MUST-DO add a paragraph on software analysis tools.}, and use \textbf{data} to answer the research questions. In some cases the data comes from a single source, in others cases from several. The research strategy combines aspects of all these sources of evidence. In Chapter 3, the sources of evidence are discussed in more detail in \href{sec:potential-sources-of-evidence}{\nameref{sec:potential-sources-of-evidence}}. For now, the key consideration is how to effectively perform the research.
+Broadly we can learn from people, use software analysis tools (including static analysis tools such as \myindex{Lint}~\sidenote{Aptly described as software that checks software~\cite{gimpel2014_software_that_checks_software}.}), and use \textbf{data} to answer the research questions. In some cases the data comes from a single source, in others cases from several. The research strategy combines aspects of all these sources of evidence. %In Chapter 3, the sources of evidence are discussed in more detail in \href{sec:potential-sources-of-evidence}{\nameref{sec:potential-sources-of-evidence}}. For now, the key consideration is how to effectively perform the research.
 
 \subsection{Case Studies}
 Case studies have been established by various researchers as an effective method to understand software qualities, for instance in various research by Khalid~\emph{et al.}, in (\citeyear{khalid2014_prioritizing_the_devices_to_test_your_app_on_casestudy_android_games, khalid2015_what_do_mobile_app_users_complain_about, khalid2016_examining_the_relationship_between_findbugs_warnings_and_app_ratings}), and the work of \sidecite{martinez_fernandez2019_continuously_assessing_and_improving_software_quality_with_software_analytics_tools}. And case studies are well suited to exploratory research, for which they may offer insights not available with other approaches~\sidecite{rowley2002_using_case_studies_in_research}, especially when events are contemporary and where the investigator has little or no control in~\sidecite[][Chapter 1]{yin2018_case_study_research_and_applications_6th_edition}. They are also recommended where the research includes multiple data sources~\sidecite{rowley2002_using_case_studies_in_research}. This research therefore uses case studies, as the research investigates real-world use of mobile analytics where many factors are outside the control of the researcher.
@@ -266,17 +268,22 @@ Cross validation through multiple case studies: the research compares opensource
 
 
 \section{Outline of this thesis}
-% This is a placeholder, to be reviewed and updated when the thesis is closer to completion.
+At a high-level thesis is in three main parts: the preamble which includes chapters 1 to 5, the findings in chapters 6 to 8, followed by the discussion, conclusion, and future work in chapters 9 and 10. There are two short appendices: on thematic analysis, and additional details for some of the mini-experiments.
+
+\bigskip
+
 \begin{enumerate}
     %\setlength\itemsep{-0.5em} %\itemsep0em
-    \item This research is informed by and situated in the context of that of many others; Chapter 2 sets this research into the wider research context.
-    \item Chapter 3 prepares the ground by providing various concepts and the practical context for the research.
-    \item The case studies performed as part of this research are in the \nth{4} chapter,
-    \item followed by the key software developed to facilitate, support, and enable some of the case studies in Chapter 5.
-    \item Chapter 6 sums up the findings and results;
-    \item then Chapter 7 evaluates the research.
-    \item Chapter 8 draws on what was learned and discovered in the case studies to help future researchers and practitioners find ways to apply usage analytics to development practices.
-    \item Chapter 9 discusses the research in a wider context beyond the immediate case studies.
-    \item Chapter 10 concludes this research, and Chapter 11 considers future, further work.
-    \item After the bibliography there are various appendices for those interested.
+    \item [Chapter 1] has introduced this thesis and covers the research's focus, questions, and strategy. 
+    \item [Chapter 2] prepares the ground for the rest of this thesis by explaining contemporary development practices for mobile apps. It then presents five conceptual models related to mobile apps. These are followed by several, relevant, practical details. % explaining various concepts and the practical context of mobile app development that is relevant
+    \item [Chapter 3] covers the related work.
+    \item [Chapter 4] describes the methodology.
+    \item [Chapter 5] provides an overview of the various case studies together with complementary research that augmented aspects of the case studies.
+    \item []
+    \item [Chapter 6] Findings related to how developers use mobile analytics.
+    \item [Chapter 7] Findings concerning the apps and their related artefacts.
+    \item [Chapter 8] Findings about the mobile analytics tools and related services.
+    \item []
+    \item [Chapter 9] A discussion regarding the findings and the research.
+    \item [Chapter 10] The conclusions and future work.
 \end{enumerate}

@@ -30,7 +30,8 @@ The nature of the case studies means they include observations and findings that
 \Acrfull{gtaf}\index{GTAF} is a UK-based charity that provides Islamic apps free of charge and without in-app advertising. The project started in 2016 with the aim of enabling people to learn the Quran in the local language -- Bangla -- in Bangladesh. The project was started by a self-taught Android developer and his cousin Yemin, at the time an undergraduate student in computer science, who is now employed by the project in a hybrid role of software developer and project manager. Table \ref{tab:gtaf_anaytics_overview} summarises the key facts for this case study.
 
 {\renewcommand{\arraystretch}{0.8}% Tighter
-\begin{table*}
+\begin{table*}[h]
+    
     \centering
     \small
     \setlength{\tabcolsep}{6pt}
@@ -83,10 +84,10 @@ The team occasionally used Firebase TestLab~\footnote{\url{https://firebase.goog
     \centering
     \footnotesize
     \tabcolsep=0.12cm
-    \begin{tabular}{p{2.4cm}p{2.4cm}r>{\raggedright}p{2.4cm}>{\raggedright}p{3cm}>{\raggedright\arraybackslash}p{2.5cm}}
+    \begin{tabular}{L{2.6cm} L{2.4cm} c L{2.75cm} L{3.75cm} L{2cm}}
         Data Source & Records & Volumes & Analysis method &Contribution & Remarks \\
         \toprule
-         Pre-study interview, with core developer & contemporaneous notes\footnotemark & 1 & Ask the app devs & Set scope \& direction & Online call \\
+         Pre-study interview, with core developer & Contemporaneous notes\footnotemark & 1 & Ask the app devs & Set scope \& direction & Online call \\
          Analytics tools \& artefacts &Interactive screenshots \& Vitals-scraper outputs &10\textsuperscript{1} & Beacon finding, drill down, across case comparisons, observation \& analysis. & Indications of the development team's attention to the crash rate, insights into the performance of their apps, corroboration of findings across various case studies. & Google Play Console with Android Vitals. \\         
          Mid-study communications with developers & GMail & 10\textsuperscript{1} & Ask the app devs & Feedback, and sense-making.  & Email conversations. \\
          Development artefacts  & Issues database & 10\textsuperscript{2} & Observation and Analysis, analysis of development artefacts. & Corroboration of what the development team say they do in terms of using mobile analytics. & Public GitLab repo. \\
@@ -113,8 +114,8 @@ The development team used the Expo development platform \url{https://expo.dev/} 
 
 Little additional information was available during conversations in terms of their development or release practices for their mobile apps. One observation is Expo claims to automate the release process to the app stores so the LocalHalo development team may have relied and used the Expo service. And Sentry provided reports on the release numbers and their rollout.
 
-{\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table*}
+    \renewcommand{\arraystretch}{0.8}% Tighter
     \centering
     \small
     \setlength{\tabcolsep}{6pt}
@@ -151,7 +152,6 @@ Little additional information was available during conversations in terms of the
     \caption{Case Study key facts: Local Halo}
     \label{tab:local_halo_anaytics_overview}
 \end{table*}
-}
 
 \textbf{Data sources:} Table~\ref{tab:localhalo-data-sources} provides details of the data sources obtained during this case study.
 
@@ -159,14 +159,14 @@ Little additional information was available during conversations in terms of the
     \centering
     \footnotesize
     \tabcolsep=0.12cm
-    \begin{tabular}{p{2.4cm}p{2.4cm}r>{\raggedright}p{2.4cm}>{\raggedright}p{3cm}>{\raggedright\arraybackslash}p{2.5cm}} % Fixed thx to https://tex.stackexchange.com/a/467120/88466
+    \begin{tabular}{L{2.4cm} L{2.4cm} c L{2.4cm}>{\raggedright} L{3.2cm}>{\raggedright\arraybackslash} L{3cm}} % Fixed thx to https://tex.stackexchange.com/a/467120/88466
         Data Source & Records & Volumes & Analysis method & Contribution & Remarks \\
         \toprule
-         Pre-study interviews & contemporaneous notes\footnotemark & 3 & Ask the app devs. & Set scope and direction & 1-to-1 meetings with founders: 1 was in-person, 2 were online. \\
+         Pre-study interviews & Contemporaneous notes\footnotemark & 3 & Ask the app devs. & Set scope and direction & 1-to-1 meetings with founders: 1 was in-person, 2 were online. \\
          Mid-study communications with developers & GMail & 10\textsuperscript{1} & Ask the app devs. & Insight into the Expo bug & Initiated by the researcher. \\
          Analytics tools \& artefacts &Interactive screenshots \& Vitals-scraper outputs &10\textsuperscript{1} & Beacon finding, drill down, across case comparisons, observation \& analysis. & Insight into the reporting effects of the Expo bug and the reporting provided for React-Native apps & Google Play Console with Android Vitals. \\
          Analytics tools \& artefacts & Interactive screenshots of the Sentry \acrshort{gui} & 10\textsuperscript{1} & Beacon finding, drill down, across \textit{tool} comparisons\footnotemark, observation \& analysis. & Insights into Sentry's reporting & Access continued until Sentry removed multi-account access from their free tier. \\
-         Analytics tools \& artefacts & Sentry automated emails in GMail & 10\textsuperscript{2} & Beacon finding, drill down, observation and analysis. & Insights into Sentry's reporting, dev practices, \& cross-platform reporting & \textit{ditto.} NB: they continue to send weekly reports by email. \\
+         Analytics tools \& artefacts & Sentry automated emails in GMail & 10\textsuperscript{2} & Beacon finding, drill down, observation and analysis. & Insights into Sentry's reporting, dev practices, \& cross-platform reporting & \textit{ditto.} NB: they continue to send weekly reports by email. \\ 
          \bottomrule
     \end{tabular}
     \caption{LocalHalo: data sources}
@@ -275,12 +275,12 @@ TBC\todo{Add forward links when the relevant material has been included.}.
 \section{App-centric: Moonpig}~\label{case-study-overview-moonpig}
 Moonpig\index{Moonpig} is an e-commerce business in Europe that sells greeting cards and related gifts online; they operate in the United Kingdom, USA and Australia. They have a highly rated mobile app, with overall ratings of 4.8/5 in Google Play and the Apple App Store. Note some portions of this case study were published in \sideparencite{harty_better_android_apps_using_android_vitals}.
 
-{\renewcommand{\arraystretch}{0.8}% Tighter
-\begin{table*}
+\begin{table*}[h]
     \centering
+    \renewcommand{\arraystretch}{0.8}% Tighter
     \small
     \setlength{\tabcolsep}{6pt}
-    \begin{tabular}{lp{9cm}}
+    \begin{tabular}{L{5cm} L{10cm}}
        % Question &Answer  \\
        \toprule
        Website &\url{https://www.moonpig.com/uk/} \\
@@ -315,7 +315,6 @@ Moonpig\index{Moonpig} is an e-commerce business in Europe that sells greeting c
     \caption{Case Study key facts: Moonpig}
     \label{tab:moonpig_anaytics_overview}
 \end{table*}
-}
 
 The software development department demonstrated high performance engineering in how they approached both public contributions, for instance through hosting Coding DoJos, and in terms of their use of mobile analytics to quickly triage and address pertinent issues.
 
@@ -359,8 +358,8 @@ TBC\todo{Add forward links when the relevant material has been included.}.
 \section{App-centric: Smartnavi}~\label{case-study-overview-smartnavi}
 SmartNavi\index{SmartNavi} is an unusual opensource project that replaces GPS for navigation when the users are walking. It uses significantly less power than using a true GPS provider. Google promoted the project as an Android experiment \url{https://experiments.withgoogle.com/smartnavi}.
 
-{\renewcommand{\arraystretch}{0.8}% Tighter
-\begin{table*}
+{\renewcommand{\arraystretch}{0.8}% Tighter}
+\begin{table*}[h]
     \centering
     \small
     \setlength{\tabcolsep}{6pt}
@@ -644,9 +643,9 @@ TBC\todo{Add forward links when the relevant material has been included.}. Catro
 % A couple of sentences to introduce them
 Case study C1\index{C1} is based on a project at a multi-billion dollar international business outside the USA. Details of the project are confidential and therefore not published in this thesis, nonetheless various findings can be shared as part of this research. 
 
-{\renewcommand{\arraystretch}{0.8}% Tighter
-\begin{table*}
+\begin{table*}[h]
     \centering
+    \renewcommand{\arraystretch}{0.8}% Tighter
     \small
     \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
@@ -682,7 +681,6 @@ Case study C1\index{C1} is based on a project at a multi-billion dollar internat
     \caption{Case Study key facts: C1}
     \label{tab:commercial_case_study_anaytics_overview}
 \end{table*}
-}
 
 The researcher accepted a consulting engagement with the corporation and was asked to assist one of their key projects. This project included an Android app, online APIs developed by the larger project team, and other apps, systems and services. It also incorporated other internal systems, APIs, and services provided by other development teams. 
 
@@ -768,14 +766,11 @@ What these 107 projects had in common was they used recent releases of Firebase 
 %\clearpage
 
 %===================================================================
-\section{Tool-centric: Crashlytics}~\label{case-study-overview-crashlytics}
-Crashlytics\index{Crashlytics} grew from a group of developers who wanted to scratch an itch~\sidecite{chang2015_how_six_people_built_crashlytics} into a product that first Twitter and then Google acquired as it became increasingly popular~\sidecite{___answersblog_2015_june_update}. 
-Like many projects and products it morphed over the years and in 2020 Google completed the integration of Crashlytics into Firebase and removed support for older versions of the SDK (which had some knock-on effects in terms of privacy and what the reports contain). Table \ref{tab:crashlytics_case_study_anaytics_overview} provides an overview of Crashlytics.
 
-{\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table*}[htbp!]
     \centering
     \small
+    \renewcommand{\arraystretch}{0.8}% Tighter
     \setlength{\tabcolsep}{6pt}
     \begin{tabular}{lp{9cm}}
        % Question &Answer  \\
@@ -800,7 +795,10 @@ Like many projects and products it morphed over the years and in 2020 Google com
     \caption{Tool Centric Case Study key facts: Crashlytics}
     \label{tab:crashlytics_case_study_anaytics_overview}
 \end{table*}
-}
+
+\section{Tool-centric: Crashlytics}~\label{case-study-overview-crashlytics}
+Crashlytics\index{Crashlytics} grew from a group of developers who wanted to scratch an itch~\sidecite{chang2015_how_six_people_built_crashlytics} into a product that first Twitter and then Google acquired as it became increasingly popular~\sidecite{___answersblog_2015_june_update}. 
+Like many projects and products it morphed over the years and in 2020 Google completed the integration of Crashlytics into Firebase and removed support for older versions of the SDK (which had some knock-on effects in terms of privacy and what the reports contain). Table \ref{tab:crashlytics_case_study_anaytics_overview} provides an overview of Crashlytics.
 
 The userbase is based on a claim in 2015~\href{https://blog.twitter.com/developer/en_us/a/2015/crashlytics-now-serving-over-1-million-apps}{blog.twitter.com/.../2015/crashlytics-now-serving-over-1-million-apps} with the assumptions: Android apps were a significant portion, the mean ratio of apps to developers is less than 5, the overall use has increased since 2015. 
 Similar estimates are used to determine the installations from \href{https://blog.twitter.com/developer/en_us/a/2015/fabric-leading-the-sdk-market-in-performance-and-mobile-analytics}{blog.twitter.com/.../fabric-leading-the-sdk-market-in-performance-and-mobile-analytics}. The true figures are hard to ascertain as Google have integrated Crashlytics into Firebase.
@@ -814,8 +812,6 @@ The majority of the data collected was done so interactively through using the v
 \textbf{Crashlytics: Contributions to the research}
 As ever at this stage, TBC once more of the next three chapters have been completed.
 
-
-%\clearpage
 
 %===================================================================
 \section{Tool-centric: Firebase Analytics} 

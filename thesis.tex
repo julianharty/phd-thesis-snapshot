@@ -234,6 +234,10 @@
 \mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
 \setchapterstyle{kao} % Choose the default chapter heading style
 
+\pagelayout{wide} % No margins
+\addpart{Preamble}
+\pagelayout{margin} % Restore margins
+
 \input{mainchapters/kaobook-introduction.tex}
 % Temporary removal to try and short-circuit compile timeouts
 %\chapter{Placeholder for: A grounding in the domain}% 
