@@ -14,12 +14,28 @@
 % Explain the significance of your research by describing how you conducted your research.
 Billions of people use mobile apps on two main mobile platforms, Google Android and Apple iOS, and their related operating systems.  Android is integrated into additional mobile platforms including Kindle OS and various \glspl{oem}, particularly Huawei with HarmonyOS. There are millions of these mobile apps developed by millions of developers across the globe. Failures in these apps can adversely affect the experiences of end-users~\sidecite{bbcnews2020_nhs_covid_19_app_bluescreen_glitch}, businesses who provide apps, and/or goods and services provided through mobile apps. Failures can even adversely affect peoples' lives, for instance in China when the Covid-19 tracking app crashed people were stuck at hospital entrances and other checkpoints unable to enter, and travel plans were in chaos~\sidecite{scmp2021_chinas_covid_19_tracking_app_crashes} and in India where users were not able to book vaccinations as the app crashed~\sidecite{moneycontrolnews2021_cowin_apps_crash}.
 
+The research presented in this thesis explores how the quality of mobile app software can be improved through the use of data gathered from different analytics tools. Before presenting the focus of this research in more detail, we some of the background context of software quality generally and how analytics can play a role in helping developers improve quality.
+
 %\subsection{The essence of analytics}
 \newthought{Software is not perfect}: it is formed through numerous human endeavours using flawed tools and techniques.
 Bugs are ubiquitous in software, and no practical software is bug-free. Even one of the most respected software engineers, Donald E. Knuth, recognises, publicly acknowledges, \emph{and pays for}, bugs found in his creations. % ~\sidecite{knuth_trutex, wikipedia__knuth_reward_checks_2020}. 
 \emph{``You are entitled to a reward of at least 0x$1.00 \nobreak\hspace{.16667em plus .08333em} ($2.56) if you are the first person to report a \textit{bona-fide} error not on those lists."}~\sidecite{knuth_the_bank_of_san_serriffe}. And self-aware developers expect that there will be bugs in their software. Nonetheless those involved can improve software through their choices and practices.
 
 \newthought{Nobody is perfect}: Even leading technology companies release software that crashes some have the misfortune to release software that crashes many other apps inadvertently, as Google discovered in Spring 2021~\sidecite{bbcnews2021_google_fixes_crashing_android_app_issues}. App developers, including the BBC for their iPlayer app, posted advice to end users about the issue in Google Play~\sidecite{bbc_iplayer_app_april_2021_webview_information} as the adverse effects of the bugs introduced by Google were so widespread.
+
+\newthought{Surviving as an app developer}: Software app developers need to deliver software that can be used successfully by end users. To do so they need to be able to create software, package it as an app, and distribute it so it is available to end users.
+%
+They need to do so in a timely manner - perfection may be too long to wait for! Therefore developers need to balance and make tradeoffs in the work they do and don't do. \emph{``Bad decisions cost money (and reputation) so we need better tools for making better decisions."}~\sidecite[][p.115]{tantithamthavorn2021_actionable_analytics_tell_me_what_to_do}. The article also observes developers also need to decide what to avoid doing. Therefore developers need help to decide which failures are appropriate to fix now (and which to leave be).
+
+End users need to be able to install and use the app. If the app is sufficiently usable and useful and behaves adequately, they may continue to use it. Developers cannot assess \emph{a priori} whether their app will meet the needs and expectations of users, or the needs of their stakeholders.
+% Briefly explain why they can't...
+%  - Product/Market fit
+%  - Marketability of apps~\sidecite{nayebi2017version}, via App Store Effects paper: ``Nayebi et al. subsequently investigated open-source app versions that are not shipped into the app store [46], introducing the concept of release ‘marketability’. To this end, they surveyed 22 developers, the majority of which (95 percent) state that market acceptability of a mobile app release is more important than that of traditional software."
+%  - Competition in the app store
+%  - They're not in control of their destiny, the app store and the customers decisions have a major impact
+%  - Adopting of the app and use of the app
+% - Survivorship in the app store ecosystems and what devs can do to increase their app's survival~\sidecite{lee2014_determinants_of_mobile_app_success_evidence_from_the_app_store_market} Seller [app developer]-level decisions, app-level decisions, user response to the decisions. It doesn't discuss app store algorithms or their effects. c.f. the more recent articles on iTunes rankings of apps from Medium.com
+In short, they cannot predict whether their app will thrive.
 
 \newthought{Stability}: Stability is a prerequisite for an app to be viable in the marketplace, and several key app stores clearly state unreliable apps (~\emph{e.g.} apps that crash) will be marked down and possibly ejected from the app store~\sidecite{appleappstore2021_app_completeness, google_play_policy_center_broken_functionality, huaweidevelopers_appgallery_review_guidelines}. For example, Apple states~\emph{``On average, over 40\% of app rejections are for Guideline 2.1 – Performance: App Completeness."}~\sidecite{appleappstore2021_review_avoiding_common_app_rejections} with crashes and debugs listed as the first rejection reason. % Crashes are undesirable yet commonplace; therefore one of the key software qualities in use where analytics may be able to help measure and improve reliability for end users.
 Crashes are undesirable yet commonplace; therefore they are a good candidate for evaluating how analytics may be able to a) help measure them and b) help developers to address them, in order to improve the reliability of mobile apps for end users.
@@ -42,7 +58,7 @@ Of the various forms of mobile analytics this research concentrates on \textbf{p
 
 \newthought{Google Android chosen}: This research focuses on the most used operating system -- Android -- in its most popular and mature platform -- Google Android -- to discover whether mobile analytics can help developers improve the stability of their apps by fixing bugs that adversely affect their stability.
 
-\newthought{Smartphone-like devices}
+\newthought{Smartphone-like devices}: 
 The research focuses on apps that can be installed and run on smartphone-like devices, including tablet devices\sidenote{There are various forms of mobile device such as 3G battery powered routers which are outside the scope of this research.}.
 
 \newthought{Ubiquitous Android Vitals}: A default mobile analytics service, called Android Vitals~\sidenote{Android Vitals is integrated into Google Play Console which provides additional functionality including app store metrics, ratings and reviews, release management, and so on.}, is integrated into the Google Android platform and available free of charge for all developers of apps in the Google Play App store. So, it was selected as the core analytics tool for this research, as it is prevalent, and also one of the quality signals Google uses to decide whether to promote apps in its app store. % Isabel suggests a diagram of the ecosystem would be useful around now.
@@ -50,34 +66,17 @@ The research focuses on apps that can be installed and run on smartphone-like de
 \newthought{In-app crash reporting}: The research into this default mobile analytics service is complemented with research in additional analytics tools that include in-app crash reporting to provide perspective and contrast on their various characteristics and capabilities. %(How in-app crash reporting works is discussed in the appendix \href{{app:crash-recording-and-reporting-in-android}}{\nameref{app:crash-recording-and-reporting-in-android}}.) 
 In app crash reporting is used in at least 80\% of Android apps in Google play according to AppBrain's analysis of Crash Reporting libraries~\sidenote{\url{https://www.appbrain.com/stats/libraries/tag/crash-reporting/android-crash-reporting-libraries}}.
 
+\newthought{No panacea}: In-app crash reporting is not a panacea. Not all apps use it for various reasons, and not all crashes are reported by in-app crash reporting. For instance, crashes that occur when the app starts, or while an app is still being initialised, may not be detected or reported. Additionally not all failures are crashes, for instance Google Android and Huawei AppGallery consider application freezes, known as ANRs, to be failures too. Therefore this research takes a holistic approach to managing failures that extends beyond the analysis of crashes reported using in-app crash reporting.   % SHOULD-DO forward-reference to a discussion on crashes at startup and comments made by the Google Play Console PM about these types of crashes.
+
 %\akb{While it is right to focus on specific analytics, don't forget to explain the rationale for the ones you have chosen.} Agreed and will do when the content is migrated.
 
-\newthought{Rationale}
-The rationale for selecting Google Play Console with Android Vitals include the vast scale and reach of the platform-level analytics in the largest app store globally where potentially billions of users rely on the quality of these apps and millions of developers have to trust and rely decisions that the Google Play store ecosystem applies for the apps they release in the app store. Furthermore the majority of Android apps include at least one analytics library that collects and reports crash and error analytics; both users and developers \emph{de-facto} trust these libraries are well behaved and can be depended on. Similarly users implicitly trust developers not to do net harm, a topic we cover shortly. %MUST-DO x-ref where I do.
-% https://www.statista.com/statistics/736576/trust-mobile-apps-smartphone-users/ from 2017 survey data. 
 
 % For more reading on the nuances of the actions of doctors see:
 % https://www.bmj.com/content/366/bmj.l4734/rapid-responses which includes a detailed clarification of "In illnesses one should keep two things in mind, to be useful rather than cause no harm".
 
-\newthought{No panacea}: In-app crash reporting is not a panacea. Not all apps use it for various reasons, and not all crashes are reported by in-app crash reporting. For instance, crashes that occur when the app starts, or while an app is still being initialised, may not be detected or reported. Additionally not all failures are crashes, for instance Google Android and Huawei AppGallery consider application freezes, known as ANRs, to be failures too. Therefore this research takes a holistic approach to managing failures that extends beyond the analysis of crashes reported using in-app crash reporting.   % SHOULD-DO forward-reference to a discussion on crashes at startup and comments made by the Google Play Console PM about these types of crashes.
-
 \medskip
-\newthought{Surviving as an app developer}: Software app developers need to deliver software that can be used successfully by end users. To do so they need to be able to create software, package it as an app, and distribute it so it is available to end users.
-%
-They need to do so in a timely manner - perfection may be too long to wait for! Therefore developers need to balance and make tradeoffs in the work they do and don't do. \emph{``Bad decisions cost money (and reputation) so we need better tools for making better decisions."}~\sidecite[][p.115]{tantithamthavorn2021_actionable_analytics_tell_me_what_to_do}. The article also observes developers also need to decide what to avoid doing. Therefore developers need help to decide which failures are appropriate to fix now (and which to leave be).
-
-End users need to be able to install and use the app. If the app is sufficiently usable and useful and behaves adequately, they may continue to use it. Developers cannot assess \emph{a priori} whether their app will meet the needs and expectations of users, or the needs of their stakeholders.
-% Briefly explain why they can't...
-%  - Product/Market fit
-%  - Marketability of apps~\sidecite{nayebi2017version}, via App Store Effects paper: ``Nayebi et al. subsequently investigated open-source app versions that are not shipped into the app store [46], introducing the concept of release ‘marketability’. To this end, they surveyed 22 developers, the majority of which (95 percent) state that market acceptability of a mobile app release is more important than that of traditional software."
-%  - Competition in the app store
-%  - They're not in control of their destiny, the app store and the customers decisions have a major impact
-%  - Adopting of the app and use of the app
-% - Survivorship in the app store ecosystems and what devs can do to increase their app's survival~\sidecite{lee2014_determinants_of_mobile_app_success_evidence_from_the_app_store_market} Seller [app developer]-level decisions, app-level decisions, user response to the decisions. It doesn't discuss app store algorithms or their effects. c.f. the more recent articles on iTunes rankings of apps from Medium.com
-In short, they cannot predict whether their app will thrive.
 
 
-\medskip
 \newthought{Crashes can leave indelible, adverse, results}. An increase in crashes led to an increase in `churn'~\sidenote{Churn is also known as attrition and is used to measure users who leave a collective group over a specific period~\href{https://en.wikipedia.org/wiki/Churn_rate}{en.wikipedia.org/wiki/Churn\_rate}.} of up to six times the average rate of churn according to industry reports~\sidecite{levy2016_crash_and_churn_report, levy2017_the_crash_and_burn_report_findings}~\sidenote{Note: Apteligent was acquired by VMWare in 2017 and few of their online materials remain available.}. 
 Facebook deliberately tested the tolerance of users by introducing automatic crashes in their Android app, according to~\sidecite{efrati2016_facebooks_android_contingency_planning}, to measure when users would abandon the app entirely. %Found via https://9to5google.com/2016/01/04/facebook-intentionally-made-its-android-app-crash-to-test-how-addicted-users-are/ 
 
@@ -133,6 +132,11 @@ In the preceding paragraphs several factors have been identified that pertain to
     \item for developers to triage and address failures that do occur efficaciously so they stop being a prolific source of bugs.
 \end{enumerate}
 % Therefore, one success factor for developers of mobile apps is in addressing crashes so they stop being a prolific source of bugs.
+
+\newthought{Rationale}: 
+The rationale for selecting Google Play Console with Android Vitals include the vast scale and reach of the platform-level analytics in the largest app store globally where potentially billions of users rely on the quality of these apps and millions of developers have to trust and rely decisions that the Google Play store ecosystem applies for the apps they release in the app store. Furthermore the majority of Android apps include at least one analytics library that collects and reports crash and error analytics; both users and developers \emph{de-facto} trust these libraries are well behaved and can be depended on. Similarly users implicitly trust developers not to do net harm, a topic we cover shortly. %MUST-DO x-ref where I do.
+% https://www.statista.com/statistics/736576/trust-mobile-apps-smartphone-users/ from 2017 survey data. 
+
 
 \section{Research Focus}
  %\section{Research gap for mobile analytics}
@@ -267,11 +271,38 @@ The next level of validity is the role of the researcher: even if this work achi
 Cross validation through multiple case studies: the research compares opensource and commercial projects for their approaches and results. It also compares various in-app analytics offerings to discern if they have distinctive characteristics that may help the development teams.
 
 
+<<<<<<< HEAD
 \section{Outline of this thesis}
 At a high-level thesis is in three main parts: the preamble which includes chapters 1 to 5, the findings in chapters 6 to 8, followed by the discussion, conclusion, and future work in chapters 9 and 10. There are two short appendices: on thematic analysis, and additional details for some of the mini-experiments.
 
 \bigskip
 
+=======
+\section{Thesis outline}
+% This is a placeholder, to be reviewed and updated when the thesis is closer to completion.
+This thesis starts with an introduction to the context of investigation - mobile app development - together with an exploration of the state of the art. Based on this, the method adopted for conducting the research is presented before outlining the different mobile app and analytics tool case studies. Following this, the findings are set out, covering three thematic areas relevant to the use of mobile analytics: app development processes and the use of analytics, apps and their artefacts, and mobile analytics tools. Finally there is discussion of the findings together with potential areas for future work. A more detailed outline of the chapters of the thesis is set out below.
+
+\newthought{Chapter 2 | Preparing the ground}: this chapter provides some background to the mobile app development ecosystem, explaining key concepts relevant to the research from five different perspectives - apps and app stores, layers of an app and observation points, of analogue and digital feedback, usage analytics, and finally DevOps.
+
+\newthought{Chapter 3 | Related work}: explores the state of the art relevant to software quality, software analytics, and the mobile app ecosystem.
+
+\newthought{Chapter 4 | Methodology}: sets out the research approach adopted to gather and analyse data for the different case studies explored as part of the research.
+
+\newthought{Chapter 5 | Overview of the case studies}: introduces each of the app-centric and tool-centric case studies using a consistent structure to make them easy to comprehend and to facilitate comparison.
+
+\newthought{Chapter 6 | Findings - Analytics in use}: presents the key findings from the case studies relevant to the use of analytics by mobile app development teams.
+
+\newthought{Chapter 7 | Findings - Apps and their artefacts}: discusses the findings relating to the software developed in the different mobile app case studies, together with their associated artefacts.
+
+\newthought{Chapter 8 | Findings - Mobile analytics tools and their artefacts}: Focuses on the mobile analytics tools explored during the course of the research and the different artefacts produced by these tools.
+
+\newthought{Chapter 9 | Discussion}: Explores the findings across the different perspectives of the research in relation to the wider literature of software quality and mobile app development practices.
+
+\newthought{Chapter 10 | Conclusions and future work}: Summarises the key contributions of the research and discusses avenues for further investigation.
+
+\begin{comment}
+    
+>>>>>>> 945f693bba7f41f0cffff0ad716dda110969d333
 \begin{enumerate}
     %\setlength\itemsep{-0.5em} %\itemsep0em
     \item [Chapter 1] has introduced this thesis and covers the research's focus, questions, and strategy. 
@@ -287,3 +318,4 @@ At a high-level thesis is in three main parts: the preamble which includes chapt
     \item [Chapter 9] A discussion regarding the findings and the research.
     \item [Chapter 10] The conclusions and future work.
 \end{enumerate}
+\end{comment}
