@@ -56,7 +56,7 @@ The \textbf{configuration} step requires a setting that is uniquely allocated by
 
 The code snippet in Listing \ref{listing:android_activity_to_verify_sentry_works_in_app} sends details of a caught exception to \myindex{Sentry}'s service each time the code is run. Running this code (by using the app) helps \textbf{verify} the installation and configuration steps have been completed adequately. Note: this code would generally be removed from the app once the verification has been completed successfully, developers would effectively replace it with custom code for any additional reporting not already provided automatically by the \Gls{sdk}. % https://docs.sentry.io/platforms/android/usage/  https://docs.sentry.io/platforms/android/enriching-events/breadcrumbs/  https://docs.sentry.io/platforms/android/configuration/integrations/okhttp/
 
-During the period of this research, the SDKs have continued to evolve and tend to offer developers a greater range of information and also they tend to automated more of the underlying data collection, for example the \myindex{Sentry} 3.1.0 Android Gradle plugin automatically instruments the \myindex{OkHttp} library if it's part of the app~\sidenote{\href{https://docs.sentry.io/platforms/android/configuration/integrations/okhttp/}{docs.sentry.io/platforms/android/configuration/integrations/okhttp/}}.
+During the period of this research, the SDKs have continued to evolve, with newer versions offering developers a greater range of information and also more automation of the underlying data collection.  For example the \myindex{Sentry} 3.1.0 Android Gradle plugin automatically instruments the \myindex{OkHttp} library if it's part of the app~\sidenote{\href{https://docs.sentry.io/platforms/android/configuration/integrations/okhttp/}{docs.sentry.io/platforms/android/configuration/integrations/okhttp/}}.
 
 
 \begin{listing}
@@ -80,12 +80,12 @@ class MyActivity : AppCompatActivity() {
 \label{listing:android_activity_to_verify_sentry_works_in_app}
 \end{listing}
 
-The majority of the other SDKs used in the case studies offer equivalent installation, configuration, and verification steps and include developer-oriented documentation of these steps; note: they may use other terms to describe these steps.
+The majority of the other SDKs used in the case studies offer equivalent installation, configuration, and verification steps and include developer-oriented documentation of these steps. However, it should be noted that they may use other terms to describe these steps.
 
 \newthought{Build scripts encapsulate the build process}.  
-At one extreme build scripts may fully automate multiple steps to the point of releasing a new version of an app in the app store, at the other extreme many of the steps may be manual and performed unsystematically by the development team. Of course many projects are somewhere between these two extremes, so they partly encapsulate the build process where humans have to perform the rest of the steps in the process. 
+At one extreme build scripts may fully automate multiple steps to the point of releasing a new version of an app in the app store. At the other extreme, many of the steps may be manual and performed unsystematically by the development team. Of course many projects are somewhere between these two poles, so they partly encapsulate the build process where humans have to perform the rest of the steps in the process. 
 
-In the Catrobat case study, a mistake in a manual step of the build process meant the new release of the Pocket Code did not include the correct information and stopped the in-app crash analytics from being reported. The Crashlytics SDK on Android needed two distinct keys, an API Key and a secret key~\footnote{StackOverflow has a good example of how a build script obtains these values from the environment in \href{https://stackoverflow.com/q/46814593/340175}{stackoverflow.com/q/46814593/340175}%~\cite{scott2017_android_app_crash_noclassdeffounderror_on_samsung_lollipop_devices}
+In the Catrobat case study, a mistake in a manual step of the build process meant the new release of the Pocket Code app did not include the correct information and stopped the in-app crash analytics from being reported. The Crashlytics SDK on Android needed two distinct keys, an API Key and a secret key~\footnote{StackOverflow has a good example of how a build script obtains these values from the environment in \href{https://stackoverflow.com/q/46814593/340175}{stackoverflow.com/q/46814593/340175}%~\cite{scott2017_android_app_crash_noclassdeffounderror_on_samsung_lollipop_devices}
 . 
 The relevant documentation is no longer available, it was at \href{https://docs.fabric.io/android/fabric/settings/working-in-teams.html}{docs.fabric.io/android/fabric/settings/working-in-teams.html} according to \href{https://stackoverflow.com/a/40667490/340175}{stackoverflow.com/a/40667490/340175}}, and presumably at least one of these was either missing completely or incorrect for that build.
 % https://stackoverflow.com/questions/31596792/how-to-get-test-and-production-values-for-fabric-crashlytics 
@@ -113,7 +113,7 @@ In joint research~\sidecite{harty2021_logging_practices_with_mobile_analytics} w
 The Commercial project, \myindex{C1}, for example, made extensive use of Microsoft App Center to record caught exceptions, in particular, while \myindex{Moonpig} used \myindex{Firebase Analytics} for similar purposes. 
 
 \newthought{Breadcrumbs}
-\myindex{Moonpig} made extensive use of Firebase Analytics to record breadcrumb information to help determine and understand what led to undesirable events.  The commercial project, \myindex{C1}, used a proprietary distributed logging API for similar purposes. \myindex{LocalHalo} \emph{might} have logged similar data using \myindex{Flurry}, their business focused mobile analytics \Gls{sdk}, they did not appear to use \myindex{Sentry} to record breadcrumbs. 
+\myindex{Moonpig} made extensive use of Firebase Analytics to record breadcrumb information to help determine and understand what led to undesirable events.  The commercial project, \myindex{C1}, used a proprietary distributed logging API for similar purposes. \myindex{LocalHalo} \emph{might} have logged similar data using \myindex{Flurry}, their business focused mobile analytics \Gls{sdk}. However, they did not appear to use \myindex{Sentry} to record breadcrumbs. 
 
 Grey literature provides code examples and screenshots of creating custom code to add and subsequently use breadcrumbs to an Android app~\sidecite{daniel2019_breadcrumbs_to_enhance_your_crashlytics_experience}. 
 
