@@ -58,15 +58,15 @@ Of the various forms of mobile analytics this research concentrates on \textbf{p
 
 \newthought{Google Android chosen}: This research focuses on the most used operating system -- Android -- in its most popular and mature platform -- Google Android -- to discover whether mobile analytics can help developers improve the stability of their apps by fixing bugs that adversely affect their stability.
 
-\newthought{Smartphone-like devices}: 
+\newthought{Smartphone-like devices: }
 The research focuses on apps that can be installed and run on smartphone-like devices, including tablet devices\sidenote{There are various forms of mobile device such as 3G battery powered routers which are outside the scope of this research.}.
 
 \newthought{Ubiquitous Android Vitals}: A default mobile analytics service, called Android Vitals~\sidenote{Android Vitals is integrated into Google Play Console which provides additional functionality including app store metrics, ratings and reviews, release management, and so on.}, is integrated into the Google Android platform and available free of charge for all developers of apps in the Google Play App store. So, it was selected as the core analytics tool for this research, as it is prevalent, and also one of the quality signals Google uses to decide whether to promote apps in its app store. % Isabel suggests a diagram of the ecosystem would be useful around now.
 
-\newthought{In-app crash reporting}: The research into this default mobile analytics service is complemented with research in additional analytics tools that include in-app crash reporting to provide perspective and contrast on their various characteristics and capabilities. %(How in-app crash reporting works is discussed in the appendix \href{{app:crash-recording-and-reporting-in-android}}{\nameref{app:crash-recording-and-reporting-in-android}}.) 
+\newthought{In-app crash reporting: } The research into this default mobile analytics service is complemented with research in additional analytics tools that include in-app crash reporting to provide perspective and contrast on their various characteristics and capabilities. %(How in-app crash reporting works is discussed in the appendix \href{{app:crash-recording-and-reporting-in-android}}{\nameref{app:crash-recording-and-reporting-in-android}}.) 
 In app crash reporting is used in at least 80\% of Android apps in Google play according to AppBrain's analysis of Crash Reporting libraries~\sidenote{\url{https://www.appbrain.com/stats/libraries/tag/crash-reporting/android-crash-reporting-libraries}}.
 
-\newthought{No panacea}: In-app crash reporting is not a panacea. Not all apps use it for various reasons, and not all crashes are reported by in-app crash reporting. For instance, crashes that occur when the app starts, or while an app is still being initialised, may not be detected or reported. Additionally not all failures are crashes, for instance Google Android and Huawei AppGallery consider application freezes, known as ANRs, to be failures too. Therefore this research takes a holistic approach to managing failures that extends beyond the analysis of crashes reported using in-app crash reporting.   % SHOULD-DO forward-reference to a discussion on crashes at startup and comments made by the Google Play Console PM about these types of crashes.
+\newthought{No panacea: } In-app crash reporting is not a panacea. Not all apps use it for various reasons, and not all crashes are reported by in-app crash reporting. For instance, crashes that occur when the app starts, or while an app is still being initialised, may not be detected or reported. Additionally not all failures are crashes, for instance Google Android and Huawei AppGallery consider application freezes, known as ANRs, to be failures too. Therefore this research takes a holistic approach to managing failures that extends beyond the analysis of crashes reported using in-app crash reporting.   % SHOULD-DO forward-reference to a discussion on crashes at startup and comments made by the Google Play Console PM about these types of crashes.
 
 %\akb{While it is right to focus on specific analytics, don't forget to explain the rationale for the ones you have chosen.} Agreed and will do when the content is migrated.
 
@@ -280,42 +280,23 @@ At a high-level thesis is in three main parts: the preamble which includes chapt
 =======
 \section{Thesis outline}
 % This is a placeholder, to be reviewed and updated when the thesis is closer to completion.
-This thesis starts with an introduction to the context of investigation - mobile app development - together with an exploration of the state of the art. Based on this, the method adopted for conducting the research is presented before outlining the different mobile app and analytics tool case studies. Following this, the findings are set out, covering three thematic areas relevant to the use of mobile analytics: app development processes and the use of analytics, apps and their artefacts, and mobile analytics tools. Finally there is discussion of the findings together with potential areas for future work. A more detailed outline of the chapters of the thesis is set out below.
+This thesis starts with an introduction to the context of investigation - mobile app development - together with an exploration of the state of the art. Based on this, the method adopted for conducting the research is presented before outlining the different mobile app and analytics tool case studies. Following this, the findings are set out, covering three thematic areas relevant to the use of mobile analytics: app development processes and the use of analytics, apps and their artefacts, and mobile analytics tools. Finally there is discussion of the findings together with potential areas for future work. A more detailed outline of the remaining chapters of the thesis is set out below.
 
-\newthought{Chapter 2 | Preparing the ground}: this chapter provides some background to the mobile app development ecosystem, explaining key concepts relevant to the research from five different perspectives - apps and app stores, layers of an app and observation points, of analogue and digital feedback, usage analytics, and finally DevOps.
+\newthought{Chapter 2 | Preparing the ground:} this chapter prepares the ground for the rest of this thesis by explaining contemporary development practices for mobile apps. It then presents five conceptual models related to mobile apps. These are followed by several, relevant, practical details.
 
-\newthought{Chapter 3 | Related work}: explores the state of the art relevant to software quality, software analytics, and the mobile app ecosystem.
+\newthought{Chapter 3 | Related work:} explores the state of the art relevant to software quality, software analytics, and the mobile app ecosystem.
 
-\newthought{Chapter 4 | Methodology}: sets out the research approach adopted to gather and analyse data for the different case studies explored as part of the research.
+\newthought{Chapter 4 | Methodology:} sets out the research approach adopted to gather and analyse data for the different case studies explored as part of the research.
 
-\newthought{Chapter 5 | Overview of the case studies}: introduces each of the app-centric and tool-centric case studies using a consistent structure to make them easy to comprehend and to facilitate comparison.
+\newthought{Chapter 5 | Overview of the case studies:} introduces each of the app-centric and tool-centric case studies using a consistent structure to make them easy to comprehend and to facilitate comparison.
 
-\newthought{Chapter 6 | Findings - Analytics in use}: presents the key findings from the case studies relevant to the use of analytics by mobile app development teams.
+\newthought{Chapter 6 | Findings - Analytics in use:} presents the key findings from the case studies relevant to the use of analytics by mobile app development teams.
 
-\newthought{Chapter 7 | Findings - Apps and their artefacts}: discusses the findings relating to the software developed in the different mobile app case studies, together with their associated artefacts.
+\newthought{Chapter 7 | Findings - Apps and their artefacts:} discusses the findings relating to the software developed in the different mobile app case studies, together with their associated artefacts.
 
-\newthought{Chapter 8 | Findings - Mobile analytics tools and their artefacts}: Focuses on the mobile analytics tools explored during the course of the research and the different artefacts produced by these tools.
+\newthought{Chapter 8 | Findings - Mobile analytics tools and their artefacts:} Focuses on the mobile analytics tools explored during the course of the research and the different artefacts produced by these tools.
 
-\newthought{Chapter 9 | Discussion}: Explores the findings across the different perspectives of the research in relation to the wider literature of software quality and mobile app development practices.
+\newthought{Chapter 9 | Discussion:} Explores the findings across the different perspectives of the research in relation to the wider literature of software quality and mobile app development practices.
 
-\newthought{Chapter 10 | Conclusions and future work}: Summarises the key contributions of the research and discusses avenues for further investigation.
+\newthought{Chapter 10 | Conclusions and future work:} Summarises the key contributions of the research and discusses avenues for further investigation.
 
-\begin{comment}
-    
->>>>>>> 945f693bba7f41f0cffff0ad716dda110969d333
-\begin{enumerate}
-    %\setlength\itemsep{-0.5em} %\itemsep0em
-    \item [Chapter 1] has introduced this thesis and covers the research's focus, questions, and strategy. 
-    \item [Chapter 2] prepares the ground for the rest of this thesis by explaining contemporary development practices for mobile apps. It then presents five conceptual models related to mobile apps. These are followed by several, relevant, practical details. % explaining various concepts and the practical context of mobile app development that is relevant
-    \item [Chapter 3] covers the related work.
-    \item [Chapter 4] describes the methodology.
-    \item [Chapter 5] provides an overview of the various case studies together with complementary research that augmented aspects of the case studies.
-    \item []
-    \item [Chapter 6] Findings related to how developers use mobile analytics.
-    \item [Chapter 7] Findings concerning the apps and their related artefacts.
-    \item [Chapter 8] Findings about the mobile analytics tools and related services.
-    \item []
-    \item [Chapter 9] A discussion regarding the findings and the research.
-    \item [Chapter 10] The conclusions and future work.
-\end{enumerate}
-\end{comment}
