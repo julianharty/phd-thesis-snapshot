@@ -435,19 +435,19 @@ The following list itemises a set of possible stages in a data funnel for data t
     \item \textbf{Farming the log (and/or potentially other usage data) data on device:} data is available in logs and contemporaneously at runtime~\sidenote{such as which other apps are running, \Gls{cpu} usage, \emph{etc.}} which can be farmed by the app, and/or the SDKs. 
     \item \textbf{Device model and operating system combination:} The platform software is specific to a device model \emph{i.e.} it is customised by the provider of the device \emph{e.g.} by Samsung for their devices. They use Android frameworks as a major source for their platform software. That software is revised for every Android release, so the combination can affect the data funnels.~\sidenote{A concrete example from Android is a limit of the log tag parameter which had to be no more than 23 characters long in order to be recorded for Android Nougat (7.0)~\cite{android_framework_android_util_log}.}
     \item \textbf{Per device implementation and options:} Users can configure aspects of apps, the platform, and even replace the operating system on some devices. Any of these can affect the data funnel. 
-    \item \textbf{Data daemons:} these can control/negotiate what data is and is not available/provided. There's also research that filters, fakes, and/or blocks data generally on a per-device basis, \emph{e.g.}~\sidecite{hornyack2011_these_arent_the_droids_youre_looking_for_etc, caputo2022_you_cant_always_get_what_you_want_towards_user_controlled_privacy_on_android}.
+    \item \textbf{Data daemons:} these can control/negotiate what data is and is not available/provided. There's also research that filters, fakes, and/or blocks data generally on a per-device basis, \emph{e.g.}%~\sidecite{hornyack2011_these_arent_the_droids_youre_looking_for_etc, caputo2022_you_cant_always_get_what_you_want_towards_user_controlled_privacy_on_android}.
     \item \textbf{Data privacy screening:} which can occur at various points in the funnel, \emph{e.g.} \myindex{Sentry} provides optional `data scrubber' filters~\sidecite{sentry_data_scrubbing}. 
     \item \textbf{Batching, queuing, limits, latencies, transmission triggers, ...:} resources are finite and workloads are often controlled in software to optimise the behaviour of background activities. There will be occasions when data does not arrive (in a timely manner) because of these various factors.
     \item \textbf{Connectivity quality and reliability:} inherent in mobile device communications is a dependency on connections used to transfer copies of data. 
-    \item \textbf{Network behaviours:} \emph{e.g.} where traffic may be blocked in some geographies, by some network providers, \emph{etc.}~\sidecite{soni2017_app_downloads_from_china__firebase_and_itunesconnect_analytics_mismatch}
+    \item \textbf{Network behaviours:} \emph{e.g.} where traffic may be blocked in some geographies, by some network providers, %\emph{etc.}~\sidecite{soni2017_app_downloads_from_china__firebase_and_itunesconnect_analytics_mismatch}
     \item \textbf{Data Collector inbound processing:} these can include filtering, buffering, validity checks, non-repudiation, dealing with spoofing, fakes, \emph{etc.})
     \item \textbf{Analytics tool filtering and reporting:} This may include muting of some aspects of the reporting e.g. for issues considered no longer actionable. 
     \item \textbf{Content access, storage, combination with other sources, further reporting, \emph{etc.}:} once the data has been received and processed an \gls{glossary-analytics-system} then deals with access to content, storage, and so on. Access may be governed by who is granted permissions. Analysts may combine the data with other sources, and/or perform further reporting.
 \end{itemize}
 
-Note: there may also be data injected into the funnel, for instance through \href{https://en.wikipedia.org/wiki/Synthetic_monitoring}{synthetic monitoring}, testing of the apps and/or the analytics clients and APIs, spoofing, denials of service, and so on. 
+Note: there may also be data injected into the funnel, for instance through \href{https://en.wikipedia.org/wiki/Synthetic_monitoring}{synthetic monitoring}, testing of the apps and/or the analytics clients and \Glspl{api}, spoofing, denials of service, and so on. 
 
-MUST-DO add figure, write up this section.
+%MUST-DO add figure, write up this section.
 
 
 
