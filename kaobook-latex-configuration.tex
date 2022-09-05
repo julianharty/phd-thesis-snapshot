@@ -150,4 +150,8 @@
 
 \newcommand{\myindex}[1]{#1\index{#1}}
 
+% https://tex.stackexchange.com/a/182712/88466
+\patchcmd{\theindex}{\thispagestyle{plain}}
+  {\thispagestyle{plain}\phantomsection\label{index}}{}{}
+
 %----------------------------------------------------------------------------------------

@@ -3,14 +3,13 @@
 
 This chapter introduces each of the app-centric and tool-centric case studies using a consistent structure to make them easy to comprehend and to facilitate comparison. For each of the app-centric case studies it uses two summary tables to do so. The first presents the key-facts pertaining to that case study, the second table presents the data sources. These are augmented with brief descriptions to provide additional context. Each of the overviews for the tool-centric case studies includes a table with the key-facts augmented with a contextual summary together with the data collected and methods used for collecting material for this mobile analytics tool.
 
-The depth of each section varies to focus on material that's of consequence to the thesis. The findings for the case studies and the additional research are presented in the subsequent three chapters.
+The depth of each section varies to focus on material that's of consequence to the thesis. The findings for the case studies and the additional research are presented in the subsequent three chapters. The Index provides a mapping of where each case study contributes to the thesis. %Please see the \hyperref[index]{\indexname}, on page \pageref{index}. % this doesn't work currently, see https://tex.stackexchange.com/a/182712/88466 for the source.
 
 The case studies are in four groups that present complementary research that helps to fill various gaps between the app-centric and tool-centric case studies. The groups are: 
 \begin{enumerate}
     \itemsep0em
     \item[1] App-centric case studies that \textbf{do not} have interventions (Sections \ref{case-study-overview-gtaf}, to \ref{case-study-overview-smartnavi}).
-    \item[2] App-centric case studies that \textbf{do} have interventions (Sections \ref{case-study-overview-kiwix} to \ref{case-study-overview-C1}).
-    \item[3] Interim work on various field experiments (Section \ref{section-field-experiments-to-augment-app-centric-case-studies}) and source code analysis (Section \ref{section-sourcecode-analysis-to-augment-app-centric-case-studies}).
+    \item[2] App-centric case studies that \textbf{do} have interventions (Sections \ref{case-study-overview-kiwix} to \ref{case-study-overview-C1}); including interim work on various field experiments (Section \ref{section-field-experiments-to-augment-app-centric-case-studies}) and source code analysis (Section \ref{section-sourcecode-analysis-to-augment-app-centric-case-studies}).
     \item[4] Tool-centric case studies (Sections \ref{case-study-overview-crashlytics} to \ref{case-study-overview-sentry}).
 \end{enumerate}
 
@@ -98,8 +97,8 @@ The team occasionally used Firebase TestLab~\footnote{\url{https://firebase.goog
 \end{table*}
 
 
-\textbf{GTAF: Contributions to the research}
-TBC\todo{Add forward links when the relevant material has been included.}.
+%\textbf{GTAF: Contributions to the research}
+%TBC\todo{Add forward links when the relevant material has been included.}.
 
 
 %\clearpage
@@ -107,10 +106,10 @@ TBC\todo{Add forward links when the relevant material has been included.}.
 %===================================================================
 
 \section{App-centric: Local Halo}~\label{case-study-overview-localhalo}
-LocalHalo\index{LocalHalo} was a startup based in London who made a social network for neighbours~\footnote{\url{https://ain.ua/en/2019/10/18/localhalo-raises-500k/}} with developers in Ukraine, London, and Kazakhstan.~\sideparencite{karpenko2019_localhalo_a_social_network_for_neighbors}. 
+LocalHalo\index{LocalHalo} was a startup based in London who made a social network for neighbours~\footnote{\href{https://ain.ua/en/2019/10/18/localhalo-raises-500k/}{ain.ua/en/2019/10/18/localhalo-raises-500k}} with developers in Ukraine, London, and Kazakhstan.~\sideparencite{karpenko2019_localhalo_a_social_network_for_neighbors}. 
 Table~\ref{tab:local_halo_anaytics_overview} provides an overview of this case study.
 
-The development team used the Expo development platform \url{https://expo.dev/} to create native apps that ran on Android and iOS apps. The mobile app was written in React Native~\footnote{\url{https://reactnative.dev/}} (the associated website is likely to have been written using React js~\footnote{\url{https://reactjs.org/}} and also instrumented using Sentry Analytics which were also available for research purposes). These apps were released on Google Play and Apple's App Store respectively. The \acrshort{cto} was actively involved in writing and maintaining the source code and was supported by developers in three locations, in the Ukraine, London, and Kazakhstan.~\sideparencite{karpenko2019_localhalo_a_social_network_for_neighbors}.  Data in the Sentry mobile analytics reports indicate there was at least one distinct developer in addition to the CTO.
+The development team used the Expo development platform~\sidenote{\href{https://expo.dev/}{expo.dev}} to create native apps that ran on Android and iOS apps. The mobile app was written in \myindex{React Native}~\sidenote{\href{https://reactnative.dev/}{reactnative.dev}} (the associated website is likely to have been written using React js~\sidenote{\href{https://reactjs.org/}{reactjs.org}} and also instrumented using \myindex{Sentry} Analytics which were also available for research purposes). These apps were released on Google Play and Apple's App Store respectively. The \acrshort{cto} was actively involved in writing and maintaining the source code and was supported by developers in three locations, in the Ukraine, London, and Kazakhstan.~\sideparencite{karpenko2019_localhalo_a_social_network_for_neighbors}.  Data in the Sentry mobile analytics reports indicate there was at least one distinct developer in addition to the CTO.
 
 Little additional information was available during conversations in terms of their development or release practices for their mobile apps. One observation is Expo claims to automate the release process to the app stores so the LocalHalo development team may have relied and used the Expo service. And Sentry provided reports on the release numbers and their rollout.
 
@@ -177,8 +176,8 @@ Little additional information was available during conversations in terms of the
 \footnotetext{A specialisation of across case comparisons where the outputs of two mobile analytics tools were compared.}
 
 
-\textbf{Local Halo: Contributions to the research}
-TBC\todo{Add forward links when the relevant material has been included.}.
+%\textbf{Local Halo: Contributions to the research}
+%TBC\todo{Add forward links when the relevant material has been included.}.
 
 %\clearpage
 
@@ -191,7 +190,7 @@ Moodspace\index{Moodspace} is an Android app aimed at improving mental health th
 % -- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8529472/ (and the DOI https://mhealth.jmir.org/2021/10/e26712 )
 % -- The following paper explains the needle-in-a-haystack challenge of establishing the evidence for this and similar apps https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7588098/
 % It also features online e.g. in https://www.healthfoundry.org/covid-19-response 
-It was released in 2019, with over 150K downloads by early 2020~\sideparencite{objectbox2020_moodspace_interview}. Ian Alexander, the interviewee, was `the software developer, co-founder, and runner of the company'~\sideparencite{objectbox2020_moodspace_interview} so he combined technical and operational responsibilities in his \Gls{cto} role. He is an experienced app developer and also trained as a chemical engineer. The \Gls{cto} was the sole developer. 
+It was released in 2019, with over 150K downloads by early 2020~\sideparencite{objectbox2020_moodspace_interview}. The interviewee, was `the software developer, co-founder, and runner of the company'~\sideparencite{objectbox2020_moodspace_interview} so he combined technical and operational responsibilities in his \Gls{cto} role. He is an experienced app developer and also trained as a chemical engineer. The \Gls{cto} was the sole developer. 
 
 {\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table*}
@@ -237,7 +236,7 @@ The source code, issues database, and mobile analytics were all private.
 
 At the time of the interview the team had developed a complete replacement for the Android app which was due to be launched in a couple of months (around August 2019). The startup was subsequently able to raise a round of funding and grow to six people. The project later returned to be a side-project which is maintained and updated~\sideparencite{alexander2021_linkedin_profile}.
 
-The app had a strong positive User Experience rating of 4.18/5.00~\footnote{\url{https://onemindpsyberguide.org/apps/moodspace/}} which corroborates their objective to provide a beautiful and peaceful mobile app.
+The app had a strong positive User Experience rating of 4.18/5.00~\sidenote{\href{https://onemindpsyberguide.org/apps/moodspace/}{onemindpsyberguide.org/apps/moodspace}} which corroborates their objective to provide a beautiful and peaceful mobile app.
 
 \textbf{Data sources:} Table~\ref{tab:moodspace-data-sources} provides details of the data sources collected in this case study.
 
@@ -260,13 +259,13 @@ The app had a strong positive User Experience rating of 4.18/5.00~\footnote{\url
     \label{tab:moodspace-data-sources}
 \end{table*}
 
-\footnotetext{Interestingly standard Google Search finds peer reviewed papers that \textit{contain} the name of the app, whereas Google Scholar \url{https://scholar.google.com/} struggles to find them.}
+\footnotetext{Interestingly standard Google Search finds peer reviewed papers that \textit{contain} the name of the app, whereas Google Scholar \href{https://scholar.google.com/}{Google Scholar} struggles to find them.}
 \footnotetext{TBA how to classify Exodus Privacy and similar services that analyse app binaries. For the moment, development artefacts seems to be the best match of the existing data sources.}
-\footnotetext{\url{https://reports.exodus-privacy.eu.org/en/reports/search/boundless.moodgym/}}
+\footnotetext{\href{https://reports.exodus-privacy.eu.org/en/reports/search/boundless.moodgym/}{reports.exodus-privacy.eu.org/en/reports/search/boundless.moodgym}}
 
 
-\textbf{Moodspace: Contributions to the research}
-TBC\todo{Add forward links when the relevant material has been included.}.
+%\textbf{Moodspace: Contributions to the research}
+%TBC\todo{Add forward links when the relevant material has been included.}.
 
 %\clearpage
 
@@ -343,8 +342,8 @@ Their software engineering team have been actively involved in encouraging the w
 \end{table*}
 
 
-\textbf{Moonpig: Contributions to the research}
-TBC\todo{Add forward links when the relevant material has been included.}. 
+%\textbf{Moonpig: Contributions to the research}
+%TBC\todo{Add forward links when the relevant material has been included.}. 
 % \julian{You'll see an experimental page follows, called Contributions, that includes index entries that are flagged with [moonpig]. This is part of me seeking ways to automatically track the contributions of this case study to the overall research. It's not what I need but it's there so we can explore ways to improve the cross-referencing. There are notes in the meta-chapters/actions.tex with related reading on ways that may suit my goals.} 
 
 %%% @Vel I'd like to provide an automatically generated set of cross-references per case study. This was my first experiment:
@@ -402,7 +401,7 @@ The project's creator developed the app as part of his bachelors and masters deg
 
 \textbf{Data sources: } These are summarised in Table~\ref{tab:smartnavi-data-sources}.
 
-Exodus Privacy confirms two analytics libraries are included: Firebase Analytics and Crashlytics \url{https://reports.exodus-privacy.eu.org/en/reports/152278/}.\todo{I need to be consistent in presenting these reports.}
+Exodus Privacy confirms two analytics libraries are included: Firebase Analytics and Crashlytics \url{https://reports.exodus-privacy.eu.org/en/reports/152278/}.%\todo{I need to be consistent in presenting these reports.}
 
 
 \begin{table*}
@@ -413,8 +412,8 @@ Exodus Privacy confirms two analytics libraries are included: Firebase Analytics
         Data Source & Records & Volumes & Analysis method & Contribution & Remarks \\
         \toprule
         Development artefacts & Sourcecode\footnotemark & \href{https://github.com/Phantast/smartnavi/commits/master}{92 commits} & Code analysis & Understanding their use of Firebase and Crashlytics & \\
-         Pre-study interviews & contemporaneous notes & 1 & Ask the app devs & Insights into the project \& their use of mobile analytics & Online interview. \\
-         Mid-study communications with developers & GMail & 10\textsuperscript{1} & Ask the app devs & Discussion on the migration to Firebase Crashlytics & Email conversations. \\
+        Pre-study interviews & contemporaneous notes & 1 & Ask the app devs & Insights into the project \& their use of mobile analytics & Online interview. \\
+        Mid-study communications with developers & GMail & 10\textsuperscript{1} & Ask the app devs & Discussion on the migration to Firebase Crashlytics & Email conversations. \\
          \bottomrule
     \end{tabular}
     \caption{Smartnavi: data sources}
@@ -423,9 +422,8 @@ Exodus Privacy confirms two analytics libraries are included: Firebase Analytics
 
 \footnotetext{\url{https://github.com/Phantast/smartnavi}}
 
-\textbf{SmartNavi: Contributions to the research}
-TBC\todo{Add forward links when the relevant material has been included.}.
-SmartNavi contributed to the research in Fabric Crashlytics.
+%\textbf{SmartNavi: Contributions to the research}
+%TBC\todo{Add forward links when the relevant material has been included.} SmartNavi contributed to the research in Fabric Crashlytics.
 
 
 
@@ -514,8 +512,8 @@ At the start of the case study there were two parallel releases in progress, the
 %\subsection{Kiwix: Intervention}
 The \textbf{primary intervention} was for several of the team to address several of the most prevalent crashes during the Kiwix hackathon\index{Hackathon} in August 2019, in Stockholm, Sweden. Follow on bug fixes and an increased interest in using mobile analytics outputs led to further improvements in the stability of the main Android app. When the custom apps were refreshed using the improved codebase their stability also increased.
 
-\textbf{Kiwix: Contributions to the research}
-TBC where they are located in the rest of this thesis.
+%\textbf{Kiwix: Contributions to the research}
+%TBC where they are located in the rest of this thesis.
 
 
 %\clearpage
@@ -523,7 +521,7 @@ TBC where they are located in the rest of this thesis.
 %===================================================================
 
 \section{App-centric: Catrobat}~\label{case-study-overview-catrobat}
-The Catrobat project was created and is actively developed by a team in the Graz University of Technology, Austria~\sidenote{\url{https://www.tugraz.at/en/home/}}. It consists of the flagship Pocket Code app, several custom branded derivatives, and the increasingly popular \Gls{glossary-pocket-paint}\index{Pocket Paint} app which emerged from the Pocket Code app where it remains as a subset of the overall Pocket Code's functionality. The project started in 2010, has had over 1,300 contributors, 4 million downloads, and 350 thousand active users, and is used in 180+ nations in 60+ languages~\sidecite{catrobat_project}.
+The \myindex{Catrobat} project was created and is actively developed by a team in the Graz University of Technology, Austria~\sidenote{\href{https://www.tugraz.at/en/home/}{www.tugraz.at/en/home}}. It consists of the flagship Pocket Code app, several custom branded derivatives, and the increasingly popular \Gls{glossary-pocket-paint}\index{Pocket Paint} app which emerged from the \myindex{Pocket Code} app where it remains as a subset of the overall Pocket Code's functionality. The project started in 2010, has had over 1,300 contributors, 4 million downloads, and 350 thousand active users, and is used in 180+ nations in 60+ languages~\sidecite{catrobat_project}.
 
 The Android app in this case study is an extremely and unusually well researched and properly developed app and codebase.  There are at least 216 contributors for the Android Pocket Code app~\sidecite{github_catroid}.
 
@@ -570,9 +568,9 @@ The Android app in this case study is an extremely and unusually well researched
 \end{table*}
 }
 
-The case study included two main events, 1) a hackathon\index{Hackathon} in November 2019 and 2) participation in a pre-conference workshop in Poland in February 2020. We agreed on a hackathon for a couple of reasons: Kiwix found them beneficial and productive, and the Catrobat team wanted to have a short, unusual and interesting way to try out the concept of using mobile analytics outputs to improve reliability that would also appeal to their developers. 
+The case study included two main events, 1) a hackathon\index{Hackathon} in November 2019 and 2) participation in a pre-conference workshop in Poland in February 2020. We agreed on a hackathon for a couple of reasons: \myindex{Kiwix} found them beneficial and productive, and the \myindex{Catrobat} team wanted to have a short, unusual and interesting way to try out the concept of using mobile analytics outputs to improve reliability that would also appeal to their developers. 
 
-Their project leads selected Pocket Code as the app we would use for the field experiment as it had the higher crash rate and was also a significantly more complex app than their other core app Pocket Paint which was relatively self-contained and simple in terms of both functionality and codebase.
+Their project leads selected \myindex{Pocket Code} as the app we would use for the field experiment as it had the higher crash rate and was also a significantly more complex app than their other core app Pocket Paint which was relatively self-contained and simple in terms of both functionality and codebase.
 
 A second workshop was planned for \nth{28} Feb 2020 . The preparation included opensourced course materials \sidenote{\href{https://github.com/julianharty/testing-with-analytics-workshop/}{github.com/julianharty/testing-with-analytics-workshop/}}. However in the day the workshop did not go as envisaged because of the outbreak of Covid-19\index{COVID-19} that weekend in parts of Europe. Subsequently the project team in Austria was no longer available because of the effects of the pandemic which adversely affected the planned collaboration.
 
@@ -624,15 +622,15 @@ Many perceived good practices were and are assiduously applied on an ongoing bas
 \end{table*}
 
 \textbf{Catrobat: Interventions:} 
-The key intervention was organise a weekend hackathon with an open invitation for any of the extended development team to participate.\todo{TBD whether to describe the planned workshop in any detail.} 
+The key intervention was organise a weekend hackathon with an open invitation for any of the extended development team to participate.
 %
 During day 1 of the hackathon, after informal introductions and a discussion about the aims of the hackathon, the next task was to create tickets in JIRA for the top 10 crash clusters and the top 10 \acrshort{anr} clusters as reported by Android Vitals\index{Android Vitals}. These were reported in JIRA during the first hour of the hackathon, the complete set are available online at \href{https://jira.catrob.at/browse/CATROID-418?jql=labels\%20\%3D\%20hackathon-2019}{jira.catrob.at/browse/CATROID-418?jql=labels\%20\%3D\%20hackathon-2019}. 
 
 The participants, in ones or twos, selected one of these tickets and worked on it. They then selected another ticket and worked on that one. They continued for approximately 5 hours until late afternoon that day. The event closed with a communal meal at a local pizzeria. The participants chose not to continue with day 2 of the hackathon (which was on the Sunday), instead they preferred to work on the issues during the normal working week (Monday to Friday). Several of them did so and continued to work on various tickets raised in the hackathon. The project team made two related releases of the Pocket Code Android app, with cumulative fixes in these releases.
 
 
-\textbf{Catrobat: Contributions to the research}
-TBC\todo{Add forward links when the relevant material has been included.}. Catrobat contributed to the research in Fabric Crashlytics.
+%\textbf{Catrobat: Contributions to the research}
+%TBC\todo{Add forward links when the relevant material has been included.}. Catrobat contributed to the research in Fabric Crashlytics.
 
 
 %\clearpage
@@ -693,8 +691,8 @@ The data was collected contemporaneously during the consulting engagement and su
 \textbf{Intervention:} 
 Working with several teams, including those working on the Android app in particular, to reduce the crash and \acrshort{anr} rates for the app beyond a phased two-stage set of improvements (which were achieved using a combination of Google Play Console\index{Google Play Console} with Android Vitals\index{Android Vitals} as the primary source and measure and Microsoft App Center\index{Microsoft App Center} to augment, corroborate, and provide inter-tool-comparisons).
 
-\textbf{C1: Contributions to the research}
-\textbf{TBD} \todo{Add forward links when the relevant material has been included.}.
+%\textbf{C1: Contributions to the research}
+%\textbf{TBD} \todo{Add forward links when the relevant material has been included.}.
 
 
 %\clearpage
@@ -758,7 +756,7 @@ The related opensource projects are:
 %===================================================================
 \section{Augmenting the app-centric case studies: sourcecode analysis}~\label{section-sourcecode-analysis-to-augment-app-centric-case-studies}
 
-\index{Analysis!Sourcecode}Sections \ref{case-study-overview-gtaf} to \ref{case-study-overview-moonpig} presents four app-centric case studies where the developers were asked of their experiences of using mobile analytics. This work complemented that research by investigating the source code of 107 opensource projects for active Android apps where the source code was freely available on GitHub. 
+\index{Analysis!Sourcecode}Sections \ref{case-study-overview-gtaf} to \ref{case-study-overview-moonpig} presents four app-centric case studies where the developers were asked of their experiences of using mobile analytics. None of these provided access to the source code of their apps. In contrast \ref{case-study-overview-smartnavi}) to \ref{case-study-overview-C1}) did provide access to their sourcecode. As only three  of these case studies have opensourced their source code, and only \myindex{SmartNavi} currently uses an in-app mobile analytics SDK the app-centric case studies weer complemented that research by investigating the source code of 107\sidenote{SmartNavi is included in these 107 projects.} opensource projects for active Android apps where the source code was freely available on GitHub. 
 
 What these 107 projects had in common was they used recent releases of Firebase Analytics. 50 of these simply initialised the SDK and did not include any custom calls to the SDK, the remaining 57 did make custom calls. The analysis of the code was jointly performed with an international group of researchers and published in \sidetextcite{harty2021_logging_practices_with_mobile_analytics}. One of these 57 projects, Smartnavi (see Section \ref{case-study-overview-smartnavi}), also became an app-centric case study in that the developer was interviewed about their use of mobile analytics. 
 
@@ -798,10 +796,10 @@ What these 107 projects had in common was they used recent releases of Firebase 
 
 \section{Tool-centric: Crashlytics}~\label{case-study-overview-crashlytics}
 Crashlytics\index{Crashlytics} grew from a group of developers who wanted to scratch an itch~\sidecite{chang2015_how_six_people_built_crashlytics} into a product that first Twitter and then Google acquired as it became increasingly popular~\sidecite{___answersblog_2015_june_update}. 
-Like many projects and products it morphed over the years and in 2020 Google completed the integration of Crashlytics into Firebase and removed support for older versions of the SDK (which had some knock-on effects in terms of privacy and what the reports contain). Table \ref{tab:crashlytics_case_study_anaytics_overview} provides an overview of Crashlytics.
+Like many projects and products it morphed over the years and in 2020 Google completed the integration of Crashlytics into Firebase and removed support for older versions of the \Gls{sdk} (which had some knock-on effects in terms of privacy and what the reports contain). Table \ref{tab:crashlytics_case_study_anaytics_overview} provides an overview of Crashlytics.
 
-The userbase is based on a claim in 2015~\href{https://blog.twitter.com/developer/en_us/a/2015/crashlytics-now-serving-over-1-million-apps}{blog.twitter.com/.../2015/crashlytics-now-serving-over-1-million-apps} with the assumptions: Android apps were a significant portion, the mean ratio of apps to developers is less than 5, the overall use has increased since 2015. 
-Similar estimates are used to determine the installations from \href{https://blog.twitter.com/developer/en_us/a/2015/fabric-leading-the-sdk-market-in-performance-and-mobile-analytics}{blog.twitter.com/.../fabric-leading-the-sdk-market-in-performance-and-mobile-analytics}. The true figures are hard to ascertain as Google have integrated Crashlytics into Firebase.
+The userbase is based on a claim in a blog post written by the founder~\sidecite{chang2015_crashlytics_now_serving_over_1million_apps} with the assumptions: Android apps were a significant portion, the mean ratio of apps to developers is less than 5, the overall use has increased since 2015. 
+Similar estimates are used to determine the installations from another blog post by the company's founder~\sidecite{chang2015_fabric_now_leading_the_sdk_market_in_performance_and_mobile_analytics}. The true figures are hard to ascertain as Google have integrated Crashlytics into Firebase.
 % See also https://web.archive.org/web/20160429221552/https://fabric.io/blog/milestone-achieved-one-billion-devices/
 
 The primary source of this case study is via the Catrobat\index{Catrobat} case study where the development team were using Fabric Crashlytics in their flagship Pocket Code Android app. Crashlytics also surfaced in several of the developer interviews, and in source code for various opensource projects. Furthermore the researcher has been aware of Crashlytics\index{Crashlytics} through his professional work since at least 2015.
@@ -809,13 +807,15 @@ The primary source of this case study is via the Catrobat\index{Catrobat} case s
 \textbf{Crashlytics: Data collected and methods used for collection}
 The majority of the data collected was done so interactively through using the various reporting user interfaces provided by Fabric and Firebase. Additional data was collected though Grey Data and Grey Literature searches and through analysis of development artefacts.
 
-\textbf{Crashlytics: Contributions to the research}
-As ever at this stage, TBC once more of the next three chapters have been completed.
+%\textbf{Crashlytics: Contributions to the research}
+%As ever at this stage, TBC once more of the next three chapters have been completed.
 
 
 %===================================================================
 \section{Tool-centric: Firebase Analytics} 
-Firebase\index{Firebase} was launched in 2012 \href{https://en.wikipedia.org/wiki/Firebase}{en.wikipedia.org/wiki/Firebase}, Firebase Analytics\index{Analytics!Firebase} was launched in 2016 \href{https://firebase.googleblog.com/2016/05/firebase-expands-to-become-unified-app-platform.html}{firebase.googleblog.com/2016/05/firebase-expands-to-become-unified-app-platform.html}. Various industry sources concur that Firebase Analytics is the most popular mobile analytics library and in well over 50\% of Android apps, for example exodus privacy states 55\% of the Android apps it has analysed have Firebase Analytics~\sidenote{\href{https://reports.exodus-privacy.eu.org/en/trackers/49/}{reports.exodus-privacy.eu.org/en/trackers/49/}}, while AppBrain states it's in 82.88\% of Android apps and an astonishing 99.58\% of installs of new apps~\sidecite{appbrain2021_firebase}. 
+Firebase\index{Firebase} was launched in 2012 \href{https://en.wikipedia.org/wiki/Firebase}{en.wikipedia.org/wiki/Firebase}, Firebase Analytics\index{Analytics!Firebase} was launched in 2016 \href{https://firebase.googleblog.com/2016/05/firebase-expands-to-become-unified-app-platform.html}{firebase.googleblog.com/2016/05/firebase-expands-to-become-unified-app-platform.html}. Various industry sources concur that \myindex{Firebase Analytics} is the most popular mobile analytics library and in well over 50\% of Android apps, for example exodus privacy states 55\% of the Android apps it has analysed have Firebase Analytics~\sidenote{\href{https://reports.exodus-privacy.eu.org/en/trackers/49/}{reports.exodus-privacy.eu.org/en/trackers/49/}}, while AppBrain states it was in 82.88\% of Android apps and an astonishing 99.58\% of installs of new apps~\sidecite{appbrain2021_firebase}. 
+
+Table \ref{tab:firebase_anaytics_overview} provides an overview of the key facts for Firebase Analytics.
 
 {\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table*}
@@ -853,8 +853,8 @@ The case study emerged from developer interviews as part of several of the app-c
 \textbf{Firebase Analytics: Data collected and methods used for collection}
 Screenshots provided by developers and sent to the researcher by email. Source code was cloned from the respective opensource repos on GitHub and analysed using several tools including Google Sheets, Android Studio, and srcML (detailed in \sidetextcite{harty2021_logging_practices_with_mobile_analytics}).
 
-\textbf{Firebase Analytics: Contributions to the research}
-TBC.
+%\textbf{Firebase Analytics: Contributions to the research}
+%TBC.
 
 
 %\clearpage
@@ -906,8 +906,8 @@ The research into Google Play Console with Android Vitals predates the app-centr
 The data included screenshots, extracts, and rekeying of contents from the interactive use of the mobile analytics service, interactive downloads of various monthly reports provided by the service, automated collection of screenshots and textual content through the use of Vitals Scraper, and material provided by interviewees who emailed screenshots and provided extracts. Source code was located through various searches online and through Grey Data, particularly through StackOverflow. 
 
 
-\textbf{Google Play Console with Android Vitals: Contributions to the research}
-TBC - likely to be in all the next three chapters and also elsewhere.
+%\textbf{Google Play Console with Android Vitals: Contributions to the research}
+%TBC - likely to be in all the next three chapters and also elsewhere.
 
 
 %\clearpage
@@ -952,13 +952,15 @@ Two founders jointly created Iteratively\index{Iteratively} and raised seed fund
 }
 
 %\subsection{Iteratively with Amplitude: Background - How the case study came about}
-Patrick Thompson, Iteratively's CEO, contacted the researcher in May 2020. After an opening call with both founders, they were keen to share their experiences and make their tools and research available. The CEO confirmed both verbally and by email I was free to reuse their materials including for research purposes. They also accepted contributions to their materials and research, these were freely given and without charge or obligation. I introduced them to someone I worked with who they subsequently hired and they gave both of us permission to freely discuss details of their products, software, and research, again this is without charge or obligation, nonetheless there is an implicit moral obligation to protect sensitive material so shared and which is being upheld during this research.
+Iteratively's CEO, contacted the researcher in May 2020. After an opening call with both founders, they were keen to share their experiences and make their tools and research available. The CEO confirmed both verbally and by email I was free to reuse their materials including for research purposes. They also accepted contributions to their materials and research, these were freely given and without charge or obligation. I introduced them to someone I worked with who they subsequently hired and they gave both of us permission to freely discuss details of their products, software, and research, again this is without charge or obligation, nonetheless there is an implicit moral obligation to protect sensitive material so shared and which is being upheld during this research.
+
+The key facts for Iteratively with Amplitude are presented in Table \ref{tab:iteratively_with_amplitude_anaytics_overview}.
 
 \textbf{Iteratively with Amplitude: Data collected and methods used for collection}
-Field notes were recorded contemporaneously during the various calls and discussions with the founder and with the developer, in addition there are various email (and WhatsApp) discussions. Field notes were also made, together with screenshots, when using the tools and their online reports. The source code for the Android app is also a form of data, and is on GitHub. It is available: currently on request. It will be opensourced at \href{https://github.com/commercetest/idot}{github.com/commercetest/idot}. Google Play Console's Pre-launch reports have also been collected as screenshots using a web browser.
+Field notes were recorded contemporaneously during the various calls and discussions with the founder and with the developer, in addition there are various email (and WhatsApp) discussions. Field notes were also made, together with screenshots, when using the tools and their online reports. The source code for the Android app is also a form of data, and is on GitHub. It is available: currently on request. It will be opensourced at \href{https://github.com/commercetest/idot}{github.com/commercetest/idot}\index{Micro Experiment!idot}. Google Play Console's Pre-launch reports have also been collected as screenshots using a web browser.
 
-\textbf{Iteratively with Amplitude: Contributions to the research}
-TBC.
+%\textbf{Iteratively with Amplitude: Contributions to the research}
+%TBC.
 
 
 %\clearpage
@@ -966,9 +968,13 @@ TBC.
 %===================================================================
 
 \section{Tool-centric: Microsoft App Center}~\label{case-study-overview-microsoft-app-center}
-App Center\index{App Center!Microsoft} combines various tools and utilities and includes in-app mobile analytics and crash reporting. The crash reporting aspect probably started as part of the HockeyApp\index{HockeyApp} SDK, Microsoft acquired HockeyApp in late 2016~\footnote{\href{https://web.archive.org/web/20150702124106/http://blogs.msdn.com/b/somasegar/archive/2014/12/11/microsoft-acquires-hockeyapp-leading-mobile-crash-analytics-and-beta-distribution-service-for-ios-android-and-windows-phone.aspx}{http://blogs.msdn.com/b/somasegar/archive/2014/12/11/microsoft-acquires-hockeyapp-leading-mobile-crash-analytics-and-beta-distribution-service-for-ios-android-and-windows-phone.aspx} (via the Web Archive project)}. The earliest mention of Crash reporting in HockeyApp's opensource Android SDK is in 2014~\footnote{\href{https://github.com/bitstadium/HockeySDK-Android/commit/3ccd53c44da791806720604b02d358de66ecbf6a}{github.com/bitstadium/HockeySDK-Android/commit/3ccd53c44da791806720604b02d358de66ecbf6a}.}
+App Center\index{App Center!Microsoft} combines various tools and utilities and includes in-app mobile analytics and crash reporting. Table \ref{tab:appcenter_case_study_anaytics_overview} presents the key facts for this case study.
 
-A related opensource project, \href{https://github.com/bitstadium/CrashProbe}{github.com/bitstadium/CrashProbe}, and a related website called crashprobe.com~\sidenote{The Web Archive has an example from 2016 of: \href{https://web.archive.org/web/20161124205240/http://www.crashprobe.com/}{www.crashprobe.com}.}, compared the performance of various crash reporting SDKs. As it was opensourced developers of several of these SDKs contributed both source code and results. An example of the report from April 2017 has been cached by the web archive (\href{https://web.archive.org/web/20170412015831/http://www.crashprobe.com/ios/}{www.crashprobe.com/ios/}) and compares the results of 6 iOS crash reporting tools. 
+The crash reporting aspect probably started as part of the HockeyApp\index{HockeyApp} SDK. Microsoft acquired HockeyApp in late 2016~\footnote{\href{https://web.archive.org/web/20150702124106/http://blogs.msdn.com/b/somasegar/archive/2014/12/11/microsoft-acquires-hockeyapp-leading-mobile-crash-analytics-and-beta-distribution-service-for-ios-android-and-windows-phone.aspx}{http://blogs.msdn.com/b/somasegar/archive/2014/12/11/microsoft-acquires-hockeyapp-leading-mobile-crash-analytics-and-beta-distribution-service-for-ios-android-and-windows-phone.aspx} (via the Web Archive project)} and integrated it into Microsoft App Center. 
+
+The earliest mention of Crash reporting in HockeyApp's opensource Android SDK is in 2014~\footnote{\href{https://github.com/bitstadium/HockeySDK-Android/commit/3ccd53c44da791806720604b02d358de66ecbf6a}{github.com/bitstadium/HockeySDK-Android/commit/3ccd53c44da791806720604b02d358de66ecbf6a}.}
+
+A related opensource project, \href{https://github.com/bitstadium/CrashProbe}{github.com/bitstadium/CrashProbe}\index{CrashProbe opensource project}, and a related website called crashprobe.com~\sidenote{The Web Archive has an example from 2016 of: \href{https://web.archive.org/web/20161124205240/http://www.crashprobe.com/}{www.crashprobe.com}.}, were both created by the team that developed HockeyApp. They compared the performance of various crash reporting SDKs. As it was opensourced developers of several of these \Glspl{sdk} contributed both source code and results. An example of the report from April 2017 has been cached by the web archive (\href{https://web.archive.org/web/20170412015831/http://www.crashprobe.com/ios/}{www.crashprobe.com/ios/}) and compares the results of 6 iOS crash reporting tools. Of note, their \Gls{sdk} only came third in the test results, which indicates the project was an honest contribution to improving the crash reporting \Glspl{sdk}. Microsoft preserved the project and the website post-acquisition but it fell into discuss and was eventually retired.
 
 {\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table*}
@@ -1010,10 +1016,10 @@ Microsoft App Center was integrated into several field experiment Android apps i
 \textbf{Microsoft App Center: Data collected and methods used for collection}
 Screenshots and data obtained through the reporting APIs were collected as part of the assignment. In tandem field notes, email, and other collaboration tools were used on an ongoing basis during the action research period. Issues reported by others were also observed and analysed, for example in terms of how the issues were tracked, the changes to the app source code, and the subsequent testing of the potential fixes.
 
-Grey Literature describes using Hockey App for crash reporting in iOS~\sidecite{birani2016_hockey_app_for_crash_reporting}, the concepts of how to integrate and test crash reporting for Androids was similar.
+Grey Literature describes using Hockey App for crash reporting in iOS~\sidecite{birani2016_hockey_app_for_crash_reporting}, the concepts of how to integrate and test crash reporting for Android was similar.
 
-\textbf{Microsoft App Center: Contributions to the research}
-TBC.
+%\textbf{Microsoft App Center: Contributions to the research}
+%TBC.
 
 
 %\clearpage
@@ -1021,7 +1027,7 @@ TBC.
 %===================================================================
 
 \section{Tool-centric: Sentry}~\label{case-study-overview-sentry}
-Sentry\index{Sentry} is a a good example of a mature investment-funded purpose-built company who provide various analytics services to their customers. They are one of several who have made their software freely available as opensource (others include Count.ly\index{Count.ly} and PostHog\index{PostHog}). Developers incorporate Sentry's SDKs and/or APIs into their software and can either self-host the necessary server-side software or use the services provided by Sentry. There is a free tier which has basic capabilities, and paid-for options.
+Sentry\index{Sentry} is a a good example of a mature investment-funded and purpose-built company who provide a mobile analytics platform together with various analytics services to their customers. They are one of several who have made their software freely available as opensource (others include Count.ly\index{Count.ly}, \myindex{PostHog}, and \myindex{SegmentIO}). Developers incorporate Sentry's \Glspl{sdk} and/or \Glspl{api} into their software and can either self-host the necessary server-side software or use the services provided by Sentry. There is a free tier which has basic capabilities, and paid-for options. Table \ref{tab:sentry_case_study_anaytics_overview} presents the key facts for this case study.
 
 {\renewcommand{\arraystretch}{0.8}% Tighter
 \begin{table*}
@@ -1065,15 +1071,15 @@ One of the app centric case studies, LocalHalo (\secref{case-study-overview-loca
 
 Data was collected interactively, via automated emails, and using their API service.
 
-\textbf{Sentry: Contributions to the research}
-TBC when the next 3 chapters are written.
+%\textbf{Sentry: Contributions to the research}
+%TBC when the next 3 chapters are written.
 
 
 %\clearpage
 
 %===================================================================
 
-\section{Miscellaneous sources of minor contributions}~\label{section-case-study-misc-contributions}
+\section{Miscellaneous sources}~\label{section-case-study-misc-contributions}
 
 These include an opensource project, EduVPN\index{EduVPN}, and six more mobile analytics software tools and associated services: AppPulse Mobile\index{AppPulse Mobile!HP}, AppSee\index{AppSee}, Azetone\index{Azetone}, Count.ly\index{Count.ly}, MixPanel\index{MixPanel}, PostHog\index{PostHog}, and SegmentIO\index{SegmentIO}. For the first three of these I worked indirectly with the development team, evaluated the product and service and provided bug reports and other feedback. These engagements were part of my consulting work with and for what became HP Enterprise (and subsequently was acquired by MicroFocus). Some material has been published in \sidetextcite{harty_aymer_playbook_2016}.
 
@@ -1090,8 +1096,8 @@ These include an opensource project, EduVPN\index{EduVPN}, and six more mobile a
 %===================================================================
 
 \section{Summary of the case studies overview}~\label{case-study-overview-summary}
-This chapter covered a lot of ground. In summary the research includes learning how mobile analytics tools are used from the developers' perspective, some action research, software experiments, and analysis of Android apps that use the most popular mobile analytics service: Firebase Analytics. It then introduces tool centric case studies and finally miscellaneous additional sources of research material.
+This chapter covered a lot of ground. In summary the research includes learning how mobile analytics tools are used from the developers' perspective across a range of mobile app projects. It also presents some action research, software experiments, and analysis of Android apps that use the most popular mobile analytics service: Firebase Analytics. Finally, it introduced tool centric case studies and finally miscellaneous additional sources of research material.
 
-The next three chapters are a set and structured around the six perspectives. They provide findings aligned with three distinct focal points: first the processes used by app developers; second the products of their work, particularly in terms of improving the product artefacts. The third chapter in the set focuses on the mobile analytics tools and related services. Each chapter considers the status-quo and improvements to the status-quo. Sometimes they build on work presented in another of this set of chapters, for example they may cross-reference e.g. in their respective discussion section.
+The next three chapters are a set and structured around the six perspectives. They provide findings aligned with three distinct focal points: first the processes used by app developers; second the products of their work, particularly in terms of improving the product artefacts. The third chapter in the set focuses on the mobile analytics tools and related services. Each chapter considers the status-quo and improvements to the status-quo. Sometimes they build on work presented in another of this set of chapters, for example they may cross-reference each other in their respective discussion sections.
 
 % Excluded from this chapter : the discussion with Sunil on a bank in Australia.
