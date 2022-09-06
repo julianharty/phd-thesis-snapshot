@@ -64,16 +64,16 @@ Analytics, such as user-journeys, can help to answer questions about the usage o
 \end{comment}
 
 \newthought{Reporting/generating and Observing: } 
-What happens within the app stays within the app unless someone looks inside the app or the app reports what's occurring. Observation without action limits the utility of whatever is learned.  Android apps can use a specific library provided by Android to write log messages, called \texttt{android.util.log}~\sidenote{Source code for \href{https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/util/Log.java}{android.util.log}} or they can use various alternatives such as the popular opensource Android project, called Timber~\sidenote{\href{https://github.com/JakeWharton/timber}{github.com/JakeWharton/timber}}. These write to the main log file, one of five Android uses generally (the other ones are used by Android internally but developers can still access all five of these logs.) Another of the five logs is \texttt{LOG\_ID\_CRASH}, used by Android to record crashes - highly pertinent to this research.~\sidenote{For completeness, in native code there are seven distinct logs according to Android source code \href{https://android.googlesource.com/platform/system/core/+/pie-release/liblog/include/log/log_id.h}{log\_id.h}.}
+What happens within the app stays within the app unless someone looks inside the app or the app reports what's occurring. Observation without action limits the utility of whatever is learned.  Android apps can use a specific library provided by Android to write log messages, called \texttt{android.util.log}~\sidenote{Source code for \href{https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/util/Log.java}{android.util.log}} or they can use various alternatives such as the popular opensource Android project, called Timber~\sidenote{\href{https://github.com/JakeWharton/timber}{github.com/JakeWharton/timber}}. These write to the main log file, one of five Android uses generally (the other ones are used by Android internally but developers can still access all five of these logs.) Figure \ref{fig:android-logging-process-for-apps.pdf} illustrates the process used when an Android app writes a log message.
 
 \begin{figure}
-    \includegraphics[width=\linewidth]{images/elinux.org/Android-logging-kmc-kobayashi.pdf}
-    \caption[Android Logging]{Android Logging\\Source \href{https://elinux.org/Android_Logging_System}{elinux.org/Android\_Logging\_System}, license \href{https://creativecommons.org/licenses/by-sa/3.0/}{creativecommons.org/licenses/by-sa/3.0/}}
-    \label{fig:android_logging_circa_2010}
+    \centering
+    \includegraphics[width=\linewidth]{images/my/android-logging-process-for-apps.pdf}
+    \caption{The logging process for apps using \texttt{android.util.log}}
+    \label{fig:android-logging-process-for-apps.pdf}
 \end{figure}
 
-Figure \ref{fig:android_logging_circa_2010}~\sidenote{Published originally around 2010, see \href{http://blog.kmckk.com/archives/2936958.html}{blog.kmckk.com/archives/2936958.html} (in Japanese).} 
-provides a histoical perspective of Android logging infrastructure at the time. It appears to predate the additional log used to record crashes \texttt{LOG\_ID\_CRASH}.
+Another of the five logs is \texttt{LOG\_ID\_CRASH}, used by Android to record crashes - highly pertinent to this research.~\sidenote{For completeness, in native code there are seven distinct logs according to Android source code \href{https://android.googlesource.com/platform/system/core/+/pie-release/liblog/include/log/log_id.h}{log\_id.h}.}
 
 
 \newthought{Survivorship bias: } (\sidecite{wikipedia_survivorship_bias}) is relevant to understanding the information developers receive, some data does not `survive' the journey from source to developer. And much of the information that is does reach the developers does not survive or, perhaps better put, thrive in terms of being used productively. They have plenty of other demands for their time and attention and much of what could be useful isn't used in practice, therefore the data needs to be sufficiently useful and relevant and improvements tractable for any proposed approach to be used long term in practice.
@@ -482,18 +482,19 @@ This research includes case studies and developer reports of examples of analyti
 \section{Conceptual model for DevOps}
 DevOps recognises the benefits of connecting development and operations of software. a Yin Yang symbol recognises there's some negative in the positive and vice-versa. Conceptually, teams can choose to invest in operations while they're developing to improve the operational aspects of their software, for instance by designing in good operability. Similarly when the software is in use by observing the software's behaviours operations can improve the development. Examples include: considering the how improvements could be developed or the software development lifecycle process improved based on how the software is being used.
 
-\begin{figure}
-    \includegraphics[width=0.5\linewidth]{images/wikipedia/Yin_yang.pdf}
+\begin{marginfigure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/wikipedia/Yin_yang.pdf}
     \caption{Yin Yang to represent DevOps}
     \label{fig:yinyang_for_devops}
-\end{figure}
-
+    
+\end{marginfigure}
 
 
 One of the popular concepts in DevOps is represented by an infinite loop in the shape of a horizontal figure of eight like diagram, illustrated in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}.~\sidenote{This example is from a blog post by Atlassian~\url{https://www.atlassian.com/blog/devops/2016-state-of-devops-report} announcing \emph{``The State of DevOps report"} 2016 edition.} There are many variations of this illustration available, perhaps unsurprisingly given the popularity of DevOps and those who write and publish on the topic who may want to give their own spin on the topic.
 
 \begin{figure*}
-    \includegraphics[width=\linewidth]{images/atlassian/atlassian-state-of-devops-report-2016-devopsloop.pdf}
+    \includegraphics[width=0.8\linewidth]{images/atlassian/atlassian-state-of-devops-report-2016-devopsloop.pdf}
     \caption{Atlassian DevOps loop}
     \label{fig:atlassian-state-of-devops-report-2016-devopsloop}
 \end{figure*}

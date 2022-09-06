@@ -223,27 +223,20 @@ In my industry experience, not otherwise covered in my research, I discovered a 
 \end{kaobox}
 
 \section{Fitness-for-purpose}~\label{tata-fitness-for-purpose-section}
-Simply put, the mobile analytics tools need to be fit for purpose. In the context of this research, fit for purpose means that the tools need to:\todo{Revisit the following list once I've added the subsections.}
+Simply put, the mobile analytics tools need to be fit for purpose. In the context of this research, fit for purpose means that the tools need to:
 
 \begin{itemize}
-\item fit the needs and desires of the developers (product fit); 
-\item provide actionable reports; and 
-\item be a good return on any investment the developers make in terms of using the tools.
+    \itemsep0em
+    \item fit the needs and desires of the developers (product fit); 
+    \item provide actionable reports; 
+    \item integrate into workflows; and 
+    \item be a good return on any investment the developers make in terms of using the tools.
 \end{itemize}
+
  
 When the tools integrate into the workflows of the developers, they're more likely to be adopted as long-term companions and therefore demonstrate they provide a good return on investment. 
 
 Note: two of the topics: fidelity and ethical considerations bridge both this section: fitness-for-purpose and the dependability section, they are covered in \secref{tata-cross-cutting-concerns}.
-
-{\small
-\begin{itemize}
-    \itemsep0em
-    \item \sout{Product Fit: whether, and if practical how well, the mobile analytics product fits the desires/needs of the developers and their organisation.}
-    \item \sout{Actionable Reports: reports the developers can action in order to address concerns presented in the reports.}
-    \item \sout{Integration into workflows: the ability of a given mobile analytics tool/service to be integrated into development team's workflows.}
-    \item ROI (return-on-investment): developers may make both implicit and explicit choices on what to invest in, for instance in terms of their focus, their effort, and their money. The analytics tools need to convince developers a) to invest and then b) whether to increase that investment (and if so what forms of investment e.g. in terms of writing more code, spending [more] money, using the tool more, etc.).
-\end{itemize}
-}
 
 \subsection{Product Fit}
 \newthought{Product fit: } addresses whether, and if practical how well, the mobile analytics product fits the desires/needs of the developers and their organisation. It is similar, but more specific than product/market fit~\footnote{\url{https://en.wikipedia.org/wiki/Product/market_fit}} - or conversely the market is pico-sized, gauged at the level of a development team. % See also concepts from https://en.wikipedia.org/wiki/Lean_startup e.g. actionable metrics.
@@ -251,27 +244,27 @@ Note: two of the topics: fidelity and ethical considerations bridge both this se
 Developers of mobile analytics tools, such as Iteratively~\sidenote{Iteratively was acquired by Amplitude in 2021 and the products have been enhanced and integrated into Amplitude's product suite.}, seek ways to identify and determine what app developers will find useful. 
 
 In interviews with Iteratively's CEO, he explained they used various techniques including `ten dots', illustrated in Figure \ref{fig:iteratively-product-market-fit}, during one-to-one semi-structured interviews to help Iteratively prioritise the features they developed and provided. Each interviewee was given the opportunity to complete this exercise, an example of their `dot-voting'~\sidecite{18f_dot_voting} is also provided in Figure \ref{fig:iteratively-product-market-fit}.
-The CEO provided access to their live document containing the results of the `dot-voting' and gave permission to analyse it.~\todo{Consider whether to include the analysis of the dot-votes (currently in the relevant empirical studies chapter).}
+The CEO provided access to their live document containing the results of the `dot-voting' and gave permission to analyse it.%~\todo{Consider whether to include the analysis of the dot-votes (currently in the relevant empirical studies chapter).}
 
 
-\begin{figure}[htbp!]
+\begin{figure*}[htbp!]
 \RawFloats
 \centering
 \begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=\textwidth]{images/iteratively/spend-10-dots.png}
+  \includegraphics[width=\linewidth]{images/iteratively/spend-10-dots.pdf}
   \captionof*{figure}{Spend ten dots}
   \label{fig:iteratively-spend-ten-dots}
 \end{minipage}\hfill%
 \begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=\textwidth]{images/iteratively/dot-voting-example.png}
+  \includegraphics[width=\linewidth]{images/iteratively/dot-voting-example.pdf}
   \captionof*{figure}{Dot-voting example}
   \label{fig:iteratively-dot-voting-example}
 \end{minipage}
     \caption{Iteratively: Product/Market fit}
     \label{fig:iteratively-product-market-fit}
-\end{figure}
+\end{figure*}
 
 \myindex{Iteratively} had developed a combination of an online design tool that created a schema for third-party in-app analytics tools. They also provided build tools and a small client-side SDK (\emph{i.e.} a mobile \Gls{sdk}) which validated the schema had been implemented adequately in the mobile app. %, where all the data from the schema and only the data from the schema would be collected by the relevant mobile analytics SDK.
 Iteratively's SDK was intended to limit the collection to only the data contained in the schema. This was intended to stop the collection of other data (such as \Gls{pii} data). Through the use of the SDK, the build tools, and the online design tool development teams and their colleagues with other roles such as marketing, product, and so on could have a consistent and coherent understanding of the data that was being collected. Of interest to this research, they did not address the collection of errors or failures such as crashes in their SDK.
@@ -282,7 +275,7 @@ In the case of the corporate project, \myindex{C1}, the product (the mobile anal
 
 Finally for this topic, despite many mobile analytics SDKs, there may be situations where none provides the answers the developers seek. As a concrete example, \myindex{SmartNavi} uses \myindex{Firebase} and \myindex{Google Analytics}, mainly for tracking the popularity and the use of the app's features. The app also incorporated Fabric Crashlytics for crash reporting. Nonetheless the developer explained none of these analytics products provided analytics related to software running in the background, as a background process on Android. SmartNavi provides GPS services to other apps and runs in the background. As the Android Platform has evolved Google has embedded restrictions that limit and constrain background processes which meant the SmartNavi software is suspended (paused) by Android. The developer would like to improve the app's behaviours when it runs in the background but lacks the analytics to do so.
 
-\subsection{Actionable Reports}
+\subsection{Actionable Reports}~\label{tata-actionable-reports-topic}
 \textbf{Actionable Reports} are reports the developers can use to decide on what should be done to address concerns presented in the reports. % c.f. actionable metrics https://effectivesoftwaredesign.com/2021/03/23/lean-startup-principles-vanity-metrics-and-actionable-metrics/
 
 Several of the app-centric case studies materialised because the respective development teams became aware of excessive and chronic error rates for their mobile apps. % Kiwix, Catrobat, C1
@@ -436,7 +429,7 @@ An orthogonal topic is included in this section as Google has provided various o
 
 \subsection{Efficacy of the tool}
 % 4 findings currently: Android Vitals, Kiwix, Moodspace (email/empirical studies), Moonpig (email/empirical studies).
-Efficacy of tools considers how efficient and how effective is the tool, i.e. how efficacious is the tool? Did it achieve the objectives it claims to achieve?\todo{These don't quite align with the rest of this topic and should do. TODO - align them :)}
+Efficacy of tools considers how efficient and how effective is the tool, i.e. how efficacious is the tool? Did it achieve the objectives it claims to achieve?%\todo{These don't quite align with the rest of this topic and should do. TODO - align them :)}
 
 \newthought{Android Vitals: } 
 The current design of \myindex{Android Vitals} includes notifications and alerts, the use of colour, comparisons, and so on are all intended to get the attention of the developers and help the developers focus on egregious issues. During the app-centric case studies several project teams provided examples of where these worked. Comparisons with peer apps helped inform and motivate the project team for the commercial app, \myindex{C1}, albeit the product owners appeared to be more interested than the core development team. (Note: the comparison is provided per developer account, per app, rather than per logged-in user, in Google Play Console, \emph{i.e.} anyone able to login to see the app's analytics will see the same set of peer apps.). 
@@ -756,13 +749,15 @@ Another aspect would be helping developers recognise common causes and common fa
 \section[Discussion]{Discussion on mobile analytics tools and their artefacts}~\label{tata-discussion-section}
 Mobile Analytics tools need to evolve to remain current and to attract and retain users. Platform tools have a unique advantage compared to in-app tools as the platform tools can collect data across the entire population~\sidenote{Subject to opt-outs, sampling, network connectivity, and other reasons the data wouldn't be sent from the overall population.}. For the Android platform, Google Play Console and Android Vitals are able to provide comparisons with apps of peers, both peers selected by app store classifications~\sidecite{androiddevelopersblog2021_gpc_powers_better_strategic_decisions_etc} and a custom set selected by the developer~\sidecite{play_console_help_compare_your_apps_android_vitals_and_ratings_with_peer_groups}. 
 
-\subsection{ROI and Fidelity}
-TODO discuss ROI and Fidelity aspects drawing on various improvements mentioned in \secref{tata-fitness-for-purpose-section} and flaws \secref{tata-flaws-topic}.
+\subsection{ROI and Fidelity}~\label{tata-roi-and-fidelity-topics}
+These two topics, ROI and Fidelity, draw on various items mentioned in \secref{tata-fitness-for-purpose-section} and flaws \secref{tata-flaws-topic}.
 
-\newthought{Return On Investment (ROI): } developers may make both implicit and explicit choices on what to invest in, for instance in terms of their focus, their effort, and their money. The analytics tools need to convince developers a) to invest and then b) whether to increase that investment (and if so what forms of investment e.g. in terms of writing more code, spending [more] money, using the tool more, etc.).
+\newthought{\Gls{roi}: } developers may make both implicit and explicit choices on what to invest in, for instance in terms of their focus, their effort, and their money. The analytics tools need to convince developers a) to invest and then b) whether to increase that investment (and if so what forms of investment e.g. in terms of writing more code, spending [more] money, using the tool more, etc.). If a tool or service fails to convince developers of the \Gls{roi} then \emph{in practice} it is not fit for purpose.
     
 \newthought{Fidelity: }
-an accurate, faithful representation. In \secref{tata-fidelity-topic} differences of up to 30 fold were reported by developers in the results presented by different mobile analytics. Fidelity does not seem to have been a topic for research in software analytics generally, for instance it's not mentioned (and nor are threats to validity) in the work of Microsoft where they used software analytics within their Lync Windows software (a forerunner to Skype for Business)\sidecite{musson2013_leveraging_the_crowd_how_48000_users_helped_improve_lync_performance}. There seems to be an implicit assumption the reports and measurements are correct, at least in terms of what has been published on the topic. This research has considered fidelity as a topic and also includes some preliminary measurements and results of flaws in the fidelity.
+an accurate, faithful representation of what has happened in terms of the stability, reliability, and performance of an app. In \secref{tata-fidelity-topic} differences of up to 30 fold were reported by developers in the results presented by different mobile analytics, and similarly various concerns emerged about the fidelity of the reports in several of the app-centric case studies, including \myindex{Catrobat} and the commercial, \myindex{C1} project, and in my mini-experiments.
+
+Fidelity does not seem to have been a topic for research in software analytics generally, for instance it's not mentioned (and nor are threats to validity) in the work of Microsoft where they used software analytics within their Lync Windows software (a forerunner to Skype for Business)\sidecite{musson2013_leveraging_the_crowd_how_48000_users_helped_improve_lync_performance}. There seems to be an implicit assumption the reports and measurements are correct, at least in terms of what has been published on the topic. This research has considered fidelity as a topic and also includes some preliminary measurements and results of flaws in the fidelity.
 
 
 \subsection{Ethical considerations}
