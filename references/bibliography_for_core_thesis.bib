@@ -7286,7 +7286,23 @@ Sleep Sounds
   url = {https://scrumdictionary.com/term/chore/},
 }
 
-@misc{not_yet_cited_segmentio_analytics_android_issue_808_how_to_send_application_crashed_event,
+@misc{segmentio_analytics_android_issue_804_crash_while_initialising_segment,
+    title = {crash while initialising segment},
+    url = {https://github.com/segmentio/analytics-android/issues/804},
+    note = {Accessed \nth{06} September 2022},
+    author = {shrastiRisor},
+    abstract = {
+        Crash log:
+        com.segment.analytics.internal.Utils.getUniqueID (Utils.java:336)
+        com.segment.analytics.internal.Utils.getDeviceId (Utils.java:304)
+        com.segment.analytics.AnalyticsContext.putDevice (AnalyticsContext.java:239)
+        com.segment.analytics.AnalyticsContext.create (AnalyticsContext.java:134)
+        com.segment.analytics.Analytics\$Builder.build (Analytics.java:1467)
+        com.risor.core.analytics.AnalyticsManager.initSegment (AnalyticsManager.java:206) 
+    },
+}
+
+@misc{segmentio_analytics_android_issue_808_how_to_send_application_crashed_event,
     title = {How to send the Application Crashed event},
     url = {https://github.com/segmentio/analytics-android/issues/808},
     note = {Accessed \nth{13} July 2022},
@@ -7314,6 +7330,20 @@ Sleep Sounds
   year = {2018},
   author = {Alan Braithwaite},
   organization = {Segment},  
+}
+
+@misc{sentry2022_anr_in_sentry_init_configurations_due_to_disk_io_issue_2222,
+    title = {ANR in Sentry.initConfigurations due to disk I/O \#2222},
+    url = {https://github.com/getsentry/sentry-java/issues/2222},
+    author = {vibin},
+    year = {2022},
+}
+
+@misc{sentry2022_anr_in_default_android_event_processor_get_external_files_dirs_due_to_disk_io_issue_2223,
+    title = {ANR in DefaultAndroidEventProcessor.getExternalFilesDirs due to disk I/O \#2223},
+    url = {https://github.com/getsentry/sentry-java/issues/2223},
+    author = {vibin},
+    year = {2022},
 }
 
 @misc{sentry_customers,
@@ -7383,6 +7413,17 @@ Sleep Sounds
          I am in charge of developing a website which should be able to show statistics from both Apple's app store and Google Play Store to clients, so they can easily see what's going on. I have figured out some ways to get App Store's data, but the Google Play Developers statistics seem way harder to get. I've heard of scraping, but this wouldn't be a great solution, as it would probably get broken whenever the developers console gets a major update. I'm looking for something which would work like Andlytics or App Annie do, as an example, so I could get data with AJAX or something else (JSON format maybe?) and put it into a database. For now, I haven't found any reliable solution (besides scraping, which seems like a unstable way to go), and this question has been asked a while ago, so I allow myself to ask it again, because maybe now there are some solutions to get around this. All I could find was Google Play APIs, which allow me to fetch data from the public page of the app, but not from developers console, with authentication. Any hints or help will be greatly appreciated :)
   },
   note = {Accessed, \nth{28} Feb 2022},
+}
+
+@misc{stackoverflow2016_how-to-have-a-callback-for-when-a-crash-occurred-while-using-crashlytics-sdk,
+    title = {How to have a callback for when a crash occurred, while using Crashlytics SDK?},
+    url = {https://stackoverflow.com/questions/37256595/how-to-have-a-callback-for-when-a-crash-occurred-while-using-crashlytics-sdk},
+    year = {2016},
+    author = {android developer},
+    extract = {
+        Background: We use Crashlytics SDK to manage app crashes and get needed information about them. So far, the information that the SDK automatically gathered was enough
+        The problem: I'd like to add more information for each crash, such as: available&total heap memory, activity stack,... Thing is, I don't see a way to achieve this.
+    },
 }
 
 @misc{stackoverflow2018_how_can_i_get_app_crash_log_from_google_play_console,
