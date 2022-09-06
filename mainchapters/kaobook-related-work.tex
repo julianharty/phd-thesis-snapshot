@@ -6,23 +6,23 @@
 % Additional, older material is online in https://docs.google.com/document/d/1OdoBsLboTZHzv1UP9g7nUriVLgpu6ZGqjXLmRAAlAfs/edit?usp=sharing
 % New ideas and material are being added to a Google Doc for a while, then I'll revise this chapter. https://docs.google.com/document/d/1i3cCk2-8zwVioAuMbBQDLcUViihhHY6gk0MJNPevFbA/edit?usp=sharing
 
-\begin{figure*}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\linewidth]{images/my/android-app-ecosystem-main-players.png}
     \caption{The Modern Mobile App Ecosystem: Android}
     \label{fig:my_modern-mobile-app-ecosystem}
-\end{figure*}
+\end{figure}
 
-The modern mobile ecosystem, illustrated in Figure~\ref{fig:my_modern-mobile-app-ecosystem}, and inspired by \sidecite[][Figure 1, on p. 96]{KAPOOR2021_socio_technical_platform_ecosystems_etc}, 
-sets the context for the thesis and this chapter together with the research questions. The marketplace - the app store - establishes the ecosystem which generates revenues from the user population and frequently to a lesser extent from the makers -  the developers of the apps. Various providers of utilities and services offer these to the makers and they may also obtain revenues from one or more parties that are part of the ecosystem and/or from others, including advertisers.
+The mobile ecosystems touch on billions of people's lives, where flaws in the apps and the ecosystem can adversely affect the lives of many of those people. Figure~\ref{fig:my_modern-mobile-app-ecosystem} illustrates the main parties engaged in the ecosystem %inspired by \sidecite[][Figure 1, on p. 96]{KAPOOR2021_socio_technical_platform_ecosystems_etc}, 
+and it sets the context for the thesis and this chapter together with the research questions. The marketplace - the app store - establishes the ecosystem which generates revenues from the user population and frequently to a lesser extent from the makers -  the developers of the apps. Various providers of utilities and services offer these to the makers and they may also obtain revenues from one or more parties that are part of the ecosystem and/or from others, including advertisers.
 
-The research reported in this thesis sits at the intersection of prior art in several related fields, namely: software quality, software analytics, and the mobile device ecosystem. %As researchers we understand and recognise there are gaps in the current state of the art. 
+The research reported in this thesis sits at the intersection of prior art in several related fields, namely: software quality, software analytics, and the mobile app ecosystem. %As researchers we understand and recognise there are gaps in the current state of the art. 
 The previous chapter, \secref{chapter-preparing-the-ground}, provided an overview of development practices and introduced various conceptual models followed by various practical aspects pertaining to mobile app development practices.  
-This chapter aims to analyse the state of the art in these fields and identify the pertinent gaps which led to this research being performed, \emph{i.e.} which motivated me to act. The mobile ecosystems touch on billions of people's lives, where flaws in the apps and the ecosystem can adversely affect the lives of many of those people. 
+This chapter aims to analyse the state of the art in these fields and identify the pertinent gaps which led to this research being performed, \emph{i.e.} which motivated me to act.  
 
 Research in how mobile apps are created and tested, the relevance of app stores, service and utility providers, the user bases for mobile apps within the overall population of users of an app store ecosystem are all relevant. And meanwhile understanding why it's hard to create reliable software is also vital as part of acknowledging some of the grim realities development teams need to face if they are to succeed in their other goals and objectives for their mobile apps. An understanding of research into how to measure software qualities, and stability in particular, is key to establishing ways mobile analytics measures these qualities. 
 
-At times this chapter will draw from broader sources, for instance in software development, testing, and analytics as these provide context for the particulars of the mobile app ecosystem. Conversely, in my view, and based on discussions at a peer workshop in Japan~\sidecite{nii_shonan_workshop_152}, I proposed a model, shown in Figure~\ref{fig:my_shonan_hysteresis_sketch}, that seemed to be well accepted and became part of the formal post-workshop report~\sidecite{nii_shonan_152_workshop_report}, where the mobile ecosystem is influencing the desktop app ecosystems. Examples include: app stores, per user licensing across multiple devices, public ratings and reviews, platform (device) level, crash reporting, and usage analytics, and so on.
+At times this chapter will draw from broader sources, for instance in software development, testing, and analytics as these provide context for the particulars of the mobile app ecosystem. Conversely, the mobile ecosystem is influencing the desktop app ecosystems\index{Desktop app ecosystem}. I proposed a model, shown in Figure~\ref{fig:my_shonan_hysteresis_sketch}, that seemed to be well accepted and became part of the formal post-workshop report~\sidecite{nii_shonan_152_workshop_report}, where the mobile ecosystem is influencing the desktop app ecosystems. Examples include: app stores, per user licensing across multiple devices, public ratings and reviews, platform (device) level, crash reporting, and usage analytics, and so on.
 
 \begin{figure}
     \centering
@@ -31,7 +31,7 @@ At times this chapter will draw from broader sources, for instance in software d
     \label{fig:my_shonan_hysteresis_sketch}
 \end{figure}
 
-If the mobile ecosystem is influencing other ecosystems, perhaps this research will also apply to those ecosystems, albeit there are likely to be many distinctions as each ecosystem is distinct and unique.
+%If the mobile ecosystem is influencing other ecosystems, perhaps this research will also apply to those ecosystems, albeit there are likely to be many distinctions as each ecosystem is distinct and unique.
 
 \newthought{A note on the choice of ecosystem}: 
 The practicalities of the research and the case studies where nearly all the work pertains to the Google Android ecosystem also helps in the selection criteria of relevant related works. As the vast majority of active research in the domain of mobile apps also pertains to this ecosystem, this means the topic is richly served in terms of related works.
@@ -76,6 +76,9 @@ To be successful in applying continuous delivery Humble identifies the importanc
 
 Early work, presented at ICSE in 1997, compared two approaches to software testing - debug testing and operational testing~\sidecite{frankl1997choosing_testing_for_reliability}. Their research considered the two approaches including their efficacy at improving reliability of the software being tested. This work challenged the focus on faults which they stated was nebulous and not necessarily the best term to use to describe what happened when failures were detected or when changes were made to 'fix' the code that led to the failures. They introduced the notion of \emph{failure regions}, which could be \emph{``eliminated by a program change''}[p. 70]. This research and associated concepts align well with the use of mobile analytics to identify failures, and failure regions that are detected by mobile analytics and potentially addressed by changes to the program \emph{i.e.} the mobile app. We will revisit this paper in \secref{rw-mobile-app-crashes-topic}.
 
+The authors discussed the potential perils of relying on the judgement of people involved in debug testing (testing to maximise the faults found in a given period). They referenced~\sidecite{basili1994_software_process_evolution_at_the_sei} where testers who focused on `testing' over-estimated their abilities to find all the faults in a program. To counter the peril they proposed comparing the effectiveness of testing by using operational profiles~\sidecite[][p. 77]{frankl1997choosing_testing_for_reliability}.
+
+Another concern raised by Frankl \emph{et al} is the potential for debug testers to confuse \emph{``between detecting failures and achieving reliability.''}~\sidecite[][p. 77]{frankl1997choosing_testing_for_reliability}. 
 
 %Measuring software quality
 
@@ -132,7 +135,7 @@ Microsoft are not unique in publishing research about the use of software analyt
 \subsubsection{Connecting failures with software analytics}
 In a short paper~\sidecite{kidwell2015_toward_fault_taxonomy_application_of_software_analytics}, the authors propose combining fault classification and software analytics for five types of decisions. These are: targetting testing, release planning, judging stability, targeting training, and targeting inspection of software. failure data mined from software analytics tools such as crash reporting tools helps to bring their concepts and ideas to life. Their paper provided initial indicative evidence of their proposals through evaluation of changes to source code for the Eclipse software and discusses the measurement of refactoring to provide more accurate and relevant measurements of the efficacy of the refactoring, rather than considering approaches to improve mobile apps.
 
-\subsubsection{Caveats with software analytics}
+\subsubsection{Caveats with software analytics}~\label{rw-caveats-with-software-analytics-topic}
 % This might be better placed in the discussion or later chapter. TBD.
 Using software analytics leads to several \textit{caveats} to consider the `so what' aspects and whether the research is being done well. 
 \emph{``Software Analytics, so what?"}~\cite{menzies2013_software_analytics_so_what} to set the context. TODO Revisit this paper in the discussion. Low latency in order to be actionable...
@@ -182,6 +185,9 @@ Their research is one of several that discusses the gaming of app store ratings,
 \emph{Future Trends in Software Engineering Research for Mobile Apps}~\sidecite{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} focuses attention on the software development life-cycle, it does not investigate usage or operational aspects. Figure~\ref{fig:nagappan2016_future_trends_in_sw_eng_for_mobile_apps_figure_1_annotated} is an annotated version of their Fig. 1. [on p. 22](\textit{ibid}) where the annotation shows the key operational and usage areas this work did \emph{not} cover. 
 
 
+\begin{comment}
+
+
 % Note this could do with expanding while retaining the citation (which leads to Float(s) lost quite often) I'd prefer the proper begin{figure) that's currently commented out.
     {\centering
     \includegraphics[width=\linewidth]{images/related-work/future-trends-in-sweng-for-mobile-apps-fig-1-annotated.pdf}
@@ -189,15 +195,15 @@ Their research is one of several that discusses the gaming of app store ratings,
     \label{fig:nagappan2016_future_trends_in_sw_eng_for_mobile_apps_figure_1_annotated}
     } % Thanks to https://tex.stackexchange.com/a/232290/88466
 
-\begin{comment}
+\end{comment}
 
-\begin{figure}
+\begin{figure*}
     \centering
     \includegraphics[width=\linewidth]{images/related-work/future-trends-in-sweng-for-mobile-apps-fig-1-annotated.pdf}
     \caption{Annotated version of the framework for presenting the state-of-the-art in software engineering for mobile apps~\cite{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}}
     \label{fig:nagappan2016_future_trends_in_sw_eng_for_mobile_apps_figure_1_annotated}
-\end{figure}
-\end{comment}
+\end{figure*}
+
 
 Mining review data for various forms of data including requests for bug fixes as is using rating as an assessment of goodness. 
 Figure~\ref{fig:nagappan2016_future_trends_in_sw_eng_for_mobile_apps_figure_2_annotated} is an annotated version of their Fig. 2 [on p. 23](\textit{ibid}). The annotations include feedback in the forms of ratings and reviews and in the form of mobile analytics. Various sources of information can be used by the development team, of these ratings and reviews are broadly researched, whereas device-level and app-level analytics have not been previously researched.
@@ -467,10 +473,10 @@ Feedback can also be generated by software at run time. These include GUI-orient
 %\subsection{Venn Diagram of feedback sources for developers}
 % I've sketched out a Venn diagram that led to the development of Table \ref{tab:feedback-sources-about-their-app-for-devs} however Marian warned me not to get myself into a rabbit hole trying to write up these forms of feedback. The Venn diagram would be part of that writing up so for now I'm hiding it from the generated doc.
 
-\begin{figure}
+\begin{figure*}
 \RawFloats
 \centering
-\begin{minipage}{.4\textwidth}
+\begin{minipage}{.4\linewidth}
   \centering
   \includegraphics[width=\textwidth]{images/xkcd/tornadoguard.pdf}
   \captionof*{figure}{TornadoGuard \url{https://xkcd.com/937}}
@@ -478,13 +484,13 @@ Feedback can also be generated by software at run time. These include GUI-orient
 \end{minipage}\hfill%
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=\textwidth]{images/xkcd/star_ratings.pdf}
+  \includegraphics[width=\linewidth]{images/xkcd/star_ratings.pdf}
   \captionof*{figure}{Understanding online star ratings \url{https://xkcd.com/1098}}
   \label{fig:xkcd-star-ratings}
 \end{minipage}
     \caption{XKCD's views on App Store Ratings and Reviews}
     \label{fig:xkcd-app-store-ratings}
-\end{figure}
+\end{figure*}
 % https://www.explainxkcd.com/wiki/index.php/937:_TornadoGuard
 % https://www.explainxkcd.com/wiki/index.php/1098:_Star_Ratings
 
@@ -590,12 +596,11 @@ The authors did not mention whether they reported the crashes to the app develop
 App stores, their ecosystems, and their effects on developers have been covered from various angles. Some of the research describes snapshots of one or more app stores. And some of the research involves developers of live apps in a mainstream app store. Ratings and reviews are covered from many angles including fraud~\sidecite{xie2015_appwatcher_unveiling_the_underground_market_of_trading_mobile_app_reviews}. 
 
 One of the curiosities reported in~\textcite{alsubaihin2019app_store_effects_on_software_engineering} is: \emph{``while automatic in-app crash reporting is the most prolific channel of reporting bugs, the one mostly prioritised by our respondents is user reviews in app stores."}[p. 13] - what are the effects of the crashes being a lower priority than user reviews? Also, they don't discuss other sources of crash reports (e.g. platform crash reporting) even though these existed at the time of their research.
-
+%
 Similarly, in terms of managing releases in app stores, the platform provided release management tools and reports were not mentioned. 
 
-Several points made in \sidecite{frankl1997choosing_testing_for_reliability} discuss the potential perils of relying on the judgement of people involved in debug testing (testing to maximise the faults found in a given period), the first point is based on work by \sidecite{basili1994_software_process_evolution_at_the_sei} where testers who focused on `testing' over estimated their abilities to find all the faults in a program, by proposing it is possible to compare the effectiveness of testing by using operational profiles~\sidecite[][p. 77]{frankl1997choosing_testing_for_reliability}.
-
-The second point is there is the potential for debug testers to confuse \emph{``between detecting failures and achieving reliability.''}~\sidecite[][p. 77]{frankl1997choosing_testing_for_reliability}. Mobile Analytics might be able to provide a real-world measure in terms of achieving reliability. Furthermore, much of the research into mobile app crashes seems to end prematurely - before considering whether reliability of the app has been improved by whatever method and approach they have researched.
+\subsection{Setting the direction for this research}~\label{rw-setting-the-direction-for-this-research-topic}
+Following on from a point raised earlier in this chapter: emph{``between detecting failures and achieving reliability.''}~\sidecite[][p. 77]{frankl1997choosing_testing_for_reliability}. Mobile Analytics might be able to provide a real-world measure in terms of achieving reliability. Furthermore, much of the research into mobile app crashes seems to end prematurely - before considering whether reliability of the app has been improved by whatever method and approach they have researched.
 
 \begin{quote}
     \emph{``...with explicit and implicit feedback now available (almost) continuously, questions arise. How can practitioners use this information and integrate it into their development processes to decide when to release updates?''}\cite[pp. 48-49]{maalej2016_towards_data_driven_requirements_engineering}    
