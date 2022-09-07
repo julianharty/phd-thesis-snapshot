@@ -95,17 +95,17 @@ The LocalHalo app-centric case study provides an illustration where app crashes 
 
 % The following is hacked it should dynamically calculate the width of the full page (\textwidth is calculated earlier and doesn't account for the extra width provided by using figure* I have read about how to address this for captions (see https://tex.stackexchange.com/a/128490/88466), for now I'll live with the hack.
 \begin{figure*}[htbp!]
-\RawFloats
-\centering
-\begin{minipage}{.45\linewidth}
+%\RawFloats
+%\centering
+\begin{minipage}{.49\linewidth}
   \centering
   \includegraphics[width=\linewidth]{images/localhalo/apphealthoverviewplace_5550596_no_data.pdf}
-  \captionof*{figure}{App Health Overview page}
+  {\footnotesize App Health Overview page}
 \end{minipage}\hfill%
-\begin{minipage}{.45\linewidth}
+\begin{minipage}{.49\linewidth}
   \centering
   \includegraphics[width=\linewidth]{images/localhalo/apphealthdetailsplace_55505963_no_data.pdf}
-  \captionof*{figure}{App Health Details page}
+  {\footnotesize App Health Details page}
 \end{minipage}
     \caption{No Android Vitals reports on \nth{16} March 2020}
     \label{fig:localhalo-android-vitals-no-data-16-march-2020}
@@ -114,17 +114,17 @@ The LocalHalo app-centric case study provides an illustration where app crashes 
 Figure~\ref{fig:localhalo-android-vitals-high-failures-26-march-2020} was recorded ten days later in \nth{26} March 2020 and shows the alerts for both high crash and ANR rates in the App Health Overview page and the graph for the rampant crash rate in the corresponding App Health Details page. These indicate the failures were related to the native runtime rather than within the React Native code. These were not reported by any Sentry Alerts and they do not appear in the weekly summary reports, except potentially by the absence of data shown in Figure~\ref{fig:sentry-missing-data-march-2020}. While the reason for this was not explained in the interviews or in the analytics data, it is likely that this caused by severe crashes that prevented Sentry's SDK from reporting any data.
 
 \begin{figure*}[htbp!]
-\RawFloats
-\centering
-\begin{minipage}{.45\linewidth}
+%\RawFloats
+%\centering
+\begin{minipage}{.47\linewidth}
   \centering
   \includegraphics[width=\linewidth]{images/localhalo/apphealthoverviewplace_5550596_high_errors.pdf}
-  \captionof*{figure}{App Health Overview page}
+  {\footnotesize App Health Overview page}
 \end{minipage}\hfill%
-\begin{minipage}{.45\linewidth}
+\begin{minipage}{.47\linewidth}
   \centering
   \includegraphics[width=\linewidth]{images/localhalo/apphealthdetailsplace_55505963_high_errors.pdf}
-  \captionof*{figure}{App Health Details page}
+  {\footnotesize App Health Details page}
 \end{minipage}
     \caption{Alerts and graphs in Android Vitals on \nth{26} March 2020}
     \label{fig:localhalo-android-vitals-high-failures-26-march-2020}
@@ -138,18 +138,16 @@ This was traced to a problem in the expo library the development team used in th
 
 
 \begin{figure*}[htbp!]
-\RawFloats
-\centering
-\begin{minipage}{.45\textwidth}
+\begin{minipage}{.49\linewidth}
   \centering
-  \includegraphics[width=\textwidth]{images/localhalo/sentry-weekly-report-16-mar-2020.pdf}
-  \captionof*{figure}{\nth{16} -~\nth{22} March 2020}
+  \includegraphics[width=\linewidth]{images/localhalo/sentry-weekly-report-16-mar-2020.pdf}
+  {\footnotesize \nth{16} -~\nth{22} March 2020}
   \label{fig:localhalo-sentry-weekly-report-16-mar-2020}
 \end{minipage}\hfill%
-\begin{minipage}{.45\textwidth}
+\begin{minipage}{.49\linewidth}
   \centering
   \includegraphics[width=\textwidth]{images/localhalo/sentry-weekly-report-23-mar-2020.pdf}
-  \captionof*{figure}{\nth{23} -~\nth{29} March 2020}
+  {\footnotesize \nth{23} -~\nth{29} March 2020}
   \label{fig:localhalo-sentry-weekly-report-23-mar-2020}
 \end{minipage}
     \caption{Missing data reported in Sentry, in March 2020}
@@ -248,18 +246,16 @@ The CEO provided access to their live document containing the results of the `do
 
 
 \begin{figure*}
-\RawFloats
-\centering
-\begin{minipage}{.45\textwidth}
+\begin{minipage}{.47\linewidth}
   \centering
   \includegraphics[width=\linewidth]{images/iteratively/spend-10-dots.pdf}
-  \captionof*{figure}{Spend ten dots}
+  {\footnotesize Spend ten dots}
   \label{fig:iteratively-spend-ten-dots}
 \end{minipage}\hfill%
-\begin{minipage}{.45\textwidth}
+\begin{minipage}{.47\linewidth}
   \centering
   \includegraphics[width=\linewidth]{images/iteratively/dot-voting-example.pdf}
-  \captionof*{figure}{Dot-voting example}
+  {\footnotesize Dot-voting example}
   \label{fig:iteratively-dot-voting-example}
 \end{minipage}
     \caption{Iteratively: Product/Market fit}
@@ -731,6 +727,9 @@ developed a set of opensource projects called CrashScope which they and various 
 %%%% More links
 % https://github.com/bitstadium/CrashProbe
 % 
+
+We could compare the proposal with a long-running initiative, called SPEC, that was started by several technology companies~\sidecite[][p. 490]{grey1993_overview_of_the_spec_benchmarks}. Various SPEC benchmarks have been developed over the decades~\sidenote{\href{https://www.spec.org/benchmarks.html}{www.spec.org/benchmarks.html}}, for instance in performance of machine learning~\sidecite{mattson2020_mlperf_etc}. There are flaws in the SPEC benchmarks (\emph{e.g.}~\sidecite{giladi1995_spec_a_performance_evaluation_standard}) and companies were known to have gamed the results, nonetheless they have stood the test of time and allow for both the benchmarks and results~\sidenote{\href{https://www.spec.org/results.html}{www.spec.org/results.html}} to be made public, debated, and discussed.
+% Evolution and evaluation of SPEC benchmarks https://doi.org/10.1145/306225.306228
 
 \subsection{Improving the analytics performed}~\label{tats-improving-the-analytics-performed}
 The analytics on offer in the current tools are basic and the pre-determined groupings are fixed by the tool / service provider. For the enterprise-level paid-for services Google and Microsoft~\sidenote{For example, for Microsoft App Center, see \href{https://docs.microsoft.com/en-us/appcenter/gdpr/analytics-export}{docs.microsoft.com/en-us/appcenter/gdpr/analytics-export}}\index{Microsoft App Center} provide mechanisms for the data to be exported for their in-app analytics (not for \myindex{Android Vitals} or Google Play Console, as far as I can tell). It is not clear to what extent enterprise customers can configure the analytics that's performed, there was no opportunity to evaluate it in the Industrial case study, \myindex{C1}.\sidenote{Perhaps a topic for future research?}

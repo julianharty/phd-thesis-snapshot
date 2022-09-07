@@ -49,20 +49,6 @@ Within an app the observation may focus at a single layer, for instance the visu
 
 Analytics, such as user-journeys, can help to answer questions about the usage of the software. They help establish \emph{what-is}. As we understand more about what-is we can then consider \emph{what-would-be-better} and do gap analysis between what-is and what-would-be-better.
 
-\begin{comment}
-
-\begin{figure*}
-    \copyrightbox[r]{
-        \includegraphics[width=\linewidth]{images/github/loggerstructure.pdf}}
-    {\textcopyright \href{{https://twitter.com/daroczig}}{daroczig}\\source: \href{https://github.com/daroczig/logger/blob/master/vignettes/logger_structure.svg}{logger\_structure.svg}}
-    \caption{TEMP - to be replaced: Logger Structure from an R Logger project - TBC whether to provide something similar}
-    \label{fig:temp_logger_structure}
-\end{figure*}
-
-\textbf{SHOULD-DO}, it'd be great to have a figure similar to \url{https://github.com/daroczig/logger/blob/master/vignettes/logger_structure.svg} for platform-level analytics. Temporarily it's included here in Figure~\ref{fig:temp_logger_structure}.
-
-\end{comment}
-
 \newthought{Reporting/generating and Observing: } 
 What happens within the app stays within the app unless someone looks inside the app or the app reports what's occurring. Observation without action limits the utility of whatever is learned.  Android apps can use a specific library provided by Android to write log messages, called \texttt{android.util.log}~\sidenote{Source code for \href{https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/util/Log.java}{android.util.log}} or they can use various alternatives such as the popular opensource Android project, called Timber~\sidenote{\href{https://github.com/JakeWharton/timber}{github.com/JakeWharton/timber}}. These write to the main log file, one of five Android uses generally (the other ones are used by Android internally but developers can still access all five of these logs.) Figure \ref{fig:android-logging-process-for-apps.pdf} illustrates the process used when an Android app writes a log message.
 
@@ -572,8 +558,8 @@ In October 2020, one of the students taking part in the PhD symposium at the ICS
 Figure~\ref{fig:oberve-and-apply-devops-loop} is revised illustration that shows, in red, the extent software can be observed, and in green of when the results of those observations can be applied to the code. Note: the observations can be applied throughout every phase, for instance during deployment aberrant behaviour observed during the deployment may lead to the deployment being paused.
 
 \begin{figure*}
-    \includegraphics[width=\linewidth]{images/rough-sketches/hack-of-devops-crash-figure.pdf}
-    \caption[Concept of feedback on software and applying it]{Rough Sketch: Concept of feedback on software and applying it}
+    \includegraphics[width=\linewidth]{images/icst-2020/annotated-crash-reproduction.pdf}
+    \caption[Concept of applying feedback on software in DevOps]{Concept of feedback on software and applying it in a DevOps lifecycle}
     \label{fig:oberve-and-apply-devops-loop}
 \end{figure*}
 
