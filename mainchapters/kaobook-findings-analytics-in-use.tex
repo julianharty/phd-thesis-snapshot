@@ -218,9 +218,10 @@ One of the success factors is what the developers notice in mobile analytics rep
 
 
 \section{Competence and optimisations}~\label{aiu-competence-and-optimisations-section}
+At a high-level there are two key competences, to enable the app to use any of the in-app analytics, details and examples of how to do so are in \secref{aata-code-facing-topics}, and then to actually use the reports and apply the results. The rest of this section presents the other competencies identified in this research.
 
 \subsection{Using issue databases and preserving information}~\label{aiu-using-issue-databases-and-preserving-information-topics}
-The GTAF team create issues in their online issue database \href{https://gitlab.com/greentech/}{gitlab.com/greentech/} for crashes and include links to the source information in the respective mobile analytics tool. These links are a) only available to people who already have access to the mobile analytics account, and b) are ephemeral. There are several ways development teams can extend the useful life of the private and ephemeral contents. 
+The \Gls{gtaf}\index{GTAF} team create issues in their online issue database \href{https://gitlab.com/greentech/}{gitlab.com/greentech/} for crashes and include links to the source information in the respective mobile analytics tool. These links are a) only available to people who already have access to the mobile analytics account, and b) are ephemeral. There are several ways development teams can extend the useful life of the private and ephemeral contents. 
 
 In the three action-research app-centric case studies screenshots of the contents of the reports were combined with extracts of various pertinent statistics, for instance the frequency of a particular crash cluster. These contents were added to issues in the issues database. The developers appreciated the additional information (together with an online link to the relevant report which helped them check for any updates while that report was still available) they said it helped them appreciate the magnitude of the problem which, in turn, helped motivate them to address the issue sooner. The data was generally collected manually and pasted manually when the issues were raised, in part as automating the preservation of the reports is beyond the remit of individual team members.
 
@@ -294,7 +295,7 @@ These links eventually decay once the source content is no longer available, as 
 
 Despite best intentions on multiple projects there were examples where developers did not add the pertinent cross-referencing between the issues database and the mobile analytics service. %\pending{Ask Moonpig how they did the cross-referencing and how reliably/consistently it was done.}
 
-At least one of the projects, the Commercial Project, used APIs provided by the mobile analytics service to systematically export the contents of the crashes and errors that were captured in that tool: Microsoft App Center~\sidenote{Note: several other mobile analytics tools also provide similar API integration points, some of these will be discussed in \secref{chapter-tools-and-their-artefacts}.}\todo{Refine the link once that material has been written.}. Doing so enabled the data to be mined in combination with various other sources of data, however the details are beyond the scope of this PhD.
+At least one of the projects, the Commercial Project, used APIs provided by the mobile analytics service to systematically export the contents of the crashes and errors that were captured in that tool: Microsoft App Center~\sidenote{Note: several other mobile analytics tools also provide similar API integration points, some of these will be discussed in \secref{tata-integration-into-workflows-topic}.}. Doing so enabled the data to be mined in combination with various other sources of data, however the details are beyond the scope of this PhD.
 
 
 \section{Benefits and achievements}~\label{aiu-benefits-and-achievements-section}
@@ -355,7 +356,7 @@ They incorporated \myindex{Firebase Analytics} for usage, crash, and  error repo
 
 Conversely several of the case studies demonstrated that \textbf{inattention leads to entropy} in terms of using mobile analytics to maintain the stability and reliability of their apps. \myindex{Kiwix} lost the lead developer in early 2021 and first the crash rate and subsequently the \Gls{anr} rate increased markedly. \Gls{gtaf} similarly would experience bouts of excessively high crash rates until they focused their attention on addressing them. \myindex{LocalHalo} hadn't noticed the loss of reports in \myindex{Sentry} nor the increase in \myindex{Android Vitals} until the issues were pointed out to them via this research. None of the projects were immune from the adverse effects of inattention, however, \myindex{Moonpig} were by far the most effective at finding and addressing the issues quickly and their periods of inattention were brief.
 
-Glspl(plr) can be incorporated into developer's practices to improve the quality of Android apps and several of the case studies, including \myindex{Kiwix}, \myindex{GTAF} and \myindex{Catrobat} use them. The reports are discussed in the Tools chapter\todo{Add the relevant topic reference.}.
+Glspl(plr) can be incorporated into developer's practices to improve the quality of Android apps and several of the case studies, including \myindex{Kiwix}, \myindex{GTAF} and \myindex{Catrobat} use them. The reports are discussed in the Tools chapter, in \secref{tata-pre-launch-reports-topic}.
 
 
 \section{Interventions to increase use of mobile analytics}~\label{aiu-interventions-theme}
@@ -384,7 +385,7 @@ As a concrete example of perhaps the most detailed review, for the Moonpig Andro
 
 The developer investigated this reported issue and could not find any crash in Firebase or Android Vitals that might affect purchases. A possible reason for why the crash did not appear in Android Vitals is that the underlying data is only provided by a user's device if they've opted-in to automatically providing their usage and diagnostics data~\sidecite{google_play_view_crashes_and_anr_errors} \textit{and} if the aggregate data exceeds an undocumented threshold (a topic discussed elsewhere in the thesis). 
 
-Monitoring reviews can be useful to identify issues including user dissatisfaction (app reviews are discussed in the Literature)\todo{Add link and make this comment more specific to what's covered in the Lit. Review.}. In this case there was insufficient evidence to corroborate the user's report. As a side note, Google Play Console provides automated analysis of reviews, including those that infer stability issues for instance that have the word `crash' in them~\sidecite{googlesupport_reviews_analysis}. In the author's experience the analysis is imperfect, future research might be of interest.
+Monitoring reviews can be useful to identify issues including user dissatisfaction (app reviews are discussed in the Literature, in \secref{rw-reviews-in-app-stores}). In this case there was insufficient evidence to corroborate the user's report. As a side note, Google Play Console provides automated analysis of reviews, including those that infer stability issues for instance that have the word `crash' in them~\sidecite{googlesupport_reviews_analysis}. In the author's experience the analysis is imperfect, future research might be of interest.
 
 
 
@@ -446,7 +447,7 @@ The CTO of LocalHalo clearly recognised the ROI of fixing crashes. As he said du
     ``If you have lots of crashes you have zero chance of being promoted [by the app store].''
 \end{quote}
 
-The Kiwix project provides a good example of the ROI where two major crashes were addressed within a few hours of elapsed time and resulted in a decrease in the crash rate of the app of approximately a third. The next chapter provides more details of this example.\todo{Add cross-reference when the material is in the next chapter.}
+The Kiwix project provides a good example of the ROI where two major crashes were addressed within a few hours of elapsed time and resulted in a decrease in the crash rate of the app of approximately a third. The next chapter provides more details of this example in \secref{aata-improvements-in-crash-rates-topic}.
 
 A common and consistent theme that emerged was the importance of engineering leadership\index{Engineering leadership} who sees the value of applying mobile analytics and related software quality engineering practices in order to use mobile analytics effectively to improve the mobile app development processes. 
 
