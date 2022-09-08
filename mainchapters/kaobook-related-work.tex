@@ -101,12 +101,12 @@ In the Buse and Zimmermann paper they \emph{``distinguish between questions of i
 \emph{``Information needs for software development analytics"}~\cite{buse2012_information_needs_for_software_development_analytics}. They asked 110 Microsofties, a mix of development leads and managers about their use of software development analytics. MUST-DO discuss how my work and their guidelines for software development analytics align. What does my work add to their work? What does it provide that they identified back in 2012? Their focus seems to be more on the code than the product of the code (apps and the services (and the qualities of those services) those apps provide to end users). What information do mobile app developers need in terms of improving the reliability of their apps? How can the developers make good decisions in this area?
 
 
-\begin{figure}
+\begin{figure*}
     \centering
     \includegraphics[width=\linewidth]{images/related-work/buse2012-edited-figure-2.pdf}
-    \caption{Revised Figure 2 from TODO}~\footnote{\cite{buse2012_information_needs_for_software_development_analytics}}
+    \caption{Revised Figure 2 from \cite{buse2012_information_needs_for_software_development_analytics}}
     \label{fig:buse2012-edited-figure-2}
-\end{figure}
+\end{figure*}
 
 
 \begin{itemize}
@@ -170,16 +170,23 @@ Miluzzo \emph{et al} introduced other relevant research aspects, \textit{i.e.}  
 
 In more recent research, \textcite{wang2019_understanding_the_evolution_of_mobile_app_ecosystems_a_longitudinal_measurement_of_google_play} provided an helpful longitudinal evaluation of the Google Play ecosystem and raises interesting questions and observations about Google Play; but does not seem to consider flaws, or the effects of flaws, in the app store's data collection, algorithms,\textit{ etc.}
 
-In terms of effects of app stores on software engineering practices there have been several seminal papers written by authors at UCL as part of their App Store Analysis Group~\footnote{http://www0.cs.ucl.ac.uk/staff/F.Sarro/projects/UCLappA/UCLappA.html} while it was active (until roughly 2019). Of these papers, \emph{``App store effects on software engineering practices"}~\sidecite{alsubaihin2019app_store_effects_on_software_engineering} combined interviews with a survey to ask developers of their experiences of developing mobile apps and how those experiences differed with developing other software. There are  other papers that consider the app store from various perspectives but they do not cover software quality or mobile analytics.
+In terms of effects of app stores on software engineering practices there have been several seminal papers %written by authors at UCL as part of their App Store Analysis Group~\footnote{http://www0.cs.ucl.ac.uk/staff/F.Sarro/projects/UCLappA/UCLappA.html} while it was active (until roughly 2019). 
+
+Of these papers, \emph{``App store effects on software engineering practices"}~\sidecite{alsubaihin2019app_store_effects_on_software_engineering} combined interviews with a survey to ask developers of their experiences of developing mobile apps and how those experiences differed with developing other software.
 
 Of the ten developers they interviewed a couple were for popular apps (800,000 downloads, 2,000 ratings, 1,000 ratings), the rest were for less popular apps. % 0.1% ratings to downloads for a developer of 1M downloads app: https://www.quora.com/What-is-a-typical-ratio-of-reviews-to-active-users-to-downloads-for-iOS-and-Google-Play-apps
 Their research identified automatic in-app crash reporting as the most frequent source of bug reports and the second-most frequently addressed in terms of bug fixes (end-user written bugs were addressed slightly more frequently)~\cite[p. 10]{alsubaihin2019app_store_effects_on_software_engineering}. 
 
-Of particular interest was the discovery that the quality of the [source] code was the least important factor to build a successful app according to the survey results and furthermore the number of downloads were the highest measure of success~\cite[p. 13]{alsubaihin2019app_store_effects_on_software_engineering}\todo{Replace repeated citations with \emph{ibid}?}. Note: Google subsequently (but not necessarily because of this research) have placed a lot of focus on encouraging developers to improve the quality of their Android apps in Google Play. 
+Of particular interest was the discovery that the quality of the [source] code was the least important factor to build a successful app according to the survey results and furthermore the number of downloads were the highest measure of success~\cite[p. 13]{alsubaihin2019app_store_effects_on_software_engineering}%\todo{Replace repeated citations with \emph{ibid}?}. 
+Note: Google subsequently (but not necessarily because of this research) have placed a lot of focus on encouraging developers to improve the quality of their Android apps in Google Play. 
 
 Their research is one of several that discusses the gaming of app store ratings, such gaming is unsurprising given the importance placed on these ratings and particularly in having mobile apps with high ratings in the app store. Ratings and reviews are one of the topics of the next section \secref{rw-sources-of-info-on-software-quality-for-devs-of-mobile-apps} given their importance in the mobile app ecosystem.
 
 \emph{Future Trends in Software Engineering Research for Mobile Apps}~\sidecite{nagappan2016_future_trends_in_sw_eng_for_mobile_apps} focuses attention on the software development life-cycle, it does not investigate usage or operational aspects. Figure~\ref{fig:nagappan2016_future_trends_in_sw_eng_for_mobile_apps_figure_1_annotated} is an annotated version of their Fig. 1. [on p. 22](\textit{ibid}) where the annotation shows the key operational and usage areas this work did \emph{not} cover. 
+
+
+There are  other papers that consider the app store from various perspectives but they do not cover software quality or mobile analytics. For example, 
+\sidecite{wang2017_exploratory_study_of_the_mobile_app_ecosystem} investigated how many apps developers created in Google Play based on 320,000 developers and over a million apps.
 
 
 \begin{comment}
