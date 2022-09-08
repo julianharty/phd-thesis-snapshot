@@ -275,7 +275,7 @@ Feedback can help developers to find and choose ways to improve their software. 
 In contrast, digital feedback originates from software and is generally deterministic~\sidenote{~\url{https://en.wiktionary.org/wiki/deterministic}}. For the purposes of this research~\emph{digital feedback} is provided by running software where programmers added code to programs to collect data that provides feedback about software use and certain behaviours of that software. The addition of the code may be automated, in part, or wholly, for instance by another program or script. As an example, AppPulse Mobile claims they can add analytics automatically without developers writing a line of code~\sidenote{~\url{https://www.microfocus.com/en-us/products/apppulse-mobile-app-apm-monitoring/overview}}.
 
 \begin{figure*}
-    \includegraphics[width=\linewidth]{images/mobile-analytics-playbook/Chart-07-FeedbackLoops.pdf}
+    \includegraphics[width=\linewidth]{images/mobile-analytics-playbook/feedback-loops-for-mobile-apps.pdf}
     \caption{Feedback Loops for mobile apps~\cite{harty_aymer_playbook_2016}}
     \label{fig:map2015-feedback-loops-for-mobile-apps}
 \end{figure*}
@@ -332,26 +332,10 @@ Table~\ref{tab:logging-choices-for-devs} identifies various categories of loggin
 
 There are various enhanced log libraries, for instance~\texttt{timber} which are used by discerning app developers. These libraries also write to the platform log files. 
 
-\begin{comment}
-
-\begin{figure*}
-    \includegraphics[width=\linewidth]{images/rough-sketches/apps-on-device-boundaries-sketch.jpeg}
-    \caption{Apps on the device boundaries}
-    \label{fig:apps-on-device-boundaries}
-\end{figure*}
-
-\begin{figure*}
-    \includegraphics[width=\linewidth]{images/rough-sketches/on-device-logging-sketch.jpeg}
-    \caption{On-device logging}
-    \label{fig:on-device-logging}
-\end{figure*}
-
-A couple of rough sketches, Figures~\ref{fig:apps-on-device-boundaries} and~\ref{fig:on-device-logging} present two views of apps installed on any given mobile device. 
-\end{comment}
-
 The apps installed on a device can be broadly placed one of three categories: platform, pre-installed (non-removable), and user-installed (removable). Each of these categories of app have different levels of access to on device logs.
 
 At any point one or more of these apps may be running, the rest are idle. The majority of these apps, with the possible exception of platform apps, write to one or more shared, common, log files. These log files have a finite size, and once they are filled newer messages overwrite the oldest ones in turn. Platform apps are pre-installed by the manufacturer, and may include those from the provider of the platform, particularly from Google for Android devices that use Google Play, and also some device manufacturers may have similar apps. Other apps are also pre-installed by manufacturers including a suite of apps from Google and some from the manufacturer. They may also include apps from organisations with agreements with the device manufacturer, for instance they may pre-install some games and utilities from partners.
+
 As an observation the vast majority of Android developers use the default inbuilt logging library \texttt{android.util.log} and choose one or more of Google's analytics offerings (which include Firebase and Crashlytics). A commercial organisation, AppBrain, provides current statistics for third-party logging libraries~\sidenote{Logging libraries (note the default android log library is not tracked at the time of writing~\url{https://www.appbrain.com/stats/libraries/tag/logging/logging-libraries}}, crash libraries~\sidenote{\url{https://www.appbrain.com/stats/libraries/tag/crash-reporting/android-crash-reporting-libraries}} and mobile analytics~\sidenote{\url{https://www.appbrain.com/stats/libraries/tag/analytics/android-analytics-libraries}}. Some apps have several of these libraries so counts may exceed 100\% in their reports.
 
 \begin{itemize}
