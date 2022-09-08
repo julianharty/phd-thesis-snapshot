@@ -254,11 +254,11 @@ Observation can be internal,~\emph{i.e.} built into apps, and external. External
 In earlier work, published in ~\sidecite{harty_aymer_playbook_2016}, the concept of three layers of an app was introduced. These are illustrated in Figure \ref{fig:3-layers} and shows three primary conceptual layers related to a mobile app. 
 
 
-\begin{figure*}
+\begin{figure}
     \includegraphics[width=\linewidth]{images/mobile-analytics-playbook/3-layers.pdf}
     \caption[Three layers of an app]{Three layers of an app {Image credit: First published in The Mobile Analytics Playbook~\cite{harty_aymer_playbook_2016}}.}
     \label{fig:3-layers}
-\end{figure*}
+\end{figure}
 
 Of course, apps aren't quite this simple or well defined in reality, for instance they include software libraries from various sources, A/B testing utilities, logging code, run-time lifecycle management, and so on. Nonetheless, these three layers are a useful abstract, particularly in terms of useful observation points about apps on user's computer devices~\sidenote{Another observation point that was orthogonal to the application logic layer was one popularised by a company that has since been acquired, called SafeDK. They provided app developers with software that provided an interface between the developer's code and the libraries the code used. This software collected and reported usage data on the performance and reliability of the libraries. Given the commercial nature of the business, their acquisition and the demise of their products and the company's website, and the fast moving nature of the internet, obtaining concrete information may be impractical for all but a few people who know those who were involved at the time.}.
 
@@ -274,12 +274,11 @@ Feedback can help developers to find and choose ways to improve their software. 
 
 In contrast, digital feedback originates from software and is generally deterministic~\sidenote{~\url{https://en.wiktionary.org/wiki/deterministic}}. For the purposes of this research~\emph{digital feedback} is provided by running software where programmers added code to programs to collect data that provides feedback about software use and certain behaviours of that software. The addition of the code may be automated, in part, or wholly, for instance by another program or script. As an example, AppPulse Mobile claims they can add analytics automatically without developers writing a line of code~\sidenote{~\url{https://www.microfocus.com/en-us/products/apppulse-mobile-app-apm-monitoring/overview}}.
 
-\begin{figure*}
+\begin{figure}
     \includegraphics[width=\linewidth]{images/mobile-analytics-playbook/feedback-loops-for-mobile-apps.pdf}
     \caption{Feedback Loops for mobile apps~\cite{harty_aymer_playbook_2016}}
     \label{fig:map2015-feedback-loops-for-mobile-apps}
-\end{figure*}
-%SHOULD-DO edit the figure to remove whitespace, etc.
+\end{figure}
 
 Figure~\ref{fig:map2015-feedback-loops-for-mobile-apps} illustrates various feedback loops where the feedback could be used to change and improve a mobile app. Within the team's aegis are test results (and static analysis, etc.). Beyond their direct control are feedback within the app, within the app store, and outside the app store ecosystem such as feedback on social media about their app. This figure illustrates in-app analytics which was the primary form of analytics at the time the figure was published, since then two additional forms of feedback have emerged: platform-level feedback such as Android Vitals and in-app feedback.
 

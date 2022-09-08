@@ -386,8 +386,24 @@ The developer investigated this reported issue and could not find any crash in F
 
 Monitoring reviews can be useful to identify issues including user dissatisfaction (app reviews are discussed in the Literature, in \secref{rw-reviews-in-app-stores}). In this case there was insufficient evidence to corroborate the user's report. As a side note, Google Play Console provides automated analysis of reviews, including those that infer stability issues for instance that have the word `crash' in them~\sidecite{googlesupport_reviews_analysis}. In the author's experience the analysis is imperfect, future research might be of interest.
 
+%%% Julian to continue here on 09 Sep 2022
 
+\section{Improvements to the use of Mobile Analytics}~\label{aiu-itools}\index{\iuse}
+\myindex{Moonpig} demonstrated a highly effective use of mobile analytics not only to detect failures, including \glspl{glossary-crash-cluster}, they also used mobile analytics to gain additional information of possible causes (similar to the concept of using \gls{glossary-breadcrumbs} however Moonpig used logging more holistically). The example from \myindex{C1} of devising automated tests to reproduce crashes that occurred in complex code and which required non-trivial work to implement suitable dynamic tests demonstrated that developers who are willing and able to invest the time can gain confidence in the reliability and behaviours of their software under realistic conditions.
 
+As \myindex{Kiwix} demonstrated it is possible to increase the reliability for a failing app quickly and effectively. The next chapter includes a summary of the improvements in \secref{aata-improvements-in-crash-rates-topic}. In contrast improvements stalled for the \myindex{Pocket Code} Android app when the work was disrupted for various reasons in 2020.
+
+Some improvements in use depend on the reporting and integration facilities offered by the tools, and similarly on the quality and timeliness of the reports, aspects of these are covered in \secref{discussion-empower-developers}, \secref{discussion-improving-mobile-analytics}. 
+
+Others can be effected using the current services offered by the tools, for example relatively simple things such as enabling the entire team to use the mobile analytics, \secref{discussion-utility-and-scalability}, through \secref{aiu-engineering-leadership-topic} that values mobile analytics and encourages using them on an ongoing basis, and by using them regularly, especially before release by using \acrfull{plr} and on release by using the \myindex{Release Management} reports. 
+
+A pragmatic acceptance that an app will not be truly free of failures, means projects and teams should pick their own targets (these should be significantly higher than meeting the \gls{glossary-bad-behavior-threshold}\index{Bad behavior threshold}). \myindex{Android Vitals} provides quartiles per application category so a useful heuristic would be to be in the top quartile in terms of app stability.
+
+As \myindex{SmartNavi} explained some failures are impractical to investigate or address, this was confirmed by the \myindex{Moonpig} case study:
+
+\begin{quote}
+    \emph{``I don't know why some crashes don't even show up but we honestly just accepted that Android is weird on some even weirder devices. As long as our crash-free rate is that high and will go even higher after the next update, we are happy.''} (source Moonpig developer)
+\end{quote}
 
 
 
@@ -488,22 +504,6 @@ Developers in the app-centric case studies seemed to be willing to accept the mo
 \subsection{Choosing mobile analytics}
 Many factors may affect the choice of mobile analytics, ranging from a wish to not track usage within the app, as demonstrated by \myindex{Kiwix} and \myindex{Catrobat}, though to projects that choose to integrate two or more mobile analytics SDKs into an app, such as \myindex{LocalHalo} and the \myindex{C1} project. None of the development teams mentioned explicitly having requirements to fulfil as part of choosing the services they use, nor of testing that the SDKs actually behaved correctly.  
 
-\subsection{\iuse}
-\myindex{Moonpig} demonstrated a highly effective use of mobile analytics not only to detect failures, including \glspl{glossary-crash-cluster}, they also used mobile analytics to gain additional information of possible causes (similar to the concept of using \gls{glossary-breadcrumbs} however Moonpig used logging more holistically). The example from \myindex{C1} of devising automated tests to reproduce crashes that occurred in complex code and which required non-trivial work to implement suitable dynamic tests demonstrated that developers who are willing and able to invest the time can gain confidence in the reliability and behaviours of their software under realistic conditions.
-
-As \myindex{Kiwix} demonstrated it is possible to increase the reliability for a failing app quickly and effectively. The next chapter includes a summary of the improvements in \secref{aata-improvements-in-crash-rates-topic}. In contrast improvements stalled for the \myindex{Pocket Code} Android app when the work was disrupted for various reasons in 2020.
-
-Some improvements in use depend on the reporting and integration facilities offered by the tools, and similarly on the quality and timeliness of the reports, aspects of these are covered in \secref{discussion-empower-developers}, \secref{discussion-improving-mobile-analytics}. 
-
-Others can be effected using the current services offered by the tools, for example relatively simple things such as enabling the entire team to use the mobile analytics, \secref{discussion-utility-and-scalability}, through \secref{aiu-engineering-leadership-topic} that values mobile analytics and encourages using them on an ongoing basis, and by using them regularly, especially before release by using \acrfull{plr} and on release by using the \myindex{Release Management} reports. 
-
-A pragmatic acceptance that an app will not be truly free of failures, means projects and teams should pick their own targets (these should be significantly higher than meeting the \gls{glossary-bad-behavior-threshold}\index{Bad behavior threshold}). \myindex{Android Vitals} provides quartiles per application category so a useful heuristic would be to be in the top quartile in terms of app stability.
-
-As \myindex{SmartNavi} explained some failures are impractical to investigate or address, this was confirmed by the \myindex{Moonpig} case study:
-
-\begin{quote}
-    \emph{``I don't know why some crashes don't even show up but we honestly just accepted that Android is weird on some even weirder devices. As long as our crash-free rate is that high and will go even higher after the next update, we are happy.''} (source Moonpig developer)
-\end{quote}
 
 \section{Summary of Analytics in Use findings}
 This chapter presented ways mobile app developers used mobile analytics together with an overview of ways the use could be improved by app development teams. The next chapter presents the effects of mobile analytics on apps and their artefacts.
