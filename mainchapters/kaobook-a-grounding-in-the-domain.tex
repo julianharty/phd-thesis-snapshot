@@ -7,41 +7,51 @@
 
 \vspace{10mm}
 
-This chapter provides a grounding in the domain of mobile apps, how developers obtain information, and mobile analytics,~\emph{etc.}  
-% MUST-DO revise opening sentence and remove the etc. via \akb
-For any individual elements there may be much that is known and seemingly little novelty. And yet, it has become clear that when these elements are combined an interesting and rich domain emerges that can serve developers of their mobile apps.
+This chapter provides a grounding in the domain of mobile apps, how developers obtain information about the performance of their apps and manage the development process.  For any individual elements there may be much that is known and seemingly little novelty. And yet, it has become clear that when these elements are combined an interesting and rich domain emerges that can serve developers of their mobile apps.
 
-While this discussion of the mobile app ecosystem aims to be as detailed and accurate as possible, there are limits to which this is possible in the context of closed, proprietary systems including those discussed in this thesis. 
+While this discussion of the mobile app ecosystem aims to be as detailed and accurate as possible, there are limits to what can be known in the context of closed, proprietary systems including those discussed in this thesis. 
 
-To improve readability the thesis includes some generalisations rather than using qualifiers throughout, such as often, mainly, and so on, unless they materially reflect variations in people's experiences.
+The chapter introduces five conceptual models, including: a model of apps and app stores, layers of an app and observation points, of analogue and digital feedback, usage analytics, and finally DevOps. These concepts help us understand key considerations for mobile app developers and what they are working with. Before discussing these models we begin with an introduction to the software development practices used for mobile apps.
 
-The chapter introduces five 
-%MUST-DO revise this and the next paragraph once the chapter's contents have settled down.
-conceptual models, including: a model of apps and app stores, layers of an app and observation points, of analogue and digital feedback, usage analytics, and finally DevOps. These concepts help us understand key considerations for mobile app developers and what they are working with.
 
-%\textbf{How can we know about mobile analytics and the effects of using them?}
 
-%\nth{16} Jul 2021:~\akb{This subsection is too verbose. Summarise with a diagram showing sources of knowledge and links to difference types} - \textbf{MUST-DO} and will do once I make sense of where's the best place to put this material. For now I've moved the overall \href{section-ontology-and-episetemology}{\nameref{section-ontology-and-episetemology}} section to after the RQs and before the methodology section.
+\section{Development practices for mobile apps}
+As noted in the previous chapter, few if any developers write perfect software, and this applies also to developers of mobile apps. In order to improve the quality of their software, mobile app developers need information to support their understanding of the issues affecting their app. This section introduces the concept of \emph{Zones} as they apply to finding and potentially fixing issues while developing software. The concepts are inspired by various sources including agile development practices, release management for mobile apps, computer networks, and particularly the use of firewalls and `de-militarised-zones' (known as DMZs\index{DMZ}). 
 
-%Here we consider the questions: (1a) What we can know about mobile analytics and (1b) how we can know it? Then more specifically, these related questions are key given this research focuses on using mobile analytics to help answer the next question. (2) How we know about the identification and measurement of some flaws in behaviour of software that are considered measures of quality of the software in use?
+\subsection{Control (find-fix) zones}
+A find-fix zone incorporates the scope of finding issues and being able to fix, or at least ameliorate, them. Where issues are discovered in the local zone, developers can fix the issue without needing to involve others (however they can choose to do so), and indeed some may consider these issues an intrinsic and essential part of iterative software development. Other zones extend beyond the immediate developer and involve other people.
 
-Broadly we can learn from people, use \textit{software analysis tools}, and use data to answer these questions. In some cases the data comes from a single source, in others cases from several.
+For the purposes of my research I have identified three categories of zones:
+\begin{enumerate}
+    \item \textbf{Local Zone}: This is local to the developer of software, tests, resources, designs, and so on.
+    \item \textbf{Mezzo Zone(s)}: These zones involve other people, they may be peers, team members, other people in the organisation, trusted testers, and so on. There may be anything from virtually no zone for solo independent developers working on their own app, to a plethora of zones involving various stages of pre-release testing, checking and approvals in large corporate organisations.
+    \item \textbf{Live Zone}: End users are able to use the released app. The app is finally able to potentially achieve business objectives. 
+\end{enumerate}
 
-\textbf{Software analysis tools} 
+These three categories of zones are illustrated in Figure~\ref{fig:my:control-find-fix-zones-with-information-flows}. The figure includes a one-way gate, that behaves like the Rubicon in Julius Caesar's time~\sidecite{wikipedia_rubicon} where the die is cast once a release has been launched in the app store. The release cannot be reverted, at best it can be paused or superseded with another subsequent release. The app now comes into contact with end-users and is expected to achieve the business objectives of the organisation who made it available.
+
+\begin{figure*}
+    \includegraphics[width=\linewidth]{images/my/control-find-fix-zones-with-information-flows.pdf}
+    \caption{Control find-fix zones with information flows}
+    \label{fig:my:control-find-fix-zones-with-information-flows}
+\end{figure*}
+
+The figure also shows the find-fix information flows. Assuming fixes are made be the development team for the app (rather than improvements that can be addressed in servers, through configuration changes, and so on) then the information about flaws and issues needs to reach that development team somehow. For issues found in external releases (\emph{i.e.} those made available to end-users).
+
+When issues are discovered before the software is released there is the possibility of the developer being able to address them before the software is released (they stakeholders may choose to delay the release to allow this to happen). In many cases, these issues are discovered with the help of software analysis tools like Lint or other static analysis tools.
 
 \myindex{Lint} started out as a specific static analysis software program run from a command-line to analyse C source code. Lint became a \emph{genre} of software utilities with similar aims, where each software utility targetted a specific programming language, framework, or platform. (In~\sidecite{louridas2006_static_code_analysis} there is a helpful overview of Lint, and similar tools for the Java programming language.) There are specific Lint tools for Android~\sidenote{\href{https://developer.android.com/studio/write/lint}{Android Lint}} and iOS~\sidenote{\href{https://github.com/realm/SwiftLint}{SwiftLint}}.
 
-\textbf{Mobile analytics} comprises software, systems, and sometimes services. Broadly we can read about them, study their source code, analyse, test, and use them directly, and ask others for their perspectives and insights. %Rather than go into lots of detail here, several of the appendices of this thesis cover aspects of mobile analytics, in particular, in~\href{app:on-mobile-analytics}{\emph{\nameref{app:on-mobile-analytics}}}.
+We can know through \textbf{static analysis} tools, automated tests, end-to-end testing, \emph{etc.} and all of these are used by at least some of the developers of mobile apps some of the time. They often take place \emph{before} the software is released to end users. Other pre-release sources of information can be from log messages generated by the app during testing.
 
-We can know through \textbf{static analysis} tools, automated tests, end-to-end testing, \emph{etc.} and all of these are used by at least some of the developers of mobile apps some of the time. They often take place \textit{before} the software is released to end users.
-
-We can also know through data collected when the software is used. As~\sidecite{RFC3164} notes in \myindex{RFC3164}, ~\emph{``Since the beginning... operating systems, processes and applications were written to send messages of their own status, or messages to indicate that certain events had occurred. These event messages generally had local significance to the machine operators."}. Mobile apps also write messages locally and developers use them for similar purposes (nuances and differences are discussed in the related work chapter). These local messages can be read by humans locally and/or read by software that delivers them elsewhere. Developers can also add software to their apps to log information for processing elsewhere which is where much of mobile analytics and crash reporting fits in the scheme of things.
-
-Log messages are written locally on the same device (\textit{i.e.} computer) that runs the software. When developers are developing the software they tend to be local to the device and therefore able to read the logs. When the devices are remote, as they are for end users of mobile apps, developers cannot easily access the logs or read them. If they wish to do so they need mechanisms to obtain the logs. They can choose to incorporate mechanisms into the app including custom logging mechanisms that transmit the logs so they can be processed remotely. They can rely on log forwarding software~\sidenote{For instance a fairly involved example for Flutter Android apps, using MQTT, is described in~\cite{adil2020_sending_logs_from_flutter_apps}}, and/or mechanisms provided on the device if they exist.
+Log messages are written locally on the same device (\emph{i.e.} computer) that runs the software. When developers are developing the software they tend to be local to the device and therefore able to read the logs. When the devices are remote, as they are for end users of mobile apps, developers cannot easily access the logs or read them. If they wish to do so they need mechanisms to obtain the logs. They can choose to incorporate mechanisms into the app including custom logging mechanisms that transmit the logs so they can be processed remotely. They can rely on log forwarding software~\sidenote{For instance a fairly involved example for Flutter Android apps, using \href{https://mqtt.org/}{MQTT}, is described in~\cite{adil2020_sending_logs_from_flutter_apps}}, and/or mechanisms provided on the device if they exist.
 % A couple of Android implementations for LogStash include:
 %  https://github.com/Labgoo/android-logstash-logger
 %  https://gist.github.com/PatrykGala/55603fe4259d812fdc0ffbc9e63eaabc (saved in my references)
 
+We can also know through data collected when the software is used. As~\sidecite{RFC3164} notes in \myindex{RFC3164}, ~\emph{``Since the beginning... operating systems, processes and applications were written to send messages of their own status, or messages to indicate that certain events had occurred. These event messages generally had local significance to the machine operators."}. Mobile apps also write messages locally and developers use them for similar purposes (nuances and differences are discussed in the related work chapter). These local messages can be read by humans locally and/or read by software that delivers them elsewhere. Developers can also add software to their apps to log information for processing elsewhere which is where much of mobile analytics and crash reporting fits in the scheme of things.
+
+\textbf{Mobile analytics} comprises software, systems, and sometimes services. Broadly we can read about them, study their source code, analyse, test, and use them directly, and ask others for their perspectives and insights. 
 
 Various data can be potentially collected implicitly and explicitly. What can be collected depends on the observation mechanisms. Observation may be within an app or external to it, for instance by the operating system as both iOS  and Google Android do~\sidenote{There are other custom versions of Android, for instance used in Amazon Kindle Fire devices. Their details are outside the overall scope of this research.} %(details in the Appendix titled~\href{chapter-on-mobile-analytics}{\emph{\nameref{app:on-mobile-analytics}}}). 
 %
@@ -64,33 +74,7 @@ Another of the five logs is \texttt{LOG\_ID\_CRASH}, used by Android to record c
 
 \newthought{Survivorship bias: } (\sidecite{wikipedia_survivorship_bias}) is relevant to understanding the information developers receive, some data does not `survive' the journey from source to developer. And much of the information that is does reach the developers does not survive or, perhaps better put, thrive in terms of being used productively. They have plenty of other demands for their time and attention and much of what could be useful isn't used in practice, therefore the data needs to be sufficiently useful and relevant and improvements tractable for any proposed approach to be used long term in practice.
 
-\section{Development practices for mobile apps}
-Few if any developers write perfect software, and this applies also to developers of mobile apps. 
-
-
-This section introduces the concept of \textit{Zones} as they apply to finding and potentially fixing issues while developing software. The concepts are inspired by various sources including agile development practices, release management for mobile apps, computer networks, and particularly the use of firewars and `de-militarised-zones' (known as DMZ). 
-
-\subsection{Control (find-fix) zones}
-A find-fix zone incorporates the scope of finding issues and being able to fix, or at least ameliorate, them. Where issues are discovered in the local zone, developers can fix the issue without needing to involve others (however they can choose to do so), and indeed some may consider these issues an intrinsic and essential part of iterative software development. Other zones extend beyond the immediate developer and involve other people.
-
-For the purposes of my research I have identified three categories of zones:
-\begin{enumerate}
-    \item \textbf{Local Zone}: This is local to the developer of software, tests, resources, designs, and so on.
-    \item \textbf{Mezzo Zone(s)}: These zones involve other people, they may be peers, team members, other people in the organisation, trusted testers, and so on. There may be anything from virtually no zone for solo independent developers working on their own app, to a plethora of zones involving various stages of pre-release testing, checking and approvals in large corporate organisations.
-    \item \textbf{Live Zone}: End users are able to use the released app. The app is finally able to potentially achieve business objectives. 
-\end{enumerate}
-
-These three categories of zones are illustrated in Figure~\ref{fig:my:control-find-fix-zones-with-information-flows}. The figure includes a one-way gate, that behaves like the Rubicon in Julius Caesar's time~\sidecite{wikipedia_rubicon} where the die is cast once a release has been launched in the app store. The release cannot be reverted, at best it can be paused or superseded with another subsequent release. The app now comes into contact with end-users and is expected to achieve the business objectives of the organisation who made it available.
-
-\begin{figure*}
-    \includegraphics[width=\linewidth]{images/my/control-find-fix-zones-with-information-flows.pdf}
-    \caption{Control find-fix zones with information flows}
-    \label{fig:my:control-find-fix-zones-with-information-flows}
-\end{figure*}
-
-The Figure also includes the find-fix information flows. Assuming fixes are made be the development team for the app (rather than improvements that can be addressed in servers, through configuration changes, and so on) then the information about flaws and issues needs to reach that development team somehow. For issues found in external releases (\emph{i.e.} those made available to end-users).
-
-When issues are discovered before the software is released there is the possibility of the developer being able to address them before the software is released (they stakeholders may choose to delay the release to allow this to happen). Where issues are discovered in the released app, unless there are viable mechanisms to patch the app, the fix needs to be made in a subsequent release \textit{and} the end-user needs to use the subsequent release to receive the benefit of the release.
+Where issues are discovered in the released app, unless there are viable mechanisms to patch the app, the fix needs to be made in a subsequent release \emph{and} the end-user needs to use the subsequent release to receive the benefit of the release.
 
 There are two key challenges:
 \begin{enumerate}
@@ -104,7 +88,7 @@ Both these aspects are covered next in terms of the bug-fix process for mobile a
 %MUST-DO move the following comment to the next chapter once I've drafted the relevant illustrations.
 % In my view, mobile analytics helps in the 'current' timeframe of the development and release process, in that it can provide ranked notifications of various issues (including 'stability' failures: i.e. crashes and ANRs) on a timely basis. 
 
-Given apps have been released and users are using those releases then - there may be issues in the app exposed while it is in-use. Some of these may be noticeable (or perceivable) by the end-users, others not. These issues include 'stability' failures: \textit{i.e.} crashes and ANRs and performance-related issues \textit{e.g.} slow responses, excessive power and network consumption, and so on.
+Given apps have been released and users are using those releases then - there may be issues in the app exposed while it is in-use. Some of these may be noticeable (or perceivable) by the end-users, others not. These issues include 'stability' failures: \emph{i.e.} crashes and ANRs and performance-related issues \emph{e.g.} slow responses, excessive power and network consumption, and so on.
 
 Sources of failures when an app fails a user include: code written by the developer or their colleagues (where they have control over the source code and can modify it as they see fit), third-party libraries (which are used extensively in mobile apps and where developers can replace, up- or down- grade the library but little else), or the platform, including platform-provided code.
 
@@ -160,7 +144,7 @@ Importantly, their primary communications goes via the app store, rather than be
     \label{fig:pocketpaint-to-help-better-protect-users}
 \end{figure*}
 
-The final view is that of the app store, the `storeholder' in the figure. They have a global and holistic view of the entire store, including \textit{potentially}\sidenote{A caveat on the use of potentially: this is because the app stores are closed systems with limited information about their actual behaviour in the public domain.} all the reviews, user interactions, and whatever usage activities have been performed by all the other three views. 
+The final view is that of the app store, the `storeholder' in the figure. They have a global and holistic view of the entire store, including \emph{potentially}\sidenote{A caveat on the use of potentially: this is because the app stores are closed systems with limited information about their actual behaviour in the public domain.} all the reviews, user interactions, and whatever usage activities have been performed by all the other three views. 
 %\akb{Some explanation of the caveat term 'potential' here would be useful I think - i.e. this is because the app stores are closed systems with limited information about their behaviour in the public domain?}
 
 We now cover various implications of the app store conceptual model.
@@ -171,18 +155,22 @@ One of the key success factors of the modern app store (typified by Apple's App 
 Note: There are many details related to the trust relationships for those interested in that topic, however in the interests of focus and concision they are outside the scope of this thesis. 
 
 \subsection{Communications paths and data flows}
-There are numerous communication paths for mobile apps both with and without an app store being involved. As the vast majority of apps and users use devices and apps that are part of an app store ecosystem (even if they are obtained from other sources, e.g. as often occurs in India). I will only consider the ecosystem that includes an app store in this thesis. Figure~\ref{fig:sources-of-info-with-app-store-background-ch} illustrates various sources of information for apps available in an app store. The sources and communications paths will be considered next. 
+There are numerous communication paths for mobile apps both with and without an app store being involved. As the vast majority of apps and users use devices and apps that are part of an app store ecosystem (even if they are obtained from other sources, e.g. as often occurs in India). I will only consider the ecosystem that includes an app store in this thesis. 
+
+%Figure~\ref{fig:sources-of-info-with-app-store-background-ch} illustrates various sources of information for apps available in an app store. The sources and communications paths will be considered next. 
 % SHOULD-DO Perhaps a Venn diagram would also complement this illustration?
 
+\begin{comment}
 \begin{figure*}
     \includegraphics[width=\linewidth]{images/rough-sketches/sources-of-information-with-app-store-1.pdf}
     \caption{Sources of information with an App Store}
     \label{fig:sources-of-info-with-app-store-background-ch}
 \end{figure*}
+\end{comment}
 
 The information about mobile apps can come from users directly or indirectly, from the app if it collects information either directly or indirectly, from devices. Such data collection could be via the operating system, installed apps with privileges to access information about other apps, from accessibility services, and potentially other means e.g. installed viruses. Alternatively, it could come from intermediaries - particularly the app store, and also from network traffic, observers,~\emph{etc.} 
 
-Source code and source code repositories are also useful sources of information about mobile apps. Information can be usefully combined from several sources, for instance from source code about calls to write log messages compared to actual logs recorded when the app has been used on a device. Given the app store plays a pivotal role let's consider its role in terms of communication paths now. 
+Source code and source code repositories are also useful sources of information about mobile apps. Information can be usefully combined from several sources, for instance from source code about calls to write log messages compared to actual logs recorded when the app has been used on a device. Given the app store plays a pivotal role let's consider its role in terms of communication paths as illustrated in Figure~\ref{fig:app-store-data-flows}. 
 
 An app store\index{App  store} is more than the store front, it controls and affects many aspects of the ecosystem that gathers around it. It is also more than the software, data and information that the various memberships can access. For instance the modern app stores often include software that is mandatory and pre-installed on end-user devices where that software cannot be easily removed or disabled by users\sidenote{competent, technically savvy individuals may be able to thwart protection mechanisms as may other specialist organisations and software.} . This software includes a local storefront that offers end-users new apps, updates, and enables users to manage optional apps\sidenote{Optional apps can be installed and uninstalled by end users at will. Non-optional apps are installed by various organisations, including the app store provider, some device manufacturers, and so on.}.
 
@@ -196,7 +184,7 @@ The app store provides various primary communications paths between the various 
 
 Some of the communications involves humans, or software chatbots masquerading as pseudo-humans intended to behave similarly to how humans would do in similar circumstances, for instance to provide in-app assistance~\sidecite{baez2021_chatbot_integrations} and to help developers respond automatically to app reviews~\sidecite{greenheld2018_automating_developers_responses_to_app_reviews}. Other communications is generated by software, for instance usage and diagnostic data collected by the operating system and related utilities on a mobile device (collectively described as the platform).
 
-The communications paths and data flows in an app store ecosystem are illustrated in Figure~\ref{fig:app-store-data-flows}. There are two forms of data flows: explicit and implicit. Explicit data flows are actively and intentionally performed by one or more of the participants, implicit data flows represents information that can be inferred or gleaned from various actions and inactions.
+As shown in Figure~\ref{fig:app-store-data-flows}, there are two forms of data flows: explicit and implicit. Explicit data flows are actively and intentionally performed by one or more of the participants, implicit data flows represents information that can be inferred or gleaned from various actions and inactions.
 
 Examples of actions intended to communicate explicitly include:
 \begin{itemize}
@@ -253,11 +241,13 @@ Membership matters in particular because of who has access to which data and for
 
 \subsection{Phases of a release}
 
+\begin{comment}
 \begin{figure*}
     \includegraphics[width=\linewidth]{images/rough-sketches/Red-Thread-Rough-Sketch.jpeg}
     \caption{The lifecycle of a release and where mobile analytics provides feedback}
     \label{fig:red-thread-for-this-thesis}
 \end{figure*}
+\end{comment}
 
 For any given release of a mobile app there are at least three material phases in order for the release to be used:
 \begin{enumerate}
@@ -266,7 +256,7 @@ For any given release of a mobile app there are at least three material phases i
     \item Deployment: Deployment occurs when end users install and start using the release of the app. Both the app store and the end users affect when this occurs. App developers can try to hasten when users install the latest release through various mechanisms, for instance through implementing and mandating users upgrade their current release.
 \end{enumerate}
 
-Figure~\ref{fig:red-thread-for-this-thesis} illustrates these three phases together with some of the dynamics \emph{e.g.} of rollout and disuse of a release, and of feedback from whatever sources that the development teams can choose to pay attention to and apply. These phases are part of a longer lifespan of the release that includes an often long-term postdelivery period~\sidecite[][pp 156-157]{evans2004_achieving_software_quality_through_teamwork} where users use the release until it is decommissioned or replaced with a subsequent release.
+The graph at the bottom of Figure~\ref{fig:mobile-app-life-span-stages}~\sidenote{Source of figure, Google Drive file: \href{https://docs.google.com/document/d/1d4B5l1tlpclHdKwY8W00qchiCV2YK5JjJP8TbkRHcjQ/edit}{Mobile app life span stages}.} illustrates these three phases together with some of the dynamics \emph{e.g.} of rollout and disuse of a release. These phases are part of a longer lifespan of the release that includes an often long-term postdelivery period~\sidecite[][pp 156-157]{evans2004_achieving_software_quality_through_teamwork} where users use the release until it is decommissioned or replaced with a subsequent release.
 
 \begin{figure*}
     \includegraphics[width=\linewidth]{images/my/mobile-app-life-span-stages-21-sep-2021.pdf}
@@ -274,7 +264,7 @@ Figure~\ref{fig:red-thread-for-this-thesis} illustrates these three phases toget
     \label{fig:mobile-app-life-span-stages}
 \end{figure*}
 
-Figure~\ref{fig:mobile-app-life-span-stages}~\sidenote{Source of figure, Google Drive file: \href{https://docs.google.com/document/d/1d4B5l1tlpclHdKwY8W00qchiCV2YK5JjJP8TbkRHcjQ/edit}{Mobile app life span stages}.} compares a revised version of the `Life span stages' Figure in~\sidecite[][p.155]{evans2004_achieving_software_quality_through_teamwork} mapped approximately to the three stages first illustrated in Figure~\ref{fig:red-thread-for-this-thesis}. Mobile app releases in an app store extend the Delivery which may also overlap either or both the development and the postdelivery life span stages. The overlap with the development stage is because the development is not complete until the app store accepts/approves the release (this may include pre-launch checks, automated testing, and so on depending on the app store). The overlap with deployment happens as releases are often released incrementally initially to a small percentage of the userbase - at least some of the users in that percentage will install the new release, until the percentage has been achieved. Meanwhile at least some of those users will use the app which will then mean the release is operational and may need operational support.
+Figure~\ref{fig:mobile-app-life-span-stages} also highlights how these phases of a mobile app release relate to the `Life span stages' in~\sidecite[][p.155]{evans2004_achieving_software_quality_through_teamwork}. Mobile app releases in an app store extend the Delivery which may also overlap either or both the development and the postdelivery life span stages. The overlap with the development stage is because the development is not complete until the app store accepts/approves the release (this may include pre-launch checks, automated testing, and so on depending on the app store). The overlap with deployment happens as releases are often released incrementally initially to a small percentage of the userbase - at least some of the users in that percentage will install the new release, until the percentage has been achieved. Meanwhile at least some of those users will use the app which will then mean the release is operational and may need operational support.
 
 
 \section{Conceptual model of layers within apps and observation points}
@@ -296,15 +286,15 @@ The \Gls{gui} can be visually observed by sighted users, it can also be observed
 
 
 \subsection{Observation points: inside-outside perspectives}
-The observation point determines what can be observed and how. 
-As Figure~\ref{fig:internal-external-table} illustrates there are internal and external perspectives on an app for various purposes, including observations, interactions (e.g. through test automation), and emitting information (e.g. through logging, reporting, or mobile analytics). Where the information is observed affects what can be known and what is possible, an insider is privy to information an outsider is not; whereas an outsider has perspective and can potentially perceive things insiders cannot.
+There are internal and external perspectives on an app for various purposes, including observations, interactions (e.g. through test automation), and emitting information (e.g. through logging, reporting, or mobile analytics). The observation point determines what can be observed and the mechanisms needed to make these observations. Additionally, where the information is observed affects what can be known and what is possible. For example, an insider is privy to information an outsider is not; whereas an outsider has perspective and can potentially perceive things insiders cannot.
 
-
+\begin{comment}
 \begin{figure*}
     \includegraphics[width=\linewidth]{images/internal-external-table.pdf}
     \caption{Internal and external perspectives of an app}
     \label{fig:internal-external-table}
 \end{figure*}
+\end{comment}
 
 %\textbf{SHOULD-DO} Expand the following: What is test automation? discuss how mobile apps are tested, the unique aspects of using accessibility interfaces, etc.
 
@@ -372,6 +362,8 @@ Table~\ref{tab:logging-choices-for-devs} identifies various categories of loggin
 
 There are various enhanced log libraries, for instance~\texttt{timber} which are used by discerning app developers. These libraries also write to the platform log files. 
 
+\begin{comment}
+
 \begin{figure*}
     \includegraphics[width=\linewidth]{images/rough-sketches/apps-on-device-boundaries-sketch.jpeg}
     \caption{Apps on the device boundaries}
@@ -384,11 +376,12 @@ There are various enhanced log libraries, for instance~\texttt{timber} which are
     \label{fig:on-device-logging}
 \end{figure*}
 
-A couple of rough sketches, Figures~\ref{fig:apps-on-device-boundaries} and~\ref{fig:on-device-logging} present two views of apps installed on any given mobile device. These apps are broadly one of three categories: platform, pre-installed (non-removable), and user-installed (removable). Here the focus is on their use of logs on the device.
+A couple of rough sketches, Figures~\ref{fig:apps-on-device-boundaries} and~\ref{fig:on-device-logging} present two views of apps installed on any given mobile device. 
+\end{comment}
 
-At any point one or more of these apps may be running, the rest are idle. The majority of these apps, with the possible exception of system apps, write to one or more shared, common, log files. These log files have a finite size, and once they are filled newer messages overwrite the oldest ones in turn. In Figure~\ref{fig:on-device-logging} the left-most blob, in purple, represents a system app that is able to read the shared system log files. These apps are pre-installed by the manufacturer, they may include those from the provider of the platform, particularly from Google for Android devices that use Google Play, and also some device manufacturers may have similar apps. Other apps are also pre-installed by manufacturers including a suite of apps from Google and some from the manufacturer. They may also include apps from organisations with agreements with the device manufacturer, for instance they may pre-install some games and utilities from partners. TBC.
+The apps installed on a device can be broadly placed one of three categories: platform, pre-installed (non-removable), and user-installed (removable). Each of these categories of app have different levels of access to on device logs.
 
-
+At any point one or more of these apps may be running, the rest are idle. The majority of these apps, with the possible exception of platform apps, write to one or more shared, common, log files. These log files have a finite size, and once they are filled newer messages overwrite the oldest ones in turn. Platform apps are pre-installed by the manufacturer, and may include those from the provider of the platform, particularly from Google for Android devices that use Google Play, and also some device manufacturers may have similar apps. Other apps are also pre-installed by manufacturers including a suite of apps from Google and some from the manufacturer. They may also include apps from organisations with agreements with the device manufacturer, for instance they may pre-install some games and utilities from partners.
 As an observation the vast majority of Android developers use the default inbuilt logging library \texttt{android.util.log} and choose one or more of Google's analytics offerings (which include Firebase and Crashlytics). A commercial organisation, AppBrain, provides current statistics for third-party logging libraries~\sidenote{Logging libraries (note the default android log library is not tracked at the time of writing~\url{https://www.appbrain.com/stats/libraries/tag/logging/logging-libraries}}, crash libraries~\sidenote{\url{https://www.appbrain.com/stats/libraries/tag/crash-reporting/android-crash-reporting-libraries}} and mobile analytics~\sidenote{\url{https://www.appbrain.com/stats/libraries/tag/analytics/android-analytics-libraries}}. Some apps have several of these libraries so counts may exceed 100\% in their reports.
 
 \begin{itemize}
@@ -397,7 +390,7 @@ As an observation the vast majority of Android developers use the default inbuil
     \item Mobile analytics, can extend and scale logging. For mobile analytics, a minority of developers incorporate custom implementations, however the vast majority who use analytics do so through using third-party analytics libraries such as Google Firebase Analytics, details of the current usage of analytics libraries are provided by AppBrain~\sidenote{\url{https://www.appbrain.com/stats/libraries/tag/analytics/android-analytics-libraries}}.
 \end{itemize}
 
-%One of the appendices, ~\href{app:on-mobile-analytics}{\textit{on mobile analytics}}, provides details of the design of content and messages together with the mechanics of sending the data; in terms of establishing a grounding in this topic it is enough to be aware that these are both relevant aspects of incorporating and using mobile analytics.
+%One of the appendices, ~\href{app:on-mobile-analytics}{\emph{on mobile analytics}}, provides details of the design of content and messages together with the mechanics of sending the data; in terms of establishing a grounding in this topic it is enough to be aware that these are both relevant aspects of incorporating and using mobile analytics.
 
 
 \begin{figure*}
@@ -443,7 +436,7 @@ Usage analytics pertains to recording and analysing the usage of software. Appli
 
 Conceptually there appear to be four broad levels of usage analytics, these are illustrated in Figure \ref{fig:four-layers-of-analytics-for-mobile-apps} and described next. These four levels can be approximately mapped~\sidenote{The approximation is because software is not quite so cleanly cut into layers or levels. For instance app-level mobile analytics can be used to record many aspects of GUI activities, albeit unnaturally. Also, the operating system can observe aspects of the GUI, for instance by instrumenting the Accessibility APIs, a topic I touch on in one of the appendices.} to the three layers of an app:
 
-%\akb{Are 'Visual' analytics tools automatically 'Mobile' tools as well? The \textit{heatmapping} example seems to be one that could fit into both layers}
+%\akb{Are 'Visual' analytics tools automatically 'Mobile' tools as well? The \emph{heatmapping} example seems to be one that could fit into both layers}
 
 % Their use will be discussed in more detail in the chapter titled~\href{chapter-applying-analytics-to-development-practices}{\emph{\nameref{chapter-applying-analytics-to-development-practices}}}. %MUST-DO decide whether layer and level are synonymous, and if not whether to use one term or the other. Anyway I'm aware I may be conflating both terms here and want to improve the precision of whichever term(s) I use. 
 
@@ -466,8 +459,9 @@ This research includes case studies and developer reports of examples of analyti
 
 
 \section{Conceptual model for DevOps}
-DevOps recognises the benefits of connecting development and operations of software. a Yin Yang symbol recognises there's some negative in the positive and vice-versa. Conceptually, teams can choose to invest in operations while they're developing to improve the operational aspects of their software, for instance by designing in good operability. Similarly when the software is in use by observing the software's behaviours operations can improve the development. Examples include: considering the how improvements could be developed or the software development lifecycle process improved based on how the software is being used.
+DevOps recognises the benefits of connecting development and operations of software. Conceptually, teams can choose to invest in operations while they're developing to improve the operational aspects of their software, for instance by designing in good operability. Similarly when the software is in use by observing the software's behaviours operations can improve the development. Examples include: considering the how improvements could be developed or the software development lifecycle process improved based on how the software is being used.
 
+\begin{comment}
 \begin{marginfigure}
     \centering
     \includegraphics[width=0.8\linewidth]{images/wikipedia/Yin_yang.pdf}
@@ -475,9 +469,10 @@ DevOps recognises the benefits of connecting development and operations of softw
     \label{fig:yinyang_for_devops}
     
 \end{marginfigure}
+\end{comment}
 
 
-One of the popular concepts in DevOps is represented by an infinite loop in the shape of a horizontal figure of eight like diagram, illustrated in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}.~\sidenote{This example is from a blog post by Atlassian~\url{https://www.atlassian.com/blog/devops/2016-state-of-devops-report} announcing \emph{``The State of DevOps report"} 2016 edition.} There are many variations of this illustration available, perhaps unsurprisingly given the popularity of DevOps and those who write and publish on the topic who may want to give their own spin on the topic.
+One of the popular conceptual models of DevOps is represented by an infinite loop in the shape of a horizontal figure of eight like diagram, illustrated in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}.~\sidenote{This example is from a blog post by Atlassian~\url{https://www.atlassian.com/blog/devops/2016-state-of-devops-report} announcing \emph{``The State of DevOps report"} 2016 edition.} There are many variations of this illustration available, perhaps unsurprisingly given the popularity of DevOps and those who write and publish on the topic who may want to give their own spin on the topic.
 
 \begin{figure*}
     \includegraphics[width=0.8\linewidth]{images/atlassian/atlassian-state-of-devops-report-2016-devopsloop.pdf}
@@ -487,9 +482,7 @@ One of the popular concepts in DevOps is represented by an infinite loop in the 
 % https://3kllhk1ibq34qk6sp3bhtox1-wpengine.netdna-ssl.com/wp-content/uploads/devopsloop-1560x760.png
 
 
-
-\section{From conceptual models to practicalities}
-The previous sections introduced five conceptual models that help to establish the context for the ecosystem, structural aspects of mobile apps and perspectives where mobile apps can be observed, analogue and digital feedback, usage analytics and DevOps considerations. The next five sections cover various practical aspects of mobile apps including development and usage lifecycles, information sources and finally choices for engaging with analytics.
+The previous sections introduced five conceptual models that help to establish the context for the ecosystem, structural aspects of mobile apps and perspectives where mobile apps can be observed, analogue and digital feedback, usage analytics and DevOps considerations. The next sections cover various practical aspects of mobile apps including development and usage lifecycles, information sources and finally choices for engaging with analytics.
 
 
 \section{Mobile apps and development team's mobile devices}
@@ -529,7 +522,7 @@ There are additional sources of \emph{analogue feedback} from people, including 
 Mobile apps have a usage lifecycle, which starts when an app is chosen to be installed and ends with either abandonment or active removal of the app from a device. Figure~\ref{fig:mobile_app_usage_lifecycle}~\sidenote{Based on a figure in~\cite{bohmer2011falling_asleep_with_angry_birds}} illustrates the possible stages of a mobile app's life on a user's device. Google Play Console collects data consistent with this lifecycle, analyses it and provides aggregate reports based on their analysis. 
 
 For clarity and completeness there is another lifecycle when the app is running, described in the Android documentation as the \emph{``Processes and Application Lifecycle"}~\sidecite{android_processes_and_application_lifecycle} These are more detailed and are not included in the reports Google provides developers. %(I doubt their details would be recorded either). 
-Note: the processes and application lifecycle may affect how in-app analytics libraries behave, including when they transmit their data to their respective central servers.
+However, it should be noted that the processes and application lifecycle may affect how in-app analytics libraries behave, including when they transmit their data to their respective central servers.
 
 % More info and code samples: https://www.vogella.com/tutorials/AndroidLifeCycle/article.html
 
@@ -547,15 +540,17 @@ Crashes are often considered a concrete measure of poor performance of software 
 This section starts with an overview of \myindex{DevOps} concept of an infinite loop for software generally before becoming more specialised on DevOps for mobile apps. %SHOULD-DO consider expanding this section. TBD how much I should write about the concepts and terms. 
 The focus here is on data from various stages of a conceptual infinite combined development and operations process to indicate where mobile analytics applies in terms of providing data to the development team. This data includes: log data, static analysis results, test results, release and usage data, and mobile analytics data and reports.
 
-In October 2020, one of the students taking part in the PhD symposium at the ICST2020 conference presented a variation of the DevOps loop (as illustrated earlier in this chapter in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}) that is relevant to this research. In the student's figure their focus was on crash reproduction and this illustration is illustrated in Figure~\ref{fig:crash-reproduction-icst2020}~\sidenote{The figure has been redrawn using one of the STAMP project's illustrations (obtained from \href{https://www.stamp-project.eu/download/main/WebHome/Infiny_4.svg?rev=1.3}{www.stamp-project.eu/view/main/}) which is licensed as \href{https://creativecommons.org/licenses/by-sa/4.0/}{creativecommons.org/licenses/by-sa/4.0/} and revised to show an Android example}. %\sidecite{derakhshanfar2021_phd_thesis}
+In October 2020, one of the students taking part in the PhD symposium at the ICST2020 conference presented a variation of the DevOps loop (as illustrated earlier in this chapter in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}) that is relevant to this research. Here the focus was on crash reproduction and this illustration is presented with some annotations in Figure~\ref{fig:crash-reproduction-icst2020}~\sidenote{The figure has been redrawn using one of the STAMP project's illustrations (obtained from \href{https://www.stamp-project.eu/download/main/WebHome/Infiny_4.svg?rev=1.3}{www.stamp-project.eu/view/main/}) which is licensed as \href{https://creativecommons.org/licenses/by-sa/4.0/}{creativecommons.org/licenses/by-sa/4.0/} and revised to show an Android example}. %\sidecite{derakhshanfar2021_phd_thesis}
 
+\begin{comment}
 \begin{figure*}
     \includegraphics[width=\linewidth]{images/my/delft-crash-testing-redrawn.pdf}
     \caption[Reproduction of crashes in production]{Reproduction of Crashes found in production. \\Redrawn and based on a presentation supporting \cite{derakhshanfar2020_well_informed_test_case_generation_and_crash_reproduction} which is part of the STAMP: Software testing amplification for DevOps research.}
     \label{fig:crash-reproduction-icst2020}
 \end{figure*}
+\end{comment}
 
-Figure~\ref{fig:oberve-and-apply-devops-loop} is revised illustration that shows, in red, the extent software can be observed, and in green of when the results of those observations can be applied to the code. Note: the observations can be applied throughout every phase, for instance during deployment aberrant behaviour observed during the deployment may lead to the deployment being paused.
+The annotations to this figure show, in red, the extent software can be observed, and in green of when the results of those observations can be applied to the code. Note: the observations can be applied throughout every phase, for instance during deployment aberrant behaviour observed during the deployment may lead to the deployment being paused.
 
 \begin{figure*}
     \includegraphics[width=\linewidth]{images/icst-2020/annotated-crash-reproduction.pdf}
@@ -595,15 +590,15 @@ The actual deployment and market penetration of a new release depends on several
 Figure~\ref{fig:pocketpaint-180d-active-users} illustrates a typical pattern of the majority of the userbase migrating from one release of the \myindex{Pocket Code} app to another and yet others remain with older releases during this period of 180 days (apologies for the small text in the image it was impractical to resize it adequately). Note: Google defines active users as:~\emph{``
 The number of users who have your app installed on at least 1 device that has been turned on in the last 30 days"}~\sidenote{Text extracted from the online help for the `Active users' contextual help icon in Figure~\ref{fig:pocketpaint-180d-active-users}.} so it's not necessarily those who use the app in this period. The residues of users who remain on older releases of the app constrains the rate of change of the overall statistics as measured by Google Play Console and Android Vitals. This means that old buggy releases may continue to adversely affect the overall stability metrics for the app for long periods, even for months and years. Conversely, the project team may have addressed some of the causes of poor stability yet don't have a viable way of proposing users upgrade to the newer releases, and sometimes newer releases may have undesirable features or characteristics from an end user's perspective.
 
+\begin{comment}
 \begin{figure*}
     \includegraphics[width=\linewidth]{images/rough-sketches/app-install-base.pdf}
     \caption{App install base}
     \label{fig:app-install-base-rough}
 \end{figure*}
+\end{comment}
 
-\textbf{Installation base}: The rough sketch in Figure~\ref{fig:app-install-base-rough} illustrates static and dynamic aspects of the installation base for a mobile app. The approximate circle contains the installation base for an app. The size ebbs and flows based on new installs - which inflate the shape, and uninstalls - which deflate it~\sidenote{Note: apps may be downloaded independently of devices, for instance using a web browser~\cite{norwied2012_download_android_install_files}, and they may be installed independently of an app store. Both these traits may affect the accuracy of the installation counts.}. 
-
-In current mainstream app stores users do not get a choice of which release of an app they will receive when they receive it, that choice is made by the app store using one or more releases provided by the developer. The app store may allow developers to choose various criteria for current releases, such as a percentage rollout, and then apply that on behalf of the developer. The boundary may be considered semi-permeable as some installations are not sourced from the app store. A key consideration is that upgrades apply to the install base so they occur within a population and do not change the number of installs. That said they may lead to decreases in the installation base for various reasons. Some users may uninstall an app prompted by learning of a new update of the app - for instance if it requires permissions the user considers intrusive or unsafe; others may uninstall the app after the update, for instance if they believe it is too buggy to merit using. Note: they are not able to revert to an earlier release within the current major app store's practices / constraints. 
+\textbf{Installation base}: TThe installation base for a mobile app ebbs and flows based on new installs and uninstalls~\sidenote{Note: apps may be downloaded independently of devices, for instance using a web browser~\cite{norwied2012_download_android_install_files}, and they may be installed independently of an app store. Both these traits may affect the accuracy of the installation counts.}. In current mainstream app stores users do not get a choice of which release of an app they will receive when they receive it, that choice is made by the app store using one or more releases provided by the developer. The app store may allow developers to choose various criteria for current releases, such as a percentage rollout, and then apply that. However, the final install base following a release can still differ because some installations are not sourced from the app store. A key consideration is that upgrades apply to the install base so they occur within a population and do not change the number of installs. That said they may lead to decreases in the installation base for various reasons. Some users may uninstall an app prompted by learning of a new update of the app - for instance if it requires permissions the user considers intrusive or unsafe; others may uninstall the app after the update, for instance if they believe it is too buggy to merit using. Note: they are not able to revert to an earlier release within the current major app store's practices / constraints. 
 
 To sum up so far, new installs receive the most current release gated by the rollout algorithms implemented by and in the app store. Upgrades also receive the most current release gated by the same rollout algorithms.
 
@@ -631,4 +626,4 @@ Due to adjusted work schedules at this time, you may experience longer than usua
 
 \section{Summary and transition}
 % This chapter has introduced various concepts and topics which help provide context for the rest of this thesis. Some additional background material is available in various appendices, including more information on mobile analytics and various software contributions.
-We now have a grounding in the domain of mobile apps, logging and mobile analytics which is underpinned by research in both academic research and grey literature. The next chapter describes the application of mobile analytics to software development practices for mobile apps.
+We now have a grounding in the domain of mobile apps, logging and mobile analytics which is underpinned by research in both academic research and grey literature. The conceptual models introduced in this chapter provide an understanding of the relationships between key entities in the mobile app ecosystem, including app stores, developers and end users.  Additionally, we have discussed some of the techniques used by development teams to measure the performance of their apps and gain an understanding where software quality issues may be affecting this performance. In the next chapter, we discuss the state of the art with respect to the key areas of investigation relevant to this research: software quality, software analytics, and the mobile app ecosystem. 
