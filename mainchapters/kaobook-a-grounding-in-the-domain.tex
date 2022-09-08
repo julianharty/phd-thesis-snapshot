@@ -347,11 +347,11 @@ As an observation the vast majority of Android developers use the default inbuil
 %One of the appendices, ~\href{app:on-mobile-analytics}{\emph{on mobile analytics}}, provides details of the design of content and messages together with the mechanics of sending the data; in terms of establishing a grounding in this topic it is enough to be aware that these are both relevant aspects of incorporating and using mobile analytics.
 
 
-\begin{figure*}
-    \includegraphics[width=\linewidth]{images/mobile-analytics-playbook/Chart-08-Overview-of-MobileAnalytics.pdf}
+\begin{figure}
+    \includegraphics[width=\linewidth]{images/mobile-analytics-playbook/overview-of-mobile-analytics.pdf}
     \caption{Overview of Mobile Analytics~\cite{harty_aymer_playbook_2016}}
     \label{fig:map2016-overview-of-mobile-analytics}
-\end{figure*}
+\end{figure}
 
 An overview of Mobile Analytics was published in The Mobile Analytics Playbook,~\sidecite{harty_aymer_playbook_2016}, and the figure is reproduced here with permission in Figure~\ref{fig:map2016-overview-of-mobile-analytics}. The overall approach also applies conceptually in terms of how either apps (often delegated to the analytics library implementation) or the device sends the data. As an observation, the approach would also work if the data is transferred using other conduits, such as copying the data using a memory card, however these details are unlikely to apply to the vast majority apps and even for those developers the conceptual model is unlikely to change materially.
 
@@ -390,11 +390,11 @@ Conceptually there appear to be four broad levels of usage analytics, these are 
 
 % Their use will be discussed in more detail in the chapter titled~\href{chapter-applying-analytics-to-development-practices}{\emph{\nameref{chapter-applying-analytics-to-development-practices}}}. %MUST-DO decide whether layer and level are synonymous, and if not whether to use one term or the other. Anyway I'm aware I may be conflating both terms here and want to improve the precision of whichever term(s) I use. 
 
-\begin{figure*}
+\begin{figure}
     \includegraphics[width=\linewidth]{images/4-layers-of-analytics.pdf}
     \caption{Four Layers of Analytics for Mobile Apps}
     \label{fig:four-layers-of-analytics-for-mobile-apps}
-\end{figure*}
+\end{figure}
 
 \begin{itemize}
     \item \textbf{Visual (GUI-level)} operates at the GUI level, or layer, of the app. It records aspects of the GUI activities such as touches, gestures, interactions with the screen, and data entry. Often it includes recording what is on the screen too. A common type of Visual analytics is \emph{heatmapping} software. Note: visual analytics may be \emph{implemented} in the app, conceptually they observe the GUI as if from above the UI.
@@ -527,18 +527,10 @@ The actual deployment and market penetration of a new release depends on several
     \label{fig:pocketpaint-180d-active-users}
 \end{figure*}
 
-Figure~\ref{fig:pocketpaint-180d-active-users} illustrates a typical pattern of the majority of the userbase migrating from one release of the \myindex{Pocket Code} app to another and yet others remain with older releases during this period of 180 days (apologies for the small text in the image it was impractical to resize it adequately). Note: Google defines active users as:~\emph{``
+Figure~\ref{fig:pocketpaint-180d-active-users} illustrates a typical pattern of the majority of the userbase migrating from one release of the \myindex{Pocket Code} app to another and yet others remain with older releases during this period of 180 days~\sidenote{apologies for the small text in the image it was impractical to resize it adequately.}. Note: Google defines active users as:~\emph{``
 The number of users who have your app installed on at least 1 device that has been turned on in the last 30 days"}~\sidenote{Text extracted from the online help for the `Active users' contextual help icon in Figure~\ref{fig:pocketpaint-180d-active-users}.} so it's not necessarily those who use the app in this period. The residues of users who remain on older releases of the app constrains the rate of change of the overall statistics as measured by Google Play Console and Android Vitals. This means that old buggy releases may continue to adversely affect the overall stability metrics for the app for long periods, even for months and years. Conversely, the project team may have addressed some of the causes of poor stability yet don't have a viable way of proposing users upgrade to the newer releases, and sometimes newer releases may have undesirable features or characteristics from an end user's perspective.
 
-\begin{comment}
-\begin{figure*}
-    \includegraphics[width=\linewidth]{images/rough-sketches/app-install-base.pdf}
-    \caption{App install base}
-    \label{fig:app-install-base-rough}
-\end{figure*}
-\end{comment}
-
-\textbf{Installation base}: TThe installation base for a mobile app ebbs and flows based on new installs and uninstalls~\sidenote{Note: apps may be downloaded independently of devices, for instance using a web browser~\cite{norwied2012_download_android_install_files}, and they may be installed independently of an app store. Both these traits may affect the accuracy of the installation counts.}. In current mainstream app stores users do not get a choice of which release of an app they will receive when they receive it, that choice is made by the app store using one or more releases provided by the developer. The app store may allow developers to choose various criteria for current releases, such as a percentage rollout, and then apply that. However, the final install base following a release can still differ because some installations are not sourced from the app store. A key consideration is that upgrades apply to the install base so they occur within a population and do not change the number of installs. That said they may lead to decreases in the installation base for various reasons. Some users may uninstall an app prompted by learning of a new update of the app - for instance if it requires permissions the user considers intrusive or unsafe; others may uninstall the app after the update, for instance if they believe it is too buggy to merit using. Note: they are not able to revert to an earlier release within the current major app store's practices / constraints. 
+\textbf{Installation base}: The installation base for a mobile app ebbs and flows based on new installs and uninstalls~\sidenote{Note: apps may be downloaded independently of devices, for instance using a web browser~\cite{norwied2012_download_android_install_files}, and they may be installed independently of an app store. Both these traits may affect the accuracy of the installation counts.}. In current mainstream app stores users do not get a choice of which release of an app they will receive when they receive it, that choice is made by the app store using one or more releases provided by the developer. The app store may allow developers to choose various criteria for current releases, such as a percentage rollout, and then apply that. However, the final install base following a release can still differ because some installations are not sourced from the app store. A key consideration is that upgrades apply to the install base so they occur within a population and do not change the number of installs. That said they may lead to decreases in the installation base for various reasons. Some users may uninstall an app prompted by learning of a new update of the app - for instance if it requires permissions the user considers intrusive or unsafe; others may uninstall the app after the update, for instance if they believe it is too buggy to merit using. Note: they are not able to revert to an earlier release within the current major app store's practices / constraints. 
 
 To sum up so far, new installs receive the most current release gated by the rollout algorithms implemented by and in the app store. Upgrades also receive the most current release gated by the same rollout algorithms.
 
@@ -560,7 +552,7 @@ To sum up again, the installation base relies on a combination of existing and n
     \label{fig:kiwix-30d-active-users}
 \end{figure*}
 
-As mentioned above, there are various practical constraints to the frequency of releasing mobile apps using an app store. Chiefly there are two constraints: 1) the relatively slow rollout of new releases to the user-base which can take a week or more to achieve 50\% and also 2) the app store's review process which has been a hotly debated topic particularly by developers who may end up waiting days or even weeks for a release to be approved. Apple states~\emph{``Review times may vary by app. On average, 50\% of apps are reviewed in 24 hours and over 90\% are reviewed in 48 hours."} and Google informs developers in Google Play Console~\emph{``We're experiencing longer than usual review times
+As mentioned above, there are various practical constraints to the frequency of releasing mobile apps using an app store. Chiefly there are two constraints: 1) the relatively slow rollout of new releases to the user-base which can take a week or more to achieve 50\% and also 2) the app store's review process which has been a hotly debated topic particularly by developers who may end up waiting days or even weeks for a release to be approved. Apple states~\emph{``Review times may vary by app. On average, 50\% of apps are reviewed in 24 hours and over 90\% are reviewed in 48 hours."} and Google informs developers in \myindex{Google Play Console}~\emph{``We're experiencing longer than usual review times
 Due to adjusted work schedules at this time, you may experience longer than usual review times for your app."} ~\sidenote{This message is on the \texttt{app-dashboard} page for each app in Google Play Console and only visible to authorised development team members}. Sophisticated development teams may find ways to alleviate these constraints, for instance by shipping code updates that are applied by a current release rather than by creating and releasing a new binary of the entire app.
 
 
