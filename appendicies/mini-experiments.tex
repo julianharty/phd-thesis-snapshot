@@ -1,5 +1,46 @@
 \chapter{Mini-experiments}~\label{appendix-mini-experiments}
 
+\section{Adding meta-data to crash logs}~\label{app-mini-experiment-meta-dat-to-crash-logs}
+Listing \ref{listing:android-crash-dummy-main-activity-uncaught-exception-handler} is an extract of source code we wrote to augment a stack trace with meta information about the Android device and the operating system. It was implemented in one of the mini-experiments called AndroidCrashDummy, which is opensourced and available on GitHub \href{https://github.com/ISNIT0/AndroidCrashDummy}{github.com/ISNIT0/AndroidCrashDummy}.
+
+\begin{listing}
+\begin{minted}[fontsize=\footnotesize,obeytabs=true,tabsize=2]{java}
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        final String deviceInfo = "==Device:[" + Build.DEVICE
+                + "], Model:[" + Build.MODEL
+                + "], Manufacturer:[" + Build.MANUFACTURER
+                + "], Time:[" + Build.TIME
+                + "], Android Version:[" + Build.VERSION.RELEASE
+                + "]==";
+
+        final Thread.UncaughtExceptionHandler systemHandler = 
+            Thread.getDefaultUncaughtExceptionHandler();
+
+        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+            @Override
+            public void uncaughtException(Thread t, Throwable e) {
+                StackTraceElement[] trace = e.getStackTrace();
+                StackTraceElement[] newTrace = new StackTraceElement[trace.length + 1];
+                System.arraycopy(trace, 0, newTrace, 1, trace.length);
+                newTrace[0] = new StackTraceElement("==Device Info==",
+                        deviceInfo,
+                        "", -3);
+                e.setStackTrace(newTrace);
+
+                systemHandler.uncaughtException(t, e);
+            }
+        });
+\end{minted}
+\caption{Extract of java code that adds meta-data to crash stack traces to an Android app's codebase\\source: \href{https://github.com/ISNIT0/AndroidCrashDummy/blob/master/app/src/main/java/com/example/user/androidtestapp/MainActivity.java}{MainActivity.java}}
+\label{listing:android-crash-dummy-main-activity-uncaught-exception-handler}
+\end{listing}
+
+Subsequently a similar incomplete implementation of an uncaught exception handler that is designed to report other meta-information via \myindex{Crashlytics}~\sidecite{stackoverflow2016_how-to-have-a-callback-for-when-a-crash-occurred-while-using-crashlytics-sdk}.
+
+
 \section{Experiences with a test Android app: Travel Europe}
 The author co-created a small functional test app, called \myindex{Travel Europe}, with Joe Reeve. It is available in Google Play for pre-release testing (it has not been published yet). The app incorporates Microsoft's App Center Analytics and content known as Travel Europe that was collated automatically by the Kiwix project and made freely available for use and re-use.
 

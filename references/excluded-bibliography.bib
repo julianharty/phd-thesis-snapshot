@@ -1237,7 +1237,6 @@ author = {He, Shilin and He, Pinjia and Chen, Zhuangbin and Yang, Tianyi and Su,
     }
 }
 
-
 @article{spolaor2018_delta_data_extraction_and_logging_tool_for_android,  
   author={Spolaor, Riccardo and Santo, Elia Dal and Conti, Mauro}, 
   journal={IEEE Transactions on Mobile Computing}, 
@@ -1630,5 +1629,65 @@ author = {Hermann, Ben and Winter, Stefan and Siegmund, Janet},
     }
 }
 
+@INPROCEEDINGS{8806753,  
+    author={Huang, Jie and Borges, Nataniel and Bugiel, Sven and Backes, Michael},  
+    booktitle={2019 IEEE European Symposium on Security and Privacy (EuroS&P)},  
+    title={Up-To-Crash: Evaluating Third-Party Library Updatability on Android},  
+    year={2019}, 
+    volume={}, 
+    number={}, 
+    pages={15-30},  
+    abstract={
+        Buggy and flawed third-party libraries increase their host app's attack surface and put the users' privacy at risk. To avert this risk, libraries have to be kept updated to their newest versions by the app developers that integrate them into their projects. Recent researches revealed that the prevalence of outdated third-party libraries in Android apps is indeed a rampant problem, but also suggested that there is a great opportunity for drop-in replacements of outdated libraries, which would not even require cooperation by the app developers to update the libraries. However, all those conclusions are based on static app analysis, which can only provide an abstract view. In this work, we extend the updatability analysis to the runtime of apps. We implement a solution to update third-party libraries with drop-in replacements by their newer versions. To verify the feasibility of this developer-independent update mechanism, we dynamically test 3,000 real world apps for 3 popular libraries (78 library versions) for runtime failures stemming from incompatible library updates. To investigate the updatability of libraries in-depth, exploration enhanced dynamic testing is adopted to monitor the runtime behaviors of 15 apps before and after library updating. From our test, we find that the prior reported updatability rate is under real conditions overestimated by a factor of 1.57-2.06. Through root cause analysis, we find that the underlying problems prohibiting easy updates are intricate, such as deprecated functions, changed data structures, or entangled dependencies between different libraries and even the host app. We think our results not only put a more realistic light on the library updatability problem in Android, but also provide valuable insights for future solutions that provide automatic library updates or that try to support the app developers in better maintaining their external dependencies.
+    },
+    keywords={}, 
+    doi={10.1109/EuroSP.2019.00012}, 
+    ISSN={},  month={June},
+    exclusion_rationale = {
+        A somewhat surreal piece of research that replaced libraries in app binaries and then tried to assess whether the updated version was a drop-in replacement. Spoiler alert, generally they were not. 
+    }
+}
+
+
+@INPROCEEDINGS{polese2022_adoption_of_third_party_libraries_a_case_study_on_opensource_android_apps, 
+    author={Polese, Aidan and Hassan, Safwat and Tian, Yuan},  
+    booktitle={2022 IEEE/ACM 9th International Conference on Mobile Software Engineering and Systems (MobileSoft)},  
+    title={Adoption of Third-party Libraries in Mobile Apps: A Case Study on Open-source Android Applications},  
+    year={2022},  
+    volume={}, 
+    number={},  
+    pages={125-135}, 
+    abstract={
+        Third-party libraries are frequently adopted in open-source Android applications (apps). These libraries are essential to the Android app development ecosystem as they often provide vital functionality that would take significant development time to implement otherwise. Researchers have mainly studied the prevalence and updates of third-party libraries in Android apps. However, no prior work investigates the adoption percentages of third-party libraries in apps and how they evolve. It remains unknown whether there are any patterns in third-party libraries' adoption percentages in Android apps. In this study, we empirically investigate the adoption of third-party libraries in 2,997 open-source Android apps over a six-year study period (2015–2020). We collected 39,882 commits from repositories hosting the target apps, and identified all changes to the adoption percentages of third-party libraries in each app. We then calculated the adoption percentage of each library in each app over specific time periods. Using the collected data, we report adoption statistics of popular libraries, propose a new taxonomy to characterize their evolutionary patterns, investigate the adoption percentages of third-party libraries across different app categories, and explore the groups of libraries that have similar release patterns and version-level adoption patterns. Our findings provide insight on third-party library adoption in open-source Android apps and thus might help researchers create tools to improve the library adoption in mobile apps.
+    },  
+    keywords={},  
+    doi={10.1145/3524613.3527810},  
+    ISSN={},  
+    month={5},
+    exclusion_rationale = {
+        They do trend analysis of third-party libraries in around 2250 opensource android apps (about 10\% of the projects they found initially. Their definition of active is based on code commits rather than the app being live in Google Play. Their Figure 10, of the version adoption percentages of Google's GSON library. They did NOT investigate how (when?) libraries are adopted, nor investigate problems in the library releases.
+    }
+}
+
+@inproceedings{10.1145/3052973.3052990,
+    author = {Taylor, Vincent F. and Martinovic, Ivan},
+    title = {To Update or Not to Update: Insights From a Two-Year Study of Android App Evolution},
+    year = {2017},
+    isbn = {9781450349444},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3052973.3052990},
+    doi = {10.1145/3052973.3052990},
+    abstract = {Although there are over 1,900,000 third-party Android apps in the Google Play Store, little is understood about how their security and privacy characteristics, such as dangerous permission usage and the vulnerabilities they contain, have evolved over time. Our research is two-fold: we take quarterly snapshots of the Google Play Store over a two-year period to understand how permission usage by apps has changed; and we analyse 30,000 apps to understand how their security and privacy characteristics have changed over the same two-year period. Extrapolating our findings, we estimate that over 35,000 apps in the Google Play Store ask for additional dangerous permissions every three months. Our statistically significant observations suggest that free apps and popular apps are more likely to ask for additional dangerous permissions when they are updated. Worryingly, we discover that Android apps are not getting safer as they are updated. In many cases, app updates serve to increase the number of distinct vulnerabilities contained within apps, especially for popular apps. We conclude with recommendations to stakeholders for improving the security of the Android ecosystem.},
+    booktitle = {Proceedings of the 2017 ACM on Asia Conference on Computer and Communications Security},
+    pages = {45–57},
+    numpages = {13},
+    keywords = {app, vulnerability, android, longitudinal, permission},
+    location = {Abu Dhabi, United Arab Emirates},
+    series = {ASIA CCS '17},
+    exclusion_rationale = {
+        Their focus is on permissions required by updated releases of Android apps so takes more of a user+permission centric view than anything relevant to my thesis.
+    }
+}
 
 
