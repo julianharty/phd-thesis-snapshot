@@ -465,10 +465,27 @@ Various of the mobile analytics services provided API integration, these are cov
 
 The Google and Microsoft storage integration requires both authorisation and paying for by the organisation. In turn this meant a development team needs to get approval to access and use these services, and the approval may be time-consuming even if senior management has dictated the project will integrate and use these services as a side-effect of corporate processes and working practices. An entirely separate team may be responsible for the `plumbing' in of the project's data from the mobile analytics service where the development team needs to request the necessary work and then wait until that work has been approved, scheduled, and then attempted. As Twitter engineers noted plumbing is a key activity~\sidecite[][page 6]{lin2013_scaling_big_data_mining_infrastructure_the_twitter_experience} 
 
-%%% Julian to continue here on 09 Sep 2022
+%%% Julian to continue here on 11 Sep 2022
 
 \section{Improvements to  the artefacts}~\label{aata-improvements-to-theartefacts}\index{\iartefacts}
-Logging errors, using breadcrumbs, in-app crash analytics. Preserving reports and results (and streamlining the tools and processes to do so). Distinguishing between analytics from various release zones (pre-release, production, etc.), safeguarding application keys.  
+
+\subsection{In-app crash analytics}~\label{aata-in-app-crash-analytics-topic}
+
+
+\subsection{Logging errors}~\label{aata-logging-errors-topic}
+
+
+\subsection{Using breadcrumbs}~\label{aata-using-breadcrumbs-topic}
+
+
+\subsection[Analytics for each release zone]{Distinguish analytics for each release zone}~\label{aata-analytics-for-each-release-zone}
+Distinguishing between analytics from various release zones (\emph{e.g.} for internal test, pre-release, and production) enables the development teams to track the reliability in each zone independently and without polluting the production analytics. The  commercial project, \myindex{C1}, used this approach successfully. To apply this approach using in-app mobile analytics the development team need to first create distinct configurations, this is often performed in the user interface of the mobile analytics service as it generally needs to be configured to receive and accept the distinct configuration keys, \emph{etc.} The development team then need to configure their build system to select and use the correct configuration key(s), for the respective release zone. For Android apps, this is often performed as part of the \myindex{Gradle} build settings.
+
+\subsection{Safeguarding application keys}~\label{aata-safeguarding-application-keys}
+
+
+\subsection{Preserving reports and results}~\label{aata-preserving-reports-and-results}
+Preserving reports and results (and streamlining the tools and processes to do so).
 
 
 \section{Discussion}~\label{aata-discussion-section}
