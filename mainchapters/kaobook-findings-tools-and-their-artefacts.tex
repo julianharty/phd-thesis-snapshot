@@ -39,7 +39,7 @@ Platform-level analytics provides an outsider's perspective on the behaviour of 
 
 Mobile Analytics tools vie for attention against a plethora of other developer-oriented tools, project demands, \emph{etc.} Developers need to be enticed into using the tools and then retained on an ongoing basis to meet the objectives of the providers of the mobile analytics services.
 
-\subsection{SDK design}~\label{tata-section-sdk-design}
+\subsection{SDK design}~\label{tata-sdk-design-topic}
 Any mobile analytics SDK needs to be designed to collect relevant data and forward that data so it can be processed, analysed, and reported on. The design of the client-side SDK affects many aspects of the data collection which then feeds subsequent stages in the processing of the data to provide the mobile analytics. Some of the general features of SDK design include the support for different programming languages, initialisation, and automation of data collection. Additionally, we need to consider how the SDK encapsulates runtime failures, manages metadata about the end users' devices, alongside other engineering challenges. In this section we draw on evidence from both app-centric and tool-centric case studies to discuss current use and potential improvements to mobile analytics tools, across these different aspects of analytics SDK design.
 
 \newthought{Programming language support: } 
@@ -279,7 +279,7 @@ None of the currently available mobile analytics tools seen during this research
 
 \myindex{Android Vitals} aims to highlight emerging problems with a deployed app. For instance if there is an acute and significant increase in the crash rate for the production release(s). It also provides cross-connections between problems found in Google Play's pre-launch reports and failures that occur in production. Developers found some of the reported failures easy to comprehend and address, others have been much less tractable. Several of the developers who use Crashlytics said they preferred using it over Android Vitals for comprehending crashes. \myindex{Crashlytics} provided more information than Android Vitals and the reports were easier to digest therefore the Crashlytics reports were more actionable than those from Android Vitals.
 
-As discussed in the flaws topic (\secref{section-flaws-in-the-analytics}, \secref{section-flaws}) various reports have flaws, for instance in their aggregation. There is scope to improve the mobile analytics tools through improving the matching process in the data aggregation (for instance, where there are fragmented `failure clusters') and in the analysis across multiple legitimate failure clusters (such as across all \texttt{NullPointerExceptions}) to help identify underlying flaws in the development of the app.
+As discussed in the flaws topic (\secref{tata-flaws-topic}) various reports have flaws, for instance in their aggregation. There is scope to improve the mobile analytics tools through improving the matching process in the data aggregation (for instance, where there are fragmented `failure clusters') and in the analysis across multiple legitimate failure clusters (such as across all \myindex{\texttt{NullPointerExceptions}}) to help identify underlying flaws in the development of the app.
 
 The \myindex{Moonpig} case study provides an illustrative example of how the development team was able to take proportionate and measured action as the crash-rate of their Android app increased. The cause was related to a known and documented issue with a third-party software library, RoboSpice. There was a clear correlation where the crash-rate increased on newer Android releases. The team was able to evaluate and estimate an appropriate timescale to replace that library by revising the application's source code. They were able to schedule the release to suit other strategic objectives rather than rushing to push out a `fix' of the app.
 
@@ -365,7 +365,7 @@ As Android Vitals features in every one of the app-centric case studies it has b
 \begin{figure}
     \centering
     \includegraphics[width=0.75\linewidth]{images/android-vitals-screenshots/catrobat/PocketCode-Lifetime-User-KPIs-2020-jan-24b.pdf}
-    \caption{Google Play Console Dashboard for PocketCode Lifetime User KPIs on \nth{24} Jan 2020}
+    \caption[Google Play Console Dashboard for PocketCode Lifetime User KPIs]{Google Play Console Dashboard for PocketCode Lifetime User KPIs, on \nth{24} Jan 2020}
     \label{fig:PocketCode-Lifetime-User-KPIs-2020-jan-24}
 \end{figure}
 
@@ -383,7 +383,7 @@ Based on very rough approximations combining my case studies with AppBrain's dow
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth, keepaspectratio]{images/appbrain/AppBrain_Download_Statistics_20-Jun-2019.png}
-    \caption{AppBrain: Download distribution of Android apps (June 2019)}
+    \caption[AppBrain: Download distribution of Android apps]{AppBrain: Download distribution of Android apps, from June 2019}
     \label{fig:appbrain_download_statistics_jun_2019}
 \end{figure}
 
@@ -417,7 +417,7 @@ Not all issues flagged by \myindex{Android Vitals} are valid problems that need 
 
 
 \section{Utility}~\label{tata-utility-section}
-Utility addresses practical and pragmatic aspects of developers using mobile analytics to achieve their purposes. It's a close cousin to \secref{section-fit-for-purpose} and considers three discrete lower-level themes: efficacy of the mobile analytics tool(s), the benefits of combining tools, and bug-localisation.
+Utility addresses practical and pragmatic aspects of developers using mobile analytics to achieve their purposes. It's a close cousin to \secref{tata-fitness-for-purpose-section} and considers three discrete lower-level themes: efficacy of the mobile analytics tool(s), the benefits of combining tools, and bug-localisation.
 
 An orthogonal topic is included in this section as Google has provided various online tools to help developers pre-release of their Android apps. One in particular, pre-launch reports, compares failures found pre- and post- release and is instructive in how well automated platform-provided checks and tests might help developers reduce the incidence and/or severity of post-release failures.
 
@@ -502,7 +502,7 @@ FATAL EXCEPTION: Firebase-Messaging-Intent-Handle
 Process: com.google.android.youtube, PID: 27568
 java.lang.NoClassDefFoundError: aewt
 \end{minted}
-\caption{Extract of false positive test failure for the Kiwix Arabic WikiMed app, December 2020}
+\caption[Extract of false positive test failure for the Kiwix Arabic WikiMed app]{Extract of false positive test failure for the Kiwix Arabic WikiMed app, in December 2020}
 \label{listing:kiwix-wikimed-ar-pre-launch-report-crash}
 \end{listing}
 
@@ -530,7 +530,7 @@ java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
 	at android.view.View.performClick(View.java:6597)
 
 \end{minted}
-\caption{Extract of pre-launch crash report A for Kiwix Android app, in 2018}
+\caption[Extract of pre-launch crash report A for Kiwix Android app]{Extract of pre-launch crash report A for Kiwix Android app, in 2018}
 \label{listing:kiwix-pre-launch-report-crash-report-a}
 \end{listing}
 
@@ -548,7 +548,7 @@ java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
 	at org.kiwix.kiwixmobile.downloader.-$$Lambda$DownloadFragment$DownloadAdapter$LxyhzTeoe7ZUFXuWnasr5s63_Bc.onClick(Unknown Source:6)
 	at android.view.View.performClick(View.java:6597)
 \end{minted}
-\caption{Extract of pre-launch crash report B for Kiwix Android app, in 2018}
+\caption[Extract of pre-launch crash report B for Kiwix Android app]{Extract of pre-launch crash report B for Kiwix Android app, in 2018}
 \label{listing:kiwix-pre-launch-report-crash-report-b}
 \end{listing}
 % Complete stack traces available in /empirical-studies/empirical-evidence/kiwix/crashreports-prelaunch-report-2018.txt
@@ -637,7 +637,7 @@ For the purposes of this research testability focuses on working within commerci
 
 An interesting phenomenon was observed during the \myindex{Catrobat} hackathon for \myindex{Pocket Code} where some of the crashes that appeared in \myindex{Android Vitals} were believed to come from `soft errors'\sidenote{Soft errors are those caught and handled within the mobile app.} in the Pocket Code app. The issue, CATROID-426, was logged during the hackathon~\sidecite{catroid_426_soft_crashes_should_not_be_reported_to_the_play_console} and the developers wrote two sets of code changes (also known as `commits'). These were merged into the app's codebase on \nth{21} Nov 2019 and released in the Pocket Code app several weeks later.
 
-The intent was laudable, however, at least some of the soft crashes continued to occur over a month later, as documented in \url{https://jira.catrob.at/browse/CATROID-422}. This issue was raised in the hackathon and closed as a duplicate by one of the developers involved in trying to stop the soft errors from appearing in Android Vitals \sidecite{catroid_426_soft_crashes_should_not_be_reported_to_the_play_console}.
+The intent was laudable, however, at least some of the soft crashes continued to occur over a month later, as documented in \href{https://jira.catrob.at/browse/CATROID-422}{jira.catrob.at/browse/CATROID-422}. This issue was raised in the hackathon and closed as a duplicate by one of the developers involved in trying to stop the soft errors from appearing in Android Vitals \sidecite{catroid_426_soft_crashes_should_not_be_reported_to_the_play_console}.
 
 \begin{figure}
     \centering
@@ -646,7 +646,7 @@ The intent was laudable, however, at least some of the soft crashes continued to
     \label{fig:gpc-release-management-stackoverflow-50pct-rollout}
 \end{figure}
 
-The failure rate varies for crashes and \Glspl{anr} in Google Play Console's Release Management\index{Google Play Console!Release Management} reports during the rollout of a release. An example from StackOverflow~\sidecite{stackoverflow2022_different_ANR_per_1k_when_full_rollout_100pct}, shown in Figure \ref{fig:gpc-release-management-stackoverflow-50pct-rollou} reflects similar behaviours observed in the commercial, \myindex{C1}, case study. Currently these reports raise more questions than they answer, for example, is there any correlation between when users adopt a new release and the failure rate they were experiencing in a previous release?  
+The failure rate varies for crashes and \Glspl{anr} in Google Play Console's Release Management\index{Google Play Console!Release Management} reports during the rollout of a release. An example from StackOverflow~\sidecite{stackoverflow2022_different_ANR_per_1k_when_full_rollout_100pct}, shown in Figure \ref{fig:gpc-release-management-stackoverflow-50pct-rollout} reflects similar behaviours observed in the commercial, \myindex{C1}, case study. Currently these reports raise more questions than they answer, for example, is there any correlation between when users adopt a new release and the failure rate they were experiencing in a previous release?  
 
 \newthought{Google Engineering's perspective: }
 In email correspondence in January 2020 one of the Engineering Managers at Google for Google Play Console and \myindex{Android Vitals} observed:
@@ -717,7 +717,7 @@ This is necessary because in \secref{tata-flaws-topic} various flaws were identi
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{images/crashprobe.com/CrashProbe-Results-for-iOS-2016-09-06.pdf}
-    \caption{Crashprobe iOS SDL results from \nth{06} Sep 2016}
+    \caption[Crashprobe iOS SDK results]{Crashprobe iOS SDK results from \nth{06} Sep 2016}
     \label{fig:crashprobe-ios-results}
 \end{figure}
 

@@ -277,7 +277,7 @@ In contrast, digital feedback originates from software and is generally determin
 
 \begin{figure}
     \includegraphics[width=\linewidth]{images/mobile-analytics-playbook/feedback-loops-for-mobile-apps.pdf}
-    \caption{Feedback Loops for mobile apps~\cite{harty_aymer_playbook_2016}}
+    \caption[Feedback Loops for mobile apps]{Feedback Loops for mobile apps, previously published in~\cite{harty_aymer_playbook_2016}}
     \label{fig:map2015-feedback-loops-for-mobile-apps}
 \end{figure}
 
@@ -339,7 +339,7 @@ At any point one or more of these apps may be running, the rest are idle. The ma
 As an observation the vast majority of Android developers use the default inbuilt logging library \texttt{android.util.log} and choose one or more of Google's analytics offerings (which include Firebase and Crashlytics). A commercial organisation, AppBrain, provides current statistics for third-party logging libraries~\sidenote{Logging libraries (note the default android log library is not tracked at the time of writing~\url{https://www.appbrain.com/stats/libraries/tag/logging/logging-libraries}}, crash libraries~\sidenote{\url{https://www.appbrain.com/stats/libraries/tag/crash-reporting/android-crash-reporting-libraries}} and mobile analytics~\sidenote{\url{https://www.appbrain.com/stats/libraries/tag/analytics/android-analytics-libraries}}. Some apps have several of these libraries so counts may exceed 100\% in their reports.
 
 \begin{itemize}
-    \item Logging: enables developers to understand what their software is doing. The practice is commonplace across many software domains including mobile apps, and each platform and language includes a standard method of generating log messages. These messages tend to be small and intended for immediate, local consumption. On Android when developers use the standard logging library (\texttt{android.util.log}) their log messages are written to a shared circular log file on a device. As illustrated in Figures~\ref{fig:apps-on-device-boundaries} and~\ref{fig:on-device-logging}, some privileged Android software is able to read these shared logs. Developers can also read them using standard Android development tools \emph{e.g.} \texttt{adb logcat} providing they are connected to the device with the log file. Older versions of Android allowed apps to read the full contents, more recently apps are restricted to only the log messages they wrote unless they are granted the relevant permission by Google and the user. 
+    \item Logging: enables developers to understand what their software is doing. The practice is commonplace across many software domains including mobile apps, and each platform and language includes a standard method of generating log messages. These messages tend to be small and intended for immediate, local consumption. On Android when developers use the standard logging library (\texttt{android.util.log}) their log messages are written to a shared circular log file on a device. Some privileged Android software is able to read these shared logs. Developers can also read them using standard Android development tools \emph{e.g.} \texttt{adb logcat} providing they are connected to the device with the log file. Older versions of Android allowed apps to read the full contents, more recently apps are restricted to only the log messages they wrote unless they are granted the relevant permission by Google and the user. 
     In other domains \emph{e.g.} web servers, infrastructure software, and many others, logging is used for production monitoring, fault-finding and analysis. A minority of mobile app developers use remote logging.
     \item Mobile analytics, can extend and scale logging. For mobile analytics, a minority of developers incorporate custom implementations, however the vast majority who use analytics do so through using third-party analytics libraries such as Google Firebase Analytics, details of the current usage of analytics libraries are provided by AppBrain~\sidenote{\url{https://www.appbrain.com/stats/libraries/tag/analytics/android-analytics-libraries}}.
 \end{itemize}
@@ -349,7 +349,7 @@ As an observation the vast majority of Android developers use the default inbuil
 
 \begin{figure}
     \includegraphics[width=\linewidth]{images/mobile-analytics-playbook/overview-of-mobile-analytics.pdf}
-    \caption{Overview of Mobile Analytics~\cite{harty_aymer_playbook_2016}}
+    \caption[Overview of Mobile Analytics]{Overview of Mobile Analytics, previously published in~\cite{harty_aymer_playbook_2016}}
     \label{fig:map2016-overview-of-mobile-analytics}
 \end{figure}
 
@@ -482,13 +482,6 @@ The focus here is on data from various stages of a conceptual infinite combined 
 
 In October 2020, one of the students taking part in the PhD symposium at the ICST2020 conference presented a variation of the DevOps loop (as illustrated earlier in this chapter in Figure~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop}) that is relevant to this research. Here the focus was on crash reproduction and this illustration is presented with some annotations in Figure~\ref{fig:oberve-and-apply-devops-loop}~\sidenote{The figure has been redrawn using one of the STAMP project's illustrations (obtained from \href{https://www.stamp-project.eu/download/main/WebHome/Infiny_4.svg?rev=1.3}{www.stamp-project.eu/view/main/}) which is licensed as \href{https://creativecommons.org/licenses/by-sa/4.0/}{creativecommons.org/licenses/by-sa/4.0/} and revised to show an Android example}. %\sidecite{derakhshanfar2021_phd_thesis}
 
-\begin{comment}
-\begin{figure*}
-    \includegraphics[width=\linewidth]{images/my/delft-crash-testing-redrawn.pdf}
-    \caption[Reproduction of crashes in production]{Reproduction of Crashes found in production. \\Redrawn and based on a presentation supporting \cite{derakhshanfar2020_well_informed_test_case_generation_and_crash_reproduction} which is part of the STAMP: Software testing amplification for DevOps research.}
-    \label{fig:crash-reproduction-icst2020}
-\end{figure*}
-\end{comment}
 
 The annotations to this figure show, in red, the extent software can be observed, and in green of when the results of those observations can be applied to the code. Note: the observations can be applied throughout every phase, for instance during deployment aberrant behaviour observed during the deployment may lead to the deployment being paused.
 
@@ -498,7 +491,7 @@ The annotations to this figure show, in red, the extent software can be observed
     \label{fig:oberve-and-apply-devops-loop}
 \end{figure*}
 
-Data is available using various sources about software from the outset of coding until the software dies; however for the purposes of this thesis the focus is on when the software is actively used and maintained, as illustrated in the previous three figures:~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop},~\ref{fig:crash-reproduction-icst2020},~\ref{fig:oberve-and-apply-devops-loop}. 
+Data is available using various sources about software from the outset of coding until the software dies; however for the purposes of this thesis the focus is on when the software is actively used and maintained, as illustrated in the previous two figures:~\ref{fig:atlassian-state-of-devops-report-2016-devopsloop},~\ref{fig:oberve-and-apply-devops-loop}. 
 
 During coding code analysis tools such as static analysis identifies patterns of potential concern in the source code and similar artifacts such as GUI layouts, strings in resource files, and so so. Tests can also be created and performed from the outset of the coding to provide runtime feedback (~\emph{i.e.} data) about the software under test, and similarly developers can add logging statements and also use logging built into the operating system that both provide data that can be mined to learn about the software's behaviours.
 

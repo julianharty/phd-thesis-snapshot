@@ -17,3 +17,26 @@
     \item \emph{Intermediate: Easy fix of application crash using Huawei Crash Service and Remote Configuration}~\url{https://forums.developer.huawei.com/forumPortal/en/topic/0202581794223780039}
 \end{itemize}
 \end{comment}
+
+
+
+\begin{table*}
+    \centering
+    \resizebox{\textwidth}{!}{% See https://tex.stackexchange.com/a/27105/88466 TODO improve the readability of the table.
+    \begin{tabular}{c|ccccc}
+        \toprule
+        \textit{stage} & During init & During shutdown & In background service & In `flight' & In a `runtime' \\
+        \midrule
+         Mobile Analytics tool & & & & & \\
+         \midrule
+         Google Play Console with Android Vitals & C & C & C & C & \\
+         Fabric Crashlytics &  & Unknown & Unknown & EC & \\
+         Sentry & N & & & Y & Y \\
+         \bottomrule
+    \end{tabular}}
+    \caption[Mapping error and crash reporting to mobile analytics tools]{Mapping error and crash reporting to mobile analytics tools \\ E = Error, C = Crash, B = Breadcrumb, K = Custom content, N = No}
+    \label{tab:discussion-mapping-error-and-crash-reporting-to-ma-tools}
+\end{table*}
+\afterpage{\clearpage}
+
+TODO discuss: the reporting mechanisms and limitations in addition to Table~\ref{tab:discussion-mapping-error-and-crash-reporting-to-ma-tools}'s examples of what they can capture. Also discuss the primary focus of this research has been on Crashes, then on Errors, then on ANRs~\todo{Note: this material probably belongs in the Tools chapter once I've established it.}.

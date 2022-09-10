@@ -1,5 +1,5 @@
 \setchapterpreamble[u]{\margintoc}
-\chapter{Discussion (and Evaluation TBC)}~\label{chapter-discussion}
+\chapter{Discussion}~\label{chapter-discussion}
 
 \epigraph{Every honest researcher I know admits he's just a professional amateur. He's doing whatever he's doing for the first time. That makes him an amateur. He has sense enough to know that he's going to have a lot of trouble, so that makes him a professional.}{Charles Franklin Kettering (1876-1958)}~\footnote{Epigraph, with thanks to Zieris's PhD thesis for this quotation\cite{zieris2020_phd_qualitative_analysis_of_knowledge_transfer_in_pair_programming}.}
 
@@ -9,10 +9,8 @@
 Several of the discussion topics are more general in nature, for instance on privacy and on informed consent by users, and so they are covered in this chapter. They are organised as follows: a critique on this research followed by the utility and scalability of applying this research in future. Empowering users to participate and developers to improve their practices helps us consider two of the key populations of people who are most affected by the use of mobile analytics. 
 
 
-
-
 \section{Mobile analytics is a socio-technical system}
-Mobile Analytics is a socio-technical system in which both the technical and the social aspects need to be addressed both to maximise the good effects and to minimise the fruitless and bad effects of using these systems~\sidecite{baxter2011_socio-technical-systems-from-design-methods-to-systems-engineering}.\todo{Consider critiquing this paper here.}
+Mobile Analytics is a socio-technical system in which both the technical and the social aspects need to be addressed both to maximise the good effects and to minimise the fruitless and bad effects of using these systems~\sidecite{baxter2011_socio-technical-systems-from-design-methods-to-systems-engineering}.%\todo{Consider critiquing this paper here.}
 
 There are several cross-cutting concerns with using mobile analytics: trustworthiness holistically with an additional focus on the ethical and legal aspects which are topics developers seldom get directly involved in the software they use and produce impacts, or interacts with, both of these aspects.
 
@@ -58,13 +56,16 @@ The research demonstrates developers are able to achieve material improvements t
 
 
 % \subsubsection{Considerations on the methodology}~\label{discussion-considerations-on-the-methodology}
-\textbf{Considerations on the methodology}: 
+\newthought{Considerations on the methodology}: 
 One of the largest challenges in terms of applying the methodology was on restrictions, real and assumed, in the systematic, timely, efficacious, and ongoing collection of data. The restrictions were particularly onerous in terms of collecting the analytics artefacts from Google Play Console and Android Vitals, however the effects also applied to other proprietary mobile analytics tools. There challenges were practical, risk-based, and ethical. 
 
-\textbf{Power imbalances}: 
+\newthought{Power imbalances}: 
 Power imbalances is immense between Google (and other major platform providers) and any developers/researchers interested in investigating the behaviour of the platform's mobile analytics services.
+%
+The depth and the breadth of Google's influence is vast in online services, in app development and sale, and in billions of people's lives generally (including those of many researchers). As Jacobides, \emph{et al.} noted in~\sidecite[][p. 2270]{jacobides2018_towards_a_theory_of_ecosystems}, \emph{``most ecosystem members are complementors (e.g., in July
+2014 there were 2.3 million individuals working as app developers), with very limited power''}. While I have some reservations about his calculations, through my research I concur with his observation on app developers having limited power. %Pon's article does not provide the details he stated here and attributed to Pon.
 
-The depth and the breadth of Google's influence is vast in online services, in app development and sale, and in billions of people's lives generally (including those of many researchers). The ongoing availability and use of these services are subject to Google's benevolence, and while policies and similar legal documents provide some indications of Google's requirements they do not address specifics and the Google engineering team chose not to answer requests to perform systematic evaluation of their service. This left aspects of the planned research in limbo. There have been numerous, sporadic, issues where Google has withdrawn access not only to an individual but to people and organisations Google decides are related to an individual. This led to a loss of income and even livelihood for some app developers. And the appeal process has been opaque and seemingly devoid of human intelligence.  (\textit{e.g.} \sidecite{martinez2019_google_just_terminated_our_startup_google_play_publisher_account_on_xmas_day, dodson2019_google_completely_terminated_our_new_business_etc, marcher2021_how_google_terminated-a-developer, stackoverflow2021_how_to_get_in_contact_with_google_play_to_challenge_an_app_rejection}). This research was therefore cautious in nature which is particularly key as the author has connections with multiple organisations who have popular apps in the Google Play Store. 
+The ongoing availability and use of these services are subject to Google's benevolence, and while policies and similar legal documents provide some indications of Google's requirements they do not address specifics and the Google engineering team chose not to answer requests to perform systematic evaluation of their service. This left aspects of the planned research in limbo. There have been numerous, sporadic, issues where Google has withdrawn access not only to an individual but to people and organisations Google decides are related to an individual. This led to a loss of income and even livelihood for some app developers. And the appeal process has been opaque and seemingly devoid of human intelligence.  (\textit{e.g.} \sidecite{martinez2019_google_just_terminated_our_startup_google_play_publisher_account_on_xmas_day, dodson2019_google_completely_terminated_our_new_business_etc, marcher2021_how_google_terminated-a-developer, stackoverflow2021_how_to_get_in_contact_with_google_play_to_challenge_an_app_rejection}). This research was therefore cautious in nature which is particularly key as the author has connections with multiple organisations who have popular apps in the Google Play Store. 
 
 There is the potential for adverse real-world consequences of not having systematic, timely, efficacious, and ongoing collection of data. These include, missing pertinent information, incomplete data, an opportunity-cost (where spending time and resources devising ways to collect the data diverts from actually using, \textit{i.e.} applying, all the relevant\footnote{TBD whether to focus on ideal, relevant, sweetspot, or net-present-value, etc. of data.} data!). 
 
@@ -72,13 +73,13 @@ Express mechanisms and permission for authorised users to collect analytics arte
 
 
 %\subsubsection{Considerations on the app-centric case study procedure}~\label{discussion-considerations-on-the-app-centric-case-study-procedure}
-\textbf{Considerations on the app-centric case study procedure}: 
+\newthought{Considerations on the app-centric case study procedure}: 
 The app-centric case studies provided a useful variety of projects, apps, and business domains. Additional app-centric case studies may well increase the weight of at least some of the evidence and also provide new examples and insights - they are therefore desirable. Nonetheless, they do not negate the benefits of systematic testing and interrogation of mobile analytics services. This research was augmented by some small-scale and limited systematic testing and the results may be published at a later date since the findings did not massively disrupt the findings being published here.
 
 \afterpage{\clearpage}
 
-\subsection{The impact of covid and other unavailability}
-The emergence of COVID-19\index{COVID-19} materially affected several of the app-centric case studies and some planned research, it also adversely affected the working practices of various development teams.
+\subsection{The impact of COVID-19 and other unavailability}
+The emergence of \myindex{COVID-19} materially affected several of the app-centric case studies and some planned research, it also adversely affected the working practices of various development teams.
 Examples of the disruption include:
 
 \begin{itemize}
@@ -148,10 +149,16 @@ This research is limited to apps available in Google Play for practical reasons.
 Platform providers who collect platform level analytics (e.g. Google Android, Huawei Harmony OS, Apple iOS, etc.) have insights into not only the behaviours of the application code, they also have data on the stability of libraries and could use this data to help both library developers and app developers to address flaws related to the libraries being used in apps. Indeed with the launch of the SDK Index, \href{https://developer.android.com/distribute/sdk-index}{developer.android.com/distribute/sdk-index}, Google have recently done so; this extends their work with library developers where they provide them with crash statistics, \emph{etc.}~\sidecite{androiddevelopers2022_google_play_sdk_index}. They also provide app developers with various statistics on the top libraries~\sidecite{androiddevelopersblog2022_new_google_play_sdk_index_helps_you_choose_the_right_sdks_for_your_app}.
 
 \subsubsection{Beyond Google Play?}
-Other Android app stores are available, particularly in China as~\sidecite{wang2018_beyond_google_play} describes. Of the Chinese app stores, in 2018 only 2 (Tencent Myapp, and 360 Market) provided a quality rating. Their work indicates that at least some app stores are not likely to provide stability analytics similar, or equivalent, to those Google provides in Google Play Console and Android Vitals. Developers, therefore, would need to implement any analytics into their app rather than rely on the app store. Two more recent app stores are discussed next: Huawei and Amazon.
+% According to https://www.businessofapps.com/guide/app-stores-list/ there were over 300 app stores (their source is no longer available)
+% More info on Xaomi's market share https://www.enterpriseappstoday.com/stats/xiaomi-statistics-2022-market-share-demographics-and-news-update.html
 
-\textbf{Huawei}: 
-Huawei\index{Huawei} needed a comprehensive alternative to the Google Android ecosystem, driven by the ramifications of the ongoing ban in the USA~\sidecite{androidauthority2021_the_huawei_ban}. 
+Pon, \emph{et al} discussed how three companies: Google, \myindex{Amazon}, and \myindex{Xiaomi}, have developed their own platforms~\sidecite{pon2014_android_and_the_demise_of_operating_system_power_etc}. \sidenote{Their research predates ex-President Donald Trump and the furore of \myindex{Huawei} providing the infrastructure for mobile networks in the USA, UK, in particular, and the backlash against various Chinese companies who are heavily used in the `West' generally.}
+This research has focused on Google Android's ecosystem, both Amazon and Xiaomi have app stores and these research findings may therefore be applicable to those ecosystems assuming suitable mobile analytics exists. 
+
+Additional Android app stores are available, particularly in China as~\sidecite{wang2018_beyond_google_play} describes. Of the Chinese app stores, in 2018 only 2 (Tencent Myapp, and 360 Market) provided a quality rating. Their work indicates that at least some app stores are not likely to provide stability analytics similar, or equivalent, to those Google provides in Google Play Console and Android Vitals. Developers, therefore, would need to implement any analytics into their app rather than rely on the app store. Two more recent app stores are discussed next: Huawei and Amazon\sidenote{I was not able to obtain sufficient information on Xiaomi to usefully assess it.}
+
+\newthought{Huawei: } 
+\myindex{Huawei} needed a comprehensive alternative to the Google Android ecosystem, driven by the ramifications of the ongoing ban in the USA~\sidecite{androidauthority2021_the_huawei_ban}. 
 % And https://www.cnet.com/news/huawei-ban-timeline-chinese-company-android-rival-coming-phones-tablets/
 They have been ramping up their app store~\sidecite{androidauthority2021_huawei_app_gallery}, known as \href{https://appgallery.huawei.com/}{HUAWEI App Gallery}. According to~\sidecite{vodafone2021_huawei_appgallery}, it had over 180 billion downloads in the past year - which would infer lots of usage of those downloaded apps and very likely lots of crashes! 
 %
@@ -171,18 +178,18 @@ It's implausible crashes were resolved immediately or that end users received th
 
 Key differences between their provision and that provided by Google include the lack of integrated platform (device-level) analytics from the Operating System, the need for developers to integrate a full Analytics SDK in order to then use the crash and error reporting SDK. They do not mention of the equivalent of Android Vitals. In terms of pre-release checks and testing, they provide various elements that offer similar capabilities to the pre-packaged pre-launch reports that Google Play Console provides. For example, they have an Integration Check~\sidecite{huawei_appgallery_integration_check} which appears to perform various forms of static analysis and Cloud Testing~\sidecite{huawei_appgallery_cloud_testing} that in turn includes similar automated testing capabilities. 
 
-As Huawei develops HarmonyOS and their app store, potentially platform-level analytics could be added and made available by Huawei in future.
+As Huawei develops \myindex{HarmonyOS} and their app store, potentially platform-level analytics could be added and made available by Huawei in future.
 
-\textbf{Amazon app store}: 
-Another major app store for Android apps is the \href{https://developer.amazon.com/apps-and-games}{Amazon appstore}, which includes `millions of devices in over 236 countries and territories'. They provide an \href{https://developer.amazon.com/settings/console/home}{amazon developer console} which offers a subset of the Google Play Console's features together with some Amazon specific product and service offerings. 
+\newthought{Amazon app store}: 
+Another major app store for Android apps is the \href{https://developer.amazon.com/apps-and-games}{Amazon appstore}\index{Amazon}, which includes `millions of devices in over 236 countries and territories'. They provide an \href{https://developer.amazon.com/settings/console/home}{amazon developer console} which offers a subset of the Google Play Console's features together with some Amazon specific product and service offerings. 
 
 Many, but not all, of Google Firebase Android SDKs are able to be used beyond Google Play. The other SDKs require Google Play services which is part of the Google Android platform. And uniquely, firebase-analytics states `\emph{automatic insights such as demographics are only available on devices with Google Play services.}'~\sidecite{firebasesupport2020_dependencies_of_firebase_sdks_on_google_play_services}. 
 
+\newthought{Could the techniques improve reliability beyond Google Play?} 
+These brief introductions into Huawei's and Amazon's, global app store ecosystems indicate they provide sufficient developer-oriented tools and services for developers to be able to measure reliability of their Android-like apps were they distributed in these app stores, and to be able to use the analytics offered by these providers (and potentially other analytics providers, for instance \myindex{Count.ly} claims their Android SDK should work on \myindex{HarmonyOS}~\sidecite{countly_which_operating_systems_are_supported}) to identify reliability issues and potentially address them. Neither of these ecosystems currently provide the richness of the \myindex{Google Play Console} or \myindex{Android Vitals}, they could choose to do so in future and the underlying Android based operating systems could gather similar data, at least from a technical perspective.
 
-\textbf{Could the techniques improve reliability beyond Google Play?} 
-These brief introductions into Huawei's and Amazon's, global app store ecosystems indicate there provide sufficient developer-oriented tools and services for developers to be able to measure reliability of their Android-like apps were they distributed in these app stores, and to be able to use the analytics offered by these providers (and potentially other analytics providers, for instance Countly claims their Android SDK should work on HarmonyOS~\sidecite{countly_which_operating_systems_are_supported}) to identify reliability issues and potentially address them. Neither of these ecosystems currently provide the richness of the Google Play Console or Android Vitals, they could choose to do so in future and the underlying Android based operating systems could gather similar data, at least from a technical perspective.
 
-\subsubsection{Beyond Android?}
+\subsubsection{Beyond Android to other mobile platforms?}
 
 Apple also provides a platform and an app store (called the `App Store'). 
 
@@ -192,37 +199,37 @@ Apple also provide practical advice on how to diagnose issues using crash report
 % 
 From various online discussions~\footnote{Examples of discussions on iOS crash logs include:~\href{https://stackoverflow.com/questions/10145665/crash-reports-from-app-on-app-store}{Crash reports from app on App Store}, and the poorly titled forum post ~\href{https://developer.apple.com/forums/thread/30934}{App Analytics Crashes}.} 
 % See also https://stackoverflow.com/questions/50709109/ios-app-store-get-crash-reports
-The iOS analytics include some of the reporting and analysis provided by Google in the Google Play Store tools, for instance~\emph{``...how crashes break down across OS versions and different devices"}~\sidecite{apple2020_how_to_review_your_apps_crash_logs}. Their reports currently lack some of the more sophisticated reporting that Google Play and Android Vitals provide. Nonetheless, sufficient raw elements are available to developers to enable them to discover crashes and memory issues from end users in order to address these. Apple also launched Feedback Assistant in 2019 with the aim of enabling people to submit effective bug reports using either an app or a website~\sidecite{appledeveloper2020_bug_reporting_feedback_assistant_for_developers}. Authorised members of the app's development team can access and review the feedback reports using similar tools~\sidecite{appledeveloper2020_bug_reporting_feedback_assistant_for_developers}.
+The iOS analytics include some of the reporting and analysis provided by Google in the Google Play Store tools, for instance~\emph{``...how crashes break down across OS versions and different devices"}~\sidecite{apple2020_how_to_review_your_apps_crash_logs}. Their reports currently lack some of the more sophisticated reporting that Google Play and Android Vitals provide. Nonetheless, sufficient raw elements are available to developers to enable them to discover crashes and memory issues from end users in order to address these. 
+
+Apple also launched Feedback Assistant in 2019 with the aim of enabling people to submit effective bug reports using either an app or a website. Authorised members of the app's development team can access and review the feedback reports using similar tools~\sidecite{appledeveloper2020_bug_reporting_feedback_assistant_for_developers}.
 
 
-\subsection{Applicability to Other App Stores?}~\todo{Integrate with the Beyond Android topic.}
-App Stores were popularised for mobile apps for Android, iOS, and other smartphone platforms now extinct (\emph{e.g.} Windows Mobile), even if App Stores existed several years before smartphones did. % COULD_DO cite early versions of the Mobile Developer's Guide to the Galaxy, etc.
+\subsubsection{Applicability to other app stores?}
+App stores were popularised for mobile apps for Android, iOS, and other smartphone platforms now extinct (\emph{e.g.} Windows Mobile), even if app stores existed several years before smartphones did. % COULD_DO cite early versions of the Mobile Developer's Guide to the Galaxy, etc.
 
 % Isabel: add a figure across the domains, inter-domain considerations. See her scanned notes.
 
-They then spread to other mainstream operating systems including OSX, some Linux distributions, etc. using a similar business and software development model to the Android and iOS app stores. Recently, e.g. in 2019, App Stores were also reported for Radiology - for instance in an article in Harvard Business Review on \emph{What AI ``App Stores" will mean for Radiology}~\cite{hbr_what_ai_app_stores_mean_for_radiology}. The authors of the article envisage various benefits that emerge from applying a \emph{marketplace model} for these apps, including better feedback for developers. In tandem, the importance of incorporating appropriate analytics and ensuring they are trustworthy also seems worthy of further research and analysis. 
+They have spread to other mainstream operating systems including \Gls{glossary-osx}\index{OS X}, some Linux distributions, etc. using a similar business and software development model to the Android and iOS app stores. Recently, e.g. in 2019, app stores were also reported for Radiology - for instance in an article in Harvard Business Review on \emph{What AI ``App Stores" will mean for Radiology}~\cite{hbr_what_ai_app_stores_mean_for_radiology}. The authors of the article envisage various benefits that emerge from applying a \emph{marketplace model} for these apps, including better feedback for developers. In tandem, the importance of incorporating appropriate analytics and ensuring they are trustworthy also seems worthy of further research and analysis. 
 
 \subsection{A retrospective comparison with WER}
-Research into \acrfull{wer}\index{Windows Error Reporting (WER)} has already been discussed in \secref{rw-learning-from-wer}, here we revisit the topic in the light of my research.
+Research into \acrfull{wer}\index{Windows Error Reporting (WER)} has already been discussed in \secref{rw-software-analytics-tools-research}, here we revisit the topic in the light of my research.
 % Various ideas described in~\cite{kinshuman2009_debugging_in_the_very_large, kinshuman2011_debugging_in_the_very_large} e.g. on statistics-based debugging. See the annotations on the printed copy of~\citep{kinshuman2011_debugging_in_the_very_large}. 
 
 
 
 \newthought{Differences and Similarities}
-Microsoft had a relatively large pool of users for pre-releases (ITU releases) unlike most app developers therefore their exact approach may not be viable for app developers who may need to rely more on post-release analytics.
+Microsoft had a relatively large pool of users~\sidenote{Particularly employees} for pre-releases, unlike most app developers, therefore their exact approach may not be viable for app developers who may need to rely more on post-release analytics.
 
 % Statistics-based debugging compare and contrast with analytics-based debugging.
 
-MSFT measure deployment using WER. \emph{``Finally, both Microsoft and a number of third parties use the WER database to check for regressions. Similar to the strategies for measuring deployment, we look at error report volumes over time to determine if a software fix had the desired effect of reducing errors. We also look at error report volumes around major software releases to quickly identify and resolve new errors that may appear with the new release."}~\sidecite[][p. 114]{kinshuman2009_debugging_in_the_very_large}.
+Microsoft measured deployment using \Gls{wer}\index{Windows Error Reporting (WER)}. 
+\emph{``Finally, both Microsoft and a number of third parties use the WER database to check for regressions. Similar to the strategies for measuring deployment, we look at error report volumes over time to determine if a software fix had the desired effect of reducing errors. We also look at error report volumes around major software releases to quickly identify and resolve new errors that may appear with the new release."}~\sidecite[][p. 114]{kinshuman2009_debugging_in_the_very_large}.
 
-Microsoft uses the term bucket while Android Vitals uses the term cluster as a container for grouping together failures considered to be common according to their respective algorithms. The Microsoft WER papers discuss various flaws in their bucketing algorithm and yet the pragmatic and productive results they obtain despite these flaws.
-
-
+Microsoft uses the term bucket while \myindex{Android Vitals} uses the term cluster as a container for grouping together failures considered to be common according to their respective algorithms. The Microsoft WER papers discuss various flaws in their bucketing algorithm and yet the pragmatic and productive results they obtain despite these flaws.
 
 WER seems far more dynamic in terms of data collection; and it also aims to provide recommendations to end users to obtain fixes~\sidecite[][p. 103]{kinshuman2011_debugging_in_the_very_large}.
 
 \newthought{User-choices}
-
 In their published research, according to Microsoft, users had to opt-in and explicitly grant Windows permission to send reports to Microsoft. More recently Microsoft removed the ability for end users to opt-out of sending diagnostics data eg.. from 2015~\sidecite{keizer2015_windows_10_makes_diagnostic_data_collection_compulsory} and from 2021~\sidecite{posey2021_how_to_reclaim_your_privacy_from_Windows10_part_2} which mentions the ability for end users to at least see and delete the data that's collected \emph{``Microsoft not only allows you to delete the diagnostic data it has collected, you can also use the Diagnostic Data Viewer to see exactly what data has been collected."} NB the screenshot shows the viewer entails up to 1GB of storage!
 
 Interestingly in~\sidecite[][pp. 105-106]{kinshuman2009_debugging_in_the_very_large} they mention Microsoft provides corporate administrators with the ability to collect the data on a private server and to control what information is sent to Microsoft, as part of their \acrfull{cer} service.
@@ -298,14 +305,14 @@ Listing~\ref{code:androidx_preferences_example} is an example Google provides fo
 
 </PreferenceScreen>
 \end{minted}
-Source: \url{https://developer.android.com/guide/topics/ui/settings}
+Source: {\small \href{https://developer.android.com/guide/topics/ui/settings}{developer.android.com/guide/topics/ui/settings}}
 \end{listing}
 
 
 Preferences, permissions, and usage analytics share similarities in terms of considerations such as informed consent, whether the settings are temporary or permanent, and so on.
 
 
-\textbf{Informed consent}
+\newthought{Informed consent}
 is an awkward conundrum for both end users and app developers as neither is particularly interested in the minutiae when compared to the functionality of an app.  
 At the time of the Catrobat case-study their Android app opened with a mandatory screen where users were faced with the following text in Listing \ref{pocketcode-privacypolicy}:
 
@@ -335,10 +342,11 @@ Both the Kiwix and Catrobat case studies included a hackathon\index{Hackathon} e
 
 For the Catrobat case study, the improvements took a bit longer to take effect based partly on the more involved pre-release work. The second release after the hackathon had further improvements and between them they improved the stability significantly. %TODO link to the findings 
 However, the improvements then petered out. We had arranged for a second more involved hackathon in the form of a 1-day pre-conference workshop at TestFest 2020, a conference with about 500 participants. %TODO link to more details about the planned workshop.
-The workshop did occur however the early effects of Covid-19 becoming a global pandemic meant that some of the workshop participants did not come and remained at home and many of the rest were also organisers of the conference and ended up spending their time hurriedly reorganising many aspects of the conference instead of participating in the workshop. The subsequent increase in restrictions related to COVID-19 are a likely cause of why there was little further progress in terms of addressing stability issues for the Catrobat project.
+
+The workshop happened; however, the early effects of \myindex{COVID-19} becoming a global pandemic meant that some workshop participants did not come and remained at home and many of the rest were also the conference organisers who ended up spending their time hurriedly reorganising many aspects of the conference instead of participating in the workshop. The subsequent increase in restrictions related to COVID-19 are a likely cause of why there was little further progress in terms of addressing stability issues for the Catrobat project.
 
 \newthought{Half-life of hackathons: }
-The two hackathons were both immediately effective in enabling the respective development teams identify and fix various live issues in their mobile apps. In both cases the effects were cumulative in terms of improvements to the product (the app), however the effect on the teams was short-lived in terms of improving their engineering practices. Unfortunately, the planned second hackathon for the Catrobat project was ineffective because of the rollout of \myindex{Covid-19} so we were not able to measure the effects of cumulative hackathons in the case studies~\sidenote{From previous industry experience, sequences of hackathons have been effective at building on previous work and in some cases hackathons became an established ongoing practice used by development teams.}
+The two hackathons were both immediately effective in enabling the respective development teams identify and fix various live issues in their mobile apps. In both cases the effects were cumulative in terms of improvements to the product (the app), however the effect on the teams was short-lived in terms of improving their engineering practices. Unfortunately, the planned second hackathon for the Catrobat project was ineffective because of the rollout of \myindex{COVID-19} so we were not able to measure the effects of cumulative hackathons in the case studies~\sidenote{From previous industry experience, sequences of hackathons have been effective at building on previous work and in some cases hackathons became an established ongoing practice used by development teams.}
 
 \newthought{Some limitations of these hackathons: }
 By their nature, hackathons\index{Hackathon} comprise the various participants and people who are not participants do not contribute to them. 
@@ -352,8 +360,8 @@ As discussed previously, the hackathons had an immediate positive effect on the 
 \subsection{Left untended, entropy returns}
 Several of the projects described in the case studies have had increased failure rates post the case studies, as confirmed by reviewing the relevant analytics reports which continued to be made available for research purposes. In each case, the increase occurred after a loss in focus on actively addressing causes of production errors being reported by the respective analytics tools.
 
-\textbf{Post case study - Kiwix Android}
-The Kiwix Android case study was scaled back in early 2020, however I continued to monitor it as a background activity with the agreement of the project leads. One of the many side-effects of the Covid-19 pandemic was a significant reduction in funding for the Kiwix project in Summer 2020 which culminated in the end of the funded lead-developer role for the Android codebase. The lead developer finished working on the project in late 2020 and since then the project has been mainly maintained by a mix of volunteers on a part-time basis. 
+\newthought{Post case study - Kiwix Android}
+The Kiwix Android case study was scaled back in early 2020, however I continued to monitor it as a background activity with the agreement of the project leads. One of the many side-effects of the \myindex{COVID-19} pandemic was a significant reduction in funding for the Kiwix project in Summer 2020 which culminated in the end of the funded lead-developer role for the Android codebase. The lead developer finished working on the project in late 2020 and since then the project has been mainly maintained by a mix of volunteers on a part-time basis. 
 
 The crash and ANR rates have both increased in 2021, and are 0.73\% and 0.46\% respectively for the 30 days to \nth{11} June 2021 for the Kiwix Android app (the most recent release is v3.4.4 released on \nth{20} May 2021). Many of the most common crashes are related to the embedded WebView component... TBC
 
@@ -422,8 +430,7 @@ Sensitivity of allowing external access to analytics data, MUST-DO complete this
 % original text: "We can no longer provide this information outside of the company for sensitivity reasons ..."
 
 
-\subsection{Quis custodiet ipsos custodes?}
-\url{https://en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes\%3F}
+\subsection{\emph{Quis custodiet ipsos custodes?}}~\sidenote{\href{https://en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes\%3F}{en.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes\%3F}}
 Who watches the watchers? The app store is all powerful, promoting one app, demoting or even blocking another. What it reports is expected to be taken on trust. And who has time or resources to check or verify the veracity of what is being reported and to whom? As the Editorial Board of the Financial Times proposed three rules to build trust in the use of automated algorithms in decision making~\emph{``algorithms that companies and governments deploy in sensitive areas such as healthcare, education, policing, justice and workplace monitoring should be subject to audit and comprehension by outside experts."}\sidecite{ft2021_building_trust_in_ai_systems_is_essential}. Given the revenues, powers and business implications of the major app stores, I believe they should also be subject to audit and comprehension by outside experts.
 
 To the credit of several providers of analytics SDKs, including Crashlytics and Huawei's crash reporting SDK, they provide mechanisms to test their crash reporting service. However, these tests do not necessarily mean the analytics are completely accurate, reliable, and scalable. For example, in an online tutorial, a developer at Huawei explained~\emph{``Note : If an error is occurred in try catch block, Crash service won’t catch it. Crash Service just catches critical error that is stopped app"}~\sidecite{huawei2020_appgallery_connect_crash_service_article_on_medium}. Conversely, Google Android collects usage statistics from small percentages of users from WebView components incorporated into Android apps including crash reports. An example of WebView crash reports for specific Samsung device models is discussed on Stack Overflow~\sidecite{ebling2018_so_s9_specific_webview_device_crash_report}. Google discusses user privacy implications in these crash reports~\sidecite{android_webview_privacy}.
@@ -466,10 +473,12 @@ A more involved example started in March 2017 where the Mixpanel JavaScript SDK 
 
 According to the post, the problem did not exist when they designed and launched the service in 2016, it was triggered when they updated the version of an external and well regarded library in March 2017. The issue was discovered and reported by a customer in January 2018. Mixpanel deleted the sensitive data their library had collected on behalf of their customers and implemented various corrective actions including in-depth security reviews of existing code. They also had to put in place filters to delete new data on arrival as some of their customers were still using the ill-mannered implementation of their JavaScript SDK. % MUST-DO Also cite paper about when devs do and don't update library versions. 
 
-The Catrobat case study also contributed insight into the retiring Fabric Crashlytics mobile analytics service and the replacement, Firebase Crashlytics,\todo{This will be in the discussion chapter.} and how their reports and capabilities compared with those provided by Google Play Console with Android Vitals\todo{This will probably be mainly in the Tools chapter.}.
+The Catrobat case study also contributed insight into the retiring Fabric Crashlytics mobile analytics service and the replacement, Firebase Crashlytics, and how their reports and capabilities compared with those provided by Google Play Console with Android Vitals.
 
 \subsubsection{A related finding in our PocketCode case study}
-In February 2020 the Catrobat team migrated the reporting for their app crash analytics (Crashlytics) from the Fabric website to the Firebase website using an inbuilt migration tool provided by Google who own both services. The migration meant the app's crash data could be viewed in both these websites independently until Google disabled the Firebase website (planned for March, but postponed until \nth{4} May 2020 in response to the effects of the COVID-19 pandemic).  We noticed additional data was available and presented in the reports provided in the Firebase console, as Google describe the website. This includes demographic data \emph{even though this is not collected by our app or - officially - by the crashlytics libarry}! Figure \ref{fig:Firebase-event-demographics-pocketcode-android} provides an example of the relevant section of the `Events' report for the Pocket Code Android app. App developers may, understandably, be unaware that using a library for collecting crash data is also somehow gathering data about demographics, therefore their end user licence agreements (EULA), privacy policy, and so on, may not reflect or incorporate this information to inform the user of what is being collected and why (in potential contravention with GDPR and other legislation).
+In February 2020 the \myindex{Catrobat} team migrated the reporting for their app crash analytics (Crashlytics) from the Fabric website to the Firebase website using an inbuilt migration tool provided by Google who own both services. The migration meant the app's crash data could be viewed in both these websites independently until Google disabled the Firebase website (planned for March, but postponed until \nth{4} May 2020 in response to the effects of the \myindex{COVID-19} pandemic). 
+
+We noticed additional data was available and presented in the reports provided in the Firebase console, as Google describe the website. This includes demographic data \emph{even though this is not collected by our app or - officially - by the crashlytics library}! Figure \ref{fig:Firebase-event-demographics-pocketcode-android} provides an example of the relevant section of the `Events' report for the \myindex{Pocket Code} Android app. App developers may, understandably, be unaware that using a library for collecting crash data is also somehow gathering data about demographics, therefore their end user licence agreements (EULA), privacy policy, and so on, may not reflect or incorporate this information to inform the user of what is being collected and why (in potential contravention with GDPR and other legislation). As mentioned previously, in \secref{aiu-choosing-mobile-analytics-topic}, the Catrobat team then chose to stop using Crashlytics and removed it from the \myindex{Pocket Code} app.
 
 \begin{figure}[htbp!]
     \centering
@@ -550,7 +559,9 @@ The benefits of applying a fail fast approach are described in~\sidecite{shore20
 
 \begin{kaobox}[frametitle=An alternative approach]
 We did explore an alternative approach, where the application code added meta-information as an entry in the stack trace as a proof-of-concept. 
-The implementation is available online at~\href{https://github.com/ISNIT0/AndroidCrashDummy/blob/cfa7f0817c436d7e657741e0a5d9a76644e5a898/app/src/main/java/com/example/user/androidtestapp/MainActivity.java\#L28-L50}{AndroidCrashDummy MainActivity.java\#L28-L50}.  However, we decided not to release an app in Google Play with this capability at the time, not least in case it caused Google to suspend our Google Play Store account. 
+The implementation is available online at~\href{https://github.com/ISNIT0/AndroidCrashDummy/blob/cfa7f0817c436d7e657741e0a5d9a76644e5a898/app/src/main/java/com/example/user/androidtestapp/MainActivity.java\#L28-L50}{AndroidCrashDummy MainActivity.java\#L28-L50}, and reproduced in \secref{app-mini-experiment-meta-dat-to-crash-logs}. 
+
+We decided not to release an app in Google Play with this capability at the time, not least in case it caused Google to suspend our Google Play Store account. 
 \end{kaobox}
 
 For in-app analytics the developer has the option to report the error using the respective API. An example of reporting an error with additional parameters is shown in Listing~\ref{listing:microsoft-app-center-handled-exception}~\sidenote{The Microsoft App Center documentation is released under a Creative Commons Attribution 4.0 International Public License~\href{https://github.com/MicrosoftDocs/appcenter-docs/blob/live/LICENSE}{App Center Docs LICENSE}.}.
@@ -586,30 +597,9 @@ To add to the complexities, app stores are seldom disinterested observers. If th
 
 Using software libraries can also add to the complexities; and some have sophisticated error handling strategies which include expectations on how developers will write their code to use that library adequately. RxJava is a very popular library for Android apps. That library explicitly changed their error handling strategy in version 2.0 and require developers to abide by their requirements for error handling~\sidenote{\href{https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0\#error-handling}{RxJava/wiki/What's-different-in-2.0\#error-handling}}. In version 2.0~\emph{``RxJava defaults to printing the Throwable's stacktrace to the console and calls the current thread's uncaught exception handler."}. The wiki page goes on to say~\emph{``Unfortunately, RxJava can't tell which of these out-of-lifecycle, undeliverable exceptions should or shouldn't crash your app."} So developers who use this library may end up with their app terminating abruptly where the reported crash rate also increases as a result.
 
-% MUST-DO subject to approval or a suitable alternative example: add the OkHttpv3 example from the large case study in the relevant section, then discuss the example here.
+% Subject to approval or a suitable alternative example: add the OkHttpv3 example from the large case study in the relevant section, then discuss the example here.
 
-\begin{table}
-    \centering
-    \resizebox{\textwidth}{!}{% See https://tex.stackexchange.com/a/27105/88466 TODO improve the readability of the table.
-    \begin{tabular}{c|ccccc}
-        \toprule
-        \textit{stage} & During init & During shutdown & In background service & In `flight' & In a `runtime' \\
-        \midrule
-         Mobile Analytics tool & & & & & \\
-         \midrule
-         Google Play Console with Android Vitals & C & C & C & C & \\
-         Fabric Crashlytics &  & Unknown & Unknown & EC & \\
-         Sentry & N & & & Y & Y \\
-         \bottomrule
-    \end{tabular}}
-    \caption[Mapping error and crash reporting to mobile analytics tools]{Mapping error and crash reporting to mobile analytics tools \\ E = Error, C = Crash, B = Breadcrumb, K = Custom content, N = No}
-    \label{tab:discussion-mapping-error-and-crash-reporting-to-ma-tools}
-\end{table}
-\afterpage{\clearpage}
-
-TODO discuss: the reporting mechanisms and limitations in addition to Table~\ref{tab:discussion-mapping-error-and-crash-reporting-to-ma-tools}'s examples of what they can capture. Also discuss the primary focus of this research has been on Crashes, then on Errors, then on ANRs~\todo{Note: this material probably belongs in the Tools chapter once I've established it.}.
-
-\textbf{Measuring reliability}: 
+\newthought{Measuring reliability}: 
 Failure rates include: unhandled exceptions, ANRs, and errors. Errors include: handled exceptions that are recovered from, caught exceptions, logic errors, calculation and content errors, and many others. 
 
 Even \textit{if} an app catches and 'handles' every exception it may not be truly reliable \textit{i.e.} there may be various errors that occur that do not lead to a runtime exception or an ANR. As such, the measured failure rate - assuming it is accurate or undercounting - is the lower bound of the true error rate.
@@ -657,7 +647,8 @@ As an untested hypothesis, as part of their decision making when triaging an iss
 
 
 \subsection{Red pill or blue pill?}
-Like\todo{This topic may be too controversial, speculative, or awkward for my thesis. It may be deferred e.g. for the proposed game and mechanics paper.} various software development activities beyond writing the code for the core product (mobile apps in the context of this research) developers have a choice whether to perform and incorporate various non-core activities. These include using mobile analytics first as a consumer of existing content (such as that provided by Android Vitals or the default offerings of in-app analytics) and then potentially as activists, designing and implementing, modifying and enhancing, the client side code including any mobile analytics SDK, and potentially taking responsibility for the server-side code and infrastructure. 
+% This topic may be too controversial, speculative, or awkward for my thesis. It may be deferred e.g. for the proposed game and mechanics paper.
+Like various software development activities beyond writing the code for the core product (mobile apps in the context of this research) developers have a choice whether to perform and incorporate various non-core activities. These include using mobile analytics first as a consumer of existing content (such as that provided by Android Vitals or the default offerings of in-app analytics) and then potentially as activists, designing and implementing, modifying and enhancing, the client side code including any mobile analytics SDK, and potentially taking responsibility for the server-side code and infrastructure. 
 
 Conversely some developers may choose to insulate themselves from the effects of mobile analytics, for instance by adding try/catch code to smother errors and exceptions reported when the code runs. Doing so can artificially improve the measured reliability of an app as the crash rate decreases, however it may lead to other errors and to a poor end user experience.
 
