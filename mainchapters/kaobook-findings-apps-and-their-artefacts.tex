@@ -5,7 +5,7 @@
 \begin{figure*}
     \centering
     \includegraphics[width=0.8\linewidth]{images/rough-sketches/apps-and-their-artefacts-fishbone-15-jun-2022-d.jpeg}
-    \caption{Apps and their artefacts fishbone diagram\\source: \href{https://miro.com/app/board/uXjVOts6mvo=/?share_link_id=402034254193}{diagram on miro.com}}
+    \caption[Apps and their artefacts fishbone diagram]{Apps and their artefacts fishbone diagram\\source: \href{https://miro.com/app/board/uXjVOts6mvo=/?share_link_id=402034254193}{diagram on miro.com}}
     \label{fig:apps-and-their-artefacts-fishbone}
 \end{figure*}
 
@@ -35,7 +35,7 @@ dependencies {
     implementation 'io.sentry:sentry-android:6.0.0'
 }
 \end{minted}
-\caption{Example: Install Sentry \texttt{build.gradle} to an Android app's codebase\\source: \href{https://docs.sentry.io/platforms/android/}{Android Sentry Documentation}}
+\caption[Install Sentry \texttt{build.gradle} to an Android app's codebase]{Example: Install Sentry \texttt{build.gradle} to an Android app's codebase\\source: \href{https://docs.sentry.io/platforms/android/}{Android Sentry Documentation}}
 \label{listing:build_gradle_for_sentry}
 \end{listing}
 
@@ -48,7 +48,7 @@ The \textbf{configuration} step requires a setting that is uniquely allocated by
   android:value="https://examplePublicKey@o0.ingest.sentry.io/0" />
 </application>
 \end{minted}
-\caption{Example: Configure Sentry for that Android app\\source: \href{https://docs.sentry.io/platforms/android/}{Android Sentry Documentation}}
+\caption[Configure Sentry for that Android app]{Example: Configure Sentry for that Android app\\source: \href{https://docs.sentry.io/platforms/android/}{Android Sentry Documentation}}
 \label{listing:android_manifest_xml_for_sentry}
 \end{listing}
 
@@ -76,7 +76,7 @@ class MyActivity : AppCompatActivity() {
   }
 }
 \end{minted}
-\caption{Example: writing code to verify the install and configuration of the Android app\\ source: \href{https://docs.sentry.io/platforms/android/}{Android Sentry Documentation}}
+\caption[Writing code to verify the install and configuration of the Android app]{Example: writing code to verify the install and configuration of the Android app\\ source: \href{https://docs.sentry.io/platforms/android/}{Android Sentry Documentation}}
 \label{listing:android_activity_to_verify_sentry_works_in_app}
 \end{listing}
 
@@ -334,7 +334,7 @@ Furthermore, when a developer inadvertently introduced the exception that led to
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{images/moonpig/firebase_crash_graph_90_days_feb_2020.pdf}
-    \caption{Moonpig: Firebase Analytics illustrating two crashes that reached production before being addressed}
+    \caption[Moonpig: Firebase Analytics illustrating two crashes that reached production]{Moonpig: Firebase Analytics illustrating two crashes that reached production before being addressed}
     \label{fig:moonpig-firebase-analytics-two-rogue-crashes}
 \end{figure}
 
