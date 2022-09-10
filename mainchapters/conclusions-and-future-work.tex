@@ -1,35 +1,57 @@
 \setchapterpreamble[u]{\margintoc}
 \chapter{Conclusions and Future Work}\label{chapter-conclusions-and-future-work}
 
+Apps are a popular and relevant subset of all software, they run remotely on other people’s equipment where they are the primary owners of the data on their devices, and where the platform and pre-installed platform software determine various aspects of the data collection. The apps and the analytics libraries they use control what data is reported and when. 
+
+When developers apply mobile analytics to find failures they are able to significantly improve the stability/reliability of their mobile app. When they stop paying attention and don't apply mobile analytics entropy returns eventually for a variety of reasons including new releases of the operating system, updates to third-party software used by the app, such as the Android System WebView, and flaws in ongoing software development and maintenance of the app. The developers do not need to address all the issues that are reported to effect material improvements (and indeed some issues are impractical for developers to fix in the time and resources they have available).
+
+When developers choose to include in-app mobile analytics they generally prefer to use those mobile analytics as their primary source of information, even if the platform analytics also finds a common subset of the same failures. The meta-data collected and reported by the in-app mobile analytics combined with the availability of reports even at low usage volumes of the app are key drivers in this preference to use the in-app mobile analytics reporting. For two of the app-centric case studies the data collected by in-app mobile analytics \Glspl{sdk} was sufficient that they chose not to use in-app mobile analytics in their apps. Some projects choose to have several in-app \Glspl{sdk} embedded in their apps, often for distinct purposes.
+
+
+\section{Summary of contributions}~\label{conclusions-summary-of-contributions}
+If we revisit the research questions, first with the subsidiary questions, from ~\secref{rq-leads-to-six-perspectives}, and reproduced here with a summary of the findings for each of the six perspectives: 
+
+\newthought{1a. What do app developers say they do?} App developers have found mobile analytics useful. They vary in how they use them, some do so \emph{in extremis} so they can avert excessive failures, more generally they are used irregularly as and when they have the opportunity or need to do so. \myindex{Moonpig} used them on an ongoing, strategic basis and were rewarded by maintaining high reliability of their app with a correlation of business success as the business revenues grew and the company went Public (IPO'd). 
+
+The human motivations that determine the use of mobile analytics are at least as interesting as the quantitative results of the effects of whatever use occurs. With the exception of the \myindex{Moonpig} development team, none of the teams used mobile analytics on an ongoing, proactive basis. 
+
+\newthought{2a. What's possible in terms of improving their processes, their practices?}
+As \myindex{Moonpig} demonstrated it is viable to integrate mobile analytics into development practices. They added additional logging to the app (using \myindex{Firebase Analytics}) when they noticed or discovered new issues and/or areas of concern; they had developers on-point on-rotation to monitor and make initial decisions when fresh issues were observed in the mobile analytics, and they actively managed their fixes and releases using a composite of business and engineering risk assessments vs. benefits.
+
+App developers are likely to materially improve the quality of their mobile apps when they actively engage with mobile analytics (whether in-app or platform generated), and even those who use in-app analytics extensively would benefit from actively checking the platform generated analytics as these capture issues and failures that in-app analytics do not.
+
+Designing the apps so they emit pertinent information via mobile analytics (such as the approach used by \myindex{Moonpig}) may increase the value of the information being reported by the mobile analytics. One of the mini-experiments, details are in the appendices in \secref{app-mini-experiment-meta-dat-to-crash-logs}, corroborates a  similar approach to augment information reported by Crashlytics. 
+
+
+\newthought{1b. What does their source code (and other available development artefacts) tell us about their use of mobile analytics?} 
+Over 46\% of the active Android app codebases studied on GitHub simply initialised \myindex{Firebase Analytics} and did not use any other feature of the \Gls{sdk} (These projects were a tiny percentage of the opensource Android apps found on GitHub. All the commercial apps used mobile analytics extensively, while the \myindex{Catrobat} and \myindex{Kiwix} projects chose \emph{not} to use in-app mobile analytics. These results indicate commercial app developers rely on in-app mobile analytics including for detecting failures of their apps, in use. Services such as Google's \myindex{Android Vitals} provide, literally, a vital service for app developers, especially those who do not use in-app analytics.
+
+All of the app-centric case studies recorded failures reported by mobile analytics in their issue-tracking system; none did so universally.
+
+\newthought{2b. What's possible in terms of improving the product (and particularly the mobile app) through the application/use of mobile analytics?}
+
+
+\newthought{1c. What do we learn about various current mobile analytics tools?}
+There appears to be a general, perhaps misplaced, trust that the mobile analytics tools are accurate - both by the app developers and in the literature. Eighteen distinct flaws were found in the mobile analytics services, and there are probably many more flaws waiting to be discovered given the practical limitations placed by both industrial collaboration and the scope of a PhD. 
+
+
+\newthought{2c. What improvements are possible for mobile analytics tools based on what was learned in the various case studies?}
+
+
+
 The core question the research aims to consider is:
 \begin{quote}
   \emph{How can applying analytics improve software development and software testing for mobile apps in practice?}~\href{overall-research-question}{Research Question, repeated here}\index{Research questions}.
 \end{quote}
 
-\subsection{Research questions lead to six perspectives}~\label{rq-leads-to-six-perspectives}
-The six perspectives are illustrated in Figure~\ref{fig:six-perspectives-in-the-research-questions-section}~\sidenote{Source figure:~\href{https://docs.google.com/drawings/d/1SafKu3uqgl-s8-I8iWSSWmFY4NdlNpw8v6ZiJDGh50c/edit?usp=sharing}{Google Docs: Six Perspectives drawing}.} and paraphrased below:
-{\footnotesize
-\begin{enumerate}
-    %\setlength\itemsep{-0.5em} %\itemsep0em
-    \item [1a] What do app developers say they do? (understand the \emph{status quo} from their perspective).\index{Research questions}
-    \item [2a] What's possible in terms of improving their processes, their practices?
-    \item [1b] What does their source code (and other available development artefacts) tell us about their use of mobile analytics? (understand current behaviours in terms of the code that's implemented)~\sidenote{NB: it might be useful to reanalyse the projects we studies to identify which ones actively include crash reporting.}.
-    \item [2b] What's possible in terms of improving the product (and particularly the mobile app) through the application/use of mobile analytics?
-    \item [3a] What do we learn about various current mobile analytics tools?
-    \item [3b] What improvements are possible for mobile analytics tools based on what was learned in the various case studies?
-\end{enumerate}
-}
 
-\section{Conclusions}
-When developers apply mobile analytics to find failures they are able to significantly improve the stability/reliability of their mobile app. When they stop paying attention and don't apply mobile analytics entropy returns eventually for a variety of reasons including new releases of the operating system, updates to third-party software used by the app, such as the Android System WebView, and flaws in ongoing software development and maintenance of the app. The developers do not need to address all the issues that are reported to effect material improvements (and indeed some issues are impractical for developers to fix in the time and resources they have available).
 
-When developers choose to include in-app mobile analytics they generally prefer to use those mobile analytics as their primary source of information, even if the platform analytics also finds a common subset of the same failures. The meta-data collected and reported by the in-app mobile analytics combined with the availability of reports even at low usage volumes of the app are key drivers in this preference to use the in-app mobile analytics reporting. For two of the app-centric case studies the data collected by in-app mobile analytics \Glspl{sdk} was sufficient that they chose not to use in-app mobile analytics in their apps. Some projects choose to have several in-app \Glspl{sdk} embedded in their apps, often for distinct purposes.
 
-There appears to be a general, perhaps misplaced, trust that the mobile analytics tools are accurate - both by the app developers and in the literature. Eighteen distinct flaws were found in the mobile analytics services, and there are probably many more flaws waiting to be discovered given the practical limitations placed by both industrial collaboration and the scope of a PhD. 
+
 
 The field of mobile analytics evolved throughout the research period and it is likely to continue to evolve for years to come. The reporting and analysis appears to be fairly perfunctory and there may be significant scope to improve the analysis and reporting.
 
-The human motivations that determine the use of mobile analytics are at least as interesting as the quantitative results of the effects of whatever use occurs. With the exception of the \myindex{Moonpig} development team, none of the teams used mobile analytics on an ongoing, proactive basis. 
+
 
 
 \clearpage
