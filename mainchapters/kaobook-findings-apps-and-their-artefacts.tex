@@ -148,8 +148,8 @@ These projects may provide a basis to write automated tests for remote logging u
 \end{kaobox}
 
 
-\subsection{Use of automated tests for the app}
-Automated tests can dovetail with using mobile analytics to improve the reliability of mobile apps. For example, they can be used to demonstrate the reproducibility of crashes identified through mobile analytics. In the commercial case study this is what we did for various crashes reported via Android Vitals. For one of these an equivalent example has been released as an opensource project at \href{https://github.com/julianharty/KotlinNPE}{github.com/julianharty/KotlinNPE} which tests the fix. This project is partnered by another opensource project \href{https://github.com/julianharty/AutomatedTestingWithKotlin}{github.com/julianharty/AutomatedTestingWithKotlin} as we wanted to find a way to run tests directly in a \gls{jvm} without needing the overhead of the Android runtime. When automated tests need the Android runtime the build process and the runtime environment become much more complicated and the elapsed runtime for the tests can take several orders of magnitude more time.
+\subsection{Use of automated tests for the app}~\label{aata-use-of-automated-tests-for-the-app-topic}
+Automated tests can dovetail with using mobile analytics to improve the reliability of mobile apps. For example, they can be used to demonstrate the reproducibility of crashes identified through mobile analytics. In the commercial case study this is what we did for various crashes reported via Android Vitals. For one of these an equivalent example has been released as an opensource project at \index{Kotlin} \href{https://github.com/julianharty/KotlinNPE}{github.com/julianharty/KotlinNPE} which tests the fix. This project is partnered by another opensource project \href{https://github.com/julianharty/AutomatedTestingWithKotlin}{github.com/julianharty/AutomatedTestingWithKotlin} as we wanted to find a way to run tests directly in a \gls{jvm} without needing the overhead of the Android runtime. When automated tests need the Android runtime the build process and the runtime environment become much more complicated and the elapsed runtime for the tests can take several orders of magnitude more time.
 
 Use of automated tests for bug reproduction/bug fixes was patchy in all of the development teams in the case studies. \emph{I.e.} they all chose to `fix' at least some crashes directly without the support of automated tests. Their success rates of writing these fixes varied. For example the Kiwix developers were able to fix various NullPointerExceptions directly in the application's source code whereas they were not able to fix the crashes in the custom downloader code. 
 
@@ -182,7 +182,7 @@ Mobile analytics SDKs are software development projects, and like other software
     \item Some developers choose to record bugs for failures reported via mobile analytics. (e.g. Kiwix \href{https://github.com/kiwix/kiwix-android/issues/2482}{Kiwix Android Issue 2482:} for a Crash Report for an IllegalArgumentException in release 3.4.1 of the Kiwix Android app). Note: As part of reviewing this bug I noticed at least one new bug in Android Vitals, where they list the same crash cluster several times in the results, details are in the issue on GitHub.
     \item Bug reproducibility, including the use of automated tests.
     \item The efficacy of addressing bugs.
-    \item Obviating some bugs by replacing Java code with Kotlin (Upstream improvements).
+    \item Obviating some bugs by replacing Java code with \myindex{Kotlin} (Upstream improvements).
 \end{itemize}
 
 \newthought{Intermittent appearances of bugs}~\label{section-intermittent-appearances-of-bugs-55-crashes}
@@ -465,32 +465,41 @@ Various of the mobile analytics services provided API integration, these are cov
 
 The Google and Microsoft storage integration requires both authorisation and paying for by the organisation. In turn this meant a development team needs to get approval to access and use these services, and the approval may be time-consuming even if senior management has dictated the project will integrate and use these services as a side-effect of corporate processes and working practices. An entirely separate team may be responsible for the `plumbing' in of the project's data from the mobile analytics service where the development team needs to request the necessary work and then wait until that work has been approved, scheduled, and then attempted. As Twitter engineers noted plumbing is a key activity~\sidecite[][page 6]{lin2013_scaling_big_data_mining_infrastructure_the_twitter_experience} 
 
-%%% Julian to continue here on 11 Sep 2022
 
 \section{Improvements to  the artefacts}~\label{aata-improvements-to-theartefacts}\index{\iartefacts}
+Developers and their wider development teams should expect to encounter flaws from time to time on an ongoing basis and also accept the need to address these through improving the apps and their software artefacts accordingly. Similarly they can use mobile analytics in greater depth and breadth in order to increase the amount (and timeliness) of information they receive. Finally for this section, preserving reports and results can help the team work more efficiently and effectively.
+
+\subsection{Improving the source code}~\label{aata-improving-the-sourcecode-topic}
+This might seem trite, or obvious, nonetheless the reported failures indicate material flaws in someone's source code, whether that's source code of an app, a software library, automated tests, build scripts, platform \Glspl{sdk}~\emph{etc.}
+
+Several approaches were used in the app-centric case studies, such as developing automated tests that reproduced a crash, \secref{aata-use-of-automated-tests-for-the-app-topic}, replacing software libraries by \myindex{Kiwix} and \myindex{Moonpig}, and replacing Java code with \myindex{Kotlin}~\secref{aata-bug-facing-topics}. 
 
 \subsection{In-app crash analytics}~\label{aata-in-app-crash-analytics-topic}
+In-app mobile analytics are seen to provide valuable information by the case-studies who have incorporated them. They complement, and are complemented by, the platform-sourced mobile analytics. Therefore, for developers who have decided in-app mobile analytics abides by their ethical requirements they can select in-app mobile analytics to obtain an in-app perspective of \Gls{glossary-technology-facing}~\sidecite[][discussed in Chapter 6]{crispin2009_agile_testing} information. 
 
+Where the developers invest the time to analyse what the SDK does and does not collect they are able to make a more informed decision, rather than later facing the unenviable choice of ceasing the use of their chosen mobile analytics service. The experience of the \myindex{Catrobat} team with the transition to \myindex{Firebase Crashlytics} exemplifies this happens.
+
+Several development teams, such as Bumble~\sidecite{bumble_chameyev2020_how_we_achieved_a_6x_reduction_of_anrs_part1_collecting_data}, have chosen to implement in-house mobile analytics which gives them greater control on who has access to the collected data; and product offerings from \myindex{Sentry} and others offers a similar level of control though a predetermined core set of data which keen developers could choose to augment. As an example \sidecite{countly_crash_addin_module_crash} is the data collection module for Countly's Android SDK, and released under the \href{https://github.com/Countly/countly-sdk-android/blob/master/LICENSE}{MIT license} so modifications can be private or public.
 
 \subsection{Logging errors}~\label{aata-logging-errors-topic}
-
+When the app includes a \gls{glossary-technology-facing} in-app mobile analytics \Gls{sdk} the SDK generally provides  an API developers can use to log errors. These errors generally include caught-exceptions  which the app \emph{has} handled; nonetheless developers can generally choose to report pertinent information provided it matches the calling interface of the SDK. These errors often indicate aspects including those beyond the immediate app where the quality of service to the end user may be improved (amongst other things). For example, several of the apps in the case study interact with servers on the internet where network requests may receive responses indicating problems, whether ephemeral or more systemic. By recording the network responses, including those in the error categories~\sidenote{Broadly those with a \Gls{http} return code beginning with a \texttt{4} or a \texttt{5}.} the developers can choose to refine their application logic to minimise the effects of these errors. If they are also responsible for the respective internet servers (for instance, \myindex{Kiwix}, \myindex{Catrobat}, \myindex{C1}, and \myindex{Moonpig}) they may be able to improve those too. 
 
 \subsection{Using breadcrumbs}~\label{aata-using-breadcrumbs-topic}
-
+Similarly, many of the \gls{glossary-technology-facing} in-app mobile analytics \Glspl{sdk} include \Gls{api} calls that can be used to record \gls{glossary-breadcrumbs}, these breadcrumbs are surfaced \gls{glossary-iff} a crash occurs subsequently. One of the many challenges faced by app developers is bug reproduction, \secref{aiu-bug-reproduction-topic}, and breadcrumbs may facilitate bug reproduction for those crashes.
 
 \subsection[Analytics for each release zone]{Distinguish analytics for each release zone}~\label{aata-analytics-for-each-release-zone}
 Distinguishing between analytics from various release zones (\emph{e.g.} for internal test, pre-release, and production) enables the development teams to track the reliability in each zone independently and without polluting the production analytics. The  commercial project, \myindex{C1}, used this approach successfully. To apply this approach using in-app mobile analytics the development team need to first create distinct configurations, this is often performed in the user interface of the mobile analytics service as it generally needs to be configured to receive and accept the distinct configuration keys, \emph{etc.} The development team then need to configure their build system to select and use the correct configuration key(s), for the respective release zone. For Android apps, this is often performed as part of the \myindex{Gradle} build settings.
 
-\subsection{Safeguarding application keys}~\label{aata-safeguarding-application-keys}
-
+%\subsection{Safeguarding application keys}~\label{aata-safeguarding-application-keys}
 
 \subsection{Preserving reports and results}~\label{aata-preserving-reports-and-results}
-Preserving reports and results (and streamlining the tools and processes to do so).
+As illustrated by the app-centric case studies, teams varied in how often they recorded the reported issues in their bug tracking systems. They also varied in how much information they recorded. The reports are often impermanent and details of the failure may fade from the developer's memory too. Therefore, preserving reports and results (and streamlining the tools and processes to do so) can help improve the bug tracking aspects of the project and potentially also help  find longer-term patterns and more systemic issues. 
 
 
 \section{Discussion}~\label{aata-discussion-section}
 As only three of the app-centric case studies provided access to their project's source code and build processes the analysis of 107 opensource Android apps together with various grey materials have helped to provide additional examples and context. These corroborate previous experiences in industry, albeit opensource apps tend to use mobile analytics more superficially, in terms of the depth of data collection and in the variety of mobile analytics services used~\sidenote{Commercial apps may be supported by revenue streams that defray the costs of paid-for commercial mobile analytics services.}.
 
+%%% Julian to continue here on 12 Sep 2022
 Three groups of topics emerged: code-facing, bug-facing, and app-facing together with several macro topics that transcend individual facets.
 
 

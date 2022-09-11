@@ -85,7 +85,7 @@ Choices of SDK may change over time: for example the Catrobat project chose to r
 
 Secondly, there is the choice of which source to use for which purposes. For instance both \myindex{Android Vitals} and the many crash reporting SDKs report on app crashes. All the projects who used in-app mobile analytics for crash reporting\index{Crash reporting} preferred to use that service to monitor the crashes in their app, even if some crashes aren't reported in that tool, for example those that occur as the app is starting up. Of the development teams who used in-app crash reporting Moonpig were unusual as they \emph{also} actively and frequently used Android Vitals to monitor crashes and other failures.
 
-Thirdly, there are choices to be made in terms of what to record and when to do so in terms of in-app mobile analytics. Various in-app mobile analytics SDKs provide facilities for error reporting in addition to crash reporting. Broadly errors in this context are connected to caught and handled Java exceptions~\sidenote{For avoidance of doubt this includes Kotlin and other JVM languages, errors reported in frameworks such as React Native, and caught signals in C++ code.}. Some SDKs include API calls to provide trails of `\gls{glossary-breadcrumbs}' that lead up to an error or a crash~\footnote{For instance, see \href{https://www.bugsnag.com/blog/android-breadcrumbs-support}{www.bugsnag.com/blog/android-breadcrumbs-support}.}. None of the app-centric case studies mentioned actively using these breadcrumbs, however the reports Sentry generated for the LocalHalo app indicate the Sentry SDK generated automatic \gls{glossary-breadcrumbs}~\sidenote{\href{https://docs.sentry.io/platforms/react-native/enriching-events/breadcrumbs/}{docs.sentry.io/platforms/react-native/enriching-events/breadcrumbs/}} and these helped identify the server was no longer functioning correctly in late 2021. 
+Thirdly, there are choices to be made in terms of what to record and when to do so in terms of in-app mobile analytics. Various in-app mobile analytics SDKs provide facilities for error reporting in addition to crash reporting. Broadly errors in this context are connected to caught and handled Java exceptions~\sidenote{For avoidance of doubt this includes \myindex{Kotlin} and other JVM languages, errors reported in frameworks such as React Native, and caught signals in C++ code.}. Some SDKs include API calls to provide trails of `\gls{glossary-breadcrumbs}' that lead up to an error or a crash~\footnote{For instance, see \href{https://www.bugsnag.com/blog/android-breadcrumbs-support}{www.bugsnag.com/blog/android-breadcrumbs-support}.}. None of the app-centric case studies mentioned actively using these breadcrumbs, however the reports Sentry generated for the LocalHalo app indicate the Sentry SDK generated automatic \gls{glossary-breadcrumbs}~\sidenote{\href{https://docs.sentry.io/platforms/react-native/enriching-events/breadcrumbs/}{docs.sentry.io/platforms/react-native/enriching-events/breadcrumbs/}} and these helped identify the server was no longer functioning correctly in late 2021. 
 
 %%%% Sources include: 
 %%%%%%% https://www.bugsnag.com/blog/error-handling-on-android-part-7 
@@ -423,7 +423,7 @@ As their approach relies on having crashes that can be consistently reproduced v
 Reproducibility of a failure is clearly a factor in order to demonstrate any improvement and in both academic research and in practice reproducibility is desirable. That said, as various of the app-centric case studies demonstrated, in \secref{aiu-bug-reproduction-topic}, developers cannot reproduce some of the failures being reported by mobile analytics. % Relative Correctness,
 
 \newthought{Strategic improvements in code quality:}
-Technology companies have adopted several approaches which may improve code quality, including the reliability of mobile apps. In particular `shift-left'~\sidenote{See \href{https://devopedia.org/shift-left}{devopedia.org/shift-left} for a clear overview.} encourages moving various development activities earlier in the software development lifecycle. According to Google Kotlin results in 20\% fewer crashes in the top 1000 Android apps that used Kotlin compared to those written in Java~\sidecite{googleblogs2021_androids_kotlin_first_approach, muntenescu2020_fewer_crashes_and_more_stability_with_kotlin} which is one way to shift-left by obviating some of the causes of crashes \emph{i.e.} poor programming practices. Kotlin requires developers to be explicit in the nullability of variables and parameters so some of the issues only found at runtime in Java code is found at compile time when Kotlin is used. As a concrete example, the developers of the Google Home app were able to reduce \texttt{NullPointerException}'s by a third through migration from Java to Kotlin~\sidecite{googleblogs2020_google_home_reduces_crashes_by_a_third}.
+Technology companies have adopted several approaches which may improve code quality, including the reliability of mobile apps. In particular `shift-left'~\sidenote{See \href{https://devopedia.org/shift-left}{devopedia.org/shift-left} for a clear overview.} encourages moving various development activities earlier in the software development lifecycle. According to Google \myindex{Kotlin} results in 20\% fewer crashes in the top 1000 Android apps that used Kotlin compared to those written in Java~\sidecite{googleblogs2021_androids_kotlin_first_approach, muntenescu2020_fewer_crashes_and_more_stability_with_kotlin} which is one way to shift-left by obviating some of the causes of crashes \emph{i.e.} poor programming practices. Kotlin requires developers to be explicit in the nullability of variables and parameters so some of the issues only found at runtime in Java code is found at compile time when Kotlin is used. As a concrete example, the developers of the Google Home app were able to reduce \texttt{NullPointerException}'s by a third through migration from Java to Kotlin~\sidecite{googleblogs2020_google_home_reduces_crashes_by_a_third}.
 % And see 
 % - https://en.wikipedia.org/wiki/Shift-left_testing (weak so not cited)
 % Alan Richardson on shift-left is not shifting-left in software testing  instead it's starting the work earlier in the software development process. https://devopedia.org/shift-left and https://www.youtube.com/watch?v=AaMp5skiwqA
@@ -439,17 +439,17 @@ Another possible improvement in the use of mobile analytics is to group causes o
 Crash analysis, such as the research performed in \sidecite{su2020_why_my_app_crashes_etc_android_framework_exceptions}, focuses specifically on exceptions specific to the Android framework; however their approach also extends to exceptions in third-party libraries and in the application code. Mobile Analytics would be one of the ways exceptions are detected (their third research question). Furthermore, their two prototype tools: \href{https://github.com/tingsu/Stoat}{Stoat} and \href{https://github.com/crashanalysis/ExLocator}{ExLocator} might help with bug localisation and crash reproduction.
 
 %%%%% And see https://developer.android.com/topic/performance/vitals/crash#prevent-crashes-null-pointer
-The Kiwix project chose to migrate code from Java to Kotlin, in part to prevent some errors (including errors that led to crashes) from occurring. The Commercial project, similarly, was migrating code from Java to Kotlin sporadically.
+The Kiwix project chose to migrate code from Java to \myindex{Kotlin}, in part to prevent some errors (including errors that led to crashes) from occurring. The Commercial project, similarly, was migrating code from Java to Kotlin sporadically.
 
 
 And yet an important consideration for code quality is to be aware of a possible anti-pattern: conservation of energy.
 
-\newthought{Conservation of energy}
+\newthought{Conservation of energy: }
 means developers may not be willing or practically able to fix some issues, they may lack the capacity and/or the time and/or the information and/or the environment/context needed to fix particular issues. These issues are hard to fix for these developers currently.
 %
 Therefore, one of the strategic considerations is how to enable developers to have justified confidence they can address the more challenging issues.
 
-\newthought{Return on Investment}
+\newthought{Return on Investment: }
 To revisit the topic of motivation, one motivating factor for actually applying mobile analytics is the perceived return on investment in terms of time, energy, opportunity costs, and so on. Developers are more likely to incorporate mobile analytics into their practices when both they and their organisation perceive the return on investment is highly net positive.
 
 \begin{kaobox}[frametitle=ROI in software development]
@@ -461,13 +461,13 @@ customer impact.''}~\sidecite[][p. 992]{buse2012_information_needs_for_software_
 \end{kaobox}
 
 
-The CTO of LocalHalo clearly recognised the ROI of fixing crashes. As he said during the initial interview~\sidenote{Repeated here for ease of reading.}: 
+The CTO of \myindex{LocalHalo} clearly recognised the \Gls{roi} of fixing crashes. As he said during the initial interview~\sidenote{Repeated here for ease of reading.}: 
 
 \begin{quote}
     ``If you have lots of crashes you have zero chance of being promoted [by the app store].''
 \end{quote}
 
-The Kiwix project provides a good example of the ROI where two major crashes were addressed within a few hours of elapsed time and resulted in a decrease in the crash rate of the app of approximately a third. The next chapter provides more details of this example in \secref{aata-improvements-in-crash-rates-topic}.
+The \myindex{Kiwix} project provides a good example of the ROI where two major crashes were addressed within a few hours of elapsed time and resulted in a decrease in the crash rate of the app of approximately a third. The next chapter provides more details of this example in \secref{aata-improvements-in-crash-rates-topic}.
 
 A common and consistent theme that emerged was the importance of engineering leadership\index{Engineering leadership} who sees the value of applying mobile analytics and related software quality engineering practices in order to use mobile analytics effectively to improve the mobile app development processes. 
 
@@ -481,6 +481,8 @@ Existing research by Microsoft in software analytics found that Data/Metrics and
 Symbiotic information sources would be a fruitful area of future work, and is discussed in \secref{fw-combining-reviews-and-mobile-analytics-topic}.
 
 The overall development process for mobile apps includes both the release and operational stages of a software lifecycle. Recent research aims to determine whether releases are good, bad, or neutral. One of their key observations is ``Android developers need to pay attention to the quality of their app next release''~\sidecite[][p. 31]{saidani2022_tracking_bad_updates_in_mobile_apps_a_search_based_approach}. They plan to extend their \uppercase{App-Tracker} software tool so it can be integrated into the development pipeline for Android apps which sounds promising, especially if the underlying software could also use mobile analytics data as part of the scoring of a potential release.
+
+%\subsection{Informed consent}
 
 
 \subsection{Strategic vs Tactical Uses}~\label{aiu-strategic-vs-tactical-uses-topic}
