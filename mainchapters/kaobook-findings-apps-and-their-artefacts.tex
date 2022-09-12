@@ -531,6 +531,12 @@ Probability has a part to play in terms of comparing measurements and reports in
     \item Developers are unlikely to want to ignore detriments if they are paying attention to the quality of their app.
 \end{itemize}
 
+\newthought{Measuring reliability: }
+Failure rates include: un-handled exceptions, \Glspl{anr}, and errors. Errors include: handled exceptions that are recovered from, caught exceptions, logic errors, calculation and content errors, and many others. 
+
+Even \emph{if} an app catches and 'handles' every exception it may not be truly reliable \emph{i.e.} there may be various errors that occur that do not lead to a runtime exception or an ANR. As such, the measured failure rate - assuming it is accurate or under-counting - is the lower bound of the true error rate.
+
+\newthought{Gaming the system: }
 In 2020 Weckert, an artist became popular for an experiment he performed using 99 smartphones, each running Google Maps, where he was able to trick Google Maps into showing traffic jams on otherwise free-moving streets~\sidecite{weckert2020_google_maps_hacks}. In \sidecite{businessinsider2020_artist_creates_fake_traffic_jams_on_google_maps_with_wagon_of_phones} Weckert explained he wanted to draw attention to the blind trust people have in tech companies and platforms. Google Maps and Mobile Analytics services share similar data collection, analysis, and reporting and it may also be possible to trick mobile analytics and feed data that biases the results of the reports.
 % See also
 %%%%% https://www.theguardian.com/technology/2020/feb/03/berlin-artist-uses-99-phones-trick-google-maps-traffic-jam-alert
