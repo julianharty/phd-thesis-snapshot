@@ -375,12 +375,12 @@ For the Catrobat case study, the project leadership saw sufficient benefits from
 \subsection{Mobile analytics in a larger context}
 The research focuses on failures identified using mobile analytics and the processes where developers incorporate mobile analytics into those processes. There may be other sources of information about failures and there may be other causes of fixes and improvements.
 
-\newthought{Crashes mentioned in user reviews}
+\newthought{Crashes mentioned in user reviews: }
 Mobile analytics is one source of information on failures, other sources may be available. In this research, many of the apps have reviews in the app store (Google Play) that mention crashes. The reviews vary in their specificity and the project teams seldom diagnosed the crash from the description in the review text.   
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{images/google-play/Denise-Lavington-Review-moonpig-crashing-2019.pdf}
+    \includegraphics[width=\linewidth]{images/google-play/Denise-Lavington-Review-moonpig-crashing-2019.png}
     \caption[Moonpig: User Review in Google Play `Always crashes...']{Moonpig: User Review `Always crashing in the middle of purchases'}
     \label{fig:gp-review-denise-lavington-always-crashes}
 \end{figure}
@@ -400,7 +400,7 @@ As \myindex{Kiwix} demonstrated it is possible to increase the reliability for a
 
 Some improvements in use depend on the reporting and integration facilities offered by the tools, and similarly on the quality and timeliness of the reports, aspects of these are covered in \secref{discussion-empower-developers}, \secref{discussion-improving-mobile-analytics}. 
 
-Others can be effected using the current services offered by the tools, for example relatively simple things such as enabling the entire team to use the mobile analytics, \secref{discussion-utility-and-scalability}, through \secref{aiu-engineering-leadership-topic} that values mobile analytics and encourages using them on an ongoing basis, and by using them regularly, especially before release by using \acrfull{plr} and on release by using the \myindex{Release Management} reports. 
+Others can be effected using the current services offered by the tools, for example relatively simple things such as enabling the entire team to use the mobile analytics, \secref{discussion-scalability}, through \secref{aiu-engineering-leadership-topic} that values mobile analytics and encourages using them on an ongoing basis, and by using them regularly, especially before release by using \acrfull{plr} and on release by using the \myindex{Release Management} reports. 
 
 A pragmatic acceptance that an app will not be truly free of failures, means projects and teams should pick their own targets (these should be significantly higher than meeting the \gls{glossary-bad-behavior-threshold}\index{Bad behavior threshold}). \myindex{Android Vitals} provides quartiles per application category so a useful heuristic would be to be in the top quartile in terms of app stability.
 
@@ -411,110 +411,8 @@ As \myindex{SmartNavi} explained some failures are impractical to investigate or
 \end{quote}
 
 
-
-\section{Discussion on the use of mobile analytics}~\label{aiu-discussion-section}
-This section combines primary research described here and secondary research including grey literature.
-
-
-\newthought{Crash reproducibility:} Reproducing and repairing crashes in Android apps has received significant attention from academic researchers. In~\sidecite{tan2018_repairing_crashes_in_android_apps} they were able to automatically fix some of the crashes that were able to be repeatably triggered by existing GUI-driven automated tests. In at least one case the automated fix was more correct than the flawed one the original developer had implemented. 
-
-As their approach relies on having crashes that can be consistently reproduced via the GUI it is orthogonal to using mobile analytics as a source for crashes, nonetheless it could potentially help provide developers with adequate fixes for failures where the developers have been able to devise and either record the sequence of events or create automated tests the perform the necessary sequence of events. Developers could compare and contrast any fixes they create with those created using the repair tool, \textit{Droix}, devised as part of this research~\sidecite{tan2018_repairing_crashes_in_android_apps}. Note: as the authors admit, their approach worked for relatively uncomplicated crashes that could be reproduced on Android emulators. Virtually all the mobile analytics failures occurred on real Android devices so there is a gap that would need to be bridged between their work and crashes reported via mobile analytics.  
-
-Reproducibility of a failure is clearly a factor in order to demonstrate any improvement and in both academic research and in practice reproducibility is desirable. That said, as various of the app-centric case studies demonstrated, in \secref{aiu-bug-reproduction-topic}, developers cannot reproduce some of the failures being reported by mobile analytics. % Relative Correctness,
-
-\newthought{Strategic improvements in code quality:}
-Technology companies have adopted several approaches which may improve code quality, including the reliability of mobile apps. In particular `shift-left'~\sidenote{See \href{https://devopedia.org/shift-left}{devopedia.org/shift-left} for a clear overview.} encourages moving various development activities earlier in the software development lifecycle. According to Google \myindex{Kotlin} results in 20\% fewer crashes in the top 1000 Android apps that used Kotlin compared to those written in Java~\sidecite{googleblogs2021_androids_kotlin_first_approach, muntenescu2020_fewer_crashes_and_more_stability_with_kotlin} which is one way to shift-left by obviating some of the causes of crashes \emph{i.e.} poor programming practices. Kotlin requires developers to be explicit in the nullability of variables and parameters so some of the issues only found at runtime in Java code is found at compile time when Kotlin is used. As a concrete example, the developers of the Google Home app were able to reduce \texttt{NullPointerException}'s by a third through migration from Java to Kotlin~\sidecite{googleblogs2020_google_home_reduces_crashes_by_a_third}.
-% And see 
-% - https://en.wikipedia.org/wiki/Shift-left_testing (weak so not cited)
-% Alan Richardson on shift-left is not shifting-left in software testing  instead it's starting the work earlier in the software development process. https://devopedia.org/shift-left and https://www.youtube.com/watch?v=AaMp5skiwqA
-% Bjerke-Gulstuen K., Larsen E.W., Stålhane T., Dingsøyr T. (2015) High Level Test Driven Development – Shift Left. In: Lassenius C., Dingsøyr T., Paasivaara M. (eds) Agile Processes in Software Engineering and Extreme Programming. XP 2015. Lecture Notes in Business Information Processing, vol 212. Springer, Cham. https://doi-org.libezproxy.open.ac.uk/10.1007/978-3-319-18612-2_23 however it's a fairly mundane - provide a dedicated tester earlier in the dev't lifecycle, albeit the results seem to be productive according to their slidedeck on semanticscholar.
-
-
-In research in code quality for Android apps, in the work of \sidecite{Hamdi2021empirical} the focus was on internal code qualities (\emph{i.e.} coupling, cohesion, complexity, design size, and inheritance) rather than on qualities in use. Their group of qualities are all internal qualities of the code, rather than quality-in-use metrics. 
-
-While developers of the apps in the app-centric case studies may have performed some refactoring as defined by ~\sidecite{Hamdi2021empirical}, the amount is unknown. As such refactoring was not mentioned or observed in the app-centric case studies we can assume it was not explicitly performed and that it wasn't performed more than before or after the active case study period. Therefore, improvements in reliability of the apps did not stem from explicit code refactoring work~\sidenote{Some code quality improvements may well have been performed as part of bug fixes, however the primary purpose of the changes were to fix causes of failures.}.
-
-\newthought{Aim to prevent errors rather than detect them using mobile analytics}. 
-Another possible improvement in the use of mobile analytics is to group causes of failures, for instance by the type of Exception thrown, and help find ways to obviate those Exceptions being generated in practice. Techniques such as improving development practices, explicit training and mentoring of the development team, \emph{etc}. in addition to any changes in programming languages may help achieve this aim. %
-Crash analysis, such as the research performed in \sidecite{su2020_why_my_app_crashes_etc_android_framework_exceptions}, focuses specifically on exceptions specific to the Android framework; however their approach also extends to exceptions in third-party libraries and in the application code. Mobile Analytics would be one of the ways exceptions are detected (their third research question). Furthermore, their two prototype tools: \href{https://github.com/tingsu/Stoat}{Stoat} and \href{https://github.com/crashanalysis/ExLocator}{ExLocator} might help with bug localisation and crash reproduction.
-
-%%%%% And see https://developer.android.com/topic/performance/vitals/crash#prevent-crashes-null-pointer
-The Kiwix project chose to migrate code from Java to \myindex{Kotlin}, in part to prevent some errors (including errors that led to crashes) from occurring. The Commercial project, similarly, was migrating code from Java to Kotlin sporadically.
-
-
-And yet an important consideration for code quality is to be aware of a possible anti-pattern: conservation of energy.
-
-\newthought{Conservation of energy: }
-means developers may not be willing or practically able to fix some issues, they may lack the capacity and/or the time and/or the information and/or the environment/context needed to fix particular issues. These issues are hard to fix for these developers currently.
-%
-Therefore, one of the strategic considerations is how to enable developers to have justified confidence they can address the more challenging issues.
-
-\newthought{Return on Investment: }
-To revisit the topic of motivation, one motivating factor for actually applying mobile analytics is the perceived return on investment in terms of time, energy, opportunity costs, and so on. Developers are more likely to incorporate mobile analytics into their practices when both they and their organisation perceive the return on investment is highly net positive.
-
-\begin{kaobox}[frametitle=ROI in software development]
-Note: this calculation is not limited to use of mobile analytics, for instance it may also apply to the practice of developers creating and maintaining automated tests, \textit{etc}.
-
-As one of the answers to an internal survey at Microsoft noted: \emph{``Telemetry allows us to prioritize investment for code
-cleanup and bug fixing in a way that has substantial
-customer impact.''}~\sidecite[][p. 992]{buse2012_information_needs_for_software_development_analytics} Mobile Analytics provides telemetry and therefore helps inform discussions regarding \Gls{roi}. 
-\end{kaobox}
-
-
-The CTO of \myindex{LocalHalo} clearly recognised the \Gls{roi} of fixing crashes. As he said during the initial interview~\sidenote{Repeated here for ease of reading.}: 
-
-\begin{quote}
-    ``If you have lots of crashes you have zero chance of being promoted [by the app store].''
-\end{quote}
-
-The \myindex{Kiwix} project provides a good example of the ROI where two major crashes were addressed within a few hours of elapsed time and resulted in a decrease in the crash rate of the app of approximately a third. The next chapter provides more details of this example in \secref{aata-improvements-in-crash-rates-topic}.
-
-A common and consistent theme that emerged was the importance of engineering leadership\index{Engineering leadership} who sees the value of applying mobile analytics and related software quality engineering practices in order to use mobile analytics effectively to improve the mobile app development processes. 
-
-\newthought{Symbiotic information sources}
-Development teams can use both mobile analytics and user feedback where they complement each other. There was only one example, from Moonpig in \secref{aiu-interventions-theme} where the two sources were combined and contrasted, there may have been other instances but they were not captured in the research. 
-
-A useful example from grey literature is where a developer explains how he addressed three distinct types of 1 star review for one of his mobile apps. The example where he used the meta-data of the end user's device is very practical and a similar technique applies for the failure analysis when using mobile analytics~\sidecite{sunderland2019_the_one_star_android_review}.
-
-Existing research by Microsoft in software analytics found that Data/Metrics and Customer input were both deemed important by both managers and developers which indicate the potential of combining both these sources of information.~\sidecite[][p. 989]{buse2012_information_needs_for_software_development_analytics}
-
-Symbiotic information sources would be a fruitful area of future work, and is discussed in \secref{fw-combining-reviews-and-mobile-analytics-topic}.
-
-The overall development process for mobile apps includes both the release and operational stages of a software lifecycle. Recent research aims to determine whether releases are good, bad, or neutral. One of their key observations is ``Android developers need to pay attention to the quality of their app next release''~\sidecite[][p. 31]{saidani2022_tracking_bad_updates_in_mobile_apps_a_search_based_approach}. They plan to extend their \uppercase{App-Tracker} software tool so it can be integrated into the development pipeline for Android apps which sounds promising, especially if the underlying software could also use mobile analytics data as part of the scoring of a potential release.
-
-%\subsection{Informed consent}
-
-
-\subsection{Strategic vs Tactical Uses}~\label{aiu-strategic-vs-tactical-uses-topic}
-The \secref{aiu-motivating-factors-theme} introduced the concept of strategic vs tactical behaviours by developers in their use of mobile analytics. Figure \ref{fig:aiu-strategic-tactical-example} illustrates several of the app-centric case studies on a continuum (some weren't able to be assessed for various reasons). Of these:
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{images/rough-sketches/aiu-strategic-tactical-example.pdf}
-    \caption{Strategic-Tactical}
-    \label{fig:aiu-strategic-tactical-example}
-\end{figure}
-%%%% Source Arosha's sketch, TODO replace with a more complete version.
-
-\begin{itemize}
-    \item \myindex{GTAF} became more strategic in their use after the case study.
-    \item \myindex{LocalHalo} started out strategically but appeared to lose focus and their developer(s) were not given access to \myindex{Sentry} despite it being used.
-    \item \myindex{Kiwix} became significantly more strategic in the use \myindex{Android Vitals} while the professional lead developer was part of the team.
-    \item \myindex{Moonpig} were highly strategic in their use, and also used adapted their use tactically when unexpected issues occurred.
-\end{itemize}
-
-\subsection{The effects of pricing}
-The topic of pricing was not actively discussed as part of the case studies. Nonetheless, pricing may also be a factor in the choice of SDK, service, and in determining who on a development team has access. Several of the in-app mobile analytics tools provide a free basic service limited to one or a few team members.  Some also offer bands of pricing where they increase the data retention, and/or provide addition integrations \emph{e.g.} to Slack, etc. 
-
-\subsection{What's ``good enough"? and for whom?}
-Developers in the app-centric case studies seemed to be willing to accept the mobile analytics reports at face value. Various flaws will be discussed in the Tools chapter, nonetheless even flawed mobile analytics may serve the needs of the vast majority of app developers. 
-
-\subsection{Choosing mobile analytics}
-Many factors may affect the choice of mobile analytics, ranging from a wish to not track usage within the app, as demonstrated by \myindex{Kiwix} and \myindex{Catrobat}, though to projects that choose to integrate two or more mobile analytics SDKs into an app, such as \myindex{LocalHalo} and the \myindex{C1} project. None of the development teams mentioned explicitly having requirements to fulfil as part of choosing the services they use, nor of testing that the SDKs actually behaved correctly.  
-
-
 \section{Summary of Analytics in Use findings}
-This chapter presented ways mobile app developers used mobile analytics together with an overview of ways the use could be improved by app development teams. 
+This chapter presented ways mobile app developers used mobile analytics together with an overview of ways the use could be improved by app development teams. These findings are summarised below and discussed together with the other findings in \secref{chapter-dicussion}.
 
 Motivations to use analytics included making apps more successful and usable, as well as consideration of ethical issues relating to collecting data from end users' devices. The processes associated with using analytics were also affected by the real-world conditions in which the development teams operates. For example, engineering choices made by the team can affect how analytics are used, as well as the techniques adopted by teams to make sense of analytics data. 
 

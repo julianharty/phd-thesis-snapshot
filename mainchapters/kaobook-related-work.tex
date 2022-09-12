@@ -33,10 +33,10 @@ At times this chapter will draw from broader sources, for instance in software d
 
 
 \newthought{A note on the choice of ecosystem: } 
-The practicalities of the research and the case studies where nearly all the work pertains to the Google Android ecosystem also helps in the selection criteria of relevant related works. As the vast majority of active research in the domain of mobile apps also pertains to this ecosystem, this means the topic is richly served in terms of related works.
+Google Android was a natural choice for several reasons. 1) The practicalities of the research and the case studies where nearly all the work pertained to the Google Android ecosystem also helped in the selection criteria of relevant related works. 2) Also, the vast majority of active research in the domain of mobile apps also pertains to this ecosystem, this means the topic is richly served in terms of related works.
 
 \newthought{Contents of this chapter: }
-The next section provides an overview of how the material for how this literature review was sourced and compiled.
+The next section, \secref{rw-tactics-and-topics-for-this-chapter} provides an overview of how the material for how this literature review was sourced and compiled.
 
 Subsequent sections are organised to provide the context of the research. This research builds on several strands of existing research. The first comes from software development, in \secref{rw-software-development-section}, and includes software development in general in terms of: development practices, software quality, including measuring software quality, and then the use of software analytics. The second strand, in \secref{rw-app-stores-and-their-effects-on-software-development-and-engineering}, is the app store ecosystem and the effects it places on software development and engineering.
 
@@ -65,17 +65,17 @@ This section, and associated subsections, provide context for the more specific 
 This section covers the following topics: \secref{rw-software-development-practices-topic}, \secref{rw-software-quality-including-measurement-topic}, and \secref{rw-software-analytics-topic}.
 
 \subsection{Software development practices}~\label{rw-software-development-practices-topic}
-Jez Humble is a well respected leader in modern software development practices who popularised the concepts of Continuous Delivery and DevOps. In \sidecite{humble2018_continuous_delivery_sounds_great} he argues the benefits of using continuous delivery to reduce risks and transaction costs, to create fast feedback loops, and work in small batches. He also believes it can be applied to any software and any domain. He concludes: \emph{``This, in turn, increases the quality of products, allows developers to react more rapidly to incidents and changing requirements and, in turn, build more stable and higher-quality products and services at lower costs.''}~\sidecite[][p. 39]{humble2018_continuous_delivery_sounds_great}. 
+Jez Humble is a well respected leader in modern software development practices who popularised the concepts of Continuous Delivery and DevOps. In \sidecite{humble2018_continuous_delivery_sounds_great} he argues the benefits of using continuous delivery to reduce risks and transaction costs, to create fast feedback loops, and work in small batches. He also believes it can be applied to any software and any domain. He concludes: \emph{``This, in turn, increases the quality of products, allows developers to react more rapidly to incidents and changing requirements and, in turn, build more stable and higher-quality products and services at lower costs.''}~\sidenote{[p. 39, \emph{Ibid}]}. To be successful in applying continuous delivery Humble identifies the importance of continuous, daily improvement and constant discipline to seek higher performance. 
 
-To be successful in applying continuous delivery Humble identifies the importance of continuous, daily improvement and constant discipline to seek higher performance. Can we assume continuous delivery is suitable for mobile apps and can be applied by developers of those mobile apps? In an app store, deliveries are packaged into a software release that needs to be approved by the app store, the release needs to be accepted by end users as a replacement for a previous release of the app, and all this takes time.  Existing research into releases in app stores, in \secref{rw-managing-releases-in-app-stores-topic}, provides context for where and how mobile analytics might make a useful contribution.
+Can we assume continuous delivery is suitable for mobile apps and can be applied by developers of those mobile apps? Not necessarily: in an app store, deliveries are packaged into a software release that needs to be approved by the app store, the release needs to be accepted by end users as a replacement for a previous release of the app, and all this takes time. Existing research into releases in app stores, in \secref{rw-managing-releases-in-app-stores-topic}, provides context for where and how mobile analytics might make a useful contribution.
 
 \subsection{Software quality, including measuring software quality}~\label{rw-software-quality-including-measurement-topic}
 
-Early work, presented at ICSE in 1997, compared two approaches to software testing - debug testing and operational testing~\sidecite{frankl1997choosing_testing_for_reliability}. Their research considered the two approaches including their efficacy at improving reliability of the software being tested. This work challenged the focus on faults which they stated was nebulous and not necessarily the best term to use to describe what happened when failures were detected or when changes were made to 'fix' the code that led to the failures. They introduced the notion of \emph{failure regions}, which could be \emph{``eliminated by a program change''}[p. 70]. This research and associated concepts align well with the use of mobile analytics to identify failures, and failure regions that are detected by mobile analytics and potentially addressed by changes to the program \emph{i.e.} the mobile app. We will revisit this paper in \secref{rw-mobile-app-crashes-topic}.
+Early work, presented at ICSE in 1997, compared two approaches to software testing - debug testing and operational testing~\sidecite{frankl1997choosing_testing_for_reliability}. Their research considered the two approaches including their efficacy at improving reliability of the software being tested. This work challenged the focus on faults which they stated was nebulous and not necessarily the best term to use to describe what happened when failures were detected or when changes were made to 'fix' the code that led to the failures. They introduced the notion of \emph{failure regions}, which could be \emph{``eliminated by a program change''}~\sidenote{[p. 70, \emph{Ibid.}]}. This research and associated concepts align well with the use of mobile analytics to identify failures, and failure regions that are detected by mobile analytics and potentially addressed by changes to the program \emph{i.e.} the mobile app. We will revisit this paper in \secref{rw-mobile-app-crashes-topic}.
 
-The authors discussed the potential perils of relying on the judgement of people involved in debug testing (testing to maximise the faults found in a given period). They referenced~\sidecite{basili1994_software_process_evolution_at_the_sei} where testers who focused on `testing' over-estimated their abilities to find all the faults in a program. To counter the peril they proposed comparing the effectiveness of testing by using operational profiles~\sidecite[][p. 77]{frankl1997choosing_testing_for_reliability}.
+The authors discussed the potential perils of relying on the judgement of people involved in debug testing (testing to maximise the faults found in a given period). They referenced~\sidecite{basili1994_software_process_evolution_at_the_sei} where testers who focused on `testing' over-estimated their abilities to find all the faults in a program. To counter the peril they proposed comparing the effectiveness of testing by using operational profiles~\sidecite[][p. 77]{frankl1997choosing_testing_for_reliability}. Although their research predates mobile apps, smartphones, and mobile analytics their perspective appears relevant and suitable. The comparison in terms of the effectiveness of testing could be operational results from mobile analytics reports.
 
-Another concern raised by Frankl \emph{et al} is the potential for debug testers to confuse \emph{``between detecting failures and achieving reliability.''}~\sidecite[][p. 77]{frankl1997choosing_testing_for_reliability}. 
+Another germane concern raised by Frankl \emph{et al} is the potential for debug testers to confuse \emph{``between detecting failures and achieving reliability.''}~\sidecite[][p. 77]{frankl1997choosing_testing_for_reliability}. This has been corroborated by my experiences in Industry where testing and testers often focus on regression testing and feature testing without considering, or factoring-in, the effects of the software being used.
 
 %Measuring software quality
 
@@ -83,9 +83,8 @@ One of the challenges has been to find ways to measure beyond an app, to behavio
 
 
 \subsection{Software analytics}~\label{rw-software-analytics-topic}
-Software analytics includes the use of analytics to measure and potentially improve processes, products, and software tools. Some of the early published research came from Microsoft Research. For example, Buse and Zimmerman wrote a short paper in 2010 which helped establish the field of:~\emph{``Analytics for Software Development"}~\sidecite{buse_analytics_2010}. The first figure in that paper is reproduced here as~\ref{fig:software_analytics_buse_and_zimmerman_2010}. They had derived that figure from a more general business-focused diagram in Davenport and Harris's book~\emph{``Analytics at work: Smarter decisions, better results"}~\cite{davenport2010analytics_at_work},  in Figure 1.1, titled\emph{``Key questions addressed by analytics"} and found in page 7 of ~\sidecite{davenport2010analytics_at_work}). 
+Software analytics includes the use of analytics to measure and potentially improve processes, products, and software tools. Some of the early published research came from Microsoft Research. For example, Buse and Zimmerman wrote a short paper in 2010 which helped establish the field of:~\emph{``Analytics for Software Development"}~\sidecite{buse_analytics_2010}. The first figure in that paper is reproduced here as~\ref{fig:software_analytics_buse_and_zimmerman_2010}. As an observation, they derived that figure from a more general business-focused diagram in Davenport and Harris's book~\emph{``Analytics at work: Smarter decisions, better results"}~\sidecite[][p. 7]{davenport2010analytics_at_work}, so this figure appears to be broadly applicable once it has been customised. %,  in Figure 1.1, titled\emph{``Key questions addressed by analytics"} and found in page 7 of ~\sidecite{davenport2010analytics_at_work}). 
 
-Buse and Zimmermann
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{images/related-work/buse_and_zimmermann_2010_figure_a.pdf}
@@ -94,12 +93,14 @@ Buse and Zimmermann
 \end{figure}
 
 
-In the Buse and Zimmermann paper they \emph{``distinguish between questions of information which can be directly measured, from questions of insight which arise from a careful analytic analysis and provide managers with a basis for action.''}~\sidecite{buse_analytics_2010}.
+In the Buse and Zimmermann paper they \emph{``distinguish between questions of information which can be directly measured, from questions of insight which arise from a careful analytic analysis and provide managers with a basis for action.''}~\sidecite[][p. 78]{buse_analytics_2010}. This is an important distinction. In this research the insights  are also pertinent to app developers, rather than being limited to managers.
 
 \subsubsection{Information needs}~\label{rw-information-needs-research}
-\emph{``Information needs for software development analytics"}~\cite{buse2012_information_needs_for_software_development_analytics}. They asked 110 Microsofties, a mix of development leads and managers about their use of software development analytics. 
+Development teams comprise many roles including development managers and software developers. As Microsoft discovered these two roles have different information needs in terms of software development analytics~\sidecite{buse2012_information_needs_for_software_development_analytics}. They asked 110 Microsofties, a mix of development leads and managers, about their use of software development analytics, none were identified as working with mobile apps or Microsoft's then current mobile operating system or platform (p. 989). 
 
-MUST-DO discuss how my work and their guidelines for software development analytics align. What does my work add to their work? What does it provide that they identified back in 2012? Their focus seems to be more on the code than the product of the code (apps and the services (and the qualities of those services) those apps provide to end users). What information do mobile app developers need in terms of improving the reliability of their apps? How can the developers make good decisions in this area?
+Both the managers and the development leads agreed that \emph{``it [is] more important to understand the past than try to predict the future; echoing George Santayana, ``those who cannot remember the past are condemned to repeat it.''''} (p. 990). From Figure 4 in their work (p. 991), Failure Information (\emph{``reports of crashes or other problems"}) is in the top 3 that the development leads would use and top for managers when making decisions relevant to their engineering process. Telemetry would be used by approximately 80\% of development leads and 90\% of managers in the survey. The respondents used crash reports in their work and presumably these were considered to be part of software analytics given they were mentioned in this research. The survey did not appear to discuss software quality, reliability, or the use of software analytics (or telemetry) to improve the quality of their processes, artefacts, or analytics tools. They did consider data quality which was important to the respondents.
+
+Participants confirmed that analytics could help them \emph{``monitor a project; know what's really working; improve efficiency; manage risk; anticipate changes; evaluate past decisions.''} (p. 989).
 
 \begin{figure*}
     \centering
@@ -108,47 +109,54 @@ MUST-DO discuss how my work and their guidelines for software development analyt
     \label{fig:buse2012-edited-figure-2}
 \end{figure*}
 
+Oddly, Figure 2 in their paper seems to have a mistake in the direction of More Difficult from Information to Insight, see~\ref{fig:buse2012-edited-figure-2}.
 
-\begin{itemize}
-    \item ~\emph{``we ultimately want to} empower software development teams to independently gain and share insight \emph{from their data without relying on a separate entity"}
-    \item \emph{``Analytics can help: monitor a project; know what's really working; improve efficiency; manage risk; anticipate changes; evaluate past decisions."}
-    
-    \item Oddly, Figure 2 in their paper seems to have a mistake in the direction of More Difficult from Information to Insight, see~\ref{fig:buse2012-edited-figure-2}.
-    
-    \item \emph{``In other words, both developers and managers find it more important to understand the past than try to predict the future; echoing George Santayana, “those who cannot remember the past are condemned to repeat it.”"}.
-    
-    \item From Figure 4 in their work, Failure Information (\emph{``reports of crashes or other problems"}) is in the top 3 that the development leads would use and top for managers when making decisions relevant to their engineering process. Telemetry (\emph{``user benchmarks"} would be used by around 80\% of development leads and 90\% of managers in the survey.
-    
-    \item \emph{``The landscape of artifacts and indicators in software engineering is well known, but the concrete decisions they might support are not. We conjecture that understanding how managers and developers can make use of information is critical to understanding what information should be delivered to them."}. My research somewhat inverts this by looking at what's being delivered in terms of commercial, pre-existing mobile analytics and considers how that information has been used to improve the reliability of the mobile apps that were the source of the raw information.
-    
-\end{itemize}~\cite{buse2012_information_needs_for_software_development_analytics}.
+\emph{``The landscape of artifacts and indicators in software engineering is well known, but the concrete decisions they might support are not. We conjecture that understanding how managers and developers can make use of information is critical to understanding what information should be delivered to them."} (p. 992). 
+My research somewhat inverts this by looking at what's being delivered in terms of commercial, pre-existing mobile analytics and considers how that information has been used to improve the reliability of the mobile apps that were the source of the raw information.
+
+Overall, back when the research was published (in 2012) their focus seemed to be more on the code than the product of the code (the apps, services, and qualities of those services those apps provide to end users). Unasked and unanswered in their work were : what information do mobile app developers need in terms of: improving their practices, the reliability of their apps, and the analytics tools and services they use? and, how can the developers make good decisions in this area?
+
+\begin{comment}
+MUST-DO discuss how my work and their guidelines for software development analytics align. What does my work add to their work? What does it provide that they identified back in 2012? Their focus seems to be more on the code than the product of the code (apps and the services (and the qualities of those services) those apps provide to end users). What information do mobile app developers need in terms of improving the reliability of their apps? How can the developers make good decisions in this area?
+\end{comment}
+
+A much more recent paper, published on arxiv.org performed a \Gls{slr}~\sidecite{caldeira2020_software_development_analytics_in_practice_a_slr}. All the accepted 42 studies were aimed at developers (p. 10). Many of the papers included App Stores (p. 10) and the majority of the selected papers were from the Empirical Software Engineering Journal~\sidenote{\href{https://www.springer.com/journal/10664}{www.springer.com/journal/10664}}, yet none of the papers were identified with mobile analytics or crash reporting despite these two highly relevant criteria. 
 
 
 \subsubsection{Software analytics tools}~\label{rw-software-analytics-tools-research}
+Software analytics generally involves software that is used as a tool to analyse whatever the data is. The tool may be limited to reporting based on existing data or it may include data collection. The tools may range from a spreadsheet editor, through heavy-duty yet data agnostic tools, to custom and highly tailored reporting systems. In this research the focus is on the custom and highly tailored reporting systems, generally packaged with the respective data collection \Gls{sdk}, services, \emph{etc.}  
 
-A web-based software analytics platform named \Gls{samoa}\index{SAMOA}\sidecite{minelli2013_software_analytics_samoa} was developed to provide insights into the source code of various Android apps. They analysed opensource codebases for apps on \myindex{F-Droid}~\sidenote{\href{https://f-droid.org/}{f-droid.org/}}. Their analysis is of interest, however, they did not investigate mobile analytics (and apps on F-Droid are not permitted to include mobile analytics).
+In terms of research into software analytics and tools used to provide analytics about the use of software, Microsoft's work with their \Gls{wer} is particularly of interest. 
 
-\newthought{Learning from Windows Error Reporting}
-The data collection and analysis of Android Vitals has some similarities with Microsoft's \acrfull{wer}\index{Windows Error Reporting (WER)} which they describe in an article in 2011~\cite{kinshuman2011_debugging_in_the_very_large} and a longer conference paper from 2009~\cite{kinshuman2009_debugging_in_the_very_large}. Similarities include both mechanisms being designed to work effectively at scale of at least a billion end-user machines/devices, capturing crash data, and using error statistics as a tool in debugging. Differences include the platform (Android), the lack of automatic diagnosis (which WER provided), and most relevantly, Google provides several million third-party developers with access to data for the apps they are responsible for and provides them with various comparative analytics of the technical performance of their app compared to those apps of their peers. (Microsoft provided 700 third-party developers, for instance of device drivers, with WER information, and the paper provides a concrete example of how one vendor addressed the top 20 reported issues for their code, and how the fixes percolated out to the end users and halved the percentage of all kernel crashes attributed to that vendor (from 7.6\% to 3.8\%)). Statistics-based debugging, described in these papers, was used in Microsoft's WER and may also apply when developers use mobile analytics.
+\newthought{Learning from Windows Error Reporting: }
+The data collection and analysis of Android Vitals shares various similarities with Microsoft's \acrfull{wer}\index{Windows Error Reporting (WER)}. \Gls{wer} from a research perspective is described in an article in 2011~\sidecite{kinshuman2011_debugging_in_the_very_large} and a longer conference paper from 2009~\sidecite{kinshuman2009_debugging_in_the_very_large}. 
 
-\newthought{Beyond Microsoft}
-Microsoft are not unique in publishing research about the use of software analytics. A company, Softeam, used a software analytics platform to collect feedback from their customers and systems with the aim of improving the software quality of their systems~\cite{bagnato2020_challenges_and_benefits_from_using_software_analytics_in_softeam}. They use \url{https://github.com/q-rapids}, a ``Quality-aware rapid software development. H2020 Project (Grant no. 732253)". There are relevant publications listed at \url{https://www.q-rapids.eu/publications}.
+Similarities include both mechanisms being designed to work effectively at scale of at least a billion end-user machines and devices, data capture including capturing crash data, and the use of error statistics as a tool in debugging.
+
+Differences include the platform (Android) which lacks automatic diagnosis (which \Gls{wer} provided). And, most relevantly, Google provides several million third-party developers with access to data for the apps they are responsible for and provides them with various comparative analytics of the technical performance of their app compared to those apps of their peers. (Microsoft provided 700 third-party developers, for instance of device drivers, with WER information, and the paper provides a concrete example of how one vendor addressed the top 20 reported issues for their code, and how the fixes percolated out to the end users and halved the percentage of all kernel crashes attributed to that vendor (from 7.6\% to 3.8\%)). Statistics-based debugging, described in these papers, was used in Microsoft's WER and may also apply when developers use mobile analytics.
+
+\newthought{Beyond Microsoft: }
+Microsoft are not unique in publishing research about the use of software analytics. A company, Softeam, used a software analytics platform to collect feedback from their customers and systems with the aim of improving the software quality of their systems~\sidecite{bagnato2020_challenges_and_benefits_from_using_software_analytics_in_softeam}. They use \url{https://github.com/q-rapids}, a ``Quality-aware rapid software development. H2020 Project (Grant no. 732253)". There are additional publications of interest listed at \url{https://www.q-rapids.eu/publications}, however they are excluded from this thesis as they do not further contribute to this research.
 
 
 \subsubsection{Interpreting analytics data}~\label{rw-interpreting-analytics-data-research}
+As Microsoft noted, interpreting the data in order to provide a basis for action is a necessary facet of what development teams need to do. 
 
-\newthought{Connecting failures with software analytics}
-In a short paper~\sidecite{kidwell2015_toward_fault_taxonomy_application_of_software_analytics}, the authors propose combining fault classification and software analytics for five types of decisions. These are: targetting testing, release planning, judging stability, targeting training, and targeting inspection of software. failure data mined from software analytics tools such as crash reporting tools helps to bring their concepts and ideas to life. Their paper provided initial indicative evidence of their proposals through evaluation of changes to source code for the Eclipse software and discusses the measurement of refactoring to provide more accurate and relevant measurements of the efficacy of the refactoring, rather than considering approaches to improve mobile apps.
+\newthought{Connecting failures with software analytics: }
+In a short paper~\sidecite{kidwell2015_toward_fault_taxonomy_application_of_software_analytics}, the authors propose combining fault classification and software analytics for five types of decisions. These are: targeting testing, release planning, judging stability, targeting training, and targeting inspection of software. Their paper provided initial indicative evidence of their proposals through evaluation of changes to source code for the Eclipse software. It also discussed the measurement of refactoring to provide more accurate and relevant measurements of the efficacy of the refactoring. This work is relevant in terms of aspects such as judging stability and targeting inspection of the software. Their research did not consider approaches to improve mobile apps through mobile analytics. 
 
-\newthought{Caveats with software analytics}~\label{rw-caveats-with-software-analytics-topic}
-% This might be better placed in the discussion or later chapter. TBD.
-Using software analytics leads to several \emph{caveats} to consider the `so what' aspects and whether the research is being done well. 
-\emph{``Software Analytics, so what?"}~\cite{menzies2013_software_analytics_so_what} to set the context. TODO Revisit this paper in the discussion. Low latency in order to be actionable...
+Failure data mined from software analytics tools such as crash reporting tools might help to bring their concepts and ideas to life.
 
-\emph{```Bad Smells" in software analytics papers'}~\sidecite{menzies2019_badsmells_in_software_analytics}.
+\phantomsection
+\newthought{Caveats with software analytics: }~\label{rw-caveats-with-software-analytics-topic}
+Using software analytics leads to several \emph{caveats} to consider the `so what' aspects and whether the research is being done well. For our research to be applicable it needs to pass two tests. The first test is to answer: 
+\emph{``Software Analytics, so what?"}~\cite{menzies2013_software_analytics_so_what}. The second is to avoid doing or publishing poor quality work~\sidecite{menzies2019_badsmells_in_software_analytics}!
 
-A couple of examples of risks and concerns when using mobile analytics 
-\emph{``How Does Misconfiguration of Analytic Services Compromise Mobile Privacy?"} ICSE 2020. This in turn refers to \emph{``Alde: privacy risk analysis of analytics libraries in the android ecosystem."} 2016, and \emph{``Bug Fixes, Improvements, ... and Privacy Leaks - A Longitudinal Study of PII Leaks Across Android App Versions."} 2018.
+
+\subsection{Summary}
+Software development research has a bearing on mobile app development, a topic we investigate shortly in \secref{rw-developing-mobile-apps-section}, and software analytics also has a bearing. Nonetheless the general research we have investigated so far does not consider app stores or their effects on software development and engineering. App stores have been researched extensively so we will investigate pertinent research in the next section.
+
+%Traditional software analytics tools are not the only source of information researchers have also looked at information from app stores and the effects of app stores on mobile apps, therefore these will be investigated in the next section.   
 
 
 \section{App Stores and their Effects on Software Development and Engineering}~\label{rw-app-stores-and-their-effects-on-software-development-and-engineering}
@@ -262,6 +270,7 @@ Before we leave the topic of App Store ecosystems and in particular a developer 
 
 They estimated there were 320,000 developers, over half of the developers only released a single app. The paper main focus though is on the \emph{``the group of aggressive developers who have released more than 50 apps, trying to understand how and why they create so many apps''}. In terms of this research this paper provides some context on who writes the mobile apps in Google Play, provides an estimate of the population of developers (in 2017).
 
+\subsection{Summary} % Of app stores and their effects
 
 \section{Developing Mobile Apps}~\label{rw-developing-mobile-apps-section}
 Research into the development practices and mechanisms for mobile apps establishes various norms, characteristics, and habits, of app developers. Their work, collectively, is used by billions of people throughout the world. In terms of this research, understanding the development practices and mechanisms is vital. Developers also have a voice and hundreds have been interviewed to learn what's important to them, for example in \sidecite{joorabchi2013_real_challenges_in_mobile_app_development}. They also communicate through various artefacts they create and maintain, again these artefacts have been studied to learn about their work, for example in \sidecite{pascarella2018_self_reported_activities_of_android_developers}.
@@ -440,6 +449,11 @@ Perhaps the cost of failures in the app store was/is perceived to be low in the 
 
 As we will discover later in this thesis Google Play Console includes a set of live release management reports aimed at helping app developers observe the effects of a new release as it's rolled out to the userbase. They also use popularity of the app in various regions to control automated pre-release testing of new releases of an app.\todo{Add forward links to these two topics in those chapters.}
 
+\subsection{Summary} %TODO revise the wording.
+Bridge to the app stores. 
+
+Does not investigate and seek to understand the effects of mobile analytics on the software development practices, artefacts, or in the mobile analytics tools developers use. 
+
 
 \section{Sources of information on software quality for developers of mobile apps}~\label{rw-sources-of-info-on-software-quality-for-devs-of-mobile-apps}
 Feedback comes in various forms in an app-store ecosystem, ratings and reviews are two of them and possibly the best known ones because they are public and highly visible to end users and anyone else who wishes to see them. As part of scoping this research at least fourteen distinct forms of feedback have been identified~\footnote{As discussed in the previous section, it's not clear whether the test results of Microsoft's work on Caiipa, VanarSena, and SMASH was ever presented to the developers of the Windows Phone apps Microsoft tested. Nonetheless it could be incorporated into this work as and when it is presented, it appears similar to pre-launch reports in Google Play yet significantly more capable.}, these are presented in Table~\ref{tab:feedback-sources-about-their-app-for-devs}.
@@ -491,6 +505,7 @@ Feedback can also be generated by software at run time. These include GUI-orient
 \subsection{Ratings in app stores}
 Apps with poor ratings are less likely to be downloaded by new users~\sidecite{dimensionalresearch2015_mobile_app_use_and_abandonment}. Ratings also affect where an app appears in search results and whether an app store will choose to promote that app, or another. In the author's experience when one team's Android app's overall rating dropped from 4.4 to 4.3 stars the business noticed an almost immediate reduction in revenues from the app in addition to discovering that app was ranked lower in the search results. Therefore ratings are an important measure for app developers, and one they may choose to influence positively. 
 
+\begin{comment}
 \begin{figure*}
 \RawFloats
 \centering
@@ -511,7 +526,14 @@ Apps with poor ratings are less likely to be downloaded by new users~\sidecite{d
 \end{figure*}
 % https://www.explainxkcd.com/wiki/index.php/937:_TornadoGuard
 % https://www.explainxkcd.com/wiki/index.php/1098:_Star_Ratings
+\end{comment}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/xkcd/xkcd-combined.pdf}
+    \caption{XKCD's views on App Store Ratings and Reviews \\{\footnotesize Image sources: TornadoGuard \href{https://xkcd.com/937}{xkcd.com/937}, Understanding online star ratings \href{https://xkcd.com/1098}{xkcd.com/1098} \\ \href{https://creativecommons.org/licenses/by-nc/2.5/}{creativecommons.org/licenses/by-nc/2.5/}}}
+    \label{fig:xkcd-app-store-ratings}
+\end{figure}
 
 
 Gaming ratings includes activities such as an app first asking if a user is happy with the app, and if they say yes then providing a link to encourage the user to rate the app positively in the app store. \textcite{novoda_akan2016_asking_for_app_feedback_the_effective_way} provides an illustrative industry case study of how Novoda improved the rating of a major newspaper's app. And in terms of the SDKs developers can use for in-app feedback, Apptentive is one of several companies that provides SDKs to help developers optimise their ratings and reviews and guides on how to do so within a mobile app~\sidecite{walz2015_apptentive_the_mobile_marketers_guide_to_app_store_ratings_and_reviews}. Unsurprisingly, ratings are also a subject of research interest.
@@ -595,6 +617,12 @@ Perhaps paradoxically the Insight\index{Insight (Analytics)} client \Gls{sdk} do
 
 In their research they provided only a brief comparison between Insight\index{Insight (Analytics)} and three then popular mobile analytics services. Their brief comparison did not go into any detail about the characteristics or use of those three services.
 
+There has been research into various risks and concerns when using mobile analytics. Here is research that provides pertinent advice for app developers, and other stakeholders on how to improve end-users' privacy when incorporating in-app mobile analytics.
+
+5.2\% of app developers of top Android apps in Google Play have violated either their own privacy policy or the terms of service of the mobile analytics service they use in their app~\sidecite{zhang2020_how_does_misconfiguration_of_mobile_analytics_services_compromise_mobile_privacy}. This number may be an underestimate as method the researchers used (decompilation of the application's binary file) did not work on obfuscated binary files as top (\emph{i.e.} popular?) apps~\sidenote{The authors did not define what a top app is.} are like to be protected through obfuscation. The advice to app developers in this research is pertinent - they should abide by both their own privacy policy and by the terms of service of the analytics services they use.
+
+%This has similarities to earlier research \emph{``Alde: privacy risk analysis of analytics libraries in the android ecosystem."} published in 2016. In that paper they include apps available in China, a smaller data set of apps 100 from China, 200 from Google Play, and they use both static and dynamic analysis. They also created two phishing apps to demonstrate how PII data could be captured and recorded using mobile analytics. 10.1109/TMC.2019.2903186 seems to be a revised version of the 2016 paper with some additional code analysis techniques and an app to manage things. The following paper also discusses PII leaks in Android apps; it doesn't add much in terms of applicability to my research so I'm excluding it: \emph{``Bug Fixes, Improvements, ... and Privacy Leaks - A Longitudinal Study of PII Leaks Across Android App Versions."} 2018.
+
 Note: there has also been research into similar sounding work on software analytics for mobile apps: an opensource project called \Gls{samoa}. However, their research investigated characteristics of the source code, rather than in the use of mobile analytics by app developers~\sidecite{minelli2013_software_analytics_samoa}.
 
 Chapter 33 in \sidecite[][pp. 177-187]{orosz2021_building_mobile_apps_at_scale} provides an industry perspective of the importance of [mobile] analytics, monitoring, and alerting. This book draws sources from experienced industry practitioners who have worked extensively with mobile apps from an engineering perspective~\sidenote{I was one of the people who contributed.}. The chapter explains how metrics are often wrong yet teams do not notice for years. It then presents the metrics certification process used at Pinterest which helped that company detect flaws with their mobile analytics, often before the analytics went live. Unmentioned, yet probably, Pinterest has developed in-house mobile analytics in order to apply their certification process.
@@ -610,7 +638,13 @@ Before we leave the topic of mobile analytics, research into the privacy aspects
 
 The first of these papers focused on the data that is sent, the contents, and where that data goes. The second concentrated on analysing app binaries to find all the calls to the mobile analytics SDKs. It then intercepted these and enabled users to see, block, or blank out data that would then be sent by the respective mobile analytics \Gls{sdk}.
 
+Finally in terms of research into mobile analytics there is a paper that sounded relevant as their research was on software analytics for mobile apps. They describe a web-based software analytics platform named \Gls{samoa}\index{SAMOA}\sidecite{minelli2013_software_analytics_samoa} that was developed to provide insights into the source code of various Android apps. They analysed opensource codebases for apps on \myindex{F-Droid}~\sidenote{\href{https://f-droid.org/}{f-droid.org/}}. While their analysis is of interest~\sidenote{And one of the authors kindly provided their source code.}, they did not investigate mobile analytics. (Also they researched apps on \Gls{glossary-f-droid}, however apps on F-Droid are not permitted to include mobile analytics unless all the SDK and libraries are also opensourced).
+%%%% There's no succinct reference I can find, here are various bits and pieces on this topic:
+% https://forum.f-droid.org/t/inclusion-and-foss-status-of-firebase-android-sdk/19172
+% https://forum.f-droid.org/t/shouldnt-google-analytics-and-google-services-be-antifeatures/4991
+% https://forum.f-droid.org/t/sky-map-integrating-google-firebase-analytics/19259
 
+\subsection{Summary} % sources of information
 
 \section{Summary so far}~\label{rw-summary-so-far-section}
 % Or curiosities, or gaps in the research at this stage...?

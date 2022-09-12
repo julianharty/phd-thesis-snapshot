@@ -85,6 +85,19 @@ Future work incorporates future research work and areas for practitioners includ
 \subsection{Combining human- and mobile analytics feedback}~\label{fw-combining-reviews-and-mobile-analytics-topic}
 In \secref{aiu-discussion-section} the concept of symbiotic information sources was discussed, for example to investigate any intersections and gaps between what users report in terms of bugs and crashes, \emph{etc.} and what mobile analytics reports. Android app developers have good access to both platform analytics, via \myindex{Android Vitals}, and various online Review Analysis tools, illustrated in Figures \ref{fig:PhET-Review-Analysis-Screenshot-2022-09-07} and \ref{fig:PhET-Review-Benchmarks-Screenshot-2022-09-07}, to the best of my knowledge there has not been material research either into the Review Analysis tools, nor into any symbiosis between the reviews, review analysis, or mobile analytics. Such research may provide insights into the review analysis (which may have its own flaws and characteristics) and the extent to which mobile analytics and reviews provide actionable information to developers, \emph{etc.}
 
+\newthought{Symbiotic information sources: }
+Development teams can use both mobile analytics and user feedback where they complement each other. There was only one example, from Moonpig in \secref{aiu-interventions-theme} where the two sources were combined and contrasted, there may have been other instances but they were not captured in the research. 
+
+An useful example from grey literature of how the two sources of information have helped developers is described in \sidecite{sunderland2019_the_one_star_android_review}. The meta-information Google Android collected when the user wrote the review indicated the user's device had a low screen resolution. The developer was able to recreate an Android virtual device with the same screen dimensions and reproduce the bug. They then added a specific screen layout suitable for this and other low screen resolution devices.
+
+Existing research by Microsoft in software analytics found that Data/Metrics and Customer input were both deemed important by both managers and developers which indicate the potential of combining both these sources of information.~\sidecite[][p. 989]{buse2012_information_needs_for_software_development_analytics}
+
+Symbiotic information sources would be a fruitful area of future work, and is discussed in \secref{fw-combining-reviews-and-mobile-analytics-topic}.
+
+The overall development process for mobile apps includes both the release and operational stages of a software lifecycle. Recent research aims to determine whether releases are good, bad, or neutral. One of their key observations is ``Android developers need to pay attention to the quality of their app next release''~\sidecite[][p. 31]{saidani2022_tracking_bad_updates_in_mobile_apps_a_search_based_approach}. They plan to extend their \uppercase{App-Tracker} software tool so it can be integrated into the development pipeline for Android apps which sounds promising, especially if the underlying software could also use mobile analytics data as part of the scoring of a potential release.
+
+
+
 
 \subsection{Investigation of additional app ecosystems}~\label{fw-investigate-additional-ecosystems}
 If the mobile app ecosystem influences other ecosystems such as desktop app ecosystems\index{Desktop app ecosystem}, as claimed in the opening section of \secref{chapter-related-work}, perhaps this research will also apply to those app ecosystems, albeit there are likely to be many distinctions as each ecosystem is distinct and unique.  What are the engineering challenges and realities in those app ecosystems, what sort of analytics do those platforms provide? and what do the apps use? To what extent can the app developers rely on analytics to learn of instabilities or failures in their apps, and can they apply similar techniques to those described in this research? 

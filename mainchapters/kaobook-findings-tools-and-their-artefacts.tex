@@ -745,33 +745,10 @@ Aggregation and mining across the matching clusters would also be useful. Taggin
 Another aspect would be helping developers recognise common causes and common failures, and the likely effects of addressing these failures in future. (For example, surely Google's got enough data, Machine Learning, Artificial Intelligence, etc. to be able to predict probable improvements for a specific app).
 
 
+\begin{comment}
 \section[Discussion]{Discussion on mobile analytics tools and their artefacts}~\label{tata-discussion-section}
 Mobile Analytics tools need to evolve to remain current and to attract and retain users. Platform tools have a unique advantage compared to in-app tools as the platform tools can collect data across the entire population~\sidenote{Subject to opt-outs, sampling, network connectivity, and other reasons the data wouldn't be sent from the overall population.}. For the Android platform, Google Play Console and Android Vitals are able to provide comparisons with apps of peers, both peers selected by app store classifications~\sidecite{androiddevelopersblog2021_gpc_powers_better_strategic_decisions_etc} and a custom set selected by the developer~\sidecite{play_console_help_compare_your_apps_android_vitals_and_ratings_with_peer_groups}. 
-
-\subsection{ROI and Fidelity}~\label{tata-roi-and-fidelity-topics}
-These two topics, ROI and Fidelity, draw on various items mentioned in \secref{tata-fitness-for-purpose-section} and flaws \secref{tata-flaws-topic}.
-
-\newthought{\Gls{roi}: } developers may make both implicit and explicit choices on what to invest in, for instance in terms of their focus, their effort, and their money. The analytics tools need to convince developers a) to invest and then b) whether to increase that investment (and if so what forms of investment e.g. in terms of writing more code, spending [more] money, using the tool more, etc.). If a tool or service fails to convince developers of the \Gls{roi} then \emph{in practice} it is not fit for purpose.
-    
-\newthought{Fidelity: }
-an accurate, faithful representation of what has happened in terms of the stability, reliability, and performance of an app. In \secref{tata-fidelity-topic} differences of up to 30 fold were reported by developers in the results presented by different mobile analytics, and similarly various concerns emerged about the fidelity of the reports in several of the app-centric case studies, including \myindex{Catrobat} and the commercial, \myindex{C1} project, and in my mini-experiments.
-
-Fidelity does not seem to have been a topic for research in software analytics generally, for instance it's not mentioned (and nor are threats to validity) in the work of Microsoft where they used software analytics within their Lync Windows software (a forerunner to Skype for Business)\sidecite{musson2013_leveraging_the_crowd_how_48000_users_helped_improve_lync_performance}. There seems to be an implicit assumption the reports and measurements are correct, at least in terms of what has been published on the topic. This research has considered fidelity as a topic and also includes some preliminary measurements and results of flaws in the fidelity.
-
-
-\subsection{Ethical considerations}
-The data collected by mobile analytics may have ethical implications a) for the operator/provider of the service, b) for their partners and customers, c) for the developers, d) for end-users. In this research our main focus is on the implications for the developers, nonetheless the other aspects are also important.
-
-As the Catrobat team discovered when they migrated from Fabric to Firebase there were the additional, unexpected analytics that appeared. They considered this sufficiently unethical and intrusive that they removed the product from their mobile app.
-
-
-\subsection{Some limits of what can be measured}
-Together with considerations on fidelity is that of what the client-side \Gls{sdk} is able to measure, because what it doesn't measure is not going to be reported on by the mobile analytics. 
-
-There are areas where the runtime can prevent some pertinent information being collected by some \Glspl{sdk}, for example: \myindex{React Native} runtime - within runtime crashes vs. application crashes where the runtime container crashes, which applied to two of the app-centric case study apps: (\myindex{LocalHalo} and Taskinator\index{GTAF!Taskinator}).
-
-The other is where failures occur to early or too late in the runtime, for example crashes at startup as raised in the email correspondence with Google when comparing Android Vitals with Firebase Crashlytics.
-
+\end{comment}
 %A placeholder until the relevant content is added to check the formatting in the index for: Android Vitals\index{GitHub Projects!Android Vitals}
 
 \section{Summary of tools and their artefacts}~\label{tata-summary-section}

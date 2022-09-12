@@ -496,52 +496,15 @@ Distinguishing between analytics from various release zones (\emph{e.g.} for int
 As illustrated by the app-centric case studies, teams varied in how often they recorded the reported issues in their bug tracking systems. They also varied in how much information they recorded. The reports are often impermanent and details of the failure may fade from the developer's memory too. Therefore, preserving reports and results (and streamlining the tools and processes to do so) can help improve the bug tracking aspects of the project and potentially also help  find longer-term patterns and more systemic issues. 
 
 
+\begin{comment}
+
 \section{Discussion}~\label{aata-discussion-section}
 As only three of the app-centric case studies provided access to their project's source code and build processes the analysis of 107 opensource Android apps together with various grey materials have helped to provide additional examples and context. These corroborate previous experiences in industry, albeit opensource apps tend to use mobile analytics more superficially, in terms of the depth of data collection and in the variety of mobile analytics services used~\sidenote{Commercial apps may be supported by revenue streams that defray the costs of paid-for commercial mobile analytics services.}.
 
 %%% Julian to continue here on 12 Sep 2022
 Three groups of topics emerged: code-facing, bug-facing, and app-facing together with several macro topics that transcend individual facets.
 
-
-\subsection{Some thoughts on measurements of reliability}
-The measured reliability of the artefacts, here particularly of the application's binary, when it being used is often reported as a percentage. The absolute percentage of reliability scores is not necessarily a true reflection of the reliability of the app as the score is dependent on various factors including:
-
-\begin{itemize}
-    \item The settings on the device or in an app that gate (control) whether analytics is provided to the `mothership'\sidenote{The servers that receive the raw analytics-related data from devices and/or apps.}.
-    \item The connectivity and transfer mechanism. For example Crashlytics only transferred crash data from previous sessions when the app was restarted. If the app was not restarted the data was never sent.
-    \item Whether the ephemeral data is preserved on-device sufficiently to transfer it. Client-side SDKs generally have constraints on how much data they keep and for how long they keep it. Furthermore, adverse termination of the app might cause some or all of the data to be lost.
-    \item the burstiness of aggregate incoming data, some service providers place limits on how much data they will accept and process. 
-    \item Any filtering performed during transmission and/or reception of the data. As an example, Sentry supports inbound data filters~\sidenote{\href{https://blog.sentry.io/2018/01/03/delete-and-discard}{delete and discard}, \href{https://docs.sentry.io/product/data-management-settings/filtering/}{filtering}, and data \href{https://docs.sentry.io/product/data-management-settings/scrubbing/}{`scrubbing'}}
-    \item Bugs in the SDK that affect the storage and/or transmission, \emph{e.g.} as occurred in Google Analytics for Android on a specific version of Android/Google Play Services \sidecite{google2014_google_analytics_exceptions}.
-    \item Any filtering in the reporting.
-    \item When and where the failure occurred. Timezones, daylight settings from source to destination, any reporting cutoffs (and also any data from an earlier period that arrives after the cutoff for the report generation), contractual constraints~\sidenote{Including the date in the month, \emph{e.g.} see \href{https://help.sentry.io/account/billing/what-happens-when-i-run-out-of-event-capacity-and-a-grace-period-is-triggered/}{Grace periods when capacity is exceeded}.} \emph{etc.} might affect recent and/or historical reports.
-    \item The date and time on the device (and perhaps on intermediate equipment).
-    \item Whether the failure conditions occur.
-    \item Other aspects including processing failures, problems with cloud services, DDoS attacks, and potentially many others.
-\end{itemize}
-
-All these factors mean that the counts, percentages, improvements/degradations that are presented in reports may be safer to treat as indicative values rather than absolute values. In other words, it may unwise to simply compare absolute values to determine 'better' and 'worse' in terms of the quality of the actual app. Confidence intervals are worthy of consideration.\sidenote{In some ways we're getting the equivalent of spot prices of how that release, etc. fared that period.} 
-% Provide examples from Kiwix (WebView) and the large industrial case study. 
-% c.f. https://gradcoach.com/nominal-ordinal-interval-ratio/ This point is probably worth expanding on
-
-Probability has a part to play in terms of comparing measurements and reports in order to compare results and estimate the likely trajectory of progress in terms of any improvement or detriment. Of these, detriment may be easier to manage based on several factors:
-
-\begin{itemize}
-    \item The presence of failures are easier to identify than the absence of a failure (given some failures may not be visible in reports for various reasons mentioned previously).
-    \item Developers are unlikely to want to ignore detriments if they are paying attention to the quality of their app.
-\end{itemize}
-
-\newthought{Measuring reliability: }
-Failure rates include: un-handled exceptions, \Glspl{anr}, and errors. Errors include: handled exceptions that are recovered from, caught exceptions, logic errors, calculation and content errors, and many others. 
-
-Even \emph{if} an app catches and 'handles' every exception it may not be truly reliable \emph{i.e.} there may be various errors that occur that do not lead to a runtime exception or an ANR. As such, the measured failure rate - assuming it is accurate or under-counting - is the lower bound of the true error rate.
-
-\newthought{Gaming the system: }
-In 2020 Weckert, an artist became popular for an experiment he performed using 99 smartphones, each running Google Maps, where he was able to trick Google Maps into showing traffic jams on otherwise free-moving streets~\sidecite{weckert2020_google_maps_hacks}. In \sidecite{businessinsider2020_artist_creates_fake_traffic_jams_on_google_maps_with_wagon_of_phones} Weckert explained he wanted to draw attention to the blind trust people have in tech companies and platforms. Google Maps and Mobile Analytics services share similar data collection, analysis, and reporting and it may also be possible to trick mobile analytics and feed data that biases the results of the reports.
-% See also
-%%%%% https://www.theguardian.com/technology/2020/feb/03/berlin-artist-uses-99-phones-trick-google-maps-traffic-jam-alert
-%%%%% https://www.theguardian.com/technology/2015/sep/03/google-sued-paper-towns-rip-off-claim-phantomalert-waze
-%%%%% The Power of Virtual Maps
+\end{comment}
 
 \section{Summary of apps and their artefacts}~\label{aata-summary-section}
 This chapter presented the findings related to the apps and their related artefacts with examples from the various app-centric case studies. These findings were augmented with analysis of 107 opensource Android apps to understand how those developers used \myindex{Firebase Analytics} for remote logging purposes.
