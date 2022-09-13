@@ -111,6 +111,10 @@ My research somewhat inverts this by looking at what's being delivered in terms 
 
 Overall, back when the research was published (in 2012) their focus seemed to be more on the code than the product of the code (the apps, services, and qualities of those services those apps provide to end users). Unasked and unanswered in their work were : what information do mobile app developers need in terms of: improving their practices, the reliability of their apps, and the analytics tools and services they use? and, how can the developers make good decisions in this area?
 
+\begin{comment}
+MUST-DO discuss how my work and their guidelines for software development analytics align. What does my work add to their work? What does it provide that they identified back in 2012? Their focus seems to be more on the code than the product of the code (apps and the services (and the qualities of those services) those apps provide to end users). What information do mobile app developers need in terms of improving the reliability of their apps? How can the developers make good decisions in this area?
+\end{comment}
+
 A much more recent paper, published on arxiv.org performed a \Gls{slr}~\sidecite{caldeira2020_software_development_analytics_in_practice_a_slr}. All the accepted 42 studies were aimed at developers (p. 10). Many of the papers included App Stores (p. 10) and the majority of the selected papers were from the Empirical Software Engineering Journal~\sidenote{\href{https://www.springer.com/journal/10664}{www.springer.com/journal/10664}}, yet none of the papers were identified with mobile analytics or crash reporting despite these two highly relevant criteria. 
 
 
@@ -158,6 +162,10 @@ App stores are part of an ecosystem that provides and enforces rules that also c
 Pivotal effects include: the app approval process (which gates any release of the app to the general user population), rules and restrictions on what the binary contains, the signing process, how the app is packaged/bundled. Another pivotal effect is how app quality is measured and assessed by the app store, at least, as app developers have a vested interest in having high quality apps as determined by the app store.
 
 App Stores behave as intermediaries between developers and the users of their software. They make various aspects more transparent including pricing, information about the apps, releases, and ratings \& reviews. There are hundreds of thousands of developers of Android apps according to various sources (320,000 in 2017~\sidecite{wang2017_exploratory_study_of_the_mobile_app_ecosystem}). %TODO add the reference to a larger estimate.
+
+\begin{comment}
+Based on a survey of mobile app developers (N-82), there is some evidence that many are relatively junior~\cite[p. 142 and p.134]{francese2017_mobile_app_development_and_management_results_from_a_quantitative_investigation}. Given the youth of the mobile app store concept and the prolific growth of mobile apps from zero to millions in a decade the relative youth of mobile app developers is very plausible and as the paper observes there was a high level of specialization and expertise among the developers surveyed.
+\end{comment}
 
 In an App Store, first the developer then the app store are involved in making a release available to some or all of the user population. There are various competing factors that affect when would be a good time to make a release. Too few and an app may be considered stale or neglected, too many and users may balk at the seemingly endless updates and communications costs. This topic is covered in \secref{rw-managing-releases-in-app-stores-topic}.  
 
@@ -267,6 +275,9 @@ They estimated there were 320,000 developers, over half of the developers only r
 App stores and their broader ecosystem, illustrated in figure \ref{fig:my_modern-mobile-app-ecosystem}, clearly affect software development and testing practices of app developers for that ecosystem. While telemetry\index{Telemetry} has been used to obtain and analyse crash data there is a gap in the research in terms of both \gls{glossary-platform-analytics} and in-app analytics. The next area of research is in developing mobile apps to investigate what pertinent research exists. 
 
 
+
+
+
 \section{Developing Mobile Apps}~\label{rw-developing-mobile-apps-section}
 Research into the development practices and mechanisms for mobile apps establishes various norms, characteristics, and habits, of app developers. Their work, collectively, is used by billions of people throughout the world. In terms of this research, understanding the development practices and mechanisms is vital. Developers also have a voice and hundreds have been interviewed to learn what's important to them, for example in \sidecite{joorabchi2013_real_challenges_in_mobile_app_development}. They also communicate through various artefacts they create and maintain, again these artefacts have been studied to learn about their work, for example in \sidecite{pascarella2018_self_reported_activities_of_android_developers}.
 
@@ -371,21 +382,21 @@ There's an odd claim in the paper in page 1818, \emph{``In addition, the platfor
 
 Finally in terms of their research, the authors say in the introduction to section 5.1~\emph{`API Recommendations'}, on page 1813,~\emph{``Finally, we provide the frequencies of the representative signatures to show how many crashes could be avoided based on the following solutions."}, however they did not appear to provide this unless they are the charts in their Appendix 1 \textbf{\emph{and}} if their proposals solve \emph{all} the causes of the crashes in each category. This was promising, thought-provoking, and interesting work which sadly lacked evidence their proposed recommendations actually work in practice for any of the apps that provided the crash data or for other Android apps (if their work is generalisable).
 
-
+\begin{comment}
 \subsection{Using app store crash analytics to automatically find robustness and reliability failures}~\label{rw-windows-phone-store-crash-analysis-section}
-There was a breakthrough stream of work and research that was developed for Microsoft's now defunct mobile app store for Windows Phone devices. That work included mining 25 million crashes~\footnote{Note: The 25 million crashes were a small subset of the total crashes on end-user devices were a subset of the total based on their third footnote ``The developer has no control over the probability.''~\cite[p. 191]{ravindrath2014_automatic_and_scalable_fault_detection_for_mobile_apps}.} that occurred in 2012 on end-user devices when using various apps on their Windows Phones~\sidenote{[p. 190, \emph{Ibid.}]}. They determined the top 10\% of error buckets covered more than 90\% of crashes~\sidenote{[p. 192, \emph{Ibid.}]} and discovered a significant proportion of these stemmed from root causes they could generate externally. For example, they could configure a network proxy to return a \Gls{http} 404 response to a network request for network calls made by any of the mobile apps~\sidenote{[p. 192, \emph{Ibid.}]}.
-
+There was a breakthrough stream of work and research that was developed for Microsoft's now defunct mobile app store for Windows Phone devices. That work included mining 25 million crashes~\footnote{Note: The 25 million crashes were a small subset of the total crashes on end-user devices were a subset of the total based on their third footnote ``The developer has no control over the probability.''~\sidecite[][p. 191]{ravindrath2014_automatic_and_scalable_fault_detection_for_mobile_apps}.} that occurred in 2012 on end-user devices when using various apps on their Windows Phones~\sidenote{[p. 190, \emph{Ibid.}]}. They determined the top 10\% of error buckets covered more than 90\% of crashes~\sidenote{[p. 192, \emph{Ibid.}]} and discovered a significant proportion of these stemmed from root causes they could generate externally. For example, they could configure a network proxy to return a \Gls{http} 404 response to a network request for network calls made by any of the mobile apps~\sidenote{[p. 192, \emph{Ibid.}]}.
+\end{comment}
 They built a service called \myindex{VanarSena} to run in the cloud on lots of \myindex{Windows Phone} emulators with the purpose of automatically testing Windows Phone apps. The service automatically instrumented these apps, for instance to add a global Exception handler (the complete set of five injected modules are described in pp. 193..194). The app is exercised using autonomous automated testing tools called~\emph{monkeys} and the service includes a range of fault inducing modules (FIM)~\sidenote{[p. 196, \emph{Ibid.}]} that provide inputs and conditions including those that have caused existing apps to crash. 
 
 This paper includes lots of additional practical information that would be pertinent for providers of similar services \emph{e.g.} for other automated testing providers and/or app store providers which we can skip here as they are not closely related to using mobile analytics. Instead, let's concentrate on key characteristics of their work:
 
-Their work built on earlier work of some of the authors where that work was performed at a smaller scale on Android~\sidecite{ravindrath2012_appinsight_mobile_app_performance_in_the_wild}. They share a common instrumentation framework implemented first for Android then for Windows Phone.
+Their work built on earlier work of some of the authors where that work was performed at a smaller scale on Android~\cite{ravindrath2012_appinsight_mobile_app_performance_in_the_wild}. They share a common instrumentation framework implemented first for Android then for Windows Phone.
 
 The authors proposed VanarSena could be provided by an app store to help test new releases before they were released in production. The automatic testing helps establish whether the apps handle non-ideal conditions without crashing.
     
 They describe crash buckets and a) identified commonalities in those crash buckets, b) found a significant subset could be triggered through manipulating inputs, conditions, and responses to the app.
 
-The results of their research included finding 1108/3000 production \myindex{Windows Phone} apps had failures that were detected by \myindex{VanarSena}. They uncovered 2969 distinct bugs in these apps including 1227 that were not previously reported~\sidecite[][p. 202]{ravindrath2014_automatic_and_scalable_fault_detection_for_mobile_apps}. Some of the failing apps had been developed by professionals others by amateurs - this indicates developers often write code that does not cope adequately with non-ideal circumstances.  
+The results of their research included finding 1108/3000 production \myindex{Windows Phone} apps had failures that were detected by \myindex{VanarSena}. They uncovered 2969 distinct bugs in these apps including 1227 that were not previously reported~\cite[p. 202]{ravindrath2014_automatic_and_scalable_fault_detection_for_mobile_apps}. Some of the failing apps had been developed by professionals others by amateurs - this indicates developers often write code that does not cope adequately with non-ideal circumstances.  
 
 \afterpage{\clearpage}
 
@@ -417,7 +428,7 @@ Optimisation of releases and establishing a successful release strategy are disc
 \sidecite{nayebi2017version} concentrates on which versions of opensource apps should have been released to the app store by comparing commits to the source code repository to releases in Google Play (some releases to the app store contain multiple updates through multiple commits to the repository~\sidenote{From a practitioners perspective this is standard practice, their aim was to help identify when to create a release, albeit in hindsight}). They identified four factors: user-feedback, team-feedback, social-media, and sales; so three sources of direct feedback from humans and then income. Similar work by ~\sidecite{shen2017_towards_release_strategy_optimization_for_apps_in_google_play} aimed to identify a `release opportunity' that maximised the positive feedback from the userbase. They used the release frequency of live apps in Google Play as their primary data source. Additionally they factored in: app ranking, rating trend, and update purpose which all played a role in affecting the update results~\sidenote{These terms were used six times in the 10 page paper.}. Their work does not use signals such as the stability of the app. They also claim ``Additionally, app quality can be unstable with fast [release] iteration[s].''~\sidenote{[p. 2, \emph{Ibid.}]} In their conclusion they noted that bug fixing releases are `more welcomed'~\sidenote{[p. 10, \emph{Ibid.}]}. The \myindex{Moonpig} case study includes an illustrative example of how the developers choose to delay a bug fix until it met other release criteria, such as the release timetable. % TODO add the cross-reference.
 
 
-\sidecite{guilardi_are_apps_ready_for_new_android_releases} flips the perspective from when developers should release their apps to asking how well developers keep up with new releases of Android. This is a relatively recent paper where the researchers discovered that developers are slow to revise and update their Android apps for new releases of the operating system. Some of the apps have flaws exposed when running on new versions of the operating system. As a real-world example the release notes for Android 7.0 (Nougat) explains crashes may occur on configuration changes. It exhorts developers to make their code robust and to test their app can survive the new behaviours.~\footnote{\url{https://developer.android.com/about/versions/nougat/android-7.0-changes\#other}}.
+\sidecite{guilardi_are_apps_ready_for_new_android_releases} flips the perspective from when developers should release their apps to asking how well developers keep up with new releases of Android. This is a relatively recent paper where the researchers discovered that developers are slow to revise and update their Android apps for new releases of the operating system. Some of the apps have flaws exposed when running on new versions of the operating system. As a real-world example the release notes for Android 7.0 (Nougat) explains crashes may occur on configuration changes. It exhorts developers to make their code robust and to test their app can survive the new behaviours.%~\sidenote{\href{https://developer.android.com/about/versions/nougat/android-7.0-changes\\#other}{Other Important Points}}.
 For apps to retain their quality they need to be updated, new releases of the operating system are one such reason. Other reasons to create new releases include: new releases of libraries included by the app, new contexts of use, \emph{etc}.
 
 None of the research into managing releases in an app store considered mobile analytics as a source of information, leaving a gap in the research.
@@ -483,6 +494,29 @@ Feedback can also be generated by software at run time. These include GUI-orient
 \FloatBarrier
 \subsection{Ratings in app stores}
 Apps with poor ratings are less likely to be downloaded by new users~\sidecite{dimensionalresearch2015_mobile_app_use_and_abandonment}. Ratings also affect where an app appears in search results and whether an app store will choose to promote that app, or another. In the author's experience when one team's Android app's overall rating dropped from 4.4 to 4.3 stars the business noticed an almost immediate reduction in revenues from the app in addition to discovering that app was ranked lower in the search results. Therefore ratings are an important measure for app developers, and one they may choose to influence positively. 
+
+\begin{comment}
+\begin{figure*}
+\RawFloats
+\centering
+\begin{minipage}{.3\linewidth}%
+  \centering
+  \includegraphics[width=\linewidth]{images/xkcd/tornadoguarda.pdf}
+  {\footnotesize TornadoGuard \url{https://xkcd.com/937}}
+  \label{fig:xkcd-tornadoguard}
+\end{minipage}\hfill%
+\begin{minipage}{.45\linewidth}%
+  \centering
+  \includegraphics[width=\linewidth]{images/xkcd/star_ratings.pdf}
+  {\footnotesize Understanding online star ratings \url{https://xkcd.com/1098}}
+  \label{fig:xkcd-star-ratings}
+\end{minipage}
+    \caption{XKCD's views on App Store Ratings and Reviews}
+    \label{fig:xkcd-app-store-ratings}
+\end{figure*}
+% https://www.explainxkcd.com/wiki/index.php/937:_TornadoGuard
+% https://www.explainxkcd.com/wiki/index.php/1098:_Star_Ratings
+\end{comment}
 
 \begin{figure}
     \centering
