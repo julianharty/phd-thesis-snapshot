@@ -15,7 +15,7 @@ When developers choose to include in-app mobile analytics they generally prefer 
 
 
 \section{Summary of contributions}~\label{conclusions-summary-of-contributions}
-If we revisit the research questions, first with the subsidiary questions, from ~\secref{rq-leads-to-six-perspectives}, we can get an overview of how the findings and discussion adress each of the,  The questions are reproduced here with a summary of the findings for each of the six perspectives: 
+If we revisit the research questions, first with the subsidiary questions, from ~\secref{rq-leads-to-six-perspectives}, we can get an overview of how the findings and discussion address each of the six perspectives. The questions are reproduced here with a summary of the findings for each of the six perspectives: 
 
 \newthought{1a. What do app developers say they do?} App developers have found mobile analytics useful. They vary in how they use them, some do so \emph{in extremis} so they can avert excessive failures, more generally they are used irregularly as and when they have the opportunity or need to do so. \myindex{Moonpig} used them on an ongoing, strategic basis and were rewarded by maintaining high reliability of their app with a correlation of business success as the business revenues grew and the company went Public (IPO'd). 
 
@@ -24,38 +24,45 @@ The human motivations that determine the use of mobile analytics are at least as
 \newthought{2a. What's possible in terms of improving their processes, their practices?}
 As \myindex{Moonpig} and \myindex{Catrobat} project demonstrated it is viable to integrate mobile analytics into development practices. In the case of Moonpig, they added additional logging to the app (using \myindex{Firebase Analytics}) when they noticed or discovered new issues and/or areas of concern; they had developers on-point on-rotation to monitor and make initial decisions when fresh issues were observed in the mobile analytics, and they actively managed their fixes and releases using a composite of business and engineering risk assessments vs. benefits. While the Catrobat app-centric case study also highlighted benefits of analytics for improving processes and practices, it also identified the importance of projects having key personnel (e.g., product owners) who are responsible for maintaining these practices.
 
-App developers are likely to materially improve the quality of their mobile apps when they actively engage with mobile analytics (whether in-app or platform generated), and even those who use in-app analytics extensively would benefit from actively checking the platform generated analytics as these capture issues and failures that in-app analytics do not.
+App developers are likely to materially improve the quality of their mobile apps when they actively engage with mobile analytics (whether in-app or platform generated), and even those who use in-app analytics extensively would benefit from actively checking the platform generated analytics as these capture issues and failures that in-app analytics do not. For example, \Gls{gtaf} were motivated to use mobile analytics strategically after their involvement in the case study where they focused on improving the quality of their various apps. 
 
-Designing the apps so they emit pertinent information via mobile analytics (such as the approach used by \myindex{Moonpig}) may increase the value of the information being reported by the mobile analytics. One of the mini-experiments, details are in the appendices in \secref{app-mini-experiment-meta-dat-to-crash-logs}, corroborates a  similar approach to augment information reported by Crashlytics. 
+Designing the apps so they emit pertinent information via mobile analytics (such as the approach used by \myindex{Moonpig}) may increase the value of the information being reported by the mobile analytics. One of the mini-experiments corroborates a  similar approach to augment information reported by Crashlytics; details are in the appendices in \secref{app-mini-experiment-meta-dat-to-crash-logs}, 
 
 
 \newthought{1b. What does their source code (and other available development artefacts) tell us about their use of mobile analytics?} 
-Over 46\% of the active Android app codebases studied on GitHub simply initialised \myindex{Firebase Analytics} and did not use any other feature of the \Gls{sdk} (These projects were a tiny percentage of the opensource Android apps found on GitHub. All the commercial apps used mobile analytics extensively, while the \myindex{Catrobat} and \myindex{Kiwix} projects chose \emph{not} to use in-app mobile analytics. These results indicate commercial app developers rely on in-app mobile analytics including for detecting failures of their apps, in use. Services such as Google's \myindex{Android Vitals} provide, literally, a vital service for app developers, especially those who do not use in-app analytics.
+Over 46\% of the active Android app codebases studied on GitHub simply initialised \myindex{Firebase Analytics} and did not use any other feature of the \Gls{sdk} (These projects were a tiny percentage of the opensource Android apps found on GitHub. All the commercial apps used mobile analytics extensively, while the \myindex{Catrobat} and \myindex{Kiwix} projects chose emphatically \emph{not} to use in-app mobile analytics. These results indicate commercial app developers rely on in-app mobile analytics for various reasons including for detecting failures of their apps while the app is in use. Services such as Google's \myindex{Android Vitals} provide, literally, a vital service for app developers, especially those who do not use in-app analytics.
 
 All of the app-centric case studies recorded failures reported by mobile analytics in their issue-tracking system; none did so universally.
 
-\newthought{2b. What's possible in terms of improving the product (and particularly the mobile app) through the application/use of mobile analytics?}
 
+\newthought{2b. What's possible in terms of improving the product (and particularly the mobile app) through the application/use of mobile analytics?}
+Tools such as those provided by \myindex{Amplitude} and originally developed by \myindex{Iteratively} can help developers improve the design and implementation of their use of mobile analytics as they provide a clear, coherent, end-to-end view of how mobile analytics have been implemented, the custom data the analytics is designed to collect, and they confirm the implementation includes all the custom events that have been designed.
+
+The use of logging, exemplified by \myindex{Moonpig}, to help diagnose issues in the field can help app developers to learn about the factors and conditions that lead to the app failing in use. Mobile analytics is able to measure improvements in the reliability and stability of mobile apps, so developers and their teams have objective, quantitative measurements (allowing for factors that affect the actual failure rate).
+
+The \myindex{Kiwix} project was able to achieve ten-fold improvements in the reliability and stability of their suite of apps. \myindex{Catrobat} was able to effect quick and easy improvements for several releases, and the commercial, \myindex{C1} project was able to quickly and effectively tame rogue releases using the release management reports. They also were able to create automated tests that reproduced a complex situation to prove the proposed fix was going to address the failures that caused the app to crash frequently.
 
 \newthought{1c. What do we learn about various current mobile analytics tools?}
-There appears to be a general, perhaps misplaced, trust that the mobile analytics tools are accurate - both by the app developers and in the literature. Eighteen distinct flaws were found in the mobile analytics services, and there are probably many more flaws waiting to be discovered given the practical limitations placed by both industrial collaboration and the scope of a PhD. 
+There appears to be a general, perhaps misplaced, trust that the mobile analytics tools are accurate and complete - both by the app developers and in the literature. Eighteen distinct flaws were found in the mobile analytics services, and there are probably many more flaws waiting to be discovered given the practical limitations placed by both industrial collaboration and the scope of a PhD. 
 
+Nonetheless the current tools are useful, many are undergoing active and ongoing development, so there is room for optimism in the quality and utility of these tools.
 
 \newthought{2c. What improvements are possible for mobile analytics tools based on what was learned in the various case studies?}
 
+Tools such as the ones derived from Iteratively's work are subject to ongoing development. They do not currently include failure data so there is plenty of scope for improvements in these types of tools.  The open nature of Amplitude, PostHog, Sentry, and other providers of mobile analytics tools indicates they actively seek and accept contributions to help improve their tools and supporting materials and services. 
+
+If the tools providers willing to accept the challenge of making their design and implementation testable, auditable, and so on, then they would provide an opportunity to increase the trust and trustworthiness in their tools and services. Furthermore the results and any competition might encourage them to further improve their tools and services.
 
 
-The core question the research aims to consider is:
+The core question the research aimed to consider is:
 \begin{quote}
   \emph{How can applying analytics improve software development and software testing for mobile apps in practice?}~\href{overall-research-question}{Research Question, repeated here}\index{Research questions}.
 \end{quote}
 
+Drawing on the summary of how each of the sub-questions have been addressed through this research, we can conclude that that overarching question as also be answered. Specifically, this research has provided real-world, concrete results of how the application of mobile analytics has improved software development practices, the apps and related artefacts, and of the state of a variety of mobile analytics tools and services. It has also contributed examples of how mobile analytics is being used to help and augment software testing and the quality of mobile apps. 
 
 
-
-
-
-The field of mobile analytics evolved throughout the research period and it is likely to continue to evolve for years to come. The reporting and analysis appears to be fairly perfunctory and there may be significant scope to improve the analysis and reporting.
+The field of mobile analytics evolved throughout the research period and it is likely to continue to evolve for years to come. The reporting and analysis in the various mobile analytics tools appears to be fairly perfunctory and there may be significant scope to improve the analysis and reporting. The `Drill' plugin~\sidenote{\href{https://count.ly/plugins/drill}{count.ly/plugins/drill}} for Countly's Enterprise edition provides an indication worth exploring in this aspect.
 
 
 
@@ -63,7 +70,7 @@ The field of mobile analytics evolved throughout the research period and it is l
 \clearpage
 \section{Future Work}
 %\subsection{Formulation of hypotheses for further study}
-We have systematically explored the phenomena relating to the effect of mobile analytics on development processes and artefacts, see \secref{methodology-threats-to-validity-section}, here we use these findings to discuss areas for further study. The future work identified in this section incorporates future research work and areas for practitioners including app developers and tool developers.
+We have systematically explored the phenomena relating to the effect of mobile analytics on development processes and artefacts, see \secref{methodology-threats-to-validity-section}, and here we use these findings to discuss areas for further study. The future work identified in this section incorporates future research work and areas for practitioners including app developers and tool developers.
 
 \begin{figure}
     \centering
@@ -125,4 +132,6 @@ In addition to research into establishing transparency and trust there are vario
 
 
 \section{Final thoughts}~\label{final-thoughts-to-the-thesis}
-Before the research was undertaken we didn't understand these themes. We now have a better understanding of how .... The research also provides evidence about the utility and effectiveness about using mobile analytics to improve the quality of mobile apps in a real world context. It is hoped this encourages and inspires greater use of ma and further research into this important area.
+Before this research was undertaken, we didn't understand how mobile analytics might help developers improve the quality of their mobile apps. Through a combination of real-world case-studies, by working with the providers of various mobile analytics tools who were interesting in the research findings, and through additional experiments and research, we gathered a variety of data to help address this gap in knowledge. As a result, we now have a better understanding of how mobile analytics are used by app developers in their practices and processes, of the effects on the apps and their artefacts, and have discovered a great deal about the tools, including their utility despite various flaws in the tools and services. In all three areas we have also identified improvements that will help improve each area.
+
+The research also provides evidence about the utility and effectiveness about using mobile analytics to improve the quality of mobile apps in a real world context. It is hoped this encourages and inspires greater use of mobile analytics by app developers to improve the quality of their mobile apps and further research into this important area.
