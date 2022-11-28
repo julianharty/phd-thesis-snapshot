@@ -1705,4 +1705,80 @@ author = {Hermann, Ben and Winter, Stefan and Siegmund, Janet},
     }
 }
 
+@article katz2021_recognizing_the_value_of_software{
+    author = {Katz DS, Chue Hong NP, Clark T et al.},
+    title = {Recognizing the value of software: a software citation guide [version 2; peer review: 2 approved].},
+    publisher = {F1000Research},
+    year = {2021}, 
+    dunno = {9:1257}, 
+    url = {https://doi.org/10.12688/f1000research.26932.2},
+    doi = {10.12688/f1000research.26932.2},
+    exclusion_rationale = {
+        It's mainly useful to justify the value of my software contributions; however it has expectations my existing software doesn't meet and it's unlikely to be worth the effort to enhance the existing software to meet these requirements, at least not currently.
+    }
+}
+ 
+@inproceedings{10.1145/3197231.3197234,
+    author = {Ami, Amit Seal and Hasan, Md. Mehedi and Rahman, Md. Rayhanur and Sakib, Kazi},
+    title = {Mobicomonkey: Context Testing of Android Apps},
+    year = {2018},
+    isbn = {9781450357128},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3197231.3197234},
+    doi = {10.1145/3197231.3197234},
+    abstract = {The functionality of many mobile applications is dependent on various contextual, external factors. Depending on unforeseen scenarios, mobile apps can even malfunction or crash. In this paper, we have introduced MobiCoMonkey - automated tool that allows a developer to test app against custom or auto generated contextual scenarios and help detect possible bugs through the emulator. Moreover, it reports the connection between the bugs and contextual factors so that the bugs can later be reproduced. It utilizes the tools offered by Android SDK and logcat to inject events and capture traces of the app execution.},
+    booktitle = {Proceedings of the 5th International Conference on Mobile Software Engineering and Systems},
+    pages = {76–79},
+    numpages = {4},
+    keywords = {emulator, contextual testing, Android, simulation, mobile, empirical software engineering, stress testing},
+    location = {Gothenburg, Sweden},
+    series = {MOBILESoft '18},
+    exclusion_rationale = {
+        This paper is somewhat relevant to my thesis as they're trying to generate contextual information to  the runtime of Android apps. It was only used with emulators according to reading between the lines in this short paper. It *might* find some crashes. The source code was abandoned after the paper was presented https://github.com/LordAmit/mobile-monkey by itself it's unlikely to be very useful  as it  doesn't even replicate the capabilities of Android Monkey. It also doesn't appear to have been evaluated.
+    }
+}
 
+@article{10.1145/3372788,
+    author = {Luo, Chu and Goncalves, Jorge and Velloso, Eduardo and Kostakos, Vassilis},
+    title = {A Survey of Context Simulation for Testing Mobile Context-Aware Applications},
+    year = {2020},
+    issue_date = {January 2021},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {53},
+    number = {1},
+    issn = {0360-0300},
+    url = {https://doi.org/10.1145/3372788},
+    doi = {10.1145/3372788},
+    abstract = {Equipped with an abundance of small-scale microelectromechanical sensors, modern mobile devices such as smartphones and smartwatches can now offer context-aware services to users in mobile environments. Although advances in mobile context-aware applications have made our everyday environments increasingly intelligent, these applications are prone to bugs that are highly difficult to reproduce and repair. Compared to conventional computer software, mobile context-aware applications often have more complex structures to process a wide variety of dynamic context data in specific scenarios. Accordingly, researchers have proposed diverse context simulation techniques to enable low-cost and effective tests instead of conducting costly and time-consuming real-world experiments. This article aims to give a comprehensive overview of the state-of-the-art context simulation methods for testing mobile context-aware applications. In particular, this article highlights the technical distinctions and commonalities in previous research conducted across multiple disciplines, particularly at the intersection of software testing, ubiquitous computing, and mobile computing. This article also discusses how each method can be implemented and deployed by testing tool developers and mobile application testers. Finally, this article identifies several unexplored issues and directions for further advancements in this field.},
+    journal = {ACM Comput. Surv.},
+    month = {feb},
+    articleno = {21},
+    numpages = {39},
+    keywords = {sensors, software testing, Mobile devices, multimedia},
+    exclusion_rationale = {
+        I wasn't aware of this work  (I found it because it cites the previous paper MobiCoMonkey). It could help set the context for the testing aspects of my research (it mentions  Michele Sama's work, not mine).
+    }
+}
+
+@inproceedings{10.1145/2185448.2185464,
+    author = {Grace, Michael C. and Zhou, Wu and Jiang, Xuxian and Sadeghi, Ahmad-Reza},
+    title = {Unsafe Exposure Analysis of Mobile In-App Advertisements},
+    year = {2012},
+    isbn = {9781450312653},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/2185448.2185464},
+    doi = {10.1145/2185448.2185464},
+    abstract = {In recent years, there has been explosive growth in smartphone sales, which is accompanied with the availability of a huge number of smartphone applications (or simply apps). End users or consumers are attracted by the many interesting features offered by these devices and the associated apps. The developers of these apps are also benefited by the prospect of financial compensation, either by selling their apps directly or by embedding one of the many ad libraries available on smartphone platforms. In this paper, we focus on potential privacy and security risks posed by these embedded or in-app advertisement libraries (henceforth "ad libraries," for brevity). To this end, we study the popular Android platform and collect 100,000 apps from the official Android Market in March-May, 2011. Among these apps, we identify 100 representative in-app ad libraries (embedded in 52.1\% of them) and further develop a system called AdRisk to systematically identify potential risks. In particular, we first decouple the embedded ad libraries from host apps and then apply our system to statically examine the ad libraries, ranging from whether they will upload privacy-sensitive information to remote (ad) servers or whether they will download untrusted code from remote servers. Our results show that most existing ad libraries collect private information: some of them may be used for legitimate targeting purposes (i.e., the user's location) while others are hard to justify by invasively collecting the information such as the user's call logs, phone number, browser bookmarks, or even the list of installed apps on the phone. Moreover, additional ones go a step further by making use of an unsafe mechanism to directly fetch and run code from the Internet, which immediately leads to serious security risks. Our investigation indicates the symbiotic relationship between embedded ad libraries and host apps is one main reason behind these exposed risks. These results clearly show the need for better regulating the way ad libraries are integrated in Android apps.},
+    booktitle = {Proceedings of the Fifth ACM Conference on Security and Privacy in Wireless and Mobile Networks},
+    pages = {101–112},
+    numpages = {12},
+    keywords = {smartphone, privacy, in-app advertisement},
+    location = {Tucson, Arizona, USA},
+    series = {WISEC '12},
+    exclusion_rationale = {
+        This paper doesn't directly relate to mobile analytics. It might provide a useful basis/approach for researching mobile analytics libraries. There has been a lot of related work since this paper was published a decade ago.
+    }
+}
