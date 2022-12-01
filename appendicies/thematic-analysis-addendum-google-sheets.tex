@@ -1,0 +1,30 @@
+In an attempt to improve the data quality by restricting the L1 themes to a pre-configured set of values while also allowing multi-selection of the themes it was necessary to develop some code to run within the spreadsheet.
+
+\begin{itemize}
+    \item The start of the answer: \url{https://stackoverflow.com/questions/72410668/is-it-possible-to-have-a-multi-select-list-box-in-google-sheet/72412386}
+    \item The Google Cloud Workspace: \href{https://console.cloud.google.com/getting-started?project=multi-select-spreadsheet}{Getting Started}, and \href{https://console.cloud.google.com/home/dashboard?project=multi-select-spreadsheet}{Dashboard} (or \href{https://console.cloud.google.com/home/dashboard?organizationId=0&project=multi-select-spreadsheet}{Dashboard with orgId}.
+    \item The Spreadsheet: \href{https://docs.google.com/spreadsheets/d/1AIIAPWyy8Sx7rEBOx6KlZspoaS7pRUEneQgDTgXZwWI/edit#gid=397772862}{PhD Thematic Analysis}, and the \href{https://script.google.com/home/projects/101Q5upPmS1VAt1c2pXfpWn82QYI_dUg_94XfiHN1IrXmADGg2EQ9-AFG/settings}{Project Settings} needed to configure the script's security by adding it to a suitable configured Google Cloud Platform (GCP) Project.
+    \item Test spreadsheet: \href{https://docs.google.com/spreadsheets/d/100M3MkhsQr0Fj-Ly2OCnnz6nzfVS32EVBH_GD7kuvRs/edit}{SO MultiSelect} - Go to the Content tab and use the Sidebar.
+    \item The source of the workaround to enable the script to be run: \url{https://aimanfikri.com/2022/05/09/this-app-is-blocked-error-on-google-apps-script-solution/}
+    \item The comment on the Issue raised with Google: \url{https://issuetracker.google.com/issues/181220763\#comment38}
+    \item Obliquely, this described what needed to happen even if it seems far removed from running a simple script in Google sheets \url{https://developers.google.com/apps-script/guides/cloud-platform-projects}
+    \item How to add multiple menu items to a sidebar: \url{https://spreadsheet.dev/custom-menus-in-google-sheets} and then Google's doc on the topic \url{https://developers.google.com/apps-script/guides/menus}.
+\end{itemize}
+
+Various Deadends
+\begin{itemize}
+    \item Policy Troubleshooter: \url{https://console.cloud.google.com/iam-admin/troubleshooter?project=multi-select-spreadsheet}
+    \item Misleading error message: \url{https://www.googleapis.com/auth/script.container.ui} which led to a wild-goose chase.
+\end{itemize}
+
+Misc docs
+\begin{itemize}
+    \item \href{https://developers.google.com/workspace/guides/create-project}{Create a Google Cloud Project}.
+    \item \href{https://cloud.google.com/resource-manager/docs/creating-managing-projects}{Creating and Managing projects}.
+    \item \url{https://developers.google.com/apps-script/guides/sheets} which unhelpfully ignoers the security aspects.
+    \item An interesting alternative approach that might work as well is described in \url{https://spreadsheetpoint.com/multiple-selection-drop-down-google-sheets/}, I have not tried it as I managed to implement something that works.
+    \item How to add multiple menu entries in a Google Sheet custom menu: \url{https://webapps.stackexchange.com/questions/112557/create-multiple-menu-items} - untested.
+    \item It's a common problem \url{https://www.reddit.com/r/GoogleAppsScript/comments/u28bsl/this_app_is_blocked_this_app_tried_to_access/}
+    \item \url{https://stackoverflow.com/questions/41699299/executing-google-apps-scripts-on-g-suite-accounts-with-2nd-factor-authentication}
+    \item \url{https://support.google.com/docs/thread/147671167/google-is-blocking-me-from-using-my-scripts-on-my-sheets?hl=en}
+\end{itemize}
