@@ -1,6 +1,7 @@
 In an attempt to improve the data quality by restricting the L1 themes to a pre-configured set of values while also allowing multi-selection of the themes it was necessary to develop some code to run within the spreadsheet.
 
 \begin{itemize}
+    \item Selecting one item is relatively simple in Google Sheets: \href{https://support.google.com/docs/answer/186103}{Create an in-cell drop-down list: Create drop-down lists in a cell with Google Sheets.}
     \item The start of the answer: \url{https://stackoverflow.com/questions/72410668/is-it-possible-to-have-a-multi-select-list-box-in-google-sheet/72412386}
     \item The Google Cloud Workspace: \href{https://console.cloud.google.com/getting-started?project=multi-select-spreadsheet}{Getting Started}, and \href{https://console.cloud.google.com/home/dashboard?project=multi-select-spreadsheet}{Dashboard} (or \href{https://console.cloud.google.com/home/dashboard?organizationId=0&project=multi-select-spreadsheet}{Dashboard with orgId}.
     \item The Spreadsheet: \href{https://docs.google.com/spreadsheets/d/1AIIAPWyy8Sx7rEBOx6KlZspoaS7pRUEneQgDTgXZwWI/edit#gid=397772862}{PhD Thematic Analysis}, and the \href{https://script.google.com/home/projects/101Q5upPmS1VAt1c2pXfpWn82QYI_dUg_94XfiHN1IrXmADGg2EQ9-AFG/settings}{Project Settings} needed to configure the script's security by adding it to a suitable configured Google Cloud Platform (GCP) Project.
@@ -17,7 +18,7 @@ Various Deadends
     \item Misleading error message: \url{https://www.googleapis.com/auth/script.container.ui} which led to a wild-goose chase.
 \end{itemize}
 
-Misc docs
+Further reading
 \begin{itemize}
     \item \href{https://developers.google.com/workspace/guides/create-project}{Create a Google Cloud Project}.
     \item \href{https://cloud.google.com/resource-manager/docs/creating-managing-projects}{Creating and Managing projects}.
@@ -27,4 +28,7 @@ Misc docs
     \item It's a common problem \url{https://www.reddit.com/r/GoogleAppsScript/comments/u28bsl/this_app_is_blocked_this_app_tried_to_access/}
     \item \url{https://stackoverflow.com/questions/41699299/executing-google-apps-scripts-on-g-suite-accounts-with-2nd-factor-authentication}
     \item \url{https://support.google.com/docs/thread/147671167/google-is-blocking-me-from-using-my-scripts-on-my-sheets?hl=en}
+    \item \href{https://gist.github.com/coinsandsteeldev/4c67dfa5411e8add913273fc5a30f5e7}{Google Sheets script to allow multi-select in cells with data-validation (adapted from} \url{https://www.youtube.com/watch?v=dm4z9l26O0I}).
+    \item \url{https://stackoverflow.com/questions/23369296/selecting-multiple-values-from-a-dropdown-list-in-google-spreadsheet}
+    \item \url{https://webapps.stackexchange.com/questions/87025/how-to-refer-to-this-cell-in-a-conditional-formatting-formula} enabled me to work out how to address a finite set of rows starting after the first row (without needing to address the entire column)
 \end{itemize}
