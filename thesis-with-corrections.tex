@@ -1,0 +1,321 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% kaobook
+% LaTeX Template
+% Version 1.3 (December 9, 2021)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% For the latest template development version and to make contributions:
+% https://github.com/fmarotta/kaobook
+%
+% Authors:
+% Federico Marotta (federicomarotta@mail.com)
+% Based on the doctoral thesis of Ken Arroyo Ohori (https://3d.bk.tudelft.nl/ken/en)
+% and on the Tufte-LaTeX class.
+% Modified for LaTeX Templates by Vel (vel@latextemplates.com)
+%
+% License:
+% CC0 1.0 Universal (see included MANIFEST.md file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	a4paper, % Page size
+	fontsize=10pt, % Base font size
+	twoside=true, % Use different layouts for even and odd pages (in particular, if twoside=true, the margin column will be always on the outside)
+	%open=any, % If twoside=true, uncomment this to force new chapters to start on any page, not only on right (odd) pages
+	%chapterentrydots=true, % Uncomment to output dots from the chapter name to the page number in the table of contents
+	numbers=noenddot, % Comment to output dots after chapter numbers; the most common values for this option are: enddot, noenddot and auto (see the KOMAScript documentation for an in-depth explanation)
+]{kaobook}
+
+% Choose the language
+\ifxetexorluatex
+	\usepackage{polyglossia}
+	\setmainlanguage{english}
+\else
+	\usepackage[english]{babel} % Load characters and hyphenation
+\fi
+\usepackage[english=british]{csquotes}	% English quotes
+
+% Load packages for testing
+\usepackage{blindtext}
+%\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
+%\usepackage{showlabels} % Uncomment to output the content of \label commands to the document where they are used
+
+% Load the bibliography package
+\usepackage{kaobiblio}
+\addbibresource{./references/bibliography_for_core_thesis.bib} % Bibliography file
+\addbibresource{./references/logging_paper.bib} % Bibliography file
+% \addbibresource{./references/bibliography_on_phd_experience}
+
+% Load mathematical packages for theorems and related environments
+\usepackage[framed=true]{kaotheorems}
+
+% Load the package for hyperreferences
+\usepackage{kaorefs}
+
+\graphicspath{{examples/documentation/images/}{images/}} % Paths in which to look for images
+
+\makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
+\setindexpreamble{\label{index}}
+%\makeindex[name=moonpig,title=Contributions,columns=1]
+\makeglossaries % Make LaTeX produce the files required to compile the glossary
+\input{glossary.tex} % Include the glossary definitions
+
+%\makenomenclature % Make LaTeX produce the files required to compile the nomenclature
+
+% Reset sidenote counter at chapters
+%\counterwithin*{sidenote}{chapter}
+
+\input{kaobook-latex-configuration}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	BOOK INFORMATION
+%----------------------------------------------------------------------------------------
+
+%\titlehead{ORCID \href{https://orcid.org/0000-0003-4052-0054}{0000-0003-4052-0054}}
+\subject{PhD Thesis}
+
+\title{Improving Application Quality\\ using Mobile Analytics}
+\subtitle{}
+
+\author{\textsc{Julian Harty}\\\small ORCID \href{https://orcid.org/0000-0003-4052-0054}{0000-0003-4052-0054}}
+
+\date{\today}
+
+\publishers{School of Computing and Communications\\ Faculty of STEM\\ \textsc{The Open University}\\\bigskip\bigskip Supervisors:\\ Arosha Bandara \& Yijun Yu}
+
+%----------------------------------------------------------------------------------------
+
+\frontmatter % Denotes the start of the pre-document content, uses roman numerals
+
+%----------------------------------------------------------------------------------------
+%	OPENING PAGE
+%----------------------------------------------------------------------------------------
+
+%\makeatletter
+%\extratitle{
+%	% In the title page, the title is vspaced by 9.5\baselineskip
+%	\vspace*{9\baselineskip}
+%	\vspace*{\parskip}
+%	\begin{center}
+%		% In the title page, \huge is set after the komafont for title
+%		\usekomafont{title}\huge\@title
+%	\end{center}
+%}
+%\makeatother
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\makeatletter
+\uppertitleback{\@titlehead} % Header
+
+\lowertitleback{
+	\textbf{Disclaimer}\\
+	Errors and Omissions excepted. 
+	
+	\medskip
+	
+	% TODO confirm the actual copyright.
+	\textbf{Copyright}\\ % The following was created using https://chooser-beta.creativecommons.org/
+	\ccbyncndeu\
+	Improving Application Quality using Mobile Analytics © 2022 by Julian Harty is licensed under CC BY-NC-ND 4.0.
+	
+	To view a copy of the CC-BY-NC-ND code, visit: \\\url{http://creativecommons.org/licenses/by-nc-nd/4.0/}
+	
+	\medskip
+	
+	\textbf{Colophon} \\
+	This document was typeset with the help of \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} using the \href{https://github.com/fmarotta/kaobook/}{kaobook} class.
+	
+	The source code of this book is available at:\\\url{https://github.com/fmarotta/kaobook}
+	
+	(You are welcome to contribute!)
+	
+	\medskip
+	
+	\textbf{Publisher} \\
+	First printed in September 2022 by \@publishers
+}
+\makeatother
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+\dedication{
+	\emph{``Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance. Let perseverance finish its work so that you may be mature and complete, not lacking anything.''} James 1:2-4
+	
+	
+	\bigskip % Vertical whitespace
+	
+	This research was inspired through my work with real-world developers of very successful mobile apps through the early and juvenile years of mobile app development (from 2006 to 2013) where I learned of the power and potential of using mobile analytics to improve the software and how teams create, test and support that software.
+	
+	\bigskip % Vertical whitespace
+	
+	To Sheep Dalton who was my co-supervisor at the start and until I completed the probation report, he provided rich and fresh ideas and insights as I was shaping my research. Yijun Yu kindly replaced Sheep when he moved to another university and always contributes fresh perspectives, insights, and ideas. Arosha Bandara has been with me as my lead supervisor from the outset all the way through the journey, I simply wouldn't have finished without him. Marian Petre similarly has supported and encouraged me in my research and dedicated many hours to helping me get this thesis finally written.
+	
+	\bigskip % Vertical whitespace
+	
+	The many and various people involved in the app- and tool-centric case studies made this research viable and realistic, thank you for all your insights and contributions. And a final big thank you to Joseph Reeve who has led the development of most of the software created as part of this research.
+}
+
+%----------------------------------------------------------------------------------------
+%	OUTPUT TITLE PAGE AND PREVIOUS
+%----------------------------------------------------------------------------------------
+
+% Note that \maketitle outputs the pages before here
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\input{mainchapters/abstract}
+\index{abstract}
+%\input{mainchapters/note-to-readers.tex}  %Arosha will communicate the latex issues via the exam chair instead of me leaving this in the thesis.
+%\index{Note to readers}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS & LIST OF FIGURES/TABLES
+%----------------------------------------------------------------------------------------
+
+\begingroup % Local scope for the following commands
+
+% Define the style for the TOC, LOF, and LOT
+%\setstretch{1} % Uncomment to modify line spacing in the ToC
+%\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
+\setlength{\textheight}{230\hscale} % Manually adjust the height of the ToC pages
+
+% Turn on compatibility mode for the etoc package
+\etocstandarddisplaystyle % "toc display" as if etoc was not loaded
+\etocstandardlines % "toc lines" as if etoc was not loaded
+
+\tableofcontents % Output the table of contents
+
+\listoffigures % Output the list of figures
+
+% Comment both of the following lines to have the LOF and the LOT on different pages
+% \let\cleardoublepage\bigskip
+% \let\clearpage\bigskip
+
+\listoftables % Output the list of tables
+\let\cleardoublepage\bigskip
+\let\clearpage\bigskip
+
+% https://tex.stackexchange.com/a/99656/5125
+\renewcommand{\listoflistings}{%
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Sourcecode Listings}%
+    \listof{listing}{Sourcecode Listings}%
+}
+\listoflistings %\clearpage
+
+
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	MAIN BODY
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
+\setchapterstyle{kao} % Choose the default chapter heading style
+
+\pagelayout{wide} % No margins
+\addpart{Preamble}
+\pagelayout{margin} % Restore margins
+
+\input{corrections/changelist.tex}
+\input{mainchapters/kaobook-introduction.tex}
+% Temporary removal to try and short-circuit compile timeouts
+\chapter{Placeholder for: A grounding in the domain}% 
+%\input{mainchapters/kaobook-a-grounding-in-the-domain.tex}
+%\chapter{Placeholder for: Related work}% 
+\input{mainchapters/kaobook-related-work}
+\input{mainchapters/kaobook-methodology}
+\input{mainchapters/kaobook-case-studies-overview}
+\pagelayout{wide} % No margins
+\addpart{Findings}
+\pagelayout{margin} % Restore margins
+\input{mainchapters/kaobook-findings-analytics-in-use}
+\input{mainchapters/kaobook-findings-apps-and-their-artefacts}
+%\chapter{Placeholder for: kaobook-findings-tools-and-their-artefacts} 
+\input{mainchapters/kaobook-findings-tools-and-their-artefacts}
+%\input{mainchapters/temp}
+\pagelayout{wide} % No margins
+\addpart{Discussion, Conclusion, and Future Work}
+\pagelayout{margin} % Restore margins
+\chapter{Placeholder for: Discussion}
+%\input{mainchapters/kaobook-discussion}
+\input{mainchapters/conclusions-and-future-work}
+\clearpage
+
+
+\appendix % From here onwards, chapters are numbered with letters, as is the appendix convention
+
+\pagelayout{wide} % No margins
+\addpart{Appendix}
+\pagelayout{margin} % Restore margins
+
+\input{appendicies/thematic-analysis}
+\input{appendicies/mini-experiments}
+
+%----------------------------------------------------------------------------------------
+
+\backmatter % Denotes the end of the main document content
+\setchapterstyle{plain} % Output plain chapters from this point onwards
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+% The bibliography needs to be compiled with biber using your LaTeX editor, or on the command line with 'biber main' from the template directory
+
+\defbibnote{bibnote}{Here are the references in citation order.\par\bigskip} % Prepend this text to the bibliography
+\printbibliography[heading=bibintoc, title=Bibliography, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
+
+
+%----------------------------------------------------------------------------------------
+%	GLOSSARY
+%----------------------------------------------------------------------------------------
+
+% The glossary needs to be compiled on the command line with 'makeglossaries main' from the template directory
+
+\setglossarystyle{altlisthypergroup} % Set the style of the glossary (see https://en.wikibooks.org/wiki/LaTeX/Glossary for a reference)
+\glsaddallunused
+\printglossary[title=Glossary and Acronyms, toctitle=List of Terms] % Output the glossary, 'title' is the chapter heading for the glossary, toctitle is the table of contents heading
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+% The index needs to be compiled on the command line with 'makeindex main' from the template directory
+
+\printindex % Output the index
+
+%----------------------------------------------------------------------------------------
+%	BACK COVER
+%----------------------------------------------------------------------------------------
+
+% If you have a PDF/image file that you want to use as a back cover, uncomment the following lines
+
+%\clearpage
+%\thispagestyle{empty}
+%\null%
+%\clearpage
+%\includepdf{cover-back.pdf}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
