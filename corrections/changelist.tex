@@ -37,16 +37,20 @@ The Research Questions are in \secref{section-research-questions}
 
 I believe the research covered ways and effects  of using \emph{mobile} analytics to improve software development and the resulting artefacts.
 
+TBC Focus areas...
+
 The research touches on \textbf{software testing} mainly in terms of prior art and in practices of the development teams. Automated tests were developed during the Commercial, \myindex{C1}, app-centric case study to reproduce a major crash that caused a spike in the crash rate and they measured the improvement in the crash rate using mobile analytics when the underlying fix was released. Mobile Analytics complemented automated tests and interactive testing by providing objective measurements of the stability of the apps. The research did not encompass many improvements in software testing practices, nonetheless it identified that Google uses usage analytics to determine which locales to use in their automated `robo'\index{Robo} testing as part of providing pre-launch reports.
 
 \subsection{Clearly define the terms used in framing the work}
 Terms to define:  
 \begin{itemize}
-    \item Applying: the use of mobile analytics in order to effect improvements
+    \item Applying mobile analytics: the use of mobile analytics in order to effect improvements to the practices and the artefacts. Applying mobile analytics refers to both collecting data from the usage of the app and also making use of the analysis of this data to identify and address issues that can improve the app. Improvement of the app focuses on increasing the stability/reliability by reducing ANRs, crashes, and through improving how the app handles various errors (typically reported through Exceptions).
     \item Mobile analytics: Analytics where the data is collected by software running on mobile smartphone-based devices pertaining to the app's qualities-in-use. This research focused on analytics collected pertaining to the stability of the app, where stability includes the reliability of the app.
     \item Software testing: Note I need to also add index entries for software testing. Decide if it's to be Testing->Software in the index.
-    \item Software development: which includes tasks performed by the software developers such as bug reporting and bug tracking. 
+    \item Software development: which includes tasks performed by the software developers such as bug reporting and bug tracking.  Use of Scrum development practices, following recommendations and guides that include application compatibility, UI guidelines, and designing for performance and responsiveness, \emph{etc}. [Software] testing~\sidecite[][pp.398 - 399]{wasserman2010_software_engineering_issues_for_mobile_app_devt}.~\sidenote{This short paper skims over topics without evidence developers actually do them. Their survey, cited in this paper isn't available so appears to have not actually been published.}
     \item In practice: the key scope of measurement focuses on the efficacy in real-world projects.
+    \item Exception(s): TBC
+    \item Quality: the literature does not align, \emph{e.g.}, \emph{``reliability (robustness, connectivity, stability), quality (usability, installability)''}\cite[p.399]{wasserman2010_software_engineering_issues_for_mobile_app_devt} places stability as one of three contributory qualities to reliability, and limits quality to two sub-qualities.         
 \end{itemize}
 
 \subsection{6 perspectives RQs}
@@ -289,17 +293,66 @@ TBD draw illustrative data from as many case studies as practical.
 
 To be covered in the new chapter 9 (Discussion) or in the Conclusion chapter - synthesise these are the conclusions I draw with result to the RQs.
 
-\section{}
+\section{Thinning and pruning of the material}
 
-\section{}
+\section{Increasing consistency and rigour}
 
-\section{}
+\section{Swimming with the fishbones [fishbone diagrams]}
 
-\section{}
+\section{Be specific in the literature review method(s) used}
+\begin{kaobox}
+    This is an interesting challenge given the protracted journey of my PhD and the interludes, events, etc. How do you suggest I address this retrospectively? Whatever is written is a veneer of what actually happened over the years. To get things started I've started the following sub-section on keyword searches, perhaps they'd be better placed in an appendix though?
+\end{kaobox}
 
-\section{}
+The literature review method combined many iterative searches for possible keywords using Google Scholar, IEEE, ACM, and occasionally the Open University's online library search~\sidenote{Marian recommends I resist trying to provide a specious formulae of how to perform online searches for prior work. Doing so is a) not reflective of reality, b) incorrect, c) highly unlikely to discover the identical candidate materials, d) focusing on minutia rather than on the substance of finding, reading, and selecting relevant material which is so much more nuanced than the results of keyword searches online.}. 
 
-\section{}
+Candidate matches were selected based on a combination of reading the abstract, snowballing through papers that cite the particular paper and their relevance to the original search. The search results were also filtered by their publication year to uncover recent related work that might not have been heavily cited yet. In the early years of the research these were stored in Zotero~\sidenote{A paid account was used to ensure there was sufficient storage available and to facilitate sharing of the libraries.} (counts are provided in \ref{tab:zotero-libraries-counts}. In later years the references were primarily stored as part of this PhD thesis project in Overleaf~\sidenote{A paid account was used to facilitate collaboration, and to enable the use of github integration to help preserve the records of the literature that has been reviewed.}, again counts are in \ref{tab:zotero-libraries-counts}. Allowing for a total margin of 5\% for duplicates and/or irrelevant items at least 2075 unique references, the exact number is unlikely to be material~\sidecite[][pp.146 - 149]{hubbard2014measure}.
+
+There may be a small number of duplicates given the various locations references are stored, and there may be some irrelevant references given the characteristics of working with Zotero (and one of the reasons I stopped using it actively).
+
+Over 100 papers were printed out and hand annotated with analysis and notes on the connections to the research. In addition in the order of 100 personally owned books on related topics were consulted, ranging from those published in the 1970's to those published in 2023.
+
+Generally prior work was read and their bibliography was checked, in turn, using snowballing until no new relevant information was found. As a concrete example, one of the papers returned in the search results was \href{https://scholar.google.com/scholar?cites=17913946012612049501&as_sdt=2005&sciodt=0,5&hl=en}{\emph{``Software engineering process models for mobile app development: A systematic literature review''}}. one paper in the next 40 search results that had cited that paper extended that topic~\sidecite{martinez2020_an_agile_based_integrated_framework_for_mobile_app_devt_considering_ilities}. This seemed potentially interesting but petered-out into their own set of quality attributes, they termed -ilities, that lacked performance or reliability which they then tested through a small mobile app project created by three students. So this paper did not build materially on the research I was interested in. Nonetheless at least four of the other references in the bibliography in this paper were checked in case they contained relevant research. 
+
+\begin{table}
+    \centering
+    \begin{tabular}{r|l}
+       Item  &  Library \\
+     172 & `My Library' \\
+     113 & AppStoreReviewsAndRankings \\
+     428 & Better Software Testing for Mobile Apps \\
+      21 & Putting Testing at the Heart of Management \\
+     579 & Software Quality API \\
+     820 & References in the PhD project in Overleaf \\
+      52 & References imported from the joint authorship logging paper \\
+      \hline
+      2185 & individual references \\
+    \end{tabular}
+    \caption{Items collected in Zotero and Overleaf, by \nth{12} Feb 2023}
+    \label{tab:zotero-libraries-counts}
+\end{table}
+
+
+Literature searches were performed on an ongoing basis throughout the research.
+
+\subsection{Keyword searches}
+
+\newthought{Software Development Practices for Mobile Apps}
+
+\verb|software development practices mobile apps| and the same search terms since 2019.
+
+\verb|android exception better OR handler| given the specific and consistent use of exceptions as a concept, and as a language construct in Java and Kotlin and Android's origins in Java, research into how others have implemented exception handlers or improved (made better) exceptions are both relevant. None of the following searches returned any similar research for the iOS platform \verb|ios error handling|, \verb|ios error handling design|, and \verb|ios error better OR handler|. Error is a key term in Swift development \url{https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html} Apple recommends Swift for iOS app development~\url{https://developer.apple.com/swift/} and more developers used Swift (4.91\%) than Objective-C (2.39\%) according to the StackOverflow 2022 Survey~\url{https://survey.stackoverflow.co/2022/\#technology-most-popular-technologies} \sidenote{Additional error reporting can be recorded by mobile analytics such as by Sentry.io \url{https://sentry.io/for/swift/}.}
+
+% Trustworthy sources to demonstrate the relevance of Swift, etc. are hard to find. Here's some lower-grade ones in the interim:
+% https://www.itmagination.com/blog/is-objective-c-still-relevant-in-2022-or-is-swift-the-only-real-choice
+
+
+
+\section{Distinguishing sources: data|literature|author's industry perspective}
+
+
+\section{In appendices, provide more details of the data and data analysis done in relation to the RQs}
+
 
 \section{Additional Improvements to the thesis}
 There are numerous minor opportunities to improve the thesis in terms of readability. These include copy-editing of the contents, tidying up loose-ends, replacing poor-quality figures with clearer ones, and using side-citations wherever practical (some \verb+\cite{}+'s were left in the thesis unnecessarily. I'd also like to add epigraphs to the chapters that lack them.
