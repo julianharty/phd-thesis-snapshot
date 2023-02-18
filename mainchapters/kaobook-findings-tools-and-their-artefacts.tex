@@ -558,7 +558,7 @@ In summary, pre-launch reports have found various bugs in several of the app-cen
 \section{Dependability}~\label{section-dependability}
 Dependability considers the extent to which developers can rely on a mobile-analytics service (and/or the underlying tool~\footnote{Mobile Analytics is inherently something that's ongoing rather than a one-off/occasional event; therefore the key concern is in the provision of a service using an underlying mobile analytics tool. Flaws in the tool are unlikely to be improved by the service that's provided (either in-house by the development team's organisation or by an external provider}, and even a tool with few flaws cannot compensate for a heavily flawed service.). 
 
-During this research four lower-level themes emerged that primarily underpin dependability: 1) flaws, 2) link rot, 3) testability, and 4) trustworthiness; these are covered in this section. Two more lower-level themes in particular also contribute to dependability: fidelity and ethical considerations, these are covered in \secref{tata-cross-cutting-concerns}.
+During this research four lower-level themes emerged that primarily underpin dependability: 1) flaws, 2) link rot, 3) testability, and 4) \myindex{trustworthiness}; these are covered in this section. Two more lower-level themes in particular also contribute to dependability: fidelity and ethical considerations, these are covered in \secref{tata-cross-cutting-concerns}.
 
 \subsection{Flaws in the mobile analytics tools and/or services}~\label{tata-flaws-topic}
 % 15+ Android Vitals, 5 - Kiwix, 2 - LocalHalo, C1, StackOverflow, iDot (PosttHog & Amplitude don't collect failure data), Microsoft App Center, ...
@@ -599,7 +599,7 @@ Sixteen flaws have been found in Android Vitals and Google Play Console to date 
         11 & No Service problem-reporting & Lack of transparency of historical service outages, \emph{etc.} \\
         12 & Lack of reports (despite usage) & Unusable analytics for low to mid range usage by end users, `Flying blind' after take-off. \\
         13 & Second country's data conflated with that of the first & Misleading report, poor UX. \\
-        14 & 10x mismatch with crashlytics & Lack of trust in at least one of the mobile analytics tools. \\
+        14 & 10x mismatch with crashlytics & Lack of \myindex{trust} in at least one of the mobile analytics tools. \\
         15 & Incorrect date for last update & Misleading developer experience, loss of trust in the service. \\
         16 & Several identical crash clusters in the paged list of ranked results, e.g. \href{https://github.com/kiwix/kiwix-android/issues/2482}{Kiwix issue 2482}. & Adversely affects counts of matching crash clusters, confusing. \\
         \bottomrule
@@ -710,7 +710,7 @@ As Microsoft's App Center\index{Microsoft App Center} has demonstrated, it is po
 These, and similar, APIs facilitate innovative, custom, and \emph{ad-hoc} use of the information. They are orthogonal to pipelining of outputs in the cloud (which Microsoft and Google both provide for at least one of their mobile analytics services).
 
 \subsection{Improving the auditability and verifiability}~\label{tata-improving-auditability-and-verifiability}
-Full end-to-end auditability and verifiability of a mobile analytics toolchain can help increase the trustworthiness of the toolchain from use of any client-side SDK through to the reporting (including any interaction via \Glspl{api}, being provided for reporting, analysis, configuration, and interaction).
+Full end-to-end auditability and verifiability of a mobile analytics toolchain can help increase the \myindex{trustworthiness} of the toolchain from use of any client-side SDK through to the reporting (including any interaction via \Glspl{api}, being provided for reporting, analysis, configuration, and interaction).
 
 This is necessary because in \secref{tata-flaws-topic} various flaws were identified in several of the mobile analytics services. And in \secref{tata-which-apps-can-google-vitals-help} some of the additional restrictions were discussed that demonstrated that \myindex{Android Vitals} provides little information of value for apps with user-bases of less than a few thousand. Furthermore, a small experiment, \secref{tata-fidelity-topic}, was sufficient to indicate additional concerns in the fidelity of the mobile analytics tools.
 

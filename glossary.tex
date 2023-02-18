@@ -56,6 +56,8 @@
 % HTTP
 \newacronym{http}{HTTP}{HyperText Transfer Protocol}
 
+\newacronym{icse}{ICSE}{International Conference on Software Engineering}
+
 % IDE
 \newacronym{ide}{IDE}{Integrated Development Environment}
 
@@ -93,13 +95,13 @@
 \newacronym[type=\glsdefaulttype, description={PhET is a project that creates and provides interactive simulations on computers for science and mathematics, free of charge. PhET stands for Physics Education Technology~\cite{wieman2008_phet_simulations_that_enhance_learning}. More information on the project is online at \url{https://phet.colorado.edu/}. The Kiwix project created the first mobile app for the project with the project's permission}]{phet}{PhET}{Physics Education Technology. At their request the Kiwix project renamed our custom app from PhET to `Physics and Chemistry simulations'. In this research PhET is commonly used for brevity.}
 
 % PII
-\newacronym[type=\glsdefaulttype, description={\emph{``Personally Identifiable Information; Any representation of information that permits the identity of an individual to whom the information applies to be reasonably inferred by either direct or indirect means."}~\cite{nist_pii}}]{pii}{PII}{Personally Identifiable Information}
+\newacronym[type=\glsdefaulttype, description={PII is \emph{``Personally Identifiable Information; Any representation of information that permits the identity of an individual to whom the information applies to be reasonably inferred by either direct or indirect means."}~\cite{nist_pii}}]{pii}{PII}{Personally Identifiable Information}
 
 % PFOD
 \newacronym{pfod}{PFOD}{Probability of Failure On Demand} % a shorter version of https://www.aiche.org/ccps/resources/glossary/process-safety-glossary/probability-failure-on-demand-pfod-pfd
 
 % PLR (Pre-launch report)
-\newacronym[type=\glsdefaulttype, description={PLR This term is occasionally used in Google Android materials, for example \cite{androiddevelopers2019_improve_your_app_and_game_quality_with_android_vitals_googleio2019}}]{plr}{PLR}{Pre-Launch Report}
+\newacronym[type=\glsdefaulttype, description={Pre-launch report (PLR) This term is occasionally used in Google Android materials, for example in~\cite{androiddevelopers2019_improve_your_app_and_game_quality_with_android_vitals_googleio2019}}]{plr}{PLR}{Pre-Launch Report}
 
 % QoE
 \newacronym[type=\glsdefaulttype, description={Oft used in Mobile Telecommunications to measure network transmission characteristics. Here used so we can more easily identify and consider the quality of experiences such as \emph{User Experience}. In the context of this research the focus is on perceived experience as perceived by end users of an app}]{qoe}{QoE}{Quality of Experience}
@@ -121,6 +123,9 @@
 
 % SUT
 \newacronym{sut}{SUT}{System under test}
+
+% UI
+\newacronym{ui}{UI}{User Interface}
 
 % UX
 \newacronym{ux}{UX}{User Experience}
@@ -238,6 +243,13 @@
 \newglossaryentry{glossary-event-demographics}{
     name = {Event demographics},
     description = {\emph{``Percentage of events triggered by each age group and gender.''} (Source: Google Firebase Analytics tooltip)}
+}
+
+% Exceptions
+\newglossaryentry{glossary-exception}{
+    name = {Exception},
+    description = {Here, a programming language concept drawn from the Java programming language, that \emph{``In Java “an event that occurs during the execution of a program that disrupts the normal flow of instructions” is called an exception. This is generally an unexpected or unwanted event which can occur either at compile-time or run-time in application code. Java exceptions can be of several types and all exception types are organized in a fundamental hierarchy.''} \cite{rollbar2021_java_exception_hierarchy_explained}. %See also \cite{wikibooks_java_exceptions}
+    }
 }
 
 % Exodus Privacy Project
@@ -461,7 +473,7 @@
 % Stability
 \newglossaryentry{glossary-stability}{
     name = {Stability},
-    description = {A software quality identified initially by HP as part of their FunDex~\cite{calleosoftware_AppPulseMobile}. The same term was subsequently used by Google to identify and measure two related indications of software failures: crashes and freezes~\cite{android_vitals_overview_2019}}
+    description = {A software quality identified initially by HP as part of their FunDex score~\cite{calleosoftware_AppPulseMobile}. The same term was subsequently used by Google to identify and measure two related indications of software failures: crashes and freezes~\cite{android_vitals_overview_2019}. These type of failure are both measures of reliability in terms of \gls{pfod}}
 }
 
 % Statistics-based debugging
@@ -472,7 +484,7 @@
 
 \newglossaryentry{glossary-technology-facing}{
     name = {Technology-facing},
-    description = {The term stems from Brian Marick and his blog posts on Agile software development including software testing. An early example from his old blog is: \emph{``A technology-facing test is one you describe with words drawn from the domain of the programmers''}  \href{http://www.exampler.com/old-blog/2003/08/21.1.html}{www.exampler.com/old-blog/2003/08/21.1.html}. The concepts are well explained in Chapter 6 of \cite{crispin2009_agile_testing} on pp. 97-98 and beyond}
+    description = {The term stems from Brian Marick and his blog posts on Agile software development including software testing. An early example from his old blog is: \emph{``A technology-facing test is one you describe with words drawn from the domain of the programmers''}  \href{http://www.exampler.com/old-blog/2003/08/21.1.html}{www.exampler.com/old-blog/2003/08/21.1.html}. The concepts are well explained in Chapter 6 of \cite{crispin2009_agile_testing} on pp. 97-98 and beyond of that book}
 }
 
 % Vitals Scraper
