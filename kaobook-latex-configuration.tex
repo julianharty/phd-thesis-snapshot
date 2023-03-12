@@ -156,3 +156,62 @@
   {\thispagestyle{plain}\phantomsection\label{index}}{}{}
 
 %----------------------------------------------------------------------------------------
+% Source: https://tex.stackexchange.com/a/604560/88466
+% It's to enable coloured kaoboxes
+
+\definecolor{greentitle}{RGB}{61,170,61}
+\definecolor{greentitleback}{RGB}{216,233,213}
+\definecolor{drakgreentitle}{RGB}{24,131,80}
+
+\DeclareTColorBox{experience}{O{}o}{
+    enhanced,
+    breakable,
+    arc=0pt,
+    boxrule=0pt,
+    colback=white,
+    top=3em, % you can change the top spacing
+    overlay unbroken and first={
+        % draw box on the left
+        \node[fill=greentitleback,
+            font=\color{greentitle}\sffamily\bfseries\large,
+            anchor=south west,
+            xshift=2mm,
+            yshift=-2em, % you can change xshift and yshift to adjust the title placement
+        ] (titlebox) at (frame.north west) 
+        % notice the difference here, kaocounter is used instead
+        {Exercise \refstepcounter{kaocounter}\thekaocounter
+        % add cross-referencing support
+        \IfValueT{#2}{\label{#2}}
+        };
+        
+        % write title on the right
+        \node[font=\color{drakgreentitle}\sffamily\large, 
+        anchor=west
+        ] at ($(titlebox.east)+(2mm,0mm)$) {#1};
+        
+        % draw the vertical line on the left
+        \draw[draw=greentitleback, line width=2pt] 
+            (titlebox.north west-|frame.north west)--(frame.south west);
+    },
+    overlay middle and last={
+        \draw[draw=greentitleback, line width=2pt] 
+            (frame.north west)--(frame.south west);
+    }
+    fonttitle=\color{greentitle}\sffamily\bfseries,
+}
+
+\DeclareTColorBox{genericbox}{m}{
+    enhanced,
+    breakable,
+    arc=0pt,
+    boxrule=0pt,
+    colback=yellow,
+    attach boxed title to top left,
+    boxed title style={
+        colback=white,
+        colframe=white,
+    },
+    title={#1},
+    fonttitle=\color{greentitle}\sffamily\bfseries\large
+}
+%----------------------------------------------------------------------------------------
