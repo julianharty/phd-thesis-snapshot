@@ -59,18 +59,6 @@
 % Load the package for hyperreferences
 \usepackage{kaorefs}
 
-% The following Source: https://tex.stackexchange.com/a/604560/88466
-% It's to enable coloured kaoboxes
-\usepackage[skins,hooks,xparse,breakable]{tcolorbox}
-\usepackage{xcolor}
-\usepackage{chngcntr}
-\usepackage{tikz}
-% you may not need the line below as well if it has already been configured using other approaches
-\counterwithin{kaocounter}{section}
-\usetikzlibrary{calc}
-% End of extract from: https://tex.stackexchange.com/a/604560/88466
-
-
 \graphicspath{{examples/documentation/images/}{images/}} % Paths in which to look for images
 
 \makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
@@ -263,11 +251,16 @@
 \pagelayout{wide} % No margins
 \addpart{Findings}
 \pagelayout{margin} % Restore margins
-\input{mainchapters/kaobook-findings-analytics-in-use}
-\input{mainchapters/kaobook-findings-apps-and-their-artefacts}
-%\chapter{Placeholder for: kaobook-findings-tools-and-their-artefacts} 
-\input{mainchapters/kaobook-findings-tools-and-their-artefacts}
-%\input{mainchapters/temp}
+
+\chapter{Placeholder for: kaobook-findings-analytics-in-use}\label{chapter-analytics-in-use}
+%\input{mainchapters/kaobook-findings-analytics-in-use}
+
+\chapter{Placeholder for: kaobook-findings-apps-and-their-artefacts}~\label{chapter-tools-and-their-artefacts}
+%\input{mainchapters/kaobook-findings-apps-and-their-artefacts}
+
+\chapter{Placeholder for: kaobook-findings-tools-and-their-artefacts}~\label{chapter-tools-and-their-artefacts} 
+%\input{mainchapters/kaobook-findings-tools-and-their-artefacts}
+
 \pagelayout{wide} % No margins
 \addpart{Discussion, Conclusion, and Future Work}
 \pagelayout{margin} % Restore margins

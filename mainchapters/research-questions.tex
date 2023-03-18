@@ -6,7 +6,11 @@
 
 
 The research hypothesis is that using mobile analytics can help improve the work development of teams and the quality of the products they create. Here work includes the development, testing, and bug investigation of the software being created. For the quality of the product, this research is focusing on a subset of qualities which are \gls{glossary-technology-facing}, %technology-centric, 
-and in particular the \gls{glossary-reliability} and \gls{glossary-stability} of the mobile apps when they are in use. This research builds on prior work on software analytics for mobile apps and focuses on its practical application by software development teams to improve app reliability. This is important because app reliability, as measured by crash rates and ANRs, is key metric in the mobile app ecosystem. Because this metric is used by the platform provider to determine whether an app should be given access to the ecosystem, it is something developers should pay attention to. In order to understand the effect of applying mobile analytics on the software development practices for improving reliability of apps, we need to explore the processes, artefacts and tools associated with these activities. This research investigates these three dimensions based on case studies of different mobile app projects, to identify both the current practices and opportunities for improvement provided by using mobile analytics.
+and in particular the \gls{glossary-reliability} and \gls{glossary-stability} of the mobile apps when they are in use. 
+
+This research builds on prior work on software analytics for mobile apps and focuses on its practical application by software development teams to improve app reliability. This is important because app reliability, as measured by crash rates and ANRs, is key metric in the mobile app ecosystem. Because this metric is used by the platform provider to determine whether an app should be given access to the ecosystem, it is something developers should pay attention to. 
+
+In order to understand the effect of applying mobile analytics on the software development practices for improving reliability of apps, we need to explore the processes, artefacts and tools associated with these activities. This research investigates these three dimensions based on case studies of different mobile app projects, to identify both the current practices and opportunities for improvement provided by using mobile analytics.
 
 The core question investigated by this research:
 
@@ -15,20 +19,31 @@ The core question investigated by this research:
 \end{quote}
 % Thanks to https://tex.stackexchange.com/questions/35933/indenting-a-whole-paragraph
 
-To expand on the research question:
-\begin{itemize}
-    \item \textbf{Applying mobile analytics}: is the use of mobile analytics in order to effect improvements to the practices and the artefacts. Applying mobile analytics refers to both collecting data from the usage of the app and also making use of the analysis of this data to identify and address issues that can improve the app. Improvement of the app focuses on increasing the stability/reliability by reducing ANRs, crashes, and through improving how the app handles various errors (typically reported through Exceptions~\footnote{Exceptions are a core construct in Java programs intended to make those programs robust~\cite{robillard2000_designing_robust_java_programs_with_exceptions}, and similarly \glspl{glossary-exception} are core to Android apps}).
-    \item \textbf{Mobile analytics}: Analytics where the data is collected by software running on mobile smartphone-based devices pertaining to the app's qualities-in-use. This research focused on analytics collected pertaining to the stability of the app, where stability includes the reliability of the app.
-    \item Software development: includes tasks performed by the software developers including design, coding, testing, bug reporting, and bug tracking.  Use of Scrum development practices, following recommendations and guides that include application compatibility, \gls{ui} guidelines, and designing for performance and responsiveness, \emph{etc}. [Software] testing~\sidecite[][pp.398 - 399]{wasserman2010_software_engineering_issues_for_mobile_app_devt}.~\sidenote{This short paper skims over topics without evidence developers actually do them. Their survey, cited in this paper isn't available so appears to have not actually been published.}
-    \item Reliability and Stability are two intertwined measures of software quality in use. There are contradictory opinions on their relationships to each other and to their contributions to software quality, these will be discussed in Chapter~\secref{chapter-related-work}. 
-    \item In practice: the key scope of measurement focuses on the efficacy in real-world projects from the perspective of software practitioners who develop mobile applications.
-\end{itemize}
+Expanding on key elements of the research question:
+%\begin{itemize}
+    %\item 
+    
+\textbf{Applying mobile analytics}: is the use of mobile analytics in order to effect improvements to the practices and the artefacts. Applying mobile analytics refers to both collecting data from the usage of the app and also making use of the analysis of this data to identify and address issues that can improve the app. Improvement of the app focuses on increasing the stability/reliability by reducing ANRs, crashes, and through improving how the app handles various errors (typically reported through Exceptions~\footnote{Exceptions are a core construct in Java programs intended to make those programs robust~\cite{robillard2000_designing_robust_java_programs_with_exceptions}, and similarly \glspl{glossary-exception} are core to Android apps}).
+    %\item 
+    
+\textbf{Mobile analytics}: Analytics where the data is collected by software running on mobile smartphone-based devices pertaining to the app's qualities-in-use. This research focused on analytics collected pertaining to the stability of the app, where stability includes the reliability of the app.
+    
+    %\item 
+\textbf{Software development}: includes tasks performed by the software developers including design, coding, testing, bug reporting, and bug tracking.  Use of Scrum development practices, following recommendations and guides that include application compatibility, \gls{ui} guidelines, and designing for performance and responsiveness, \emph{etc}. [Software] testing~\sidecite[][pp.398 - 399]{wasserman2010_software_engineering_issues_for_mobile_app_devt}.~\sidenote{This short paper skims over topics without evidence developers actually do them. Their survey, cited in this paper isn't available so appears to have not actually been published.}
+
+    %\item 
+\textbf{Reliability} and \textbf{Stability} are two intertwined measures of software quality in use. There are contradictory opinions on their relationships to each other and to their contributions to software quality. For the purposes of this research \gls{glossary-reliability} is used whenever software engineering is in focus and \gls{glossary-stability} matches Google's use of the word for Android apps. 
+These two terms will be discussed in~\secref{rw-stability-and-reliability}. 
+    %\item 
+    
+\textbf{In practice}: the key scope of measurement focuses on the efficacy in real-world projects from the perspective of software practitioners who develop mobile applications.
+%\end{itemize}
 
 In order to answer this research question it is appropriate to consider improvements to the \emph{app (i.e. the product)} and to the \emph{processes/practices} development teams apply when they develop and maintain their mobile apps. Improvements cannot be be considered usefully in isolation; they need to be grounded in the current practices: the developers will have their perspectives on their use of mobile analytics, and their development artefacts may provide cross-verification of what they say they do compared with tangible evidence of how they use those mobile analytics tools. 
 
 Furthermore, there may be constraints and/or limitations in the current mobile analytics tools which may adversely affect the improvements development teams are able to make to their processes/practices and to their products. Hence, it is also germane to consider improvements to the current mobile analytics tools.
 
-These additional supporting questions can be restated as six distinct yet related perspectives.
+These lines of enquiry are relevant to the core research question and lead to six more granular questions each focusing on a distinct, yet related, %perspective additional supporting questions can be restated as six distinct yet related perspectives.
 
 \begin{figure*}
     \includegraphics[width=\linewidth]{images/my/six-perspectives-2x3-matrix-12-nov-2021.jpeg}
@@ -36,7 +51,7 @@ These additional supporting questions can be restated as six distinct yet relate
     \label{fig:six-perspectives-in-the-research-questions-section}
 \end{figure*}
 
-\subsection{Research questions lead to six perspectives}~\label{rq-leads-to-six-perspectives}
+%\subsection{Research questions lead to six perspectives}~\label{rq-leads-to-six-perspectives}
 The six perspectives are illustrated in Figure~\ref{fig:six-perspectives-in-the-research-questions-section}~\sidenote{Source figure:~\href{https://docs.google.com/drawings/d/1SafKu3uqgl-s8-I8iWSSWmFY4NdlNpw8v6ZiJDGh50c/edit?usp=sharing}{Google Docs: Six Perspectives drawing}.} and paraphrased below:
 
 \begin{enumerate}
@@ -57,7 +72,7 @@ Here the hypothesis is that analytics can help, as stated by Buse and Zimmermann
 
 
 \section{Research contributions}
-Before this research, little was known about developers' integration of mobile analytics into their artefacts and/or their processes. Unknown were how, why, and when they used the outputs of the mobile analytics. Similarly, the effects of using mobile analytics in terms of any changes to the reliability of these apps was not known. Furthermore, little was known about the mobile analytics tools and services used by app developers in industry or in real-world mobile apps.
+
 
 \subsection{Contributions to knowledge}
 The research contributes to the understanding of tools and information seldom available to research -- of professional app developers, their artefacts, and of professional mobile analytics tools and services. 
