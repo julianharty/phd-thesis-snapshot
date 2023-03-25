@@ -3,9 +3,6 @@
 \label{chapter-related-work}
 \epigraph{It is what we think we know already that often prevents us from learning.}{Claude Bernard} % https://tex.stackexchange.com/a/53378/88466
 
-% Additional, older material is online in https://docs.google.com/document/d/1OdoBsLboTZHzv1UP9g7nUriVLgpu6ZGqjXLmRAAlAfs/edit?usp=sharing
-% New ideas and material are being added to a Google Doc for a while, then I'll revise this chapter. https://docs.google.com/document/d/1i3cCk2-8zwVioAuMbBQDLcUViihhHY6gk0MJNPevFbA/edit?usp=sharing
-
 \bigskip
 \bigskip % to stop the sidenote from clashing with the in-margin mini table-of-contents.
 
@@ -172,8 +169,6 @@ Software development research has a bearing on mobile app development, a topic w
 
 
 \section{App Stores and their Effects on Software Development and Engineering}~\label{rw-app-stores-and-their-effects-on-software-development-and-engineering}
-% Software developers have flocked to develop mobile apps as that's where billions of users find and use software. In the era of mobile apps before smartphone app stores the device manufacturers and the carriers were the dominant parties. Developers provided their apps directly and/or via carriers and/or a variety of third-party app stores. The ecosystem shortly before the point of inflection is nicely captured in \sidecite{lin2009_os_battle_in_the_ecosystem_of_smartphone_industry}. 
-
 App stores are part of an ecosystem that provides and enforces rules that also constrains various choices. They also allow various freedoms for the participants within the ecosystem. The ecosystem needs to sustain competition~\sidecite[][p. 94]{KAPOOR2021_socio_technical_platform_ecosystems_etc} and revenues. The two largest app stores, Google Play and Apple's App Store, each have their own development platform including an \Gls{ide} and additional software tools, various \Glspl{sdk}, developer programs, release processes, pricing and revenue rules, and so on. 
 %They can effectively severe the connection between developers and their market.
 Pivotal effects include: the app approval process (which gates any release of the app to the general user population), rules and restrictions on what the binary contains, the signing process, how the app is packaged/bundled. Another pivotal effect is how app quality is measured and assessed by the app store, at least, as app developers have a vested interest in having high quality apps as determined by the app store.\sidenote{I,R,C}
@@ -292,9 +287,6 @@ Research into the development practices and mechanisms for mobile apps establish
 % Some of the effects of their work in terms of software quality will be covered later in this chapter in \secref{rw-mobile-app-crashes-topic}.
 
 Mobile apps need to be made and developers make them. There are various working practices, apps are made by visionaries, employees, amateurs, and communities. There are various activities involved including development, testing, release, and deployment.\sidenote{C} % Figure~\ref{fig:my_mobile-app-makers} highlights these activities as part of the overall ecosystem.
-
-% Many mobile app development teams would describe their development practices as Agile or based on along the principles of Agile development. % Solo app developers are less likely to use these practices, nonetheless there has been various research into adaptions of Agile and Scrum in attempts to suit them. Various examples are in the excluded-bibliography.
-% Many of these people claim to be ``Agile" in their working practices.
 
 5,000 commit messages (of over 1.8 million identified) were studied that were selected from 8,280 active opensource Android apps where the source code repositories were on \href{https://github.com/}{github.com}. The top three activities were 1) app enhancement, followed by 2) bug fixes, and then 3) project management~\sidecite[][p. 144]{pascarella2018_self_reported_activities_of_android_developers}. 35 of the commit messages were attributed to addressing crashes in the app, according to their figure 3, on p. 151. They did not investigate how developers had discovered issues nor whether mobile analytics were affected in the commits, leaving these aspects unknown and unreported.\sidenote{R,3,C,G}
 
@@ -597,8 +589,6 @@ There has been research into various risks and concerns when using mobile analyt
 
 5.2\% of app developers of top Android apps in Google Play have violated either their own privacy policy or the terms of service of the mobile analytics service they use in their app~\sidecite{zhang2020_how_does_misconfiguration_of_mobile_analytics_services_compromise_mobile_privacy}. This number may be an underestimate as method the researchers used (decompilation of the application's binary file) did not work on obfuscated binary files as top (\emph{i.e.} popular?) apps~\sidenote{The authors did not define what a top app is.} are like to be protected through obfuscation. The advice to app developers in this research is pertinent - they should abide by both their own privacy policy and by the terms of service of the analytics services they use.\sidenote{I,12,C}
 
-%This has similarities to earlier research \emph{``Alde: privacy risk analysis of analytics libraries in the android ecosystem."} published in 2016. In that paper they include apps available in China, a smaller data set of apps 100 from China, 200 from Google Play, and they use both static and dynamic analysis. They also created two phishing apps to demonstrate how PII data could be captured and recorded using mobile analytics. 10.1109/TMC.2019.2903186 seems to be a revised version of the 2016 paper with some additional code analysis techniques and an app to manage things. The following paper also discusses PII leaks in Android apps; it doesn't add much in terms of applicability to my research so I'm excluding it: \emph{``Bug Fixes, Improvements, ... and Privacy Leaks - A Longitudinal Study of PII Leaks Across Android App Versions."} 2018.
-
 Note: there has also been research into similar sounding work on software analytics for mobile apps: an opensource project called \Gls{samoa}. However, their research investigated characteristics of the source code, rather than in the use of mobile analytics by app developers~\sidecite{minelli2013_software_analytics_samoa}.\sidenote{I,3,C,G}
 
 Chapter 33 in \sidecite[][pp. 177-187]{orosz2021_building_mobile_apps_at_scale} provides an industry perspective of the importance of [mobile] analytics, monitoring, and alerting. This book draws sources from experienced industry practitioners who have worked extensively with mobile apps from an engineering perspective~\sidenote{I was one of the people who contributed.}. The chapter explains how metrics are often wrong yet teams do not notice for years. It then presents the metrics certification process used at Pinterest which helped that company detect flaws with their mobile analytics, often before the analytics went live. Unmentioned, yet probably, Pinterest has developed in-house mobile analytics in order to apply their certification process.\sidenote{I,R,56,C,G}
@@ -635,6 +625,3 @@ Following on from a point raised earlier in this chapter: emph{``between detecti
 Building on a point made in that paper: \emph{``the future of app quality engineering is data driven."}~\sidecite[][p. 24]{nagappan2016_future_trends_in_sw_eng_for_mobile_apps}. Mobile Analytics incorporates rich seams of data that may help developers perform app quality engineering. However, in order to help developers mine this data more effectively and process it into actionable information, we need a better understanding of current practices associated with using mobile analytics. This includes investigating how mobile analytics use is integrated into mobile development practices and the effects it has on the quality of the software artefacts associated with mobile apps. Further, we also need to understand the capabilities and limitations of existing mobile analytics tools. These gaps in our understanding lead to the six perspectives introduced in Chapter \secref{chapter-introduction} and the overarching research question for this thesis: \emph{How can applying analytics improve software development and software testing for mobile apps in practice?}\sidenote{I,123456,G}
 
 The next chapter explains the methodology used in this research to identify and record ways developers use mobile analytics currently, the sources of pertinent data, and the approach this research took to answer the research questions.
-
-
-%\julian{TODO complete this thought: However none of these (these researches) provide X which is my need...}

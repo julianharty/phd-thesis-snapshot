@@ -1,40 +1,9 @@
-\setchapterpreamble[u]{\margintoc} % Uncomment for a table of contents in the margin, NOTE: top 3 references overlap with this so this will need fixing if the margin toc is desired
+\setchapterpreamble[u]{\margintoc} 
 \chapter{Introduction}~\label{chapter-introduction}
 
 \epigraph{`Begin at the beginning,' the King said gravely, `and go on till you come to the end: then stop.'}{Alice in Wonderland, by Lewis Carroll}
 
 \bigskip
-
-\begin{kaobox}
-A summary of the core argument of the introduction chapter is:\sidenote{These are Arosha's comments for this chapter, reformatted so they're visible and introduce the chapter. They can be kept if they help the reader, else they'll be removed before the revised thesis is submitted.}
-
-\textbf{Context}
-\begin{enumerate}
-    \item Mobile apps are an important category of software
-    \item Achieving quality in software is challenging
-    \item Quality is particularly important for mobile app developers because of the way the ecosystem works
-\end{enumerate}
-
-\textbf{Motivation}
-\begin{enumerate}[resume]
-    \item Software analytics can help improve quality, particularly with respect to reliability by gathering and analysing data relating to failures during real-world use.
-    \item Analytics can be especially important for improving mobile app reliability because there is a huge diversity in devices and contexts where mobile apps are used, which can affect reliability of the apps.
-    \item However, we have limited understanding of how software developers apply mobile analytics in practice for improving app reliability.
-\end{enumerate}
-
-7. To address this gap, we study the use and utility of mobile analytics by multiple Android mobile app development projects, the largest and most ubiquitous mobile app ecosystem.\sidenote{By expanding this with some explanation of the case studies used to study the research gap, covers what needs to be discussed for the *Research Focus* }
-
-
-This leads on to the research questions and explanation of the 6 perspectives, sub-questions, and contribution
-
-\textbf{Note}: Points 3, 4, and 5 above will be used to focus what is presented in Chapter 2 and Chapter 3.
-\end{kaobox}
-
-% This should cover the problem the thesis addresses, the aims and questions, the thesis structure, a summary of the main findings and a discussion on the thesis' contribution. It should prime the reader for what's about to come by providing an overview of what lies ahead.
-
-% Establish your research territory by situating your research in a broader context.
-% Establish and justify your niche by describing why your research is needed.
-% Explain the significance of your research by describing how you conducted your research.
 
 Billions of people use mobile apps on two main mobile platforms, Google Android and Apple iOS\index{Apple!iOS}, and their related operating systems.  Android is also integrated into additional mobile platforms including Amazon's Fire OS\index{Amazon!Fire OS} used on their tablet devices and various \glspl{oem}, particularly Huawei with HarmonyOS\index{Huawei!HarmonyOS}. There are millions of these mobile apps developed by millions of developers across the globe. Failures in these apps can adversely affect the experiences of end-users~\sidecite{bbcnews2020_nhs_covid_19_app_bluescreen_glitch}, businesses who provide apps, and/or goods and services provided through mobile apps. Failures can even adversely affect peoples' lives, for instance in China when the \myindex{Covid-19} tracking app crashed people were stuck at hospital entrances and other checkpoints unable to enter, and travel plans were in chaos~\sidecite{scmp2021_chinas_covid_19_tracking_app_crashes} and in India where users were not able to book vaccinations as the app crashed~\sidecite{moneycontrolnews2021_cowin_apps_crash}.
 
@@ -59,14 +28,6 @@ As noted above, quality is important for mobile app developers because of the wi
 They need to do so in a timely manner - perfection may be too long to wait for! There are significant competitive pressures~\sidecite[][p. 117]{braun2017_automation_support_for_mobile_app_quality_assurance_a_tool_landscape}. Therefore developers need to balance and make tradeoffs in the work they do and don't do. As Tantihamthavorn wrote: \emph{``Bad decisions cost money (and reputation) so we need better tools for making better decisions."}~\sidecite[][p.115]{tantithamthavorn2021_actionable_analytics_tell_me_what_to_do}. The article also observes developers also need to decide what to avoid doing. Therefore developers need help to decide which failures are appropriate to fix now (and which to leave be).
 
 End users need to be able to install and use the app. If the app is sufficiently usable and useful and behaves adequately, they may continue to use it. Developers cannot assess \emph{a priori} whether their app will meet the needs and expectations of users, or the needs of their stakeholders. However, they can increase the likelihood of users continuing to use their app if they can ensure the stability of the app by preventing the app from crashing or becoming non-responsive. 
-% Briefly explain why they can't...
-%  - Product/Market fit
-%  - Marketability of apps~\sidecite{nayebi2017version}, via App Store Effects paper: ``Nayebi et al. subsequently investigated open-source app versions that are not shipped into the app store [46], introducing the concept of release ‘marketability’. To this end, they surveyed 22 developers, the majority of which (95 percent) state that market acceptability of a mobile app release is more important than that of traditional software."
-%  - Competition in the app store
-%  - They're not in control of their destiny, the app store and the customers decisions have a major impact
-%  - Adopting of the app and use of the app
-% - Survivorship in the app store ecosystems and what devs can do to increase their app's survival~\sidecite{lee2014_determinants_of_mobile_app_success_evidence_from_the_app_store_market} Seller [app developer]-level decisions, app-level decisions, user response to the decisions. It doesn't discuss app store algorithms or their effects. c.f. the more recent articles on iTunes rankings of apps from Medium.com
-%In short, they cannot predict whether their app will thrive.
 
 \newthought{Stability}: is a prerequisite for an app to be viable in the marketplace, and several key app stores clearly state that unreliable apps (~\emph{e.g.} apps that crash) will be marked down and possibly ejected from the app store~\sidecite{appleappstore2021_app_completeness, google_play_policy_center_broken_functionality, huaweidevelopers_appgallery_review_guidelines}. For example, Apple states~\emph{``On average, over 40\% of app rejections are for Guideline 2.1 – Performance: App Completeness."}~\sidecite{appleappstore2021_review_avoiding_common_app_rejections} with crashes listed as the first rejection reason. % Crashes are undesirable yet commonplace; therefore one of the key software qualities in use where analytics may be able to help measure and improve reliability for end users.
 
