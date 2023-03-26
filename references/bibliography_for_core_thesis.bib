@@ -3751,6 +3751,26 @@ address = {Buenos Aires, Argentina},
 series = {MOBILESoft ’17}
 }
 
+@inproceedings{backes2016_reliable_third_party_library_detection_in_android_and_its_security_implications,
+    author = {Backes, Michael and Bugiel, Sven and Derr, Erik},
+    title = {Reliable Third-Party Library Detection in Android and Its Security Applications},
+    year = {2016},
+    isbn = {9781450341394},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/2976749.2978333},
+    doi = {10.1145/2976749.2978333},
+    abstract = {
+        Third-party libraries on Android have been shown to be security and privacy hazards by adding security vulnerabilities to their host apps or by misusing inherited access rights. Correctly attributing improper app behavior either to app or library developer code or isolating library code from their host apps would be highly desirable to mitigate these problems, but is impeded by the absence of a third-party library detection that is effective and reliable in spite of obfuscated code. This paper proposes a library detection technique that is resilient against common code obfuscations and that is capable of pinpointing the exact library version used in apps. Libraries are detected with profiles from a comprehensive library database that we generated from the original library SDKs. We apply our technique to the top apps on Google Play and their complete histories to conduct a longitudinal study of library usage and evolution in apps. Our results particularly show that app developers only slowly adapt new library versions, exposing their end-users to large windows of vulnerability. For instance, we discovered that two long-known security vulnerabilities in popular libs are still present in the current top apps. Moreover, we find that misuse of cryptographic APIs in advertising libs, which increases the host apps' attack surface, affects 296 top apps with a cumulative install base of 3.7bn devices according to Play. To the best of our knowledge, our work is first to quantify the security impact of third-party libs on the Android ecosystem.
+    },
+    booktitle = {Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security},
+    pages = {356–367},
+    numpages = {12},
+    keywords = {android, third-party library detection},
+    location = {Vienna, Austria},
+    series = {CCS '16}
+}
+
 @inproceedings{bagnato2020_challenges_and_benefits_from_using_software_analytics_in_softeam,
   title = {Challenges and Benefits from Using Software Analytics in Softeam},
   author = {Bagnato, Alessandra and Abherv{\'e}, Antonin and Mart{\'i}nez\-Fern{\'a}ndez, Silverio and Franch, Xavier},
@@ -4075,6 +4095,26 @@ booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Soft
   doi={10.1109/ICST46399.2020.00054},  
   ISSN={2159-4848},  
   month={10},
+}
+
+@inproceedings{derr2017_keep_me_updated_an_empirical_study_of_third_party_library_updatability_on_android,
+    author = {Derr, Erik and Bugiel, Sven and Fahl, Sascha and Acar, Yasemin and Backes, Michael},
+    title = {Keep Me Updated: An Empirical Study of Third-Party Library Updatability on Android},
+    year = {2017},
+    isbn = {9781450349468},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3133956.3134059},
+    doi = {10.1145/3133956.3134059},
+    abstract = {
+        Third-party libraries in Android apps have repeatedly been shown to be hazards to the users' privacy and an amplification of their host apps' attack surface. A particularly aggravating factor to this situation is that the libraries' version included in apps are very often outdated.This paper makes the first contribution towards solving the problem of library outdatedness on Android. First, we conduct a survey with 203 app developers from Google Play to retrieve first-hand information about their usage of libraries and requirements for more effective library updates. With a subsequent study of library providers' semantic versioning practices, we uncover that those providers are likely a contributing factor to the app developers' abstinence from library updates in order to avoid ostensible re-integration efforts and version incompatibilities. Further, we conduct a large-scale library updatability analysis of 1,264,118 apps to show that, based on the library API usage, 85.6\% of the libraries could be upgraded by at least one version without modifying the app code, 48.2\% even to the latest version. Particularly alarming are our findings that 97.8\% out of 16,837 actively used library versions with a known security vulnerability could be easily fixed through a drop-in replacement of the vulnerable library with the fixed version. Based on these results, we conclude with a thorough discussion of solutions and actionable items for different actors in the app ecosystem to effectively remedy this situation.
+    },
+    booktitle = {Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security},
+    pages = {2187–2200},
+    numpages = {14},
+    keywords = {api, third-party library, updatability, android, app security},
+    location = {Dallas, Texas, USA},
+    series = {CCS '17}
 }
 
 @inproceedings{diallo2015_correctness_and_relative_correctness,
