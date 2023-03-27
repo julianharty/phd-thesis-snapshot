@@ -1,7 +1,7 @@
 \setchapterpreamble[u]{\margintoc}
 \chapter{Overview of the case studies}~\label{chapter-case-studies-overview}
 
-This chapter introduces each of the app-centric and tool-centric case studies using a consistent structure to make them easy to comprehend and to facilitate comparison. For each of the app-centric case studies it uses two summary tables to do so. The first presents the key-facts pertaining to that case study, the second table presents the data sources. These are augmented with brief descriptions to provide additional context. Each of the overviews for the tool-centric case studies includes a table with the key-facts augmented with a contextual summary together with the data collected and methods used for collecting material for this mobile analytics tool.
+This chapter introduces each of the app-centric and tool-centric case studies using a consistent structure to make them easy to comprehend and to facilitate comparison. For each of the app-centric case studies (except the commercial case study C1) it uses two summary tables to do so. The first table presents the key-facts pertaining to that case study, the second presents the data sources. These are augmented with brief descriptions to provide additional context. Each of the overviews for the tool-centric case studies includes a table with the key-facts augmented with a contextual summary together with the data collected and methods used for collecting material for this mobile analytics tool.
 
 The depth of each section varies to focus on material that's of consequence to the thesis. The findings for the case studies and the additional research are presented in the subsequent three chapters. The Index provides a mapping of where each case study contributes to the thesis. %Please see the \hyperref[index]{\indexname}, on page \pageref{index}. % this doesn't work currently, see https://tex.stackexchange.com/a/182712/88466 for the source.
 
@@ -9,7 +9,8 @@ The case studies are in four groups that present complementary research that hel
 \begin{enumerate}
     \itemsep0em
     \item[1] App-centric case studies that \textbf{do not} have interventions (Sections \ref{case-study-overview-gtaf}, to \ref{case-study-overview-smartnavi}).
-    \item[2] App-centric case studies that \textbf{do} have interventions (Sections \ref{case-study-overview-kiwix} to \ref{case-study-overview-C1}); including interim work on various field experiments (Section \ref{section-field-experiments-to-augment-app-centric-case-studies}) and source code analysis (Section \ref{section-sourcecode-analysis-to-augment-app-centric-case-studies}).
+    \item[2] App-centric case studies that \textbf{do} have interventions (Sections \ref{case-study-overview-kiwix} to \ref{case-study-overview-C1}). 
+    \item[3] Various field experiments (Section \ref{section-field-experiments-to-augment-app-centric-case-studies}) and source code analysis (Section \ref{section-sourcecode-analysis-to-augment-app-centric-case-studies}).
     \item[4] Tool-centric case studies (Sections \ref{case-study-overview-crashlytics} to \ref{case-study-overview-sentry}).
 \end{enumerate}
 
@@ -25,17 +26,16 @@ The nature of the case studies means they include observations and findings that
 %===================================================================
 
 \section{App-centric: GTAF}~\label{case-study-overview-gtaf}
-A minor case study that contributed several findings including their fragmented use of mobile analytics, their public issues database that has entries for bugs found by \myindex{Firebase Analytics}, and how the team publicly acknowledged the improvements they were able to make to the reliability of their most active mobile apps through using mobile analytics.  
+A minor case study that contributed several findings including their fragmented use of mobile analytics, their public issues database with bugs found by \myindex{Firebase Analytics}, and the team's public acknowledgement that they were able to improve the reliability of their most active mobile apps through using mobile analytics.  
 
 \textbf{Case study participants}: 2 people: the project's co-founder and lead developer; and additional background discussions with another developer who was another post-graduate student during the case study. 
-
 
 \textbf{Interview design}: questions were prepared for the interview with the lead developer which led to an open discussion. This interview used videoconferencing (Google Meet) and lasted 50 minutes. This was combined with email correspondence both before and after the interview.
 
 \textbf{Data collection and use}: the data sources obtained in this case study are summarised in Table~\ref{tab:gtaf-data-sources}, they include:  
 
 \begin{itemize}
-    \item[Contemporaneous notes] that led to various of the presented findings. These were shared and validated via the Google document I shared with the project's founders (one was the person I interviewed), others were validated during the email correspondence. Note: Owing to the subject being unwell I did not receive validation of every finding. 
+    \item[Contemporaneous notes] that led to various of the presented findings. These were shared and validated via the Google document I shared with the project's founders (one was the person I interviewed), others were validated during the email correspondence. Note: the main interviewee was unwell and I did not receive validation of every finding. 
     \item[Emails] Corroborated findings.
     \item[Mobile analytics] Google Play Console and Android Vitals for reports, failures, statistics,
     \item[Issues database] Analysed to find issues that included references to mobile analytics as a source of that issue.
@@ -92,7 +92,7 @@ A minor case study that contributed several findings including their fragmented 
 % \subsection{GTAF: development microcosm} 
 The project team hosts their development artefacts on gitlab.com, and they maintain their issues in a publicly-available online database at \url{https://gitlab.com/greentech/}; the source code is private. There is a mix of paid developers (through donations to the charity) and volunteers (often part-time). The developers of some of the less-active apps appear relatively autonomous, which includes their choice and any use of mobile analytics. 
 
-Three of the apps (effectively four, because one app is released as two distinct binaries) were in ongoing active development (\href{https://play.google.com/store/apps/details?id=com.greentech.quran}{Al Quran},~\href{https://play.google.com/store/apps/details?id=com.greentech.hadith}{Hadith Collection}, and~\href{https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslim}{Dua \& Zikr}, which is also released separately in Bangla~\href{https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslimbn}{{Dua and Zikr (Hisnul Muslim)}}~\emph{in Bengali}); and they planned to revamp two more of the apps (\href{https://play.google.com/store/apps/details?id=com.greentech.islamicquiz}{(Islamic Quiz)} and~\href{https://play.google.com/store/apps/details?id=com.greentech.salatbn}{Meaningful prayers (salat)}~\textit{in Bengali}. %, which was called salat in our interview).
+Three codebases were in ongoing active development and used to generate four Android apps (including Dua and Zikr in English and Bangla) (\href{https://play.google.com/store/apps/details?id=com.greentech.quran}{Al Quran},~\href{https://play.google.com/store/apps/details?id=com.greentech.hadith}{Hadith Collection}, and~\href{https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslim}{Dua \& Zikr}, which is also released separately in Bangla~\href{https://play.google.com/store/apps/details?id=com.greentech.hisnulmuslimbn}{{Dua and Zikr (Hisnul Muslim)}}~\emph{in Bengali}); and they planned to revamp two more of the apps (\href{https://play.google.com/store/apps/details?id=com.greentech.islamicquiz}{(Islamic Quiz)} and~\href{https://play.google.com/store/apps/details?id=com.greentech.salatbn}{Meaningful prayers (salat)}~\textit{in Bengali}. %, which was called salat in our interview).
 
 The team occasionally used Firebase TestLab~\footnote{\url{https://firebase.google.com/docs/test-lab}} to test some of the apps, and autonomous `Robo testing'~\footnote{\url{https://firebase.google.com/docs/test-lab/android/robo-ux-test}}, performed automatically by the test lab, triggered various crashes in the apps being tested. One such example was where an app was missing a `resource'. The team fixed the build by adding the missing resource but did not explicitly retest the app afterward in Firebase.  
 
@@ -104,9 +104,9 @@ The team occasionally used Firebase TestLab~\footnote{\url{https://firebase.goog
     \begin{tabular}{L{2.6cm} L{2.4cm} c L{2.75cm} L{3.75cm} L{2cm}}
         Data Source & Records & Volumes & Analysis method &Contribution & Remarks \\
         \toprule
-         Pre-study interview, with core developer & Contemporaneous notes\footnotemark & 1 & Ask the app devs & Set scope \& direction & Online call \\
+         Pre-study interview, with core developer & Contemporaneous notes & 1 & Ask the app devs & Set scope \& direction & Online call \\
          Analytics tools \& artefacts &Interactive screenshots \& Vitals-scraper outputs &10\textsuperscript{1} & Beacon finding, drill down, across case comparisons, observation \& analysis. & Indications of the development team's attention to the crash rate, insights into the performance of their apps, corroboration of findings across various case studies. & Google Play Console with Android Vitals. \\         
-         Mid-study communications with developers & GMail & 10\textsuperscript{1} & Ask the app devs & Feedback, and sense-making.  & Email conversations. \\
+         Mid-study communications with developers & GMail & 10\textsuperscript{1} & Ask the app devs & Feedback, and sense-making.  & Email conversations corroborated findings. \\
          Development artefacts  & Issues database & 10\textsuperscript{2} & Observation and Analysis, analysis of development artefacts. & Corroboration of what the development team say they do in terms of using mobile analytics. & Public GitLab repo. \\
          \bottomrule
     \end{tabular}
