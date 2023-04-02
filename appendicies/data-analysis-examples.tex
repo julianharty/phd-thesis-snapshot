@@ -44,6 +44,174 @@ Candidate examples include:
     \item \myindex{LocalHalo} \myindex{React Native!Expo framework} and the measurements performed by two mobile analytics services: \myindex{Sentry} and \myindex{Android Vitals} during the runtime problems.
 \end{itemize}
 
-\section{Kiwix hackathon in Stockholm}
 
-\section{}
+\section[Kiwix experiment]{Kiwix experiment incorporating the hackathon in Stockholm}
+
+\textbf{Data + how collected}: 
+\begin{itemize}
+    \item Android Vitals on-screen reports showing the failure (crash) rates.
+    \item Source code pre- and post- changes to address crash clusters
+    \item GitHub issue(s): \href{https://github.com/kiwix/kiwix-android/pull/1388}{The material contents of PR-1388, see lines 436 - 452.} TBD whether to include code snippets here:
+    \item Contemporaneous conversations with app developers on the likelihood of being able to quickly and safely address the causes of two of the major sources of \glspl{glossary-crash-cluster}.
+    \item Various notes
+\end{itemize}
+TODO add example screenshots, etc. here.
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/android-vitals-screenshots/kiwix/kiwix-crash-rate-drops-with-v2_5.png}
+    \caption{Kiwix Crash rate drops with rollout of Version 2.5}
+    \label{fig:kiwix-crash-rate-drops-with-v2_5}
+\end{figure}
+
+\textbf{Analysis + how it was analysed}: 
+Straightforward investigation of the most prevalent failures, their probable contribution to the crash rate, the associated source code (identified from the corresponding stack traces).
+
+
+\textbf{Findings, and how they were validated}: 
+Ongoing reduction in crash rate as measured by Android Vitals. Validated through comparing crash rates for WikiMed and Kiwix over multiple releases of both apps.
+
+The analysis was discussed with the technical lead of the Kiwix project and with three of the app developers. There was consensus throughout that the fixes were self-contained (with a low risk of adversely affecting any other aspect of the app's behaviour) and that the fixes were likely to be successful. Therefore it was agreed to perform the fixes and release the updated app that week.
+
+
+\textbf{Conclusions}
+
+
+
+\section[Kiwix experiment]{Kiwix experiment, pre- and post- Stockholm hackathon}
+
+\textbf{Data + how collected}: included:
+\begin{itemize}
+    \item GitHub Issues, including:
+    \begin{itemize}
+        \item \href{https://github.com/kiwix/kiwix-android/issues/1426}{Proposal: to update the custom Android apps with bug-fixes on the 2.4 release}
+        \item TBC
+    \end{itemize}
+    
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics{images/android-vitals-screenshots/kiwix/Example-crash-clusters 10-jun-2019.png}
+    \caption{Kiwix top crash clusters, recorded \nth{10} Jun 2019}
+    \label{fig:example-kiwix-crash-clusters-10-jun-2019}
+\end{figure}
+
+\textbf{Analysis + how it was analysed}
+
+\textbf{Findings, and how they were validated}
+
+\textbf{Conclusions}
+
+
+\section{Pocket Code Hackathon in Graz}
+
+\textbf{Data + how collected}: 
+
+\textbf{Analysis + how it was analysed}
+
+\textbf{Findings, and how they were validated}
+
+\textbf{Conclusions}
+
+
+\section{Commercial project: OkHttp and Release Management}
+
+\textbf{Data + how collected}: 
+
+\textbf{Analysis + how it was analysed}
+
+\textbf{Findings, and how they were validated}
+
+\textbf{Conclusions}
+
+
+\section{Automated emails from Mobile Analytics tools}
+
+\textbf{Data + how collected}: 
+
+\textbf{Analysis + how it was analysed}
+
+\textbf{Findings, and how they were validated}
+
+\textbf{Conclusions}
+
+
+\section{Microsoft App Center and future dates}
+
+\textbf{Data + how collected}: 
+
+\textbf{Analysis + how it was analysed}
+
+\textbf{Findings, and how they were validated}
+
+\textbf{Conclusions}
+
+Information was collected empirically.
+
+
+\section{Better bug reports, longevity of reports}
+
+\textbf{Data + how collected}: 
+
+\textbf{Analysis + how it was analysed}
+
+\textbf{Findings, and how they were validated}
+
+\textbf{Conclusions}
+
+
+\section{New Android, new issues, now what?}
+
+\textbf{Data + how collected}: 
+
+\textbf{Analysis + how it was analysed}
+
+\textbf{Findings, and how they were validated}
+
+\textbf{Conclusions}
+
+
+\section{Crashes in cross-platform containers}
+
+\textbf{Data + how collected}: 
+
+\textbf{Analysis + how it was analysed}
+
+\textbf{Findings, and how they were validated}
+
+\textbf{Conclusions}
+
+\section{Additional analysis examples}~\label{appendix-additional-analysis-section}
+
+\begin{figure}
+    \centering
+    \includegraphics{images/android-vitals-screenshots/catrobat/1K crashes and ANRs in last 7 days Screenshot_2019-09-25 Dashboard - Pocket Code Learn programming your own game apps - Google Play Console.png}
+    \caption[Google Play Console Dashboard for Catrobat]{1K crashes and ANRs in last 7 days Screenshot 2019-09-25 Dashboard - Pocket Code - Google Play Console}
+    \label{fig:gpc-dashboard-catrobat-for-analysis}
+\end{figure}
+
+\textbf{Data + how collected}: The data consists of an extended screenshot of the dashboard report that Google Play Console displayed for Catrobat's \myindex{PocketCode} Android app. It was collected using Firefox for Mac's `Save screenshot' right-click menu. This is a single instance of over 50 screenshot images collected during the research and presented here as a typical example of the analysis described in this section.
+
+\textbf{Analysis + how it was analysed}: This seemingly basic dashboard contains lots of information, especially if compared with other recordings of the dashboard for: other date ranges, this app on other dates, other apps for this developer account, apps for other developer accounts, and so on. Various salient perspectives of the contents follow.
+
+\textit{Structure}: 
+In Figure \ref{fig:gpc-dashboard-catrobat-for-analysis} the dashboard has 5 expandable sections, expansion is indicated in blue at the right of each section. For example, the top-most section `How are your KPIs performing?' is expanded, as are the 3 middle sections, unlike the bottom-most section ``Is your app's size optimized'' which is not expanded. Every instance of this dashboard contained an even number of graph elements. The developer can toggle the expansion/contraction of each section. Here let's number the individual graphs with odd numbers on the left and even on the right, in ascending order from top to bottom, so the top left graph is 1 and the bottom right graph is 12.
+
+\begin{enumerate}
+    \item \textbf{New users acquired}: 6.33K +1.67\% vs previous period. The graph has a single vertical bar labeled (1,200) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23). New users acquired are plotted in dark blue and New users acquired (30 days rolling average) are plotted in light blue.
+    \item \textbf{Users lost}: 8.74K +3.97\% vs previous period. The graph has a single vertical bar labeled (1,600) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23). Users lost are plotted in dark blue and Users lost (30 days rolling average) are plotted in light blue.
+    \item \textbf{Average rating}: 4.03 +7.17\% vs previous period. The graph has a two vertical bars labeled (1, 5) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23).
+    \item \textbf{Crashes \& ANRs}: 1.00K +10.57\% vs previous period. The graph has a single vertical bar labeled (200) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23). Crashes are plotted in blue and ANRs in yellow.
+    \item \textbf{New users acquired}: 6.33K +1.67\% vs previous period. The graph has a single vertical bar labeled (1,200) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23). New users acquired are plotted in dark blue and New users acquired (30 days rolling average) are plotted in light blue.
+    \item \textbf{Users lost}: 8.74K +3.97\% vs previous period. The graph has a single vertical bar labeled (1,600) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23). Users lost are plotted in dark blue and Users lost (30 days rolling average) are plotted in light blue.
+    \item \textbf{New users acquired by country}: 35.87\% new users acquired in Brazil 814 new users. A flat map of the world has colour highlighting where Brazil is the deepest shade of blue on the map, followed by Russia.
+    \item \textbf{Top countries}: 23.83\% new users acquired in Russia 814 new users. An ordered horizontal bar chart with 5 rows is shown in descending order of new users. These are labeled on the left with the name of the country and on the right with a percentage, here these values are: Brazil 36\%, Russia 24\%, Poland 5\%, Ukraine 5\%, Kazakhstan 2\%
+    
+\end{enumerate}
+
+\textbf{Findings, and how they were validated}
+
+\textbf{Conclusions}
