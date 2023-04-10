@@ -245,10 +245,6 @@ Figure \ref{fig:gpc-dashboard-catrobat-for-analysis} also includes a header sect
     \item \textbf{Freshness}: The Ratings graph is for a different date range (16 to 22 Sep 2019), two days earlier than the rest of the 7-day graphs (18 - 24 Sep 2019). 
 \end{itemize}
 
-\textbf{Findings, and how they were validated}
-This and other similar dashboard reports for Kiwix and Catrobat, in particular, were analysed using the sense-making methods described in \ref{methodology-sense-making-method}\index{Sense-making}. Figure \ref{fig:wikimed-japan-top-countries} provides a succinct clear example which corroborates one of the findings where the second-ranked country - China - is the headline for the Japanese language version of the Wiki-Medicine app. 
-
-Beacon-finding, described in \ref{section-beacon-finding-method}\index{Beacon-finding} identified dates and points on the various graphs. 
 
 \begin{figure}
     \centering
@@ -257,6 +253,25 @@ Beacon-finding, described in \ref{section-beacon-finding-method}\index{Beacon-fi
     \label{fig:wikimed-japan-top-countries}
 \end{figure}
 
-Drill-down into the graphs and reports linked from the respective graphs uncovered additional findings, including further differences in date ranges. The findings were presented to and jointly analysed with the Google Engineering team using the `ask the tool devs' method, described in \ref{section-ask-the-tool-devs-research-method}. They requested a report which I provided that categorised the findings. They validated the findings through discussions and email correspondence with Fergus Hurley the Product Manager of Google Play Console (who was acknowledged with his agreement in \sidecite{harty_google_play_console_insightful_development_using_android_vitals_and_pre_launch_reports}).
+
+\textbf{Findings, and how they were validated}
+This and other similar dashboard reports for Kiwix and Catrobat, in particular, were analysed using the sense-making methods described in \ref{methodology-sense-making-method}\index{Sense-making} and sense-building\index{Sense-building}, for example by applying the across case comparisons method\index{Across case comparisons method} (covered in \secref{methodology-sense-building}); and  
+figure \ref{fig:wikimed-japan-top-countries} provides a succinct clear example from the Kiwix case study which corroborates one of the findings where the second-ranked country - China - is the headline for the Japanese language version of the Wiki-Medicine app despite Japan being overwhelmingly the top country in terms of new users. 
+
+Beacon-finding, described in \ref{section-beacon-finding-method}\index{Beacon-finding} identified dates and points on the various graphs, together with the textual data presented on each graph, as pertinent. 
+
+Drill-down into the graphs and reports linked from the respective graphs uncovered additional findings, including further differences in date ranges. These are illustrated in Figures 
+
+
+The findings were presented to and jointly analysed with the Google Engineering team as per the `ask the tool devs' method, described in \ref{section-ask-the-tool-devs-research-method}. They requested a report which I provided that categorised the findings. They validated the findings through discussions and email correspondence with Fergus Hurley\sidenote{Fergus is identified as this information was already public through his role at Google and he was also willing to be identified and cited.} the Product Manager of Google Play Console (who was acknowledged, with his agreement, in \sidecite{harty_google_play_console_insightful_development_using_android_vitals_and_pre_launch_reports}). A short concrete example of extracts from one of the email correspondence follows:
+
+\begin{quote}
+    “RE: [7-2236000025505] Your message about Google Play” - email discussion after I’d reported an issue using the Google Play Console UI - The Overview page still uses the second-most popular country as the heading for the right-hand bar chart. (see image above). On 15th March 2019 Fergus replied to the email discussion I’d forwarded and cc’d O*** V******* <v*******@google.com>\sidenote{personal details removed} saying “Hi Julian,I have flagged this to the team that is responsible for this. Hopefully it will get resolved soom\sidenote{[sic]}. Best, Fergus”.
+
+\end{quote}
+
+The dashboard and other related reports were also sanity-checked through using `ask the app devs' method (see \secref{section-ask-the-app-devs-research-method}\index{Ask the app developers method}). One of the Local app (see \secref{local-app-experiments-research-method})\index{Local app experiments} was used to determine if and when the dashboard would be populated for an Android app as it acquired the first 10 users. Further experimentation and evaluation was put on hold when Google refused to support more in-depth testing.
+
 
 \textbf{Conclusions}
+For this example, the primary and key oracle was the product and engineering team at Google who were responsible for \myindex{Google Play Console} and \myindex{Android Vitals}. They actively sought findings and updates generated from this research which indicates the research was contributing valid findings deemed valuable to the Google engineering team.
