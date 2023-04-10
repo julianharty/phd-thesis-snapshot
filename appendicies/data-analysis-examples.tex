@@ -203,31 +203,31 @@ In Figure \ref{fig:gpc-dashboard-catrobat-for-analysis} the dashboard has 5 expa
 \begin{enumerate}
     \item \textbf{New users acquired}: 6.33K +1.67\% vs previous period. The graph has a single vertical bar labeled (1,200) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23). New users acquired are plotted in blue and New users acquired (30 days rolling average) are plotted in light blue.
     \item \textbf{Users lost}: 8.74K +3.97\% vs previous period. The graph has a single vertical bar labeled (1,600) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23). Users lost are plotted in blue and Users lost (30 days rolling average) are plotted in light blue.
-    \item \textbf{Average rating}: 4.03 +7.17\% vs previous period. The graph has a two vertical bars labeled (1, 5) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23). The daily average rating is plotted in blue.
+    \item \textbf{Average rating}: 4.03 +7.17\% vs previous period. The graph has a two vertical bars labeled (1, 5) of the 4 in the graph, and 3 dates labeled (Sep 17, Sep 19, Sep 21). The daily average rating is plotted in blue.
     \item \textbf{Crashes \& ANRs}: 1.00K +10.57\% vs previous period. The graph has a single vertical bar labeled (200) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23). Crashes are plotted in blue and ANRs in yellow.
 
-    \vspace{0.1cm}
-    \hrule
     \vspace{0.2cm}
+    \hrule
+    \vspace{0.3cm}
       
     \item \textbf{New users acquired}: 6.33K +1.67\% vs previous period. The graph has a single vertical bar labeled (1,200) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23). New users acquired are plotted in dark blue and New users acquired (30 days rolling average) are plotted in light blue.
     \item \textbf{Users lost}: 8.74K +3.97\% vs previous period. The graph has a single vertical bar labeled (1,600) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23). Users lost are plotted in dark blue and Users lost (30 days rolling average) are plotted in light blue.
     \item \textbf{New users acquired by country}: 35.87\% new users acquired in Brazil 814 new users. A flat map of the world has colour highlighting where Brazil is the deepest shade of blue on the map, followed by Russia.
     \item \textbf{Top countries}: 23.83\% new users acquired in Russia 814 new users. An ordered horizontal bar chart with 5 blue rows is shown in descending order of new users. These are labeled on the left with the name of the country and on the right with a percentage, here these values are: Brazil 36\%, Russia 24\%, Poland 5\%, Ukraine 5\%, Kazakhstan 2\%
     
-    \vspace{0.1cm}
-    \hrule
     \vspace{0.2cm}
+    \hrule
+    \vspace{0.3cm}
     
     \item \textbf{ANR rate}: 0.28\% 0.34\% in previous 30 days. The graph has a single vertical bar labeled (1.00\%) of the 4 in the graph, and 4 dates labeled (Aug 29, Sep 5, Sep 12, Sep 19). The daily \gls{anr} rate, titled `impacted sessions and related confidence interval' is plotted in dark blue. A horizontal red line is also plotted on the graph for the `bad behavior threshold'.
     \item \textbf{Crash rate}: 3.92\% 4.15\% in previous 30 days. The graph has a single vertical bar labeled (6.00\%) of the 4 in the graph, and 4 dates labeled (Aug 29, Sep 5, Sep 12, Sep 19). The daily crash rate, titled `impacted sessions and related confidence interval' is plotted in dark blue. A horizontal red line is also plotted on the graph for the `bad behavior threshold'.
 
-    \item \textbf{Average rating}: 4.03 +7.17\% vs previous period. The graph has a two vertical bars labeled (1, 5) of the 4 in the graph, and 3 dates labeled (Sep 19, Sep 21, Sep 23). The daily average rating is plotted in blue.
+    \item \textbf{Average rating}: 4.03 +7.17\% vs previous period. The graph has a two vertical bars labeled (1, 5) of the 4 in the graph, and 3 dates labeled (Sep 17, Sep 19, Sep 21). The daily average rating is plotted in blue.
     \item \textbf{Ratings breakdown}: Most popular rating 66.67\% 5* 66 ratings. An ordered horizontal bar chart with 5 rows is shown in descending order of star rating. These are labeled on the left with the star rating and on the right with a percentage, each has a distinct colour. Here the values and colours are: 5* green 67\%, 4* light green 8\%, 3* orange 6\%, 2* lighter red 2\%, darker red 18\%
     
-    \vspace{0.1cm}
-    \hrule
     \vspace{0.2cm}
+    \hrule
+    \vspace{0.3cm}
     
 \end{enumerate}
 
@@ -237,12 +237,18 @@ Figure \ref{fig:gpc-dashboard-catrobat-for-analysis} also includes a header sect
 
 \begin{itemize}
     \item \textbf{Dates}: the majority of the graphs are for the period selected in the header (last 7 days), however the two graphs for Android vitals are for 30 days, and the app size does not appear to have a period specified.
-    \item \textbf{Graphs}: 3 graphs were duplicated in this dashboard: 1) new users acquired, users lost, and average rating. The duplication appears wasteful. The graphs often lacked information about the value represented by the lowest line on the vertical (Y) axis. The graph lines did display the value for each data point so the scale could be calculated, nonetheless the value of the baseline needs to be determined rather than being easily available.
-    \item \textbf{Consistency}: the date ranges are not consistent for all the graphs in the dashboard report. Android Vitals graphs have only been seen with a 30-day range\sidenote{Potentially some other users of Google Play Console are presented with other ranges so we cannot generalise beyond identifying that for every app and for every team and for every example the range has been 30-days for these graphs.}.
-    
+    \item \textbf{Duplicated graphs}: 3 graphs were duplicated in this dashboard: 1) new users acquired, users lost, and average rating. The duplication appears wasteful. The graphs often lacked information about the value represented by the lowest line on the vertical (Y) axis. The graph lines did display the value for each data point so the scale could be calculated, nonetheless the value of the baseline needs to be determined rather than being easily available.
+    \item \textbf{Plausibility}: 8.74K users lost is more than the 6.33K new users acquired. If these figures refer to a userbase in common then the overall userbase has declined by 2.41K users in 7 days. No mention is made of returning users who were 'lost' who are now 'found' again, so there appears to be a possible gap in the overall picture of the userbase. Nonetheless, any app that loses more users than it gains would end up with close to no users at all.
+    \item \textbf{Second-ranked country highlighted in top countries graph}: The top countries graph presents the results of the second-ranked country (Russia) rather than the first-ranked (Brazil), as per the graph immediately to the left/preceding this graph. 
+    \item \textbf{Consistency}: 1) the date ranges are not consistent for all the graphs in the dashboard report. Android Vitals graphs have only been seen with a 30-day range\sidenote{Potentially some other users of Google Play Console are presented with other ranges so we cannot generalise beyond identifying that for every app and for every team and for every example the range has been 30-days for these graphs.}. 2) the counts for users are not consistent across the 4 graphs grouped under audience growth. Are there 6.33K new users or 814? or does 814 represent the new users in Brazil and/or in Russia?
+    \item \textbf{Utility}: The Crashes \& ANRs graph presents both data sets on a common chart. [How] can these be usefully compared and contrasted? 
+    \item \textbf{Freshness}: The Ratings graph is for a different date range (16 to 22 Sep 2019), two days earlier than the rest of the 7-day graphs (18 - 24 Sep 2019). 
 \end{itemize}
 
-
 \textbf{Findings, and how they were validated}
+This and other similar dashboard reports for Kiwix and Catrobat, in particular, were analysed using the sense-making methods described in \ref{methodology-sense-making-method}\index{Sense-making}. Beacon-finding, described in \ref{section-beacon-finding-method}\index{Beacon-finding} identified dates and points on the various graphs. 
+
+
+Drill-down into the graphs and reports linked from the respective graphs uncovered additional findings, including further differences in date ranges. The findings were presented to and jointly analysed with the Google Engineering team using the `ask the tool devs' method, described in \ref{section-ask-the-tool-devs-research-method}. They requested a report which I provided that categorised the findings. They validated the findings through discussions and email correspondence with Fergus Hurley the Product Manager of Google Play Console (who was acknowledged with his agreement in \sidecite{harty_google_play_console_insightful_development_using_android_vitals_and_pre_launch_reports}).
 
 \textbf{Conclusions}
